@@ -33,6 +33,32 @@ sudo modprobe tenstorrent
 
 ## Install TT-Flash
 
+### Prerequisite
+
+Installing TT-Flash requires Rust be installed. If you've already installed it, skip to the next section.
+
+There are two ways you can install Rust:
+
+#### Using Rust Distribution Package (Preferred)
+
+To install Rust using the distribution package, enter the following commands in the terminal:
+
+| Linux Distro | Command |
+|--------------|---------|
+| Debian, Ubuntu | `sudo apt install cargo` |
+| Fedora, Enterprise Linux | `sudo dnf install cargo` |
+
+#### Using Rustup
+
+To install Rust using Rustup, enter the following commands in the terminal:
+
+```
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  source "$HOME/.cargo/env"
+```
+
+### Installation
+
 To install **<u>TT-Flash</u>**, the utility used to update firmware, enter this command in the terminal:
 
 ```
