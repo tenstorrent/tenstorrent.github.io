@@ -24,4 +24,9 @@ This section outlines the architecture, requirements, specifications, installati
   - [Unpack and Rack Mount Galaxy Wormhole 4U Server](./hwinstallation.md#unpack-and-rack-mount-galaxy-wormhole-4u-server)
   - [Install Bus Bars](./hwinstallation.md#install-bus-bars)
   - [Networking Management Installation](./hwinstallation.md#networking-management-installation)
-
+- [Galaxy Management Controller](./management-controller/README.md)
+  - [Getting Started](./management-controller/getting-started.md)
+  - [Security callouts](./management-controller/security-callouts.md)
+  - [Network Configuration](./management-controller/networkconfig.md)
+  - [Firmware Updates](./management-controller/firmware_updates.md)
+  - [Release Notes](./management-controller/release-notes.md)
