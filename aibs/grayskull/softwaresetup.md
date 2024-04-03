@@ -1,6 +1,6 @@
 # Software Setup
 
-Once the e75/e150 card is installed, you'll need to follow these steps in this order to update the firmware  and install the necessary utilities to get the most from your Grayskull™ card.
+Once the e75/e150 card is installed, you'll need to follow these steps in this order to update the firmware  and install the necessary utilities to get the most from your Grayskull™ card. 
 
 
 
@@ -8,17 +8,19 @@ Once the e75/e150 card is installed, you'll need to follow these steps in this o
 
 ### Prerequisite
 
-You must have DKMS (Dynamic Kernel Module Support) installed. In the terminal, enter the command appropriate to your Linux distro.
+You must have DKMS (Dynamic Kernel Module Support) installed. In your Ubuntu terminal, enter the following command:
 
-| Linux Distro           | Command                                        |
-| ---------------------- | ---------------------------------------------- |
-| Debian, Ubuntu         | `apt install dkms`                             |
-| Fedora                 | `dnf install dkms`                             |
-| Enterprise Linux based | `dnf install epel-release && dnf install dkms` |
+```
+apt install dkms
+```
+
+While other Linux distributions should work with our boards, Ubuntu 20.04 is currently the only version supporting both our TT-Buda and TT-Metalium frameworks.
 
 ### Installation
 
-Install the driver (**<u>TT-KMD</u>**) by entering this series of commands in the terminal:
+Please visit the following page to determine which version of tt-kmd is required for your intended use.
+
+Once you have determined that, install the driver (**<u>TT-KMD</u>**) by entering the following series of commands in the terminal. This example assumes you are install TT-KMD version 1.26, but please update the code as needed for different versions:
 
 ```
 git clone https://github.com/tenstorrent/tt-kmd.git
@@ -45,7 +47,9 @@ If there are any issues installing TT-Flash, documentation can be found **<u>her
 
 ## Update Firmware
 
-To update the firmware for your e75/e150 card, enter this series of commands in the terminal:
+Please visit the following page to determine which firmware version is required for the version of TT-Buda or TT-Metalium you want to use with your board.
+
+Once you have determined that, enter the following series of commands in the terminal in order to update the firmware for your e75/e150 card. This example shows the instructions to install the fw_pack-80.8.0.0.fwbundle firmware, please update the command according to the firmware you intend to use:
 
 ```
 wget https://github.com/tenstorrent/tt-firmware/raw/main/fw_pack-80.8.0.0.fwbundle
@@ -91,4 +95,4 @@ If the tool runs without error, you're ready to get started!
 Now that your Grayskull™ e75/e150 AI graph processor is installed and up and running, there are two SDKs you can work with to familiarize yourself with the hardware and associated utilities and software. Each SDK lists five tasks to start with.
 
 - [First 5 Things](https://github.com/tenstorrent/tt-buda-demos?tab=readme-ov-file#first-5-things-to-do) for **TT-Buda**, our high level SDK
-- [First 5 Things](https://tenstorrent-metal.github.io/tt-metal/latest/get_started/get_started.html) for **TT-Metalium**, our open source, low level SDK
+- [First 5 Things](https://github.com/tenstorrent-metal/tt-metal/blob/main/INSTALLING.md) for **TT-Metalium**, our open source, low level SDK
