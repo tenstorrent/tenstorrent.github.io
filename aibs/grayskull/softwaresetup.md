@@ -1,6 +1,6 @@
 # Software Setup
 
-Once the e75/e150 card is installed, you'll need to follow these steps in this order to update the firmware  and install the necessary utilities to get the most from your Grayskull™ card. 
+Once the e75/e150 card is installed, you'll need to follow these steps in this order to update the firmware and install the necessary utilities to get the most from your Grayskull™ card. 
 
 
 
@@ -18,9 +18,9 @@ While other Linux distributions should work with our boards, Ubuntu 20.04 is cur
 
 ### Installation
 
-Please visit the following page to determine which version of tt-kmd is required for your intended use.
+Please visit the following page to determine which version of TT-KMD is required for your intended use.
 
-Once you have determined that, install the driver (**<u>TT-KMD</u>**) by entering the following series of commands in the terminal. This example assumes you are install TT-KMD version 1.26, but please update the code as needed for different versions:
+Once you have determined that, install the driver (**<u>TT-KMD</u>**) by entering the following series of commands in the terminal. This example assumes you are installing TT-KMD version 1.26, but please update the code as needed for different versions:
 
 ```
 git clone https://github.com/tenstorrent/tt-kmd.git
@@ -49,7 +49,7 @@ If there are any issues installing TT-Flash, documentation can be found **<u>her
 
 Please visit the following page to determine which firmware version is required for the version of TT-Buda or TT-Metalium you want to use with your board.
 
-Once you have determined that, enter the following series of commands in the terminal in order to update the firmware for your e75/e150 card. This example shows the instructions to install the fw_pack-80.8.0.0.fwbundle firmware, please update the command according to the firmware you intend to use:
+Once you have determined that, enter the following series of commands in the terminal in order to update the firmware for your e75/e150 card. This example shows the instructions to install the ```fw_pack-80.8.0.0.fwbundle``` firmware, please update the command according to the firmware you intend to use:
 
 ```
 wget https://github.com/tenstorrent/tt-firmware/raw/main/fw_pack-80.8.0.0.fwbundle
