@@ -25,7 +25,7 @@ jobs:
         run: |
           ./build_docs.sh
 
-      -name: Copy docs to _build
+      - name: Copy docs to _build
         run: |
           cp -r output _build
       
