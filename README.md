@@ -1,60 +1,52 @@
-# Home
+# Tenstorrent Docsite
 
-Tenstorrent produces add-in boards, system solutions, APIs, IP, and more featuring our Tensix Core and RISC-V architectures to accelerate machine learning and AI workloads. Our documentation for those technologies is available here.
+## Description
 
-
-
-## Add-In Boards and Cooling Kits
-
-Documentation and support for Tenstorrent add-in boards and the Active Cooling Kit:
-
-![](./images/main_image1.png)
-
-Documentation and support for Tenstorrent add-in boards and the Active Cooling Kit:
-
-- [**e75/e150 Machine Learning Accelerator**](./aibs/grayskull/README.md)
-- [**Active Cooling Kit**](./aibs/ack.md)
+This repo is a central location for tenstorrent sphinx documentation
 
 
+## Building the Documentation
 
-## Workstations and Server Systems
+To build the Sphinx documentation, follow these steps:
 
-Physical and software setup for Tenstorrent workstation and server solutions:
+1. Install the required dependencies:
 
-![](./images/galaxyservers.png)
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-- [**T1000 Desktop Workstation**](./systems/t1000/README.md)
+2. Generate the HTML documentation:
 
-- [**T3000 4U Workstation**](./systems/t3000/README.md)
+    ```bash
+    python build_docs.py
+    ```
 
-- [**T7000 4U Workstation**](./systems/t7000/README.md)
+    This will create the HTML documentation in the `output` directory.
 
-- [**Galaxy Wormhole 4U Server**](./galaxy4U/README.md)
+3. To view the generated documentation locally, open `output/core/latest/index.html` in your browser.
 
-  
+## Repo Structure
 
-## APIs, SDKs, and Software
+The repo is structured with a folder for each documentation project. the `Core` folder contains the core documentation, and links to the other projects. All other projects link back to Core.
 
-### TT-Buda
+The repo also contains scripts for building and versioning documentation.
+The `build_docs.py` script builds the documentation of all project folders for all versions specified in `versions.yml`
+The `update_tags.py` script updates the tracked version tags for each project.
 
-Documentation for Tenstorrent's high level API is **here**.
+## Versioning Documentation
 
+Documentation versions are tracked with git tags and the `versions.yml` file. When a new documentation version is commited, the commit should be tagged with the version and the version should be added to `versions.yml`. This file is used by `build_docs.py` to determine which versions to build.
 
+Using pybuda as an example, releasing a new version of the documentation might look something like this:
 
-### TT-Metalium 
+1. Build documentation in the pybuda repo
+2. Copy the built documentation to the `pybuda` folder in this repo
+3. Run `update_tags.py` to add the new version to versions.yml: `python update_tags.py pybuda <version_number>`
+4. Commit and tag the changes: `git commit -m 'update pybuda docs to version <version_number>' && git tag <version_number>`
+5. Push the changes and tags `git push && git push --tags`
 
-Documentation for Tenstorrent's open source, low level API is **here**.
+These steps can be run in CI to automate the process of releasing documentation
 
- 
+## Deployments
 
-### Software and Utilities
-
-Documentation and downloads for drivers, software, and utilities to manage Tenstorrent hardware is **here**.
-
-
-
-## Support
-
-For support, forums, and community, visit Tenstorrent's [Discord channel](https://discord.gg/tvhGzHQwaj).
-
-For additional support, you can contact us directly at [support@tenstorrent.com](mailto:support@tenstorrent.com).
+The docs site is hosted on github pages. When pushing new changes to main github actions will build the documentation with `build_docs.py` and deploy the `output` directory to github pages.
