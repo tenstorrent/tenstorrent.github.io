@@ -6,3 +6,4 @@ TT-Buda
    :glob:
 
    latest/*
+   TT-Core <../../output/core/index.html#http://>

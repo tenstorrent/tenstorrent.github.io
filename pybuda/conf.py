@@ -31,3 +31,8 @@ html_static_path = ['_static']
 
 def setup(app):
     app.add_css_file("tt_theme.css")
+
+html_context = {
+  'pybuda_current_version' : "latest",
+  'pybuda_versions' : [['latest', 'latest'], ["0.11.0", "0.11.0"]],
+}
