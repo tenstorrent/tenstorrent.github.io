@@ -27,4 +27,4 @@ Systems
 .. toctree::
    :maxdepth: 2
 
-   TT-Buda <../pybuda/latest/index.html#http://>
+   TT-Buda <https://tenstorrent.github.io/docs-test/pybuda/latest/index.html>
