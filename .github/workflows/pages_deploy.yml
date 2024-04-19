@@ -3,7 +3,7 @@ name: Build and Deploy Sphinx Documentation
 on:
   push:
     branches:
-      - main
+      - jwilde/versioning
 
 jobs:
   build-and-deploy:
@@ -23,7 +23,11 @@ jobs:
 
       - name: Build documentation
         run: |
-          make html
+          ./build_docs.sh
+
+      -name: Copy docs to _build
+        run: |
+          cp -r output _build
       
       - name: Make root index.html
         run: |
