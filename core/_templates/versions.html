@@ -1,0 +1,18 @@
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        Version: {{ pybuda_current_version }}
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        {% if pybuda_versions|length >= 1 %}
+        <dl>
+            <dt>{{ _('Versions') }}</dt>
+            {% for version, url in pybuda_versions %}
+            <dd><a href="{{ url }}/index.html">{{ version }}</a></dd>
+            {% endfor %}
+        </dl>
+        {% endif %}
+        <br>
+        </dl>
+    </div>
+</div>

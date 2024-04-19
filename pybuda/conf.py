@@ -6,28 +6,19 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-# import collections
-
-# MetalSphinxConfig = collections.namedtuple("MetalSphinxConfig", ["fullname", "shortname"])
-
-project = 'Tenstorrent'
+project = 'TT-Buda'
 copyright = '2024, Tenstorrent'
 author = 'Tenstorrent'
-release = '1.0'
+release = '0.11.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = []
-
-# config_lookup = {
-#     "tt-metalium": MetalSphinxConfig(fullname="TT-Metalium", shortname="tt-metalium"),
-#     "ttnn": MetalSphinxConfig(fullname="TT-NN", shortname="ttnn"),
-# }
+extensions = ["myst_parser"]
 
 templates_path = ['_templates']
-exclude_patterns = []
-extensions = ['myst_parser']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+
 
 
 # -- Options for HTML output -------------------------------------------------

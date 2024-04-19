@@ -25,9 +25,9 @@ jobs:
         run: |
           make html
       
-      - name: Copy root index.html
+      - name: Make root index.html
         run: |
-          cp _build/html/index.html _build/index.html
+          touch _build/index.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

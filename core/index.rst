@@ -24,11 +24,7 @@ Systems
    systems/index
 
 
-
-TT-Buda
-=======================================
-
 .. toctree::
    :maxdepth: 2
 
-   pybuda/index
+   TT-Buda <../pybuda/latest/index.html#http://>
