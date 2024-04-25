@@ -1,2 +1,2 @@
-pybuda: ['latest', '0.11.0']
-core: ['latest']
+pybuda: ['test-version', 'test-version-2']
+core: ['main']
