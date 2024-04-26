@@ -1,3 +1,5 @@
+import yaml
+import os
 # Configuration file for the Sphinx documentation builder.
 #
 # For the full list of built-in configuration values, see the documentation:
@@ -37,6 +39,17 @@ html_theme = "sphinx_rtd_theme"
 html_logo = "images/tt_logo.svg"
 html_favicon = "images/cropped-favicon-32x32.png"
 html_static_path = ['_static']
+
+with open("../versions.yml", "r") as yaml_file:
+    versions = yaml.safe_load(yaml_file)["pybuda"]
+    
+print('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
+print(versions)
+
+html_context = {
+    "versions": versions,
+    "current_version": os.environ.get("current_version")
+}
 
 def setup(app):
     app.add_css_file("tt_theme.css")
