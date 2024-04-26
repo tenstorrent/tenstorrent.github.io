@@ -6,11 +6,11 @@ import yaml
 
 def build_doc(project, version):
     print(f"Building {project} {version}")
+    os.environ[f"current_version"] = version
     if version == "latest":
         subprocess.run(f"cd {project} && make html", shell=True)
         return
     
-    os.environ[f"current_version"] = version
     subprocess.run("git checkout " + version, shell=True)
     subprocess.run("git checkout jwilde/versioning -- conf.py", shell=True)
     subprocess.run("git checkout jwilde/versioning -- versions.yaml", shell=True)
