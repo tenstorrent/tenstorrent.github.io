@@ -6,6 +6,10 @@ import yaml
 
 def build_doc(project, version):
     print(f"Building {project} {version}")
+    if version == "latest":
+        subprocess.run(f"cd {project} && make html", shell=True)
+        return
+    
     os.environ[f"current_version"] = version
     subprocess.run("git checkout " + version, shell=True)
     subprocess.run("git checkout jwilde/versioning -- conf.py", shell=True)
@@ -24,7 +28,6 @@ with open("versions.yml", "r") as yaml_file:
     docs = yaml.safe_load(yaml_file)
     for project, versions in docs.items():
         for version in versions:
-            print(f"Building {project} {version}")
             build_doc(project, version)
             move_dir(f"{project}/_build/html/", f"output/{project}/{version}/")
             print(f"Built {project} {version}")
