@@ -3,7 +3,7 @@ name: Build and Deploy Sphinx Documentation
 on:
   push:
     branches:
-      - main
+      - jwilde/versioning
 
 jobs:
   build-and-deploy:
@@ -23,20 +23,16 @@ jobs:
 
       - name: Build documentation
         run: |
-          ./build_docs.sh
-
-      - name: Copy docs to _build
-        run: |
-          cp -r output _build
+          python build_docs.py
       
       - name: Make root index.html
         run: |
-          touch _build/index.html
+          touch output/index.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           publish_branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_build/
+          publish_dir: ./output/
           force_orphan: true

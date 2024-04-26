@@ -8,8 +8,8 @@ def build_doc(project, version):
     print(f"Building {project} {version}")
     os.environ[f"current_version"] = version
     subprocess.run("git checkout " + version, shell=True)
-    subprocess.run("git checkout main -- conf.py", shell=True)
-    subprocess.run("git checkout main -- versions.yaml", shell=True)
+    subprocess.run("git checkout jwilde/versioning -- conf.py", shell=True)
+    subprocess.run("git checkout jwilde/versioning -- versions.yaml", shell=True)
 
     subprocess.run(f"cd {project} && make html", shell=True)
 
@@ -29,4 +29,4 @@ with open("versions.yml", "r") as yaml_file:
             move_dir(f"{project}/_build/html/", f"output/{project}/{version}/")
             print(f"Built {project} {version}")
     
-    subprocess.run("git checkout main", shell=True)
+    subprocess.run("git checkout jwilde/versioning", shell=True)
