@@ -7,6 +7,7 @@ Tenstorrent
 =======================================
 
 .. toctree::
+   :caption: Tenstorrent
    :maxdepth: 2
 
    README
@@ -19,12 +20,14 @@ Systems
 =======================================
 
 .. toctree::
+   :caption: Systems
    :maxdepth: 2
 
    systems/index
 
 
 .. toctree::
+   :caption: Links
    :maxdepth: 2
 
    TT-Buda <https://tenstorrent.github.io/docs-test/pybuda/latest/index.html>
