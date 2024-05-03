@@ -3,3 +3,4 @@ core:
 pybuda:
 - latest
 - test-version
+- '490089'
