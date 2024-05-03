@@ -12,15 +12,16 @@ The e75 and e150 AI Graph Processor add-in boards are built using the Tenstorren
 
 | Specification                        | e75                                         | e150                                           |
 | ------------------------------------ | ------------------------------------------- | ---------------------------------------------- |
+| Part Number                          | TC-01001                                    | TC-01002                                       |
 | Tensix Cores                         | 96                                          | 120                                            |
 | AI Clock                             | 1 GHz                                       | 1.2 GHz                                        |
 | SRAM                                 | 96MB                                        | 120MB                                          |
 | Memory                               | 8GB LPDDR4                                  | 8GB LPDDR4                                     |
 | Memory Speed                         | 3.2 GT/sec                                  | 3.7 GT/sec                                     |
 | Memory Bandwidth                     | 102.4 GB/sec                                | 118.4 GB/sec                                   |
-| TFLOPs (FP4)                         | 221                                         | 332                                            |
+| TeraFLOPs (FP8)                      | 221                                         | 332                                            |
 | TBP (Total Board Power)              | 75W                                         | 200W                                           |
-| External Power                       | 1x 6-pin PCIe *(required for powering fan)* | 1x 6+2-pin PCIe 1x 6-pin PCIe                  |
+| External Power                       | 1x 6-pin PCIe *(required for powering fan)* | 1x 6+2-pin PCIe<br />1x 6-pin PCIe             |
 | System Interface                     | PCI Express 4.0 x16                         | PCI Express 4.0 x16                            |
 | Cooling                              | Active *(Active Cooling Kit pre-installed)* | Passive *(Active Cooling Kit sold separately)* |
 | Dimensions (w/o Cooling Kit) (WxDxH) | 18mm x 167.5mm x 69mm                       | 36mm x 259.8mm x 111.25mm                      |
@@ -34,10 +35,11 @@ The e75 and e150 AI Graph Processor add-in boards are built using the Tenstorren
 
 The e75/e150 support the following data precision formats:
 
-| Precision            | Bit Depth        |
+| Format               | Bit Depth        |
 | -------------------- | ---------------- |
 | Floating point       | FP8, FP16, BF16  |
 | Block floating point | BFP2, BFP4, BFP8 |
+| Vector               | VTF19            |
 
 ## Minimum System Requirements
 
@@ -48,7 +50,6 @@ The e75/e150 support the following data precision formats:
 | Memory                            | 64 GB                                                        |
 | Storage                           | 100 GB (≥2TB recommended)                                    |
 | Power Connectors                  | PCIe 6+2-pin and PCIe 6-pin (e150) PCIe 6-pin (e75)          |
-| Dimensions                        | 260mm x 111mm (e150, no cooling kit)<br />399mm x 114mm (e150, with active cooling kit)<br />257mm x 98mm (e75) |
 | Total Board Power                 | Up to 200W (e150) / 75W (e75)                                |
 | Operating Temperature Range (Die) | 0C - 75C                                                     |
 | Operating System                  | Ubuntu version 20.04 (Focal Fossa) **                        |

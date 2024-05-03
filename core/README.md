@@ -12,7 +12,8 @@ Documentation and support for Tenstorrent add-in boards and the Active Cooling K
 
 Documentation and support for Tenstorrent add-in boards and the Active Cooling Kit:
 
-- [**e75/e150 Machine Learning Accelerator**](./aibs/grayskull/README.md)
+- [**Grayskull™ e75/e150 AI Graph Processor**](./aibs/grayskull/README.md)
+- [**Wormhole™ n150/n300 AI Graph Processor**](./aibs/wormhole/README.md)
 - [**Active Cooling Kit**](./aibs/ack.md)
 
 
@@ -25,7 +26,7 @@ Physical and software setup for Tenstorrent workstation and server solutions:
 
 - [**T1000 Desktop Workstation**](./systems/t1000/README.md)
 
-- [**T3000 4U Workstation**](./systems/t3000/README.md)
+- [**LoudBox (T3000) 4U Workstation**](./systems/t3000/README.md)
 
 - [**T7000 4U Workstation**](./systems/t7000/README.md)
 

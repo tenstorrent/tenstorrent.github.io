@@ -9,7 +9,7 @@
 | Galaxy Modules                    | 1                                          | 32                                       |
 | Tensix Cores                      | 80                                         | 2,560                                    |
 | AI Clock                          | 1 GHz                                      | 1 GHz                                    |
-| TFLOPs (BFP8)                     | 164                                        | 5,248 (5.24 PFLOPs)                      |
+| TeraFLOPs (FP8)                   | 328                                        | 10,496 (10.4 PetaFLOPs)                  |
 | SRAM                              | 120MB (1.5MB per Tensix Core)              | 3.8GB (120MB per Module)                 |
 | Memory                            | 12GB GDDR6 (192-bit memory bus, 12 GT/sec) | 384GB GDDR6, globally addressable        |
 | Power                             | 200W                                       | 7.5 kW                                   |
@@ -88,9 +88,9 @@ Each Galaxy Wormhole Power Supply box contains:
   - Six (6) Murata MWOCP68-3600-B-RM Power Supply Modules
 - Two (2) rack shelves
 - Six (6) 6 ft. / 1.8 m C19-to-C20 power cables
-- Two (2) Murata PSU upper bus bars
-- One (1) Murata PSU lower bus bar, black
-- One (1) Murata PSU lower bus bar, red
+- Two (2) insulated PSU upper bus bars
+- One (1) insulated PSU lower bus bar, black
+- One (1) insulated PSU lower bus bar, red
 - One (1) upper bus bar cover
 - One (1) lower bus bar cover
 - One (1) Tenstorrent cosmetic cover
