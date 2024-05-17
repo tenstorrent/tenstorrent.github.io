@@ -7,6 +7,8 @@ TT-Buda
    :glob:
 
    *
+   budabackend/index
+
 
 Links
 ==============================

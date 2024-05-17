@@ -2,15 +2,15 @@
 
 # Performance Debug
 
-- [**Performance Debug**](#performance-debug)
-  - [**Examining the Host Profiler**](#examining-the-host-profiler)
-  - [**Examining the Device Performance Trace**](#examining-the-device-performance-trace)
-  - [**Common Performance Issues**](#common-performance-issues)
-    - [**Case 1**](#case-1)
-      - [**Low Pipe BW**](#low-pipe-bw)
-      - [**Fork/Join**](#forkjoin)
-    - [**Case 2, 3**](#case-2-3)
-    - [**Case 4, 5**](#case-4-5)
+- [Performance Debug](#performance-debug)
+  - [Examining the Host Profiler](#examining-the-host-profiler)
+  - [Examining the Device Performance Trace](#examining-the-device-performance-trace)
+  - [Common Performance Issues](#common-performance-issues)
+    - [Case 1](#case-1)
+      - [Low Pipe BW](#low-pipe-bw)
+      - [Fork/Join](#forkjoin)
+    - [Case 2, 3](#case-2-3)
+    - [Case 4, 5](#case-4-5)
 
 In this section, we will explore how to use the existing performance infra tools to debug the performance for different models.
 
