@@ -32,4 +32,3 @@ with open("versions.yml", "r") as yaml_file:
             move_dir(f"{project}/_build/html/", f"output/{project}/{version}/")
             print(f"Built {project} {version}")
     
-    subprocess.run("git checkout main", shell=True)
