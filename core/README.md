@@ -2,8 +2,6 @@
 
 Tenstorrent produces add-in boards, system solutions, APIs, IP, and more featuring our Tensix Core and RISC-V architectures to accelerate machine learning and AI workloads. Our documentation for those technologies is available here.
 
-
-
 ## Add-In Boards and Cooling Kits
 
 Documentation and support for Tenstorrent add-in boards and the Active Cooling Kit:
@@ -15,7 +13,6 @@ Documentation and support for Tenstorrent add-in boards and the Active Cooling K
 - [**Grayskull™ e75/e150 AI Graph Processor**](./aibs/grayskull/README.md)
 - [**Wormhole™ n150s/n300s AI Graph Processor**](./aibs/wormhole/README.md)
 - [**Active Cooling Kit**](./aibs/ack.md)
-
 
 
 ## Workstations and Server Systems

@@ -3,21 +3,12 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Tenstorrent
-=======================================
-
 .. toctree::
-   :caption: Tenstorrent
+   :caption: Add-in Boards and Cooling kits
    :maxdepth: 2
 
-   README
    aibs/index
    galaxy4U/index
-
-
-
-Systems
-=======================================
 
 .. toctree::
    :caption: Systems
@@ -25,9 +16,8 @@ Systems
 
    systems/index
 
-
 .. toctree::
-   :caption: Links
+   :caption: Software
    :maxdepth: 2
 
    TT-Buda <https://tenstorrent.github.io/docs-test/pybuda/latest/index.html>

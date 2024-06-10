@@ -1,7 +1,3 @@
-###########
-Systems
-###########
-
 .. toctree::
    :maxdepth: 2
 
