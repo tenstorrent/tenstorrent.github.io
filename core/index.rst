@@ -4,11 +4,12 @@
    contain the root `toctree` directive.
 
 .. toctree::
-   :caption: Add-in Boards and Cooling kits
+   :caption: Add-in Boards / Cards
    :maxdepth: 2
 
-   aibs/index
-   galaxy4U/index
+   aibs/ack
+   aibs/grayskull/README
+   aibs/wormhole/README
 
 .. toctree::
    :caption: Systems
