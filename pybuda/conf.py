@@ -34,6 +34,7 @@ with open("../versions.yml", "r") as yaml_file:
 
 html_context = {
     "versions": versions,
+    "project_code": "pybuda",
     "current_version": os.environ.get("current_version"),
     "logo_link_url": "https://tenstorrent.github.io/docs-test/core/latest/"
 }

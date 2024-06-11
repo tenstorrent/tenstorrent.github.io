@@ -2,7 +2,11 @@ core:
 - latest
 pybuda:
 - latest
+- v0.12.3
+- v0.17.0-alpha
 tt-metalium:
 - latest
+- v0.48.0
+- v0.47.0
 ttnn:
 - latest
