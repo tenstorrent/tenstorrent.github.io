@@ -25,7 +25,9 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-
+          wget https://github.com/tenstorrent/tt-metal/actions/runs/9278790765/artifacts/1546545605
+          unzip eager-dist-ubuntu-20.04-wormhole_b0.zip
+          pip install metal_libs-0.48.0rc20+wormhole.b0-cp38-cp38-linux_x86_64.whl
       - name: Build documentation
         run: |
           python build_docs.py
