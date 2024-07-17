@@ -23,9 +23,9 @@ Install the driver (**<u>TT-KMD</u>**) by entering this series of commands in th
 ```
 git clone https://github.com/tenstorrent/tt-kmd.git
 cd tt-kmd
-git checkout -b ttkmd-1.26 ttkmd-1.26
+git checkout -b ttkmd-1.27.1 ttkmd-1.27.1
 sudo dkms add .
-sudo dkms install tenstorrent/1.26
+sudo dkms install tenstorrent/1.27.1
 sudo modprobe tenstorrent
 ```
 
