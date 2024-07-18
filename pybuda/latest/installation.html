@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TT-BUDA Installation &mdash; TT Buda  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/tt_theme.css?v=ea036265" />
+
+  
+    <link rel="shortcut icon" href="_static/cropped-favicon-32x32.png"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=b3ba4146"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Terminology" href="terminology.html" />
+    <link rel="prev" title="Introduction to PyBuda" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+<a href="https://tenstorrent.github.io/docs-test/core/latest/">
+    <img src="_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+
+<a href="toc.html">
+    TT Buda
+</a>
+    <div class="version">
+      latest
+    </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="advanced_user_guide.html">Advanced User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataformats.html">Data Formats and Math Fidelity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer.html">Developer Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Hardware Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Introduction to PyBuda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#index">Index</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">TT-BUDA Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#os-compatibility">OS Compatibility</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#download">Download</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install">Install</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#python-environment-installation">Python Environment Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docker-container-installation">Docker Container Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-prerequisites">Installation Prerequisites</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setup-hugepages">Setup HugePages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pci-driver-installation">PCI Driver Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#device-firmware-update">Device Firmware Update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#backend-compiler-dependencies">Backend Compiler Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#additional-pybuda-compile-dependencies">Additional PyBUDA Compile Dependencies</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#os-level-dependencies">OS Level Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#package-level-dependencies">Package Level Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#note">NOTE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">NOTE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">NOTE</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tt-smi">TT-SMI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tenstorrent-software-package">Tenstorrent Software Package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#smoke-test">Smoke Test</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="terminology.html">Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide.html">User Guide</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="toc.html">TT Buda</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="toc.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">TT-BUDA Installation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/installation.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tt-buda-installation">
+<h1>TT-BUDA Installation<a class="headerlink" href="#tt-buda-installation" title="Permalink to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
+<p>The TT-BUDA software stack can compile models from several different frameworks and execute them in many different ways on Tenstorrent hardware.</p>
+<p>This user guide is intended to help you setup your system with the appropriate device drivers, firmware, system dependencies, and compiler / runtime software.</p>
+<p><strong>Note on terminology:</strong></p>
+<p>While TT-BUDA is the official Tenstorrent AI/ML compiler stack, PyBUDA is the Python interface for TT-BUDA. TT-BUDA is the core technology; however, PyBUDA allows users to access and utilize TT-BUDA’s features directly from Python. This includes directly importing model architectures and weights from PyTorch, TensorFlow, ONNX, and TFLite.</p>
+</section>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading"></a></h2>
+<section id="os-compatibility">
+<h3>OS Compatibility<a class="headerlink" href="#os-compatibility" title="Permalink to this heading"></a></h3>
+<p>Presently, Tenstorrent software is only supported on the <strong>Ubuntu 20.04 LTS (Focal Fossa)</strong> operating system.</p>
+</section>
+</section>
+<section id="download">
+<h2>Download<a class="headerlink" href="#download" title="Permalink to this heading"></a></h2>
+<p>To access the PyBUDA software and associated files, please navigate to <a class="reference external" href="https://github.com/tenstorrent/tt-buda">https://github.com/tenstorrent/tt-buda</a>.</p>
+<p>To install a release, please go to <a class="reference external" href="https://github.com/tenstorrent/tt-buda/releases">https://github.com/tenstorrent/tt-buda/releases</a>. Once you have identified the release version you would like to install, you can download the individual files by clicking on their name.</p>
+</section>
+<section id="install">
+<h2>Install<a class="headerlink" href="#install" title="Permalink to this heading"></a></h2>
+<p>PyBUDA releases can be installed using two methods: <a class="reference internal" href="#python-environment-installation"><span class="xref myst">Python virtualenv</span></a> or <a class="reference internal" href="#docker-container-installation"><span class="xref myst">Docker</span></a>. PyBUDA can be installed from source following the Python virtualenv method.</p>
+<section id="python-environment-installation">
+<h3>Python Environment Installation<a class="headerlink" href="#python-environment-installation" title="Permalink to this heading"></a></h3>
+<p>It is strongly recommended to use virtual environments for each project utilizing PyBUDA and Python dependencies. Creating a new virtual environment with PyBUDA and libraries is very easy.</p>
+<p>Prerequisites (detailed sections below) for python envirnment installation are listed here:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="#setup-hugepages"><span class="xref myst">Setup HugePages (below)</span></a></p></li>
+<li><p><a class="reference internal" href="#pci-driver-installation"><span class="xref myst">PCI Driver Installation (below)</span></a></p></li>
+<li><p><a class="reference internal" href="#device-firmware-update"><span class="xref myst">Device Firmware Update (below)</span></a></p></li>
+<li><p><a class="reference internal" href="#backend-compiler-dependencies"><span class="xref myst">Backend Compiler Dependencies (below)</span></a></p></li>
+<li><p><a class="reference internal" href="#additional-pybuda-compile-dependencies"><span class="xref myst">Additional PyBUDA Compile Dependencies (below)</span></a></p></li>
+<li><p><a class="reference internal" href="#tenstorrent-software-package"><span class="xref myst">Tenstorrent Software Package (below)</span></a>.</p></li>
+</ul>
+</div></blockquote>
+<p>To install a PyBUDA release, follow these steps:</p>
+<ul class="simple">
+<li><p>Step 1. Navigate to <a class="reference external" href="https://github.com/tenstorrent/tt-buda/releases">https://github.com/tenstorrent/tt-buda/releases</a> and download the latest release pybuda and tvm wheel files</p></li>
+<li><p>Step 2. Create your Python environment in desired directory</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>env
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Step 3. Activate environment</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>env/bin/activate
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Step 4. Pip install PyBuda and TVM</p></li>
+</ul>
+<p>If you have downloaded the latest release wheel files, you can install them directly with pip.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>pybuda-&lt;version&gt;.whl<span class="w"> </span>tvm-&lt;version&gt;.whl
+</pre></div>
+</div>
+<p>To compile PyBUDA from source, follow these steps:</p>
+<ul class="simple">
+<li><p>Step 1. Clone PyBUDA from <a class="reference external" href="https://github.com/tenstorrent/tt-buda/">https://github.com/tenstorrent/tt-buda/</a></p></li>
+<li><p>Step 2. Update submodules</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>tt-buda
+git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init<span class="w"> </span>--recursive
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Step 3. Compile. PyBUDA’s make system will automatically create the needed venv</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make
+<span class="nb">source</span><span class="w">  </span>build/python_env/bin/activate
+</pre></div>
+</div>
+</section>
+<section id="docker-container-installation">
+<h3>Docker Container Installation<a class="headerlink" href="#docker-container-installation" title="Permalink to this heading"></a></h3>
+<p>Alternatively, PyBUDA and its dependencies are provided as Docker images which can run in separate containers.</p>
+<p>Prerequisites (detailed sections below) for docker installation are listed here:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="#pci-driver-installation"><span class="xref myst">PCI Driver Installation (below)</span></a></p></li>
+<li><p><a class="reference internal" href="#device-firmware-update"><span class="xref myst">Device Firmware Update (below)</span></a></p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>Step 1. Setup a personal access token (classic)</p></li>
+</ul>
+<p>Create a personal access token from: <a class="reference external" href="https://github.com/settings/tokens">https://github.com/settings/tokens</a>.
+Give the token the permissions to read packages from the container registry <code class="docutils literal notranslate"><span class="pre">read:packages</span></code>.</p>
+<ul class="simple">
+<li><p>Step 2. Login to Docker Registry</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">GITHUB_TOKEN</span><span class="o">=</span>&lt;your<span class="w"> </span>token&gt;
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$GITHUB_TOKEN</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>docker<span class="w"> </span>login<span class="w"> </span>ghcr.io<span class="w"> </span>-u<span class="w"> </span>&lt;your<span class="w"> </span>github<span class="w"> </span>username&gt;<span class="w"> </span>--password-stdin
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Step 3. Pull the image</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>ghcr.io/tenstorrent/tt-buda/&lt;TAG&gt;
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Step 4. Run the container</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-ti<span class="w"> </span>--shm-size<span class="o">=</span>4g<span class="w"> </span>--device<span class="w"> </span>/dev/tenstorrent<span class="w"> </span>-v<span class="w"> </span>/dev/hugepages-1G:/dev/hugepages-1G<span class="w"> </span>-v<span class="w"> </span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/:/home/<span class="w"> </span>ghcr.io/tenstorrent/tt-buda/&lt;TAG&gt;<span class="w"> </span>bash
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Step 5. Change root directory</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>home/
+</pre></div>
+</div>
+</section>
+</section>
+<section id="installation-prerequisites">
+<h2>Installation Prerequisites<a class="headerlink" href="#installation-prerequisites" title="Permalink to this heading"></a></h2>
+<section id="setup-hugepages">
+<h3>Setup HugePages<a class="headerlink" href="#setup-hugepages" title="Permalink to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">NUM_DEVICES</span><span class="o">=</span><span class="k">$(</span>lspci<span class="w"> </span>-d<span class="w"> </span>1e52:<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l<span class="k">)</span>
+sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;s/^GRUB_CMDLINE_LINUX_DEFAULT=.*</span>$<span class="s2">/GRUB_CMDLINE_LINUX_DEFAULT=\&quot;hugepagesz=1G hugepages=</span><span class="si">${</span><span class="nv">NUM_DEVICES</span><span class="si">}</span><span class="s2"> nr_hugepages=</span><span class="si">${</span><span class="nv">NUM_DEVICES</span><span class="si">}</span><span class="s2"> iommu=pt\&quot;/g&quot;</span><span class="w"> </span>/etc/default/grub
+sudo<span class="w"> </span>update-grub
+sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;/\s\/dev\/hugepages-1G\s/d&quot;</span><span class="w"> </span>/etc/fstab<span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hugetlbfs /dev/hugepages-1G hugetlbfs pagesize=1G,rw,mode=777 0 0&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/fstab
+sudo<span class="w"> </span>reboot
+</pre></div>
+</div>
+</section>
+<section id="pci-driver-installation">
+<h3>PCI Driver Installation<a class="headerlink" href="#pci-driver-installation" title="Permalink to this heading"></a></h3>
+<p>Please navigate to <a class="reference external" href="https://github.com/tenstorrent/tt-kmd">https://github.com/tenstorrent/tt-kmd</a> and follow the readme to install the kernel mode PCI driver.</p>
+</section>
+<section id="device-firmware-update">
+<h3>Device Firmware Update<a class="headerlink" href="#device-firmware-update" title="Permalink to this heading"></a></h3>
+<p>Please navigate to <a class="reference external" href="https://github.com/tenstorrent/tt-flash">https://github.com/tenstorrent/tt-flash</a> and <a class="reference external" href="https://github.com/tenstorrent/tt-firmware-gs">https://github.com/tenstorrent/tt-firmware-gs</a> to download a utility for flashing device firmwares and the firmware itself.  Follow respective readmes for setup and installation.</p>
+</section>
+<section id="backend-compiler-dependencies">
+<h3>Backend Compiler Dependencies<a class="headerlink" href="#backend-compiler-dependencies" title="Permalink to this heading"></a></h3>
+<p>Instructions to install the Tenstorrent backend compiler dependencies on a fresh install of Ubuntu Server.</p>
+<p>You may need to append each <code class="docutils literal notranslate"><span class="pre">apt-get</span></code> command with <code class="docutils literal notranslate"><span class="pre">sudo</span></code> if you do not have root permissions.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apt-get<span class="w"> </span>update<span class="w"> </span>-y<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>upgrade<span class="w"> </span>-y<span class="w"> </span>--no-install-recommends
+apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>software-properties-common
+apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3.8-venv<span class="w"> </span>libboost-all-dev<span class="w"> </span>libgoogle-glog-dev<span class="w"> </span>libgl1-mesa-glx<span class="w"> </span>ruby
+apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>build-essential<span class="w"> </span>clang-6.0<span class="w"> </span>libhdf5-serial-dev<span class="w"> </span>libzmq3-dev
+</pre></div>
+</div>
+</section>
+<section id="additional-pybuda-compile-dependencies">
+<h3>Additional PyBUDA Compile Dependencies<a class="headerlink" href="#additional-pybuda-compile-dependencies" title="Permalink to this heading"></a></h3>
+<section id="os-level-dependencies">
+<h4>OS Level Dependencies<a class="headerlink" href="#os-level-dependencies" title="Permalink to this heading"></a></h4>
+<p>Additional dependencies to compile PyBUDA from source after running <a class="reference internal" href="#backend-compiler-dependencies"><span class="xref myst">Backend Compiler Dependencies</span></a></p>
+<p>You may need to append each <code class="docutils literal notranslate"><span class="pre">apt-get</span></code> command with <code class="docutils literal notranslate"><span class="pre">sudo</span></code> if you do not have root permissions.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>libyaml-cpp-dev<span class="w"> </span>python3-pip<span class="w"> </span>sudo<span class="w"> </span>git<span class="w"> </span>git-lfs
+apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>wget<span class="w"> </span>cmake<span class="w"> </span>cmake-data
+pip3<span class="w"> </span>install<span class="w"> </span>pyyaml
+</pre></div>
+</div>
+</section>
+<section id="package-level-dependencies">
+<h4>Package Level Dependencies<a class="headerlink" href="#package-level-dependencies" title="Permalink to this heading"></a></h4>
+<p>In addition, if you intend to utilize <code class="docutils literal notranslate"><span class="pre">torchvision</span></code> for your model development, we strongly recommend installing it using a specific method that ensures optimal compatibility with PyBUDA. This method involves building and installing torchvision from its source code, which allows for the necessary dependencies and configurations to be correctly set up.</p>
+<p>To do this, you should use the following commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">TORCH_VISION_INSTALL</span><span class="o">=</span><span class="m">1</span>
+make<span class="w"> </span>torchvision
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">TORCH_VISION_INSTALL=1</span></code> command sets an environment variable that our Makefile script uses to determine whether to install <code class="docutils literal notranslate"><span class="pre">torchvision</span></code>. By setting this variable to 1, you’re instructing the script to proceed with the <code class="docutils literal notranslate"><span class="pre">torchvision</span></code> installation.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">torchvision</span></code> command then triggers the build and installation process. This process includes cloning the <code class="docutils literal notranslate"><span class="pre">torchvision</span></code> repository, checking out the desired version, and building <code class="docutils literal notranslate"><span class="pre">torchvision</span></code> using its <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> script.</p>
+<p>By following these steps, <code class="docutils literal notranslate"><span class="pre">torchvision</span></code> will be installed in a way that ensures it works effectively with PyBUDA.</p>
+</section>
+<section id="note">
+<h4>NOTE<a class="headerlink" href="#note" title="Permalink to this heading"></a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">TORCH_VISION_INSTALL</span></code> flag is not limited to the <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">torchvision</span></code> command. It can also be used with the standard <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">build</span></code> command. When this flag is set to 1, the build process will include the installation of <code class="docutils literal notranslate"><span class="pre">torchvision</span></code>, regardless of the specific <code class="docutils literal notranslate"><span class="pre">make</span></code> command used. This allows for flexibility in your build process, enabling you to include or exclude the <code class="docutils literal notranslate"><span class="pre">torchvision</span></code> installation as needed.</p>
+</section>
+<section id="id1">
+<h4>NOTE<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h4>
+<p>For your convenience, the <code class="docutils literal notranslate"><span class="pre">torchvision</span></code> wheel file is already included in the PyBUDA release bundle. This means that if you’re using the release bundle, you won’t need to build <code class="docutils literal notranslate"><span class="pre">torchvision</span></code> from source unless you want to use a different version or need to modify the source code. Simply install the provided wheel file using pip to add <code class="docutils literal notranslate"><span class="pre">torchvision</span></code> to your Python environment.</p>
+<p>Here’s an example of how you can install the <code class="docutils literal notranslate"><span class="pre">torchvision</span></code> wheel file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>/path/to/your/wheel/file/torchvision*.whl
+</pre></div>
+</div>
+<p>Replace <code class="docutils literal notranslate"><span class="pre">/path/to/your/wheel/file/torchvision*.whl</span></code> with the actual path to the <code class="docutils literal notranslate"><span class="pre">torchvision</span></code> wheel file in the PyBUDA release bundle.</p>
+</section>
+<section id="id2">
+<h4>NOTE<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h4>
+<p>To run the existing unit tests of PyBUDA components, e.g. after compiling it from source, you need to install the following packages.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>wget<span class="w"> </span>libgtest-dev<span class="w"> </span>libgmock-dev
+</pre></div>
+</div>
+</section>
+</section>
+<section id="tt-smi">
+<h3>TT-SMI<a class="headerlink" href="#tt-smi" title="Permalink to this heading"></a></h3>
+<p>Please navigate to <a class="reference external" href="https://github.com/tenstorrent/tt-smi">https://github.com/tenstorrent/tt-smi</a> to get Tenstorrent’s System Management Interface tool. A command line utility to interact with all Tenstorrent devices on host.</p>
+</section>
+<section id="tenstorrent-software-package">
+<h3>Tenstorrent Software Package<a class="headerlink" href="#tenstorrent-software-package" title="Permalink to this heading"></a></h3>
+<p>Acquire pybuda and associated software from the aforementioned <a class="reference internal" href="#download"><span class="xref myst">Download</span></a> section.</p>
+<p>Relevant files:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pybuda-&lt;version&gt;.whl<span class="w">   </span>&lt;-<span class="w"> </span>Latest<span class="w"> </span>PyBUDA<span class="w"> </span>Release
+tvm-&lt;version&gt;.whl<span class="w">      </span>&lt;-<span class="w"> </span>Latest<span class="w"> </span>TVM<span class="w"> </span>Release
+</pre></div>
+</div>
+</section>
+</section>
+<section id="smoke-test">
+<h2>Smoke Test<a class="headerlink" href="#smoke-test" title="Permalink to this heading"></a></h2>
+<p>With your Python environment with PyBUDA install activated, run the following Python script:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pybuda</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+
+
+<span class="c1"># Sample PyTorch module</span>
+<span class="k">class</span> <span class="nc">PyTorchTestModule</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weights1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weights2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">act1</span><span class="p">,</span> <span class="n">act2</span><span class="p">):</span>
+        <span class="n">m1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">act1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weights1</span><span class="p">)</span>
+        <span class="n">m2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">act2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weights2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">m1</span> <span class="o">+</span> <span class="n">m2</span><span class="p">,</span> <span class="n">m1</span>
+
+
+<span class="k">def</span> <span class="nf">test_module_direct_pytorch</span><span class="p">():</span>
+    <span class="n">input1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+    <span class="n">input2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+    <span class="c1"># Run single inference pass on a PyTorch module, using a wrapper to convert to PyBUDA first</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">pybuda</span><span class="o">.</span><span class="n">PyTorchModule</span><span class="p">(</span><span class="s2">&quot;direct_pt&quot;</span><span class="p">,</span> <span class="n">PyTorchTestModule</span><span class="p">())</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">input1</span><span class="p">,</span> <span class="n">input2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">test_module_direct_pytorch</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Introduction to PyBuda" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="terminology.html" class="btn btn-neutral float-right" title="Terminology" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Tenstorrent.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        Version: latest
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        
+        <dl>
+            <dt>Versions</dt>
+            
+            <dd><a href="https://tenstorrent.github.io/docs-test/pybuda/latest/index.html">latest</a></dd>
+            
+        </dl>
+        
+        <br>
+        </dl>
+    </div>
+</div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hardware, Setup, and Site Requirements &mdash; Tenstorrent 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/tt_theme.css?v=ea036265" />
+
+  
+    <link rel="shortcut icon" href="../_static/cropped-favicon-32x32.png"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=359c27e9"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+<a href="https://tenstorrent.github.io/docs-test/core/latest/">
+    <img src="../_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+
+<a href="../index.html">
+    Tenstorrent
+</a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Add-in Boards</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aibs/grayskull/README.html">Grayskull™ e75/e150 Tensix Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aibs/wormhole/README.html">Wormhole™ n150s/n300s Tensix Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aibs/ack.html">Active Cooling Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aibs/warp100.html">Warp 100 Bridge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aibs/compliance.html">Compliance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Systems</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../systems/index.html">TT-QuietBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../systems/index.html#tt-loudbox">TT-LoudBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../systems/index.html#t1000">T1000</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../systems/index.html#t7000">T7000</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://tenstorrent.github.io/docs-test/syseng/latest/index.html">Software/Utilities</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://tenstorrent.github.io/docs-test/pybuda/latest/index.html">TT-Buda</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://tenstorrent.github.io/docs-test/tt-metalium/latest/index.html">TT-Metalium</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://tenstorrent.github.io/docs-test/ttnn/latest/index.html">TT-NN</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/README.html">Support &amp; FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Tenstorrent</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Hardware, Setup, and Site Requirements</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/galaxy4U/requirements.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="hardware-setup-and-site-requirements">
+<h1>Hardware, Setup, and Site Requirements<a class="headerlink" href="#hardware-setup-and-site-requirements" title="Permalink to this heading"></a></h1>
+<p>Users will need to make the following provisions to support installing and running the Galaxy Wormhole 4U Server and Galaxy Wormhole Power Supply.</p>
+<section id="packaging-and-weight">
+<h2>Packaging and Weight<a class="headerlink" href="#packaging-and-weight" title="Permalink to this heading"></a></h2>
+<p>The Galaxy Wormhole 4U Server and accompanying Galaxy Wormhole Power Supply are heavy and highly integrated pieces of equipment.  <strong>Two people are recommended, at minimum, for any manual installation.</strong></p>
+<p>The complete shipping package is designed to be lifted and moved using a standard pallet jack, skid steer, or pump truck. The Galaxy Wormhole 4U Server’s packaging and unboxing are optimized for the use of a Server Lift.</p>
+<p>If for whatever reason a Server Lift cannot be employed in moving the Galaxy Wormhole 4U Server itself, robust lift handles are present on the front and back of the unit for secure lifting.</p>
+<section id="weight">
+<h3>Weight<a class="headerlink" href="#weight" title="Permalink to this heading"></a></h3>
+<p>Each <strong>Galaxy Wormhole 4U Server</strong> unit weighs <strong>130 lbs. / 59 kg</strong>.</p>
+<p>The <strong>Galaxy Wormhole Power Supply</strong> weighs <strong>70 lbs. / 32 kg</strong>.</p>
+</section>
+</section>
+<section id="equipment">
+<h2>Equipment<a class="headerlink" href="#equipment" title="Permalink to this heading"></a></h2>
+<p>The following equipment is needed for installation:</p>
+<ul class="simple">
+<li><p>Server lift is <strong>strongly</strong> recommended for moving the Galaxy Wormhole 4U Server</p></li>
+<li><p>Pallet jack</p></li>
+<li><p>Torque wrench (capable of up to 6.2 Nm with T25 bit)</p></li>
+<li><p>Digital torque screwdriver (capable of up to 6 Nm)</p></li>
+<li><p>The following screwdriver bits:</p>
+<ul>
+<li><p>T25 Torx</p></li>
+<li><p>T30 Torx</p></li>
+<li><p>M6</p></li>
+</ul>
+</li>
+<li><p>Cage nut removal tool</p></li>
+<li><p>Cable ties or velcro for cable management</p></li>
+</ul>
+</section>
+<section id="host-pc">
+<h2>Host PC<a class="headerlink" href="#host-pc" title="Permalink to this heading"></a></h2>
+<p>The Galaxy 4U Server requires a <strong>Tenstorrent</strong> <strong>T7000</strong> <strong>4U Workstation</strong> functioning as the host PC, with four (4) 100G DAC cables connecting the T7000 to the Galaxy Wormhole 4U Server.</p>
+<p>The T7000 includes eight (8) Tenstorrent n150 AI Graph Processor add-in boards and these boards include the QSFP-DD ports required to connect to Galaxy Wormhole 4U Servers. Four (4) cards are required per Galaxy Wormhole 4U Server; a single T7000 can support up to two (2) Galaxy Wormhole 4U Servers.</p>
+</section>
+<section id="rack-mounting">
+<h2>Rack Mounting<a class="headerlink" href="#rack-mounting" title="Permalink to this heading"></a></h2>
+<p>The rack length needs to be <strong>19”</strong> and the rack depth needs to be adjustable to <strong>32”</strong>.</p>
+<p>For a single Galaxy Wormhole 4U Server, you will need <strong>9U of contiguous rack space</strong>, and the units will need to be arranged in this order:</p>
+<img src=".\images\stack_1galaxy.png" style="zoom:50%;" />
+<ul class="simple">
+<li><p>Galaxy Wormhole 4U Server (4U)</p></li>
+<li><p>Galaxy Wormhole Power Supply (1U)</p></li>
+<li><p>T7000 4U Workstation (4U)</p></li>
+</ul>
+<p>For dual Galaxy Wormhole 4U Servers, you will need <strong>13U of contiguous rack space</strong>, and the units will need to be arranged in this order:</p>
+<img src=".\images\stack_2galaxy.png" style="zoom:50%;" />
+<ul class="simple">
+<li><p>Galaxy Wormhole 4U Server (4U)</p></li>
+<li><p>Galaxy Wormhole Power Supply (1U)</p></li>
+<li><p>Galaxy Wormhole 4U Server (4U)</p></li>
+<li><p>T7000 4U Workstation (4U)</p></li>
+</ul>
+</section>
+<section id="power">
+<h2>Power<a class="headerlink" href="#power" title="Permalink to this heading"></a></h2>
+<section id="site">
+<h3>Site<a class="headerlink" href="#site" title="Permalink to this heading"></a></h3>
+<p>The site must support <strong>7.5kW per Galaxy Wormhole 4U Server</strong> and <strong>2kW for the T7000 4U Workstation</strong> being used as the host PC.</p>
+</section>
+<section id="power-distribution-units">
+<h3>Power Distribution Units<a class="headerlink" href="#power-distribution-units" title="Permalink to this heading"></a></h3>
+<p>Though the Galaxy Wormhole Power Supply shipped with the Galaxy Wormhole 4U Server(s) supports remote power control, there is no local control other than AC removal. A PDU is strongly recommended for deployment to enable power monitoring, power cycling, powering down for safe installation or repairs, and simplified cable management. Multiple PDUs may be required when installing multiple Galaxy Wormhole 4U Servers in a rack or if AC redundancy is required.</p>
+<p>The Galaxy Wormhole 4U Server is paired with a Galaxy Wormhole Power Supply populated with six (6) Murata MWOCP68-3600-B-RM Power Supply Modules.</p>
+<p>For each Galaxy Wormhole Power Supply, your Power Distribution Unit will need:</p>
+<ul class="simple">
+<li><p>Support for 7.5kW (if using one Galaxy Wormhole 4U Server) or 15kW (if using two Galaxy Wormhole 4U Servers)</p></li>
+<li><p>Six (6) IEC C19 inputs</p></li>
+<li><p>Four (4) IEC C13 inputs (for T7000 host PC)</p></li>
+</ul>
+<p>The T7000 host system has its own integrated 2+2 power supply; your PDU will need:</p>
+<ul class="simple">
+<li><p>Support for 2kW</p></li>
+<li><p>One (1) AC cable for 230V input, two (2) AC cables for 115V input</p></li>
+</ul>
+</section>
+</section>
+<section id="cooling-and-elevation">
+<h2>Cooling and Elevation<a class="headerlink" href="#cooling-and-elevation" title="Permalink to this heading"></a></h2>
+<p>The Galaxy Wormhole 4U Server is rated to operate under the following conditions:</p>
+<ul class="simple">
+<li><p><strong>Ambient Temperature:</strong> 5°C – 25°C / 41°F – 77°F</p></li>
+<li><p><strong>Elevation:</strong> -5 ft. – 10,000 ft. / 0 km – 3 km</p></li>
+</ul>
+</section>
+<section id="cable-requirements">
+<h2>Cable Requirements<a class="headerlink" href="#cable-requirements" title="Permalink to this heading"></a></h2>
+<section id="ac-power-cables">
+<h3>AC Power Cables<a class="headerlink" href="#ac-power-cables" title="Permalink to this heading"></a></h3>
+<p>If replacing any AC power cables with locally sourced variants, ensure the ratings match the power cords provided by Tenstorrent.</p>
+</section>
+<section id="networking">
+<h3>Networking<a class="headerlink" href="#networking" title="Permalink to this heading"></a></h3>
+<section id="inter-galaxy-networking">
+<h4>Inter-Galaxy Networking<a class="headerlink" href="#inter-galaxy-networking" title="Permalink to this heading"></a></h4>
+<p>Only <strong>2 ft. / 0.6m QSFP-DD 400GbE</strong> cables are supported for inter-Galaxy communication. Four (4) of these cables are included in the package.</p>
+</section>
+<section id="tenstorrent-t7000-4u-workstation-host">
+<h4>Tenstorrent T7000 4U Workstation Host<a class="headerlink" href="#tenstorrent-t7000-4u-workstation-host" title="Permalink to this heading"></a></h4>
+<p>The Tenstorrent T7000 4U Workstation used as a host includes an add-in card that provides two 200GbE QSFP-DD ports; cable type used is at the discretion of the network architect for the data center. Please refer to the web page of the card vendor for a list of supported cables and modules: http://www.mellanox.com/products/interconnect/cables-configurator.php.</p>
+</section>
+<section id="rj45-management">
+<h4>RJ45 Management<a class="headerlink" href="#rj45-management" title="Permalink to this heading"></a></h4>
+<p>CAT5 or better network cabling is required for the management interfaces on the Galaxy Wormhole 4U Server, Galaxy Wormhole Power Supply, and Tenstorrent T7000 4U Workstation. These interfaces run at a maximum of 1Gbps and can run over 100m using standard CAT5. The number and length of cables will vary depending on customer configuration.</p>
+<p>The customer should plan for at least two (2) connections per Galaxy Wormhole 4U Server: one for the Galaxy Wormhole 4U Server itself and one for the Galaxy Wormhole Power Supply. In configurations with multiple Galaxy Wormhole 4U Servers, one cable is required per Galaxy Wormhole Power Supply, but each Galaxy Wormhole Power Supply can service two Galaxy Wormhole 4U Servers.</p>
+</section>
+<section id="customer-supplied-cables">
+<h4>Customer Supplied Cables<a class="headerlink" href="#customer-supplied-cables" title="Permalink to this heading"></a></h4>
+<p>The customer is responsible for the provision of all standard networking cables and network switches as these are highly installation dependent.</p>
+</section>
+</section>
+</section>
+<section id="safety">
+<h2>Safety<a class="headerlink" href="#safety" title="Permalink to this heading"></a></h2>
+<p>External bus bars are used to connect and power the Galaxy Wormhole 4U Server(s). Care must be taken to ensure these bars are not powered during installation or service, and the included bus bar covers must be used while the Galaxy Wormhole 4U Server(s) and Galaxy Wormhole Power Supply are in operation.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Tenstorrent.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

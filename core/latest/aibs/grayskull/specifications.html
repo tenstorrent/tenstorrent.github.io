@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Specifications/Requirements &mdash; Tenstorrent 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/tt_theme.css?v=ea036265" />
+
+  
+    <link rel="shortcut icon" href="../../_static/cropped-favicon-32x32.png"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=359c27e9"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+<a href="https://tenstorrent.github.io/docs-test/core/latest/">
+    <img src="../../_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+
+<a href="../../index.html">
+    Tenstorrent
+</a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Add-in Boards</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="README.html">Grayskull™ e75/e150 Tensix Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wormhole/README.html">Wormhole™ n150s/n300s Tensix Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ack.html">Active Cooling Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../warp100.html">Warp 100 Bridge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compliance.html">Compliance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Systems</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../systems/index.html">TT-QuietBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../systems/index.html#tt-loudbox">TT-LoudBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../systems/index.html#t1000">T1000</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../systems/index.html#t7000">T7000</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://tenstorrent.github.io/docs-test/syseng/latest/index.html">Software/Utilities</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://tenstorrent.github.io/docs-test/pybuda/latest/index.html">TT-Buda</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://tenstorrent.github.io/docs-test/tt-metalium/latest/index.html">TT-Metalium</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://tenstorrent.github.io/docs-test/ttnn/latest/index.html">TT-NN</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../support/README.html">Support &amp; FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Tenstorrent</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Specifications/Requirements</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/aibs/grayskull/specifications.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="specifications-requirements">
+<h1>Specifications/Requirements<a class="headerlink" href="#specifications-requirements" title="Permalink to this heading"></a></h1>
+<section id="grayskull-tensix-processor">
+<h2>Grayskull™ Tensix Processor<a class="headerlink" href="#grayskull-tensix-processor" title="Permalink to this heading"></a></h2>
+<p>The Grayskull™ e75 and e150 Tensix Processor add-in boards are built using the Tenstorrent Grayskull™ Tensix Processor:</p>
+<ul class="simple">
+<li><p><strong>Tensix Core Count:</strong> 120</p></li>
+<li><p><strong>SRAM:</strong> 120MB (1MB per Tensix Core)</p></li>
+<li><p><strong>Memory:</strong> 8GB LPDDR4, 256-bit memory bus</p></li>
+</ul>
+</section>
+<section id="e75-e150-comparison-table">
+<h2>e75/e150 Comparison Table<a class="headerlink" href="#e75-e150-comparison-table" title="Permalink to this heading"></a></h2>
+<p><strong>NOTE:</strong> The <strong>e150 add-in card</strong> comes with a heatsink for passive cooling in systems which can provide sufficient forced airflow to the card. If your system does not (for example, a desktop workstation), installing the <a class="reference internal" href="../ack.html"><span class="std std-doc">Active Cooling Kit</span></a> is <strong>required</strong>. If the card isn’t sufficiently cooled, performance will be substantially reduced to stay in a safe operating temperature range and you risk damage to the card.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Specification</p></th>
+<th class="head"><p>e75</p></th>
+<th class="head"><p>e150</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Part Number</p></td>
+<td><p>TC-01001</p></td>
+<td><p>TC-01002</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tensix Cores</p></td>
+<td><p>96</p></td>
+<td><p>120</p></td>
+</tr>
+<tr class="row-even"><td><p>AI Clock</p></td>
+<td><p>1 GHz</p></td>
+<td><p>1.2 GHz</p></td>
+</tr>
+<tr class="row-odd"><td><p>SRAM</p></td>
+<td><p>96MB</p></td>
+<td><p>120MB</p></td>
+</tr>
+<tr class="row-even"><td><p>Memory</p></td>
+<td><p>8GB LPDDR4</p></td>
+<td><p>8GB LPDDR4</p></td>
+</tr>
+<tr class="row-odd"><td><p>Memory Speed</p></td>
+<td><p>3.2 GT/sec</p></td>
+<td><p>3.7 GT/sec</p></td>
+</tr>
+<tr class="row-even"><td><p>Memory Bandwidth</p></td>
+<td><p>102 GB/sec</p></td>
+<td><p>118 GB/sec</p></td>
+</tr>
+<tr class="row-odd"><td><p>TeraFLOPs (FP8)</p></td>
+<td><p>221</p></td>
+<td><p>332</p></td>
+</tr>
+<tr class="row-even"><td><p>TeraFLOPs (FP16)</p></td>
+<td><p>55</p></td>
+<td><p>83</p></td>
+</tr>
+<tr class="row-odd"><td><p>TeraFLOPs (BFP8)</p></td>
+<td><p>55</p></td>
+<td><p>83</p></td>
+</tr>
+<tr class="row-even"><td><p>TBP (Total Board Power)</p></td>
+<td><p>75W</p></td>
+<td><p>200W</p></td>
+</tr>
+<tr class="row-odd"><td><p>External Power</p></td>
+<td><p>1x 6-pin PCIe <em>(required for powering fan)</em></p></td>
+<td><p>1x 6+2-pin PCIe<br />1x 6-pin PCIe</p></td>
+</tr>
+<tr class="row-even"><td><p>System Interface</p></td>
+<td><p>PCI Express 4.0 x16</p></td>
+<td><p>PCI Express 4.0 x16</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cooling</p></td>
+<td><p>Active <em>(blower fan pre-installed)</em></p></td>
+<td><p>Passive <em>(Active Cooling Kit sold separately)</em></p></td>
+</tr>
+<tr class="row-even"><td><p>Dimensions (w/o Cooling Kit) (WxDxH)</p></td>
+<td><p>18mm x 167.5mm x 69mm</p></td>
+<td><p>36mm x 259.8mm x 111.25mm</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dimensions (w/ Cooling Kit) (WxDxH)</p></td>
+<td><p>18mm x 257mm x 98mm</p></td>
+<td><p>36mm x 399mm x 114mm</p></td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" src="../../_images/e150_dimensions.png" /></p>
+<p><em>e150 without Active Cooling Kit</em></p>
+</section>
+<section id="data-precision-formats">
+<h2>Data Precision Formats<a class="headerlink" href="#data-precision-formats" title="Permalink to this heading"></a></h2>
+<p>The e75/e150 support the following data precision formats:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Format</p></th>
+<th class="head"><p>Bit Depth</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Floating point</p></td>
+<td><p>FP8, FP16, BF16</p></td>
+</tr>
+<tr class="row-odd"><td><p>Block floating point</p></td>
+<td><p>BFP2, BFP4, BFP8</p></td>
+</tr>
+<tr class="row-even"><td><p>Vector</p></td>
+<td><p>VTF19</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="minimum-system-requirements">
+<h2>Minimum System Requirements<a class="headerlink" href="#minimum-system-requirements" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Part</p></th>
+<th class="head"><p>Requirement</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CPU</p></td>
+<td><p>x86_64 architecture*</p></td>
+</tr>
+<tr class="row-odd"><td><p>Motherboard</p></td>
+<td><p>PCI Express 4.0 x16 slot<br />- Single-slot-width (e75)<br />- Dual-slot-width (e150)</p></td>
+</tr>
+<tr class="row-even"><td><p>Memory</p></td>
+<td><p>64 GB</p></td>
+</tr>
+<tr class="row-odd"><td><p>Storage</p></td>
+<td><p>100 GB (≥2TB recommended)</p></td>
+</tr>
+<tr class="row-even"><td><p>Power Connectors</p></td>
+<td><p>PCIe 6-pin (e75)<br />PCIe 6+2-pin and PCIe 6-pin (e150)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Total Board Power</p></td>
+<td><p>Up to 75W (e75) / 200W (e150)</p></td>
+</tr>
+<tr class="row-even"><td><p>Operating Temperature Range (Die)</p></td>
+<td><p>0C - 75C</p></td>
+</tr>
+<tr class="row-odd"><td><p>Operating System</p></td>
+<td><p>Ubuntu version 20.04 (Focal Fossa) **</p></td>
+</tr>
+<tr class="row-even"><td><p>Internet Connection</p></td>
+<td><p>Required for driver and stack installation.</p></td>
+</tr>
+</tbody>
+</table>
+<p>** CPU core count and number of sockets will depend on the amount of host preprocessing and post-processing required before and after the accelerator processing.*</p>
+<p>**<em>To check your version, type</em> <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/etc/os-release</span></code>.</p>
+</section>
+<section id="environment-specifications">
+<h2>Environment Specifications<a class="headerlink" href="#environment-specifications" title="Permalink to this heading"></a></h2>
+<p>The Grayskull™ e75 and e150 Tensix Processor add-in boards are designed to meet these environmental specifications:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Specification</p></th>
+<th class="head"><p>Requirement</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Operating Temperature Range</p></td>
+<td><p>10°C/50°F - 35°C/95°F</p></td>
+</tr>
+<tr class="row-odd"><td><p>Storage Temperature Range</p></td>
+<td><p>-40°C/-40°F - 75°C/167°F</p></td>
+</tr>
+<tr class="row-even"><td><p>Elevation</p></td>
+<td><p>-5 ft. to 10,000 ft.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Air Flow (without Active Cooling Kit)</p></td>
+<td><p>≥30 CFM &#64; up to 35°C/95°F</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Tenstorrent.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>T7000 4U Workstation &mdash; Tenstorrent 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/tt_theme.css?v=ea036265" />
+
+  
+    <link rel="shortcut icon" href="../../_static/cropped-favicon-32x32.png"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=359c27e9"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Specifications and Requirements" href="specifications.html" />
+    <link rel="prev" title="Support" href="../t1000/support.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+<a href="https://tenstorrent.github.io/docs-test/core/latest/">
+    <img src="../../_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+
+<a href="../../index.html">
+    Tenstorrent
+</a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Add-in Boards</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../aibs/grayskull/README.html">Grayskull™ e75/e150 Tensix Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../aibs/wormhole/README.html">Wormhole™ n150s/n300s Tensix Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../aibs/ack.html">Active Cooling Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../aibs/warp100.html">Warp 100 Bridge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../aibs/compliance.html">Compliance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Systems</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">TT-QuietBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html#tt-loudbox">TT-LoudBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html#t1000">T1000</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html#t7000">T7000</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">T7000 4U Workstation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specifications.html">Specifications and Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="support.html">Support</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://tenstorrent.github.io/docs-test/syseng/latest/index.html">Software/Utilities</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://tenstorrent.github.io/docs-test/pybuda/latest/index.html">TT-Buda</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://tenstorrent.github.io/docs-test/tt-metalium/latest/index.html">TT-Metalium</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://tenstorrent.github.io/docs-test/ttnn/latest/index.html">TT-NN</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../support/README.html">Support &amp; FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Tenstorrent</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">TT-QuietBox</a></li>
+      <li class="breadcrumb-item active">T7000 4U Workstation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/systems/t7000/README.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="t7000-4u-workstation">
+<h1>T7000 4U Workstation<a class="headerlink" href="#t7000-4u-workstation" title="Permalink to this heading"></a></h1>
+<p>This section outlines the specifications, requirements, and initial set-up for the Tenstorrent T7000 4U Workstation.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="specifications.html"><span class="std std-doc">Specifications and Requirements</span></a></p></li>
+<li><p><a class="reference external" href="https://tenstorrent.github.io/docs-test/syseng/latest/softwaresetup.html">Software Setup</a></p></li>
+<li><p><a class="reference internal" href="support.html"><span class="std std-doc">Support</span></a></p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../t1000/support.html" class="btn btn-neutral float-left" title="Support" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="specifications.html" class="btn btn-neutral float-right" title="Specifications and Requirements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Tenstorrent.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

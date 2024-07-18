@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PyBuda Training Pipeline &mdash; TT Buda  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/tt_theme.css?v=ea036265" />
+
+  
+    <link rel="shortcut icon" href="../_static/cropped-favicon-32x32.png"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+<a href="https://tenstorrent.github.io/docs-test/core/latest/">
+    <img src="../_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+
+<a href="../toc.html">
+    TT Buda
+</a>
+    <div class="version">
+      latest
+    </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_user_guide.html">Advanced User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataformats.html">Data Formats and Math Fidelity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer.html">Developer Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hardware.html">Hardware Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Introduction to PyBuda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html#index">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">TT-BUDA Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terminology.html">Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../toc.html">TT Buda</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../toc.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">PyBuda Training Pipeline</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/pybuda/training.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pybuda-training-pipeline">
+<h1>PyBuda Training Pipeline<a class="headerlink" href="#pybuda-training-pipeline" title="Permalink to this heading"></a></h1>
+<p>Below is the minimum training pipeline example with a single Grayskull device running a PyBuda module, followed
+by a CPU device calculating the loss and backpropagating it to Grayskull.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pybuda</span>
+<span class="kn">import</span> <span class="nn">pybuda.op</span>
+<span class="kn">from</span> <span class="nn">pybuda</span> <span class="kn">import</span> <span class="n">PyBudaModule</span>
+
+<span class="c1"># Create a simple matmul module</span>
+<span class="k">class</span> <span class="nc">BudaLinear</span><span class="p">(</span><span class="n">PyBudaModule</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="n">pybuda</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">act</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">pybuda</span><span class="o">.</span><span class="n">op</span><span class="o">.</span><span class="n">Matmul</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;matmul&quot;</span><span class="p">,</span> <span class="n">act</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">)</span>
+
+<span class="c1"># Create a device and model, and place it</span>
+<span class="n">tt0</span> <span class="o">=</span> <span class="n">TTDevice</span><span class="p">(</span><span class="s2">&quot;tt0&quot;</span><span class="p">,</span> <span class="n">devtype</span><span class="o">=</span><span class="n">devtype</span><span class="p">)</span>
+<span class="n">matmul0</span> <span class="o">=</span> <span class="n">BudaLinear</span><span class="p">(</span><span class="s2">&quot;matmul0&quot;</span><span class="p">)</span>
+<span class="n">tt0</span><span class="o">.</span><span class="n">place_module</span><span class="p">(</span><span class="n">matmul0</span><span class="p">)</span>
+
+<span class="n">act_dim</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+<span class="n">act</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="o">*</span><span class="n">act_dim</span><span class="p">)</span><span class="o">.</span><span class="n">half</span><span class="p">()</span>
+<span class="n">weight</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="o">*</span><span class="n">act_dim</span><span class="p">)</span><span class="o">.</span><span class="n">half</span><span class="p">()</span>
+<span class="n">matmul0</span><span class="o">.</span><span class="n">set_parameter</span><span class="p">(</span><span class="s2">&quot;weights&quot;</span><span class="p">,</span>  <span class="n">weight</span><span class="p">)</span>
+
+<span class="c1"># Add a CPU device to calculate loss</span>
+<span class="n">cpu</span> <span class="o">=</span> <span class="n">CPUDevice</span><span class="p">(</span><span class="s2">&quot;cpu0&quot;</span><span class="p">,</span> <span class="n">optimizer_f</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">scheduler_f</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">identity</span> <span class="o">=</span> <span class="n">PyTorchModule</span><span class="p">(</span><span class="s2">&quot;matmul0&quot;</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Identity</span><span class="p">()</span><span class="o">.</span><span class="n">half</span><span class="p">())</span>
+<span class="n">cpu</span><span class="o">.</span><span class="n">place_module</span><span class="p">(</span><span class="n">identity</span><span class="p">)</span>
+<span class="n">loss_module</span> <span class="o">=</span> <span class="n">PyTorchModule</span><span class="p">(</span><span class="s2">&quot;l1loss&quot;</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">L1Loss</span><span class="p">())</span>
+<span class="n">cpu</span><span class="o">.</span><span class="n">place_loss_module</span><span class="p">(</span><span class="n">loss_module</span><span class="p">)</span>
+
+<span class="c1"># Create a random target, and push to target queue</span>
+<span class="n">target</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span><span class="o">.</span><span class="n">half</span><span class="p">()</span>
+<span class="n">cpu</span><span class="o">.</span><span class="n">push_to_target_inputs</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+
+<span class="c1"># Push inputs, and run</span>
+<span class="n">tt0</span><span class="o">.</span><span class="n">push_to_inputs</span><span class="p">(</span><span class="n">act</span><span class="p">)</span>
+<span class="n">pybuda</span><span class="o">.</span><span class="n">run_training</span><span class="p">(</span><span class="n">epochs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">accumulation_steps</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">micro_batch_count</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The first part of the code is similar to the <a class="reference internal" href="first_model.html"><span class="std std-doc">Hello World</span></a> inference example - a PyBuda module
+is defined and placed onto a Grayskull device.</p>
+<p>At the moment, PyBuda modules cannot calculate final loss on device. So, we’re going to create a CPU device and
+assign an L1Loss module to it. By default, PyBuda will run devices in a pipeline in the order that they were created. An
+<code class="docutils literal notranslate"><span class="pre">API</span></code> exists to explicitly set this order, if needed.</p>
+<p>Then, some target value is needed by the training pipeline to calculate the loss, and the final device will
+contain a target queue that we can push target data into. We push a random value in this example.</p>
+<p>Finally, an input can be pushed into the first device, and training can be started with run_training. Run training
+takes a number of parameters to specify loop counts for epochs, batches, and so on, which are further described in the
+API reference for <a class="reference internal" href="../api.html#pybuda.run_training"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">pybuda.run_training()</span></code></span></a>.</p>
+<p>When training is done, PyBuda will automatically shut down all processes and devices. However, a keep_alive flag is
+available to keep everything ready for another call, so it is possible to call run_training multiple times, with
+different parameters.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Tenstorrent.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        Version: latest
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        
+        <dl>
+            <dt>Versions</dt>
+            
+            <dd><a href="https://tenstorrent.github.io/docs-test/pybuda/latest/index.html">latest</a></dd>
+            
+        </dl>
+        
+        <br>
+        </dl>
+    </div>
+</div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

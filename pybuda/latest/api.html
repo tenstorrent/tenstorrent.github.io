@@ -1,0 +1,2404 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Reference &mdash; TT Buda  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/tt_theme.css?v=ea036265" />
+
+  
+    <link rel="shortcut icon" href="_static/cropped-favicon-32x32.png"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=b3ba4146"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Data Formats and Math Fidelity" href="dataformats.html" />
+    <link rel="prev" title="Advanced User Guide" href="advanced_user_guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+<a href="https://tenstorrent.github.io/docs-test/core/latest/">
+    <img src="_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+
+<a href="toc.html">
+    TT Buda
+</a>
+    <div class="version">
+      latest
+    </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="advanced_user_guide.html">Advanced User Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#python-runtime-api">Python Runtime API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#run-inference-module-pybudamodule-none-none-inputs-list-tuple-tensor-tensor-dict-str-tensor-tensor-input-count-int-1-output-queue-queue-none-none-sequential-bool-false-perf-trace-bool-false-verify-cfg-verifyconfig-none-none">run_inference(module: <span class="xref myst">PyBudaModule</span> | None = None, inputs: List[Tuple[Tensor | Tensor, …] | Dict[str, Tensor | Tensor]] = [], input_count: int = 1, output_queue: Queue | None = None, _sequential: bool = False, _perf_trace: bool = False, _verify_cfg: VerifyConfig | None = None)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-training-epochs-int-1-steps-int-1-accumulation-steps-int-1-microbatch-count-int-1-checkpoint-queue-queue-none-none-loss-queue-queue-none-none-checkpoint-interval-int-0-sequential-bool-false-perf-trace-bool-false-verify-cfg-verifyconfig-none-none">run_training(epochs: int = 1, steps: int = 1, accumulation_steps: int = 1, microbatch_count: int = 1, checkpoint_queue: Queue | None = None, loss_queue: Queue | None = None, checkpoint_interval: int = 0, _sequential: bool = False, _perf_trace: bool = False, _verify_cfg: VerifyConfig | None = None)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shutdown">shutdown()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#initialize-pipeline-training-bool-output-queue-queue-queue-none-none-checkpoint-queue-queue-queue-none-none-sample-inputs-typing-tuple-torch-tensor-pybuda-tensor-tensor-typing-dict-str-torch-tensor-pybuda-tensor-tensor-sample-targets-typing-tuple-torch-tensor-pybuda-tensor-tensor-microbatch-count-int-1-d2d-fwd-queues-typing-list-queue-queue-d2d-bwd-queues-typing-list-queue-queue-sequential-bool-false-verify-cfg-pybuda-verify-config-verifyconfig-none-none-device-mode-pybuda-c-backend-api-devicemode-devicemode-compileandrun-0">initialize_pipeline(training: bool, output_queue: ~queue.Queue | None = None, checkpoint_queue: ~queue.Queue | None = None, sample_inputs: ~typing.Tuple[~torch.Tensor | ~pybuda.tensor.Tensor, …] | ~typing.Dict[str, ~torch.Tensor | ~pybuda.tensor.Tensor] = (), sample_targets: ~typing.Tuple[~torch.Tensor | ~pybuda.tensor.Tensor, …] = (), microbatch_count: int = 1, d2d_fwd_queues: ~typing.List[~queue.Queue] = [], d2d_bwd_queues: ~typing.List[~queue.Queue] = [], _sequential: bool = False, _verify_cfg: ~pybuda.verify.config.VerifyConfig | None = None, _device_mode: ~pybuda._C.backend_api.DeviceMode = &lt;DeviceMode.CompileAndRun: 0&gt;)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-forward-input-count-int-1-sequential-bool-false">run_forward(input_count: int = 1, _sequential: bool = False)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-backward-input-count-int-1-zero-grad-bool-false-sequential-bool-false">run_backward(input_count: int = 1, zero_grad: bool = False, _sequential: bool = False)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-optimizer-checkpoint-bool-false-sequential-bool-false">run_optimizer(checkpoint: bool = False, _sequential: bool = False)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-parameter-checkpoint-device-cpudevice-ttdevice-none-none-sequential-bool-false">get_parameter_checkpoint(device: <span class="xref myst">CPUDevice</span> | <span class="xref myst">TTDevice</span> | None = None, _sequential: bool = False)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-parameter-gradients-device-cpudevice-ttdevice-none-none-sequential-bool-false">get_parameter_gradients(device: <span class="xref myst">CPUDevice</span> | <span class="xref myst">TTDevice</span> | None = None, _sequential: bool = False)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update-device-parameters-device-cpudevice-ttdevice-none-none-parameters-list-dict-str-tensor-sequential-bool-false">update_device_parameters(device: <span class="xref myst">CPUDevice</span> | <span class="xref myst">TTDevice</span> | None = None, parameters: List[Dict[str, Tensor]] = [], _sequential: bool = False)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#c-runtime-api">C++ Runtime API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-and-placement">Configuration and Placement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#set-configuration-options-enable-recompute-bool-none-none-balancer-policy-str-none-none-place-on-one-row-bool-none-none-enable-t-streaming-bool-none-none-manual-t-streaming-bool-none-none-enable-consteval-bool-none-none-default-df-override-dataformat-none-none-accumulate-df-dataformat-none-none-math-fidelity-mathfidelity-none-none-performance-trace-perftracelevel-none-none-backend-opt-level-int-none-none-backend-output-dir-str-none-none-backend-device-descriptor-path-str-none-none-backend-cluster-descriptor-path-str-none-none-backend-runtime-params-path-str-none-none-backend-runtime-args-str-none-none-enable-auto-fusing-bool-none-none-enable-conv-prestride-bool-none-none-enable-stable-softmax-bool-none-none-amp-level-int-none-none-harvested-rows-list-list-int-none-none-store-backend-db-to-yaml-bool-none-none-input-queues-on-host-bool-none-none-output-queues-on-host-bool-none-none-enable-auto-transposing-placement-bool-none-none-use-interactive-placer-bool-none-none-op-intermediates-to-save-list-str-none-none-enable-enumerate-u-kt-bool-none-none-enable-device-tilize-bool-none-none-dram-placement-algorithm-dramplacementalgorithm-none-none-chip-placement-policy-str-none-none-enable-forked-dram-inputs-bool-none-none-device-config-str-none-none">set_configuration_options(enable_recompute: bool | None = None, balancer_policy: str | None = None, place_on_one_row: bool | None = None, enable_t_streaming: bool | None = None, manual_t_streaming: bool | None = None, enable_consteval: bool | None = None, default_df_override: <span class="xref myst">DataFormat</span> | None = None, accumulate_df: <span class="xref myst">DataFormat</span> | None = None, math_fidelity: <span class="xref myst">MathFidelity</span> | None = None, performance_trace: PerfTraceLevel | None = None, backend_opt_level: int | None = None, backend_output_dir: str | None = None, backend_device_descriptor_path: str | None = None, backend_cluster_descriptor_path: str | None = None, backend_runtime_params_path: str | None = None, backend_runtime_args: str | None = None, enable_auto_fusing: bool | None = None, enable_conv_prestride: bool | None = None, enable_stable_softmax: bool | None = None, amp_level: int | None = None, harvested_rows: List[List[int]] | None = None, store_backend_db_to_yaml: bool | None = None, input_queues_on_host: bool | None = None, output_queues_on_host: bool | None = None, enable_auto_transposing_placement: bool | None = None, use_interactive_placer: bool | None = None, op_intermediates_to_save: List[str] | None = None, enable_enumerate_u_kt: bool | None = None, enable_device_tilize: bool | None = None, dram_placement_algorithm: DRAMPlacementAlgorithm | None = None, chip_placement_policy: str | None = None, enable_forked_dram_inputs: bool | None = None, device_config: str | None = None)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-epoch-break-op-names-str-nodepredicatebuilder-list-str-nodepredicatebuilder">set_epoch_break(op_names: str | NodePredicateBuilder | List[str | NodePredicateBuilder])</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-chip-break-op-names-str-nodepredicatebuilder-list-str-nodepredicatebuilder">set_chip_break(op_names: str | NodePredicateBuilder | List[str | NodePredicateBuilder])</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#override-op-size-op-name-str-grid-size-tuple-int-int">override_op_size(op_name: str, grid_size: Tuple[int, int])</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#detect-available-devices">detect_available_devices()</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#operations">Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#general">General</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matmul-name-str-operanda-tensor-operandb-tensor-parameter-bias-tensor-parameter-none-none">Matmul(name: str, operandA: Tensor, operandB: Tensor | Parameter, bias: Tensor | Parameter | None = None)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-name-str-operanda-tensor-operandb-tensor-parameter">Add(name: str, operandA: Tensor, operandB: Tensor | Parameter)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#subtract-name-str-operanda-tensor-operandb-tensor">Subtract(name: str, operandA: Tensor, operandB: Tensor)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multiply-name-str-operanda-tensor-operandb-tensor-parameter">Multiply(name: str, operandA: Tensor, operandB: Tensor | Parameter)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#identity-name-str-operanda-tensor-unsqueeze-str-none-none-unsqueeze-dim-int-none-none">Identity(name: str, operandA: Tensor, unsqueeze: str | None = None, unsqueeze_dim: int | None = None)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#buffer-name-str-operanda-tensor">Buffer(name: str, operandA: Tensor)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reducesum-name-str-operanda-tensor-dim-int">ReduceSum(name: str, operandA: Tensor, dim: int)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reduceavg-name-str-operanda-tensor-dim-int">ReduceAvg(name: str, operandA: Tensor, dim: int)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#constant-name-str-constant-float">Constant(name: str, *, constant: float)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transformations">Transformations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#heaviside-name-str-operanda-tensor-operandb-tensor-parameter">Heaviside(name: str, operandA: Tensor, operandB: Tensor | Parameter)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#binarystack-name-str-operanda-tensor-operandb-tensor-parameter-dim-int">BinaryStack(name: str, operandA: Tensor, operandB: Tensor | Parameter, dim: int)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hslice-name-str-operanda-tensor-slices-int">HSlice(name: str, operandA: Tensor, slices: int)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hstack-name-str-operanda-tensor-slices-int-1">HStack(name: str, operandA: Tensor, slices: int = -1)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vslice-name-str-operanda-tensor-slices-int">VSlice(name: str, operandA: Tensor, slices: int)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vstack-name-str-operanda-tensor-slices-int-1">VStack(name: str, operandA: Tensor, slices: int = -1)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reshape-name-str-operanda-tensor-shape-tuple-int">Reshape(name: str, operandA: Tensor, shape: Tuple[int, …])</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#index-name-str-operanda-tensor-dim-int-start-int-stop-int-none-none-stride-int-1">Index(name: str, operandA: Tensor, dim: int, start: int, stop: int | None = None, stride: int = 1)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#select-name-str-operanda-tensor-dim-int-index-int-tuple-int-int-stride-int-0">Select(name: str, operandA: Tensor, dim: int, index: int | Tuple[int, int], stride: int = 0)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pad-name-str-operanda-tensor-pad-tuple-int-int-int-int-tuple-int-int-mode-str-constant-channel-last-bool-false">Pad(name: str, operandA: Tensor, pad: Tuple[int, int, int, int] | Tuple[int, int], mode: str = ‘constant’, channel_last: bool = False)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#concatenate-name-str-operands-tensor-axis-int">Concatenate(name: str, *operands: Tensor, axis: int)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#activations">Activations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#relu-name-str-operanda-tensor-threshold-0-0-mode-min">Relu(name: str, operandA: Tensor, threshold=0.0, mode=’min’)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gelu-name-str-operanda-tensor-approximate-none">Gelu(name: str, operandA: Tensor, approximate=’none’)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sigmoid-name-str-operanda-tensor">Sigmoid(name: str, operandA: Tensor)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#math">Math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#max-name-str-operanda-tensor-operandb-tensor-parameter">Max(name: str, operandA: Tensor, operandB: Tensor | Parameter)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exp-name-str-operanda-tensor">Exp(name: str, operandA: Tensor)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reciprocal-name-str-operanda-tensor">Reciprocal(name: str, operandA: Tensor)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sqrt-name-str-operanda-tensor">Sqrt(name: str, operandA: Tensor)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#log-name-str-operanda-tensor">Log(name: str, operandA: Tensor)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#argmax-name-str-operanda-tensor-dim-int-none-none">Argmax(name: str, operandA: Tensor, dim: int | None = None)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#abs-name-str-operanda-tensor">Abs(name: str, operandA: Tensor)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clip-name-str-operanda-tensor-min-float-max-float">Clip(name: str, operandA: Tensor, min: float, max: float)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convolutions">Convolutions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#conv2d-name-str-activations-tensor-weights-tensor-parameter-bias-tensor-parameter-none-none-stride-int-1-padding-int-str-list-same-dilation-int-1-groups-int-1-channel-last-bool-false">Conv2d(name: str, activations: Tensor, weights: Tensor | Parameter, bias: Tensor | Parameter | None = None, stride: int = 1, padding: int | str | List = ‘same’, dilation: int = 1, groups: int = 1, channel_last: bool = False)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#conv2dtranspose-name-str-activations-tensor-weights-tensor-parameter-bias-tensor-parameter-none-none-stride-int-1-padding-int-str-same-dilation-int-1-groups-int-1-channel-last-bool-false">Conv2dTranspose(name: str, activations: Tensor, weights: Tensor | Parameter, bias: Tensor | Parameter | None = None, stride: int = 1, padding: int | str = ‘same’, dilation: int = 1, groups: int = 1, channel_last: bool = False)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#maxpool2d-name-str-activations-tensor-kernel-size-int-tuple-int-int-stride-int-1-padding-int-str-same-dilation-int-1-ceil-mode-bool-false-return-indices-bool-false-max-pool-add-sub-surround-bool-false-max-pool-add-sub-surround-value-float-1-0-channel-last-bool-false">MaxPool2d(name: str, activations: Tensor, kernel_size: int | Tuple[int, int], stride: int = 1, padding: int | str = ‘same’, dilation: int = 1, ceil_mode: bool = False, return_indices: bool = False, max_pool_add_sub_surround: bool = False, max_pool_add_sub_surround_value: float = 1.0, channel_last: bool = False)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#avgpool2d-name-str-activations-tensor-kernel-size-int-tuple-int-int-stride-int-1-padding-int-str-same-ceil-mode-bool-false-count-include-pad-bool-true-divisor-override-float-none-none-channel-last-bool-false">AvgPool2d(name: str, activations: Tensor, kernel_size: int | Tuple[int, int], stride: int = 1, padding: int | str = ‘same’, ceil_mode: bool = False, count_include_pad: bool = True, divisor_override: float | None = None, channel_last: bool = False)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nn">NN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#softmax-name-str-operanda-tensor-dim-int-stable-bool-true">Softmax(name: str, operandA: Tensor, *, dim: int, stable: bool = True)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#layernorm-name-str-operanda-tensor-weights-tensor-parameter-bias-tensor-parameter-dim-int-1-epsilon-float-1e-05">Layernorm(name: str, operandA: Tensor, weights: Tensor | Parameter, bias: Tensor | Parameter, dim: int = -1, epsilon: float = 1e-05)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-types">Module Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#class-module-name-str"><em>class</em> Module(name: str)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#get-device">get_device()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-name">get_name()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-args">run(*args)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#class-pytorchmodule-name-str-module-module-redirect-forward-bool-true"><em>class</em> PyTorchModule(name: str, module: Module, redirect_forward: bool = True)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#forward-args-kwargs">forward(*args, **kwargs)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#backward-args">backward(*args)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-parameter-name-str-parameter-parameter">add_parameter(name: str, parameter: Parameter)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#set-parameters-kwargs">set_parameters(**kwargs)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-parameters">get_parameters()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#class-tfmodule-name-str-module-model"><em>class</em> TFModule(name: str, module: Model)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">forward(*args, **kwargs)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#call-args-kwargs">call(*args, **kwargs)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">backward(*args)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#class-onnxmodule-name-str-module-modelproto-onnx-path-str"><em>class</em> OnnxModule(name: str, module: ModelProto, onnx_path: str)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#class-pybudamodule-name-str"><em>class</em> PyBudaModule(name: str)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pre-forward-args-kwargs">pre_forward(*args, **kwargs)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-parameter-name-str-parameter-parameter-prepend-name-bool-false">add_parameter(name: str, parameter: Parameter, prepend_name: bool = False)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-constant-name-str-prepend-name-bool-false-shape-tuple-int-none-none">add_constant(name: str, prepend_name: bool = False, shape: Tuple[int] | None = None)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-constant-name">get_constant(name)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#set-constant-name-str-data-tensor-tensor-ndarray">set_constant(name: str, data: Tensor | Tensor | ndarray)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-parameter-name">get_parameter(name)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-parameters-submodules-bool-true">get_parameters(submodules: bool = True)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#set-parameter-name-str-data-tensor-tensor-ndarray">set_parameter(name: str, data: Tensor | Tensor | ndarray)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#load-parameter-dict-data-dict-str-tensor-tensor-ndarray">load_parameter_dict(data: Dict[str, Tensor | Tensor | ndarray])</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#insert-tapout-queue-for-op-op-name-str-output-index-int">insert_tapout_queue_for_op(op_name: str, output_index: int)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#device-types">Device Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#class-device-name-str-mp-context-none"><em>class</em> Device(name: str, mp_context=None)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#place-module-module-module-tuple-module-list-module">place_module(module: <span class="xref myst">Module</span> | Tuple[<span class="xref myst">Module</span>] | List[<span class="xref myst">Module</span>])</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#place-loss-module-module-module">place_loss_module(module: <span class="xref myst">Module</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#remove-loss-module">remove_loss_module()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#push-to-inputs-tensors-tuple-tensor-tensor-dict-str-tensor-tensor">push_to_inputs(*tensors: Tuple[Tensor | Tensor, …] | Dict[str, Tensor | Tensor])</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#push-to-target-inputs-tensors">push_to_target_inputs(*tensors)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#push-to-command-queue-cmd">push_to_command_queue(cmd)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-command-queue-response">get_command_queue_response()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-next-command-command-queue-queue">get_next_command(command_queue: Queue)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-next-command-cmd-command">run_next_command(cmd: Command)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dc-transfer-thread-direction-str-direction-queue-queue">dc_transfer_thread(direction: str, direction_queue: Queue)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dc-transfer-direction-str">dc_transfer(direction: str)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-output-dir-str">run(output_dir: str)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compile-for-training-bool-microbatch-size-int-0-microbatch-count-int-1">compile_for(training: bool, microbatch_size: int = 0, microbatch_count: int = 1)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-first-targets">get_first_targets()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-first-inputs-peek-false">get_first_inputs(peek=False)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shutdown-device">shutdown_device()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cpueval-backward-bw-inputs-list-tensor-parameters-dict-str-tensor">cpueval_backward(bw_inputs: List[Tensor], parameters: Dict[str, Tensor])</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generate-loop-count-int-write-index-int">generate(loop_count: int, write_index: int)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#forward-loop-count-int">forward(loop_count: int)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#backward-loop-count-int-zero-grad-bool">backward(loop_count: int, zero_grad: bool)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#class-cpudevice-name-str-optimizer-f-callable-none-none-scheduler-f-callable-none-none-mp-context-none-retain-backward-graph-false-module-pytorchmodule-list-pytorchmodule-none-none-input-dtypes-list-dtype-none-none"><em>class</em> CPUDevice(name: str, optimizer_f: Callable | None = None, scheduler_f: Callable | None = None, mp_context=None, retain_backward_graph=False, module: <span class="xref myst">PyTorchModule</span> | List[<span class="xref myst">PyTorchModule</span>] | None = None, input_dtypes: List[dtype] | None = None)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#forward-pt-loop-count-int">forward_pt(loop_count: int)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#forward-tf-loop-count-int">forward_tf(loop_count: int)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">forward(loop_count: int)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">backward(loop_count: int, zero_grad: bool)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">generate(loop_count: int, write_index: int)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compile-for-pt-inputs-tuple-tensor-compiler-cfg-compilerconfig-targets-list-tensor-microbatch-size-int-0-microbatch-count-int-1-verify-cfg-verifyconfig-none-none">compile_for_pt(inputs: Tuple[Tensor, …], compiler_cfg: CompilerConfig, targets: List[Tensor] = [], microbatch_size: int = 0, microbatch_count: int = 1, verify_cfg: VerifyConfig | None = None)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compile-for-tf-inputs-tuple-tensor-compiler-cfg-compilerconfig-targets-list-tensor-microbatch-size-int-0-verify-cfg-verifyconfig-none-none">compile_for_tf(inputs: Tuple[Tensor, …], compiler_cfg: CompilerConfig, targets: List[Tensor] = [], microbatch_size: int = 0, verify_cfg: VerifyConfig | None = None)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compile-for-inputs-tuple-tensor-compiler-cfg-compilerconfig-targets-list-tensor-microbatch-size-int-0-microbatch-count-int-1-verify-cfg-verifyconfig-none-none">compile_for(inputs: Tuple[Tensor, …], compiler_cfg: CompilerConfig, targets: List[Tensor] = [], microbatch_size: int = 0, microbatch_count: int = 1, verify_cfg: VerifyConfig | None = None)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cpueval-forward-pt-inputs-list-tensor-parameters-dict-str-tensor-save-for-backward-bool-targets-list-tensor">cpueval_forward_pt(inputs: List[Tensor], parameters: Dict[str, Tensor], save_for_backward: bool, targets: List[Tensor] = [])</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cpueval-forward-tf-inputs-list-tensor-parameters-dict-str-tensor-save-for-backward-bool-targets-list-tensor">cpueval_forward_tf(inputs: List[Tensor], parameters: Dict[str, Tensor], save_for_backward: bool, targets: List[Tensor] = [])</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cpueval-forward-inputs-list-tensor-parameters-dict-str-tensor-save-for-backward-bool-targets-list-tensor">cpueval_forward(inputs: List[Tensor], parameters: Dict[str, Tensor], save_for_backward: bool, targets: List[Tensor] = [])</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">cpueval_backward(bw_inputs: List[Tensor], parameters: Dict[str, Tensor])</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">place_module(module: <span class="xref myst">Module</span> | Tuple[<span class="xref myst">Module</span>] | List[<span class="xref myst">Module</span>])</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pop-parameter-checkpoint">pop_parameter_checkpoint()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#set-debug-gradient-trace-queue-q-queue">set_debug_gradient_trace_queue(q: Queue)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sync">sync()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#class-ttdevice-name-str-num-chips-int-none-none-chip-ids-typing-list-int-typing-list-typing-tuple-int-none-none-arch-pybuda-c-backend-api-backenddevice-none-none-devtype-pybuda-c-backend-api-backendtype-none-none-device-mode-pybuda-c-backend-api-devicemode-none-none-optimizer-pybuda-optimizers-optimizer-none-none-scheduler-pybuda-schedulers-learningratescheduler-none-none-fp32-fallback-pybuda-c-dataformat-dataformat-float16-b-5-mp-context-none-module-pybuda-module-module-typing-list-pybuda-module-module-none-none"><em>class</em> TTDevice(name: str, num_chips: int | None = None, chip_ids: ~typing.List[int] | ~typing.List[~typing.Tuple[int]] | None = None, arch: ~pybuda._C.backend_api.BackendDevice | None = None, devtype: ~pybuda._C.backend_api.BackendType | None = None, device_mode: ~pybuda._C.backend_api.DeviceMode | None = None, optimizer: ~pybuda.optimizers.Optimizer | None = None, scheduler: ~pybuda.schedulers.LearningRateScheduler | None = None, fp32_fallback: ~pybuda._C.DataFormat = &lt;DataFormat.Float16_b: 5&gt;, mp_context=None, module: ~pybuda.module.Module | ~typing.List[~pybuda.module.Module] | None = None)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#get-device-config-compiler-cfg-none">get_device_config(compiler_cfg=None)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">place_module(module: <span class="xref myst">Module</span> | Tuple[<span class="xref myst">Module</span>] | List[<span class="xref myst">Module</span>])</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#remove-modules">remove_modules()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#set-active-subgraph-subgraph-index-int">set_active_subgraph(subgraph_index: int)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-active-subgraph">get_active_subgraph()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generate-graph-inputs-tensor-target-tensors-list-tensor-return-intermediate-bool-false-graph-name-str-default-graph-compiler-cfg-compilerconfig-none-none-trace-only-bool-false-verify-cfg-verifyconfig-none-none">generate_graph(*inputs: Tensor, target_tensors: List[Tensor] = [], return_intermediate: bool = False, graph_name: str = ‘default_graph’, compiler_cfg: CompilerConfig | None = None, trace_only: bool = False, verify_cfg: VerifyConfig | None = None)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">compile_for(inputs: Tuple[Tensor, …], compiler_cfg: CompilerConfig, targets: List[Tensor] = [], microbatch_size: int = 0, microbatch_count: int = 1, verify_cfg: VerifyConfig | None = None)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">forward(loop_count: int)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generate-loop-count-int-write-index-int-tokens-per-iter-int-token-id-int">generate(loop_count: int, write_index: int, tokens_per_iter: int, token_id: int)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">cpueval_forward(inputs: List[Tensor], parameters: Dict[str, Tensor], save_for_backward: bool, targets: List[Tensor] = [])</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">backward(loop_count: int, zero_grad: bool)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-parameter-checkpoint">get_parameter_checkpoint()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-all-parameters">get_all_parameters()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-parameter-gradients">get_parameter_gradients()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-parameters-ignore-unused-parameters-bool-true">get_parameters(ignore_unused_parameters: bool = True)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-optimizer-params-is-buda-bool">get_optimizer_params(is_buda: bool)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-scheduler-params-is-buda-bool">get_scheduler_params(is_buda: bool)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-dram-io-queues-queue-type-str">get_dram_io_queues(queue_type: str)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">shutdown_device()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">sync()</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#miscellaneous">Miscellaneous</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#class-dataformat"><em>class</em> DataFormat</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#from-json-self-str">from_json(self: str)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#property-name"><em>property</em> name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#to-json-self-pybuda-c-dataformat">to_json(self: <span class="xref myst">pybuda._C.DataFormat</span>)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#class-mathfidelity"><em>class</em> MathFidelity</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id15">from_json(self: str)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16"><em>property</em> name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#to-json-self-pybuda-c-mathfidelity">to_json(self: <span class="xref myst">pybuda._C.MathFidelity</span>)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dataformats.html">Data Formats and Math Fidelity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer.html">Developer Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Hardware Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Introduction to PyBuda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#index">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">TT-BUDA Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terminology.html">Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide.html">User Guide</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="toc.html">TT Buda</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="toc.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API Reference</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/api.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this heading"></a></h1>
+<section id="python-runtime-api">
+<h2>Python Runtime API<a class="headerlink" href="#python-runtime-api" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><a class="reference internal" href="#pybuda.run_inference"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">run_inference</span></code></span></a>([module, inputs, input_count, …])</p></th>
+<th class="head"><p>Main “run” function for inference.</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#pybuda.run_training"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">run_training</span></code></span></a>([epochs, steps, …])</p></td>
+<td><p>Main “run” function for training.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pybuda.initialize_pipeline"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">initialize_pipeline</span></code></span></a>(training[, …])</p></td>
+<td><p>Initialize the pipeline to run inference and training through manual run_forward, run_backward, run_optimizer, etc.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pybuda.run_forward"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">run_forward</span></code></span></a>([input_count, _sequential])</p></td>
+<td><p>Run forward passes on the pre-compiled and initialized pipeline of devices.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pybuda.run_backward"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">run_backward</span></code></span></a>([input_count, zero_grad, …])</p></td>
+<td><p>Run backward passes on the pre-compiled and initialized pipeline of devices.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pybuda.run_optimizer"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">run_optimizer</span></code></span></a>([checkpoint, _sequential])</p></td>
+<td><p>Run optimizer on all devices.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pybuda.get_parameter_checkpoint"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">get_parameter_checkpoint</span></code></span></a>([device, _sequential])</p></td>
+<td><p>Return current parameter values.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pybuda.get_parameter_gradients"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">get_parameter_gradients</span></code></span></a>([device, _sequential])</p></td>
+<td><p>Return currently accumulated parameter gradients.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pybuda.update_device_parameters"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">update_device_parameters</span></code></span></a>([device, …])</p></td>
+<td><p>Push new parameters onto given device, or if none is provided, then all devices in the pipeline.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pybuda.shutdown"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">shutdown</span></code></span></a>()</p></td>
+<td><p>Shutdown running processes and clean up pybuda</p></td>
+</tr>
+</tbody>
+</table>
+<p><a id="module-0"></a></p>
+<section id="run-inference-module-pybudamodule-none-none-inputs-list-tuple-tensor-tensor-dict-str-tensor-tensor-input-count-int-1-output-queue-queue-none-none-sequential-bool-false-perf-trace-bool-false-verify-cfg-verifyconfig-none-none">
+<h3>run_inference(module: <a class="reference internal" href="#pybuda.PyBudaModule"><span class="xref myst">PyBudaModule</span></a> | None = None, inputs: List[Tuple[Tensor | Tensor, …] | Dict[str, Tensor | Tensor]] = [], input_count: int = 1, output_queue: Queue | None = None, _sequential: bool = False, _perf_trace: bool = False, _verify_cfg: VerifyConfig | None = None)<a class="headerlink" href="#run-inference-module-pybudamodule-none-none-inputs-list-tuple-tensor-tensor-dict-str-tensor-tensor-input-count-int-1-output-queue-queue-none-none-sequential-bool-false-perf-trace-bool-false-verify-cfg-verifyconfig-none-none" title="Permalink to this heading"></a></h3>
+<p>Main “run” function for inference. After all modules have been defined and placed on devices, this will
+execute the workload. Unless ‘sequential’ is set, the function will return as soon as the devices are set up
+to run, and inference will run as long as new inputs are pushed into the device(s). If sequential mode is on,
+the function will run through inputs that are already in the input buffer and return when done.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>module</strong> (<a class="reference internal" href="#pybuda.PyBudaModule"><span class="xref myst"><em>PyBudaModule</em></span></a> <em>,</em> <em>optional</em>) – If provided, place given module on a TT Device and run inference. Alternatively, manually create device(s) and
+placed module(s) on them.</p></li>
+<li><p><strong>inputs</strong> (<em>List</em> *[*<em>Union</em> *[*<em>Tuple</em> *[*<em>Union</em> *[*<em>torch.Tensor</em> <em>,</em> <em>Tensor</em> <em>]</em> <em>,</em>  <em>…</em> <em>]</em> <em>,</em> <em>Dict</em> *[*<em>str</em> <em>,</em> <em>Union</em> *[*<em>torch.Tensor</em> <em>,</em> <em>Tensor</em> <em>]</em> <em>]</em> <em>]</em> <em>]</em> <em>,</em> <em>optional</em>) – An optional list of input tensor tuples or dictionaries (passed as args or kwargs to module), to feed into the inference pipeline.
+Alternatively, use device.push_to_inputs to manually provide inputs outside of this call.</p></li>
+<li><p><strong>input_count</strong> (<em>int</em> <em>,</em> <em>default=1</em>) – The number of inputs to run inference on. If 0, inference will run “forever”, until shutdown or run_inference
+is called again.</p></li>
+<li><p><strong>output_queue</strong> (<em>queue.Queue</em> <em>,</em> <em>optional</em>) – If provided, outputs will be pushed into the queue as they are calculated. Otherwise, one will be created
+and returned.</p></li>
+<li><p><strong>_sequential</strong> (<em>bool</em> <em>,</em> <em>Internal</em>) – Don’t use.</p></li>
+<li><p><strong>_perf_trace</strong> (<em>bool</em> <em>,</em> <em>Internal</em>) – Don’t use.</p></li>
+<li><p><strong>_verify_cfg</strong> (<em>Internal</em>) – Don’t use.</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Queue holding the output results. Either the output_queue provided, or one that’s created.</p></li>
+<li><p><strong>Return type:</strong>
+queue.Queue</p></li>
+</ul>
+</section>
+<section id="run-training-epochs-int-1-steps-int-1-accumulation-steps-int-1-microbatch-count-int-1-checkpoint-queue-queue-none-none-loss-queue-queue-none-none-checkpoint-interval-int-0-sequential-bool-false-perf-trace-bool-false-verify-cfg-verifyconfig-none-none">
+<h3>run_training(epochs: int = 1, steps: int = 1, accumulation_steps: int = 1, microbatch_count: int = 1, checkpoint_queue: Queue | None = None, loss_queue: Queue | None = None, checkpoint_interval: int = 0, _sequential: bool = False, _perf_trace: bool = False, _verify_cfg: VerifyConfig | None = None)<a class="headerlink" href="#run-training-epochs-int-1-steps-int-1-accumulation-steps-int-1-microbatch-count-int-1-checkpoint-queue-queue-none-none-loss-queue-queue-none-none-checkpoint-interval-int-0-sequential-bool-false-perf-trace-bool-false-verify-cfg-verifyconfig-none-none" title="Permalink to this heading"></a></h3>
+<p>Main “run” function for training. After all modules have been defined and placed on devices, this will
+execute the workload.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>epochs</strong> (<em>int</em>) – The number of epoch to run. Scheduler, if provided, will be stepped after each one.</p></li>
+<li><p><strong>steps</strong> (<em>int</em>) – The number of batches to run. After every step, the optimizer will be stepped.</p></li>
+<li><p><strong>accumulation_steps</strong> (<em>int</em>) – The number of mini-batches in a batch. Each mini-batch is limited in size by how much of the
+intermediate data can fit in device memory.</p></li>
+<li><p><strong>microbatch_count</strong> (<em>int</em>) – Each mini-batch is optionally further broken into micro-batches. This is necessary to fill a
+multi-device pipeline, and should be roughly 4-6x the number of devices in the pipeline for ideal
+performance.</p></li>
+<li><p><strong>checkpoint_queue</strong> (<em>Queue</em> <em>,</em> <em>optional</em>) – If provided, weight checkpoints will be pushed into this queue, along with the final set of weights.
+If one is not provided, one will be created and returned.</p></li>
+<li><p><strong>loss_queue</strong> (<em>Queue</em> <em>,</em> <em>optional</em>) – If provided, loss values will be pushed into this queeu.</p></li>
+<li><p><strong>checkpoint_interval</strong> (<em>int</em> <em>,</em> <em>optional</em>) – The weights will be checkpointed into checkpoint queues on host every checkpoint_interval optimizer
+steps, if set to non-zero. Zero by default.</p></li>
+<li><p><strong>_sequential</strong> (<em>Internal</em>) – Don’t use</p></li>
+<li><p><strong>_perf_trace</strong> (<em>Internal</em>) – Don’t use</p></li>
+<li><p><strong>_verify_cfg</strong> (<em>Internal</em>) – Don’t use.</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Checkpoint queue, holding weight checkpoints, and final trained weights.</p></li>
+<li><p><strong>Return type:</strong>
+queue.Queue</p></li>
+</ul>
+</section>
+<section id="shutdown">
+<h3>shutdown()<a class="headerlink" href="#shutdown" title="Permalink to this heading"></a></h3>
+<p>Shutdown running processes and clean up pybuda</p>
+</section>
+<section id="initialize-pipeline-training-bool-output-queue-queue-queue-none-none-checkpoint-queue-queue-queue-none-none-sample-inputs-typing-tuple-torch-tensor-pybuda-tensor-tensor-typing-dict-str-torch-tensor-pybuda-tensor-tensor-sample-targets-typing-tuple-torch-tensor-pybuda-tensor-tensor-microbatch-count-int-1-d2d-fwd-queues-typing-list-queue-queue-d2d-bwd-queues-typing-list-queue-queue-sequential-bool-false-verify-cfg-pybuda-verify-config-verifyconfig-none-none-device-mode-pybuda-c-backend-api-devicemode-devicemode-compileandrun-0">
+<h3>initialize_pipeline(training: bool, output_queue: ~queue.Queue | None = None, checkpoint_queue: ~queue.Queue | None = None, sample_inputs: ~typing.Tuple[~torch.Tensor | ~pybuda.tensor.Tensor, …] | ~typing.Dict[str, ~torch.Tensor | ~pybuda.tensor.Tensor] = (), sample_targets: ~typing.Tuple[~torch.Tensor | ~pybuda.tensor.Tensor, …] = (), microbatch_count: int = 1, d2d_fwd_queues: ~typing.List[~queue.Queue] = [], d2d_bwd_queues: ~typing.List[~queue.Queue] = [], _sequential: bool = False, _verify_cfg: ~pybuda.verify.config.VerifyConfig | None = None, _device_mode: ~pybuda._C.backend_api.DeviceMode = &lt;DeviceMode.CompileAndRun: 0&gt;)<a class="headerlink" href="#initialize-pipeline-training-bool-output-queue-queue-queue-none-none-checkpoint-queue-queue-queue-none-none-sample-inputs-typing-tuple-torch-tensor-pybuda-tensor-tensor-typing-dict-str-torch-tensor-pybuda-tensor-tensor-sample-targets-typing-tuple-torch-tensor-pybuda-tensor-tensor-microbatch-count-int-1-d2d-fwd-queues-typing-list-queue-queue-d2d-bwd-queues-typing-list-queue-queue-sequential-bool-false-verify-cfg-pybuda-verify-config-verifyconfig-none-none-device-mode-pybuda-c-backend-api-devicemode-devicemode-compileandrun-0" title="Permalink to this heading"></a></h3>
+<p>Initialize the pipeline to run inference and training through manual run_forward, run_backward, run_optimizer, etc. calls. This should be not used with
+“all-in-one” APIs like run_inference and run_training, which will initialize the pipeline themselves.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>training</strong> (<em>bool</em>) – Set to true to prepare the pipeline for training.</p></li>
+<li><p><strong>output_queue</strong> (<em>queue.Queue</em> <em>,</em> <em>optional</em>) – If provided, inference outputs will be pushed into the queue as they are calculated. Otherwise, one will be created
+and returned (in inference mode)</p></li>
+<li><p><strong>checkpoint_queue</strong> (<em>Queue</em> <em>,</em> <em>optional</em>) – If provided, weight checkpoints will be pushed into this queue, along with the final set of weights.
+If one is not provided, one will be created and returned (in training mode)</p></li>
+<li><p><strong>sample_inputs</strong> (<em>Tuple</em> *[*<em>Union</em> *[*<em>torch.Tensor</em> <em>,</em> <em>Tensor</em> <em>]</em> <em>,</em>  <em>…</em> <em>]</em> <em>,</em> <em>optional</em>) – If calling initialize_pipeline directly to compile models and initialize devices, then a representative sample
+of inputs must be provided to accuractely compile the design. Typically, this would be the first input that
+will be sent through the model post-compile. The tensors must be of the correct shape and data type.</p></li>
+<li><p><strong>sample_targets</strong> (<em>Tuple</em> *[*<em>Union</em> *[*<em>torch.Tensor</em> <em>,</em> <em>Tensor</em> <em>]</em> <em>,</em>  <em>…</em> <em>]</em> <em>,</em> <em>optional</em>) – If calling initialize_pipeline directly to compile models and initialize devices for training, then a
+representative sample of training tagets must be provided to accuractely compile the design.
+Typically, this would be the first target that will be sent to the last device post-compile.
+The tensors must be of the correct shape and data type.</p></li>
+<li><p><strong>microbatch_count</strong> (<em>int</em>) – Only relevant for training. This represents the number of microbatches that are pushed through
+fwd path before bwd path runs. The device will ensure that buffering is large enough to contain
+microbatch_count number of microbatch intermediate data.</p></li>
+<li><p><strong>d2d_fwd_queues</strong> (<em>List</em> *[*<em>queue.Queue</em> <em>]</em> <em>,</em> <em>optional</em>) – If provided, device-to-device intermediate data that passes through host will also be stored in the provided
+queues. The queues are assigned in order from the first device in the pipeline. The last device will not
+be assigned a queue.</p></li>
+<li><p><strong>d2d_bwd_queues</strong> (<em>List</em> *[*<em>queue.Queue</em> <em>]</em> <em>,</em> <em>optional</em>) – If provided, device-to-device intermediate data in the training backward pass, that passes through
+host will also be stored in the provided queues. The queues are assigned in order from the
+second device in the pipeline. The first device will not be assigned a queue.</p></li>
+<li><p><strong>_sequential</strong> (<em>Internal</em>) – Don’t use</p></li>
+<li><p><strong>_verify_cfg</strong> (<em>Internal</em>) – Don’t use.</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Output queue for inference, or checkpoint queue for training</p></li>
+<li><p><strong>Return type:</strong>
+queue.Queue</p></li>
+</ul>
+</section>
+<section id="run-forward-input-count-int-1-sequential-bool-false">
+<h3>run_forward(input_count: int = 1, _sequential: bool = False)<a class="headerlink" href="#run-forward-input-count-int-1-sequential-bool-false" title="Permalink to this heading"></a></h3>
+<p>Run forward passes on the pre-compiled and initialized pipeline of devices. This API should be
+called from custom implementations of inference and training loops, in lieue of calling
+run_inference and run_training APIs.</p>
+<p>If this is a part of an inference run, the results will be placed in the outptut queues which
+should have already been setup through initialize_pipeline call. If this is called as a part
+of the training pass, then loss will be pushed to the output queue, if one was set up.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>input_count</strong> (<em>int</em> <em>,</em> <em>default=1</em>) – The number of inputs to run inference on. If 0, inference will run “forever”, until shutdown or run_inference
+is called again.</p></li>
+<li><p><strong>_sequential</strong> (<em>Internal</em>) – Don’t use</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="run-backward-input-count-int-1-zero-grad-bool-false-sequential-bool-false">
+<h3>run_backward(input_count: int = 1, zero_grad: bool = False, _sequential: bool = False)<a class="headerlink" href="#run-backward-input-count-int-1-zero-grad-bool-false-sequential-bool-false" title="Permalink to this heading"></a></h3>
+<p>Run backward passes on the pre-compiled and initialized pipeline of devices. This API should be
+called from custom implementations of inference and training loops, in lieue of calling
+run_inference and run_training APIs.</p>
+<p>zero_grad should be set for the first backward call of a batch, to zero out accumulated gradients.</p>
+<p>No results will be returned. get_parameter_gradients() can be used to get a snapshot of
+gradients after the backward pass has completed.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>input_count</strong> (<em>int</em> <em>,</em> <em>default=1</em>) – The number of inputs to run inference on. If 0, inference will run “forever”, until shutdown or run_inference
+is called again.</p></li>
+<li><p><strong>zero_grad</strong> (<em>bool</em> <em>,</em> <em>optional</em>) – If set, acccumulated gradients on device will be zeroed out before the backward pass begins.</p></li>
+<li><p><strong>_sequential</strong> (<em>Internal</em>) – Don’t use</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="run-optimizer-checkpoint-bool-false-sequential-bool-false">
+<h3>run_optimizer(checkpoint: bool = False, _sequential: bool = False)<a class="headerlink" href="#run-optimizer-checkpoint-bool-false-sequential-bool-false" title="Permalink to this heading"></a></h3>
+<p>Run optimizer on all devices. If checkpoint is set, a checkpoint of parameters will be taken and
+placed into the checkpoint queue that has been set up during initialize_pipeline call.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>checkpoint</strong> (<em>bool</em> <em>,</em> <em>optional</em>) – If set, checkpoint of parameters will be placed into checkpoint queue.</p></li>
+<li><p><strong>_sequential</strong> (<em>Internal</em>) – Don’t use</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="get-parameter-checkpoint-device-cpudevice-ttdevice-none-none-sequential-bool-false">
+<h3>get_parameter_checkpoint(device: <a class="reference internal" href="#pybuda.CPUDevice"><span class="xref myst">CPUDevice</span></a> | <a class="reference internal" href="#pybuda.TTDevice"><span class="xref myst">TTDevice</span></a> | None = None, _sequential: bool = False)<a class="headerlink" href="#get-parameter-checkpoint-device-cpudevice-ttdevice-none-none-sequential-bool-false" title="Permalink to this heading"></a></h3>
+<p>Return current parameter values. If a device is specified, only parameters for that device will
+be returned, otherwise a list of parameters for all devices will come back.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>device</strong> (<em>Union</em> <em>[</em><a class="reference internal" href="#pybuda.CPUDevice"><span class="xref myst"><em>CPUDevice</em></span></a> <em>,</em> <a class="reference internal" href="#pybuda.TTDevice"><span class="xref myst"><em>TTDevice</em></span></a> <em>]</em> <em>,</em> <em>Optional</em>) – Device to read parameter values from. If None, all devices will be read from.</p></li>
+<li><p><strong>_sequential</strong> (<em>Internal</em>) – Don’t use</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+List of parameter checkpoints for devices in the pipeline, or the given device</p></li>
+<li><p><strong>Return type:</strong>
+List[Dict[str, Tensor]]</p></li>
+</ul>
+</section>
+<section id="get-parameter-gradients-device-cpudevice-ttdevice-none-none-sequential-bool-false">
+<h3>get_parameter_gradients(device: <a class="reference internal" href="#pybuda.CPUDevice"><span class="xref myst">CPUDevice</span></a> | <a class="reference internal" href="#pybuda.TTDevice"><span class="xref myst">TTDevice</span></a> | None = None, _sequential: bool = False)<a class="headerlink" href="#get-parameter-gradients-device-cpudevice-ttdevice-none-none-sequential-bool-false" title="Permalink to this heading"></a></h3>
+<p>Return currently accumulated parameter gradients. If a device is specified, only gradients for that device
+will be returned, otherwise a list of gradients for all devices will come back.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>device</strong> (<em>Union</em> <em>[</em><a class="reference internal" href="#pybuda.CPUDevice"><span class="xref myst"><em>CPUDevice</em></span></a> <em>,</em> <a class="reference internal" href="#pybuda.TTDevice"><span class="xref myst"><em>TTDevice</em></span></a> <em>]</em> <em>,</em> <em>Optional</em>) – Device to read parameter gradients from. If None, all devices will be read from.</p></li>
+<li><p><strong>_sequential</strong> (<em>Internal</em>) – Don’t use</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+List of parameter checkpoints for devices in the pipeline, or the given device</p></li>
+<li><p><strong>Return type:</strong>
+List[Dict[str, Tensor]]</p></li>
+</ul>
+</section>
+<section id="update-device-parameters-device-cpudevice-ttdevice-none-none-parameters-list-dict-str-tensor-sequential-bool-false">
+<h3>update_device_parameters(device: <a class="reference internal" href="#pybuda.CPUDevice"><span class="xref myst">CPUDevice</span></a> | <a class="reference internal" href="#pybuda.TTDevice"><span class="xref myst">TTDevice</span></a> | None = None, parameters: List[Dict[str, Tensor]] = [], _sequential: bool = False)<a class="headerlink" href="#update-device-parameters-device-cpudevice-ttdevice-none-none-parameters-list-dict-str-tensor-sequential-bool-false" title="Permalink to this heading"></a></h3>
+<p>Push new parameters onto given device, or if none is provided, then all devices in the pipeline.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>device</strong> (<em>Union</em> <em>[</em><a class="reference internal" href="#pybuda.CPUDevice"><span class="xref myst"><em>CPUDevice</em></span></a> <em>,</em> <a class="reference internal" href="#pybuda.TTDevice"><span class="xref myst"><em>TTDevice</em></span></a> <em>]</em> <em>,</em> <em>Optional</em>) – Device to read parameter values from. If None, all devices will be read from.</p></li>
+<li><p><strong>parameters</strong> (<em>List</em> *[*<em>Dict</em> *[*<em>str</em> <em>,</em> <em>torch.Tensor</em> <em>]</em> <em>]</em>) – List of dictionaries of parameters to update</p></li>
+<li><p><strong>_sequential</strong> (<em>Internal</em>) – Don’t use</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="c-runtime-api">
+<h2>C++ Runtime API<a class="headerlink" href="#c-runtime-api" title="Permalink to this heading"></a></h2>
+<p>The BUDA Backend used by Python Runtime can be optionally used stand-alone to run pre-compiled TTI models. The API reference for stand-alone BUDA Backend Runtime can be found <a class="reference external" href="http://yyz-webservice-02.local.tenstorrent.com/docs/budabackend-docs/">here</a>.</p>
+</section>
+<section id="configuration-and-placement">
+<h2>Configuration and Placement<a class="headerlink" href="#configuration-and-placement" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><a class="reference internal" href="#pybuda.set_configuration_options"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">set_configuration_options</span></code></span></a>([…])</p></th>
+<th class="head"><p>Set global compile configuration options.</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#pybuda.set_epoch_break"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">set_epoch_break</span></code></span></a>(op_names)</p></td>
+<td><p>Instruct place &amp; route to start a new placement epoch on the given op(s)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pybuda.set_chip_break"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">set_chip_break</span></code></span></a>(op_names)</p></td>
+<td><p>Instruct place &amp; route to start placing ops on the next chip in the pipeline.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pybuda.override_op_size"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">override_op_size</span></code></span></a>(op_name, grid_size)</p></td>
+<td><p>Override automatic op sizing with given grid size.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pybuda.detect_available_devices"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">detect_available_devices</span></code></span></a>()</p></td>
+<td><p>Returns a list of available devices on the system.</p></td>
+</tr>
+</tbody>
+</table>
+<p><a id="module-1"></a></p>
+<section id="set-configuration-options-enable-recompute-bool-none-none-balancer-policy-str-none-none-place-on-one-row-bool-none-none-enable-t-streaming-bool-none-none-manual-t-streaming-bool-none-none-enable-consteval-bool-none-none-default-df-override-dataformat-none-none-accumulate-df-dataformat-none-none-math-fidelity-mathfidelity-none-none-performance-trace-perftracelevel-none-none-backend-opt-level-int-none-none-backend-output-dir-str-none-none-backend-device-descriptor-path-str-none-none-backend-cluster-descriptor-path-str-none-none-backend-runtime-params-path-str-none-none-backend-runtime-args-str-none-none-enable-auto-fusing-bool-none-none-enable-conv-prestride-bool-none-none-enable-stable-softmax-bool-none-none-amp-level-int-none-none-harvested-rows-list-list-int-none-none-store-backend-db-to-yaml-bool-none-none-input-queues-on-host-bool-none-none-output-queues-on-host-bool-none-none-enable-auto-transposing-placement-bool-none-none-use-interactive-placer-bool-none-none-op-intermediates-to-save-list-str-none-none-enable-enumerate-u-kt-bool-none-none-enable-device-tilize-bool-none-none-dram-placement-algorithm-dramplacementalgorithm-none-none-chip-placement-policy-str-none-none-enable-forked-dram-inputs-bool-none-none-device-config-str-none-none">
+<h3>set_configuration_options(enable_recompute: bool | None = None, balancer_policy: str | None = None, place_on_one_row: bool | None = None, enable_t_streaming: bool | None = None, manual_t_streaming: bool | None = None, enable_consteval: bool | None = None, default_df_override: <a class="reference internal" href="#pybuda.DataFormat"><span class="xref myst">DataFormat</span></a> | None = None, accumulate_df: <a class="reference internal" href="#pybuda.DataFormat"><span class="xref myst">DataFormat</span></a> | None = None, math_fidelity: <a class="reference internal" href="#pybuda.MathFidelity"><span class="xref myst">MathFidelity</span></a> | None = None, performance_trace: PerfTraceLevel | None = None, backend_opt_level: int | None = None, backend_output_dir: str | None = None, backend_device_descriptor_path: str | None = None, backend_cluster_descriptor_path: str | None = None, backend_runtime_params_path: str | None = None, backend_runtime_args: str | None = None, enable_auto_fusing: bool | None = None, enable_conv_prestride: bool | None = None, enable_stable_softmax: bool | None = None, amp_level: int | None = None, harvested_rows: List[List[int]] | None = None, store_backend_db_to_yaml: bool | None = None, input_queues_on_host: bool | None = None, output_queues_on_host: bool | None = None, enable_auto_transposing_placement: bool | None = None, use_interactive_placer: bool | None = None, op_intermediates_to_save: List[str] | None = None, enable_enumerate_u_kt: bool | None = None, enable_device_tilize: bool | None = None, dram_placement_algorithm: DRAMPlacementAlgorithm | None = None, chip_placement_policy: str | None = None, enable_forked_dram_inputs: bool | None = None, device_config: str | None = None)<a class="headerlink" href="#set-configuration-options-enable-recompute-bool-none-none-balancer-policy-str-none-none-place-on-one-row-bool-none-none-enable-t-streaming-bool-none-none-manual-t-streaming-bool-none-none-enable-consteval-bool-none-none-default-df-override-dataformat-none-none-accumulate-df-dataformat-none-none-math-fidelity-mathfidelity-none-none-performance-trace-perftracelevel-none-none-backend-opt-level-int-none-none-backend-output-dir-str-none-none-backend-device-descriptor-path-str-none-none-backend-cluster-descriptor-path-str-none-none-backend-runtime-params-path-str-none-none-backend-runtime-args-str-none-none-enable-auto-fusing-bool-none-none-enable-conv-prestride-bool-none-none-enable-stable-softmax-bool-none-none-amp-level-int-none-none-harvested-rows-list-list-int-none-none-store-backend-db-to-yaml-bool-none-none-input-queues-on-host-bool-none-none-output-queues-on-host-bool-none-none-enable-auto-transposing-placement-bool-none-none-use-interactive-placer-bool-none-none-op-intermediates-to-save-list-str-none-none-enable-enumerate-u-kt-bool-none-none-enable-device-tilize-bool-none-none-dram-placement-algorithm-dramplacementalgorithm-none-none-chip-placement-policy-str-none-none-enable-forked-dram-inputs-bool-none-none-device-config-str-none-none" title="Permalink to this heading"></a></h3>
+<p>Set global compile configuration options.</p>
+<ul>
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>enable_recompute</strong> (<em>Optional</em> *[*<em>bool</em> <em>]</em>) – For training only. Enable ‘recompute’ feature which significantly reduces memory requirements at a cost of
+some performance.</p></li>
+<li><p><strong>balancer_policy</strong> (<em>Optional</em> *[*<em>str</em> <em>]</em>) –</p>
+<p>Override default place &amp; route policy. Valid values are:</p>
+<p>”NLP”: Custom policy with reasonable defaults for NLP-like models
+“Ribbon”: Custom policy with reasonable defaults for CNN-like models</p>
+<p>[DEBUG ONLY]
+“MaximizeTMinimizeGrid”: Maximize t-streaming. Verification only.
+“MinimizeGrid”: Super simple policy that always chooses smallest grid. Verification only.
+“Random”: Pick random valid grids for each op. Verification only.</p>
+<p>[DEPRECATED]
+“CNN”</p>
+</li>
+<li><p><strong>place_on_one_row</strong> (<em>Optional</em> *[*<em>bool</em> <em>]</em>) – For place &amp; route to place every op on one row of cores only.</p></li>
+<li><p><strong>enable_t_streaming</strong> (<em>Optional</em> *[*<em>bool</em> <em>]</em>) – Enable buffering optimization which reduces memory usage and latency.</p></li>
+<li><p><strong>manual_t_streaming</strong> (<em>Optional</em> *[*<em>bool</em> <em>]</em>) – Only respect override_t_stream_dir op overrides, otherwise no streaming.
+enable_t_streaming must also be true to take effect.</p></li>
+<li><p><strong>enable_consteval</strong> (<em>Optional</em> *[*<em>bool</em> <em>]</em>) – Use constant propagation to simplify the model.</p></li>
+<li><p><strong>default_df_override</strong> (<em>Optional</em> <em>[</em><a class="reference internal" href="#pybuda.DataFormat"><span class="xref myst"><em>DataFormat</em></span></a> <em>]</em> <em>,</em> <em>None default</em>) – Set the default override for all node data formats, None means automatically inferred</p></li>
+<li><p><strong>accumulate_df</strong> (<em>Optional</em> <em>[</em><a class="reference internal" href="#pybuda.DataFormat"><span class="xref myst"><em>DataFormat</em></span></a> <em>]</em> <em>,</em> <em>Float16_b default</em>) – Set default accumulation format for all operations, if supported by the device.</p></li>
+<li><p><strong>math_fidelity</strong> (<em>Optional</em> <em>[</em><a class="reference internal" href="#pybuda.MathFidelity"><span class="xref myst"><em>MathFidelity</em></span></a> <em>]</em> <em>,</em> <em>MathFidelity.HiFi3 default</em>) – Set default math fidelity for all operations</p></li>
+<li><p><strong>performance_trace</strong> (<em>Optional</em> *[*<em>PerfTraceLevel</em> <em>]</em>) – Set to value other than None to enable performance tracing. Note that the Verbose level could have impact on the performance due
+to the amount of data being captured and stored.</p></li>
+<li><p><strong>backend_opt_level</strong> (<em>Optional</em> *[*<em>int</em> <em>]</em>) – The level of performance optimization in backend runtime (0-3)</p></li>
+<li><p><strong>backend_output_dir</strong> (<em>Optional</em> *[*<em>str</em> <em>]</em>) – Set location for backend compile temporary files and binaries</p></li>
+<li><p><strong>backend_device_descriptor_path</strong> (<em>Optional</em> *[*<em>str</em> <em>]</em>) – Set location for YAML file to load device descriptor</p></li>
+<li><p><strong>backend_cluster_descriptor_path</strong> (<em>Optional</em> *[*<em>str</em> <em>]</em>) – Set location for YAML file to load multi-device cluster descriptor</p></li>
+<li><p><strong>backend_runtime_params_path</strong> (<em>Optional</em> *[*<em>str</em> <em>]</em>) – Set location for YAML file to dump/load backend database configurations</p></li>
+<li><p><strong>enable_auto_fusing</strong> (<em>Optional</em> *[*<em>bool</em> <em>]</em>) – Enabling automatic fusing of small operations into complex ops</p></li>
+<li><p><strong>enable_conv_prestride</strong> (<em>Optional</em> *[*<em>bool</em> <em>]</em>) – Enabling host-side convolution prestiding (occurs during host-tilizer) for more efficient first convolution layer.</p></li>
+<li><p><strong>amp_level</strong> (<em>Optional</em> *[*<em>int</em> <em>]</em>) – Configures the optimization setting for Automatic Mixed Precision (AMP).
+0: No Optimization (default)
+1: Optimizer ops are set with { OutputDataFormat.Float32, MathFidelity.HiFi4 }</p></li>
+<li><p><strong>harvested_rows</strong> (<em>Optional</em> *[*<em>List</em> *[*<em>int</em> <em>]</em> <em>]</em>) – Configures manually induced harvested rows. Only row-indices within 1-5 or 7-11 are harvestable.</p></li>
+<li><p><strong>store_backend_db_to_yaml</strong> (<em>Optional</em> *[*<em>bool</em> <em>]</em>) – Enabling automatic backend database configuration dump to the YAML file specified with backend_runtime_param_path.
+Note that all backend configurations are loaded from the YAML file if existing YAML file is specified and this flag is set to False.</p></li>
+<li><p><strong>use_interactive_placer</strong> (<em>Optional</em> *[*<em>bool</em> <em>]</em>) – Enable or disable usage of interactive placer within balancer policies which support it. Enabled by default.</p></li>
+<li><p><strong>enable_device_tilize</strong> (<em>Optional</em> *[*<em>bool</em> <em>]</em>) – Enable or Disable Tilize Op on the embedded platform</p></li>
+<li><p><strong>chip_placement_policy</strong> (<em>Optional</em> *[*<em>str</em> <em>]</em>) – Determine the order of the chip ids used in placement</p></li>
+<li><p><strong>dram_placement_algorithm</strong> (<em>Optional</em> *[*<em>pyplacer.DRAMPlacementAlgorithm</em> <em>]</em>) – Set the algorithm to use for DRAM placement. Valid values are: ROUND_ROBIN, ROUND_ROBIN_FLIP_FLOP, GREATEST_CAPACITY, CLOSEST</p></li>
+<li><p><strong>enable_forked_dram_inputs</strong> (<em>Optional</em> *[*<em>bool</em> <em>]</em>) – Enable or Disable Forked Dram Optimization</p></li>
+<li><p><strong>device_config</strong> (<em>Optional</em> *[*<em>str</em> <em>]</em>) – Configure and Set runtime_param.yaml for offline WH compile based on the value.
+YAML files for supported configurations are mapped at ‘supported_backend_configurations’</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="set-epoch-break-op-names-str-nodepredicatebuilder-list-str-nodepredicatebuilder">
+<h3>set_epoch_break(op_names: str | NodePredicateBuilder | List[str | NodePredicateBuilder])<a class="headerlink" href="#set-epoch-break-op-names-str-nodepredicatebuilder-list-str-nodepredicatebuilder" title="Permalink to this heading"></a></h3>
+<p>Instruct place &amp; route to start a new placement epoch on the given op(s)</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong>
+<strong>op_names</strong> (<em>Union</em> *[*<em>str</em> <em>,</em> <em>query.NodePredicateBuilder</em> <em>,</em> <em>List</em> *[*<em>Union</em> *[*<em>str</em> <em>,</em> <em>query.NodePredicateBuilder</em> <em>]</em> <em>]</em> <em>]</em>) – Op or ops or predicate matches to start a new placement epoch</p></li>
+</ul>
+</section>
+<section id="set-chip-break-op-names-str-nodepredicatebuilder-list-str-nodepredicatebuilder">
+<h3>set_chip_break(op_names: str | NodePredicateBuilder | List[str | NodePredicateBuilder])<a class="headerlink" href="#set-chip-break-op-names-str-nodepredicatebuilder-list-str-nodepredicatebuilder" title="Permalink to this heading"></a></h3>
+<p>Instruct place &amp; route to start placing ops on the next chip in the pipeline.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong>
+<strong>op_names</strong> (<em>Union</em> *[*<em>str</em> <em>,</em> <em>query.NodePredicateBuilder</em> <em>,</em> <em>List</em> *[*<em>Union</em> *[*<em>str</em> <em>,</em> <em>query.NodePredicateBuilder</em> <em>]</em> <em>]</em> <em>]</em>) – Op or ops or predicate matches to start a new chip</p></li>
+</ul>
+</section>
+<section id="override-op-size-op-name-str-grid-size-tuple-int-int">
+<h3>override_op_size(op_name: str, grid_size: Tuple[int, int])<a class="headerlink" href="#override-op-size-op-name-str-grid-size-tuple-int-int" title="Permalink to this heading"></a></h3>
+<p>Override automatic op sizing with given grid size.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>op_name</strong> (<em>str</em>) – Name of the op to override</p></li>
+<li><p><strong>grid_size</strong> (<em>Tuple</em> *[*<em>int</em> <em>,</em> <em>int</em> <em>]</em>) – Rectangular shape (row, column) of the placed op</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="detect-available-devices">
+<h3>detect_available_devices()<a class="headerlink" href="#detect-available-devices" title="Permalink to this heading"></a></h3>
+<p>Returns a list of available devices on the system.</p>
+</section>
+</section>
+<section id="operations">
+<h2>Operations<a class="headerlink" href="#operations" title="Permalink to this heading"></a></h2>
+<section id="general">
+<h3>General<a class="headerlink" href="#general" title="Permalink to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><a class="reference internal" href="#pybuda.op.Matmul"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Matmul</span></code></span></a>(name, operandA, operandB[, bias])</p></th>
+<th class="head"><p>Matrix multiplication transformation on input activations, with optional bias.</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#pybuda.op.Add"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Add</span></code></span></a>(name, operandA, operandB)</p></td>
+<td><p>Elementwise add of two tensors</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pybuda.op.Subtract"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Subtract</span></code></span></a>(name, operandA, operandB)</p></td>
+<td><p>Elementwise subtraction of two tensors</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pybuda.op.Multiply"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Multiply</span></code></span></a>(name, operandA, operandB)</p></td>
+<td><p>Elementwise multiply of two tensors</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pybuda.op.ReduceSum"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">ReduceSum</span></code></span></a>(name, operandA, dim)</p></td>
+<td><p>Reduce by summing along the given dimension</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pybuda.op.ReduceAvg"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">ReduceAvg</span></code></span></a>(name, operandA, dim)</p></td>
+<td><p>Reduce by averaging along the given dimension</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pybuda.op.Constant"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Constant</span></code></span></a>(name, *, constant)</p></td>
+<td><p>Op representing user-defined constant</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pybuda.op.Identity"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Identity</span></code></span></a>(name, operandA[, unsqueeze, …])</p></td>
+<td><p>Identity operation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pybuda.op.Buffer"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Buffer</span></code></span></a>(name, operandA)</p></td>
+<td><p>Identity operation.</p></td>
+</tr>
+</tbody>
+</table>
+<p><a id="module-pybuda.op"></a></p>
+</section>
+<section id="matmul-name-str-operanda-tensor-operandb-tensor-parameter-bias-tensor-parameter-none-none">
+<h3>Matmul(name: str, operandA: Tensor, operandB: Tensor | Parameter, bias: Tensor | Parameter | None = None)<a class="headerlink" href="#matmul-name-str-operanda-tensor-operandb-tensor-parameter-bias-tensor-parameter-none-none" title="Permalink to this heading"></a></h3>
+<p>Matrix multiplication transformation on input activations, with optional bias. y = ab + bias</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>operandA</strong> (<em>Tensor</em>) – Input operand A</p></li>
+<li><p><strong>operandB</strong> (<em>Tensor</em>) – Input operand B</p></li>
+<li><p><strong>bias</strong> (<em>Tenor</em> <em>,</em> <em>optional</em>) – Optional bias tensor</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="add-name-str-operanda-tensor-operandb-tensor-parameter">
+<h3>Add(name: str, operandA: Tensor, operandB: Tensor | Parameter)<a class="headerlink" href="#add-name-str-operanda-tensor-operandb-tensor-parameter" title="Permalink to this heading"></a></h3>
+<p>Elementwise add of two tensors</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>operandA</strong> (<em>Tensor</em>) – First operand</p></li>
+<li><p><strong>operandB</strong> (<em>Tensor</em>) – Second operand</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda tensor</p></li>
+<li><p><strong>Return type:</strong>
+Tensor</p></li>
+</ul>
+</section>
+<section id="subtract-name-str-operanda-tensor-operandb-tensor">
+<h3>Subtract(name: str, operandA: Tensor, operandB: Tensor)<a class="headerlink" href="#subtract-name-str-operanda-tensor-operandb-tensor" title="Permalink to this heading"></a></h3>
+<p>Elementwise subtraction of two tensors</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>operandA</strong> (<em>Tensor</em>) – First operand</p></li>
+<li><p><strong>operandB</strong> (<em>Tensor</em>) – Second operand</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda tensor</p></li>
+<li><p><strong>Return type:</strong>
+Tensor</p></li>
+</ul>
+</section>
+<section id="multiply-name-str-operanda-tensor-operandb-tensor-parameter">
+<h3>Multiply(name: str, operandA: Tensor, operandB: Tensor | Parameter)<a class="headerlink" href="#multiply-name-str-operanda-tensor-operandb-tensor-parameter" title="Permalink to this heading"></a></h3>
+<p>Elementwise multiply of two tensors</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>operandA</strong> (<em>Tensor</em>) – First operand</p></li>
+<li><p><strong>operandB</strong> (<em>Tensor</em>) – Second operand</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda tensor</p></li>
+<li><p><strong>Return type:</strong>
+Tensor</p></li>
+</ul>
+</section>
+<section id="identity-name-str-operanda-tensor-unsqueeze-str-none-none-unsqueeze-dim-int-none-none">
+<h3>Identity(name: str, operandA: Tensor, unsqueeze: str | None = None, unsqueeze_dim: int | None = None)<a class="headerlink" href="#identity-name-str-operanda-tensor-unsqueeze-str-none-none-unsqueeze-dim-int-none-none" title="Permalink to this heading"></a></h3>
+<p>Identity operation.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>operandA</strong> (<em>Tensor</em>) – First operand</p></li>
+<li><p><strong>unsqueeze</strong> (<em>str</em>) – If set, the operation returns a new tensor with a dimension of size one inserted at the specified position.</p></li>
+<li><p><strong>unsqueeze_dim</strong> (<em>int</em>) – The index at where singleton dimenion can be inserted</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda tensor</p></li>
+<li><p><strong>Return type:</strong>
+Tensor</p></li>
+</ul>
+</section>
+<section id="buffer-name-str-operanda-tensor">
+<h3>Buffer(name: str, operandA: Tensor)<a class="headerlink" href="#buffer-name-str-operanda-tensor" title="Permalink to this heading"></a></h3>
+<p>Identity operation. One key difference is a Buffer op will not get
+lowered into a NOP and avoid being removed by the time it gets to lowering.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>operandA</strong> (<em>Tensor</em>) – First operand</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda tensor</p></li>
+<li><p><strong>Return type:</strong>
+Tensor</p></li>
+</ul>
+</section>
+<section id="reducesum-name-str-operanda-tensor-dim-int">
+<h3>ReduceSum(name: str, operandA: Tensor, dim: int)<a class="headerlink" href="#reducesum-name-str-operanda-tensor-dim-int" title="Permalink to this heading"></a></h3>
+<p>Reduce by summing along the given dimension</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>operandA</strong> (<em>Tensor</em>) – First operand</p></li>
+<li><p><strong>dim</strong> (<em>int</em>) – Dimension along which to reduce. A positive number 0 - 3 or negative from -1 to -4.</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda tensor</p></li>
+<li><p><strong>Return type:</strong>
+Tensor</p></li>
+</ul>
+</section>
+<section id="reduceavg-name-str-operanda-tensor-dim-int">
+<h3>ReduceAvg(name: str, operandA: Tensor, dim: int)<a class="headerlink" href="#reduceavg-name-str-operanda-tensor-dim-int" title="Permalink to this heading"></a></h3>
+<p>Reduce by averaging along the given dimension</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>operandA</strong> (<em>Tensor</em>) – First operand</p></li>
+<li><p><strong>dim</strong> (<em>int</em>) – Dimension along which to reduce. A positive number 0 - 3 or negative from -1 to -4.</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda tensor</p></li>
+<li><p><strong>Return type:</strong>
+Tensor</p></li>
+</ul>
+</section>
+<section id="constant-name-str-constant-float">
+<h3>Constant(name: str, *, constant: float)<a class="headerlink" href="#constant-name-str-constant-float" title="Permalink to this heading"></a></h3>
+<p>Op representing user-defined constant</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>constant</strong> (<em>float</em>) – Constant value</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda tensor</p></li>
+<li><p><strong>Return type:</strong>
+Tensor</p></li>
+</ul>
+</section>
+<section id="transformations">
+<h3>Transformations<a class="headerlink" href="#transformations" title="Permalink to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><a class="reference internal" href="#pybuda.op.HSlice"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">HSlice</span></code></span></a>(name, operandA, slices)</p></th>
+<th class="head"><p>Slice along horizontal axis into given number of pieces.</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#pybuda.op.VSlice"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">VSlice</span></code></span></a>(name, operandA, slices)</p></td>
+<td><p>Slice along vertical axis into given number of pieces.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pybuda.op.HStack"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">HStack</span></code></span></a>(name, operandA[, slices])</p></td>
+<td><p>Stack Z dimension along horizontal dimension.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pybuda.op.VStack"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">VStack</span></code></span></a>(name, operandA[, slices])</p></td>
+<td><p>Stack Z dimension along vertical dimension.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pybuda.op.Reshape"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Reshape</span></code></span></a>(name, operandA, shape)</p></td>
+<td><p>TM</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pybuda.op.Index"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Index</span></code></span></a>(name, operandA, dim, start[, stop, stride])</p></td>
+<td><p>TM</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pybuda.op.Select"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Select</span></code></span></a>(name, operandA, dim, index[, stride])</p></td>
+<td><p>TM</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pybuda.op.Pad"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Pad</span></code></span></a>(name, operandA, pad[, mode, channel_last])</p></td>
+<td><p>TM</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pybuda.op.Concatenate"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Concatenate</span></code></span></a>(name, *operands, axis)</p></td>
+<td><p>Concatenate tensors along axis</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pybuda.op.BinaryStack"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">BinaryStack</span></code></span></a>(name, operandA, operandB, dim)</p></td>
+<td><p>Elementwise max of two tensors</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pybuda.op.Heaviside"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Heaviside</span></code></span></a>(name, operandA, operandB)</p></td>
+<td><p>Elementwise max of two tensors</p></td>
+</tr>
+</tbody>
+</table>
+<p><a id="module-2"></a></p>
+</section>
+<section id="heaviside-name-str-operanda-tensor-operandb-tensor-parameter">
+<h3>Heaviside(name: str, operandA: Tensor, operandB: Tensor | Parameter)<a class="headerlink" href="#heaviside-name-str-operanda-tensor-operandb-tensor-parameter" title="Permalink to this heading"></a></h3>
+<p>Elementwise max of two tensors</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>operandA</strong> (<em>Tensor</em>) – First operand</p></li>
+<li><p><strong>operandB</strong> (<em>Tensor</em>) – Second operand</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda tensor</p></li>
+<li><p><strong>Return type:</strong>
+Tensor</p></li>
+</ul>
+</section>
+<section id="binarystack-name-str-operanda-tensor-operandb-tensor-parameter-dim-int">
+<h3>BinaryStack(name: str, operandA: Tensor, operandB: Tensor | Parameter, dim: int)<a class="headerlink" href="#binarystack-name-str-operanda-tensor-operandb-tensor-parameter-dim-int" title="Permalink to this heading"></a></h3>
+<p>Elementwise max of two tensors</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>operandA</strong> (<em>Tensor</em>) – First operand</p></li>
+<li><p><strong>operandB</strong> (<em>Tensor</em>) – Second operand</p></li>
+<li><p><strong>dim</strong> (<em>int</em>) – Dimention on which to stack</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda tensor</p></li>
+<li><p><strong>Return type:</strong>
+Tensor</p></li>
+</ul>
+</section>
+<section id="hslice-name-str-operanda-tensor-slices-int">
+<h3>HSlice(name: str, operandA: Tensor, slices: int)<a class="headerlink" href="#hslice-name-str-operanda-tensor-slices-int" title="Permalink to this heading"></a></h3>
+<p>Slice along horizontal axis into given number of pieces.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>operandA</strong> (<em>Tensor</em>) – First operand</p></li>
+<li><p><strong>slices</strong> (<em>int</em>) – The number of slices to create</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda tensor</p></li>
+<li><p><strong>Return type:</strong>
+Tensor</p></li>
+</ul>
+</section>
+<section id="hstack-name-str-operanda-tensor-slices-int-1">
+<h3>HStack(name: str, operandA: Tensor, slices: int = -1)<a class="headerlink" href="#hstack-name-str-operanda-tensor-slices-int-1" title="Permalink to this heading"></a></h3>
+<p>Stack Z dimension along horizontal dimension.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>operandA</strong> (<em>Tensor</em>) – First operand</p></li>
+<li><p><strong>slices</strong> (<em>int</em> <em>,</em> <em>optional</em>) – The number of slices to create. If not provided, it will be equal to current Z dimension.</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda tensor</p></li>
+<li><p><strong>Return type:</strong>
+Tensor</p></li>
+</ul>
+</section>
+<section id="vslice-name-str-operanda-tensor-slices-int">
+<h3>VSlice(name: str, operandA: Tensor, slices: int)<a class="headerlink" href="#vslice-name-str-operanda-tensor-slices-int" title="Permalink to this heading"></a></h3>
+<p>Slice along vertical axis into given number of pieces.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>operandA</strong> (<em>Tensor</em>) – First operand</p></li>
+<li><p><strong>slices</strong> (<em>int</em>) – The number of slices to create</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda tensor</p></li>
+<li><p><strong>Return type:</strong>
+Tensor</p></li>
+</ul>
+</section>
+<section id="vstack-name-str-operanda-tensor-slices-int-1">
+<h3>VStack(name: str, operandA: Tensor, slices: int = -1)<a class="headerlink" href="#vstack-name-str-operanda-tensor-slices-int-1" title="Permalink to this heading"></a></h3>
+<p>Stack Z dimension along vertical dimension.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>operandA</strong> (<em>Tensor</em>) – First operand</p></li>
+<li><p><strong>slices</strong> (<em>int</em> <em>,</em> <em>optional</em>) – The number of slices to create. If not provided, it will be equal to current Z dimension.</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda tensor</p></li>
+<li><p><strong>Return type:</strong>
+Tensor</p></li>
+</ul>
+</section>
+<section id="reshape-name-str-operanda-tensor-shape-tuple-int">
+<h3>Reshape(name: str, operandA: Tensor, shape: Tuple[int, …])<a class="headerlink" href="#reshape-name-str-operanda-tensor-shape-tuple-int" title="Permalink to this heading"></a></h3>
+<p>TM</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>operandA</strong> (<em>Tensor</em>) – Input operand A</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda tensor</p></li>
+<li><p><strong>Return type:</strong>
+Tensor</p></li>
+</ul>
+</section>
+<section id="index-name-str-operanda-tensor-dim-int-start-int-stop-int-none-none-stride-int-1">
+<h3>Index(name: str, operandA: Tensor, dim: int, start: int, stop: int | None = None, stride: int = 1)<a class="headerlink" href="#index-name-str-operanda-tensor-dim-int-start-int-stop-int-none-none-stride-int-1" title="Permalink to this heading"></a></h3>
+<p>TM</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>operandA</strong> (<em>Tensor</em>) – Input operand A</p></li>
+<li><p><strong>dim</strong> (<em>int</em>) – Dimension to slice</p></li>
+<li><p><strong>start</strong> (<em>int</em>) – Starting slice index (inclusive)</p></li>
+<li><p><strong>stop</strong> (<em>int</em>) – Stopping slice index (exclusive)</p></li>
+<li><p><strong>stride</strong> (<em>int</em>) – Stride amount along that dimension</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda tensor</p></li>
+<li><p><strong>Return type:</strong>
+Tensor</p></li>
+</ul>
+</section>
+<section id="select-name-str-operanda-tensor-dim-int-index-int-tuple-int-int-stride-int-0">
+<h3>Select(name: str, operandA: Tensor, dim: int, index: int | Tuple[int, int], stride: int = 0)<a class="headerlink" href="#select-name-str-operanda-tensor-dim-int-index-int-tuple-int-int-stride-int-0" title="Permalink to this heading"></a></h3>
+<p>TM</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>operandA</strong> (<em>Tensor</em>) – Input operand A</p></li>
+<li><p><strong>dim</strong> (<em>int</em>) – Dimension to slice</p></li>
+<li><p><strong>index</strong> (<em>int</em>) – int: Index to select from that dimension
+[start: int, length: int]: Index range to select from that dimension</p></li>
+<li><p><strong>stride</strong> (<em>int</em>) – Stride amount along that dimension</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda tensor</p></li>
+<li><p><strong>Return type:</strong>
+Tensor</p></li>
+</ul>
+</section>
+<section id="pad-name-str-operanda-tensor-pad-tuple-int-int-int-int-tuple-int-int-mode-str-constant-channel-last-bool-false">
+<h3>Pad(name: str, operandA: Tensor, pad: Tuple[int, int, int, int] | Tuple[int, int], mode: str = ‘constant’, channel_last: bool = False)<a class="headerlink" href="#pad-name-str-operanda-tensor-pad-tuple-int-int-int-int-tuple-int-int-mode-str-constant-channel-last-bool-false" title="Permalink to this heading"></a></h3>
+<p>TM</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>operandA</strong> (<em>Tensor</em>) – Input operand A</p></li>
+<li><p><strong>pad</strong> (<em>tuple</em>) – Either (padding_left, padding_right) or (padding_left, padding_right, padding_top, padding_bottom))</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda tensor</p></li>
+<li><p><strong>Return type:</strong>
+Tensor</p></li>
+</ul>
+</section>
+<section id="concatenate-name-str-operands-tensor-axis-int">
+<h3>Concatenate(name: str, *operands: Tensor, axis: int)<a class="headerlink" href="#concatenate-name-str-operands-tensor-axis-int" title="Permalink to this heading"></a></h3>
+<p>Concatenate tensors along axis</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>operands</strong> (<em>Tuple</em> *[*<em>Tensor</em> <em>,</em>  <em>…</em> <em>]</em>) – tensors to be concatenated</p></li>
+<li><p><strong>axis</strong> (<em>int</em>) – concatenate axis</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda tensor</p></li>
+<li><p><strong>Return type:</strong>
+Tensor</p></li>
+</ul>
+</section>
+<section id="activations">
+<h3>Activations<a class="headerlink" href="#activations" title="Permalink to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><a class="reference internal" href="#pybuda.op.Relu"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Relu</span></code></span></a>(name, operandA[, threshold, mode])</p></th>
+<th class="head"><p>ReLU</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#pybuda.op.Gelu"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Gelu</span></code></span></a>(name, operandA[, approximate])</p></td>
+<td><p>GeLU</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pybuda.op.Sigmoid"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Sigmoid</span></code></span></a>(name, operandA)</p></td>
+<td><p>* <strong>param name:</strong><br/>  Op name, unique to the module, or leave blank to autoset</p></td>
+</tr>
+</tbody>
+</table>
+<p><a id="module-3"></a></p>
+</section>
+<section id="relu-name-str-operanda-tensor-threshold-0-0-mode-min">
+<h3>Relu(name: str, operandA: Tensor, threshold=0.0, mode=’min’)<a class="headerlink" href="#relu-name-str-operanda-tensor-threshold-0-0-mode-min" title="Permalink to this heading"></a></h3>
+<p>ReLU</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>operandA</strong> (<em>Tensor</em>) – First operand</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda tensor</p></li>
+<li><p><strong>Return type:</strong>
+Tensor</p></li>
+</ul>
+</section>
+<section id="gelu-name-str-operanda-tensor-approximate-none">
+<h3>Gelu(name: str, operandA: Tensor, approximate=’none’)<a class="headerlink" href="#gelu-name-str-operanda-tensor-approximate-none" title="Permalink to this heading"></a></h3>
+<p>GeLU</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>operandA</strong> (<em>Tensor</em>) – First operand</p></li>
+<li><p><strong>approximate</strong> (<em>str</em>) – The gelu approximation algorithm to use: ‘none’ | ‘tanh’.
+Default: ‘none’</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda tensor</p></li>
+<li><p><strong>Return type:</strong>
+Tensor</p></li>
+</ul>
+</section>
+<section id="sigmoid-name-str-operanda-tensor">
+<h3>Sigmoid(name: str, operandA: Tensor)<a class="headerlink" href="#sigmoid-name-str-operanda-tensor" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>operandA</strong> (<em>Tensor</em>) – First operand</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda tensor</p></li>
+<li><p><strong>Return type:</strong>
+Tensor</p></li>
+</ul>
+</section>
+<section id="math">
+<h3>Math<a class="headerlink" href="#math" title="Permalink to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><a class="reference internal" href="#pybuda.op.Exp"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Exp</span></code></span></a>(name, operandA)</p></th>
+<th class="head"><p>Exponent operation.</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#pybuda.op.Reciprocal"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Reciprocal</span></code></span></a>(name, operandA)</p></td>
+<td><p>Reciprocal operation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pybuda.op.Sqrt"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Sqrt</span></code></span></a>(name, operandA)</p></td>
+<td><p>Square root.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pybuda.op.Log"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Log</span></code></span></a>(name, operandA)</p></td>
+<td><p>Log operation: natural logarithm of the elements of operandA</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pybuda.op.Abs"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Abs</span></code></span></a>(name, operandA)</p></td>
+<td><p>Sigmoid</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pybuda.op.Clip"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Clip</span></code></span></a>(name, operandA, min, max)</p></td>
+<td><p>Clips tensor values between min and max</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pybuda.op.Max"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Max</span></code></span></a>(name, operandA, operandB)</p></td>
+<td><p>Elementwise max of two tensors</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pybuda.op.Argmax"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Argmax</span></code></span></a>(name, operandA[, dim])</p></td>
+<td><p>* <strong>param name:</strong><br/>  Op name, unique to the module, or leave blank to autoset</p></td>
+</tr>
+</tbody>
+</table>
+<p><a id="module-4"></a></p>
+</section>
+<section id="max-name-str-operanda-tensor-operandb-tensor-parameter">
+<h3>Max(name: str, operandA: Tensor, operandB: Tensor | Parameter)<a class="headerlink" href="#max-name-str-operanda-tensor-operandb-tensor-parameter" title="Permalink to this heading"></a></h3>
+<p>Elementwise max of two tensors</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>operandA</strong> (<em>Tensor</em>) – First operand</p></li>
+<li><p><strong>operandB</strong> (<em>Tensor</em>) – Second operand</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda tensor</p></li>
+<li><p><strong>Return type:</strong>
+Tensor</p></li>
+</ul>
+</section>
+<section id="exp-name-str-operanda-tensor">
+<h3>Exp(name: str, operandA: Tensor)<a class="headerlink" href="#exp-name-str-operanda-tensor" title="Permalink to this heading"></a></h3>
+<p>Exponent operation.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>operandA</strong> (<em>Tensor</em>) – First operand</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda tensor</p></li>
+<li><p><strong>Return type:</strong>
+Tensor</p></li>
+</ul>
+</section>
+<section id="reciprocal-name-str-operanda-tensor">
+<h3>Reciprocal(name: str, operandA: Tensor)<a class="headerlink" href="#reciprocal-name-str-operanda-tensor" title="Permalink to this heading"></a></h3>
+<p>Reciprocal operation.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>operandA</strong> (<em>Tensor</em>) – First operand</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda tensor</p></li>
+<li><p><strong>Return type:</strong>
+Tensor</p></li>
+</ul>
+</section>
+<section id="sqrt-name-str-operanda-tensor">
+<h3>Sqrt(name: str, operandA: Tensor)<a class="headerlink" href="#sqrt-name-str-operanda-tensor" title="Permalink to this heading"></a></h3>
+<p>Square root.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>operandA</strong> (<em>Tensor</em>) – First operand</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda tensor</p></li>
+<li><p><strong>Return type:</strong>
+Tensor</p></li>
+</ul>
+</section>
+<section id="log-name-str-operanda-tensor">
+<h3>Log(name: str, operandA: Tensor)<a class="headerlink" href="#log-name-str-operanda-tensor" title="Permalink to this heading"></a></h3>
+<p>Log operation: natural logarithm of the elements of operandA
+: yi = log_e(xi) for all xi in operandA tensor</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>operandA</strong> (<em>Tensor</em>) – First operand</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda tensor</p></li>
+<li><p><strong>Return type:</strong>
+Tensor</p></li>
+</ul>
+</section>
+<section id="argmax-name-str-operanda-tensor-dim-int-none-none">
+<h3>Argmax(name: str, operandA: Tensor, dim: int | None = None)<a class="headerlink" href="#argmax-name-str-operanda-tensor-dim-int-none-none" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>operandA</strong> (<em>Tensor</em>) – First operand</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda tensor</p></li>
+<li><p><strong>Return type:</strong>
+Tensor</p></li>
+</ul>
+</section>
+<section id="abs-name-str-operanda-tensor">
+<h3>Abs(name: str, operandA: Tensor)<a class="headerlink" href="#abs-name-str-operanda-tensor" title="Permalink to this heading"></a></h3>
+<p>Sigmoid</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>operandA</strong> (<em>Tensor</em>) – First operand</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda tensor</p></li>
+<li><p><strong>Return type:</strong>
+Tensor</p></li>
+</ul>
+</section>
+<section id="clip-name-str-operanda-tensor-min-float-max-float">
+<h3>Clip(name: str, operandA: Tensor, min: float, max: float)<a class="headerlink" href="#clip-name-str-operanda-tensor-min-float-max-float" title="Permalink to this heading"></a></h3>
+<p>Clips tensor values between min and max</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>operandA</strong> (<em>Tensor</em>) – First operand</p></li>
+<li><p><strong>min</strong> (<em>float</em>) – Minimum value</p></li>
+<li><p><strong>max</strong> (<em>float</em>) – Maximum value</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda tensor</p></li>
+<li><p><strong>Return type:</strong>
+Tensor</p></li>
+</ul>
+</section>
+<section id="convolutions">
+<h3>Convolutions<a class="headerlink" href="#convolutions" title="Permalink to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><a class="reference internal" href="#pybuda.op.Conv2d"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Conv2d</span></code></span></a>(name, activations, weights[, bias, …])</p></th>
+<th class="head"><p>Conv2d transformation on input activations, with optional bias.</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#pybuda.op.Conv2dTranspose"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Conv2dTranspose</span></code></span></a>(name, activations, weights)</p></td>
+<td><p>Conv2dTranspose transformation on input activations, with optional bias.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pybuda.op.MaxPool2d"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">MaxPool2d</span></code></span></a>(name, activations, kernel_size[, …])</p></td>
+<td><p>Maxpool2d transformation on input activations</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pybuda.op.AvgPool2d"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">AvgPool2d</span></code></span></a>(name, activations, kernel_size[, …])</p></td>
+<td><p>Avgpool2d transformation on input activations</p></td>
+</tr>
+</tbody>
+</table>
+<p><a id="module-5"></a></p>
+</section>
+<section id="conv2d-name-str-activations-tensor-weights-tensor-parameter-bias-tensor-parameter-none-none-stride-int-1-padding-int-str-list-same-dilation-int-1-groups-int-1-channel-last-bool-false">
+<h3>Conv2d(name: str, activations: Tensor, weights: Tensor | Parameter, bias: Tensor | Parameter | None = None, stride: int = 1, padding: int | str | List = ‘same’, dilation: int = 1, groups: int = 1, channel_last: bool = False)<a class="headerlink" href="#conv2d-name-str-activations-tensor-weights-tensor-parameter-bias-tensor-parameter-none-none-stride-int-1-padding-int-str-list-same-dilation-int-1-groups-int-1-channel-last-bool-false" title="Permalink to this heading"></a></h3>
+<p>Conv2d transformation on input activations, with optional bias.</p>
+<ul>
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>activations</strong> (<em>Tensor</em>) – Input activations of shape (N, Cin, iH, iW)</p></li>
+<li><p><strong>weights</strong> –</p>
+<p>Tensor
+: Input weights of shape (Cout, Cin / groups, kH, kW)</p>
+<p>[Tensor]
+: Internal Use pre-split
+Optional Input weights list of shape [(weight_grouping, Cin / groups, Cout)]
+of length: (K*K // weight_grouping)</p>
+</li>
+<li><p><strong>bias</strong> (<em>Tenor</em> <em>,</em> <em>optional</em>) – Optional bias tensor of shape (Cout)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="conv2dtranspose-name-str-activations-tensor-weights-tensor-parameter-bias-tensor-parameter-none-none-stride-int-1-padding-int-str-same-dilation-int-1-groups-int-1-channel-last-bool-false">
+<h3>Conv2dTranspose(name: str, activations: Tensor, weights: Tensor | Parameter, bias: Tensor | Parameter | None = None, stride: int = 1, padding: int | str = ‘same’, dilation: int = 1, groups: int = 1, channel_last: bool = False)<a class="headerlink" href="#conv2dtranspose-name-str-activations-tensor-weights-tensor-parameter-bias-tensor-parameter-none-none-stride-int-1-padding-int-str-same-dilation-int-1-groups-int-1-channel-last-bool-false" title="Permalink to this heading"></a></h3>
+<p>Conv2dTranspose transformation on input activations, with optional bias.</p>
+<ul>
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>activations</strong> (<em>Tensor</em>) – Input activations of shape (N, Cin, iH, iW)</p></li>
+<li><p><strong>weights</strong> –</p>
+<p>Tensor
+: Input weights of shape (Cout, Cin / groups, kH, kW)</p>
+<p>[Tensor]
+: Internal Use pre-split
+Optional Input weights list of shape [(weight_grouping, Cin / groups, Cout)]
+of length: (K*K // weight_grouping)</p>
+</li>
+<li><p><strong>bias</strong> (<em>Tenor</em> <em>,</em> <em>optional</em>) – Optional bias tensor of shape (Cout)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="maxpool2d-name-str-activations-tensor-kernel-size-int-tuple-int-int-stride-int-1-padding-int-str-same-dilation-int-1-ceil-mode-bool-false-return-indices-bool-false-max-pool-add-sub-surround-bool-false-max-pool-add-sub-surround-value-float-1-0-channel-last-bool-false">
+<h3>MaxPool2d(name: str, activations: Tensor, kernel_size: int | Tuple[int, int], stride: int = 1, padding: int | str = ‘same’, dilation: int = 1, ceil_mode: bool = False, return_indices: bool = False, max_pool_add_sub_surround: bool = False, max_pool_add_sub_surround_value: float = 1.0, channel_last: bool = False)<a class="headerlink" href="#maxpool2d-name-str-activations-tensor-kernel-size-int-tuple-int-int-stride-int-1-padding-int-str-same-dilation-int-1-ceil-mode-bool-false-return-indices-bool-false-max-pool-add-sub-surround-bool-false-max-pool-add-sub-surround-value-float-1-0-channel-last-bool-false" title="Permalink to this heading"></a></h3>
+<p>Maxpool2d transformation on input activations</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>activations</strong> (<em>Tensor</em>) – Input activations of shape (N, Cin, iH, iW)</p></li>
+<li><p><strong>kernel_size</strong> – Size of pooling region</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="avgpool2d-name-str-activations-tensor-kernel-size-int-tuple-int-int-stride-int-1-padding-int-str-same-ceil-mode-bool-false-count-include-pad-bool-true-divisor-override-float-none-none-channel-last-bool-false">
+<h3>AvgPool2d(name: str, activations: Tensor, kernel_size: int | Tuple[int, int], stride: int = 1, padding: int | str = ‘same’, ceil_mode: bool = False, count_include_pad: bool = True, divisor_override: float | None = None, channel_last: bool = False)<a class="headerlink" href="#avgpool2d-name-str-activations-tensor-kernel-size-int-tuple-int-int-stride-int-1-padding-int-str-same-ceil-mode-bool-false-count-include-pad-bool-true-divisor-override-float-none-none-channel-last-bool-false" title="Permalink to this heading"></a></h3>
+<p>Avgpool2d transformation on input activations</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>activations</strong> (<em>Tensor</em>) – Input activations of shape (N, Cin, iH, iW)</p></li>
+<li><p><strong>kernel_size</strong> – Size of pooling region</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="nn">
+<h3>NN<a class="headerlink" href="#nn" title="Permalink to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><a class="reference internal" href="#pybuda.op.nn.Softmax"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Softmax</span></code></span></a>(name, operandA, *, dim[, stable])</p></th>
+<th class="head"><p>Softmax operation.</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#pybuda.op.nn.Layernorm"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Layernorm</span></code></span></a>(name, operandA, weights, bias[, …])</p></td>
+<td><p>Layer normalization.</p></td>
+</tr>
+</tbody>
+</table>
+<p><a id="module-pybuda.op.nn"></a></p>
+</section>
+<section id="softmax-name-str-operanda-tensor-dim-int-stable-bool-true">
+<h3>Softmax(name: str, operandA: Tensor, *, dim: int, stable: bool = True)<a class="headerlink" href="#softmax-name-str-operanda-tensor-dim-int-stable-bool-true" title="Permalink to this heading"></a></h3>
+<p>Softmax operation.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>operandA</strong> (<em>Tensor</em>) – First operand</p></li>
+<li><p><strong>dim</strong> (<em>int</em>) – – A dimension along which Softmax will be computed (so every slice along dim will sum to 1).</p></li>
+<li><p><strong>stable</strong> (<em>bool</em>) – Use stable softmax or not.</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda tensor</p></li>
+<li><p><strong>Return type:</strong>
+Tensor</p></li>
+</ul>
+</section>
+<section id="layernorm-name-str-operanda-tensor-weights-tensor-parameter-bias-tensor-parameter-dim-int-1-epsilon-float-1e-05">
+<h3>Layernorm(name: str, operandA: Tensor, weights: Tensor | Parameter, bias: Tensor | Parameter, dim: int = -1, epsilon: float = 1e-05)<a class="headerlink" href="#layernorm-name-str-operanda-tensor-weights-tensor-parameter-bias-tensor-parameter-dim-int-1-epsilon-float-1e-05" title="Permalink to this heading"></a></h3>
+<p>Layer normalization.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Op name, unique to the module, or leave blank to autoset</p></li>
+<li><p><strong>operandA</strong> (<em>Tensor</em>) – First operand</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda tensor</p></li>
+<li><p><strong>Return type:</strong>
+Tensor</p></li>
+</ul>
+</section>
+</section>
+<section id="module-types">
+<h2>Module Types<a class="headerlink" href="#module-types" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><a class="reference internal" href="#pybuda.Module"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Module</span></code></span></a>(name)</p></th>
+<th class="head"><p>Module class contains a workload that can be assigned to a single device.</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#pybuda.PyTorchModule"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">PyTorchModule</span></code></span></a>(name, module[, redirect_forward])</p></td>
+<td><p>A wrapper around a PyTorch module.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pybuda.TFModule"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">TFModule</span></code></span></a>(name, module)</p></td>
+<td><p>A wrapper around a TF module.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pybuda.OnnxModule"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">OnnxModule</span></code></span></a>(name, module, onnx_path)</p></td>
+<td><p>A wrapper around a Onnx module.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pybuda.PyBudaModule"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">PyBudaModule</span></code></span></a>(name)</p></td>
+<td><p>A base class for all PyBuda modules.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="class-module-name-str">
+<h3><em>class</em> Module(name: str)<a class="headerlink" href="#class-module-name-str" title="Permalink to this heading"></a></h3>
+<p>Module class contains a workload that can be assigned to a single device. The workload can be implemented in PyTorch or in PyBuda.</p>
+<section id="get-device">
+<h4>get_device()<a class="headerlink" href="#get-device" title="Permalink to this heading"></a></h4>
+<p>Returns the device that this op is placed onto.</p>
+<ul class="simple">
+<li><p><strong>Returns:</strong>
+Device, or None if op has not been placed yet</p></li>
+<li><p><strong>Return type:</strong>
+Optional[<a class="reference internal" href="#pybuda.Device"><span class="xref myst">Device</span></a>]</p></li>
+</ul>
+</section>
+<section id="get-name">
+<h4>get_name()<a class="headerlink" href="#get-name" title="Permalink to this heading"></a></h4>
+<p>Returns the name of the module.</p>
+<ul class="simple">
+<li><p><strong>Returns:</strong>
+Device, or None if op has not been placed yet</p></li>
+<li><p><strong>Return type:</strong>
+Optional[<a class="reference internal" href="#pybuda.Device"><span class="xref myst">Device</span></a>]</p></li>
+</ul>
+</section>
+<section id="run-args">
+<h4>run(*args)<a class="headerlink" href="#run-args" title="Permalink to this heading"></a></h4>
+<p>Run inference on this module on a TT device. There should be no other modules manually placed on any devices.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong>
+<strong>*args</strong> (<em>tensor</em>) – Inference inputs</p></li>
+<li><p><strong>Returns:</strong>
+Outputs of inference</p></li>
+<li><p><strong>Return type:</strong>
+Tuple[tensor,….]</p></li>
+</ul>
+</section>
+</section>
+<section id="class-pytorchmodule-name-str-module-module-redirect-forward-bool-true">
+<h3><em>class</em> PyTorchModule(name: str, module: Module, redirect_forward: bool = True)<a class="headerlink" href="#class-pytorchmodule-name-str-module-module-redirect-forward-bool-true" title="Permalink to this heading"></a></h3>
+<p>A wrapper around a PyTorch module. If placed on a CPU device, PyTorchModules will be executed as is, and if placed
+on a TT device, modules will be lowered to PyBuda.</p>
+<section id="forward-args-kwargs">
+<h4>forward(*args, **kwargs)<a class="headerlink" href="#forward-args-kwargs" title="Permalink to this heading"></a></h4>
+<p>Run PyTorch module forward, with pre-loaded inputs in input queues</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>*args</strong> – Inputs into the module</p></li>
+<li><p><strong>**kwargs</strong> – Keyword inputs into the moduls</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Output tensors, one for each of the module outputs</p></li>
+<li><p><strong>Return type:</strong>
+Tuple[torch.tensor]</p></li>
+</ul>
+</section>
+<section id="backward-args">
+<h4>backward(*args)<a class="headerlink" href="#backward-args" title="Permalink to this heading"></a></h4>
+<p>Run PyTorch module backward, with pre-loaded inputs in input queues</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong>
+<strong>*args</strong> (<em>List</em> *[*<em>Tuple</em> *[*<em>torch.tensor</em> <em>,</em> <em>torch.tensor</em> <em>]</em> <em>]</em>) – List of tuples of output tensors and incoming loss tensors</p></li>
+</ul>
+</section>
+<section id="add-parameter-name-str-parameter-parameter">
+<h4>add_parameter(name: str, parameter: Parameter)<a class="headerlink" href="#add-parameter-name-str-parameter-parameter" title="Permalink to this heading"></a></h4>
+<p>Adds a new parameter.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Parameter name</p></li>
+<li><p><strong>parameter</strong> (<em>Parameter</em>) – Parameter to add</p></li>
+<li><p><strong>prepend_name</strong> (<em>Bool</em>) – Whether to prepend module name to parameter name</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="set-parameters-kwargs">
+<h4>set_parameters(**kwargs)<a class="headerlink" href="#set-parameters-kwargs" title="Permalink to this heading"></a></h4>
+<p>Set parameters (weights) in this module, by name.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong>
+<strong>kwargs</strong> – Name-value pairs of parameter/weight names and tensor values</p></li>
+</ul>
+</section>
+<section id="get-parameters">
+<h4>get_parameters()<a class="headerlink" href="#get-parameters" title="Permalink to this heading"></a></h4>
+<p>Return the list of parameters defined in this module</p>
+<ul class="simple">
+<li><p><strong>Returns:</strong>
+List of all parameters in this module</p></li>
+<li><p><strong>Return type:</strong>
+List[Parameter]</p></li>
+</ul>
+</section>
+</section>
+<section id="class-tfmodule-name-str-module-model">
+<h3><em>class</em> TFModule(name: str, module: Model)<a class="headerlink" href="#class-tfmodule-name-str-module-model" title="Permalink to this heading"></a></h3>
+<p>A wrapper around a TF module. Currently, TF modules can only run on a CPU device.</p>
+<section id="id1">
+<h4>forward(*args, **kwargs)<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h4>
+<p>Run TF module forward, converting pytorch tensors as necessary</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>*args</strong> – Inputs into the module</p></li>
+<li><p><strong>**kwargs</strong> – Keyword inputs into the moduls</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Output tensors, one for each of the module outputs</p></li>
+<li><p><strong>Return type:</strong>
+Tuple[tf.Tensor]</p></li>
+</ul>
+</section>
+<section id="call-args-kwargs">
+<h4>call(*args, **kwargs)<a class="headerlink" href="#call-args-kwargs" title="Permalink to this heading"></a></h4>
+<p>Run TF module forward, with pre-loaded inputs in input queues</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>*args</strong> – Inputs into the module</p></li>
+<li><p><strong>**kwargs</strong> – Keyword inputs into the moduls</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Output tensors, one for each of the module outputs</p></li>
+<li><p><strong>Return type:</strong>
+Tuple[tf.Tensor]</p></li>
+</ul>
+</section>
+<section id="id2">
+<h4>backward(*args)<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h4>
+<p>Run TF module backward, with pre-loaded inputs in input queues</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong>
+<strong>*args</strong> (<em>List</em> *[*<em>Tuple</em> *[*<em>tf.Tensor</em> <em>,</em> <em>tf.Tensor</em> <em>]</em> <em>]</em>) – List of tuples of output tensors and incoming loss tensors</p></li>
+</ul>
+</section>
+</section>
+<section id="class-onnxmodule-name-str-module-modelproto-onnx-path-str">
+<h3><em>class</em> OnnxModule(name: str, module: ModelProto, onnx_path: str)<a class="headerlink" href="#class-onnxmodule-name-str-module-modelproto-onnx-path-str" title="Permalink to this heading"></a></h3>
+<p>A wrapper around a Onnx module.</p>
+</section>
+<section id="class-pybudamodule-name-str">
+<h3><em>class</em> PyBudaModule(name: str)<a class="headerlink" href="#class-pybudamodule-name-str" title="Permalink to this heading"></a></h3>
+<p>A base class for all PyBuda modules. User should extend this class and implement forward function with workload implementation.</p>
+<section id="pre-forward-args-kwargs">
+<h4>pre_forward(*args, **kwargs)<a class="headerlink" href="#pre-forward-args-kwargs" title="Permalink to this heading"></a></h4>
+<p>Called before forward. Override this function to add custom logic.</p>
+</section>
+<section id="add-parameter-name-str-parameter-parameter-prepend-name-bool-false">
+<h4>add_parameter(name: str, parameter: Parameter, prepend_name: bool = False)<a class="headerlink" href="#add-parameter-name-str-parameter-parameter-prepend-name-bool-false" title="Permalink to this heading"></a></h4>
+<p>Adds a new parameter.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Parameter name</p></li>
+<li><p><strong>parameter</strong> (<em>Parameter</em>) – Parameter to add</p></li>
+<li><p><strong>prepend_name</strong> (<em>Bool</em>) – Whether to prepend module name to parameter name</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="add-constant-name-str-prepend-name-bool-false-shape-tuple-int-none-none">
+<h4>add_constant(name: str, prepend_name: bool = False, shape: Tuple[int] | None = None)<a class="headerlink" href="#add-constant-name-str-prepend-name-bool-false-shape-tuple-int-none-none" title="Permalink to this heading"></a></h4>
+<p>Adds a new constant.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Constant name</p></li>
+<li><p><strong>prepend_name</strong> (<em>Bool</em>) – Whether to prepend module name to constant name</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="get-constant-name">
+<h4>get_constant(name)<a class="headerlink" href="#get-constant-name" title="Permalink to this heading"></a></h4>
+<p>Gets a constant by name</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong>
+<strong>name</strong> (<em>str</em>) – constant name</p></li>
+<li><p><strong>Returns:</strong>
+constant in module</p></li>
+<li><p><strong>Return type:</strong>
+pybuda.Tensor</p></li>
+</ul>
+</section>
+<section id="set-constant-name-str-data-tensor-tensor-ndarray">
+<h4>set_constant(name: str, data: Tensor | Tensor | ndarray)<a class="headerlink" href="#set-constant-name-str-data-tensor-tensor-ndarray" title="Permalink to this heading"></a></h4>
+<p>Set value for a module constant.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – constant name</p></li>
+<li><p><strong>data</strong> (<em>SomeTensor</em>) – Tensor value to be set</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="get-parameter-name">
+<h4>get_parameter(name)<a class="headerlink" href="#get-parameter-name" title="Permalink to this heading"></a></h4>
+<p>Gets a parameter by name</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong>
+<strong>name</strong> (<em>str</em>) – Parameter name</p></li>
+<li><p><strong>Returns:</strong>
+Module parameter</p></li>
+<li><p><strong>Return type:</strong>
+Parameter</p></li>
+</ul>
+</section>
+<section id="get-parameters-submodules-bool-true">
+<h4>get_parameters(submodules: bool = True)<a class="headerlink" href="#get-parameters-submodules-bool-true" title="Permalink to this heading"></a></h4>
+<p>Return the list of parameters defined in this module and (optionally) all submodules.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong>
+<strong>submodules</strong> (<em>bool</em> <em>,</em> <em>optional</em>) – If set, parameters of submodules will be returned, as well. True by default.</p></li>
+<li><p><strong>Returns:</strong>
+List of all parameters in this (and submodules, optionally) module</p></li>
+<li><p><strong>Return type:</strong>
+List[Parameter]</p></li>
+</ul>
+</section>
+<section id="set-parameter-name-str-data-tensor-tensor-ndarray">
+<h4>set_parameter(name: str, data: Tensor | Tensor | ndarray)<a class="headerlink" href="#set-parameter-name-str-data-tensor-tensor-ndarray" title="Permalink to this heading"></a></h4>
+<p>Set value for a module parameter.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>name</strong> (<em>str</em>) – Parameter name</p></li>
+<li><p><strong>data</strong> (<em>SomeTensor</em>) – Tensor value to be set</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="load-parameter-dict-data-dict-str-tensor-tensor-ndarray">
+<h4>load_parameter_dict(data: Dict[str, Tensor | Tensor | ndarray])<a class="headerlink" href="#load-parameter-dict-data-dict-str-tensor-tensor-ndarray" title="Permalink to this heading"></a></h4>
+<p>Load all parameter values specified in the dictionary.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong>
+<strong>data</strong> (<em>Dict</em> *[*<em>str</em> <em>,</em> <em>SomeTensor</em> <em>]</em>) – Dictionary of name-&gt;tensor pairs to be loaded into parameters</p></li>
+</ul>
+</section>
+<section id="insert-tapout-queue-for-op-op-name-str-output-index-int">
+<h4>insert_tapout_queue_for_op(op_name: str, output_index: int)<a class="headerlink" href="#insert-tapout-queue-for-op-op-name-str-output-index-int" title="Permalink to this heading"></a></h4>
+<p>Insert an intermediate queue for op (used for checking/debugging)</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>op_name</strong> (<em>str</em>) – Op name</p></li>
+<li><p><strong>output_index</strong> (<em>int</em>) – Index of the output tensor on the op you want to associate with the queue</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Unique handle for the tapout queue, used to retrieve values later</p></li>
+<li><p><strong>Return type:</strong>
+IntQueueHandle</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="device-types">
+<h2>Device Types<a class="headerlink" href="#device-types" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><a class="reference internal" href="#pybuda.Device"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Device</span></code></span></a>(name[, mp_context])</p></th>
+<th class="head"><p>Device class represents a physical device which can be a Tenstorrent device, or a CPU.</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#pybuda.CPUDevice"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">CPUDevice</span></code></span></a>(name[, optimizer_f, scheduler_f, …])</p></td>
+<td><p>CPUDevice represents a CPU processor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pybuda.TTDevice"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">TTDevice</span></code></span></a>(name, num_chips, chip_ids, arch, …)</p></td>
+<td><p>TTDevice represents one or more Tenstorrent devices that will receive modules to run.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="class-device-name-str-mp-context-none">
+<h3><em>class</em> Device(name: str, mp_context=None)<a class="headerlink" href="#class-device-name-str-mp-context-none" title="Permalink to this heading"></a></h3>
+<p>Device class represents a physical device which can be a Tenstorrent device, or a CPU. In a typical operation,
+each device spawns a process on the host CPU which is either used to run commands on the CPU (if device is
+a CPU), or feeds commands to the Tenstorrent device.</p>
+<p>Each device will allocate input queues for the first module it will execute. On a CPU, these are usually
+some kind of multiprocessing queues with shared memory storage, and Tenstorrent devices have queues in
+on-device memory.</p>
+<p>One or more Modules can be placed on the device to be executed.</p>
+<section id="place-module-module-module-tuple-module-list-module">
+<h4>place_module(module: <a class="reference internal" href="#pybuda.Module"><span class="xref myst">Module</span></a> | Tuple[<a class="reference internal" href="#pybuda.Module"><span class="xref myst">Module</span></a>] | List[<a class="reference internal" href="#pybuda.Module"><span class="xref myst">Module</span></a>])<a class="headerlink" href="#place-module-module-module-tuple-module-list-module" title="Permalink to this heading"></a></h4>
+<p>Places a module, or list of modules, on this device for execution. Modules will be run as a sequential pipeline
+on this single device.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong>
+<strong>module</strong> (<em>Union</em> <em>[</em><a class="reference internal" href="#pybuda.Module"><span class="xref myst"><em>Module</em></span></a> <em>,</em> <em>Tuple</em> <em>[</em><a class="reference internal" href="#pybuda.Module"><span class="xref myst"><em>Module</em></span></a> <em>]</em> <em>,</em> <em>List</em> <em>[</em><a class="reference internal" href="#pybuda.Module"><span class="xref myst"><em>Module</em></span></a> <em>]</em> <em>]</em>) – A single Module or a list of Modules to be placed on the device</p></li>
+</ul>
+</section>
+<section id="place-loss-module-module-module">
+<h4>place_loss_module(module: <a class="reference internal" href="#pybuda.Module"><span class="xref myst">Module</span></a>)<a class="headerlink" href="#place-loss-module-module-module" title="Permalink to this heading"></a></h4>
+<p>Places a module used to calculate loss on this device. This must be the last device in the pipeline.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong>
+<strong>module</strong> (<a class="reference internal" href="#pybuda.Module"><span class="xref myst"><em>Module</em></span></a>) – A single loss module</p></li>
+</ul>
+</section>
+<section id="remove-loss-module">
+<h4>remove_loss_module()<a class="headerlink" href="#remove-loss-module" title="Permalink to this heading"></a></h4>
+<p>Remove module used to calculate loss from this device</p>
+</section>
+<section id="push-to-inputs-tensors-tuple-tensor-tensor-dict-str-tensor-tensor">
+<h4>push_to_inputs(*tensors: Tuple[Tensor | Tensor, …] | Dict[str, Tensor | Tensor])<a class="headerlink" href="#push-to-inputs-tensors-tuple-tensor-tensor-dict-str-tensor-tensor" title="Permalink to this heading"></a></h4>
+<p>Push tensor(s) to module inputs, either in order, or by keyword argumet if a dictionary is used. The data will be queued
+up on the target device until it is ready to be consumed.</p>
+<p>This call can block if there is no space on the target device’s input queues.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong>
+<strong>*tensors</strong> (<em>Union</em> *[*<em>torch.Tensor</em> <em>,</em> <em>Tensor</em> <em>]</em>) – Ordered list of inputs to be pushed into the module’s input queue. Can be pytorch or pybuda tensor.</p></li>
+</ul>
+</section>
+<section id="push-to-target-inputs-tensors">
+<h4>push_to_target_inputs(*tensors)<a class="headerlink" href="#push-to-target-inputs-tensors" title="Permalink to this heading"></a></h4>
+<p>Push tensor(s) to module training target inputs, in order. The data will be queued up on the target
+device until it is ready to be consumed.</p>
+<p>This call can block if there is no space on the target device’s input queues.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong>
+<strong>tensors</strong> – Ordered list of inputs to be pushed into the module’s target input queue</p></li>
+</ul>
+</section>
+<section id="push-to-command-queue-cmd">
+<h4>push_to_command_queue(cmd)<a class="headerlink" href="#push-to-command-queue-cmd" title="Permalink to this heading"></a></h4>
+<p>Send command to the running main loop in another process</p>
+</section>
+<section id="get-command-queue-response">
+<h4>get_command_queue_response()<a class="headerlink" href="#get-command-queue-response" title="Permalink to this heading"></a></h4>
+<p>Read from command queue response. This is blocking.</p>
+<ul class="simple">
+<li><p><strong>Returns:</strong>
+Command-specific dictionary with response data, or None in case of failures</p></li>
+<li><p><strong>Return type:</strong>
+Optional[Dict]</p></li>
+</ul>
+</section>
+<section id="get-next-command-command-queue-queue">
+<h4>get_next_command(command_queue: Queue)<a class="headerlink" href="#get-next-command-command-queue-queue" title="Permalink to this heading"></a></h4>
+<p>Read next command to run, from the given command queue. Blocking.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong>
+<strong>command_queue</strong> (<em>queue.Queue</em>) – Queue of commands</p></li>
+<li><p><strong>Returns:</strong>
+Next command from the queue, or None if shutdown_even was set</p></li>
+<li><p><strong>Return type:</strong>
+Command</p></li>
+</ul>
+</section>
+<section id="run-next-command-cmd-command">
+<h4>run_next_command(cmd: Command)<a class="headerlink" href="#run-next-command-cmd-command" title="Permalink to this heading"></a></h4>
+<p>In concurrent mode, this is called in a forever loop by the process dedicated to this device.
+In sequential mode, the main process will call this until there’s no more work to do.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong>
+<strong>command_queue</strong> (<em>queue.Queue</em>) – Command queue to read commands from</p></li>
+<li><p><strong>Returns:</strong>
+True if quit command was seen</p></li>
+<li><p><strong>Return type:</strong>
+bool</p></li>
+</ul>
+</section>
+<section id="dc-transfer-thread-direction-str-direction-queue-queue">
+<h4>dc_transfer_thread(direction: str, direction_queue: Queue)<a class="headerlink" href="#dc-transfer-thread-direction-str-direction-queue-queue" title="Permalink to this heading"></a></h4>
+<p>Keep transfering data in a thread. One per direction.</p>
+</section>
+<section id="dc-transfer-direction-str">
+<h4>dc_transfer(direction: str)<a class="headerlink" href="#dc-transfer-direction-str" title="Permalink to this heading"></a></h4>
+<p>Transfer data between devices</p>
+</section>
+<section id="run-output-dir-str">
+<h4>run(output_dir: str)<a class="headerlink" href="#run-output-dir-str" title="Permalink to this heading"></a></h4>
+<p>Main process loop in concurrent mode.</p>
+<p>The loop receives commands through its command queue, which indicate how many epochs &amp; iterations to
+run, whether to run training or inference, and position in the pipeline.</p>
+<p>The loop will run until shutdown command is sent in the command queue, or shutdown event is raised due
+to an exception in another process</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong>
+<strong>output_dir</strong> (<em>str</em>) – Output directory needed by perf trace on every process</p></li>
+</ul>
+</section>
+<section id="compile-for-training-bool-microbatch-size-int-0-microbatch-count-int-1">
+<h4>compile_for(training: bool, microbatch_size: int = 0, microbatch_count: int = 1)<a class="headerlink" href="#compile-for-training-bool-microbatch-size-int-0-microbatch-count-int-1" title="Permalink to this heading"></a></h4>
+<p>Save microbatch size and count</p>
+</section>
+<section id="get-first-targets">
+<h4>get_first_targets()<a class="headerlink" href="#get-first-targets" title="Permalink to this heading"></a></h4>
+<p>Return the tuple of first targets pushed to this device</p>
+</section>
+<section id="get-first-inputs-peek-false">
+<h4>get_first_inputs(peek=False)<a class="headerlink" href="#get-first-inputs-peek-false" title="Permalink to this heading"></a></h4>
+<p>Return the microbatch size, and first input in microbatch pushed into the device. If input_shapes/input_types
+are provided, then those will be used to create input tensors.</p>
+<p>This is used to compile and optimize the model for dimensions provided by the first input.</p>
+</section>
+<section id="shutdown-device">
+<h4>shutdown_device()<a class="headerlink" href="#shutdown-device" title="Permalink to this heading"></a></h4>
+<p>Check for any mp queues that are not empty, and drain them</p>
+</section>
+<section id="cpueval-backward-bw-inputs-list-tensor-parameters-dict-str-tensor">
+<h4>cpueval_backward(bw_inputs: List[Tensor], parameters: Dict[str, Tensor])<a class="headerlink" href="#cpueval-backward-bw-inputs-list-tensor-parameters-dict-str-tensor" title="Permalink to this heading"></a></h4>
+<p>Evaluate backward pass for verification. cpueval_forward should’ve been called first, with
+save_for_backward set.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>bw_inputs</strong> (<em>List</em> *[*<em>torch.Tensor</em> <em>]</em>) – BW inputs, i.e. losses for each fw output</p></li>
+<li><p><strong>parameters</strong> (<em>Dict</em> *[*<em>str</em> <em>,</em> <em>torch.Tensor</em> <em>]</em>) – Module parameters</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong></p>
+<ul>
+<li><p><em>List[Tensor]</em> – Gradients on ordered inputs</p></li>
+<li><p><em>Dict[str, Tensor]</em> – Gradients on parameters</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="generate-loop-count-int-write-index-int">
+<h4>generate(loop_count: int, write_index: int)<a class="headerlink" href="#generate-loop-count-int-write-index-int" title="Permalink to this heading"></a></h4>
+<p>Run generate forward pass on each module on this device, in order</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>loop_count</strong> (<em>int</em>) – Number of micro-batches to run</p></li>
+<li><p><strong>write_index</strong> (<em>int</em>) – Write location for past cache buffers</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="forward-loop-count-int">
+<h4>forward(loop_count: int)<a class="headerlink" href="#forward-loop-count-int" title="Permalink to this heading"></a></h4>
+<p>Run forward pass on each module on this device, in order</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong>
+<strong>loop_count</strong> (<em>int</em>) – Number of micro-batches to run</p></li>
+</ul>
+</section>
+<section id="backward-loop-count-int-zero-grad-bool">
+<h4>backward(loop_count: int, zero_grad: bool)<a class="headerlink" href="#backward-loop-count-int-zero-grad-bool" title="Permalink to this heading"></a></h4>
+<p>Run backward pass on each module on this device, in reverse order</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>loop_count</strong> (<em>int</em>) – Each mini-batch is broken into micro-batches. This is necessary to fill a multi-device pipeline,
+and should be roughly 4-6x the number of devices in the pipeline for ideal performance.</p></li>
+<li><p><strong>zero_grad</strong> (<em>bool</em>) – Set to true to have optimizer zero out gradients before the run</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="class-cpudevice-name-str-optimizer-f-callable-none-none-scheduler-f-callable-none-none-mp-context-none-retain-backward-graph-false-module-pytorchmodule-list-pytorchmodule-none-none-input-dtypes-list-dtype-none-none">
+<h3><em>class</em> CPUDevice(name: str, optimizer_f: Callable | None = None, scheduler_f: Callable | None = None, mp_context=None, retain_backward_graph=False, module: <a class="reference internal" href="#pybuda.PyTorchModule"><span class="xref myst">PyTorchModule</span></a> | List[<a class="reference internal" href="#pybuda.PyTorchModule"><span class="xref myst">PyTorchModule</span></a>] | None = None, input_dtypes: List[dtype] | None = None)<a class="headerlink" href="#class-cpudevice-name-str-optimizer-f-callable-none-none-scheduler-f-callable-none-none-mp-context-none-retain-backward-graph-false-module-pytorchmodule-list-pytorchmodule-none-none-input-dtypes-list-dtype-none-none" title="Permalink to this heading"></a></h3>
+<p>CPUDevice represents a CPU processor. It will spawn a process and run local operations on the assigned processor.</p>
+<section id="forward-pt-loop-count-int">
+<h4>forward_pt(loop_count: int)<a class="headerlink" href="#forward-pt-loop-count-int" title="Permalink to this heading"></a></h4>
+<p>Run forward pass on each module on this device, in order</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong>
+<strong>loop_count</strong> (<em>int</em>) – Number of micro-batches to run</p></li>
+</ul>
+</section>
+<section id="forward-tf-loop-count-int">
+<h4>forward_tf(loop_count: int)<a class="headerlink" href="#forward-tf-loop-count-int" title="Permalink to this heading"></a></h4>
+<p>Run forward pass on each module on this device, in order</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong>
+<strong>loop_count</strong> (<em>int</em>) – Number of micro-batches to run</p></li>
+</ul>
+</section>
+<section id="id3">
+<h4>forward(loop_count: int)<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h4>
+<p>Run forward pass on each module on this device, in order</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong>
+<strong>loop_count</strong> (<em>int</em>) – Number of micro-batches to run</p></li>
+</ul>
+</section>
+<section id="id4">
+<h4>backward(loop_count: int, zero_grad: bool)<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h4>
+<p>Run backward pass on each module on this device, in reverse order</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>loop_count</strong> (<em>int</em>) – Each mini-batch is broken into micro-batches. This is necessary to fill a multi-device pipeline,
+and should be roughly 4-6x the number of devices in the pipeline for ideal performance.</p></li>
+<li><p><strong>zero_grad</strong> (<em>bool</em>) – Set to true to have optimizer zero out gradients before the run</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id5">
+<h4>generate(loop_count: int, write_index: int)<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h4>
+<p>Run forward pass on each module on this device, in order</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong>
+<strong>loop_count</strong> (<em>int</em>) – Number of micro-batches to run</p></li>
+</ul>
+</section>
+<section id="compile-for-pt-inputs-tuple-tensor-compiler-cfg-compilerconfig-targets-list-tensor-microbatch-size-int-0-microbatch-count-int-1-verify-cfg-verifyconfig-none-none">
+<h4>compile_for_pt(inputs: Tuple[Tensor, …], compiler_cfg: CompilerConfig, targets: List[Tensor] = [], microbatch_size: int = 0, microbatch_count: int = 1, verify_cfg: VerifyConfig | None = None)<a class="headerlink" href="#compile-for-pt-inputs-tuple-tensor-compiler-cfg-compilerconfig-targets-list-tensor-microbatch-size-int-0-microbatch-count-int-1-verify-cfg-verifyconfig-none-none" title="Permalink to this heading"></a></h4>
+<p>For a CPU device, there is currently no compilation. This function propagates input shapes through the model
+to return output shapes and formats.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>inputs</strong> (<em>Tuple</em> *[*<em>Tensor</em> <em>,</em>  <em>…</em> <em>]</em>) – Tuple of input tensors. They must have shape and format set, but do not need to hold data unless
+auto-verification is set.</p></li>
+<li><p><strong>compiler_cfg</strong> (<em>CompilerConfig</em>) – Compiler configuration</p></li>
+<li><p><strong>targets</strong> (<em>List</em> *[*<em>Tensor</em> <em>]</em> <em>,</em> <em>optional</em>) – Optional list of target tensors, if this device has a loss module</p></li>
+<li><p><strong>microbatch_size</strong> (<em>int</em> <em>,</em> <em>optional</em>) – The size of microbatch. Must be non-zero for training mode.</p></li>
+<li><p><strong>microbatch_count</strong> (<em>int</em>) – Only relevant for training and TT devices.</p></li>
+<li><p><strong>verify_cfg</strong> (<em>Optional</em> *[*<em>VerifyConfig</em> <em>]</em>) – Optional auto-verification of compile process</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Output tensors</p></li>
+<li><p><strong>Return type:</strong>
+Tuple[Tensor, …]</p></li>
+</ul>
+</section>
+<section id="compile-for-tf-inputs-tuple-tensor-compiler-cfg-compilerconfig-targets-list-tensor-microbatch-size-int-0-verify-cfg-verifyconfig-none-none">
+<h4>compile_for_tf(inputs: Tuple[Tensor, …], compiler_cfg: CompilerConfig, targets: List[Tensor] = [], microbatch_size: int = 0, verify_cfg: VerifyConfig | None = None)<a class="headerlink" href="#compile-for-tf-inputs-tuple-tensor-compiler-cfg-compilerconfig-targets-list-tensor-microbatch-size-int-0-verify-cfg-verifyconfig-none-none" title="Permalink to this heading"></a></h4>
+<p>For a CPU device, there is currently no compilation. This function propagates input shapes through the model
+to return output shapes and formats.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>inputs</strong> (<em>Tuple</em> *[*<em>Tensor</em> <em>,</em>  <em>…</em> <em>]</em>) – Tuple of input tensors. They must have shape and format set, but do not need to hold data unless
+auto-verification is set.</p></li>
+<li><p><strong>compiler_cfg</strong> (<em>CompilerConfig</em>) – Compiler configuration</p></li>
+<li><p><strong>targets</strong> (<em>List</em> *[*<em>Tensor</em> <em>]</em> <em>,</em> <em>optional</em>) – Optional list of target tensors, if this device has a loss module</p></li>
+<li><p><strong>microbatch_size</strong> (<em>int</em> <em>,</em> <em>optional</em>) – The size of microbatch. Must be non-zero for training mode.</p></li>
+<li><p><strong>verify_cfg</strong> (<em>Optional</em> *[*<em>VerifyConfig</em> <em>]</em>) – Optional auto-verification of compile process</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Output tensors</p></li>
+<li><p><strong>Return type:</strong>
+Tuple[Tensor, …]</p></li>
+</ul>
+</section>
+<section id="compile-for-inputs-tuple-tensor-compiler-cfg-compilerconfig-targets-list-tensor-microbatch-size-int-0-microbatch-count-int-1-verify-cfg-verifyconfig-none-none">
+<h4>compile_for(inputs: Tuple[Tensor, …], compiler_cfg: CompilerConfig, targets: List[Tensor] = [], microbatch_size: int = 0, microbatch_count: int = 1, verify_cfg: VerifyConfig | None = None)<a class="headerlink" href="#compile-for-inputs-tuple-tensor-compiler-cfg-compilerconfig-targets-list-tensor-microbatch-size-int-0-microbatch-count-int-1-verify-cfg-verifyconfig-none-none" title="Permalink to this heading"></a></h4>
+<p>For a CPU device, there is currently no compilation. This function propagates input shapes through the model
+to return output shapes and formats.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>inputs</strong> (<em>Tuple</em> *[*<em>Tensor</em> <em>,</em>  <em>…</em> <em>]</em>) – Tuple of input tensors. They must have shape and format set, but do not need to hold data unless
+auto-verification is set.</p></li>
+<li><p><strong>compiler_cfg</strong> (<em>CompilerConfig</em>) – Compiler configuration</p></li>
+<li><p><strong>targets</strong> (<em>List</em> *[*<em>Tensor</em> <em>]</em> <em>,</em> <em>optional</em>) – Optional list of target tensors, if this device has a loss module</p></li>
+<li><p><strong>microbatch_size</strong> (<em>int</em> <em>,</em> <em>optional</em>) – The size of microbatch. Must be non-zero for training mode.</p></li>
+<li><p><strong>microbatch_count</strong> (<em>int</em>) – Only relevant for training and TT devices.</p></li>
+<li><p><strong>verify_cfg</strong> (<em>Optional</em> *[*<em>VerifyConfig</em> <em>]</em>) – Optional auto-verification of compile process</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Output tensors</p></li>
+<li><p><strong>Return type:</strong>
+Tuple[Tensor, …]</p></li>
+</ul>
+</section>
+<section id="cpueval-forward-pt-inputs-list-tensor-parameters-dict-str-tensor-save-for-backward-bool-targets-list-tensor">
+<h4>cpueval_forward_pt(inputs: List[Tensor], parameters: Dict[str, Tensor], save_for_backward: bool, targets: List[Tensor] = [])<a class="headerlink" href="#cpueval-forward-pt-inputs-list-tensor-parameters-dict-str-tensor-save-for-backward-bool-targets-list-tensor" title="Permalink to this heading"></a></h4>
+<p>Evaluate forward pass for verification</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>inputs</strong> (<em>List</em> *[*<em>torch.Tensor</em> <em>]</em>) – One input into the model (for each ordered input node)</p></li>
+<li><p><strong>parameters</strong> (<em>Dict</em> *[*<em>str</em> <em>,</em> <em>torch.Tensor</em> <em>]</em>) – Map of model parameters</p></li>
+<li><p><strong>save_for_backward</strong> (<em>bool</em>) – If set, input and output tensors will be saved so we can run the backward pass later.</p></li>
+<li><p><strong>targets</strong> (<em>List</em> *[*<em>torch.Tensor</em> <em>]</em> <em>,</em> <em>optional</em>) – If we’re running training, and there’s a loss module on this device, provide target</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Forward graph output</p></li>
+<li><p><strong>Return type:</strong>
+List[Tensor]</p></li>
+</ul>
+</section>
+<section id="cpueval-forward-tf-inputs-list-tensor-parameters-dict-str-tensor-save-for-backward-bool-targets-list-tensor">
+<h4>cpueval_forward_tf(inputs: List[Tensor], parameters: Dict[str, Tensor], save_for_backward: bool, targets: List[Tensor] = [])<a class="headerlink" href="#cpueval-forward-tf-inputs-list-tensor-parameters-dict-str-tensor-save-for-backward-bool-targets-list-tensor" title="Permalink to this heading"></a></h4>
+<p>Evaluate forward pass for verification</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>inputs</strong> (<em>List</em> *[*<em>torch.Tensor</em> <em>]</em>) – One input into the model (for each ordered input node)</p></li>
+<li><p><strong>parameters</strong> (<em>Dict</em> *[*<em>str</em> <em>,</em> <em>torch.Tensor</em> <em>]</em>) – Map of model parameters</p></li>
+<li><p><strong>save_for_backward</strong> (<em>bool</em>) – If set, input and output tensors will be saved so we can run the backward pass later.</p></li>
+<li><p><strong>targets</strong> (<em>List</em> *[*<em>torch.Tensor</em> <em>]</em> <em>,</em> <em>optional</em>) – If we’re running training, and there’s a loss module on this device, provide target</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Forward graph output</p></li>
+<li><p><strong>Return type:</strong>
+List[Tensor]</p></li>
+</ul>
+</section>
+<section id="cpueval-forward-inputs-list-tensor-parameters-dict-str-tensor-save-for-backward-bool-targets-list-tensor">
+<h4>cpueval_forward(inputs: List[Tensor], parameters: Dict[str, Tensor], save_for_backward: bool, targets: List[Tensor] = [])<a class="headerlink" href="#cpueval-forward-inputs-list-tensor-parameters-dict-str-tensor-save-for-backward-bool-targets-list-tensor" title="Permalink to this heading"></a></h4>
+<p>Evaluate forward pass for verification</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>inputs</strong> (<em>List</em> *[*<em>torch.Tensor</em> <em>]</em>) – One input into the model (for each ordered input node)</p></li>
+<li><p><strong>parameters</strong> (<em>Dict</em> *[*<em>str</em> <em>,</em> <em>torch.Tensor</em> <em>]</em>) – Map of model parameters</p></li>
+<li><p><strong>save_for_backward</strong> (<em>bool</em>) – If set, input and output tensors will be saved so we can run the backward pass later.</p></li>
+<li><p><strong>targets</strong> (<em>List</em> *[*<em>torch.Tensor</em> <em>]</em> <em>,</em> <em>optional</em>) – If we’re running training, and there’s a loss module on this device, provide target</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Forward graph output</p></li>
+<li><p><strong>Return type:</strong>
+List[Tensor]</p></li>
+</ul>
+</section>
+<section id="id6">
+<h4>cpueval_backward(bw_inputs: List[Tensor], parameters: Dict[str, Tensor])<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h4>
+<p>Evaluate backward pass for verification. cpueval_forward should’ve been called first, with
+save_for_backward set.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>bw_inputs</strong> (<em>List</em> *[*<em>torch.Tensor</em> <em>]</em>) – BW inputs, i.e. losses for each fw output</p></li>
+<li><p><strong>parameters</strong> (<em>Dict</em> *[*<em>str</em> <em>,</em> <em>torch.Tensor</em> <em>]</em>) – Module parameters</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong></p>
+<ul>
+<li><p><em>List[Tensor]</em> – Gradients on ordered inputs</p></li>
+<li><p><em>Dict[str, Tensor]</em> – Gradients on parameters</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id7">
+<h4>place_module(module: <a class="reference internal" href="#pybuda.Module"><span class="xref myst">Module</span></a> | Tuple[<a class="reference internal" href="#pybuda.Module"><span class="xref myst">Module</span></a>] | List[<a class="reference internal" href="#pybuda.Module"><span class="xref myst">Module</span></a>])<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h4>
+<p>Places a module, or list of modules, on this device for execution. Modules will be run as a sequential pipeline
+on this single device.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong>
+<strong>module</strong> (<em>Union</em> <em>[</em><a class="reference internal" href="#pybuda.Module"><span class="xref myst"><em>Module</em></span></a> <em>,</em> <em>Tuple</em> <em>[</em><a class="reference internal" href="#pybuda.Module"><span class="xref myst"><em>Module</em></span></a> <em>]</em> <em>,</em> <em>List</em> <em>[</em><a class="reference internal" href="#pybuda.Module"><span class="xref myst"><em>Module</em></span></a> <em>]</em> <em>]</em>) – A single Module or a list of Modules to be placed on the device</p></li>
+</ul>
+</section>
+<section id="pop-parameter-checkpoint">
+<h4>pop_parameter_checkpoint()<a class="headerlink" href="#pop-parameter-checkpoint" title="Permalink to this heading"></a></h4>
+<p>Return a dictionary of current parameter values for the models on this device.</p>
+</section>
+<section id="set-debug-gradient-trace-queue-q-queue">
+<h4>set_debug_gradient_trace_queue(q: Queue)<a class="headerlink" href="#set-debug-gradient-trace-queue-q-queue" title="Permalink to this heading"></a></h4>
+<p>[debug feature] Provide a queue to which incoming and outgoing gradients will be stored, for debug tracing.</p>
+</section>
+<section id="sync">
+<h4>sync()<a class="headerlink" href="#sync" title="Permalink to this heading"></a></h4>
+<p>Block until queued up commands have completed and the device is idle.</p>
+</section>
+</section>
+<section id="class-ttdevice-name-str-num-chips-int-none-none-chip-ids-typing-list-int-typing-list-typing-tuple-int-none-none-arch-pybuda-c-backend-api-backenddevice-none-none-devtype-pybuda-c-backend-api-backendtype-none-none-device-mode-pybuda-c-backend-api-devicemode-none-none-optimizer-pybuda-optimizers-optimizer-none-none-scheduler-pybuda-schedulers-learningratescheduler-none-none-fp32-fallback-pybuda-c-dataformat-dataformat-float16-b-5-mp-context-none-module-pybuda-module-module-typing-list-pybuda-module-module-none-none">
+<h3><em>class</em> TTDevice(name: str, num_chips: int | None = None, chip_ids: ~typing.List[int] | ~typing.List[~typing.Tuple[int]] | None = None, arch: ~pybuda._C.backend_api.BackendDevice | None = None, devtype: ~pybuda._C.backend_api.BackendType | None = None, device_mode: ~pybuda._C.backend_api.DeviceMode | None = None, optimizer: ~pybuda.optimizers.Optimizer | None = None, scheduler: ~pybuda.schedulers.LearningRateScheduler | None = None, fp32_fallback: ~pybuda._C.DataFormat = &lt;DataFormat.Float16_b: 5&gt;, mp_context=None, module: ~pybuda.module.Module | ~typing.List[~pybuda.module.Module] | None = None)<a class="headerlink" href="#class-ttdevice-name-str-num-chips-int-none-none-chip-ids-typing-list-int-typing-list-typing-tuple-int-none-none-arch-pybuda-c-backend-api-backenddevice-none-none-devtype-pybuda-c-backend-api-backendtype-none-none-device-mode-pybuda-c-backend-api-devicemode-none-none-optimizer-pybuda-optimizers-optimizer-none-none-scheduler-pybuda-schedulers-learningratescheduler-none-none-fp32-fallback-pybuda-c-dataformat-dataformat-float16-b-5-mp-context-none-module-pybuda-module-module-typing-list-pybuda-module-module-none-none" title="Permalink to this heading"></a></h3>
+<p>TTDevice represents one or more Tenstorrent devices that will receive modules to run.</p>
+<section id="get-device-config-compiler-cfg-none">
+<h4>get_device_config(compiler_cfg=None)<a class="headerlink" href="#get-device-config-compiler-cfg-none" title="Permalink to this heading"></a></h4>
+<p>Figure out which silicon devices will be used, if in silicon mode</p>
+</section>
+<section id="id8">
+<h4>place_module(module: <a class="reference internal" href="#pybuda.Module"><span class="xref myst">Module</span></a> | Tuple[<a class="reference internal" href="#pybuda.Module"><span class="xref myst">Module</span></a>] | List[<a class="reference internal" href="#pybuda.Module"><span class="xref myst">Module</span></a>])<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h4>
+<p>Places a module, or list of modules, on this device for execution. Modules will be run as a sequential pipeline
+on this single device.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong>
+<strong>module</strong> (<em>Union</em> <em>[</em><a class="reference internal" href="#pybuda.Module"><span class="xref myst"><em>Module</em></span></a> <em>,</em> <em>Tuple</em> <em>[</em><a class="reference internal" href="#pybuda.Module"><span class="xref myst"><em>Module</em></span></a> <em>]</em> <em>,</em> <em>List</em> <em>[</em><a class="reference internal" href="#pybuda.Module"><span class="xref myst"><em>Module</em></span></a> <em>]</em> <em>]</em>) – A single Module or a list of Modules to be placed on the device</p></li>
+</ul>
+</section>
+<section id="remove-modules">
+<h4>remove_modules()<a class="headerlink" href="#remove-modules" title="Permalink to this heading"></a></h4>
+<p>Remove placed modules, and clear the device</p>
+</section>
+<section id="set-active-subgraph-subgraph-index-int">
+<h4>set_active_subgraph(subgraph_index: int)<a class="headerlink" href="#set-active-subgraph-subgraph-index-int" title="Permalink to this heading"></a></h4>
+<p>Set the currently active subgraph by limiting the io queues.</p>
+</section>
+<section id="get-active-subgraph">
+<h4>get_active_subgraph()<a class="headerlink" href="#get-active-subgraph" title="Permalink to this heading"></a></h4>
+<p>Gets the currently active subgraph.</p>
+</section>
+<section id="generate-graph-inputs-tensor-target-tensors-list-tensor-return-intermediate-bool-false-graph-name-str-default-graph-compiler-cfg-compilerconfig-none-none-trace-only-bool-false-verify-cfg-verifyconfig-none-none">
+<h4>generate_graph(*inputs: Tensor, target_tensors: List[Tensor] = [], return_intermediate: bool = False, graph_name: str = ‘default_graph’, compiler_cfg: CompilerConfig | None = None, trace_only: bool = False, verify_cfg: VerifyConfig | None = None)<a class="headerlink" href="#generate-graph-inputs-tensor-target-tensors-list-tensor-return-intermediate-bool-false-graph-name-str-default-graph-compiler-cfg-compilerconfig-none-none-trace-only-bool-false-verify-cfg-verifyconfig-none-none" title="Permalink to this heading"></a></h4>
+<p>Generate a buda graph from the modules on the device, and return the graph and output tensors.
+If input tensors have a value set, the output tensor will also have the calculated output value
+set.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>inputs</strong> (<em>Tuple</em> *[*<em>Tensor</em> <em>,</em>  <em>…</em> <em>.</em> <em>]</em>) – Input tensors</p></li>
+<li><p><strong>target_tensors</strong> (<em>List</em> *[*<em>Tensor</em> <em>]</em>) – Target inputs. Optional, if trace_only is set. Otherwise, value must be provided.</p></li>
+<li><p><strong>return_intermediate</strong> (<em>bool</em>) – Optional. If set, a dictionary of node IDs -&gt; tensors will be return with intermediate values, for data mismatch debug.</p></li>
+<li><p><strong>trace_only</strong> (<em>bool</em>) – If set, the graph is made for a quick trace only and shouldn’t have side-effects</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Buda graph, outputs, optional intermediates, original inputs, target tensor</p></li>
+<li><p><strong>Return type:</strong>
+Graph, Tuple[Tensor, …], Dict[str, Tensor], Tuple[Tensor, …], Optional[Tensor]</p></li>
+</ul>
+</section>
+<section id="id9">
+<h4>compile_for(inputs: Tuple[Tensor, …], compiler_cfg: CompilerConfig, targets: List[Tensor] = [], microbatch_size: int = 0, microbatch_count: int = 1, verify_cfg: VerifyConfig | None = None)<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h4>
+<p>Compile modules placed on this device, with given input shapes, input formats, and microbatch size.</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>training</strong> (<em>bool</em>) – Specify whether to compile for training or inference. If set to true, autograd will be executed
+before the compile.</p></li>
+<li><p><strong>inputs</strong> (<em>Tuple</em> *[*<em>Tensor</em> <em>,</em>  <em>…</em> <em>]</em>) – Tuple of input tensors. They must have shape and format set, but do not need to hold data unless
+auto-verification is set.</p></li>
+<li><p><strong>compiler_cfg</strong> (<em>CompilerConfig</em>) – Compiler configuration</p></li>
+<li><p><strong>targets</strong> (<em>List</em> *[*<em>Tensor</em> <em>]</em> <em>,</em> <em>optional</em>) – Optional list of target tensors, if this device has a loss module</p></li>
+<li><p><strong>microbatch_size</strong> (<em>int</em> <em>,</em> <em>optional</em>) – The size of microbatch. Must be non-zero for training mode.</p></li>
+<li><p><strong>microbatch_count</strong> (<em>int</em>) – Only relevant for training. This represents the number of microbatches that are pushed through
+fwd path before bwd path runs. The device will ensure that buffering is large enough to contain
+microbatch_count number of microbatch intermediate data.</p></li>
+<li><p><strong>verify_cfg</strong> (<em>Optional</em> *[*<em>VerifyConfig</em> <em>]</em>) – Optional auto-verification of compile process</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Output tensors</p></li>
+<li><p><strong>Return type:</strong>
+Tuple[Tensor, …]</p></li>
+</ul>
+</section>
+<section id="id10">
+<h4>forward(loop_count: int)<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h4>
+<p>Run forward pass on each module on this device, in order</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong>
+<strong>loop_count</strong> (<em>int</em>) – Number of micro-batches to run</p></li>
+</ul>
+</section>
+<section id="generate-loop-count-int-write-index-int-tokens-per-iter-int-token-id-int">
+<h4>generate(loop_count: int, write_index: int, tokens_per_iter: int, token_id: int)<a class="headerlink" href="#generate-loop-count-int-write-index-int-tokens-per-iter-int-token-id-int" title="Permalink to this heading"></a></h4>
+<p>Run forward pass on each module on this device, in order</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong>
+<strong>loop_count</strong> (<em>int</em>) – Number of micro-batches to run</p></li>
+</ul>
+</section>
+<section id="id11">
+<h4>cpueval_forward(inputs: List[Tensor], parameters: Dict[str, Tensor], save_for_backward: bool, targets: List[Tensor] = [])<a class="headerlink" href="#id11" title="Permalink to this heading"></a></h4>
+<p>Evaluate forward pass for verification</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>inputs</strong> (<em>List</em> *[*<em>torch.Tensor</em> <em>]</em>) – One input into the model (for each ordered input node)</p></li>
+<li><p><strong>parameters</strong> (<em>Dict</em> *[*<em>str</em> <em>,</em> <em>torch.Tensor</em> <em>]</em>) – Map of model parameters</p></li>
+<li><p><strong>save_for_backward</strong> (<em>bool</em>) – If set, input and output tensors will be saved so we can run the backward pass later.</p></li>
+<li><p><strong>targets</strong> (<em>List</em> *[*<em>torch.Tensor</em> <em>]</em> <em>,</em> <em>optional</em>) – If we’re running training, and there’s a loss module on this device, provide target</p></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong>
+Forward graph output</p></li>
+<li><p><strong>Return type:</strong>
+List[Tensor]</p></li>
+</ul>
+</section>
+<section id="id12">
+<h4>backward(loop_count: int, zero_grad: bool)<a class="headerlink" href="#id12" title="Permalink to this heading"></a></h4>
+<p>Run backward pass on each module on this device, in reverse order</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><strong>loop_count</strong> (<em>int</em>) – Each mini-batch is broken into micro-batches. This is necessary to fill a multi-device pipeline,
+and should be roughly 4-6x the number of devices in the pipeline for ideal performance.</p></li>
+<li><p><strong>zero_grad</strong> (<em>bool</em>) – Set to true to have optimizer zero out gradients before the run</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="get-parameter-checkpoint">
+<h4>get_parameter_checkpoint()<a class="headerlink" href="#get-parameter-checkpoint" title="Permalink to this heading"></a></h4>
+<p>Return a dictionary of current parameter values for the models on this device</p>
+</section>
+<section id="get-all-parameters">
+<h4>get_all_parameters()<a class="headerlink" href="#get-all-parameters" title="Permalink to this heading"></a></h4>
+<p>Return a dictionary of current parameter values for the models on this device</p>
+</section>
+<section id="get-parameter-gradients">
+<h4>get_parameter_gradients()<a class="headerlink" href="#get-parameter-gradients" title="Permalink to this heading"></a></h4>
+<p>Return a dictionary of currently accumulated gradient values for the models on this device</p>
+</section>
+<section id="get-parameters-ignore-unused-parameters-bool-true">
+<h4>get_parameters(ignore_unused_parameters: bool = True)<a class="headerlink" href="#get-parameters-ignore-unused-parameters-bool-true" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p><strong>Parameters:</strong>
+<strong>ignore_used_parameters</strong> (<em>bool</em>) – If true, any parameter not being recorded by the graph-trace (i.e. parameter is unused in
+graph execution) is not included in the returned list to user.</p></li>
+</ul>
+</section>
+<section id="get-optimizer-params-is-buda-bool">
+<h4>get_optimizer_params(is_buda: bool)<a class="headerlink" href="#get-optimizer-params-is-buda-bool" title="Permalink to this heading"></a></h4>
+<p>Return a dictionary of dictionaries of optimizer parameters for each model parameter.</p>
+</section>
+<section id="get-scheduler-params-is-buda-bool">
+<h4>get_scheduler_params(is_buda: bool)<a class="headerlink" href="#get-scheduler-params-is-buda-bool" title="Permalink to this heading"></a></h4>
+<p>Return a dictionary of dictionaries of optimizer parameters used by scheduler.</p>
+</section>
+<section id="get-dram-io-queues-queue-type-str">
+<h4>get_dram_io_queues(queue_type: str)<a class="headerlink" href="#get-dram-io-queues-queue-type-str" title="Permalink to this heading"></a></h4>
+<p>Returns the appropriate queue description, tile broadcast information, and original shapes, where applicable</p>
+</section>
+<section id="id13">
+<h4>shutdown_device()<a class="headerlink" href="#id13" title="Permalink to this heading"></a></h4>
+<p>Shutdown device at the end of the workload</p>
+</section>
+<section id="id14">
+<h4>sync()<a class="headerlink" href="#id14" title="Permalink to this heading"></a></h4>
+<p>Block until queued up commands have completed and the device is idle.</p>
+</section>
+</section>
+</section>
+<section id="miscellaneous">
+<h2>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><a class="reference internal" href="#pybuda.DataFormat"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">DataFormat</span></code></span></a></p></th>
+<th class="head"><p>Members:</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#pybuda.MathFidelity"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">MathFidelity</span></code></span></a></p></td>
+<td><p>Members:</p></td>
+</tr>
+</tbody>
+</table>
+<section id="class-dataformat">
+<h3><em>class</em> DataFormat<a class="headerlink" href="#class-dataformat" title="Permalink to this heading"></a></h3>
+<p>Members:</p>
+<p>Float32</p>
+<p>Float16</p>
+<p>Bfp8</p>
+<p>Bfp4</p>
+<p>Bfp2</p>
+<p>Float16_b</p>
+<p>Bfp8_b</p>
+<p>Bfp4_b</p>
+<p>Bfp2_b</p>
+<p>Lf8</p>
+<p>UInt16</p>
+<p>Int8</p>
+<p>RawUInt8</p>
+<p>RawUInt16</p>
+<p>RawUInt32</p>
+<p>Int32</p>
+<p>Invalid</p>
+<section id="from-json-self-str">
+<h4>from_json(self: str)<a class="headerlink" href="#from-json-self-str" title="Permalink to this heading"></a></h4>
+</section>
+<section id="property-name">
+<h4><em>property</em> name<a class="headerlink" href="#property-name" title="Permalink to this heading"></a></h4>
+</section>
+<section id="to-json-self-pybuda-c-dataformat">
+<h4>to_json(self: <a class="reference internal" href="#pybuda.DataFormat"><span class="xref myst">pybuda._C.DataFormat</span></a>)<a class="headerlink" href="#to-json-self-pybuda-c-dataformat" title="Permalink to this heading"></a></h4>
+</section>
+</section>
+<section id="class-mathfidelity">
+<h3><em>class</em> MathFidelity<a class="headerlink" href="#class-mathfidelity" title="Permalink to this heading"></a></h3>
+<p>Members:</p>
+<p>LoFi</p>
+<p>HiFi2</p>
+<p>HiFi3</p>
+<p>HiFi4</p>
+<p>Invalid</p>
+<section id="id15">
+<h4>from_json(self: str)<a class="headerlink" href="#id15" title="Permalink to this heading"></a></h4>
+</section>
+<section id="id16">
+<h4><em>property</em> name<a class="headerlink" href="#id16" title="Permalink to this heading"></a></h4>
+</section>
+<section id="to-json-self-pybuda-c-mathfidelity">
+<h4>to_json(self: <a class="reference internal" href="#pybuda.MathFidelity"><span class="xref myst">pybuda._C.MathFidelity</span></a>)<a class="headerlink" href="#to-json-self-pybuda-c-mathfidelity" title="Permalink to this heading"></a></h4>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="advanced_user_guide.html" class="btn btn-neutral float-left" title="Advanced User Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dataformats.html" class="btn btn-neutral float-right" title="Data Formats and Math Fidelity" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Tenstorrent.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        Version: latest
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        
+        <dl>
+            <dt>Versions</dt>
+            
+            <dd><a href="https://tenstorrent.github.io/docs-test/pybuda/latest/index.html">latest</a></dd>
+            
+        </dl>
+        
+        <br>
+        </dl>
+    </div>
+</div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

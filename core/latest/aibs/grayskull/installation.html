@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation &mdash; Tenstorrent 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/tt_theme.css?v=ea036265" />
+
+  
+    <link rel="shortcut icon" href="../../_static/cropped-favicon-32x32.png"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=359c27e9"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+<a href="https://tenstorrent.github.io/docs-test/core/latest/">
+    <img src="../../_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+
+<a href="../../index.html">
+    Tenstorrent
+</a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Add-in Boards</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="README.html">Grayskull™ e75/e150 Tensix Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wormhole/README.html">Wormhole™ n150s/n300s Tensix Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ack.html">Active Cooling Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../warp100.html">Warp 100 Bridge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compliance.html">Compliance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Systems</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../systems/index.html">TT-QuietBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../systems/index.html#tt-loudbox">TT-LoudBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../systems/index.html#t1000">T1000</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../systems/index.html#t7000">T7000</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://tenstorrent.github.io/docs-test/syseng/latest/index.html">Software/Utilities</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://tenstorrent.github.io/docs-test/pybuda/latest/index.html">TT-Buda</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://tenstorrent.github.io/docs-test/tt-metalium/latest/index.html">TT-Metalium</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://tenstorrent.github.io/docs-test/ttnn/latest/index.html">TT-NN</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../support/README.html">Support &amp; FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Tenstorrent</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Installation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/aibs/grayskull/installation.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h1>
+<p>Follow these instructions to install your Tenstorrent Grayskull™ e75/e150 Tensix Processor add-in board.</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#pre-installation"><span class="xref myst">Pre-Installation</span></a></p></li>
+<li><p>System Installation</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#desktop-workstation-installation"><span class="xref myst">Desktop Workstation</span></a></p></li>
+<li><p><a class="reference internal" href="#server-installation"><span class="xref myst">Server</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#connecting-power"><span class="xref myst">Connecting Power</span></a></p></li>
+<li><p><a class="reference internal" href="#software-setup"><span class="xref myst">Software Setup</span></a></p></li>
+</ol>
+<section id="pre-installation">
+<h2>Pre-Installation<a class="headerlink" href="#pre-installation" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Disconnect power</strong> to the host computer prior to installation.</p></li>
+<li><p>Verify that the system provides the following:</p>
+<ol class="arabic simple">
+<li><p><strong>PCI Express 4.0 x16 slot</strong> <em>(For optimal performance, the card requires a x16 configuration without bifurcation. The e150 is a dual-width card and requires the adjacent expansion slot to be vacant.)</em></p></li>
+<li><p>One (1) <strong>PCIe 6-pin power connector</strong></p></li>
+<li><p>One (1) <strong>PCIe 6+2-pin power connector</strong> <em>(e150 only)</em></p></li>
+</ol>
+</li>
+<li><p>Discharge your body’s static electricity by wearing an <strong>ESD wrist strap</strong> <em>(recommended)</em> or touching a grounded surface before touching system components or the add-in card.</p></li>
+</ol>
+</section>
+<section id="desktop-workstation-installation">
+<h2>Desktop Workstation Installation<a class="headerlink" href="#desktop-workstation-installation" title="Permalink to this heading"></a></h2>
+<p><em>(NOTE: Images shown may not be fully representative of your system.)</em></p>
+<section id="physical-installation">
+<h3>Physical Installation<a class="headerlink" href="#physical-installation" title="Permalink to this heading"></a></h3>
+<p>Insert the <strong>card</strong> into the <strong>PCIe x16 slot</strong> and secure with necessary screws.</p>
+<p><img alt="" src="../../_images/gs_d_install.png" /></p>
+</section>
+</section>
+<section id="server-installation">
+<h2>Server Installation<a class="headerlink" href="#server-installation" title="Permalink to this heading"></a></h2>
+<p><em>(NOTE: Images shown may not be fully representative of your system.)</em></p>
+<section id="attach-housing">
+<h3>1. Attach Housing<a class="headerlink" href="#attach-housing" title="Permalink to this heading"></a></h3>
+<p>House the <strong>card</strong> in the <strong>casing</strong>.</p>
+<p><img alt="" src="../../_images/gs_ws_install1.png" /></p>
+</section>
+<section id="card-installation">
+<h3>2. Card Installation<a class="headerlink" href="#card-installation" title="Permalink to this heading"></a></h3>
+<p>Lower the <strong>encased card</strong> into the <strong>chassis</strong> and secure with the required screws.</p>
+<p><img alt="" src="../../_images/gs_ws_install2.png" /></p>
+</section>
+</section>
+<section id="connecting-power">
+<h2>Connecting Power<a class="headerlink" href="#connecting-power" title="Permalink to this heading"></a></h2>
+<section id="e75">
+<h3>e75<a class="headerlink" href="#e75" title="Permalink to this heading"></a></h3>
+<p>Connect a <strong>6-pin PCIe power cable</strong> to the <strong>6-pin plug</strong> attached to the blower fan.</p>
+<p><img alt="" src="../../_images/gs_e75_power.png" /></p>
+</section>
+<section id="e150-no-active-cooling-kit">
+<h3>e150 (No Active Cooling Kit)<a class="headerlink" href="#e150-no-active-cooling-kit" title="Permalink to this heading"></a></h3>
+<p>Connect an <strong>6+2-pin PCIe power cable</strong> to the <strong>8-pin plug</strong> and a <strong>6-pin PCIe power cable</strong> to the <strong>6-pin plug</strong> on the <strong>e150 card</strong>. <em>(NOTE: Do</em> <em><strong>not</strong></em> <em>connect an 8-pin EPS12V power cable to the 8-pin port on the card.)</em></p>
+<p><img alt="" src="../../_images/gs_e150_power.png" /></p>
+</section>
+<section id="e150-with-active-cooling-kit">
+<h3>e150 (With Active Cooling Kit)<a class="headerlink" href="#e150-with-active-cooling-kit" title="Permalink to this heading"></a></h3>
+<p>Connect a <strong>6+2pin PCIe power cable</strong> to the <strong>8-pin plug</strong> on the <strong>e150 card</strong>. <em>(NOTE: Do</em> <em><strong>not</strong></em> <em>connect an 8-pin EPS12V power cable to the 8-pin port on the card.)</em> Connect a <strong>6-pin PCIe power cable</strong> to the <strong>female 6-pin plug</strong> of the <strong>fan harness</strong>, then connect the <strong>male 6-pin plug</strong> of the <strong>fan harness</strong> to the <strong>6-pin plug</strong> of the <strong>e150 card</strong>.</p>
+</section>
+</section>
+</section>
+<section id="software-setup">
+<h1>Software Setup<a class="headerlink" href="#software-setup" title="Permalink to this heading"></a></h1>
+<p>To get your Grayskull™ e75/e150 Tensix Processor up and running, visit the <span class="xref myst">software setup</span> page.</p>
+<p><img alt="" src="../../_images/gs_e150_kit_power.png" /></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Tenstorrent.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

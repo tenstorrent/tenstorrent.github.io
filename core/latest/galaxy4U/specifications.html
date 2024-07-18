@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Specifications &mdash; Tenstorrent 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/tt_theme.css?v=ea036265" />
+
+  
+    <link rel="shortcut icon" href="../_static/cropped-favicon-32x32.png"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=359c27e9"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+<a href="https://tenstorrent.github.io/docs-test/core/latest/">
+    <img src="../_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+
+<a href="../index.html">
+    Tenstorrent
+</a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Add-in Boards</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aibs/grayskull/README.html">Grayskull™ e75/e150 Tensix Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aibs/wormhole/README.html">Wormhole™ n150s/n300s Tensix Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aibs/ack.html">Active Cooling Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aibs/warp100.html">Warp 100 Bridge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aibs/compliance.html">Compliance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Systems</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../systems/index.html">TT-QuietBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../systems/index.html#tt-loudbox">TT-LoudBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../systems/index.html#t1000">T1000</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../systems/index.html#t7000">T7000</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://tenstorrent.github.io/docs-test/syseng/latest/index.html">Software/Utilities</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://tenstorrent.github.io/docs-test/pybuda/latest/index.html">TT-Buda</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://tenstorrent.github.io/docs-test/tt-metalium/latest/index.html">TT-Metalium</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://tenstorrent.github.io/docs-test/ttnn/latest/index.html">TT-NN</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/README.html">Support &amp; FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Tenstorrent</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Specifications</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/galaxy4U/specifications.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="specifications">
+<h1>Specifications<a class="headerlink" href="#specifications" title="Permalink to this heading"></a></h1>
+<section id="galaxy-wormhole-4u-server-specifications">
+<h2>Galaxy Wormhole 4U Server Specifications<a class="headerlink" href="#galaxy-wormhole-4u-server-specifications" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Specification</strong></p></th>
+<th class="head"><p><strong>Single Galaxy Module</strong></p></th>
+<th class="head"><p><strong>Full Galaxy Wormhole 4U Server</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Part Number</p></td>
+<td><p>-</p></td>
+<td><p>TG-00001</p></td>
+</tr>
+<tr class="row-odd"><td><p>AI Graph Processor(s)</p></td>
+<td><p>Tenstorrent Wormhole™</p></td>
+<td><p>32x Tenstorrent Wormhole™</p></td>
+</tr>
+<tr class="row-even"><td><p>Galaxy Modules</p></td>
+<td><p>1</p></td>
+<td><p>32</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tensix Cores</p></td>
+<td><p>80</p></td>
+<td><p>2,560</p></td>
+</tr>
+<tr class="row-even"><td><p>AI Clock</p></td>
+<td><p>1 GHz</p></td>
+<td><p>1 GHz</p></td>
+</tr>
+<tr class="row-odd"><td><p>TeraFLOPs (FP8)</p></td>
+<td><p>292</p></td>
+<td><p>9,322 (9.3 PetaFLOPs)</p></td>
+</tr>
+<tr class="row-even"><td><p>SRAM</p></td>
+<td><p>120MB (1.5MB per Tensix Core)</p></td>
+<td><p>3.8GB (120MB per Module)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Memory</p></td>
+<td><p>12GB GDDR6 (192-bit memory bus, 12 GT/sec)</p></td>
+<td><p>384GB GDDR6, globally addressable</p></td>
+</tr>
+<tr class="row-even"><td><p>Power</p></td>
+<td><p>200W</p></td>
+<td><p>7.5 kW</p></td>
+</tr>
+<tr class="row-odd"><td><p>System Interface</p></td>
+<td><p>3.2 Tbps Ethernet (16x 200 Gbps)</p></td>
+<td><p>41.6 Tbps Ethernet Internal Connectivity</p></td>
+</tr>
+<tr class="row-even"><td><p>Cooling</p></td>
+<td><p>Passive</p></td>
+<td><p>6x 120mm Fan</p></td>
+</tr>
+<tr class="row-odd"><td><p>Board Management Controller (BMC)</p></td>
+<td><p>-</p></td>
+<td><p>IMX8</p></td>
+</tr>
+<tr class="row-even"><td><p>Weight</p></td>
+<td><p>-</p></td>
+<td><p>130 lbs. / 59 kg</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="galaxy-wormhole-power-supply-specifications">
+<h2>Galaxy Wormhole Power Supply Specifications<a class="headerlink" href="#galaxy-wormhole-power-supply-specifications" title="Permalink to this heading"></a></h2>
+<p>Tenstorrent Galaxy Wormhole 4U Servers are shipped with one (1) Galaxy Wormhole Power Supply containing six (6) Murata MWOCP68-3600-B-RM Power Supply Modules for every two (2) Galaxy Wormhole 4U Servers. The data sheet for the Murata Power Supply Module can be downloaded from Murata in PDF form <a class="reference external" href="https://www.murata.com/-/media/webrenewal/products/power/datasheet/mwocp68-3600-b-rm.ashx?la=en&amp;amp;cvid=20230314020000000000">here</a>.</p>
+<p>Under peak load of two (2) Galaxy Wormhole 4U Servers, the Galaxy Wormhole Power Supply will only require five (5) of the individual power supply modules. In practice, this makes the Galaxy Wormhole Power Supply a 5+1 redundant power supply, though most customer configurations can likely handle two or more supplies failing without bringing down the Galaxy Wormhole 4U Server(s). The power supply modules are also hot-swappable.</p>
+</section>
+<section id="board-management-controller-bmc">
+<h2>Board Management Controller (BMC)<a class="headerlink" href="#board-management-controller-bmc" title="Permalink to this heading"></a></h2>
+<p>The Board Management Controller (BMC) utilizes a single IMX8 module mounted to the bottom side of the motherboard PCB. There must be allocation on the user’s network for an IP address associated with the module and it should be connected to the same network as the rack management software.</p>
+<p>The BMC can report the following system parameters:</p>
+<ul class="simple">
+<li><p>Power per Galaxy Module</p></li>
+<li><p>Individual power reports from internal power modules</p></li>
+<li><p>Temperatures across Galaxy Wormhole 4U Server</p></li>
+<li><p>Fan Speed</p></li>
+</ul>
+</section>
+<section id="high-speed-interconnectivity">
+<h2>High-Speed Interconnectivity<a class="headerlink" href="#high-speed-interconnectivity" title="Permalink to this heading"></a></h2>
+<p><img alt="galaxy_interconnect_diagram" src="../_images/galaxy_interconnect_diagram.png" /></p>
+<p>Each Galaxy Module is connected via four (4) 100GbE Ethernet links to adjacent Galaxy Modules. Modules close to the front and back panels have two (2) 100GbE connections to the QSFP-DD Ethernet ports, enabling connectivity to other Galaxy Wormhole 4U Server systems or the Host Computer within or outside of the rack.</p>
+</section>
+<section id="front-i-o">
+<h2>Front I/O<a class="headerlink" href="#front-i-o" title="Permalink to this heading"></a></h2>
+<p><img alt="" src="../_images/galaxy_front_IO.png" /></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>1, 8</strong></p></td>
+<td><p>QSFP-DD 400GbE connectors for horizontal connection to a system in an adjacent rack</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2, 3, 4, 7</strong></p></td>
+<td><p>QSFP-DD 400GbE connectors for vertical connection to a system inside the same rack</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>5</strong></p></td>
+<td><p>LED indicator for Power Up</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>6</strong></p></td>
+<td><p>LED indicator for Fault</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rear-i-o">
+<h2>Rear I/O<a class="headerlink" href="#rear-i-o" title="Permalink to this heading"></a></h2>
+<p><img alt="" src="../_images/galaxy_rear_IO.png" /></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>1, 11</strong></p></td>
+<td><p>QSFP-DD 400GbE connectors for horizontal connection to a system in an adjacent rack</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2, 6, 9, 10</strong></p></td>
+<td><p>QSFP-DD 400GbE connectors for vertical connection to a system inside the same rack</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>3</strong></p></td>
+<td><p>LED indicator for Power Up</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>4</strong></p></td>
+<td><p>LED indicator for Fault</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>5</strong></p></td>
+<td><p>RJ45 connector to BMC module</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>7, 8</strong></p></td>
+<td><p>GND and 54V bus bars</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Permalink to this heading"></a></h2>
+<p>Tenstorrent Galaxy Wormhole 4U Servers are shipped palletized with one (1) Galaxy Wormhole Power Supply for every two (2) Galaxy Wormhole 4U Servers.</p>
+<section id="galaxy-wormhole-4u-server">
+<h3>Galaxy Wormhole 4U Server<a class="headerlink" href="#galaxy-wormhole-4u-server" title="Permalink to this heading"></a></h3>
+<p>Each Galaxy Wormhole 4U Server box contains:</p>
+<ul class="simple">
+<li><p>One (1) Galaxy Wormhole 4U Server system</p></li>
+<li><p>Two (2) rack shelves</p></li>
+<li><p>Four (4) 2 ft. / 0.6 m QSFP-DD 400GbE cables</p></li>
+<li><p>One (1) accessory box containing:</p>
+<ul>
+<li><p>20 M6x16 Torx T30 screws (2 spare)</p></li>
+<li><p>20 M6 cage nuts (2 spare)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="galaxy-wormhole-power-supply">
+<h3>Galaxy Wormhole Power Supply<a class="headerlink" href="#galaxy-wormhole-power-supply" title="Permalink to this heading"></a></h3>
+<p>Each Galaxy Wormhole Power Supply box contains:</p>
+<ul class="simple">
+<li><p>One (1) Galaxy Wormhole Power Supply populated with:</p>
+<ul>
+<li><p>Six (6) Murata MWOCP68-3600-B-RM Power Supply Modules</p></li>
+</ul>
+</li>
+<li><p>Two (2) rack shelves</p></li>
+<li><p>Six (6) 6 ft. / 1.8 m C19-to-C20 power cables</p></li>
+<li><p>Two (2) insulated PSU upper bus bars</p></li>
+<li><p>One (1) insulated PSU lower bus bar, black</p></li>
+<li><p>One (1) insulated PSU lower bus bar, red</p></li>
+<li><p>One (1) upper bus bar cover</p></li>
+<li><p>One (1) lower bus bar cover</p></li>
+<li><p>One (1) Tenstorrent cosmetic cover</p></li>
+<li><p>One (1) accessory box containing:</p>
+<ul>
+<li><p>20 M5x10 T25 Torx screws (2 spare)</p></li>
+<li><p>18 M5 Belleville washers (2 spare)</p></li>
+<li><p>12 M6x16 T30 Torx screws (2 spare)</p></li>
+<li><p>12 M6 cage nuts (2 spare)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Tenstorrent.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

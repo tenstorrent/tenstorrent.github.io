@@ -1,0 +1,1734 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Index &mdash; TT-NN  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/tt_theme.css?v=ea036265" />
+
+  
+    <link rel="shortcut icon" href="_static/cropped-favicon-32x32.png"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=b3ba4146"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+<a href="https://tenstorrent.github.io/docs-test/core/latest/">
+    <img src="_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+
+<a href="index.html">
+    TT-NN
+</a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">TTNN</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/about.html">What is ttnn?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/get_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/usage.html">Using ttnn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/tensor.html">Tensor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/api.html">APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/onboarding.html">Onboarding New Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/converting_torch_model_to_ttnn.html">Converting torch Model to ttnn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/adding_new_ttnn_operation.html">Adding New ttnn Operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/profiling_ttnn_operations.html">Profiling ttnn Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/dependencies/index.html">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/demos.html">Building and Uplifting Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn_sweeps/index.html">Placeholder title</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Models</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tt_metal_models/get_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tt_metal_models/get_performance.html">Performance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="resources/support.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources/contributing.html">Contributing as a developer</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">TT-NN</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Index</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#_"><strong>_</strong></a>
+ | <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ | <a href="#X"><strong>X</strong></a>
+ | <a href="#Z"><strong>Z</strong></a>
+ 
+</div>
+<h2 id="_">_</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tensor.html#tt_lib.tensor.MemoryConfig.__init__">__init__() (tt_lib.tensor.MemoryConfig method)</a>
+
+      <ul>
+        <li><a href="ttnn/dependencies/tensor.html#tt_lib.tensor.Tensor.__init__">(tt_lib.tensor.Tensor method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.abs">abs() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/abs.html#ttnn.abs">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.abs_bw">abs_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.acos">acos() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/acos.html#ttnn.acos">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.acos_bw">acos_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.acosh">acosh() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/acosh.html#ttnn.acosh">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.acosh_bw">acosh_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.AdaptiveAvgPool2d">AdaptiveAvgPool2d (class in tt_lib.fallback_ops)</a>
+</li>
+      <li><a href="ttnn/ttnn/add.html#ttnn.add">add() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.add1">add1() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.add_bw">add_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.operations.primary.add_layernorm">add_layernorm() (in module tt_lib.operations.primary)</a>
+
+      <ul>
+        <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.add_layernorm">(in module tt_lib.tensor)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.add_unary">add_unary() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.addalpha">addalpha() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.addalpha_bw">addalpha_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fused_ops.add_and_norm.AddAndNorm">AddAndNorm() (in module tt_lib.fused_ops.add_and_norm)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.addcdiv">addcdiv() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/addcdiv.html#ttnn.addcdiv">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.addcdiv_bw">addcdiv_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.addcmul">addcmul() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/addcmul.html#ttnn.addcmul">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.addcmul_bw">addcmul_bw() (in module tt_lib.tensor)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.angle_bw">angle_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.arange">arange() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/arange.html#ttnn.arange">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.argmax">argmax() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/argmax.html#ttnn.argmax">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.argmin">argmin() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/ttnn/as_tensor.html#ttnn.as_tensor">as_tensor() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.asin">asin() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/asin.html#ttnn.asin">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.asin_bw">asin_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.asinh">asinh() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/asinh.html#ttnn.asinh">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.asinh_bw">asinh_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.assign">assign() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.atan">atan() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/atan.html#ttnn.atan">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.atan2">atan2() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/atan2.html#ttnn.atan2">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.atan2_bw">atan2_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.atan_bw">atan_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.atanh">atanh() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/atanh.html#ttnn.atanh">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.atanh_bw">atanh_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/ttnn/transformer/attention_softmax.html#ttnn.transformer.attention_softmax">attention_softmax() (in module ttnn.transformer)</a>
+</li>
+      <li><a href="ttnn/ttnn/transformer/attention_softmax_.html#ttnn.transformer.attention_softmax_">attention_softmax_() (in module ttnn.transformer)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.BatchNorm2d">BatchNorm2d (class in tt_lib.fallback_ops)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.bcast">bcast() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.BcastOpDim">BcastOpDim (class in tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.BcastOpMath">BcastOpMath (class in tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.bias_gelu_bw">bias_gelu_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.bias_gelu_unary">bias_gelu_unary() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.bias_gelu_unary_bw">bias_gelu_unary_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.binary_assign_bw">binary_assign_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.binary_bitwise_and">binary_bitwise_and (class in tt_lib.fallback_ops)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.binary_bitwise_left_shift">binary_bitwise_left_shift (class in tt_lib.fallback_ops)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.binary_bitwise_or">binary_bitwise_or (class in tt_lib.fallback_ops)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.binary_bitwise_right_shift">binary_bitwise_right_shift (class in tt_lib.fallback_ops)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.binary_bitwise_xor">binary_bitwise_xor (class in tt_lib.fallback_ops)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.binary_eq_bw">binary_eq_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.binary_fmod">binary_fmod (class in tt_lib.fallback_ops)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.binary_ge_bw">binary_ge_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.binary_gt_bw">binary_gt_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.binary_le_bw">binary_le_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.binary_lt_bw">binary_lt_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.binary_ne_bw">binary_ne_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.bitwise_not">bitwise_not (class in tt_lib.fallback_ops)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.bmm">bmm() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tensor.html#tt_lib.tensor.Tensor.buffer">buffer() (tt_lib.tensor.Tensor method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.cbrt">cbrt() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/cbrt.html#ttnn.cbrt">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.ceil">ceil (class in tt_lib.fallback_ops)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.ceil_bw">ceil_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.celu">celu() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/celu.html#ttnn.celu">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.celu_bw">celu_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.chunk">chunk() (in module tt_lib.fallback_ops)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.clamp_bw">clamp_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.clamp_max_bw">clamp_max_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.clamp_min_bw">clamp_min_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.clip">clip() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/clip.html#ttnn.clip">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.clone">clone() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/clone.html#ttnn.clone">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/ttnn/close_device.html#ttnn.close_device">close_device() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.complex_abs">complex_abs() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.complex_abs_bw">complex_abs_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.complex_add">complex_add() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.complex_add_bw">complex_add_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.complex_div">complex_div() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.complex_div_bw">complex_div_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.complex_mul">complex_mul() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.complex_mul_bw">complex_mul_bw() (in module tt_lib.tensor)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.complex_recip">complex_recip() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.complex_recip_bw">complex_recip_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.complex_sub">complex_sub() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.complex_sub_bw">complex_sub_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.concat">concat() (in module tt_lib.fallback_ops)</a>
+
+      <ul>
+        <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.concat">(in module tt_lib.tensor)</a>
+</li>
+        <li><a href="ttnn/ttnn/concat.html#ttnn.concat">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.concat_bw">concat_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/ttnn/transformer/concatenate_heads.html#ttnn.transformer.concatenate_heads">concatenate_heads() (in module ttnn.transformer)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.conj">conj() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.conj_bw">conj_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.conv">conv() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.Conv2d">Conv2d (class in tt_lib.fallback_ops)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.conv2d">conv2d() (in module tt_lib.fallback_ops)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.convert_conv_weight_tensor_to_tiled_layout">convert_conv_weight_tensor_to_tiled_layout() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.copy">copy() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.cos">cos() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/cos.html#ttnn.cos">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.cos_bw">cos_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.cosh">cosh() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/cosh.html#ttnn.cosh">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.cosh_bw">cosh_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.Tensor.cpu">cpu() (in module tt_lib.tensor.Tensor)</a>
+</li>
+      <li><a href="ttnn/ttnn/create_sharded_memory_config.html#ttnn.create_sharded_memory_config">create_sharded_memory_config() (in module ttnn)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/ttnn/deallocate.html#ttnn.deallocate">deallocate() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.deg2rad">deg2rad() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/deg2rad.html#ttnn.deg2rad">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.deg2rad_bw">deg2rad_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tensor.html#tt_lib.tensor.Tensor.device">device() (tt_lib.tensor.Tensor method)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.digamma">digamma() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/digamma.html#ttnn.digamma">(in module ttnn)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.digamma_bw">digamma_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.div">div() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.div_bw">div_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.div_no_nan">div_no_nan() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.div_unary">div_unary() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/ttnn/dump_tensor.html#ttnn.dump_tensor">dump_tensor() (in module ttnn)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.elu">elu() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/elu.html#ttnn.elu">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.elu_bw">elu_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/ttnn/embedding.html#ttnn.embedding">embedding() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.embedding_bw">embedding_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.embeddings">embeddings() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.empty">empty() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/empty.html#ttnn.empty">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/ttnn/eq.html#ttnn.eq">eq() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.eqz">eqz() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/eqz.html#ttnn.eqz">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.erf">erf() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/erf.html#ttnn.erf">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.erf_bw">erf_bw() (in module tt_lib.tensor)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.erfc">erfc() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/erfc.html#ttnn.erfc">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.erfc_bw">erfc_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.erfinv">erfinv() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/erfinv.html#ttnn.erfinv">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.erfinv_bw">erfinv_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.exp">exp() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/exp.html#ttnn.exp">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.exp2">exp2() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/exp2.html#ttnn.exp2">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.exp2_bw">exp2_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.exp_bw">exp_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.expm1">expm1() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/expm1.html#ttnn.expm1">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.expm1_bw">expm1_bw() (in module tt_lib.tensor)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.fill_bw">fill_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/ttnn/kv_cache/fill_cache_for_user_.html#ttnn.kv_cache.fill_cache_for_user_">fill_cache_for_user_() (in module ttnn.kv_cache)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.fill_ones_rm">fill_ones_rm() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.fill_rm">fill_rm() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.fill_zero_bw">fill_zero_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.floor">floor (class in tt_lib.fallback_ops)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.floor">floor() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.floor_bw">floor_bw() (in module tt_lib.tensor)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.floor_div">floor_div() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.frac_bw">frac_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/ttnn/from_device.html#ttnn.from_device">from_device() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/ttnn/from_torch.html#ttnn.from_torch">from_torch() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.full">full() (in module tt_lib.fallback_ops)</a>
+
+      <ul>
+        <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.full">(in module tt_lib.tensor)</a>
+</li>
+        <li><a href="ttnn/ttnn/full.html#ttnn.full">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.full_like">full_like() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/full_like.html#ttnn.full_like">(in module ttnn)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/ttnn/ge.html#ttnn.ge">ge() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.ge_bw">ge_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.geglu">geglu() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/geglu.html#ttnn.geglu">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.gelu">gelu() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/gelu.html#ttnn.gelu">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.gelu_bw">gelu_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tensor.html#tt_lib.tensor.Tensor.get_dtype">get_dtype() (tt_lib.tensor.Tensor method)</a>
+</li>
+      <li><a href="ttnn/dependencies/tensor.html#tt_lib.tensor.Tensor.get_layout">get_layout() (tt_lib.tensor.Tensor method)</a>
+</li>
+      <li><a href="ttnn/dependencies/tensor.html#tt_lib.tensor.Tensor.get_legacy_shape">get_legacy_shape() (tt_lib.tensor.Tensor method)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.gez">gez() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/gez.html#ttnn.gez">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/ttnn/global_avg_pool2d.html#ttnn.global_avg_pool2d">global_avg_pool2d() (in module ttnn)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.global_max">global_max() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.global_mean">global_mean() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.global_min">global_min() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.global_sum">global_sum() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.glu">glu() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/glu.html#ttnn.glu">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.group_norm">group_norm() (in module tt_lib.fallback_ops)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/group_norm.html#ttnn.group_norm">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.GroupNorm">GroupNorm (class in tt_lib.fallback_ops)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.groupnorm">groupnorm() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/ttnn/gt.html#ttnn.gt">gt() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.gt_bw">gt_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.gtz">gtz() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/gtz.html#ttnn.gtz">(in module ttnn)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.hardshrink">hardshrink() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/hardshrink.html#ttnn.hardshrink">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.hardshrink_bw">hardshrink_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.hardsigmoid">hardsigmoid() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/hardsigmoid.html#ttnn.hardsigmoid">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.hardsigmoid_bw">hardsigmoid_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.hardswish">hardswish() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/hardswish.html#ttnn.hardswish">(in module ttnn)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.hardswish_bw">hardswish_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.hardtanh">hardtanh() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/hardtanh.html#ttnn.hardtanh">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.hardtanh_bw">hardtanh_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.heaviside">heaviside() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/heaviside.html#ttnn.heaviside">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.hypot">hypot() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/hypot.html#ttnn.hypot">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.hypot_bw">hypot_bw() (in module tt_lib.tensor)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.i0">i0() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/i0.html#ttnn.i0">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.i0_bw">i0_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.identity">identity() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.imag">imag() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.imag_bw">imag_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.interpolate">interpolate() (in module tt_lib.fallback_ops)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.isclose">isclose() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/isclose.html#ttnn.isclose">(in module ttnn)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.isfinite">isfinite() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/isfinite.html#ttnn.isfinite">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.isinf">isinf() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/isinf.html#ttnn.isinf">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.isnan">isnan() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/isnan.html#ttnn.isnan">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.isneginf">isneginf() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/isneginf.html#ttnn.isneginf">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.isposinf">isposinf() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/isposinf.html#ttnn.isposinf">(in module ttnn)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/ttnn/l1_loss.html#ttnn.l1_loss">l1_loss() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.lamb_optimizer">lamb_optimizer() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.layer_norm">layer_norm() (in module tt_lib.fallback_ops)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/layer_norm.html#ttnn.layer_norm">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.LayerNorm">LayerNorm (class in tt_lib.fallback_ops)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fused_ops.layernorm.Layernorm">Layernorm() (in module tt_lib.fused_ops.layernorm)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.operations.primary.layernorm">layernorm() (in module tt_lib.operations.primary)</a>
+
+      <ul>
+        <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.layernorm">(in module tt_lib.tensor)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/ttnn/ldexp.html#ttnn.ldexp">ldexp() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.ldexp_bw">ldexp_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/ttnn/le.html#ttnn.le">le() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.le_bw">le_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.leaky_relu">leaky_relu() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/leaky_relu.html#ttnn.leaky_relu">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.leaky_relu_bw">leaky_relu_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.left_shift">left_shift() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.lerp">lerp() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/lerp.html#ttnn.lerp">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.lerp_bw">lerp_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.lez">lez() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/lez.html#ttnn.lez">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.lgamma">lgamma() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/lgamma.html#ttnn.lgamma">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.lgamma_bw">lgamma_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fused_ops.linear.Linear">Linear() (in module tt_lib.fused_ops.linear)</a>
+</li>
+      <li><a href="ttnn/ttnn/linear.html#ttnn.linear">linear() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/ttnn/load_tensor.html#ttnn.load_tensor">load_tensor() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.log">log() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/log.html#ttnn.log">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.log10">log10() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/log10.html#ttnn.log10">(in module ttnn)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.log10_bw">log10_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.log1p">log1p() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/log1p.html#ttnn.log1p">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.log1p_bw">log1p_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.log2">log2() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/log2.html#ttnn.log2">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.log2_bw">log2_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.log_bw">log_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.log_sigmoid">log_sigmoid() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/log_sigmoid.html#ttnn.log_sigmoid">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.log_sigmoid_bw">log_sigmoid_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/ttnn/logaddexp.html#ttnn.logaddexp">logaddexp() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/ttnn/logaddexp2.html#ttnn.logaddexp2">logaddexp2() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.logaddexp2_bw">logaddexp2_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.logaddexp_bw">logaddexp_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/ttnn/logical_and.html#ttnn.logical_and">logical_and() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.logical_andi">logical_andi() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.logical_not_unary">logical_not_unary() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.logical_noti">logical_noti() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/ttnn/logical_or.html#ttnn.logical_or">logical_or() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.logical_ori">logical_ori() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.logical_xor">logical_xor() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/logical_xor.html#ttnn.logical_xor">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.logical_xori">logical_xori() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.logit">logit() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/logit.html#ttnn.logit">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.logit_bw">logit_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.logiteps_bw">logiteps_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/ttnn/lt.html#ttnn.lt">lt() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.lt_bw">lt_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.ltz">ltz() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/ltz.html#ttnn.ltz">(in module ttnn)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.mac">mac() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/mac.html#ttnn.mac">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.maeloss">maeloss() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/ttnn/manage_device.html#ttnn.manage_device">manage_device() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.matmul">matmul() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/matmul.html#ttnn.matmul">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/ttnn/max.html#ttnn.max">max() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.max_bw">max_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/ttnn/maximum.html#ttnn.maximum">maximum() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.MaxPool2d">MaxPool2d (class in tt_lib.fallback_ops)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/MaxPool2d.html#ttnn.MaxPool2d">(class in ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/ttnn/mean.html#ttnn.mean">mean() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.mean_hw">mean_hw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tensor.html#tt_lib.tensor.MemoryConfig">MemoryConfig (class in tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/ttnn/min.html#ttnn.min">min() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.min_bw">min_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/ttnn/minimum.html#ttnn.minimum">minimum() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.mish">mish() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/mish.html#ttnn.mish">(in module ttnn)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.operations.primary.moreh_groupnorm">moreh_groupnorm() (in module tt_lib.operations.primary)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.operations.primary.moreh_groupnorm_backward">moreh_groupnorm_backward() (in module tt_lib.operations.primary)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.operations.primary.moreh_logsoftmax">moreh_logsoftmax() (in module tt_lib.operations.primary)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.operations.primary.moreh_logsoftmax_backward">moreh_logsoftmax_backward() (in module tt_lib.operations.primary)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.operations.primary.moreh_mean">moreh_mean() (in module tt_lib.operations.primary)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.operations.primary.moreh_mean_backward">moreh_mean_backward() (in module tt_lib.operations.primary)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.operations.primary.moreh_norm">moreh_norm() (in module tt_lib.operations.primary)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.operations.primary.moreh_norm_backward">moreh_norm_backward() (in module tt_lib.operations.primary)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.operations.primary.moreh_softmax">moreh_softmax() (in module tt_lib.operations.primary)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.operations.primary.moreh_softmax_backward">moreh_softmax_backward() (in module tt_lib.operations.primary)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.operations.primary.moreh_softmin">moreh_softmin() (in module tt_lib.operations.primary)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.operations.primary.moreh_softmin_backward">moreh_softmin_backward() (in module tt_lib.operations.primary)</a>
+</li>
+      <li><a href="ttnn/ttnn/mse_loss.html#ttnn.mse_loss">mse_loss() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.mseloss">mseloss() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.mul_bw">mul_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.mul_unary">mul_unary() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.multigammaln">multigammaln() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/multigammaln.html#ttnn.multigammaln">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.multigammaln_bw">multigammaln_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/ttnn/multiply.html#ttnn.multiply">multiply() (in module ttnn)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/ttnn/ne.html#ttnn.ne">ne() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.ne_bw">ne_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.neg">neg() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/neg.html#ttnn.neg">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.neg_bw">neg_bw() (in module tt_lib.tensor)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.nextafter">nextafter() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/nextafter.html#ttnn.nextafter">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.nez">nez() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/nez.html#ttnn.nez">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.normalize_global">normalize_global() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.normalize_hw">normalize_hw() (in module tt_lib.tensor)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.ones">ones() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/ones.html#ttnn.ones">(in module ttnn)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.ones_like">ones_like() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/ones_like.html#ttnn.ones_like">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/ttnn/open_device.html#ttnn.open_device">open_device() (in module ttnn)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.pad">pad() (in module tt_lib.fallback_ops)</a>
+
+      <ul>
+        <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.pad">(in module tt_lib.tensor)</a>
+</li>
+        <li><a href="ttnn/ttnn/pad.html#ttnn.pad">(in module ttnn)</a>
+</li>
+        <li><a href="ttnn/dependencies/tensor.html#tt_lib.tensor.Tensor.pad">(tt_lib.tensor.Tensor method)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tensor.html#tt_lib.tensor.Tensor.pad_to_tile">pad_to_tile() (tt_lib.tensor.Tensor method)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.permute">permute() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/permute.html#ttnn.permute">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.polar">polar() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.polar_bw">polar_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.polygamma">polygamma() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/polygamma.html#ttnn.polygamma">(in module ttnn)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.polygamma_bw">polygamma_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.polyval">polyval() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/polyval.html#ttnn.polyval">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.pow">pow() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/pow.html#ttnn.pow">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/ttnn/prelu.html#ttnn.prelu">prelu() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/ttnn/model_preprocessing/preprocess_model.html#ttnn.model_preprocessing.preprocess_model">preprocess_model() (in module ttnn.model_preprocessing)</a>
+</li>
+      <li><a href="ttnn/ttnn/model_preprocessing/preprocess_model_parameters.html#ttnn.model_preprocessing.preprocess_model_parameters">preprocess_model_parameters() (in module ttnn.model_preprocessing)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.prod">prod() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.prod_bw">prod_bw() (in module tt_lib.tensor)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.rad2deg">rad2deg() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/rad2deg.html#ttnn.rad2deg">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.rad2deg_bw">rad2deg_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/tensor.html#ttnn.Shape.rank">rank (ttnn.Shape property)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.rdiv">rdiv() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.rdiv_bw">rdiv_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.real">real() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.real_bw">real_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/ttnn/reallocate.html#ttnn.reallocate">reallocate() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.recip">recip() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/ttnn/reciprocal.html#ttnn.reciprocal">reciprocal() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.reciprocal_bw">reciprocal_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.reduce">reduce() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.ReduceOpDim">ReduceOpDim (class in tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.ReduceOpMath">ReduceOpMath (class in tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/ttnn/register_post_operation_hook.html#ttnn.register_post_operation_hook">register_post_operation_hook() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/ttnn/register_pre_operation_hook.html#ttnn.register_pre_operation_hook">register_pre_operation_hook() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.reglu">reglu() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/reglu.html#ttnn.reglu">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.relu">relu() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/relu.html#ttnn.relu">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.relu6">relu6() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/relu6.html#ttnn.relu6">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.relu6_bw">relu6_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.relu_bw">relu_bw() (in module tt_lib.tensor)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.relu_max">relu_max() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.relu_min">relu_min() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.repeat">repeat() (in module tt_lib.fallback_ops)</a>
+
+      <ul>
+        <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.repeat">(in module tt_lib.tensor)</a>
+</li>
+        <li><a href="ttnn/ttnn/repeat.html#ttnn.repeat">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.repeat_bw">repeat_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.repeat_interleave">repeat_interleave() (in module tt_lib.fallback_ops)</a>
+
+      <ul>
+        <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.repeat_interleave">(in module tt_lib.tensor)</a>
+</li>
+        <li><a href="ttnn/ttnn/repeat_interleave.html#ttnn.repeat_interleave">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.reshape">reshape() (in module tt_lib.fallback_ops)</a>
+
+      <ul>
+        <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.reshape">(in module tt_lib.tensor)</a>
+</li>
+        <li><a href="ttnn/ttnn/reshape.html#ttnn.reshape">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.right_shift">right_shift() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/ttnn/rms_norm.html#ttnn.rms_norm">rms_norm() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.rmsnorm">rmsnorm() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/ttnn/transformer/rotary_embedding.html#ttnn.transformer.rotary_embedding">rotary_embedding() (in module ttnn.transformer)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.round">round() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.round_bw">round_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.rpow">rpow() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.rpow_bw">rpow_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.rsqrt">rsqrt() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/rsqrt.html#ttnn.rsqrt">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.rsqrt_bw">rsqrt_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.rsub">rsub() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.rsub_bw">rsub_bw() (in module tt_lib.tensor)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.operations.primary.transformers.scale_mask_softmax_in_place">scale_mask_softmax_in_place() (in module tt_lib.operations.primary.transformers)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.selu_bw">selu_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/ttnn/set_printoptions.html#ttnn.set_printoptions">set_printoptions() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/tensor.html#ttnn.Shape">Shape (class in ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.sigmoid">sigmoid() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/sigmoid.html#ttnn.sigmoid">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.sigmoid_accurate">sigmoid_accurate() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/sigmoid_accurate.html#ttnn.sigmoid_accurate">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.sign">sign() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/sign.html#ttnn.sign">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.sign_bw">sign_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.signbit">signbit() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/signbit.html#ttnn.signbit">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.silu">silu() (in module tt_lib.fallback_ops)</a>
+
+      <ul>
+        <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.silu">(in module tt_lib.tensor)</a>
+</li>
+        <li><a href="ttnn/ttnn/silu.html#ttnn.silu">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.silu_bw">silu_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.sin">sin() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/sin.html#ttnn.sin">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.sin_bw">sin_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.sinh">sinh() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/sinh.html#ttnn.sinh">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.sinh_bw">sinh_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.softmax">softmax() (in module tt_lib.fallback_ops)</a>
+
+      <ul>
+        <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fused_ops.softmax.softmax">(in module tt_lib.fused_ops.softmax)</a>
+</li>
+        <li><a href="ttnn/ttnn/softmax.html#ttnn.softmax">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.operations.primary.softmax_in_place">softmax_in_place() (in module tt_lib.operations.primary)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.softplus">softplus() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/softplus.html#ttnn.softplus">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.softplus_bw">softplus_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.softshrink">softshrink() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/softshrink.html#ttnn.softshrink">(in module ttnn)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.softshrink_bw">softshrink_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.softsign">softsign() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/softsign.html#ttnn.softsign">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.softsign_bw">softsign_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.split_last_dim_two_chunks_tiled">split_last_dim_two_chunks_tiled() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/ttnn/transformer/split_query_key_value_and_split_heads.html#ttnn.transformer.split_query_key_value_and_split_heads">split_query_key_value_and_split_heads() (in module ttnn.transformer)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.sqrt">sqrt() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/sqrt.html#ttnn.sqrt">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.sqrt_bw">sqrt_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.square">square() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/square.html#ttnn.square">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.square_bw">square_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/ttnn/squared_difference.html#ttnn.squared_difference">squared_difference() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.squared_difference_bw">squared_difference_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/ttnn/std.html#ttnn.std">std() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.std_hw">std_hw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tensor.html#tt_lib.tensor.Tensor.storage_type">storage_type() (tt_lib.tensor.Tensor method)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.sub_bw">sub_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.sub_unary">sub_unary() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.subalpha">subalpha() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.subalpha_bw">subalpha_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/ttnn/subtract.html#ttnn.subtract">subtract() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.sum">sum() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/sum.html#ttnn.sum">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.swiglu">swiglu() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/swiglu.html#ttnn.swiglu">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.swish">swish() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/swish.html#ttnn.swish">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.device.Synchronize">Synchronize() (in module tt_lib.device)</a>
+</li>
+      <li><a href="ttnn/ttnn/synchronize_device.html#ttnn.synchronize_device">synchronize_device() (in module ttnn)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.tan">tan() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/tan.html#ttnn.tan">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.tan_bw">tan_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.tanh">tanh() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/tanh.html#ttnn.tanh">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.tanh_bw">tanh_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.tanhshrink">tanhshrink() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/tanhshrink.html#ttnn.tanhshrink">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.tanhshrink_bw">tanhshrink_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tensor.html#tt_lib.tensor.Tensor">Tensor (class in tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.tensor_slice">tensor_slice() (in module tt_lib.fallback_ops)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.threshold">threshold() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/threshold.html#ttnn.threshold">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.threshold_bw">threshold_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.tiled_prod">tiled_prod() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.tilize">tilize() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.tilize_with_val_padding">tilize_with_val_padding() (in module tt_lib.tensor)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.tilize_with_zero_padding">tilize_with_zero_padding() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tensor.html#tt_lib.tensor.Tensor.to">to() (tt_lib.tensor.Tensor method)</a>
+</li>
+      <li><a href="ttnn/ttnn/to_device.html#ttnn.to_device">to_device() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/ttnn/to_layout.html#ttnn.to_layout">to_layout() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/ttnn/to_memory_config.html#ttnn.to_memory_config">to_memory_config() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/ttnn/to_torch.html#ttnn.to_torch">to_torch() (in module ttnn)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.torch_argmax">torch_argmax (class in tt_lib.fallback_ops)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.torch_argmin">torch_argmin (class in tt_lib.fallback_ops)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.transpose">transpose() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.tril">tril() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/tril.html#ttnn.tril">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.triu">triu() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/triu.html#ttnn.triu">(in module ttnn)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.trunc">trunc (class in tt_lib.fallback_ops)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.trunc">trunc() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.trunc_bw">trunc_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.typecast">typecast() (in module tt_lib.tensor)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.unary_add_bw">unary_add_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.unary_assign_bw">unary_assign_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.unary_bitwise_and">unary_bitwise_and (class in tt_lib.fallback_ops)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.unary_bitwise_left_shift">unary_bitwise_left_shift (class in tt_lib.fallback_ops)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.unary_bitwise_or">unary_bitwise_or (class in tt_lib.fallback_ops)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.unary_bitwise_right_shift">unary_bitwise_right_shift (class in tt_lib.fallback_ops)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.unary_bitwise_xor">unary_bitwise_xor (class in tt_lib.fallback_ops)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.unary_div_bw">unary_div_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.unary_div_no_nan_bw">unary_div_no_nan_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.unary_eq_bw">unary_eq_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.fallback_ops.unary_fmod">unary_fmod (class in tt_lib.fallback_ops)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.unary_fmod_bw">unary_fmod_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.unary_gt">unary_gt() (in module tt_lib.tensor)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.unary_lt">unary_lt() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.unary_mul_bw">unary_mul_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.unary_ne">unary_ne() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.unary_pow_bw">unary_pow_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.unary_remainder_bw">unary_remainder_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.unary_sub_bw">unary_sub_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.unpad">unpad() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/dependencies/tensor.html#tt_lib.tensor.Tensor.unpad">(tt_lib.tensor.Tensor method)</a>
+</li>
+      </ul></li>
+      <li><a href="ttnn/dependencies/tensor.html#tt_lib.tensor.Tensor.unpad_from_tile">unpad_from_tile() (tt_lib.tensor.Tensor method)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.untilize">untilize() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.untilize_with_unpadding">untilize_with_unpadding() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/ttnn/kv_cache/update_cache_for_token_.html#ttnn.kv_cache.update_cache_for_token_">update_cache_for_token_() (in module ttnn.kv_cache)</a>
+</li>
+      <li><a href="ttnn/ttnn/upsample.html#ttnn.upsample">upsample() (in module ttnn)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/ttnn/var.html#ttnn.var">var() (in module ttnn)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.var_hw">var_hw() (in module tt_lib.tensor)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.where">where() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/where.html#ttnn.where">(in module ttnn)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.where_bw">where_bw() (in module tt_lib.tensor)</a>
+</li>
+      <li><a href="ttnn/tensor.html#ttnn.Shape.with_tile_padding">with_tile_padding() (ttnn.Shape method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="X">X</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.xlogy">xlogy() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/xlogy.html#ttnn.xlogy">(in module ttnn)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.xlogy_bw">xlogy_bw() (in module tt_lib.tensor)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Z">Z</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.zeros">zeros() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/zeros.html#ttnn.zeros">(in module ttnn)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ttnn/dependencies/tt_lib.html#tt_lib.tensor.zeros_like">zeros_like() (in module tt_lib.tensor)</a>
+
+      <ul>
+        <li><a href="ttnn/ttnn/zeros_like.html#ttnn.zeros_like">(in module ttnn)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Tenstorrent.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        Version: latest
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        
+        <dl>
+            <dt>Versions</dt>
+            
+            <dd><a href="https://tenstorrent.github.io/docs-test/ttnn/latest/index.html">latest</a></dd>
+            
+            <dd><a href="https://tenstorrent.github.io/docs-test/ttnn/v0.49.0/index.html">v0.49.0</a></dd>
+            
+        </dl>
+        
+        <br>
+        </dl>
+    </div>
+</div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galaxy Wormhole 4U Server &mdash; Tenstorrent 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/tt_theme.css?v=ea036265" />
+
+  
+    <link rel="shortcut icon" href="../_static/cropped-favicon-32x32.png"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=359c27e9"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+<a href="https://tenstorrent.github.io/docs-test/core/latest/">
+    <img src="../_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+
+<a href="../index.html">
+    Tenstorrent
+</a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Add-in Boards</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aibs/grayskull/README.html">Grayskull™ e75/e150 Tensix Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aibs/wormhole/README.html">Wormhole™ n150s/n300s Tensix Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aibs/ack.html">Active Cooling Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aibs/warp100.html">Warp 100 Bridge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aibs/compliance.html">Compliance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Systems</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../systems/index.html">TT-QuietBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../systems/index.html#tt-loudbox">TT-LoudBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../systems/index.html#t1000">T1000</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../systems/index.html#t7000">T7000</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://tenstorrent.github.io/docs-test/syseng/latest/index.html">Software/Utilities</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://tenstorrent.github.io/docs-test/pybuda/latest/index.html">TT-Buda</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://tenstorrent.github.io/docs-test/tt-metalium/latest/index.html">TT-Metalium</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://tenstorrent.github.io/docs-test/ttnn/latest/index.html">TT-NN</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/README.html">Support &amp; FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Tenstorrent</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Galaxy Wormhole 4U Server</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/galaxy4U/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="galaxy-wormhole-4u-server">
+<h1>Galaxy Wormhole 4U Server<a class="headerlink" href="#galaxy-wormhole-4u-server" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="README.html">Galaxy Wormhole 4U Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hwinstallation.html">Hardware Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hwinstallation.html#unpack-and-rack-mount-galaxy-wormhole-power-supply">Unpack and Rack Mount Galaxy Wormhole Power Supply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hwinstallation.html#unpack-and-rack-mount-galaxy-wormhole-4u-server">Unpack and Rack Mount Galaxy Wormhole 4U Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hwinstallation.html#install-bus-bars">Install Bus Bars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hwinstallation.html#networking-management-installation">Networking Management Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">Hardware, Setup, and Site Requirements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="requirements.html#packaging-and-weight">Packaging and Weight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="requirements.html#equipment">Equipment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="requirements.html#host-pc">Host PC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="requirements.html#rack-mounting">Rack Mounting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="requirements.html#power">Power</a></li>
+<li class="toctree-l2"><a class="reference internal" href="requirements.html#cooling-and-elevation">Cooling and Elevation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="requirements.html#cable-requirements">Cable Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="requirements.html#safety">Safety</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="specifications.html">Specifications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="specifications.html#galaxy-wormhole-4u-server-specifications">Galaxy Wormhole 4U Server Specifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specifications.html#galaxy-wormhole-power-supply-specifications">Galaxy Wormhole Power Supply Specifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specifications.html#board-management-controller-bmc">Board Management Controller (BMC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specifications.html#high-speed-interconnectivity">High-Speed Interconnectivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specifications.html#front-i-o">Front I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specifications.html#rear-i-o">Rear I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specifications.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Tenstorrent.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APIs &mdash; TT-NN  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/tt_theme.css?v=ea036265" />
+
+  
+    <link rel="shortcut icon" href="../_static/cropped-favicon-32x32.png"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ttnn.open_device" href="ttnn/open_device.html" />
+    <link rel="prev" title="Tensor" href="tensor.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+<a href="https://tenstorrent.github.io/docs-test/core/latest/">
+    <img src="../_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+
+<a href="../index.html">
+    TT-NN
+</a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">TTNN</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about.html">What is ttnn?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Using ttnn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tensor.html">Tensor</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#device">Device</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ttnn/open_device.html">ttnn.open_device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ttnn/close_device.html">ttnn.close_device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ttnn/manage_device.html">ttnn.manage_device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ttnn/synchronize_device.html">ttnn.synchronize_device</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#memory-config">Memory Config</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ttnn/create_sharded_memory_config.html">ttnn.create_sharded_memory_config</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#operations">Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#core">Core</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/as_tensor.html">ttnn.as_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/from_torch.html">ttnn.from_torch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/to_torch.html">ttnn.to_torch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/to_device.html">ttnn.to_device</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/from_device.html">ttnn.from_device</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/to_layout.html">ttnn.to_layout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/dump_tensor.html">ttnn.dump_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/load_tensor.html">ttnn.load_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/deallocate.html">ttnn.deallocate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/reallocate.html">ttnn.reallocate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/to_memory_config.html">ttnn.to_memory_config</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tensor-creation">Tensor Creation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/arange.html">ttnn.arange</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/empty.html">ttnn.empty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/zeros.html">ttnn.zeros</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/zeros_like.html">ttnn.zeros_like</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/ones.html">ttnn.ones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/ones_like.html">ttnn.ones_like</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/full.html">ttnn.full</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/full_like.html">ttnn.full_like</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix-multiplication">Matrix Multiplication</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/matmul.html">ttnn.matmul</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/linear.html">ttnn.linear</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pointwise-unary">Pointwise Unary</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/abs.html">ttnn.abs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/acos.html">ttnn.acos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/acosh.html">ttnn.acosh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/asin.html">ttnn.asin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/asinh.html">ttnn.asinh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/atan.html">ttnn.atan</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/atan2.html">ttnn.atan2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/atanh.html">ttnn.atanh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/cbrt.html">ttnn.cbrt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/celu.html">ttnn.celu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/clip.html">ttnn.clip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/clone.html">ttnn.clone</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/cos.html">ttnn.cos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/cosh.html">ttnn.cosh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/deg2rad.html">ttnn.deg2rad</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/digamma.html">ttnn.digamma</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/elu.html">ttnn.elu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/erf.html">ttnn.erf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/erfc.html">ttnn.erfc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/erfinv.html">ttnn.erfinv</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/exp.html">ttnn.exp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/exp2.html">ttnn.exp2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/expm1.html">ttnn.expm1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/geglu.html">ttnn.geglu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/gelu.html">ttnn.gelu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/glu.html">ttnn.glu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/hardshrink.html">ttnn.hardshrink</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/hardsigmoid.html">ttnn.hardsigmoid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/hardswish.html">ttnn.hardswish</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/hardtanh.html">ttnn.hardtanh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/heaviside.html">ttnn.heaviside</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/hypot.html">ttnn.hypot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/i0.html">ttnn.i0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/isfinite.html">ttnn.isfinite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/isinf.html">ttnn.isinf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/isnan.html">ttnn.isnan</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/isneginf.html">ttnn.isneginf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/isposinf.html">ttnn.isposinf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/leaky_relu.html">ttnn.leaky_relu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/lerp.html">ttnn.lerp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/lgamma.html">ttnn.lgamma</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/log.html">ttnn.log</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/log10.html">ttnn.log10</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/log1p.html">ttnn.log1p</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/log2.html">ttnn.log2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/log_sigmoid.html">ttnn.log_sigmoid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/logical_not.html">ttnn.logical_not</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/logit.html">ttnn.logit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/mish.html">ttnn.mish</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/multigammaln.html">ttnn.multigammaln</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/neg.html">ttnn.neg</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/prelu.html">ttnn.prelu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/reglu.html">ttnn.reglu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/relu.html">ttnn.relu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/relu6.html">ttnn.relu6</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/rsqrt.html">ttnn.rsqrt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/sigmoid.html">ttnn.sigmoid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/sigmoid_accurate.html">ttnn.sigmoid_accurate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/sign.html">ttnn.sign</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/silu.html">ttnn.silu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/sin.html">ttnn.sin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/sinh.html">ttnn.sinh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/softmax.html">ttnn.softmax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/softplus.html">ttnn.softplus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/softshrink.html">ttnn.softshrink</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/softsign.html">ttnn.softsign</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/swish.html">ttnn.swish</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/tan.html">ttnn.tan</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/tanh.html">ttnn.tanh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/signbit.html">ttnn.signbit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/polygamma.html">ttnn.polygamma</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/rad2deg.html">ttnn.rad2deg</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/reciprocal.html">ttnn.reciprocal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/sqrt.html">ttnn.sqrt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/square.html">ttnn.square</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/swiglu.html">ttnn.swiglu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/tril.html">ttnn.tril</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/triu.html">ttnn.triu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/tanhshrink.html">ttnn.tanhshrink</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/threshold.html">ttnn.threshold</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pointwise-binary">Pointwise Binary</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/add.html">ttnn.add</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/multiply.html">ttnn.multiply</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/subtract.html">ttnn.subtract</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/pow.html">ttnn.pow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/ldexp.html">ttnn.ldexp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/logical_and.html">ttnn.logical_and</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/logical_or.html">ttnn.logical_or</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/logical_xor.html">ttnn.logical_xor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/logaddexp.html">ttnn.logaddexp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/logaddexp2.html">ttnn.logaddexp2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/xlogy.html">ttnn.xlogy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/squared_difference.html">ttnn.squared_difference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/gtz.html">ttnn.gtz</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/ltz.html">ttnn.ltz</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/gez.html">ttnn.gez</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/lez.html">ttnn.lez</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/nez.html">ttnn.nez</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/eqz.html">ttnn.eqz</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/gt.html">ttnn.gt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/ge.html">ttnn.ge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/lt.html">ttnn.lt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/le.html">ttnn.le</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/eq.html">ttnn.eq</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/ne.html">ttnn.ne</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/isclose.html">ttnn.isclose</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/polyval.html">ttnn.polyval</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/nextafter.html">ttnn.nextafter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/maximum.html">ttnn.maximum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/minimum.html">ttnn.minimum</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pointwise-ternary">Pointwise Ternary</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/addcdiv.html">ttnn.addcdiv</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/addcmul.html">ttnn.addcmul</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/mac.html">ttnn.mac</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/where.html">ttnn.where</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#losses">Losses</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/l1_loss.html">ttnn.l1_loss</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/mse_loss.html">ttnn.mse_loss</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#reduction">Reduction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/max.html">ttnn.max</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/mean.html">ttnn.mean</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/min.html">ttnn.min</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/std.html">ttnn.std</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/sum.html">ttnn.sum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/var.html">ttnn.var</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/argmax.html">ttnn.argmax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/topk.html">ttnn.topk</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#data-movement">Data Movement</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/concat.html">ttnn.concat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/pad.html">ttnn.pad</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/permute.html">ttnn.permute</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/reshape.html">ttnn.reshape</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/repeat.html">ttnn.repeat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/repeat_interleave.html">ttnn.repeat_interleave</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#normalization">Normalization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/group_norm.html">ttnn.group_norm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/layer_norm.html">ttnn.layer_norm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/rms_norm.html">ttnn.rms_norm</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#transformer">Transformer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/transformer/split_query_key_value_and_split_heads.html">ttnn.transformer.split_query_key_value_and_split_heads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/transformer/concatenate_heads.html">ttnn.transformer.concatenate_heads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/transformer/attention_softmax.html">ttnn.transformer.attention_softmax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/transformer/attention_softmax_.html">ttnn.transformer.attention_softmax_</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/transformer/rotary_embedding.html">ttnn.transformer.rotary_embedding</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#embedding">Embedding</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/embedding.html">ttnn.embedding</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pooling">Pooling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/global_avg_pool2d.html">ttnn.global_avg_pool2d</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/MaxPool2d.html">ttnn.MaxPool2d</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#vision">Vision</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/upsample.html">ttnn.upsample</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#kv-cache">KV Cache</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/kv_cache/fill_cache_for_user_.html">ttnn.kv_cache.fill_cache_for_user_</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/kv_cache/update_cache_for_token_.html">ttnn.kv_cache.update_cache_for_token_</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#model-conversion">Model Conversion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ttnn/model_preprocessing/preprocess_model.html">ttnn.model_preprocessing.preprocess_model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ttnn/model_preprocessing/preprocess_model_parameters.html">ttnn.model_preprocessing.preprocess_model_parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#reports">Reports</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ttnn/set_printoptions.html">ttnn.set_printoptions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#operation-hooks">Operation Hooks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ttnn/register_pre_operation_hook.html">ttnn.register_pre_operation_hook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ttnn/register_post_operation_hook.html">ttnn.register_post_operation_hook</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onboarding.html">Onboarding New Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="converting_torch_model_to_ttnn.html">Converting torch Model to ttnn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="adding_new_ttnn_operation.html">Adding New ttnn Operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="profiling_ttnn_operations.html">Profiling ttnn Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dependencies/index.html">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demos.html">Building and Uplifting Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ttnn_sweeps/index.html">Placeholder title</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Models</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tt_metal_models/get_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tt_metal_models/get_performance.html">Performance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../resources/support.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/contributing.html">Contributing as a developer</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">TT-NN</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">APIs</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/ttnn/api.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="apis">
+<h1>APIs<a class="headerlink" href="#apis" title="Permalink to this heading"></a>
+</h1>
+<section id="device">
+<h2>Device<a class="headerlink" href="#device" title="Permalink to this heading"></a>
+</h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/open_device.html">ttnn.open_device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/close_device.html">ttnn.close_device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/manage_device.html">ttnn.manage_device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/synchronize_device.html">ttnn.synchronize_device</a></li>
+</ul>
+</div>
+</section>
+<section id="memory-config">
+<h2>Memory Config<a class="headerlink" href="#memory-config" title="Permalink to this heading"></a>
+</h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/create_sharded_memory_config.html">ttnn.create_sharded_memory_config</a></li>
+</ul>
+</div>
+</section>
+<section id="operations">
+<h2>Operations<a class="headerlink" href="#operations" title="Permalink to this heading"></a>
+</h2>
+<section id="core">
+<h3>Core<a class="headerlink" href="#core" title="Permalink to this heading"></a>
+</h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/as_tensor.html">ttnn.as_tensor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/from_torch.html">ttnn.from_torch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/to_torch.html">ttnn.to_torch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/to_device.html">ttnn.to_device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/from_device.html">ttnn.from_device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/to_layout.html">ttnn.to_layout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/dump_tensor.html">ttnn.dump_tensor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/load_tensor.html">ttnn.load_tensor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/deallocate.html">ttnn.deallocate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/reallocate.html">ttnn.reallocate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/to_memory_config.html">ttnn.to_memory_config</a></li>
+</ul>
+</div>
+</section>
+<section id="tensor-creation">
+<h3>Tensor Creation<a class="headerlink" href="#tensor-creation" title="Permalink to this heading"></a>
+</h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/arange.html">ttnn.arange</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/empty.html">ttnn.empty</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/zeros.html">ttnn.zeros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/zeros_like.html">ttnn.zeros_like</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/ones.html">ttnn.ones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/ones_like.html">ttnn.ones_like</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/full.html">ttnn.full</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/full_like.html">ttnn.full_like</a></li>
+</ul>
+</div>
+</section>
+<section id="matrix-multiplication">
+<h3>Matrix Multiplication<a class="headerlink" href="#matrix-multiplication" title="Permalink to this heading"></a>
+</h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/matmul.html">ttnn.matmul</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/linear.html">ttnn.linear</a></li>
+</ul>
+</div>
+</section>
+<section id="pointwise-unary">
+<h3>Pointwise Unary<a class="headerlink" href="#pointwise-unary" title="Permalink to this heading"></a>
+</h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/abs.html">ttnn.abs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/acos.html">ttnn.acos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/acosh.html">ttnn.acosh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/asin.html">ttnn.asin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/asinh.html">ttnn.asinh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/atan.html">ttnn.atan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/atan2.html">ttnn.atan2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/atanh.html">ttnn.atanh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/cbrt.html">ttnn.cbrt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/celu.html">ttnn.celu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/clip.html">ttnn.clip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/clone.html">ttnn.clone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/cos.html">ttnn.cos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/cosh.html">ttnn.cosh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/deg2rad.html">ttnn.deg2rad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/digamma.html">ttnn.digamma</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/elu.html">ttnn.elu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/erf.html">ttnn.erf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/erfc.html">ttnn.erfc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/erfinv.html">ttnn.erfinv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/exp.html">ttnn.exp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/exp2.html">ttnn.exp2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/expm1.html">ttnn.expm1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/geglu.html">ttnn.geglu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/gelu.html">ttnn.gelu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/glu.html">ttnn.glu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/hardshrink.html">ttnn.hardshrink</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/hardsigmoid.html">ttnn.hardsigmoid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/hardswish.html">ttnn.hardswish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/hardtanh.html">ttnn.hardtanh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/heaviside.html">ttnn.heaviside</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/hypot.html">ttnn.hypot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/i0.html">ttnn.i0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/isfinite.html">ttnn.isfinite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/isinf.html">ttnn.isinf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/isnan.html">ttnn.isnan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/isneginf.html">ttnn.isneginf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/isposinf.html">ttnn.isposinf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/leaky_relu.html">ttnn.leaky_relu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/lerp.html">ttnn.lerp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/lgamma.html">ttnn.lgamma</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/log.html">ttnn.log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/log10.html">ttnn.log10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/log1p.html">ttnn.log1p</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/log2.html">ttnn.log2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/log_sigmoid.html">ttnn.log_sigmoid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/logical_not.html">ttnn.logical_not</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/logit.html">ttnn.logit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/mish.html">ttnn.mish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/multigammaln.html">ttnn.multigammaln</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/neg.html">ttnn.neg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/prelu.html">ttnn.prelu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/reglu.html">ttnn.reglu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/relu.html">ttnn.relu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/relu6.html">ttnn.relu6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/rsqrt.html">ttnn.rsqrt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/sigmoid.html">ttnn.sigmoid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/sigmoid_accurate.html">ttnn.sigmoid_accurate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/sign.html">ttnn.sign</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/silu.html">ttnn.silu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/sin.html">ttnn.sin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/sinh.html">ttnn.sinh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/softmax.html">ttnn.softmax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/softplus.html">ttnn.softplus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/softshrink.html">ttnn.softshrink</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/softsign.html">ttnn.softsign</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/swish.html">ttnn.swish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/tan.html">ttnn.tan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/tanh.html">ttnn.tanh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/signbit.html">ttnn.signbit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/polygamma.html">ttnn.polygamma</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/rad2deg.html">ttnn.rad2deg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/reciprocal.html">ttnn.reciprocal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/sqrt.html">ttnn.sqrt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/square.html">ttnn.square</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/swiglu.html">ttnn.swiglu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/tril.html">ttnn.tril</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/triu.html">ttnn.triu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/tanhshrink.html">ttnn.tanhshrink</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/threshold.html">ttnn.threshold</a></li>
+</ul>
+</div>
+</section>
+<section id="pointwise-binary">
+<h3>Pointwise Binary<a class="headerlink" href="#pointwise-binary" title="Permalink to this heading"></a>
+</h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/add.html">ttnn.add</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/multiply.html">ttnn.multiply</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/subtract.html">ttnn.subtract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/pow.html">ttnn.pow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/ldexp.html">ttnn.ldexp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/logical_and.html">ttnn.logical_and</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/logical_or.html">ttnn.logical_or</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/logical_xor.html">ttnn.logical_xor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/logaddexp.html">ttnn.logaddexp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/logaddexp2.html">ttnn.logaddexp2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/xlogy.html">ttnn.xlogy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/squared_difference.html">ttnn.squared_difference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/gtz.html">ttnn.gtz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/ltz.html">ttnn.ltz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/gez.html">ttnn.gez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/lez.html">ttnn.lez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/nez.html">ttnn.nez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/eqz.html">ttnn.eqz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/gt.html">ttnn.gt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/ge.html">ttnn.ge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/lt.html">ttnn.lt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/le.html">ttnn.le</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/eq.html">ttnn.eq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/ne.html">ttnn.ne</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/isclose.html">ttnn.isclose</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/polyval.html">ttnn.polyval</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/nextafter.html">ttnn.nextafter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/maximum.html">ttnn.maximum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/minimum.html">ttnn.minimum</a></li>
+</ul>
+</div>
+</section>
+<section id="pointwise-ternary">
+<h3>Pointwise Ternary<a class="headerlink" href="#pointwise-ternary" title="Permalink to this heading"></a>
+</h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/addcdiv.html">ttnn.addcdiv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/addcmul.html">ttnn.addcmul</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/mac.html">ttnn.mac</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/where.html">ttnn.where</a></li>
+</ul>
+</div>
+</section>
+<section id="losses">
+<h3>Losses<a class="headerlink" href="#losses" title="Permalink to this heading"></a>
+</h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/l1_loss.html">ttnn.l1_loss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/mse_loss.html">ttnn.mse_loss</a></li>
+</ul>
+</div>
+</section>
+<section id="reduction">
+<h3>Reduction<a class="headerlink" href="#reduction" title="Permalink to this heading"></a>
+</h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/max.html">ttnn.max</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/mean.html">ttnn.mean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/min.html">ttnn.min</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/std.html">ttnn.std</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/sum.html">ttnn.sum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/var.html">ttnn.var</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/argmax.html">ttnn.argmax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/topk.html">ttnn.topk</a></li>
+</ul>
+</div>
+</section>
+<section id="data-movement">
+<h3>Data Movement<a class="headerlink" href="#data-movement" title="Permalink to this heading"></a>
+</h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/concat.html">ttnn.concat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/pad.html">ttnn.pad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/permute.html">ttnn.permute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/reshape.html">ttnn.reshape</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/repeat.html">ttnn.repeat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/repeat_interleave.html">ttnn.repeat_interleave</a></li>
+</ul>
+</div>
+</section>
+<section id="normalization">
+<h3>Normalization<a class="headerlink" href="#normalization" title="Permalink to this heading"></a>
+</h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/group_norm.html">ttnn.group_norm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/layer_norm.html">ttnn.layer_norm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/rms_norm.html">ttnn.rms_norm</a></li>
+</ul>
+</div>
+</section>
+<section id="transformer">
+<h3>Transformer<a class="headerlink" href="#transformer" title="Permalink to this heading"></a>
+</h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/transformer/split_query_key_value_and_split_heads.html">ttnn.transformer.split_query_key_value_and_split_heads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/transformer/concatenate_heads.html">ttnn.transformer.concatenate_heads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/transformer/attention_softmax.html">ttnn.transformer.attention_softmax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/transformer/attention_softmax_.html">ttnn.transformer.attention_softmax_</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/transformer/rotary_embedding.html">ttnn.transformer.rotary_embedding</a></li>
+</ul>
+</div>
+</section>
+<section id="embedding">
+<h3>Embedding<a class="headerlink" href="#embedding" title="Permalink to this heading"></a>
+</h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/embedding.html">ttnn.embedding</a></li>
+</ul>
+</div>
+</section>
+<section id="pooling">
+<h3>Pooling<a class="headerlink" href="#pooling" title="Permalink to this heading"></a>
+</h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/global_avg_pool2d.html">ttnn.global_avg_pool2d</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/MaxPool2d.html">ttnn.MaxPool2d</a></li>
+</ul>
+</div>
+</section>
+<section id="vision">
+<h3>Vision<a class="headerlink" href="#vision" title="Permalink to this heading"></a>
+</h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/upsample.html">ttnn.upsample</a></li>
+</ul>
+</div>
+</section>
+<section id="kv-cache">
+<h3>KV Cache<a class="headerlink" href="#kv-cache" title="Permalink to this heading"></a>
+</h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/kv_cache/fill_cache_for_user_.html">ttnn.kv_cache.fill_cache_for_user_</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/kv_cache/update_cache_for_token_.html">ttnn.kv_cache.update_cache_for_token_</a></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="model-conversion">
+<h2>Model Conversion<a class="headerlink" href="#model-conversion" title="Permalink to this heading"></a>
+</h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/model_preprocessing/preprocess_model.html">ttnn.model_preprocessing.preprocess_model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/model_preprocessing/preprocess_model_parameters.html">ttnn.model_preprocessing.preprocess_model_parameters</a></li>
+</ul>
+</div>
+</section>
+<section id="reports">
+<h2>Reports<a class="headerlink" href="#reports" title="Permalink to this heading"></a>
+</h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/set_printoptions.html">ttnn.set_printoptions</a></li>
+</ul>
+</div>
+</section>
+<section id="operation-hooks">
+<h2>Operation Hooks<a class="headerlink" href="#operation-hooks" title="Permalink to this heading"></a>
+</h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/register_pre_operation_hook.html">ttnn.register_pre_operation_hook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/register_post_operation_hook.html">ttnn.register_post_operation_hook</a></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="tensor.html" class="btn btn-neutral float-left" title="Tensor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ttnn/open_device.html" class="btn btn-neutral float-right" title="ttnn.open_device" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Tenstorrent.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        Version: latest
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        
+        <dl>
+            <dt>Versions</dt>
+            
+            <dd><a href="https://tenstorrent.github.io/docs-test/ttnn/latest/index.html">latest</a></dd>
+            
+            <dd><a href="https://tenstorrent.github.io/docs-test/ttnn/v0.49.0/index.html">v0.49.0</a></dd>
+            
+        </dl>
+        
+        <br>
+        </dl>
+    </div>
+</div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

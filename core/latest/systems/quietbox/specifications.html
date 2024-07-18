@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Specifications, Requirements, and Setup &mdash; Tenstorrent 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/tt_theme.css?v=ea036265" />
+
+  
+    <link rel="shortcut icon" href="../../_static/cropped-favicon-32x32.png"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=359c27e9"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Support" href="support.html" />
+    <link rel="prev" title="TT-QuietBox Liquid-Cooled Desktop Workstation" href="README.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+<a href="https://tenstorrent.github.io/docs-test/core/latest/">
+    <img src="../../_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+
+<a href="../../index.html">
+    Tenstorrent
+</a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Add-in Boards</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../aibs/grayskull/README.html">Grayskull™ e75/e150 Tensix Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../aibs/wormhole/README.html">Wormhole™ n150s/n300s Tensix Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../aibs/ack.html">Active Cooling Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../aibs/warp100.html">Warp 100 Bridge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../aibs/compliance.html">Compliance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Systems</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">TT-QuietBox</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="README.html">TT-QuietBox Liquid-Cooled Desktop Workstation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Specifications, Requirements, and Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#package-contents">Package Contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#system-specifications">System Specifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#operating-system-requirements">Operating System Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qsfp-dd-connections-and-system-topology">QSFP-DD Connections and System Topology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#environment-specifications">Environment Specifications</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="support.html">Support</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html#tt-loudbox">TT-LoudBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html#t1000">T1000</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html#t7000">T7000</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://tenstorrent.github.io/docs-test/syseng/latest/index.html">Software/Utilities</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://tenstorrent.github.io/docs-test/pybuda/latest/index.html">TT-Buda</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://tenstorrent.github.io/docs-test/tt-metalium/latest/index.html">TT-Metalium</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://tenstorrent.github.io/docs-test/ttnn/latest/index.html">TT-NN</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../support/README.html">Support &amp; FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Tenstorrent</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">TT-QuietBox</a></li>
+      <li class="breadcrumb-item active">Specifications, Requirements, and Setup</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/systems/quietbox/specifications.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="specifications-requirements-and-setup">
+<h1>Specifications, Requirements, and Setup<a class="headerlink" href="#specifications-requirements-and-setup" title="Permalink to this heading"></a></h1>
+<section id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Permalink to this heading"></a></h2>
+<p>The Tenstorrent TT-QuietBox Liquid-Cooled Desktop Workstation system package includes:</p>
+<ul class="simple">
+<li><p>Tenstorrent TT-QuietBox Liquid-Cooled Desktop Workstation</p></li>
+<li><p>C13 Power Cable, 1.8m/6ft.</p></li>
+<li><p>2x QSFP-DD 400GbE Cable, 0.6m/2ft.</p></li>
+</ul>
+</section>
+<section id="system-specifications">
+<h2>System Specifications<a class="headerlink" href="#system-specifications" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Specification</p></th>
+<th class="head"><p>TT-QuietBox (TW-04001)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>CPU</strong></p></td>
+<td><p>AMD EPYC™ 8124P<br />(16C/32T, up to 3GHz, 125W, <a class="reference external" href="https://www.amd.com/en/products/cpu/amd-epyc-8124p">AMD</a>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Motherboard</strong></p></td>
+<td><p>TYAN Tomcat HX S8040 MB (<a class="reference external" href="https://www.tyan.com/Motherboards_S8040_S8040GM4NE-2T">S8040GM2NE-2T</a>)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Memory</strong></p></td>
+<td><p>512GB (8x64GB)<br />DDR5-4800 ECC RDIMM<br />(0 Slots Free)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Storage</strong></p></td>
+<td><p>3.8TB U.2 NVMe PCIe 4.0 x4</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Tensix Processors</strong></p></td>
+<td><p>4x Tenstorrent Wormhole™ n300 Tensix Processor</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Cables</strong></p></td>
+<td><p>2x Warp 100 Interconnect<br />2x QSFP-DD 400GbE</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Connectivity</strong></p></td>
+<td><p>2x RJ45 10GBase-T via Intel® X710<br /><br />2x RJ45 1GBase-T via Intel® I210<br />2x USB 3.1 Gen 1 (5GBps) Type-A (2x Front, 2x Rear)<br />1x COM<br />1x VGA<br />1x IPMI</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Power Supply</strong></p></td>
+<td><p>1650W 80 PLUS Platinum</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Operating System</strong></p></td>
+<td><p>None</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="operating-system-requirements">
+<h2>Operating System Requirements<a class="headerlink" href="#operating-system-requirements" title="Permalink to this heading"></a></h2>
+<p>The TT-QuietBox system ships without an operating system installed. We recommend installing Ubuntu 20.04 (Focal Fossa) to properly use the Tenstorrent n300 Tensix Processors.</p>
+</section>
+<section id="qsfp-dd-connections-and-system-topology">
+<h2>QSFP-DD Connections and System Topology<a class="headerlink" href="#qsfp-dd-connections-and-system-topology" title="Permalink to this heading"></a></h2>
+<p>The Tenstorrent TT-QuietBox includes four Wormhole™ n300 Tensix Processors and internal Warp 100 bridges and external QSFP-DD cables that enable the Tensix Processor mesh.</p>
+<p><img alt="" src="../../_images/wh_portspec.png" /></p>
+<p>The TT-QuietBox ships with the Warp 100 bridges connected, but the two QSFP-DD cables will need to be connected. This diagram displays the system topology and how the cards are enumerated, along with where the Warp 100 bridges are connected and where the included QSFP-DD cables need to be connected.</p>
+<p><img alt="" src="../../_images/qb_topology.png" /></p>
+<p>One QSFP-DD cable will need to be connected to <strong>Port 1</strong> on the cards in <strong>Slots 1 and 4</strong>.</p>
+<p>One QSFP-DD cable will need to be connected to <strong>Port 2</strong> on the cards in <strong>Slots 3 and 2</strong>.</p>
+</section>
+<section id="environment-specifications">
+<h2>Environment Specifications<a class="headerlink" href="#environment-specifications" title="Permalink to this heading"></a></h2>
+<p>The TT-QuietBox Liquid-Cooled Desktop Workstation is designed to operate at up to 35°C/95°F external ambient temperatures.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="README.html" class="btn btn-neutral float-left" title="TT-QuietBox Liquid-Cooled Desktop Workstation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="support.html" class="btn btn-neutral float-right" title="Support" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Tenstorrent.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adding New ttnn Operation &mdash; TT-NN  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/tt_theme.css?v=ea036265" />
+
+  
+    <link rel="shortcut icon" href="../_static/cropped-favicon-32x32.png"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Profiling ttnn Operations" href="profiling_ttnn_operations.html" />
+    <link rel="prev" title="Converting torch Model to ttnn" href="converting_torch_model_to_ttnn.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+<a href="https://tenstorrent.github.io/docs-test/core/latest/">
+    <img src="../_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+
+<a href="../index.html">
+    TT-NN
+</a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">TTNN</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about.html">What is ttnn?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Using ttnn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tensor.html">Tensor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onboarding.html">Onboarding New Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="converting_torch_model_to_ttnn.html">Converting torch Model to ttnn</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Adding New ttnn Operation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#c-implementation">C++ Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-pybindings">Add pybindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-a-unit-test">Adding a unit test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-a-sweep-test">Adding a sweep test</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="profiling_ttnn_operations.html">Profiling ttnn Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dependencies/index.html">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demos.html">Building and Uplifting Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ttnn_sweeps/index.html">Placeholder title</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Models</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tt_metal_models/get_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tt_metal_models/get_performance.html">Performance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../resources/support.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/contributing.html">Contributing as a developer</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">TT-NN</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Adding New ttnn Operation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/ttnn/adding_new_ttnn_operation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="adding-new-ttnn-operation">
+<h1>Adding New ttnn Operation<a class="headerlink" href="#adding-new-ttnn-operation" title="Permalink to this heading"></a>
+</h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This document is meant for contributors to TT-NN.</p>
+<p>Not all operations may be functional on all Tenstorrent hardware (Grayskull,
+Wormhole, or others).</p>
+</div>
+<section id="c-implementation">
+<h2>C++ Implementation<a class="headerlink" href="#c-implementation" title="Permalink to this heading"></a>
+</h2>
+<p>Add <cite>tt_eager/tt_dnn/op_library/&lt;new_operation&gt;/&lt;new_operation&gt;.hpp</cite>:</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;optional&gt;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"tensor/tensor.hpp"</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"tt_dnn/op_library/operation.hpp"</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">tt</span><span class="w"> </span><span class="p">{</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">tt_metal</span><span class="w"> </span><span class="p">{</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="o">&lt;</span><span class="n">NewOperation</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">some_arg</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// These methods are needed if the operation takes in input tensor and produces output tensors</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">input_tensors</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Shape</span><span class="o">&gt;</span><span class="w"> </span><span class="n">compute_output_shapes</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">input_tensors</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="n">create_output_tensors</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">input_tensors</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">operation</span><span class="o">::</span><span class="n">ProgramWithCallbacks</span><span class="w"> </span><span class="nf">create_program</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">input_tensors</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">output_tensors</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// This is needed until we get C++20</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">attribute_names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">forward_as_tuple</span><span class="p">(</span><span class="s">"some_arg"</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">attribute_values</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">forward_as_tuple</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">some_arg</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="n">Tensor</span><span class="w"> </span><span class="o">&lt;</span><span class="n">new_operation</span><span class="o">&gt;</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Tensor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">input_tensor</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">some_arg</span><span class="p">);</span>
+
+<span class="p">}</span><span class="w">  </span><span class="c1">// namespace tt_metal</span>
+<span class="p">}</span><span class="w">  </span><span class="c1">// namespace tt</span>
+</pre></div>
+</div>
+<p>Add <cite>tt_eager/tt_dnn/op_library/&lt;new_operation&gt;/&lt;new_operation&gt;.cpp</cite>:</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">"tt_metal/host_api.hpp"</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"tt_dnn/op_library/run_operation.hpp"</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">tt</span><span class="w"> </span><span class="p">{</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">tt_metal</span><span class="w"> </span><span class="p">{</span>
+
+
+<span class="kt">void</span><span class="w"> </span><span class="o">&lt;</span><span class="n">NewOperation</span><span class="o">&gt;::</span><span class="n">validate</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">input_tensors</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Shape</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">NewOperation</span><span class="o">&gt;::</span><span class="n">compute_output_shapes</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">input_tensors</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Shape</span><span class="o">&gt;</span><span class="w"> </span><span class="n">output_shapes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">output_shapes</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="n">create_output_tensors</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">input_tensors</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="n">output_tensors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">output_tensors</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">operation</span><span class="o">::</span><span class="n">ProgramWithCallbacks</span><span class="w"> </span><span class="n">create_program</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">input_tensors</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">output_tensors</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Program</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">operation</span><span class="o">::</span><span class="n">ProgramWithCallbacks</span><span class="p">{</span><span class="n">program</span><span class="p">};</span>
+<span class="p">}</span>
+
+<span class="p">};</span>
+
+<span class="n">Tensor</span><span class="w"> </span><span class="o">&lt;</span><span class="n">new_operation</span><span class="o">&gt;</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Tensor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">input_tensor</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">some_arg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="n">input_tensors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">input_tensor</span><span class="p">};</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="n">output_tensors</span><span class="w"> </span><span class="n">operation</span><span class="o">::</span><span class="n">run</span><span class="p">(</span><span class="n">DeviceOperation</span><span class="p">(</span><span class="o">&lt;</span><span class="n">NewOperation</span><span class="o">&gt;</span><span class="p">{</span><span class="n">some_arg</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">input_tensor</span><span class="p">}));</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">output_tensors</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="w">  </span><span class="c1">// namespace tt_metal</span>
+<span class="p">}</span><span class="w">  </span><span class="c1">// namespace tt</span>
+</pre></div>
+</div>
+</section>
+<section id="add-pybindings">
+<h2>Add pybindings<a class="headerlink" href="#add-pybindings" title="Permalink to this heading"></a>
+</h2>
+<p>In <cite>tt_eager/tt_lib/csrc/tt_lib_bindings_tensor.cpp</cite>, add the following lines</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="n">m_tensor</span><span class="p">.</span><span class="n">def</span><span class="p">(</span><span class="s">"&lt;new_operation&gt;"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;&lt;</span><span class="n">new_operation</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">py</span><span class="o">::</span><span class="n">arg</span><span class="p">(</span><span class="s">"input_tensor"</span><span class="p">).</span><span class="n">noconvert</span><span class="p">(),</span><span class="w"> </span><span class="n">py</span><span class="o">::</span><span class="n">arg</span><span class="p">(</span><span class="s">"some_arg"</span><span class="p">).</span><span class="n">noconvert</span><span class="p">(),</span><span class="w"> </span><span class="sa">R</span><span class="s">"</span><span class="dl">doc(</span>
+<span class="s">    &lt;NewOperation&gt; runs new operation on input tensor.</span>
+
+<span class="s">    .. csv-table::</span>
+<span class="s">        :header: "Argument", "Description", "Data type", "Valid range", "Required"</span>
+
+<span class="s">        "input_tensor", "Input tensor", "Tensor", "Tensor of shape [W0, Z0, Y0, X0]", "Yes"</span>
+<span class="s">        "some_arg", "Some arg", "bool", "Some arg to do some stuff in new operation", "Yes"</span>
+<span class="dl">)doc</span><span class="s">"</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="adding-a-unit-test">
+<h2>Adding a unit test<a class="headerlink" href="#adding-a-unit-test" title="Permalink to this heading"></a>
+</h2>
+<p>Add <cite>tests/ttnn/unit_tests/ttl/test_&lt;new_operation&gt;.py</cite>:</p>
+<div class="highlight-python notranslate">
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">ttnn</span>
+
+<span class="kn">from</span> <span class="nn">tests.ttnn.utils_for_testing</span> <span class="kn">import</span> <span class="n">assert_with_pcc</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s2">"height"</span><span class="p">,</span> <span class="p">[</span><span class="mi">32</span><span class="p">])</span>
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s2">"width"</span><span class="p">,</span> <span class="p">[</span><span class="mi">32</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">test_</span><span class="o">&lt;</span><span class="n">new_operation</span><span class="o">&gt;</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="n">torch_input_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span>
+    <span class="n">torch_output_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">torch_input_tensor</span><span class="p">)</span>
+
+    <span class="n">input_tensor</span> <span class="o">=</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">from_torch</span><span class="p">(</span><span class="n">torch_input_tensor</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+    <span class="n">output_tensor</span> <span class="o">=</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">tensor</span><span class="o">.&lt;</span><span class="n">new_operation</span><span class="o">&gt;</span><span class="p">(</span><span class="n">input_tensor</span><span class="p">)</span>
+
+    <span class="n">output_tensor</span> <span class="o">=</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">to_torch</span><span class="p">(</span><span class="n">output_tensor</span><span class="p">)</span>
+
+    <span class="n">assert_with_pcc</span><span class="p">(</span><span class="n">torch_output_tensor</span><span class="p">,</span> <span class="n">output_tensor</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="adding-a-sweep-test">
+<h2>Adding a sweep test<a class="headerlink" href="#adding-a-sweep-test" title="Permalink to this heading"></a>
+</h2>
+<p>Add <cite>tests/ttnn/sweep_tests/sweeps/ttl_&lt;new_operation&gt;.py</cite>:</p>
+<div class="highlight-python notranslate">
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuples</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">ttnn</span>
+<span class="kn">from</span> <span class="nn">tests.ttnn.utils_for_testing</span> <span class="kn">import</span> <span class="n">check_with_pcc</span>
+
+
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"height"</span><span class="p">:</span> <span class="p">[</span><span class="mi">384</span><span class="p">,</span> <span class="mi">1024</span><span class="p">],</span>
+    <span class="s2">"width"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">4096</span><span class="p">],</span>
+<span class="p">}</span>
+
+
+<span class="k">def</span> <span class="nf">run</span><span class="p">(</span>
+    <span class="n">height</span><span class="p">,</span>
+    <span class="n">width</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">device</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+
+    <span class="n">torch_input_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span>
+    <span class="n">torch_output_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">torch_input_tensor</span><span class="p">)</span>
+
+    <span class="n">input_tensor</span> <span class="o">=</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">from_torch</span><span class="p">(</span><span class="n">torch_input_tensor</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+    <span class="n">output_tensor</span> <span class="o">=</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">tensor</span><span class="o">.&lt;</span><span class="n">new_operation</span><span class="o">&gt;</span><span class="p">(</span><span class="n">input_tensor</span><span class="p">)</span>
+
+    <span class="n">output_tensor</span> <span class="o">=</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">to_torch</span><span class="p">(</span><span class="n">output_tensor</span><span class="p">)</span>
+
+    <span class="n">assert_with_pcc</span><span class="p">(</span><span class="n">torch_output_tensor</span><span class="p">,</span> <span class="n">output_tensor</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="converting_torch_model_to_ttnn.html" class="btn btn-neutral float-left" title="Converting torch Model to ttnn" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="profiling_ttnn_operations.html" class="btn btn-neutral float-right" title="Profiling ttnn Operations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Tenstorrent.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        Version: latest
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        
+        <dl>
+            <dt>Versions</dt>
+            
+            <dd><a href="https://tenstorrent.github.io/docs-test/ttnn/latest/index.html">latest</a></dd>
+            
+            <dd><a href="https://tenstorrent.github.io/docs-test/ttnn/v0.49.0/index.html">v0.49.0</a></dd>
+            
+        </dl>
+        
+        <br>
+        </dl>
+    </div>
+</div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

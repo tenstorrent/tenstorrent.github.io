@@ -1,0 +1,235 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="318pt" height="1100pt" viewBox="0.00 0.00 318.00 1100.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 1096)">
+<title>%3</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-1096 314,-1096 314,4 -4,4"/>
+<g id="clust1" class="cluster">
+<title>_13</title>
+<polygon fill="#0000ff" fill-opacity="0.501961" stroke="black" points="8,-8 8,-1000 302,-1000 302,-8 8,-8"/>
+<text text-anchor="middle" x="155" y="-984.8" font-family="Times,serif" font-size="14.00">TorchBasicBlock</text>
+<text text-anchor="middle" x="155" y="-969.8" font-family="Times,serif" font-size="14.00">duration: 0.075194836s</text>
+</g>
+<g id="clust2" class="cluster">
+<title>relu_8</title>
+<polygon fill="#ee00ee" fill-opacity="0.501961" stroke="black" points="33,-304 33,-563 243,-563 243,-304 33,-304"/>
+<text text-anchor="middle" x="138" y="-547.8" font-family="Times,serif" font-size="14.00">ReLU</text>
+<text text-anchor="middle" x="138" y="-532.8" font-family="Times,serif" font-size="14.00">name: relu</text>
+<text text-anchor="middle" x="138" y="-517.8" font-family="Times,serif" font-size="14.00">duration: 0.000639677s</text>
+</g>
+<g id="clust3" class="cluster">
+<title>conv1_5</title>
+<polygon fill="#ee00ee" fill-opacity="0.501961" stroke="black" points="16,-592 16,-851 294,-851 294,-592 16,-592"/>
+<text text-anchor="middle" x="155" y="-835.8" font-family="Times,serif" font-size="14.00">Conv2d</text>
+<text text-anchor="middle" x="155" y="-820.8" font-family="Times,serif" font-size="14.00">name: conv1</text>
+<text text-anchor="middle" x="155" y="-805.8" font-family="Times,serif" font-size="14.00">duration: 0.064140320s</text>
+</g>
+<g id="clust4" class="cluster">
+<title>conv2_12</title>
+<polygon fill="#ee00ee" fill-opacity="0.501961" stroke="black" points="16,-16 16,-275 294,-275 294,-16 16,-16"/>
+<text text-anchor="middle" x="155" y="-259.8" font-family="Times,serif" font-size="14.00">Conv2d</text>
+<text text-anchor="middle" x="155" y="-244.8" font-family="Times,serif" font-size="14.00">name: conv2</text>
+<text text-anchor="middle" x="155" y="-229.8" font-family="Times,serif" font-size="14.00">duration: 0.006417274s</text>
+</g>
+<!-- _13/relu_8/module_input_6 -->
+<g id="node1" class="node">
+<title>_13/relu_8/module_input_6</title>
+<polygon fill="#dcdcdc" stroke="black" points="196.5,-502 103.5,-502 103.5,-436 196.5,-436 196.5,-502"/>
+<polygon fill="none" stroke="black" points="105,-475 105,-501 196,-501 196,-475 105,-475"/>
+<text text-anchor="start" x="107" y="-491" font-family="Linux libertine" font-size="10.00">TorchModuleInput</text>
+<text text-anchor="start" x="121" y="-480" font-family="Linux libertine" font-size="10.00">name: input</text>
+<polygon fill="none" stroke="black" points="105,-437 105,-474 196,-474 196,-437 105,-437"/>
+<text text-anchor="start" x="127.5" y="-464" font-family="Linux libertine" font-size="10.00">Output: 0</text>
+<text text-anchor="start" x="116.5" y="-453" font-family="Linux libertine" font-size="10.00">(8, 64, 56, 56)</text>
+<text text-anchor="start" x="119.5" y="-442" font-family="Linux libertine" font-size="10.00">torch.float32</text>
+</g>
+<!-- _13/relu_8/relu_7 -->
+<g id="node2" class="node">
+<title>_13/relu_8/relu_7</title>
+<polygon fill="#dcdcdc" stroke="black" points="235,-389 41,-389 41,-312 235,-312 235,-389"/>
+<polygon fill="none" stroke="black" points="42,-312.5 42,-387.5 161,-387.5 161,-312.5 42,-312.5"/>
+<text text-anchor="start" x="92" y="-353" font-family="Linux libertine" font-size="10.00">relu</text>
+<text text-anchor="start" x="44" y="-342" font-family="Linux libertine" font-size="10.00">duration: 0.000287533s</text>
+<polygon fill="none" stroke="black" points="162,-350.5 162,-387.5 234,-387.5 234,-350.5 162,-350.5"/>
+<text text-anchor="start" x="179.5" y="-377.5" font-family="Linux libertine" font-size="10.00">Input: 0</text>
+<text text-anchor="start" x="164" y="-366.5" font-family="Linux libertine" font-size="10.00">(8, 64, 56, 56)</text>
+<text text-anchor="start" x="167" y="-355.5" font-family="Linux libertine" font-size="10.00">torch.float32</text>
+<polygon fill="none" stroke="black" points="162,-312.5 162,-349.5 234,-349.5 234,-312.5 162,-312.5"/>
+<text text-anchor="start" x="175" y="-339.5" font-family="Linux libertine" font-size="10.00">Output: 0</text>
+<text text-anchor="start" x="164" y="-328.5" font-family="Linux libertine" font-size="10.00">(8, 64, 56, 56)</text>
+<text text-anchor="start" x="167" y="-317.5" font-family="Linux libertine" font-size="10.00">torch.float32</text>
+</g>
+<!-- _13/relu_8/module_input_6&#45;&gt;_13/relu_8/relu_7 -->
+<g id="edge1" class="edge">
+<title>_13/relu_8/module_input_6-&gt;_13/relu_8/relu_7</title>
+<path fill="none" stroke="black" d="M146.69,-435.86C145.53,-424.6 144.2,-411.7 142.94,-399.43"/>
+<polygon fill="black" stroke="black" points="146.4,-398.91 141.9,-389.32 139.44,-399.62 146.4,-398.91"/>
+<text text-anchor="middle" x="159.5" y="-410" font-family="Times,serif" font-size="10.00" fill="white">0 -&gt; 0</text>
+</g>
+<!-- _13/conv2_12/module_input_9 -->
+<g id="node8" class="node">
+<title>_13/conv2_12/module_input_9</title>
+<polygon fill="#dcdcdc" stroke="black" points="161.5,-214 68.5,-214 68.5,-148 161.5,-148 161.5,-214"/>
+<polygon fill="none" stroke="black" points="70,-187 70,-213 161,-213 161,-187 70,-187"/>
+<text text-anchor="start" x="72" y="-203" font-family="Linux libertine" font-size="10.00">TorchModuleInput</text>
+<text text-anchor="start" x="86" y="-192" font-family="Linux libertine" font-size="10.00">name: input</text>
+<polygon fill="none" stroke="black" points="70,-149 70,-186 161,-186 161,-149 70,-149"/>
+<text text-anchor="start" x="92.5" y="-176" font-family="Linux libertine" font-size="10.00">Output: 0</text>
+<text text-anchor="start" x="81.5" y="-165" font-family="Linux libertine" font-size="10.00">(8, 64, 56, 56)</text>
+<text text-anchor="start" x="84.5" y="-154" font-family="Linux libertine" font-size="10.00">torch.float32</text>
+</g>
+<!-- _13/relu_8/relu_7&#45;&gt;_13/conv2_12/module_input_9 -->
+<g id="edge8" class="edge">
+<title>_13/relu_8/relu_7-&gt;_13/conv2_12/module_input_9</title>
+<path fill="none" stroke="black" d="M132.84,-311.91C129.26,-285.82 124.48,-251.05 120.77,-224.04"/>
+<polygon fill="black" stroke="black" points="124.24,-223.54 119.41,-214.11 117.3,-224.49 124.24,-223.54"/>
+<text text-anchor="middle" x="144.5" y="-286" font-family="Times,serif" font-size="10.00" fill="white">0 -&gt; 0</text>
+</g>
+<!-- _13/conv1_5/torch_parameter_3 -->
+<g id="node3" class="node">
+<title>_13/conv1_5/torch_parameter_3</title>
+<polygon fill="#dcdcdc" stroke="black" points="256,-790 150,-790 150,-724 256,-724 256,-790"/>
+<polygon fill="none" stroke="black" points="151,-763 151,-789 255,-789 255,-763 151,-763"/>
+<text text-anchor="start" x="156" y="-779" font-family="Linux libertine" font-size="10.00">torch.nn.Parameter</text>
+<text text-anchor="start" x="153" y="-768" font-family="Linux libertine" font-size="10.00">name: conv1.weight</text>
+<polygon fill="none" stroke="black" points="151,-725 151,-762 255,-762 255,-725 151,-725"/>
+<text text-anchor="start" x="180" y="-752" font-family="Linux libertine" font-size="10.00">Output: 0</text>
+<text text-anchor="start" x="172" y="-741" font-family="Linux libertine" font-size="10.00">(64, 64, 3, 3)</text>
+<text text-anchor="start" x="172" y="-730" font-family="Linux libertine" font-size="10.00">torch.float32</text>
+</g>
+<!-- _13/conv1_5/conv2d_4 -->
+<g id="node5" class="node">
+<title>_13/conv1_5/conv2d_4</title>
+<polygon fill="#dcdcdc" stroke="black" points="285.5,-677 24.5,-677 24.5,-600 285.5,-600 285.5,-677"/>
+<polygon fill="none" stroke="black" points="26,-600.5 26,-675.5 145,-675.5 145,-600.5 26,-600.5"/>
+<text text-anchor="start" x="67.5" y="-641" font-family="Linux libertine" font-size="10.00">conv2d</text>
+<text text-anchor="start" x="28" y="-630" font-family="Linux libertine" font-size="10.00">duration: 0.063295126s</text>
+<polygon fill="none" stroke="black" points="146,-638.5 146,-675.5 212,-675.5 212,-638.5 146,-638.5"/>
+<text text-anchor="start" x="160.5" y="-665.5" font-family="Linux libertine" font-size="10.00">Input: 0</text>
+<text text-anchor="start" x="148" y="-654.5" font-family="Linux libertine" font-size="10.00">(64, 64, 3, 3)</text>
+<text text-anchor="start" x="148" y="-643.5" font-family="Linux libertine" font-size="10.00">torch.float32</text>
+<polygon fill="none" stroke="black" points="213,-638.5 213,-675.5 285,-675.5 285,-638.5 213,-638.5"/>
+<text text-anchor="start" x="230.5" y="-665.5" font-family="Linux libertine" font-size="10.00">Input: 1</text>
+<text text-anchor="start" x="215" y="-654.5" font-family="Linux libertine" font-size="10.00">(8, 64, 56, 56)</text>
+<text text-anchor="start" x="218" y="-643.5" font-family="Linux libertine" font-size="10.00">torch.float32</text>
+<polygon fill="none" stroke="black" points="146,-600.5 146,-637.5 285,-637.5 285,-600.5 146,-600.5"/>
+<text text-anchor="start" x="192.5" y="-627.5" font-family="Linux libertine" font-size="10.00">Output: 0</text>
+<text text-anchor="start" x="181.5" y="-616.5" font-family="Linux libertine" font-size="10.00">(8, 64, 56, 56)</text>
+<text text-anchor="start" x="184.5" y="-605.5" font-family="Linux libertine" font-size="10.00">torch.float32</text>
+</g>
+<!-- _13/conv1_5/torch_parameter_3&#45;&gt;_13/conv1_5/conv2d_4 -->
+<g id="edge2" class="edge">
+<title>_13/conv1_5/torch_parameter_3-&gt;_13/conv1_5/conv2d_4</title>
+<path fill="none" stroke="black" d="M189.76,-723.86C185.02,-712.37 179.59,-699.18 174.44,-686.69"/>
+<polygon fill="black" stroke="black" points="177.63,-685.23 170.58,-677.32 171.16,-687.9 177.63,-685.23"/>
+<text text-anchor="middle" x="196.5" y="-698" font-family="Times,serif" font-size="10.00" fill="white">0 -&gt; 1</text>
+</g>
+<!-- _13/conv1_5/module_input_2 -->
+<g id="node4" class="node">
+<title>_13/conv1_5/module_input_2</title>
+<polygon fill="#dcdcdc" stroke="black" points="131.5,-790 38.5,-790 38.5,-724 131.5,-724 131.5,-790"/>
+<polygon fill="none" stroke="black" points="40,-763 40,-789 131,-789 131,-763 40,-763"/>
+<text text-anchor="start" x="42" y="-779" font-family="Linux libertine" font-size="10.00">TorchModuleInput</text>
+<text text-anchor="start" x="56" y="-768" font-family="Linux libertine" font-size="10.00">name: input</text>
+<polygon fill="none" stroke="black" points="40,-725 40,-762 131,-762 131,-725 40,-725"/>
+<text text-anchor="start" x="62.5" y="-752" font-family="Linux libertine" font-size="10.00">Output: 0</text>
+<text text-anchor="start" x="51.5" y="-741" font-family="Linux libertine" font-size="10.00">(8, 64, 56, 56)</text>
+<text text-anchor="start" x="54.5" y="-730" font-family="Linux libertine" font-size="10.00">torch.float32</text>
+</g>
+<!-- _13/conv1_5/module_input_2&#45;&gt;_13/conv1_5/conv2d_4 -->
+<g id="edge3" class="edge">
+<title>_13/conv1_5/module_input_2-&gt;_13/conv1_5/conv2d_4</title>
+<path fill="none" stroke="black" d="M104.31,-723.86C111.35,-712.15 119.45,-698.66 127.09,-685.96"/>
+<polygon fill="black" stroke="black" points="130.13,-687.69 132.28,-677.32 124.13,-684.09 130.13,-687.69"/>
+<text text-anchor="middle" x="135.5" y="-698" font-family="Times,serif" font-size="10.00" fill="white">0 -&gt; 0</text>
+</g>
+<!-- _13/conv1_5/conv2d_4&#45;&gt;_13/relu_8/module_input_6 -->
+<g id="edge6" class="edge">
+<title>_13/conv1_5/conv2d_4-&gt;_13/relu_8/module_input_6</title>
+<path fill="none" stroke="black" d="M153.88,-599.91C153.1,-573.94 152.07,-539.36 151.27,-512.4"/>
+<polygon fill="black" stroke="black" points="154.76,-512 150.96,-502.11 147.76,-512.21 154.76,-512"/>
+<text text-anchor="middle" x="168.5" y="-574" font-family="Times,serif" font-size="10.00" fill="white">0 -&gt; 0</text>
+</g>
+<!-- _13/conv2_12/conv2d_11 -->
+<g id="node6" class="node">
+<title>_13/conv2_12/conv2d_11</title>
+<polygon fill="#dcdcdc" stroke="black" points="285.5,-101 24.5,-101 24.5,-24 285.5,-24 285.5,-101"/>
+<polygon fill="none" stroke="black" points="26,-24.5 26,-99.5 145,-99.5 145,-24.5 26,-24.5"/>
+<text text-anchor="start" x="67.5" y="-65" font-family="Linux libertine" font-size="10.00">conv2d</text>
+<text text-anchor="start" x="28" y="-54" font-family="Linux libertine" font-size="10.00">duration: 0.005688190s</text>
+<polygon fill="none" stroke="black" points="146,-62.5 146,-99.5 212,-99.5 212,-62.5 146,-62.5"/>
+<text text-anchor="start" x="160.5" y="-89.5" font-family="Linux libertine" font-size="10.00">Input: 0</text>
+<text text-anchor="start" x="148" y="-78.5" font-family="Linux libertine" font-size="10.00">(64, 64, 3, 3)</text>
+<text text-anchor="start" x="148" y="-67.5" font-family="Linux libertine" font-size="10.00">torch.float32</text>
+<polygon fill="none" stroke="black" points="213,-62.5 213,-99.5 285,-99.5 285,-62.5 213,-62.5"/>
+<text text-anchor="start" x="230.5" y="-89.5" font-family="Linux libertine" font-size="10.00">Input: 1</text>
+<text text-anchor="start" x="215" y="-78.5" font-family="Linux libertine" font-size="10.00">(8, 64, 56, 56)</text>
+<text text-anchor="start" x="218" y="-67.5" font-family="Linux libertine" font-size="10.00">torch.float32</text>
+<polygon fill="none" stroke="black" points="146,-24.5 146,-61.5 285,-61.5 285,-24.5 146,-24.5"/>
+<text text-anchor="start" x="192.5" y="-51.5" font-family="Linux libertine" font-size="10.00">Output: 0</text>
+<text text-anchor="start" x="181.5" y="-40.5" font-family="Linux libertine" font-size="10.00">(8, 64, 56, 56)</text>
+<text text-anchor="start" x="184.5" y="-29.5" font-family="Linux libertine" font-size="10.00">torch.float32</text>
+</g>
+<!-- _13/conv2_12/torch_parameter_10 -->
+<g id="node7" class="node">
+<title>_13/conv2_12/torch_parameter_10</title>
+<polygon fill="#dcdcdc" stroke="black" points="286,-214 180,-214 180,-148 286,-148 286,-214"/>
+<polygon fill="none" stroke="black" points="181,-187 181,-213 285,-213 285,-187 181,-187"/>
+<text text-anchor="start" x="186" y="-203" font-family="Linux libertine" font-size="10.00">torch.nn.Parameter</text>
+<text text-anchor="start" x="183" y="-192" font-family="Linux libertine" font-size="10.00">name: conv2.weight</text>
+<polygon fill="none" stroke="black" points="181,-149 181,-186 285,-186 285,-149 181,-149"/>
+<text text-anchor="start" x="210" y="-176" font-family="Linux libertine" font-size="10.00">Output: 0</text>
+<text text-anchor="start" x="202" y="-165" font-family="Linux libertine" font-size="10.00">(64, 64, 3, 3)</text>
+<text text-anchor="start" x="202" y="-154" font-family="Linux libertine" font-size="10.00">torch.float32</text>
+</g>
+<!-- _13/conv2_12/torch_parameter_10&#45;&gt;_13/conv2_12/conv2d_11 -->
+<g id="edge4" class="edge">
+<title>_13/conv2_12/torch_parameter_10-&gt;_13/conv2_12/conv2d_11</title>
+<path fill="none" stroke="black" d="M211.48,-147.86C203.64,-136.15 194.61,-122.66 186.1,-109.96"/>
+<polygon fill="black" stroke="black" points="188.79,-107.68 180.32,-101.32 182.98,-111.57 188.79,-107.68"/>
+<text text-anchor="middle" x="213.5" y="-122" font-family="Times,serif" font-size="10.00" fill="white">0 -&gt; 1</text>
+</g>
+<!-- _13/conv2_12/module_input_9&#45;&gt;_13/conv2_12/conv2d_11 -->
+<g id="edge5" class="edge">
+<title>_13/conv2_12/module_input_9-&gt;_13/conv2_12/conv2d_11</title>
+<path fill="none" stroke="black" d="M126.04,-147.86C129.94,-136.48 134.42,-123.44 138.67,-111.06"/>
+<polygon fill="black" stroke="black" points="142.08,-111.91 142.02,-101.32 135.46,-109.64 142.08,-111.91"/>
+<text text-anchor="middle" x="150.5" y="-122" font-family="Times,serif" font-size="10.00" fill="white">0 -&gt; 0</text>
+</g>
+<!-- _13/module_input_1 -->
+<g id="node9" class="node">
+<title>_13/module_input_1</title>
+<polygon fill="#dcdcdc" stroke="black" points="131.5,-954 38.5,-954 38.5,-888 131.5,-888 131.5,-954"/>
+<polygon fill="none" stroke="black" points="40,-927 40,-953 131,-953 131,-927 40,-927"/>
+<text text-anchor="start" x="42" y="-943" font-family="Linux libertine" font-size="10.00">TorchModuleInput</text>
+<text text-anchor="start" x="65.5" y="-932" font-family="Linux libertine" font-size="10.00">name: x</text>
+<polygon fill="none" stroke="black" points="40,-889 40,-926 131,-926 131,-889 40,-889"/>
+<text text-anchor="start" x="62.5" y="-916" font-family="Linux libertine" font-size="10.00">Output: 0</text>
+<text text-anchor="start" x="51.5" y="-905" font-family="Linux libertine" font-size="10.00">(8, 64, 56, 56)</text>
+<text text-anchor="start" x="54.5" y="-894" font-family="Linux libertine" font-size="10.00">torch.float32</text>
+</g>
+<!-- _13/module_input_1&#45;&gt;_13/conv1_5/module_input_2 -->
+<g id="edge7" class="edge">
+<title>_13/module_input_1-&gt;_13/conv1_5/module_input_2</title>
+<path fill="none" stroke="black" d="M85,-887.99C85,-862.89 85,-827.74 85,-800.31"/>
+<polygon fill="black" stroke="black" points="88.5,-800.22 85,-790.22 81.5,-800.22 88.5,-800.22"/>
+<text text-anchor="middle" x="100.5" y="-862" font-family="Times,serif" font-size="10.00" fill="white">0 -&gt; 0</text>
+</g>
+<!-- torch_input_0 -->
+<g id="node10" class="node">
+<title>torch_input_0</title>
+<polygon fill="#dcdcdc" stroke="black" points="122,-1092 48,-1092 48,-1037 122,-1037 122,-1092"/>
+<polygon fill="none" stroke="black" points="49,-1075.5 49,-1090.5 121,-1090.5 121,-1075.5 49,-1075.5"/>
+<text text-anchor="start" x="55" y="-1080.5" font-family="Linux libertine" font-size="10.00">torch.Tensor</text>
+<polygon fill="none" stroke="black" points="49,-1037.5 49,-1074.5 121,-1074.5 121,-1037.5 49,-1037.5"/>
+<text text-anchor="start" x="62" y="-1064.5" font-family="Linux libertine" font-size="10.00">Output: 0</text>
+<text text-anchor="start" x="51" y="-1053.5" font-family="Linux libertine" font-size="10.00">(8, 64, 56, 56)</text>
+<text text-anchor="start" x="54" y="-1042.5" font-family="Linux libertine" font-size="10.00">torch.float32</text>
+</g>
+<!-- torch_input_0&#45;&gt;_13/module_input_1 -->
+<g id="edge9" class="edge">
+<title>torch_input_0-&gt;_13/module_input_1</title>
+<path fill="none" stroke="black" d="M85,-1036.88C85,-1016.45 85,-987.84 85,-964.28"/>
+<polygon fill="black" stroke="black" points="88.5,-964.2 85,-954.2 81.5,-964.2 88.5,-964.2"/>
+<text text-anchor="middle" x="100.5" y="-1011" font-family="Times,serif" font-size="10.00">0 -&gt; 0</text>
+</g>
+</g>
+</svg>
