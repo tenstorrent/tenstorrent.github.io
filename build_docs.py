@@ -11,10 +11,15 @@ def build_doc(project, version):
         return
     
     subprocess.run(f"git checkout {project}_{version}", shell=True)
-    subprocess.run("git checkout main -- conf.py", shell=True)
-    subprocess.run("git checkout main -- versions.yaml", shell=True)
 
-    subprocess.run(f"cd {project} && make html", shell=True)
+    version_no_v = version.replace("v", "")
+
+    command = f"python3 -m venv .{version} && source .{version}/bin/activate\n"
+    command += f"wget https://github.com/tenstorrent/tt-metal/releases/download/{version}/metal_libs-{version_no_v}+wormhole.b0-cp38-cp38-linux_x86_64.whl\n"
+    command += f"pip install --extra-index-url https://download.pytorch.org/whl/cpu metal_libs-{version_no_v}+wormhole.b0-cp38-cp38-linux_x86_64.whl\n"
+    command += f"cd {project} && make html"
+    print("Full command to execute", command)
+    subprocess.run(command, shell=True)
 
 def move_dir(src, dst):
     subprocess.run(["mkdir", "-p", dst])
