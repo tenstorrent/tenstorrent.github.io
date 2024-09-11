@@ -43,11 +43,11 @@
 <codeline lineno="21"><highlight class="normal"></highlight></codeline>
 <codeline lineno="25"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>tilize_init(uint32_t<sp/>icb,<sp/>uint32_t<sp/>block,<sp/>uint32_t<sp/>ocb<sp/>=<sp/>16)</highlight></codeline>
 <codeline lineno="26"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_unary_datacopy_init&lt;A2D,<sp/>BroadcastType::NONE,<sp/>DST_ACCUM_MODE&gt;(</highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">/*transpose<sp/>of<sp/>faces*/</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">/*transpose<sp/>within<sp/>16x16<sp/>face*/</highlight><highlight class="normal">,<sp/>icb)<sp/>));</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_unary_datacopy_init&lt;A2D,<sp/>BroadcastType::NONE,<sp/>DST_ACCUM_MODE,<sp/>false/*is_int_en*/,<sp/>true/*tilize<sp/>en*/&gt;(</highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">/*transpose<sp/>of<sp/>faces*/</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">/*transpose<sp/>within<sp/>16x16<sp/>face*/</highlight><highlight class="normal">,<sp/>icb)<sp/>));</highlight></codeline>
 <codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_pack_sync_init&lt;DST_ACCUM_MODE&gt;()<sp/>));</highlight></codeline>
 <codeline lineno="29"><highlight class="normal"></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>PACK((<sp/>llk_pack_hw_configure_disaggregated&lt;false,<sp/>DST_ACCUM_MODE&gt;(ocb)<sp/>));</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>PACK((<sp/>llk_pack_init(ocb)<sp/>));</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>PACK((<sp/>llk_pack_hw_configure_disaggregated&lt;false,<sp/>DST_ACCUM_MODE,<sp/>ReluType::NO_RELU,<sp/>0,<sp/>true/*tilize<sp/>en*/&gt;(ocb)<sp/>));</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>PACK((<sp/>llk_pack_init&lt;false,<sp/>false,<sp/>true/*tilize<sp/>en*/&gt;(ocb)<sp/>));</highlight></codeline>
 <codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>PACK((<sp/>llk_setup_outputs()<sp/>));</highlight></codeline>
 <codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>PACK((<sp/>llk_pack_dest_init&lt;false,<sp/>DST_ACCUM_MODE&gt;(ocb)<sp/>));</highlight></codeline>
 <codeline lineno="34"><highlight class="normal"></highlight></codeline>
@@ -88,77 +88,91 @@
 <codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>PACK((<sp/>llk_pack_dest_init&lt;false,<sp/>DST_ACCUM_MODE&gt;(ocb)<sp/>));</highlight></codeline>
 <codeline lineno="89"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="90"><highlight class="normal"></highlight></codeline>
-<codeline lineno="94"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>tilize_init_short(uint32_t<sp/>icb,<sp/>uint32_t<sp/>block)</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>tilize_init_short(uint32_t<sp/>icb,<sp/>uint32_t<sp/>block,<sp/>uint32_t<sp/>ocb<sp/>=<sp/>16)</highlight></codeline>
 <codeline lineno="95"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_unary_datacopy_init&lt;A2D,<sp/>BroadcastType::NONE,<sp/>DST_ACCUM_MODE&gt;(</highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">/*transpose<sp/>of<sp/>faces*/</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">/*transpose<sp/>within<sp/>16x16<sp/>face*/</highlight><highlight class="normal">,<sp/>icb)<sp/>));</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_unary_datacopy_init&lt;A2D,<sp/>BroadcastType::NONE,<sp/>DST_ACCUM_MODE,<sp/>false/*is_int_en*/,<sp/>true/*tilize<sp/>en*/&gt;(</highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">/*transpose<sp/>of<sp/>faces*/</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">/*transpose<sp/>within<sp/>16x16<sp/>face*/</highlight><highlight class="normal">,<sp/>icb)<sp/>));</highlight></codeline>
 <codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_tilize_init(icb,<sp/>block)<sp/>));</highlight></codeline>
-<codeline lineno="98"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"></highlight></codeline>
-<codeline lineno="100"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>tilize_init_unpack(uint32_t<sp/>icb,<sp/>uint32_t<sp/>block)</highlight></codeline>
-<codeline lineno="101"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_tilize_init(icb,<sp/>block)<sp/>));</highlight></codeline>
-<codeline lineno="103"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="104"><highlight class="normal"></highlight></codeline>
-<codeline lineno="105"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>tilizeA_B_init_unpack(uint32_t<sp/>icb0,<sp/>uint32_t<sp/>icb1,<sp/>uint32_t<sp/>block)</highlight></codeline>
-<codeline lineno="106"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_tilizeA_B_init(icb0,<sp/>icb1,<sp/>block)<sp/>));</highlight></codeline>
-<codeline lineno="108"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"></highlight></codeline>
-<codeline lineno="113"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>tilize_init_short_with_dt(uint32_t<sp/>old_icb,<sp/>uint32_t<sp/>new_icb,<sp/>uint32_t<sp/>block)<sp/>{</highlight></codeline>
-<codeline lineno="114"><highlight class="normal"></highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_unary_datacopy_init&lt;A2D,<sp/>BroadcastType::NONE,<sp/>DST_ACCUM_MODE&gt;(</highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">/*transpose<sp/>of<sp/>faces*/</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">/*transpose<sp/>within<sp/>16x16<sp/>face*/</highlight><highlight class="normal">,<sp/>new_icb)<sp/>));</highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>reconfig<sp/>call<sp/>checks<sp/>if<sp/>old<sp/>operand<sp/>has<sp/>different<sp/>data<sp/>format<sp/>to</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>new<sp/>operand<sp/>idx,<sp/>otherwise<sp/>no<sp/>reconfig<sp/>call<sp/>occurs</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_reconfig_data_format_srca(old_icb,<sp/>new_icb)<sp/>));</highlight></codeline>
-<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_tilize_init(new_icb,<sp/>block)<sp/>));</highlight></codeline>
-<codeline lineno="120"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="121"><highlight class="normal"></highlight></codeline>
-<codeline lineno="125"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>tilize_block(uint32_t<sp/>icb,<sp/>uint32_t<sp/>block,<sp/>uint32_t<sp/>ocb)</highlight></codeline>
-<codeline lineno="126"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_tilize_block(icb,<sp/>block)<sp/>));</highlight></codeline>
-<codeline lineno="128"><highlight class="normal"></highlight></codeline>
-<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint32_t<sp/>t<sp/>=<sp/>0;<sp/>t<sp/>&lt;<sp/>block;<sp/>t++)<sp/>{</highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Acquire<sp/>dst</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_wait_for_dest_available()<sp/>));</highlight></codeline>
-<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PACK((<sp/>llk_packer_wait_for_math_done()<sp/>));</highlight></codeline>
-<codeline lineno="133"><highlight class="normal"></highlight></codeline>
-<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Datacopy</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_unary_datacopy&lt;A2D,<sp/>BroadcastType::NONE&gt;(0<sp/></highlight><highlight class="comment">/*dst<sp/>index*/</highlight><highlight class="normal">)<sp/>));</highlight></codeline>
-<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PACK((<sp/>llk_pack&lt;false,<sp/>false<sp/>&gt;(0<sp/></highlight><highlight class="comment">/*tile<sp/>index*/</highlight><highlight class="normal">,<sp/>ocb)<sp/><sp/>));</highlight></codeline>
-<codeline lineno="137"><highlight class="normal"></highlight></codeline>
-<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Release<sp/>dest</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_dest_section_done&lt;DST_ACCUM_MODE&gt;()<sp/>));</highlight></codeline>
-<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PACK((<sp/>llk_pack_dest_section_done&lt;DST_ACCUM_MODE&gt;()<sp/>));</highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="142"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="143"><highlight class="normal"></highlight></codeline>
-<codeline lineno="144"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>unpack_tilize_block(uint32_t<sp/>icb,<sp/>uint32_t<sp/>block)</highlight></codeline>
-<codeline lineno="145"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_tilize_block(icb,<sp/>block)<sp/>));</highlight></codeline>
-<codeline lineno="147"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="148"><highlight class="normal"></highlight></codeline>
-<codeline lineno="149"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>unpack_tilizeA_B_block(uint32_t<sp/>icb0,<sp/>uint32_t<sp/>icb1,<sp/>uint32_t<sp/>block,<sp/>uint32_t<sp/>tile_idx_b,<sp/>uint32_t<sp/>num_faces<sp/>=<sp/>4)</highlight></codeline>
-<codeline lineno="150"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_tilizeA_B_block(icb0,<sp/>icb1,<sp/>block,<sp/>tile_idx_b,<sp/>num_faces)<sp/>));</highlight></codeline>
-<codeline lineno="152"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="153"><highlight class="normal"></highlight></codeline>
-<codeline lineno="177"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>unpack_tilizeA_B_dot_product_block(uint32_t<sp/>icb0,<sp/>uint32_t<sp/>icb1,<sp/>uint32_t<sp/>block,<sp/>uint32_t<sp/>tile_idx_b,<sp/>uint32_t<sp/>num_faces<sp/>=<sp/>4)</highlight></codeline>
-<codeline lineno="178"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_tilizeA_B_block&lt;true&gt;(icb0,<sp/>icb1,<sp/>block,<sp/>tile_idx_b,<sp/>num_faces)<sp/>));</highlight></codeline>
-<codeline lineno="180"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="181"><highlight class="normal"></highlight></codeline>
-<codeline lineno="185"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>tilize_uninit(uint32_t<sp/>icb)</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#ifdef<sp/>ARCH_BLACKHOLE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>PACK((<sp/>llk_pack_init&lt;false,<sp/>false,<sp/>true/*tilize<sp/>en*/&gt;(ocb)<sp/>));</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>tilize_init_unpack(uint32_t<sp/>icb,<sp/>uint32_t<sp/>block)</highlight></codeline>
+<codeline lineno="105"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_tilize_init(icb,<sp/>block)<sp/>));</highlight></codeline>
+<codeline lineno="107"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>tilizeA_B_init_unpack(uint32_t<sp/>icb0,<sp/>uint32_t<sp/>icb1,<sp/>uint32_t<sp/>block)</highlight></codeline>
+<codeline lineno="110"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_tilizeA_B_init(icb0,<sp/>icb1,<sp/>block)<sp/>));</highlight></codeline>
+<codeline lineno="112"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>tilize_init_short_with_dt(uint32_t<sp/>old_icb,<sp/>uint32_t<sp/>new_icb,<sp/>uint32_t<sp/>block,<sp/>uint32_t<sp/>ocb<sp/>=<sp/>16)</highlight></codeline>
+<codeline lineno="118"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_unary_datacopy_init&lt;A2D,<sp/>BroadcastType::NONE,<sp/>DST_ACCUM_MODE,<sp/>false/*is_int_en*/,<sp/>true/*tilize<sp/>en*/&gt;(</highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">/*transpose<sp/>of<sp/>faces*/</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">/*transpose<sp/>within<sp/>16x16<sp/>face*/</highlight><highlight class="normal">,<sp/>new_icb)<sp/>));</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>reconfig<sp/>call<sp/>checks<sp/>if<sp/>old<sp/>operand<sp/>has<sp/>different<sp/>data<sp/>format<sp/>to</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>new<sp/>operand<sp/>idx,<sp/>otherwise<sp/>no<sp/>reconfig<sp/>call<sp/>occurs</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_reconfig_data_format_srca(old_icb,<sp/>new_icb)<sp/>));</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_tilize_init(new_icb,<sp/>block)<sp/>));</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#ifdef<sp/>ARCH_BLACKHOLE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>PACK((<sp/>llk_pack_init&lt;false,<sp/>false,<sp/>true/*tilize<sp/>en*/&gt;(ocb)<sp/>));</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>tilize_block(uint32_t<sp/>icb,<sp/>uint32_t<sp/>block,<sp/>uint32_t<sp/>ocb)</highlight></codeline>
+<codeline lineno="134"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_tilize_block(icb,<sp/>block)<sp/>));</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint32_t<sp/>t<sp/>=<sp/>0;<sp/>t<sp/>&lt;<sp/>block;<sp/>t++)<sp/>{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Acquire<sp/>dst</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_wait_for_dest_available()<sp/>));</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PACK((<sp/>llk_packer_wait_for_math_done()<sp/>));</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Datacopy</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_unary_datacopy&lt;A2D,<sp/>BroadcastType::NONE&gt;(0<sp/></highlight><highlight class="comment">/*dst<sp/>index*/</highlight><highlight class="normal">)<sp/>));</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PACK((<sp/>llk_pack&lt;false,<sp/>false<sp/>&gt;(0<sp/></highlight><highlight class="comment">/*tile<sp/>index*/</highlight><highlight class="normal">,<sp/>ocb)<sp/><sp/>));</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Release<sp/>dest</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_dest_section_done&lt;DST_ACCUM_MODE&gt;()<sp/>));</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PACK((<sp/>llk_pack_dest_section_done&lt;DST_ACCUM_MODE&gt;()<sp/>));</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>unpack_tilize_block(uint32_t<sp/>icb,<sp/>uint32_t<sp/>block)</highlight></codeline>
+<codeline lineno="153"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_tilize_block(icb,<sp/>block)<sp/>));</highlight></codeline>
+<codeline lineno="155"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>unpack_tilizeA_B_block(uint32_t<sp/>icb0,<sp/>uint32_t<sp/>icb1,<sp/>uint32_t<sp/>block,<sp/>uint32_t<sp/>tile_idx_b,<sp/>uint32_t<sp/>num_faces<sp/>=<sp/>4)</highlight></codeline>
+<codeline lineno="158"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_tilizeA_B_block(icb0,<sp/>icb1,<sp/>block,<sp/>tile_idx_b,<sp/>num_faces)<sp/>));</highlight></codeline>
+<codeline lineno="160"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>unpack_tilizeA_B_dot_product_block(uint32_t<sp/>icb0,<sp/>uint32_t<sp/>icb1,<sp/>uint32_t<sp/>block,<sp/>uint32_t<sp/>tile_idx_b,<sp/>uint32_t<sp/>num_faces<sp/>=<sp/>4)</highlight></codeline>
 <codeline lineno="186"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_tilize_uninit(icb)<sp/>));</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_tilizeA_B_block&lt;true&gt;(icb0,<sp/>icb1,<sp/>block,<sp/>tile_idx_b,<sp/>num_faces)<sp/>));</highlight></codeline>
 <codeline lineno="188"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="189"><highlight class="normal"></highlight></codeline>
-<codeline lineno="193"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>tilize_uninit_with_dt(uint32_t<sp/>old_icb<sp/>=<sp/>0,<sp/>uint32_t<sp/>new_icb<sp/>=<sp/>1)<sp/>{</highlight></codeline>
-<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_tilize_uninit(old_icb)<sp/>));</highlight></codeline>
-<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_reconfig_data_format_srca(old_icb,<sp/>new_icb)<sp/>));</highlight></codeline>
-<codeline lineno="196"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="197"><highlight class="normal"></highlight></codeline>
-<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>tilize_uninit(uint32_t<sp/>icb,<sp/>uint32_t<sp/>ocb<sp/>=<sp/>16)</highlight></codeline>
+<codeline lineno="194"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_tilize_uninit(icb)<sp/>));</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#ifdef<sp/>ARCH_BLACKHOLE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>PACK((<sp/>llk_pack_init(ocb)<sp/>));</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="199"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>tilize_uninit_with_dt(uint32_t<sp/>old_icb<sp/>=<sp/>0,<sp/>uint32_t<sp/>new_icb<sp/>=<sp/>1,<sp/>uint32_t<sp/>ocb<sp/>=<sp/>16)<sp/>{</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_tilize_uninit(old_icb)<sp/>));</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_reconfig_data_format_srca(old_icb,<sp/>new_icb)<sp/>));</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#ifdef<sp/>ARCH_BLACKHOLE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>PACK((<sp/>llk_pack_init(ocb)<sp/>));</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="tt_metal/include/compute_kernel_api/tilize.h"/>
   </compounddef>

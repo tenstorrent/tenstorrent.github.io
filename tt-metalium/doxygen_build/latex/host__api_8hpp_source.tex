@@ -37,110 +37,112 @@
 \DoxyCodeLine{00050\ }
 \DoxyCodeLine{00056\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{host__api_8hpp_aa18761d248b0a8081c84440f3aeafcfc}{GetNumPCIeDevices}}();}
 \DoxyCodeLine{00057\ }
-\DoxyCodeLine{00067\ Device\ *\mbox{\hyperlink{host__api_8hpp_a8332bdd9a9ffe6e0cedf921e438fe7ed}{CreateDevice}}(}
-\DoxyCodeLine{00068\ \ \ \ \ chip\_id\_t\ device\_id,}
-\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ num\_hw\_cqs\ =\ 1,}
-\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ l1\_small\_size\ =\ DEFAULT\_L1\_SMALL\_SIZE,}
-\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ trace\_region\_size\ =\ DEFAULT\_TRACE\_REGION\_SIZE,}
-\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<uint32\_t>\ \&l1\_bank\_remap\ =\ \{\});}
-\DoxyCodeLine{00073\ }
-\DoxyCodeLine{00083\ Device\ *\mbox{\hyperlink{host__api_8hpp_a07e0aaf41772593d1d017db950e3b7b3}{CreateDeviceMinimal}}(}
-\DoxyCodeLine{00084\ \ \ \ \ chip\_id\_t\ device\_id);}
-\DoxyCodeLine{00085\ }
-\DoxyCodeLine{00095\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{host__api_8hpp_a25ae925200ca85a3274824f1b945ebc1}{CloseDevice}}(Device\ *device);}
-\DoxyCodeLine{00096\ }
-\DoxyCodeLine{00097\ \textcolor{comment}{//\ ==================================================}}
-\DoxyCodeLine{00098\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HOST\ API:\ program\ \&\ kernels}}
+\DoxyCodeLine{00058\ chip\_id\_t\ GetPCIeDeviceID(chip\_id\_t\ device\_id);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00069\ Device\ *\mbox{\hyperlink{host__api_8hpp_a8332bdd9a9ffe6e0cedf921e438fe7ed}{CreateDevice}}(}
+\DoxyCodeLine{00070\ \ \ \ \ chip\_id\_t\ device\_id,}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ num\_hw\_cqs\ =\ 1,}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ l1\_small\_size\ =\ DEFAULT\_L1\_SMALL\_SIZE,}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ trace\_region\_size\ =\ DEFAULT\_TRACE\_REGION\_SIZE,}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<uint32\_t>\ \&l1\_bank\_remap\ =\ \{\});}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00085\ Device\ *\mbox{\hyperlink{host__api_8hpp_a07e0aaf41772593d1d017db950e3b7b3}{CreateDeviceMinimal}}(}
+\DoxyCodeLine{00086\ \ \ \ \ chip\_id\_t\ device\_id);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00097\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{host__api_8hpp_a25ae925200ca85a3274824f1b945ebc1}{CloseDevice}}(Device\ *device);}
+\DoxyCodeLine{00098\ }
 \DoxyCodeLine{00099\ \textcolor{comment}{//\ ==================================================}}
-\DoxyCodeLine{00100\ }
-\DoxyCodeLine{00106\ Program\ \mbox{\hyperlink{host__api_8hpp_a48b1af1b20561d626ff34f39282f1dea}{CreateProgram}}();}
-\DoxyCodeLine{00107\ }
-\DoxyCodeLine{00120\ KernelHandle\ \mbox{\hyperlink{host__api_8hpp_ae7930dd08bf0ae0c83c8ee55f3f604b9}{CreateKernel}}(}
-\DoxyCodeLine{00121\ \ \ \ \ Program\ \&program,}
-\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&file\_name,}
-\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keyword}{const}\ std::variant<CoreCoord,\ CoreRange,\ CoreRangeSet>\ \&core\_spec,}
-\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keyword}{const}\ std::variant<DataMovementConfig,\ ComputeConfig,\ EthernetConfig>\ \&config);}
-\DoxyCodeLine{00125\ }
-\DoxyCodeLine{00126\ \textcolor{comment}{//\ ==================================================}}
-\DoxyCodeLine{00127\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HOST\ API:\ buffers}}
+\DoxyCodeLine{00100\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HOST\ API:\ program\ \&\ kernels}}
+\DoxyCodeLine{00101\ \textcolor{comment}{//\ ==================================================}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00108\ Program\ \mbox{\hyperlink{host__api_8hpp_a48b1af1b20561d626ff34f39282f1dea}{CreateProgram}}();}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00122\ KernelHandle\ \mbox{\hyperlink{host__api_8hpp_ae7930dd08bf0ae0c83c8ee55f3f604b9}{CreateKernel}}(}
+\DoxyCodeLine{00123\ \ \ \ \ Program\ \&program,}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&file\_name,}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keyword}{const}\ std::variant<CoreCoord,\ CoreRange,\ CoreRangeSet>\ \&core\_spec,}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keyword}{const}\ std::variant<DataMovementConfig,\ ComputeConfig,\ EthernetConfig>\ \&config);}
+\DoxyCodeLine{00127\ }
 \DoxyCodeLine{00128\ \textcolor{comment}{//\ ==================================================}}
-\DoxyCodeLine{00145\ \textcolor{comment}{}CBHandle\ \mbox{\hyperlink{host__api_8hpp_a62b10a9d4d6ed91eacaba5d27c9761fb}{CreateCircularBuffer}}(Program\ \&program,\ \textcolor{keyword}{const}\ std::variant<CoreCoord,\ CoreRange,\ CoreRangeSet>\ \&core\_spec,\ \textcolor{keyword}{const}\ CircularBufferConfig\ \&config);}
-\DoxyCodeLine{00146\ }
-\DoxyCodeLine{00157\ \textcolor{keyword}{const}\ CircularBufferConfig\ \&\mbox{\hyperlink{host__api_8hpp_a95bdaeb43136c4db864dd95481fa0a16}{GetCircularBufferConfig}}(Program\ \&program,\ CBHandle\ cb\_handle);}
-\DoxyCodeLine{00158\ }
-\DoxyCodeLine{00170\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a39e124f62d4c172a44abc0c22fa3ee04}{UpdateCircularBufferTotalSize}}(Program\ \&program,\ CBHandle\ cb\_handle,\ uint32\_t\ total\_size);}
-\DoxyCodeLine{00171\ }
-\DoxyCodeLine{00184\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a92e93610eb6b826263eb803608c33889}{UpdateCircularBufferPageSize}}(Program\ \&program,\ CBHandle\ cb\_handle,\ uint8\_t\ buffer\_index,\ uint32\_t\ page\_size);}
-\DoxyCodeLine{00185\ }
-\DoxyCodeLine{00197\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_aac851bed71135fa02e28caf0c0ae58b0}{UpdateDynamicCircularBufferAddress}}(Program\ \&program,\ CBHandle\ cb\_handle,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classBuffer}{Buffer}}\ \&buffer);}
-\DoxyCodeLine{00198\ }
-\DoxyCodeLine{00211\ uint32\_t\ \mbox{\hyperlink{host__api_8hpp_a8860cbc40324a9cc2e18badc55a77a68}{CreateSemaphore}}(Program\ \&program,\ \textcolor{keyword}{const}\ std::variant<CoreRange,CoreRangeSet>\ \&core\_spec,\ uint32\_t\ initial\_value,\ CoreType\ core\_type=CoreType::WORKER);}
-\DoxyCodeLine{00212\ }
-\DoxyCodeLine{00222\ std::shared\_ptr<Buffer>\ \mbox{\hyperlink{host__api_8hpp_a44f12170a79821c7a1eb7dcad8e9014e}{CreateBuffer}}(\textcolor{keyword}{const}\ InterleavedBufferConfig\ \&config);}
-\DoxyCodeLine{00223\ }
-\DoxyCodeLine{00233\ std::shared\_ptr<Buffer>\ \mbox{\hyperlink{host__api_8hpp_a44f12170a79821c7a1eb7dcad8e9014e}{CreateBuffer}}(\textcolor{keyword}{const}\ ShardedBufferConfig\ \&config);}
-\DoxyCodeLine{00234\ }
-\DoxyCodeLine{00244\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a6a064752ab55b4fac953ba8bde7daf52}{DeallocateBuffer}}(\mbox{\hyperlink{classBuffer}{Buffer}}\ \&buffer);}
-\DoxyCodeLine{00245\ }
-\DoxyCodeLine{00256\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a4e29ca9df8b6f13424f2a392d8971483}{AssignGlobalBufferToProgram}}(std::shared\_ptr<Buffer>\ buffer,\ std::variant<std::reference\_wrapper<Program>,\ std::shared\_ptr<Program>>\ program);}
-\DoxyCodeLine{00257\ }
-\DoxyCodeLine{00258\ \textcolor{comment}{//\ ==================================================}}
-\DoxyCodeLine{00259\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ COMPILE\ \&\ EXECUTE\ KENRNELS}}
+\DoxyCodeLine{00129\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HOST\ API:\ buffers}}
+\DoxyCodeLine{00130\ \textcolor{comment}{//\ ==================================================}}
+\DoxyCodeLine{00147\ \textcolor{comment}{}CBHandle\ \mbox{\hyperlink{host__api_8hpp_a62b10a9d4d6ed91eacaba5d27c9761fb}{CreateCircularBuffer}}(Program\ \&program,\ \textcolor{keyword}{const}\ std::variant<CoreCoord,\ CoreRange,\ CoreRangeSet>\ \&core\_spec,\ \textcolor{keyword}{const}\ CircularBufferConfig\ \&config);}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00159\ \textcolor{keyword}{const}\ CircularBufferConfig\ \&\mbox{\hyperlink{host__api_8hpp_a95bdaeb43136c4db864dd95481fa0a16}{GetCircularBufferConfig}}(Program\ \&program,\ CBHandle\ cb\_handle);}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00172\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a39e124f62d4c172a44abc0c22fa3ee04}{UpdateCircularBufferTotalSize}}(Program\ \&program,\ CBHandle\ cb\_handle,\ uint32\_t\ total\_size);}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00186\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a92e93610eb6b826263eb803608c33889}{UpdateCircularBufferPageSize}}(Program\ \&program,\ CBHandle\ cb\_handle,\ uint8\_t\ buffer\_index,\ uint32\_t\ page\_size);}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00199\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_aac851bed71135fa02e28caf0c0ae58b0}{UpdateDynamicCircularBufferAddress}}(Program\ \&program,\ CBHandle\ cb\_handle,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classBuffer}{Buffer}}\ \&buffer);}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00213\ uint32\_t\ \mbox{\hyperlink{host__api_8hpp_a8860cbc40324a9cc2e18badc55a77a68}{CreateSemaphore}}(Program\ \&program,\ \textcolor{keyword}{const}\ std::variant<CoreRange,CoreRangeSet>\ \&core\_spec,\ uint32\_t\ initial\_value,\ CoreType\ core\_type=CoreType::WORKER);}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00224\ std::shared\_ptr<Buffer>\ \mbox{\hyperlink{host__api_8hpp_a44f12170a79821c7a1eb7dcad8e9014e}{CreateBuffer}}(\textcolor{keyword}{const}\ InterleavedBufferConfig\ \&config);}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00235\ std::shared\_ptr<Buffer>\ \mbox{\hyperlink{host__api_8hpp_a44f12170a79821c7a1eb7dcad8e9014e}{CreateBuffer}}(\textcolor{keyword}{const}\ ShardedBufferConfig\ \&config);}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00246\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a6a064752ab55b4fac953ba8bde7daf52}{DeallocateBuffer}}(\mbox{\hyperlink{classBuffer}{Buffer}}\ \&buffer);}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00258\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a4e29ca9df8b6f13424f2a392d8971483}{AssignGlobalBufferToProgram}}(std::shared\_ptr<Buffer>\ buffer,\ std::variant<std::reference\_wrapper<Program>,\ std::shared\_ptr<Program>>\ program);}
+\DoxyCodeLine{00259\ }
 \DoxyCodeLine{00260\ \textcolor{comment}{//\ ==================================================}}
-\DoxyCodeLine{00261\ \textcolor{keyword}{using\ }RuntimeArgs\ =\ std::vector<std::variant<Buffer*,\ uint32\_t>>;}
-\DoxyCodeLine{00275\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a491996adcf69861c22eed34ce1ac68cc}{SetRuntimeArgs}}(\textcolor{keyword}{const}\ Program\ \&program,\ KernelHandle\ kernel,\ \textcolor{keyword}{const}\ std::variant<CoreCoord,\ CoreRange,\ CoreRangeSet>\ \&core\_spec,\ \textcolor{keyword}{const}\ std::vector<uint32\_t>\ \&runtime\_args);}
-\DoxyCodeLine{00276\ }
-\DoxyCodeLine{00290\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a491996adcf69861c22eed34ce1ac68cc}{SetRuntimeArgs}}(\textcolor{keyword}{const}\ Program\ \&program,\ KernelHandle\ kernel,\ \textcolor{keyword}{const}\ std::vector<\ CoreCoord\ >\ \&\ core\_spec,\ \textcolor{keyword}{const}\ std::vector<\ std::vector<uint32\_t>\ >\ \&runtime\_args);}
-\DoxyCodeLine{00291\ }
-\DoxyCodeLine{00305\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a491996adcf69861c22eed34ce1ac68cc}{SetRuntimeArgs}}(Device*\ device,\ \textcolor{keyword}{const}\ std::shared\_ptr<Kernel>\ kernel,\ \textcolor{keyword}{const}\ std::variant<CoreCoord,\ CoreRange,\ CoreRangeSet>\ \&core\_spec,\ std::shared\_ptr<RuntimeArgs>\ runtime\_args);}
-\DoxyCodeLine{00306\ }
-\DoxyCodeLine{00319\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a491996adcf69861c22eed34ce1ac68cc}{SetRuntimeArgs}}(Device*\ device,\ \textcolor{keyword}{const}\ std::shared\_ptr<Kernel>\ kernel,\ \textcolor{keyword}{const}\ std::vector<\ CoreCoord\ >\ \&\ core\_spec,\ \textcolor{keyword}{const}\ std::vector<std::shared\_ptr<RuntimeArgs>>\ runtime\_args);}
-\DoxyCodeLine{00320\ }
-\DoxyCodeLine{00321\ }
-\DoxyCodeLine{00334\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a3b4cf7321eea21c21850b447312f02fa}{SetCommonRuntimeArgs}}(\textcolor{keyword}{const}\ Program\ \&program,\ KernelHandle\ kernel\_id,\ \textcolor{keyword}{const}\ std::vector<uint32\_t>\ \&runtime\_args);}
-\DoxyCodeLine{00335\ }
-\DoxyCodeLine{00336\ }
-\DoxyCodeLine{00348\ RuntimeArgsData\ \&\ \mbox{\hyperlink{host__api_8hpp_a8dd2e6d874b20a87745ae83cc88afb51}{GetRuntimeArgs}}(\textcolor{keyword}{const}\ Program\ \&program,\ KernelHandle\ kernel\_id,\ \textcolor{keyword}{const}\ CoreCoord\ \&logical\_core);}
-\DoxyCodeLine{00349\ }
-\DoxyCodeLine{00360\ std::vector<\ std::vector<\ RuntimeArgsData\ >\ >\ \&\ \mbox{\hyperlink{host__api_8hpp_a8dd2e6d874b20a87745ae83cc88afb51}{GetRuntimeArgs}}(\textcolor{keyword}{const}\ Program\ \&program,\ KernelHandle\ kernel\_id);}
-\DoxyCodeLine{00361\ }
-\DoxyCodeLine{00372\ RuntimeArgsData\ \&\ \mbox{\hyperlink{host__api_8hpp_a2af22a7fb7c71050de7ec2fc9d487ab6}{GetCommonRuntimeArgs}}(\textcolor{keyword}{const}\ Program\ \&program,\ KernelHandle\ kernel\_id);}
-\DoxyCodeLine{00373\ }
-\DoxyCodeLine{00386\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a72bce18ec81347c077fb802271a7c562}{EnqueueReadBuffer}}(CommandQueue\&\ cq,\ std::variant<std::reference\_wrapper<Buffer>,\ std::shared\_ptr<Buffer>\ >\ buffer,\ std::vector<uint32\_t>\&\ dst,\ \textcolor{keywordtype}{bool}\ blocking);}
-\DoxyCodeLine{00387\ }
-\DoxyCodeLine{00400\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a72bce18ec81347c077fb802271a7c562}{EnqueueReadBuffer}}(CommandQueue\&\ cq,\ std::variant<std::reference\_wrapper<Buffer>,\ std::shared\_ptr<Buffer>\ >\ buffer,\ \textcolor{keywordtype}{void}\ *\ dst,\ \textcolor{keywordtype}{bool}\ blocking);}
-\DoxyCodeLine{00401\ }
-\DoxyCodeLine{00414\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a41f4ff2e9c7fca0b1287446f57d37e34}{EnqueueWriteBuffer}}(CommandQueue\&\ cq,\ std::variant<std::reference\_wrapper<Buffer>,\ std::shared\_ptr<Buffer>\ >\ buffer,\ std::vector<uint32\_t>\&\ src,\ \textcolor{keywordtype}{bool}\ blocking);}
-\DoxyCodeLine{00415\ }
-\DoxyCodeLine{00428\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a41f4ff2e9c7fca0b1287446f57d37e34}{EnqueueWriteBuffer}}(CommandQueue\&\ cq,\ std::variant<std::reference\_wrapper<Buffer>,\ std::shared\_ptr<Buffer>\ >\ buffer,\ HostDataType\ src,\ \textcolor{keywordtype}{bool}\ blocking);}
-\DoxyCodeLine{00429\ }
-\DoxyCodeLine{00441\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a573978c2536748213de459b0a09477b7}{EnqueueProgram}}(CommandQueue\&\ cq,\ std::variant<std::reference\_wrapper<Program>,\ std::shared\_ptr<Program>\ >\ program,\ \textcolor{keywordtype}{bool}\ blocking);}
-\DoxyCodeLine{00442\ }
-\DoxyCodeLine{00452\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_afc3cc77a54213457805a878231ca3643}{Finish}}(CommandQueue\&\ cq);}
-\DoxyCodeLine{00453\ }
-\DoxyCodeLine{00466\ uint32\_t\ \mbox{\hyperlink{host__api_8hpp_a2bb0ca68f1afddfbefc78b497d21943c}{BeginTraceCapture}}(Device\ *device,\ \textcolor{keyword}{const}\ uint8\_t\ cq\_id);}
-\DoxyCodeLine{00467\ }
-\DoxyCodeLine{00482\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a3eaf4c5845ee7d8153c6ca9cc250df30}{EndTraceCapture}}(Device\ *device,\ \textcolor{keyword}{const}\ uint8\_t\ cq\_id,\ \textcolor{keyword}{const}\ uint32\_t\ tid);}
-\DoxyCodeLine{00483\ }
-\DoxyCodeLine{00496\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a12e0b86cbb5a6ef9930562b684898d90}{ReplayTrace}}(Device\ *device,\ \textcolor{keyword}{const}\ uint8\_t\ cq\_id,\ \textcolor{keyword}{const}\ uint32\_t\ tid,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ blocking);}
-\DoxyCodeLine{00497\ }
-\DoxyCodeLine{00510\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a526ece1a413c039607e2973b97cdfa75}{ReleaseTrace}}(Device\ *device,\ \textcolor{keyword}{const}\ uint32\_t\ tid);}
-\DoxyCodeLine{00511\ }
-\DoxyCodeLine{00524\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_ac56da2798d8d1a093846845ff06fd773}{EnqueueTrace}}(CommandQueue\ \&cq,\ uint32\_t\ trace\_id,\ \textcolor{keywordtype}{bool}\ blocking);}
-\DoxyCodeLine{00525\ }
-\DoxyCodeLine{00538\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a5087c491b5788ee5878cf049066c355a}{DumpDeviceProfileResults}}(Device\ *device,\ \textcolor{keyword}{const}\ Program\ \&program);}
-\DoxyCodeLine{00539\ }
-\DoxyCodeLine{00548\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a6c9d6bc143bf01946b145bb20c9a4ccd}{EnqueueRecordEvent}}(CommandQueue\&\ cq,\ std::shared\_ptr<Event>\ event);}
-\DoxyCodeLine{00549\ }
-\DoxyCodeLine{00559\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a2560cd6db65a03de3e9aad52ff381b6e}{EnqueueWaitForEvent}}(CommandQueue\&\ cq,\ std::shared\_ptr<Event>\ event);}
-\DoxyCodeLine{00560\ }
-\DoxyCodeLine{00568\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a503f5ffa5860947b42872b7fe326bac5}{EventSynchronize}}(std::shared\_ptr<Event>\ event);}
-\DoxyCodeLine{00569\ }
-\DoxyCodeLine{00577\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{host__api_8hpp_a017d64ee3fbb64880859d52a21f7f474}{EventQuery}}(std::shared\_ptr<Event>\ event);}
-\DoxyCodeLine{00578\ }
-\DoxyCodeLine{00579\ }
-\DoxyCodeLine{00580\ \}\ \ \textcolor{comment}{//\ namespace\ tt\_metal}}
+\DoxyCodeLine{00261\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ COMPILE\ \&\ EXECUTE\ KENRNELS}}
+\DoxyCodeLine{00262\ \textcolor{comment}{//\ ==================================================}}
+\DoxyCodeLine{00263\ \textcolor{keyword}{using\ }RuntimeArgs\ =\ std::vector<std::variant<Buffer*,\ uint32\_t>>;}
+\DoxyCodeLine{00277\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a491996adcf69861c22eed34ce1ac68cc}{SetRuntimeArgs}}(\textcolor{keyword}{const}\ Program\ \&program,\ KernelHandle\ kernel,\ \textcolor{keyword}{const}\ std::variant<CoreCoord,\ CoreRange,\ CoreRangeSet>\ \&core\_spec,\ \textcolor{keyword}{const}\ std::vector<uint32\_t>\ \&runtime\_args);}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00292\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a491996adcf69861c22eed34ce1ac68cc}{SetRuntimeArgs}}(\textcolor{keyword}{const}\ Program\ \&program,\ KernelHandle\ kernel,\ \textcolor{keyword}{const}\ std::vector<\ CoreCoord\ >\ \&\ core\_spec,\ \textcolor{keyword}{const}\ std::vector<\ std::vector<uint32\_t>\ >\ \&runtime\_args);}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00307\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a491996adcf69861c22eed34ce1ac68cc}{SetRuntimeArgs}}(Device*\ device,\ \textcolor{keyword}{const}\ std::shared\_ptr<Kernel>\ kernel,\ \textcolor{keyword}{const}\ std::variant<CoreCoord,\ CoreRange,\ CoreRangeSet>\ \&core\_spec,\ std::shared\_ptr<RuntimeArgs>\ runtime\_args);}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00321\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a491996adcf69861c22eed34ce1ac68cc}{SetRuntimeArgs}}(Device*\ device,\ \textcolor{keyword}{const}\ std::shared\_ptr<Kernel>\ kernel,\ \textcolor{keyword}{const}\ std::vector<\ CoreCoord\ >\ \&\ core\_spec,\ \textcolor{keyword}{const}\ std::vector<std::shared\_ptr<RuntimeArgs>>\ runtime\_args);}
+\DoxyCodeLine{00322\ }
+\DoxyCodeLine{00323\ }
+\DoxyCodeLine{00336\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a3b4cf7321eea21c21850b447312f02fa}{SetCommonRuntimeArgs}}(\textcolor{keyword}{const}\ Program\ \&program,\ KernelHandle\ kernel\_id,\ \textcolor{keyword}{const}\ std::vector<uint32\_t>\ \&runtime\_args);}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00350\ RuntimeArgsData\ \&\ \mbox{\hyperlink{host__api_8hpp_a8dd2e6d874b20a87745ae83cc88afb51}{GetRuntimeArgs}}(\textcolor{keyword}{const}\ Program\ \&program,\ KernelHandle\ kernel\_id,\ \textcolor{keyword}{const}\ CoreCoord\ \&logical\_core);}
+\DoxyCodeLine{00351\ }
+\DoxyCodeLine{00362\ std::vector<\ std::vector<\ RuntimeArgsData\ >\ >\ \&\ \mbox{\hyperlink{host__api_8hpp_a8dd2e6d874b20a87745ae83cc88afb51}{GetRuntimeArgs}}(\textcolor{keyword}{const}\ Program\ \&program,\ KernelHandle\ kernel\_id);}
+\DoxyCodeLine{00363\ }
+\DoxyCodeLine{00374\ RuntimeArgsData\ \&\ \mbox{\hyperlink{host__api_8hpp_a2af22a7fb7c71050de7ec2fc9d487ab6}{GetCommonRuntimeArgs}}(\textcolor{keyword}{const}\ Program\ \&program,\ KernelHandle\ kernel\_id);}
+\DoxyCodeLine{00375\ }
+\DoxyCodeLine{00388\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a72bce18ec81347c077fb802271a7c562}{EnqueueReadBuffer}}(CommandQueue\&\ cq,\ std::variant<std::reference\_wrapper<Buffer>,\ std::shared\_ptr<Buffer>\ >\ buffer,\ std::vector<uint32\_t>\&\ dst,\ \textcolor{keywordtype}{bool}\ blocking);}
+\DoxyCodeLine{00389\ }
+\DoxyCodeLine{00402\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a72bce18ec81347c077fb802271a7c562}{EnqueueReadBuffer}}(CommandQueue\&\ cq,\ std::variant<std::reference\_wrapper<Buffer>,\ std::shared\_ptr<Buffer>\ >\ buffer,\ \textcolor{keywordtype}{void}\ *\ dst,\ \textcolor{keywordtype}{bool}\ blocking);}
+\DoxyCodeLine{00403\ }
+\DoxyCodeLine{00416\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a41f4ff2e9c7fca0b1287446f57d37e34}{EnqueueWriteBuffer}}(CommandQueue\&\ cq,\ std::variant<std::reference\_wrapper<Buffer>,\ std::shared\_ptr<Buffer>\ >\ buffer,\ std::vector<uint32\_t>\&\ src,\ \textcolor{keywordtype}{bool}\ blocking);}
+\DoxyCodeLine{00417\ }
+\DoxyCodeLine{00430\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a41f4ff2e9c7fca0b1287446f57d37e34}{EnqueueWriteBuffer}}(CommandQueue\&\ cq,\ std::variant<std::reference\_wrapper<Buffer>,\ std::shared\_ptr<Buffer>\ >\ buffer,\ HostDataType\ src,\ \textcolor{keywordtype}{bool}\ blocking);}
+\DoxyCodeLine{00431\ }
+\DoxyCodeLine{00443\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a573978c2536748213de459b0a09477b7}{EnqueueProgram}}(CommandQueue\&\ cq,\ std::variant<std::reference\_wrapper<Program>,\ std::shared\_ptr<Program>\ >\ program,\ \textcolor{keywordtype}{bool}\ blocking);}
+\DoxyCodeLine{00444\ }
+\DoxyCodeLine{00454\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_afc3cc77a54213457805a878231ca3643}{Finish}}(CommandQueue\&\ cq);}
+\DoxyCodeLine{00455\ }
+\DoxyCodeLine{00468\ uint32\_t\ \mbox{\hyperlink{host__api_8hpp_a2bb0ca68f1afddfbefc78b497d21943c}{BeginTraceCapture}}(Device\ *device,\ \textcolor{keyword}{const}\ uint8\_t\ cq\_id);}
+\DoxyCodeLine{00469\ }
+\DoxyCodeLine{00484\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a3eaf4c5845ee7d8153c6ca9cc250df30}{EndTraceCapture}}(Device\ *device,\ \textcolor{keyword}{const}\ uint8\_t\ cq\_id,\ \textcolor{keyword}{const}\ uint32\_t\ tid);}
+\DoxyCodeLine{00485\ }
+\DoxyCodeLine{00498\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a12e0b86cbb5a6ef9930562b684898d90}{ReplayTrace}}(Device\ *device,\ \textcolor{keyword}{const}\ uint8\_t\ cq\_id,\ \textcolor{keyword}{const}\ uint32\_t\ tid,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ blocking);}
+\DoxyCodeLine{00499\ }
+\DoxyCodeLine{00512\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a526ece1a413c039607e2973b97cdfa75}{ReleaseTrace}}(Device\ *device,\ \textcolor{keyword}{const}\ uint32\_t\ tid);}
+\DoxyCodeLine{00513\ }
+\DoxyCodeLine{00526\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_ac56da2798d8d1a093846845ff06fd773}{EnqueueTrace}}(CommandQueue\ \&cq,\ uint32\_t\ trace\_id,\ \textcolor{keywordtype}{bool}\ blocking);}
+\DoxyCodeLine{00527\ }
+\DoxyCodeLine{00540\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a5087c491b5788ee5878cf049066c355a}{DumpDeviceProfileResults}}(Device\ *device,\ \textcolor{keyword}{const}\ Program\ \&program);}
+\DoxyCodeLine{00541\ }
+\DoxyCodeLine{00550\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a6c9d6bc143bf01946b145bb20c9a4ccd}{EnqueueRecordEvent}}(CommandQueue\&\ cq,\ std::shared\_ptr<Event>\ event);}
+\DoxyCodeLine{00551\ }
+\DoxyCodeLine{00561\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a2560cd6db65a03de3e9aad52ff381b6e}{EnqueueWaitForEvent}}(CommandQueue\&\ cq,\ std::shared\_ptr<Event>\ event);}
+\DoxyCodeLine{00562\ }
+\DoxyCodeLine{00570\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{host__api_8hpp_a503f5ffa5860947b42872b7fe326bac5}{EventSynchronize}}(std::shared\_ptr<Event>\ event);}
+\DoxyCodeLine{00571\ }
+\DoxyCodeLine{00579\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{host__api_8hpp_a017d64ee3fbb64880859d52a21f7f474}{EventQuery}}(std::shared\_ptr<Event>\ event);}
+\DoxyCodeLine{00580\ }
 \DoxyCodeLine{00581\ }
-\DoxyCodeLine{00582\ \}\ \ \textcolor{comment}{//\ namespace\ tt}}
+\DoxyCodeLine{00582\ \}\ \ \textcolor{comment}{//\ namespace\ tt\_metal}}
+\DoxyCodeLine{00583\ }
+\DoxyCodeLine{00584\ \}\ \ \textcolor{comment}{//\ namespace\ tt}}
 
 \end{DoxyCode}

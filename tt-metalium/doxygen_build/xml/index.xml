@@ -167,16 +167,16 @@
     <member refid="tilize_8h_1a8eba17d70dc66acc17db5fb7badb16ae" kind="function"><name>tilize_init</name></member>
     <member refid="tilize_8h_1ac96fec8a3d20ea3686b0499ee56c47d7" kind="function"><name>tilizeA_B_reduce_init</name></member>
     <member refid="tilize_8h_1a649de9891a5d99ebab2c2e1aa75b9a27" kind="function"><name>tilizeA_B_dot_product_init</name></member>
-    <member refid="tilize_8h_1abf481ad79f8d0c5587a22f90450da70f" kind="function"><name>tilize_init_short</name></member>
+    <member refid="tilize_8h_1a2626e407c919742cff8789652cc08165" kind="function"><name>tilize_init_short</name></member>
     <member refid="tilize_8h_1a3300fef3143945210d4e18f9bcf1760c" kind="function"><name>tilize_init_unpack</name></member>
     <member refid="tilize_8h_1abe98a12c09dbf4e03ee9ce875881cc5e" kind="function"><name>tilizeA_B_init_unpack</name></member>
-    <member refid="tilize_8h_1a1d90428e7cf53183a579428d6549b2d0" kind="function"><name>tilize_init_short_with_dt</name></member>
+    <member refid="tilize_8h_1a205b48db5a98b47825937c82a777a965" kind="function"><name>tilize_init_short_with_dt</name></member>
     <member refid="tilize_8h_1aea0827dbb324004596b2971a52c4d0ad" kind="function"><name>tilize_block</name></member>
     <member refid="tilize_8h_1a8d9523f37c0573600360754d14776ab0" kind="function"><name>unpack_tilize_block</name></member>
     <member refid="tilize_8h_1a1a006562733ba55a177369ddde70e812" kind="function"><name>unpack_tilizeA_B_block</name></member>
     <member refid="tilize_8h_1a100bc7f788be0c8206261722ac613de7" kind="function"><name>unpack_tilizeA_B_dot_product_block</name></member>
-    <member refid="tilize_8h_1a2706e2f78a8cb6f4adbfbc0892bf82e0" kind="function"><name>tilize_uninit</name></member>
-    <member refid="tilize_8h_1a825cce04214c7ccfe315f88463afbcc3" kind="function"><name>tilize_uninit_with_dt</name></member>
+    <member refid="tilize_8h_1a3be1c47ccd017a1129daf785e15f545c" kind="function"><name>tilize_uninit</name></member>
+    <member refid="tilize_8h_1a40b2d7e5e9073c4e135581f08657dc3b" kind="function"><name>tilize_uninit_with_dt</name></member>
     <member refid="transpose__wh_8h_1aa5fd30268e7264eac2189db54b6f60f7" kind="function"><name>transpose_wh_init</name></member>
     <member refid="transpose__wh_8h_1a8fcfeec0c3262ec9fd53b6dbdc67100c" kind="function"><name>transpose_wh_init_short</name></member>
     <member refid="transpose__wh_8h_1ab885f1c61cacad96feb21ff8c9b099aa" kind="function"><name>transpose_wh_tile</name></member>
@@ -260,6 +260,7 @@
     <member refid="host__api_8hpp_1af559e38779cb26844ec9a6b0bb41f940" kind="typedef"><name>RuntimeArgs</name></member>
     <member refid="host__api_8hpp_1a06ba0ab5eeb2da5af625a8b7f95ca48e" kind="function"><name>GetNumAvailableDevices</name></member>
     <member refid="host__api_8hpp_1aa18761d248b0a8081c84440f3aeafcfc" kind="function"><name>GetNumPCIeDevices</name></member>
+    <member refid="host__api_8hpp_1a993783d82827c89b8f233704a7f55b2d" kind="function"><name>GetPCIeDeviceID</name></member>
     <member refid="host__api_8hpp_1a8332bdd9a9ffe6e0cedf921e438fe7ed" kind="function"><name>CreateDevice</name></member>
     <member refid="host__api_8hpp_1a07e0aaf41772593d1d017db950e3b7b3" kind="function"><name>CreateDeviceMinimal</name></member>
     <member refid="host__api_8hpp_1a25ae925200ca85a3274824f1b945ebc1" kind="function"><name>CloseDevice</name></member>

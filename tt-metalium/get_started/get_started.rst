@@ -45,7 +45,7 @@ Where to go from here
 ^^^^^^^^^^^^^^^^^^^^^
 
 If you're an ML developer and looking for a simpler Python API to build models,
-take a look at our higher-level API `TT-NN <../../../ttnn/latest/index.html>`_.
+take a look at our higher-level API `TT-NN <../../ttnn>`_.
 
 If you're an internal TT-Metalium developer, please now read and review the
 `contribution standards

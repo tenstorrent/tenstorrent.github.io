@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="1770" column="14" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1770" bodyend="-1"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1728" column="14" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1728" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classBuffer_1a9c646f4ddd9781c561e07349c77f6027" prot="private" static="no" mutable="no">
         <type>uint32_t</type>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="1771" column="14" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1771" bodyend="-1"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1729" column="14" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1729" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classBuffer_1a741b8feb511462e572a305f19fa42b9c" prot="private" static="no" mutable="no">
         <type>uint64_t(*</type>
@@ -43,7 +43,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="1772" column="5" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1772" bodyend="-1"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1730" column="5" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1730" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classBuffer_1a707c62bb98bf8441208b327feee25567" prot="private" static="no" mutable="no">
         <type>BufferType</type>
@@ -57,7 +57,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="1773" column="16" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1773" bodyend="-1"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1731" column="16" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1731" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classBuffer_1a0a530546e63032af005d4716073c0f63" prot="private" static="no" mutable="no">
         <type>bool</type>
@@ -71,7 +71,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="1774" column="10" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1774" bodyend="-1"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1732" column="10" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1732" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classBuffer_1a755c964266ffef77da45df548f8ffa99" prot="private" static="no" mutable="no">
         <type>volatile uint32_t *</type>
@@ -85,7 +85,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="1777" column="24" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1777" bodyend="-1"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1735" column="24" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1735" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classBuffer_1a238c96eb2c8f78e1bba599cbab638465" prot="private" static="no" mutable="no">
         <type>uint32_t</type>
@@ -99,7 +99,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="1778" column="14" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1778" bodyend="-1"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1736" column="14" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1736" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -119,7 +119,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="1780" column="10" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1780" bodyend="1791"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1738" column="10" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1738" bodyend="1749"/>
       </memberdef>
       <memberdef kind="function" id="classBuffer_1afe5b3d787cc7240fe7d2027405f29c2f" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>uint64_t</type>
@@ -142,7 +142,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="1792" column="14" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1792" bodyend="1795"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1750" column="14" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1750" bodyend="1753"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -158,7 +158,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="1799" column="5" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1799" bodyend="1799"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1757" column="5" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1757" bodyend="1757"/>
       </memberdef>
       <memberdef kind="function" id="classBuffer_1afacc4743c31d1116b66c87bf1cff5207" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -184,7 +184,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="1801" column="5" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1801" bodyend="1803"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1759" column="5" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1759" bodyend="1761"/>
       </memberdef>
       <memberdef kind="function" id="classBuffer_1a0e0755ca6cd872218206f3810fcace2b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -214,7 +214,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="1805" column="5" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1805" bodyend="1807"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1763" column="5" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1763" bodyend="1765"/>
       </memberdef>
       <memberdef kind="function" id="classBuffer_1a21650fb20bd71111f2610bbf8e670b6f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -240,7 +240,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="1809" column="10" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1809" bodyend="1814"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1767" column="10" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1767" bodyend="1772"/>
       </memberdef>
       <memberdef kind="function" id="classBuffer_1af83e5d4c89b13e27ae5fa6a7af43a817" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>BufferType</type>
@@ -254,7 +254,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="1816" column="16" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1816" bodyend="1816"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1774" column="16" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1774" bodyend="1774"/>
       </memberdef>
       <memberdef kind="function" id="classBuffer_1a7c16bf384aecc72858a96bd890c0710e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -284,7 +284,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="1818" column="10" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1818" bodyend="1826"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1776" column="10" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1776" bodyend="1784"/>
       </memberdef>
       <memberdef kind="function" id="classBuffer_1a71147cfe8b83840caceeec89e0d23a2f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>uint32_t</type>
@@ -298,7 +298,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="1827" column="14" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1827" bodyend="1827"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1785" column="14" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1785" bodyend="1785"/>
       </memberdef>
       <memberdef kind="function" id="classBuffer_1ade497473777a2b889eadc29c50590f82" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -329,7 +329,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="1830" column="10" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1830" bodyend="1864"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1788" column="10" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1788" bodyend="1822"/>
       </memberdef>
       <memberdef kind="function" id="classBuffer_1aaeb6821b61163828cda1c7db86d13609" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -360,14 +360,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="1866" column="10" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1866" bodyend="1887"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1824" column="10" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1824" bodyend="1845"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="tt_metal/hw/inc/dataflow_api.h" line="1768" column="1" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1768" bodyend="1888"/>
+    <location file="tt_metal/hw/inc/dataflow_api.h" line="1726" column="1" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1726" bodyend="1846"/>
     <listofallmembers>
       <member refid="classBuffer_1a4fcde15c4c0e5f58dc66954df5b2d9d1" prot="private" virt="non-virtual"><scope>Buffer</scope><name>bank_base_address</name></member>
       <member refid="classBuffer_1a755c964266ffef77da45df548f8ffa99" prot="private" virt="non-virtual"><scope>Buffer</scope><name>base_command_addr_</name></member>
