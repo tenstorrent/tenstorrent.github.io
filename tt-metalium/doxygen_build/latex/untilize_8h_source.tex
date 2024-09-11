@@ -23,54 +23,55 @@
 \DoxyCodeLine{00022\ \{}
 \DoxyCodeLine{00023\ \ \ \ \ MATH((\ llk\_math\_eltwise\_unary\_datacopy\_init<A2D,\ BroadcastType::NONE,\ DST\_ACCUM\_MODE>(\textcolor{keyword}{false}\ \textcolor{comment}{/*transpose\ of\ faces*/},\ \textcolor{keyword}{false}\ \textcolor{comment}{/*transpose\ within\ 16x16\ face*/},\ icb)\ ));}
 \DoxyCodeLine{00024\ \ \ \ \ MATH((\ llk\_math\_pack\_sync\_init<DST\_ACCUM\_MODE>()\ ));}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \ \ \ \ PACK((\ llk\_pack\_hw\_configure\_disaggregated<false,\ DST\_ACCUM\_MODE>(ocb)\ ));}
-\DoxyCodeLine{00027\ \ \ \ \ PACK((\ llk\_pack\_init(ocb)\ ));}
-\DoxyCodeLine{00028\ \ \ \ \ PACK((\ llk\_setup\_outputs()\ ));}
-\DoxyCodeLine{00029\ \ \ \ \ PACK((\ llk\_pack\_dest\_init<false,\ DST\_ACCUM\_MODE>()\ ));}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \ \ \ \ UNPACK((\ llk\_setup\_operands()\ ));}
-\DoxyCodeLine{00032\ \ \ \ \ UNPACK((\ llk\_unpack\_untilize\_hw\_configure\_disaggregated<DST\_ACCUM\_MODE>(icb)\ ));}
-\DoxyCodeLine{00033\ \ \ \ \ UNPACK((\ llk\_unpack\_untilize\_init(icb)\ ));\ \textcolor{comment}{//\ init\ must\ be\ after\ configure}}
-\DoxyCodeLine{00034\ \}}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00039\ ALWI\ \textcolor{keywordtype}{void}\ untilize\_init\_short(uint32\_t\ icb)}
-\DoxyCodeLine{00040\ \{}
-\DoxyCodeLine{00041\ \ \ \ \ MATH((\ llk\_math\_eltwise\_unary\_datacopy\_init<A2D,\ BroadcastType::NONE,\ DST\_ACCUM\_MODE>(\textcolor{keyword}{false}\ \textcolor{comment}{/*transpose\ of\ faces*/},\ \textcolor{keyword}{false}\ \textcolor{comment}{/*transpose\ within\ 16x16\ face*/},\ icb)\ ));}
-\DoxyCodeLine{00042\ \ \ \ \ UNPACK((\ llk\_unpack\_untilize\_init(icb)\ ));}
-\DoxyCodeLine{00043\ \}}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00048\ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{int}\ N\ =\ 1>}
-\DoxyCodeLine{00049\ ALWI\ \textcolor{keywordtype}{void}\ untilize\_block(uint32\_t\ icb,\ uint32\_t\ block,\ uint32\_t\ ocb)}
-\DoxyCodeLine{00050\ \{}
-\DoxyCodeLine{00051\ \ \ \ \ UNPACK((\ llk\_unpack\_untilize(icb,\ block)\ ));}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ t\ =\ 0;\ t\ <\ block\ /\ N;\ t++)\ \{}
-\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ MATH((\ llk\_math\_wait\_for\_dest\_available()\ ));}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Datacopy}}
-\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ reg\_id\ =\ 0;\ reg\_id\ <\ N;\ reg\_id++)\ \{}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ MATH((\ llk\_math\_eltwise\_unary\_datacopy<A2D,\ BroadcastType::NONE,\ DST\_ACCUM\_MODE>(reg\_id)\ ));}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ MATH((\ llk\_math\_dest\_section\_done<DST\_ACCUM\_MODE>()\ ));}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ PACK((\ llk\_packer\_wait\_for\_math\_done()\ ));}
-\DoxyCodeLine{00064\ }
-\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Datacopy}}
-\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ reg\_id\ =\ 0;\ reg\_id\ <\ N;\ reg\_id++)\ \{}
-\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ PACK((\ llk\_pack<false,\ false,\ DST\_ACCUM\_MODE\ >(reg\_id,\ ocb)\ \ ));}
-\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00069\ }
-\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Release\ dest}}
-\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ PACK((\ llk\_pack\_dest\_section\_done<DST\_ACCUM\_MODE>()\ ));}
-\DoxyCodeLine{00072\ \ \ \ \ \}}
-\DoxyCodeLine{00073\ \}}
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00078\ ALWI\ \textcolor{keywordtype}{void}\ untilize\_uninit(uint32\_t\ icb)\ \{}
-\DoxyCodeLine{00079\ \ \ \ \ UNPACK((\ llk\_unpack\_untilize\_uninit(icb)\ ));}
-\DoxyCodeLine{00080\ \}}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00082\ \}}
+\DoxyCodeLine{00025\ \ \ \ \ MATH((\ llk\_math\_hw\_configure\_disaggregated()\ ));}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ PACK((\ llk\_pack\_hw\_configure\_disaggregated<false,\ DST\_ACCUM\_MODE>(ocb)\ ));}
+\DoxyCodeLine{00028\ \ \ \ \ PACK((\ llk\_pack\_init(ocb)\ ));}
+\DoxyCodeLine{00029\ \ \ \ \ PACK((\ llk\_setup\_outputs()\ ));}
+\DoxyCodeLine{00030\ \ \ \ \ PACK((\ llk\_pack\_dest\_init<false,\ DST\_ACCUM\_MODE>()\ ));}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ UNPACK((\ llk\_setup\_operands()\ ));}
+\DoxyCodeLine{00033\ \ \ \ \ UNPACK((\ llk\_unpack\_untilize\_hw\_configure\_disaggregated<DST\_ACCUM\_MODE>(icb)\ ));}
+\DoxyCodeLine{00034\ \ \ \ \ UNPACK((\ llk\_unpack\_untilize\_init(icb)\ ));\ \textcolor{comment}{//\ init\ must\ be\ after\ configure}}
+\DoxyCodeLine{00035\ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00040\ ALWI\ \textcolor{keywordtype}{void}\ untilize\_init\_short(uint32\_t\ icb)}
+\DoxyCodeLine{00041\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ MATH((\ llk\_math\_eltwise\_unary\_datacopy\_init<A2D,\ BroadcastType::NONE,\ DST\_ACCUM\_MODE>(\textcolor{keyword}{false}\ \textcolor{comment}{/*transpose\ of\ faces*/},\ \textcolor{keyword}{false}\ \textcolor{comment}{/*transpose\ within\ 16x16\ face*/},\ icb)\ ));}
+\DoxyCodeLine{00043\ \ \ \ \ UNPACK((\ llk\_unpack\_untilize\_init(icb)\ ));}
+\DoxyCodeLine{00044\ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{int}\ N\ =\ 1>}
+\DoxyCodeLine{00050\ ALWI\ \textcolor{keywordtype}{void}\ untilize\_block(uint32\_t\ icb,\ uint32\_t\ block,\ uint32\_t\ ocb)}
+\DoxyCodeLine{00051\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ UNPACK((\ llk\_unpack\_untilize(icb,\ block)\ ));}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ t\ =\ 0;\ t\ <\ block\ /\ N;\ t++)\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ MATH((\ llk\_math\_wait\_for\_dest\_available()\ ));}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Datacopy}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ reg\_id\ =\ 0;\ reg\_id\ <\ N;\ reg\_id++)\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ MATH((\ llk\_math\_eltwise\_unary\_datacopy<A2D,\ BroadcastType::NONE,\ DST\_ACCUM\_MODE>(reg\_id)\ ));}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ MATH((\ llk\_math\_dest\_section\_done<DST\_ACCUM\_MODE>()\ ));}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ PACK((\ llk\_packer\_wait\_for\_math\_done()\ ));}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Datacopy}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ reg\_id\ =\ 0;\ reg\_id\ <\ N;\ reg\_id++)\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ PACK((\ llk\_pack<false,\ false,\ DST\_ACCUM\_MODE\ >(reg\_id,\ ocb)\ \ ));}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Release\ dest}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ PACK((\ llk\_pack\_dest\_section\_done<DST\_ACCUM\_MODE>()\ ));}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+\DoxyCodeLine{00074\ \}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00079\ ALWI\ \textcolor{keywordtype}{void}\ untilize\_uninit(uint32\_t\ icb)\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ UNPACK((\ llk\_unpack\_untilize\_uninit(icb)\ ));}
+\DoxyCodeLine{00081\ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \}}
 
 \end{DoxyCode}

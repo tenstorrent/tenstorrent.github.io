@@ -1,19 +1,15 @@
 \hypertarget{host__api_8hpp}{}\doxysection{tt\+\_\+metal/host\+\_\+api.hpp File Reference}
 \label{host__api_8hpp}\index{tt\_metal/host\_api.hpp@{tt\_metal/host\_api.hpp}}
-{\ttfamily \#include $<$optional$>$}\newline
 {\ttfamily \#include $<$variant$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
-{\ttfamily \#include $<$future$>$}\newline
-{\ttfamily \#include \char`\"{}tt\+\_\+metal/common/core\+\_\+coord.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tt\+\_\+metal/impl/dispatch/dispatch\+\_\+core\+\_\+manager.\+hpp\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}tt\+\_\+metal/impl/program/program.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}tt\+\_\+metal/impl/buffers/buffer.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}tt\+\_\+metal/impl/event/event.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}tt\+\_\+metal/impl/device/device\+\_\+pool.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tt\+\_\+metal/impl/kernels/runtime\+\_\+args\+\_\+data.\+hpp\char`\"{}}\newline
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{host__api_8hpp_af559e38779cb26844ec9a6b0bb41f940}\label{host__api_8hpp_af559e38779cb26844ec9a6b0bb41f940}} 
-using {\bfseries tt\+::tt\+\_\+metal\+::\+Runtime\+Args} = std\+::vector$<$ std\+::variant$<$ \mbox{\hyperlink{classBuffer}{Buffer}} $\ast$, uint32\+\_\+t $>$ $>$
+using {\bfseries tt\+::tt\+\_\+metal\+::\+Runtime\+Args} = std\+::vector$<$ std\+::variant$<$ Buffer $\ast$, uint32\+\_\+t $>$ $>$
 \end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -22,9 +18,12 @@ size\+\_\+t \mbox{\hyperlink{host__api_8hpp_a06ba0ab5eeb2da5af625a8b7f95ca48e}{t
 \item 
 size\+\_\+t \mbox{\hyperlink{host__api_8hpp_aa18761d248b0a8081c84440f3aeafcfc}{tt\+::tt\+\_\+metal\+::\+Get\+Num\+PCIe\+Devices}} ()
 \item 
-Device $\ast$ \mbox{\hyperlink{host__api_8hpp_a8332bdd9a9ffe6e0cedf921e438fe7ed}{tt\+::tt\+\_\+metal\+::\+Create\+Device}} (chip\+\_\+id\+\_\+t device\+\_\+id, const uint8\+\_\+t num\+\_\+hw\+\_\+cqs=1, const size\+\_\+t l1\+\_\+small\+\_\+size=DEFAULT\+\_\+\+L1\+\_\+\+SMALL\+\_\+\+SIZE, const size\+\_\+t trace\+\_\+region\+\_\+size=DEFAULT\+\_\+\+TRACE\+\_\+\+REGION\+\_\+\+SIZE, const std\+::vector$<$ uint32\+\_\+t $>$ \&l1\+\_\+bank\+\_\+remap=\{\})
+\mbox{\Hypertarget{host__api_8hpp_a993783d82827c89b8f233704a7f55b2d}\label{host__api_8hpp_a993783d82827c89b8f233704a7f55b2d}} 
+chip\+\_\+id\+\_\+t {\bfseries tt\+::tt\+\_\+metal\+::\+Get\+PCIe\+Device\+ID} (chip\+\_\+id\+\_\+t device\+\_\+id)
 \item 
-Device $\ast$ \mbox{\hyperlink{host__api_8hpp_a07e0aaf41772593d1d017db950e3b7b3}{tt\+::tt\+\_\+metal\+::\+Create\+Device\+Minimal}} (chip\+\_\+id\+\_\+t device\+\_\+id)
+Device $\ast$ \mbox{\hyperlink{host__api_8hpp_acfbb2695f1ea832a3d12724a54de28e6}{tt\+::tt\+\_\+metal\+::\+Create\+Device}} (chip\+\_\+id\+\_\+t device\+\_\+id, const uint8\+\_\+t num\+\_\+hw\+\_\+cqs=1, const size\+\_\+t l1\+\_\+small\+\_\+size=DEFAULT\+\_\+\+L1\+\_\+\+SMALL\+\_\+\+SIZE, const size\+\_\+t trace\+\_\+region\+\_\+size=DEFAULT\+\_\+\+TRACE\+\_\+\+REGION\+\_\+\+SIZE, Dispatch\+Core\+Type dispatch\+\_\+core\+\_\+type=Dispatch\+Core\+Type\+::\+WORKER, const std\+::vector$<$ uint32\+\_\+t $>$ \&l1\+\_\+bank\+\_\+remap=\{\})
+\item 
+Device $\ast$ \mbox{\hyperlink{host__api_8hpp_a2b65aae891efb62bb5baf5cbfd5e971b}{tt\+::tt\+\_\+metal\+::\+Create\+Device\+Minimal}} (chip\+\_\+id\+\_\+t device\+\_\+id, const uint8\+\_\+t num\+\_\+hw\+\_\+cqs=1, Dispatch\+Core\+Type dispatch\+\_\+core\+\_\+type=Dispatch\+Core\+Type\+::\+WORKER)
 \item 
 bool \mbox{\hyperlink{host__api_8hpp_a25ae925200ca85a3274824f1b945ebc1}{tt\+::tt\+\_\+metal\+::\+Close\+Device}} (Device $\ast$device)
 \item 
@@ -40,17 +39,17 @@ void \mbox{\hyperlink{host__api_8hpp_a39e124f62d4c172a44abc0c22fa3ee04}{tt\+::tt
 \item 
 void \mbox{\hyperlink{host__api_8hpp_a92e93610eb6b826263eb803608c33889}{tt\+::tt\+\_\+metal\+::\+Update\+Circular\+Buffer\+Page\+Size}} (Program \&program, CBHandle cb\+\_\+handle, uint8\+\_\+t buffer\+\_\+index, uint32\+\_\+t page\+\_\+size)
 \item 
-void \mbox{\hyperlink{host__api_8hpp_aac851bed71135fa02e28caf0c0ae58b0}{tt\+::tt\+\_\+metal\+::\+Update\+Dynamic\+Circular\+Buffer\+Address}} (Program \&program, CBHandle cb\+\_\+handle, const \mbox{\hyperlink{classBuffer}{Buffer}} \&buffer)
+void \mbox{\hyperlink{host__api_8hpp_aac851bed71135fa02e28caf0c0ae58b0}{tt\+::tt\+\_\+metal\+::\+Update\+Dynamic\+Circular\+Buffer\+Address}} (Program \&program, CBHandle cb\+\_\+handle, const Buffer \&buffer)
 \item 
 uint32\+\_\+t \mbox{\hyperlink{host__api_8hpp_a8860cbc40324a9cc2e18badc55a77a68}{tt\+::tt\+\_\+metal\+::\+Create\+Semaphore}} (Program \&program, const std\+::variant$<$ Core\+Range, Core\+Range\+Set $>$ \&core\+\_\+spec, uint32\+\_\+t initial\+\_\+value, Core\+Type core\+\_\+type=Core\+Type\+::\+WORKER)
 \item 
-std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuffer}{Buffer}} $>$ \mbox{\hyperlink{host__api_8hpp_a44f12170a79821c7a1eb7dcad8e9014e}{tt\+::tt\+\_\+metal\+::\+Create\+Buffer}} (const Interleaved\+Buffer\+Config \&config)
+std\+::shared\+\_\+ptr$<$ Buffer $>$ \mbox{\hyperlink{host__api_8hpp_a44f12170a79821c7a1eb7dcad8e9014e}{tt\+::tt\+\_\+metal\+::\+Create\+Buffer}} (const Interleaved\+Buffer\+Config \&config)
 \item 
-std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuffer}{Buffer}} $>$ \mbox{\hyperlink{host__api_8hpp_a8e5af0183154c8b303d43acec393ec29}{tt\+::tt\+\_\+metal\+::\+Create\+Buffer}} (const Sharded\+Buffer\+Config \&config)
+std\+::shared\+\_\+ptr$<$ Buffer $>$ \mbox{\hyperlink{host__api_8hpp_a8e5af0183154c8b303d43acec393ec29}{tt\+::tt\+\_\+metal\+::\+Create\+Buffer}} (const Sharded\+Buffer\+Config \&config)
 \item 
-void \mbox{\hyperlink{host__api_8hpp_a6a064752ab55b4fac953ba8bde7daf52}{tt\+::tt\+\_\+metal\+::\+Deallocate\+Buffer}} (\mbox{\hyperlink{classBuffer}{Buffer}} \&buffer)
+void \mbox{\hyperlink{host__api_8hpp_a6a064752ab55b4fac953ba8bde7daf52}{tt\+::tt\+\_\+metal\+::\+Deallocate\+Buffer}} (Buffer \&buffer)
 \item 
-void \mbox{\hyperlink{host__api_8hpp_a4e29ca9df8b6f13424f2a392d8971483}{tt\+::tt\+\_\+metal\+::\+Assign\+Global\+Buffer\+To\+Program}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuffer}{Buffer}} $>$ buffer, std\+::variant$<$ std\+::reference\+\_\+wrapper$<$ Program $>$, std\+::shared\+\_\+ptr$<$ Program $>$ $>$ program)
+void \mbox{\hyperlink{host__api_8hpp_a4e29ca9df8b6f13424f2a392d8971483}{tt\+::tt\+\_\+metal\+::\+Assign\+Global\+Buffer\+To\+Program}} (std\+::shared\+\_\+ptr$<$ Buffer $>$ buffer, std\+::variant$<$ std\+::reference\+\_\+wrapper$<$ Program $>$, std\+::shared\+\_\+ptr$<$ Program $>$ $>$ program)
 \item 
 void \mbox{\hyperlink{host__api_8hpp_a491996adcf69861c22eed34ce1ac68cc}{tt\+::tt\+\_\+metal\+::\+Set\+Runtime\+Args}} (const Program \&program, Kernel\+Handle kernel, const std\+::variant$<$ Core\+Coord, Core\+Range, Core\+Range\+Set $>$ \&core\+\_\+spec, const std\+::vector$<$ uint32\+\_\+t $>$ \&runtime\+\_\+args)
 \item 
@@ -68,13 +67,13 @@ std\+::vector$<$ std\+::vector$<$ Runtime\+Args\+Data $>$ $>$ \& \mbox{\hyperlin
 \item 
 Runtime\+Args\+Data \& \mbox{\hyperlink{host__api_8hpp_a2af22a7fb7c71050de7ec2fc9d487ab6}{tt\+::tt\+\_\+metal\+::\+Get\+Common\+Runtime\+Args}} (const Program \&program, Kernel\+Handle kernel\+\_\+id)
 \item 
-void \mbox{\hyperlink{host__api_8hpp_a72bce18ec81347c077fb802271a7c562}{tt\+::tt\+\_\+metal\+::\+Enqueue\+Read\+Buffer}} (Command\+Queue \&cq, std\+::variant$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{classBuffer}{Buffer}} $>$, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuffer}{Buffer}} $>$ $>$ buffer, std\+::vector$<$ uint32\+\_\+t $>$ \&dst, bool blocking)
+void \mbox{\hyperlink{host__api_8hpp_a72bce18ec81347c077fb802271a7c562}{tt\+::tt\+\_\+metal\+::\+Enqueue\+Read\+Buffer}} (Command\+Queue \&cq, std\+::variant$<$ std\+::reference\+\_\+wrapper$<$ Buffer $>$, std\+::shared\+\_\+ptr$<$ Buffer $>$ $>$ buffer, std\+::vector$<$ uint32\+\_\+t $>$ \&dst, bool blocking)
 \item 
-void \mbox{\hyperlink{host__api_8hpp_a769957ca9a07e91d82cac6fd682a7fd1}{tt\+::tt\+\_\+metal\+::\+Enqueue\+Read\+Buffer}} (Command\+Queue \&cq, std\+::variant$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{classBuffer}{Buffer}} $>$, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuffer}{Buffer}} $>$ $>$ buffer, void $\ast$dst, bool blocking)
+void \mbox{\hyperlink{host__api_8hpp_a769957ca9a07e91d82cac6fd682a7fd1}{tt\+::tt\+\_\+metal\+::\+Enqueue\+Read\+Buffer}} (Command\+Queue \&cq, std\+::variant$<$ std\+::reference\+\_\+wrapper$<$ Buffer $>$, std\+::shared\+\_\+ptr$<$ Buffer $>$ $>$ buffer, void $\ast$dst, bool blocking)
 \item 
-void \mbox{\hyperlink{host__api_8hpp_a41f4ff2e9c7fca0b1287446f57d37e34}{tt\+::tt\+\_\+metal\+::\+Enqueue\+Write\+Buffer}} (Command\+Queue \&cq, std\+::variant$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{classBuffer}{Buffer}} $>$, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuffer}{Buffer}} $>$ $>$ buffer, std\+::vector$<$ uint32\+\_\+t $>$ \&src, bool blocking)
+void \mbox{\hyperlink{host__api_8hpp_a41f4ff2e9c7fca0b1287446f57d37e34}{tt\+::tt\+\_\+metal\+::\+Enqueue\+Write\+Buffer}} (Command\+Queue \&cq, std\+::variant$<$ std\+::reference\+\_\+wrapper$<$ Buffer $>$, std\+::shared\+\_\+ptr$<$ Buffer $>$ $>$ buffer, std\+::vector$<$ uint32\+\_\+t $>$ \&src, bool blocking)
 \item 
-void \mbox{\hyperlink{host__api_8hpp_a474bb3622a9e2927298d2a2a70c90774}{tt\+::tt\+\_\+metal\+::\+Enqueue\+Write\+Buffer}} (Command\+Queue \&cq, std\+::variant$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{classBuffer}{Buffer}} $>$, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuffer}{Buffer}} $>$ $>$ buffer, Host\+Data\+Type src, bool blocking)
+void \mbox{\hyperlink{host__api_8hpp_a474bb3622a9e2927298d2a2a70c90774}{tt\+::tt\+\_\+metal\+::\+Enqueue\+Write\+Buffer}} (Command\+Queue \&cq, std\+::variant$<$ std\+::reference\+\_\+wrapper$<$ Buffer $>$, std\+::shared\+\_\+ptr$<$ Buffer $>$ $>$ buffer, Host\+Data\+Type src, bool blocking)
 \item 
 void \mbox{\hyperlink{host__api_8hpp_a573978c2536748213de459b0a09477b7}{tt\+::tt\+\_\+metal\+::\+Enqueue\+Program}} (Command\+Queue \&cq, std\+::variant$<$ std\+::reference\+\_\+wrapper$<$ Program $>$, std\+::shared\+\_\+ptr$<$ Program $>$ $>$ program, bool blocking)
 \item 
@@ -99,6 +98,8 @@ void \mbox{\hyperlink{host__api_8hpp_a2560cd6db65a03de3e9aad52ff381b6e}{tt\+::tt
 void \mbox{\hyperlink{host__api_8hpp_a503f5ffa5860947b42872b7fe326bac5}{tt\+::tt\+\_\+metal\+::\+Event\+Synchronize}} (std\+::shared\+\_\+ptr$<$ Event $>$ event)
 \item 
 bool \mbox{\hyperlink{host__api_8hpp_a017d64ee3fbb64880859d52a21f7f474}{tt\+::tt\+\_\+metal\+::\+Event\+Query}} (std\+::shared\+\_\+ptr$<$ Event $>$ event)
+\item 
+void \mbox{\hyperlink{host__api_8hpp_a8a7da70517597db5090819de93f3d75b}{tt\+::tt\+\_\+metal\+::\+Synchronize}} (Device $\ast$device, const std\+::optional$<$ uint8\+\_\+t $>$ cq\+\_\+id=std\+::nullopt)
 \end{DoxyCompactItemize}
 
 
@@ -107,7 +108,7 @@ bool \mbox{\hyperlink{host__api_8hpp_a017d64ee3fbb64880859d52a21f7f474}{tt\+::tt
 \index{host\_api.hpp@{host\_api.hpp}!AssignGlobalBufferToProgram@{AssignGlobalBufferToProgram}}
 \index{AssignGlobalBufferToProgram@{AssignGlobalBufferToProgram}!host\_api.hpp@{host\_api.hpp}}
 \doxysubsubsection{\texorpdfstring{AssignGlobalBufferToProgram()}{AssignGlobalBufferToProgram()}}
-{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::\+Assign\+Global\+Buffer\+To\+Program (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuffer}{Buffer}} $>$}]{buffer,  }\item[{std\+::variant$<$ std\+::reference\+\_\+wrapper$<$ Program $>$, std\+::shared\+\_\+ptr$<$ Program $>$ $>$}]{program }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::\+Assign\+Global\+Buffer\+To\+Program (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ Buffer $>$}]{buffer,  }\item[{std\+::variant$<$ std\+::reference\+\_\+wrapper$<$ Program $>$, std\+::shared\+\_\+ptr$<$ Program $>$ $>$}]{program }\end{DoxyParamCaption})}
 
 Gives the specified program ownership of the buffer\+: the buffer will remain on device at least until the program is enqueued. This is required for asynchronous Command Queues.
 
@@ -175,7 +176,7 @@ device   &Pointer to a device object   &Device $\ast$   &&True   \\\cline{1-5}
 \index{host\_api.hpp@{host\_api.hpp}!CreateBuffer@{CreateBuffer}}
 \index{CreateBuffer@{CreateBuffer}!host\_api.hpp@{host\_api.hpp}}
 \doxysubsubsection{\texorpdfstring{CreateBuffer()}{CreateBuffer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuffer}{Buffer}} $>$ tt\+::tt\+\_\+metal\+::\+Create\+Buffer (\begin{DoxyParamCaption}\item[{const Interleaved\+Buffer\+Config \&}]{config }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ Buffer $>$ tt\+::tt\+\_\+metal\+::\+Create\+Buffer (\begin{DoxyParamCaption}\item[{const Interleaved\+Buffer\+Config \&}]{config }\end{DoxyParamCaption})}
 
 Allocates an interleaved DRAM or L1 buffer on device
 
@@ -197,7 +198,7 @@ config   &config for buffer   &Interleaved\+Buffer\+Config   &&Yes   \\\cline{1-
 \index{host\_api.hpp@{host\_api.hpp}!CreateBuffer@{CreateBuffer}}
 \index{CreateBuffer@{CreateBuffer}!host\_api.hpp@{host\_api.hpp}}
 \doxysubsubsection{\texorpdfstring{CreateBuffer()}{CreateBuffer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuffer}{Buffer}} $>$ tt\+::tt\+\_\+metal\+::\+Create\+Buffer (\begin{DoxyParamCaption}\item[{const Sharded\+Buffer\+Config \&}]{config }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ Buffer $>$ tt\+::tt\+\_\+metal\+::\+Create\+Buffer (\begin{DoxyParamCaption}\item[{const Sharded\+Buffer\+Config \&}]{config }\end{DoxyParamCaption})}
 
 Allocates a sharded DRAM or L1 buffer on device
 
@@ -221,11 +222,11 @@ config   &config for buffer   &Sharded\+Buffer\+Config   &&Yes   \\\cline{1-5}
 \doxysubsubsection{\texorpdfstring{CreateCircularBuffer()}{CreateCircularBuffer()}}
 {\footnotesize\ttfamily CBHandle tt\+::tt\+\_\+metal\+::\+Create\+Circular\+Buffer (\begin{DoxyParamCaption}\item[{Program \&}]{program,  }\item[{const std\+::variant$<$ Core\+Coord, Core\+Range, Core\+Range\+Set $>$ \&}]{core\+\_\+spec,  }\item[{const Circular\+Buffer\+Config \&}]{config }\end{DoxyParamCaption})}
 
-Creates a Circular \mbox{\hyperlink{classBuffer}{Buffer}} (CB) in L1 memory of all cores within core ranges (inclusive) and adds it to the program. There can be a total of NUM\+\_\+\+CIRCULAR\+\_\+\+BUFFERS (32) circular buffers per core. Circular buffers hold data and have an associated config which indicates usage of the address space. If the config is specified for multiple buffer indices, the circular buffer address space is shared and each buffer index can potentially have a unique view of the shared space.
+Creates a Circular Buffer (CB) in L1 memory of all cores within core ranges (inclusive) and adds it to the program. There can be a total of NUM\+\_\+\+CIRCULAR\+\_\+\+BUFFERS (32) circular buffers per core. Circular buffers hold data and have an associated config which indicates usage of the address space. If the config is specified for multiple buffer indices, the circular buffer address space is shared and each buffer index can potentially have a unique view of the shared space.
 
 Circular buffers can be dynamically allocated or program-\/local allocated. If the config is created with an L1 buffer or sets a globally allocated address it is dynamic and shares the same address space as the L1 buffer. Otherwise, the circular buffer address space is managed by the program. Address space for program-\/local circular buffers does not persist across programs.
 
-Return value\+: Circular \mbox{\hyperlink{classBuffer}{Buffer}} ID (uintptr\+\_\+t)
+Return value\+: Circular Buffer ID (uintptr\+\_\+t)
 
 \tabulinesep=1mm
 \begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
@@ -241,11 +242,11 @@ program   &The program to which buffer will be added to   &Program \&   &&Yes   
 core\+\_\+spec   &Either a single logical core, a range of logical cores or a set of logical core ranges that indicate where the circular buffer will be configured   &const std\+::variant$<$\+Core\+Coord, Core\+Range, Core\+Range\+Set$>$ \&   &&Yes    \\\cline{1-5}
 config   &Config for circular buffer   &const Circular\+Buffer\+Config \&   &&Yes   \\\cline{1-5}
 \end{longtabu}
-\mbox{\Hypertarget{host__api_8hpp_a8332bdd9a9ffe6e0cedf921e438fe7ed}\label{host__api_8hpp_a8332bdd9a9ffe6e0cedf921e438fe7ed}} 
+\mbox{\Hypertarget{host__api_8hpp_acfbb2695f1ea832a3d12724a54de28e6}\label{host__api_8hpp_acfbb2695f1ea832a3d12724a54de28e6}} 
 \index{host\_api.hpp@{host\_api.hpp}!CreateDevice@{CreateDevice}}
 \index{CreateDevice@{CreateDevice}!host\_api.hpp@{host\_api.hpp}}
 \doxysubsubsection{\texorpdfstring{CreateDevice()}{CreateDevice()}}
-{\footnotesize\ttfamily Device $\ast$ tt\+::tt\+\_\+metal\+::\+Create\+Device (\begin{DoxyParamCaption}\item[{chip\+\_\+id\+\_\+t}]{device\+\_\+id,  }\item[{const uint8\+\_\+t}]{num\+\_\+hw\+\_\+cqs = {\ttfamily 1},  }\item[{const size\+\_\+t}]{l1\+\_\+small\+\_\+size = {\ttfamily DEFAULT\+\_\+L1\+\_\+SMALL\+\_\+SIZE},  }\item[{const size\+\_\+t}]{trace\+\_\+region\+\_\+size = {\ttfamily DEFAULT\+\_\+TRACE\+\_\+REGION\+\_\+SIZE},  }\item[{const std\+::vector$<$ uint32\+\_\+t $>$ \&}]{l1\+\_\+bank\+\_\+remap = {\ttfamily \{\}} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Device $\ast$ tt\+::tt\+\_\+metal\+::\+Create\+Device (\begin{DoxyParamCaption}\item[{chip\+\_\+id\+\_\+t}]{device\+\_\+id,  }\item[{const uint8\+\_\+t}]{num\+\_\+hw\+\_\+cqs = {\ttfamily 1},  }\item[{const size\+\_\+t}]{l1\+\_\+small\+\_\+size = {\ttfamily DEFAULT\+\_\+L1\+\_\+SMALL\+\_\+SIZE},  }\item[{const size\+\_\+t}]{trace\+\_\+region\+\_\+size = {\ttfamily DEFAULT\+\_\+TRACE\+\_\+REGION\+\_\+SIZE},  }\item[{Dispatch\+Core\+Type}]{dispatch\+\_\+core\+\_\+type = {\ttfamily DispatchCoreType\+:\+:WORKER},  }\item[{const std\+::vector$<$ uint32\+\_\+t $>$ \&}]{l1\+\_\+bank\+\_\+remap = {\ttfamily \{\}} }\end{DoxyParamCaption})}
 
 Instantiates a device object.
 
@@ -263,11 +264,11 @@ Return value\+: Device $\ast$
 \endhead
 device\+\_\+id   &ID of the device to target   &chip\+\_\+id\+\_\+t (int)   &0 to (Get\+Num\+Available\+Devices -\/ 1)   &Yes   \\\cline{1-5}
 \end{longtabu}
-\mbox{\Hypertarget{host__api_8hpp_a07e0aaf41772593d1d017db950e3b7b3}\label{host__api_8hpp_a07e0aaf41772593d1d017db950e3b7b3}} 
+\mbox{\Hypertarget{host__api_8hpp_a2b65aae891efb62bb5baf5cbfd5e971b}\label{host__api_8hpp_a2b65aae891efb62bb5baf5cbfd5e971b}} 
 \index{host\_api.hpp@{host\_api.hpp}!CreateDeviceMinimal@{CreateDeviceMinimal}}
 \index{CreateDeviceMinimal@{CreateDeviceMinimal}!host\_api.hpp@{host\_api.hpp}}
 \doxysubsubsection{\texorpdfstring{CreateDeviceMinimal()}{CreateDeviceMinimal()}}
-{\footnotesize\ttfamily Device $\ast$ tt\+::tt\+\_\+metal\+::\+Create\+Device\+Minimal (\begin{DoxyParamCaption}\item[{chip\+\_\+id\+\_\+t}]{device\+\_\+id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Device $\ast$ tt\+::tt\+\_\+metal\+::\+Create\+Device\+Minimal (\begin{DoxyParamCaption}\item[{chip\+\_\+id\+\_\+t}]{device\+\_\+id,  }\item[{const uint8\+\_\+t}]{num\+\_\+hw\+\_\+cqs = {\ttfamily 1},  }\item[{Dispatch\+Core\+Type}]{dispatch\+\_\+core\+\_\+type = {\ttfamily DispatchCoreType\+:\+:WORKER} }\end{DoxyParamCaption})}
 
 Instantiates a device with minimal setup, used to attach to a device in a bad state.
 
@@ -347,7 +348,7 @@ core\+\_\+type   &Tensix or Ethernet core to create semaphore on.   &Core\+Type 
 \index{host\_api.hpp@{host\_api.hpp}!DeallocateBuffer@{DeallocateBuffer}}
 \index{DeallocateBuffer@{DeallocateBuffer}!host\_api.hpp@{host\_api.hpp}}
 \doxysubsubsection{\texorpdfstring{DeallocateBuffer()}{DeallocateBuffer()}}
-{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::\+Deallocate\+Buffer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBuffer}{Buffer}} \&}]{buffer }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::\+Deallocate\+Buffer (\begin{DoxyParamCaption}\item[{Buffer \&}]{buffer }\end{DoxyParamCaption})}
 
 Deallocates buffer from device by marking its memory as free.
 
@@ -363,7 +364,7 @@ Return value\+: void
 \hline
 \PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
 \endhead
-buffer   &The buffer to deallocate from device   &\mbox{\hyperlink{classBuffer}{Buffer}} \&   &&Yes   \\\cline{1-5}
+buffer   &The buffer to deallocate from device   &Buffer \&   &&Yes   \\\cline{1-5}
 \end{longtabu}
 \mbox{\Hypertarget{host__api_8hpp_a5087c491b5788ee5878cf049066c355a}\label{host__api_8hpp_a5087c491b5788ee5878cf049066c355a}} 
 \index{host\_api.hpp@{host\_api.hpp}!DumpDeviceProfileResults@{DumpDeviceProfileResults}}
@@ -442,7 +443,7 @@ blocking   &Whether or not this is a blocking operation   &bool   &&Yes   \\\cli
 \index{host\_api.hpp@{host\_api.hpp}!EnqueueReadBuffer@{EnqueueReadBuffer}}
 \index{EnqueueReadBuffer@{EnqueueReadBuffer}!host\_api.hpp@{host\_api.hpp}}
 \doxysubsubsection{\texorpdfstring{EnqueueReadBuffer()}{EnqueueReadBuffer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::\+Enqueue\+Read\+Buffer (\begin{DoxyParamCaption}\item[{Command\+Queue \&}]{cq,  }\item[{std\+::variant$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{classBuffer}{Buffer}} $>$, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuffer}{Buffer}} $>$ $>$}]{buffer,  }\item[{std\+::vector$<$ uint32\+\_\+t $>$ \&}]{dst,  }\item[{bool}]{blocking }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::\+Enqueue\+Read\+Buffer (\begin{DoxyParamCaption}\item[{Command\+Queue \&}]{cq,  }\item[{std\+::variant$<$ std\+::reference\+\_\+wrapper$<$ Buffer $>$, std\+::shared\+\_\+ptr$<$ Buffer $>$ $>$}]{buffer,  }\item[{std\+::vector$<$ uint32\+\_\+t $>$ \&}]{dst,  }\item[{bool}]{blocking }\end{DoxyParamCaption})}
 
 Reads a buffer from the device
 
@@ -459,7 +460,7 @@ Return value\+: void
 \PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
 \endhead
 cq   &The command queue object which dispatches the command to the hardware   &Command\+Queue \&   &&Yes    \\\cline{1-5}
-buffer   &The device buffer we are reading from   &\mbox{\hyperlink{classBuffer}{Buffer}} \& or std\+::shared\+\_\+ptr$<$\+Buffer$>$   &&Yes    \\\cline{1-5}
+buffer   &The device buffer we are reading from   &Buffer \& or std\+::shared\+\_\+ptr$<$\+Buffer$>$   &&Yes    \\\cline{1-5}
 dst   &The vector where the results that are read will be stored   &vector$<$uint32\+\_\+t$>$ \&   &&Yes    \\\cline{1-5}
 blocking   &Whether or not this is a blocking operation   &bool   &Only blocking mode supported currently   &Yes   \\\cline{1-5}
 \end{longtabu}
@@ -467,7 +468,7 @@ blocking   &Whether or not this is a blocking operation   &bool   &Only blocking
 \index{host\_api.hpp@{host\_api.hpp}!EnqueueReadBuffer@{EnqueueReadBuffer}}
 \index{EnqueueReadBuffer@{EnqueueReadBuffer}!host\_api.hpp@{host\_api.hpp}}
 \doxysubsubsection{\texorpdfstring{EnqueueReadBuffer()}{EnqueueReadBuffer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::\+Enqueue\+Read\+Buffer (\begin{DoxyParamCaption}\item[{Command\+Queue \&}]{cq,  }\item[{std\+::variant$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{classBuffer}{Buffer}} $>$, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuffer}{Buffer}} $>$ $>$}]{buffer,  }\item[{void $\ast$}]{dst,  }\item[{bool}]{blocking }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::\+Enqueue\+Read\+Buffer (\begin{DoxyParamCaption}\item[{Command\+Queue \&}]{cq,  }\item[{std\+::variant$<$ std\+::reference\+\_\+wrapper$<$ Buffer $>$, std\+::shared\+\_\+ptr$<$ Buffer $>$ $>$}]{buffer,  }\item[{void $\ast$}]{dst,  }\item[{bool}]{blocking }\end{DoxyParamCaption})}
 
 Reads a buffer from the device
 
@@ -484,7 +485,7 @@ Return value\+: void
 \PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
 \endhead
 cq   &The command queue object which dispatches the command to the hardware   &Command\+Queue \&   &&Yes    \\\cline{1-5}
-buffer   &The device buffer we are reading from   &\mbox{\hyperlink{classBuffer}{Buffer}} \& or std\+::shared\+\_\+ptr$<$\+Buffer$>$   &&Yes    \\\cline{1-5}
+buffer   &The device buffer we are reading from   &Buffer \& or std\+::shared\+\_\+ptr$<$\+Buffer$>$   &&Yes    \\\cline{1-5}
 dst   &The memory where the result will be stored   &void$\ast$   &&Yes    \\\cline{1-5}
 blocking   &Whether or not this is a blocking operation   &bool   &Only blocking mode supported currently   &Yes   \\\cline{1-5}
 \end{longtabu}
@@ -556,7 +557,7 @@ event   &The event object that this CQ will wait on for completion.   &std\+::sh
 \index{host\_api.hpp@{host\_api.hpp}!EnqueueWriteBuffer@{EnqueueWriteBuffer}}
 \index{EnqueueWriteBuffer@{EnqueueWriteBuffer}!host\_api.hpp@{host\_api.hpp}}
 \doxysubsubsection{\texorpdfstring{EnqueueWriteBuffer()}{EnqueueWriteBuffer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::\+Enqueue\+Write\+Buffer (\begin{DoxyParamCaption}\item[{Command\+Queue \&}]{cq,  }\item[{std\+::variant$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{classBuffer}{Buffer}} $>$, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuffer}{Buffer}} $>$ $>$}]{buffer,  }\item[{Host\+Data\+Type}]{src,  }\item[{bool}]{blocking }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::\+Enqueue\+Write\+Buffer (\begin{DoxyParamCaption}\item[{Command\+Queue \&}]{cq,  }\item[{std\+::variant$<$ std\+::reference\+\_\+wrapper$<$ Buffer $>$, std\+::shared\+\_\+ptr$<$ Buffer $>$ $>$}]{buffer,  }\item[{Host\+Data\+Type}]{src,  }\item[{bool}]{blocking }\end{DoxyParamCaption})}
 
 Writes a buffer to the device
 
@@ -573,7 +574,7 @@ Return value\+: void
 \PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
 \endhead
 cq   &The command queue object which dispatches the command to the hardware   &Command\+Queue \&   &&Yes    \\\cline{1-5}
-buffer   &The device buffer we are writing to   &\mbox{\hyperlink{classBuffer}{Buffer}} \& or std\+::shared\+\_\+ptr$<$\+Buffer$>$   &&Yes    \\\cline{1-5}
+buffer   &The device buffer we are writing to   &Buffer \& or std\+::shared\+\_\+ptr$<$\+Buffer$>$   &&Yes    \\\cline{1-5}
 src   &The memory we are writing to the device   &Host\+Data\+Type   &&Yes    \\\cline{1-5}
 blocking   &Whether or not this is a blocking operation   &bool   &&Yes   \\\cline{1-5}
 \end{longtabu}
@@ -581,7 +582,7 @@ blocking   &Whether or not this is a blocking operation   &bool   &&Yes   \\\cli
 \index{host\_api.hpp@{host\_api.hpp}!EnqueueWriteBuffer@{EnqueueWriteBuffer}}
 \index{EnqueueWriteBuffer@{EnqueueWriteBuffer}!host\_api.hpp@{host\_api.hpp}}
 \doxysubsubsection{\texorpdfstring{EnqueueWriteBuffer()}{EnqueueWriteBuffer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::\+Enqueue\+Write\+Buffer (\begin{DoxyParamCaption}\item[{Command\+Queue \&}]{cq,  }\item[{std\+::variant$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{classBuffer}{Buffer}} $>$, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBuffer}{Buffer}} $>$ $>$}]{buffer,  }\item[{std\+::vector$<$ uint32\+\_\+t $>$ \&}]{src,  }\item[{bool}]{blocking }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::\+Enqueue\+Write\+Buffer (\begin{DoxyParamCaption}\item[{Command\+Queue \&}]{cq,  }\item[{std\+::variant$<$ std\+::reference\+\_\+wrapper$<$ Buffer $>$, std\+::shared\+\_\+ptr$<$ Buffer $>$ $>$}]{buffer,  }\item[{std\+::vector$<$ uint32\+\_\+t $>$ \&}]{src,  }\item[{bool}]{blocking }\end{DoxyParamCaption})}
 
 Writes a buffer to the device
 
@@ -598,7 +599,7 @@ Return value\+: void
 \PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
 \endhead
 cq   &The command queue object which dispatches the command to the hardware   &Command\+Queue \&   &&Yes    \\\cline{1-5}
-buffer   &The device buffer we are writing to   &\mbox{\hyperlink{classBuffer}{Buffer}} \& or std\+::shared\+\_\+ptr$<$\+Buffer$>$   &&Yes    \\\cline{1-5}
+buffer   &The device buffer we are writing to   &Buffer \& or std\+::shared\+\_\+ptr$<$\+Buffer$>$   &&Yes    \\\cline{1-5}
 src   &The vector we are writing to the device   &vector$<$uint32\+\_\+t$>$ \&   &&Yes    \\\cline{1-5}
 blocking   &Whether or not this is a blocking operation   &bool   &&Yes   \\\cline{1-5}
 \end{longtabu}
@@ -939,6 +940,29 @@ kernel   &The kernel that will recieve these runtime args.   &std\+::shared\+\_\
 core\+\_\+spec   &Location of Tensix core(s) where the runtime args will be written   &const std\+::vector$<$ Core\+Coord $>$ \&   &Any set of logical Tensix core coordinates on which the kernel is placed   &Yes    \\\cline{1-5}
 runtime\+\_\+args   &The runtime args to be written   &const std\+::vector$<$std\+::shared\+\_\+ptr$<$\+Runtime\+Args$>$$>$   &Outer vector size must be equal to size of core\+\_\+spec vector   &Yes   \\\cline{1-5}
 \end{longtabu}
+\mbox{\Hypertarget{host__api_8hpp_a8a7da70517597db5090819de93f3d75b}\label{host__api_8hpp_a8a7da70517597db5090819de93f3d75b}} 
+\index{host\_api.hpp@{host\_api.hpp}!Synchronize@{Synchronize}}
+\index{Synchronize@{Synchronize}!host\_api.hpp@{host\_api.hpp}}
+\doxysubsubsection{\texorpdfstring{Synchronize()}{Synchronize()}}
+{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::\+Synchronize (\begin{DoxyParamCaption}\item[{Device $\ast$}]{device,  }\item[{const std\+::optional$<$ uint8\+\_\+t $>$}]{cq\+\_\+id = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
+
+Synchronize the device with host by waiting for all operations to complete. If cq\+\_\+id is provided then only the operations associated with that cq\+\_\+id are waited for, otherwise operations for all command queues are waited on.
+
+Return value\+: void
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endhead
+device   &The device to synchronize.   &Device $\ast$   &&Yes    \\\cline{1-5}
+cq\+\_\+id   &The specific command queue id to synchronize .   &uint8\+\_\+t   &&No   \\\cline{1-5}
+\end{longtabu}
 \mbox{\Hypertarget{host__api_8hpp_a92e93610eb6b826263eb803608c33889}\label{host__api_8hpp_a92e93610eb6b826263eb803608c33889}} 
 \index{host\_api.hpp@{host\_api.hpp}!UpdateCircularBufferPageSize@{UpdateCircularBufferPageSize}}
 \index{UpdateCircularBufferPageSize@{UpdateCircularBufferPageSize}!host\_api.hpp@{host\_api.hpp}}
@@ -990,7 +1014,7 @@ $\vert$ cb\+\_\+handle $\vert$ ID of the circular buffer, returned by {\ttfamily
 \index{host\_api.hpp@{host\_api.hpp}!UpdateDynamicCircularBufferAddress@{UpdateDynamicCircularBufferAddress}}
 \index{UpdateDynamicCircularBufferAddress@{UpdateDynamicCircularBufferAddress}!host\_api.hpp@{host\_api.hpp}}
 \doxysubsubsection{\texorpdfstring{UpdateDynamicCircularBufferAddress()}{UpdateDynamicCircularBufferAddress()}}
-{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::\+Update\+Dynamic\+Circular\+Buffer\+Address (\begin{DoxyParamCaption}\item[{Program \&}]{program,  }\item[{CBHandle}]{cb\+\_\+handle,  }\item[{const \mbox{\hyperlink{classBuffer}{Buffer}} \&}]{buffer }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::\+Update\+Dynamic\+Circular\+Buffer\+Address (\begin{DoxyParamCaption}\item[{Program \&}]{program,  }\item[{CBHandle}]{cb\+\_\+handle,  }\item[{const Buffer \&}]{buffer }\end{DoxyParamCaption})}
 
 Update the address of a dynamic circular buffer. Dynamic circular buffers share the same address space as L1 buffers.
 
@@ -1008,4 +1032,4 @@ Return value\+: void
 \endhead
 program   &The program containing the circular buffer   &Program \&   &&Yes   \\\cline{1-5}
 \end{longtabu}
-$\vert$ cb\+\_\+handle $\vert$ ID of the circular buffer, returned by {\ttfamily Create\+Circular\+Buffers} $\vert$ CBHandle (uintptr\+\_\+t) $\vert$ $\vert$ Yes $\vert$ $\vert$ $\vert$ buffer $\vert$ Dynamically allocated L1 buffer that shares address space of circular buffer {\ttfamily cb\+\_\+handle} $\vert$ const \mbox{\hyperlink{classBuffer}{Buffer}} \& $\vert$ L1 buffer $\vert$ Yes $\vert$ 
+$\vert$ cb\+\_\+handle $\vert$ ID of the circular buffer, returned by {\ttfamily Create\+Circular\+Buffers} $\vert$ CBHandle (uintptr\+\_\+t) $\vert$ $\vert$ Yes $\vert$ $\vert$ $\vert$ buffer $\vert$ Dynamically allocated L1 buffer that shares address space of circular buffer {\ttfamily cb\+\_\+handle} $\vert$ const Buffer \& $\vert$ L1 buffer $\vert$ Yes $\vert$ 

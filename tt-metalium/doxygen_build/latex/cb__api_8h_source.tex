@@ -28,19 +28,32 @@
 \DoxyCodeLine{00074\ \ \ \ \ UNPACK((\ llk\_pop\_tiles(cbid,\ ntiles)\ \ ));}
 \DoxyCodeLine{00075\ \}}
 \DoxyCodeLine{00076\ }
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00091\ ALWI\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{dataflow__api_8h_a29521dee07b0070674a988f66c01ffed}{cb\_reserve\_back}}(uint32\_t\ cbid,\ uint32\_t\ ntiles)}
-\DoxyCodeLine{00092\ \{}
-\DoxyCodeLine{00093\ \ \ \ \ PACK((\ llk\_wait\_for\_free\_tiles<false,false,false>(cbid,ntiles)\ \ ));}
-\DoxyCodeLine{00094\ \}}
-\DoxyCodeLine{00095\ }
-\DoxyCodeLine{00096\ }
-\DoxyCodeLine{00125\ ALWI\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{dataflow__api_8h_a81357224b88562601b42833eec676ffb}{cb\_push\_back}}(uint32\_t\ cbid,\ uint32\_t\ ntiles)}
-\DoxyCodeLine{00126\ \{}
-\DoxyCodeLine{00127\ \ \ \ \ PACK((\ llk\_push\_tiles<false,false>(cbid,\ ntiles)\ \ ));}
-\DoxyCodeLine{00128\ \}}
-\DoxyCodeLine{00129\ }
-\DoxyCodeLine{00130\ }
-\DoxyCodeLine{00131\ \}\ \textcolor{comment}{//\ namespace\ ckernel}}
+\DoxyCodeLine{00090\ ALWI\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{dataflow__api_8h_a29521dee07b0070674a988f66c01ffed}{cb\_reserve\_back}}(uint32\_t\ cbid,\ uint32\_t\ ntiles)}
+\DoxyCodeLine{00091\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ PACK((\ llk\_wait\_for\_free\_tiles<false,false,false>(cbid,ntiles)\ \ ));}
+\DoxyCodeLine{00093\ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00123\ ALWI\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{dataflow__api_8h_a81357224b88562601b42833eec676ffb}{cb\_push\_back}}(uint32\_t\ cbid,\ uint32\_t\ ntiles)}
+\DoxyCodeLine{00124\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ PACK((\ llk\_push\_tiles<false,false>(cbid,\ ntiles)\ \ ));}
+\DoxyCodeLine{00126\ \}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00141\ ALWI\ \textcolor{keywordtype}{void}\ cb\_get\_tile(uint32\_t\ cb\_id,\ uint32\_t\ index,\ \textcolor{keyword}{volatile}\ \textcolor{keywordtype}{void}*\ p\_tile)\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ UNPACK(llk\_unpack\_get\_tile(cb\_id,\ index,\ (uint32\_t*)p\_tile));}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ MATH(llk\_math\_get\_tile(cb\_id,\ index,\ (uint32\_t*)p\_tile));}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ PACK(llk\_pack\_get\_tile(cb\_id,\ index,\ (uint32\_t*)p\_tile));}
+\DoxyCodeLine{00147\ \}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00159\ ALWI\ \textcolor{keywordtype}{void}\ cb\_release\_tile(uint32\_t\ cb\_id)\ \{}
+\DoxyCodeLine{00160\ \ \ \ \ UNPACK(llk\_unpack\_release\_tile(cb\_id));}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ MATH(llk\_math\_release\_tile(cb\_id));}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ PACK(llk\_pack\_release\_tile(cb\_id));}
+\DoxyCodeLine{00165\ \}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \}\ \textcolor{comment}{//\ namespace\ ckernel}}
 
 \end{DoxyCode}

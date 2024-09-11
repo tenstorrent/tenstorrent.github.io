@@ -79,22 +79,18 @@ $(function() {
   <div class="headertitle"><div class="title">host_api.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;optional&gt;</code><br />
-<code>#include &lt;variant&gt;</code><br />
+<div class="textblock"><code>#include &lt;variant&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
-<code>#include &lt;future&gt;</code><br />
-<code>#include &quot;tt_metal/common/core_coord.h&quot;</code><br />
+<code>#include &quot;tt_metal/impl/dispatch/dispatch_core_manager.hpp&quot;</code><br />
 <code>#include &quot;tt_metal/impl/program/program.hpp&quot;</code><br />
-<code>#include &quot;tt_metal/impl/buffers/buffer.hpp&quot;</code><br />
-<code>#include &quot;tt_metal/impl/event/event.hpp&quot;</code><br />
-<code>#include &quot;tt_metal/impl/device/device_pool.hpp&quot;</code><br />
+<code>#include &quot;tt_metal/impl/kernels/runtime_args_data.hpp&quot;</code><br />
 </div>
 <p><a href="host__api_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:af559e38779cb26844ec9a6b0bb41f940"><td class="memItemLeft" align="right" valign="top"><a id="af559e38779cb26844ec9a6b0bb41f940" name="af559e38779cb26844ec9a6b0bb41f940"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>tt::tt_metal::RuntimeArgs</b> = std::vector&lt; std::variant&lt; <a class="el" href="classBuffer.html">Buffer</a> *, uint32_t &gt; &gt;</td></tr>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>tt::tt_metal::RuntimeArgs</b> = std::vector&lt; std::variant&lt; Buffer *, uint32_t &gt; &gt;</td></tr>
 <tr class="separator:af559e38779cb26844ec9a6b0bb41f940"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -103,10 +99,13 @@ Functions</h2></td></tr>
 <tr class="separator:a06ba0ab5eeb2da5af625a8b7f95ca48e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa18761d248b0a8081c84440f3aeafcfc"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="host__api_8hpp.html#aa18761d248b0a8081c84440f3aeafcfc">tt::tt_metal::GetNumPCIeDevices</a> ()</td></tr>
 <tr class="separator:aa18761d248b0a8081c84440f3aeafcfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8332bdd9a9ffe6e0cedf921e438fe7ed"><td class="memItemLeft" align="right" valign="top">Device *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="host__api_8hpp.html#a8332bdd9a9ffe6e0cedf921e438fe7ed">tt::tt_metal::CreateDevice</a> (chip_id_t device_id, const uint8_t num_hw_cqs=1, const size_t l1_small_size=DEFAULT_L1_SMALL_SIZE, const size_t trace_region_size=DEFAULT_TRACE_REGION_SIZE, const std::vector&lt; uint32_t &gt; &amp;l1_bank_remap={})</td></tr>
-<tr class="separator:a8332bdd9a9ffe6e0cedf921e438fe7ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07e0aaf41772593d1d017db950e3b7b3"><td class="memItemLeft" align="right" valign="top">Device *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="host__api_8hpp.html#a07e0aaf41772593d1d017db950e3b7b3">tt::tt_metal::CreateDeviceMinimal</a> (chip_id_t device_id)</td></tr>
-<tr class="separator:a07e0aaf41772593d1d017db950e3b7b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a993783d82827c89b8f233704a7f55b2d"><td class="memItemLeft" align="right" valign="top"><a id="a993783d82827c89b8f233704a7f55b2d" name="a993783d82827c89b8f233704a7f55b2d"></a>
+chip_id_t&#160;</td><td class="memItemRight" valign="bottom"><b>tt::tt_metal::GetPCIeDeviceID</b> (chip_id_t device_id)</td></tr>
+<tr class="separator:a993783d82827c89b8f233704a7f55b2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfbb2695f1ea832a3d12724a54de28e6"><td class="memItemLeft" align="right" valign="top">Device *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="host__api_8hpp.html#acfbb2695f1ea832a3d12724a54de28e6">tt::tt_metal::CreateDevice</a> (chip_id_t device_id, const uint8_t num_hw_cqs=1, const size_t l1_small_size=DEFAULT_L1_SMALL_SIZE, const size_t trace_region_size=DEFAULT_TRACE_REGION_SIZE, DispatchCoreType dispatch_core_type=DispatchCoreType::WORKER, const std::vector&lt; uint32_t &gt; &amp;l1_bank_remap={})</td></tr>
+<tr class="separator:acfbb2695f1ea832a3d12724a54de28e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b65aae891efb62bb5baf5cbfd5e971b"><td class="memItemLeft" align="right" valign="top">Device *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="host__api_8hpp.html#a2b65aae891efb62bb5baf5cbfd5e971b">tt::tt_metal::CreateDeviceMinimal</a> (chip_id_t device_id, const uint8_t num_hw_cqs=1, DispatchCoreType dispatch_core_type=DispatchCoreType::WORKER)</td></tr>
+<tr class="separator:a2b65aae891efb62bb5baf5cbfd5e971b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25ae925200ca85a3274824f1b945ebc1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="host__api_8hpp.html#a25ae925200ca85a3274824f1b945ebc1">tt::tt_metal::CloseDevice</a> (Device *device)</td></tr>
 <tr class="separator:a25ae925200ca85a3274824f1b945ebc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48b1af1b20561d626ff34f39282f1dea"><td class="memItemLeft" align="right" valign="top">Program&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="host__api_8hpp.html#a48b1af1b20561d626ff34f39282f1dea">tt::tt_metal::CreateProgram</a> ()</td></tr>
@@ -121,17 +120,17 @@ Functions</h2></td></tr>
 <tr class="separator:a39e124f62d4c172a44abc0c22fa3ee04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92e93610eb6b826263eb803608c33889"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="host__api_8hpp.html#a92e93610eb6b826263eb803608c33889">tt::tt_metal::UpdateCircularBufferPageSize</a> (Program &amp;program, CBHandle cb_handle, uint8_t buffer_index, uint32_t page_size)</td></tr>
 <tr class="separator:a92e93610eb6b826263eb803608c33889"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac851bed71135fa02e28caf0c0ae58b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="host__api_8hpp.html#aac851bed71135fa02e28caf0c0ae58b0">tt::tt_metal::UpdateDynamicCircularBufferAddress</a> (Program &amp;program, CBHandle cb_handle, const <a class="el" href="classBuffer.html">Buffer</a> &amp;buffer)</td></tr>
+<tr class="memitem:aac851bed71135fa02e28caf0c0ae58b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="host__api_8hpp.html#aac851bed71135fa02e28caf0c0ae58b0">tt::tt_metal::UpdateDynamicCircularBufferAddress</a> (Program &amp;program, CBHandle cb_handle, const Buffer &amp;buffer)</td></tr>
 <tr class="separator:aac851bed71135fa02e28caf0c0ae58b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8860cbc40324a9cc2e18badc55a77a68"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="host__api_8hpp.html#a8860cbc40324a9cc2e18badc55a77a68">tt::tt_metal::CreateSemaphore</a> (Program &amp;program, const std::variant&lt; CoreRange, CoreRangeSet &gt; &amp;core_spec, uint32_t initial_value, CoreType core_type=CoreType::WORKER)</td></tr>
 <tr class="separator:a8860cbc40324a9cc2e18badc55a77a68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44f12170a79821c7a1eb7dcad8e9014e"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classBuffer.html">Buffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="host__api_8hpp.html#a44f12170a79821c7a1eb7dcad8e9014e">tt::tt_metal::CreateBuffer</a> (const InterleavedBufferConfig &amp;config)</td></tr>
+<tr class="memitem:a44f12170a79821c7a1eb7dcad8e9014e"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; Buffer &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="host__api_8hpp.html#a44f12170a79821c7a1eb7dcad8e9014e">tt::tt_metal::CreateBuffer</a> (const InterleavedBufferConfig &amp;config)</td></tr>
 <tr class="separator:a44f12170a79821c7a1eb7dcad8e9014e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e5af0183154c8b303d43acec393ec29"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classBuffer.html">Buffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="host__api_8hpp.html#a8e5af0183154c8b303d43acec393ec29">tt::tt_metal::CreateBuffer</a> (const ShardedBufferConfig &amp;config)</td></tr>
+<tr class="memitem:a8e5af0183154c8b303d43acec393ec29"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; Buffer &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="host__api_8hpp.html#a8e5af0183154c8b303d43acec393ec29">tt::tt_metal::CreateBuffer</a> (const ShardedBufferConfig &amp;config)</td></tr>
 <tr class="separator:a8e5af0183154c8b303d43acec393ec29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a064752ab55b4fac953ba8bde7daf52"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="host__api_8hpp.html#a6a064752ab55b4fac953ba8bde7daf52">tt::tt_metal::DeallocateBuffer</a> (<a class="el" href="classBuffer.html">Buffer</a> &amp;buffer)</td></tr>
+<tr class="memitem:a6a064752ab55b4fac953ba8bde7daf52"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="host__api_8hpp.html#a6a064752ab55b4fac953ba8bde7daf52">tt::tt_metal::DeallocateBuffer</a> (Buffer &amp;buffer)</td></tr>
 <tr class="separator:a6a064752ab55b4fac953ba8bde7daf52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e29ca9df8b6f13424f2a392d8971483"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="host__api_8hpp.html#a4e29ca9df8b6f13424f2a392d8971483">tt::tt_metal::AssignGlobalBufferToProgram</a> (std::shared_ptr&lt; <a class="el" href="classBuffer.html">Buffer</a> &gt; buffer, std::variant&lt; std::reference_wrapper&lt; Program &gt;, std::shared_ptr&lt; Program &gt; &gt; program)</td></tr>
+<tr class="memitem:a4e29ca9df8b6f13424f2a392d8971483"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="host__api_8hpp.html#a4e29ca9df8b6f13424f2a392d8971483">tt::tt_metal::AssignGlobalBufferToProgram</a> (std::shared_ptr&lt; Buffer &gt; buffer, std::variant&lt; std::reference_wrapper&lt; Program &gt;, std::shared_ptr&lt; Program &gt; &gt; program)</td></tr>
 <tr class="separator:a4e29ca9df8b6f13424f2a392d8971483"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a491996adcf69861c22eed34ce1ac68cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="host__api_8hpp.html#a491996adcf69861c22eed34ce1ac68cc">tt::tt_metal::SetRuntimeArgs</a> (const Program &amp;program, KernelHandle kernel, const std::variant&lt; CoreCoord, CoreRange, CoreRangeSet &gt; &amp;core_spec, const std::vector&lt; uint32_t &gt; &amp;runtime_args)</td></tr>
 <tr class="separator:a491996adcf69861c22eed34ce1ac68cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -149,13 +148,13 @@ Functions</h2></td></tr>
 <tr class="separator:a1b62db611a9ad2d24c90c043dae989a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2af22a7fb7c71050de7ec2fc9d487ab6"><td class="memItemLeft" align="right" valign="top">RuntimeArgsData &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="host__api_8hpp.html#a2af22a7fb7c71050de7ec2fc9d487ab6">tt::tt_metal::GetCommonRuntimeArgs</a> (const Program &amp;program, KernelHandle kernel_id)</td></tr>
 <tr class="separator:a2af22a7fb7c71050de7ec2fc9d487ab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72bce18ec81347c077fb802271a7c562"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="host__api_8hpp.html#a72bce18ec81347c077fb802271a7c562">tt::tt_metal::EnqueueReadBuffer</a> (CommandQueue &amp;cq, std::variant&lt; std::reference_wrapper&lt; <a class="el" href="classBuffer.html">Buffer</a> &gt;, std::shared_ptr&lt; <a class="el" href="classBuffer.html">Buffer</a> &gt; &gt; buffer, std::vector&lt; uint32_t &gt; &amp;dst, bool blocking)</td></tr>
+<tr class="memitem:a72bce18ec81347c077fb802271a7c562"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="host__api_8hpp.html#a72bce18ec81347c077fb802271a7c562">tt::tt_metal::EnqueueReadBuffer</a> (CommandQueue &amp;cq, std::variant&lt; std::reference_wrapper&lt; Buffer &gt;, std::shared_ptr&lt; Buffer &gt; &gt; buffer, std::vector&lt; uint32_t &gt; &amp;dst, bool blocking)</td></tr>
 <tr class="separator:a72bce18ec81347c077fb802271a7c562"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a769957ca9a07e91d82cac6fd682a7fd1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="host__api_8hpp.html#a769957ca9a07e91d82cac6fd682a7fd1">tt::tt_metal::EnqueueReadBuffer</a> (CommandQueue &amp;cq, std::variant&lt; std::reference_wrapper&lt; <a class="el" href="classBuffer.html">Buffer</a> &gt;, std::shared_ptr&lt; <a class="el" href="classBuffer.html">Buffer</a> &gt; &gt; buffer, void *dst, bool blocking)</td></tr>
+<tr class="memitem:a769957ca9a07e91d82cac6fd682a7fd1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="host__api_8hpp.html#a769957ca9a07e91d82cac6fd682a7fd1">tt::tt_metal::EnqueueReadBuffer</a> (CommandQueue &amp;cq, std::variant&lt; std::reference_wrapper&lt; Buffer &gt;, std::shared_ptr&lt; Buffer &gt; &gt; buffer, void *dst, bool blocking)</td></tr>
 <tr class="separator:a769957ca9a07e91d82cac6fd682a7fd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41f4ff2e9c7fca0b1287446f57d37e34"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="host__api_8hpp.html#a41f4ff2e9c7fca0b1287446f57d37e34">tt::tt_metal::EnqueueWriteBuffer</a> (CommandQueue &amp;cq, std::variant&lt; std::reference_wrapper&lt; <a class="el" href="classBuffer.html">Buffer</a> &gt;, std::shared_ptr&lt; <a class="el" href="classBuffer.html">Buffer</a> &gt; &gt; buffer, std::vector&lt; uint32_t &gt; &amp;src, bool blocking)</td></tr>
+<tr class="memitem:a41f4ff2e9c7fca0b1287446f57d37e34"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="host__api_8hpp.html#a41f4ff2e9c7fca0b1287446f57d37e34">tt::tt_metal::EnqueueWriteBuffer</a> (CommandQueue &amp;cq, std::variant&lt; std::reference_wrapper&lt; Buffer &gt;, std::shared_ptr&lt; Buffer &gt; &gt; buffer, std::vector&lt; uint32_t &gt; &amp;src, bool blocking)</td></tr>
 <tr class="separator:a41f4ff2e9c7fca0b1287446f57d37e34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a474bb3622a9e2927298d2a2a70c90774"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="host__api_8hpp.html#a474bb3622a9e2927298d2a2a70c90774">tt::tt_metal::EnqueueWriteBuffer</a> (CommandQueue &amp;cq, std::variant&lt; std::reference_wrapper&lt; <a class="el" href="classBuffer.html">Buffer</a> &gt;, std::shared_ptr&lt; <a class="el" href="classBuffer.html">Buffer</a> &gt; &gt; buffer, HostDataType src, bool blocking)</td></tr>
+<tr class="memitem:a474bb3622a9e2927298d2a2a70c90774"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="host__api_8hpp.html#a474bb3622a9e2927298d2a2a70c90774">tt::tt_metal::EnqueueWriteBuffer</a> (CommandQueue &amp;cq, std::variant&lt; std::reference_wrapper&lt; Buffer &gt;, std::shared_ptr&lt; Buffer &gt; &gt; buffer, HostDataType src, bool blocking)</td></tr>
 <tr class="separator:a474bb3622a9e2927298d2a2a70c90774"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a573978c2536748213de459b0a09477b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="host__api_8hpp.html#a573978c2536748213de459b0a09477b7">tt::tt_metal::EnqueueProgram</a> (CommandQueue &amp;cq, std::variant&lt; std::reference_wrapper&lt; Program &gt;, std::shared_ptr&lt; Program &gt; &gt; program, bool blocking)</td></tr>
 <tr class="separator:a573978c2536748213de459b0a09477b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -181,6 +180,8 @@ Functions</h2></td></tr>
 <tr class="separator:a503f5ffa5860947b42872b7fe326bac5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a017d64ee3fbb64880859d52a21f7f474"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="host__api_8hpp.html#a017d64ee3fbb64880859d52a21f7f474">tt::tt_metal::EventQuery</a> (std::shared_ptr&lt; Event &gt; event)</td></tr>
 <tr class="separator:a017d64ee3fbb64880859d52a21f7f474"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a7da70517597db5090819de93f3d75b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="host__api_8hpp.html#a8a7da70517597db5090819de93f3d75b">tt::tt_metal::Synchronize</a> (Device *device, const std::optional&lt; uint8_t &gt; cq_id=std::nullopt)</td></tr>
+<tr class="separator:a8a7da70517597db5090819de93f3d75b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a4e29ca9df8b6f13424f2a392d8971483" name="a4e29ca9df8b6f13424f2a392d8971483"></a>
@@ -192,7 +193,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void tt::tt_metal::AssignGlobalBufferToProgram </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classBuffer.html">Buffer</a> &gt;&#160;</td>
+          <td class="paramtype">std::shared_ptr&lt; Buffer &gt;&#160;</td>
           <td class="paramname"><em>buffer</em>, </td>
         </tr>
         <tr>
@@ -292,7 +293,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="classBuffer.html">Buffer</a> &gt; tt::tt_metal::CreateBuffer </td>
+          <td class="memname">std::shared_ptr&lt; Buffer &gt; tt::tt_metal::CreateBuffer </td>
           <td>(</td>
           <td class="paramtype">const InterleavedBufferConfig &amp;&#160;</td>
           <td class="paramname"><em>config</em></td><td>)</td>
@@ -318,7 +319,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="classBuffer.html">Buffer</a> &gt; tt::tt_metal::CreateBuffer </td>
+          <td class="memname">std::shared_ptr&lt; Buffer &gt; tt::tt_metal::CreateBuffer </td>
           <td>(</td>
           <td class="paramtype">const ShardedBufferConfig &amp;&#160;</td>
           <td class="paramname"><em>config</em></td><td>)</td>
@@ -368,9 +369,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Creates a Circular <a class="el" href="classBuffer.html">Buffer</a> (CB) in L1 memory of all cores within core ranges (inclusive) and adds it to the program. There can be a total of NUM_CIRCULAR_BUFFERS (32) circular buffers per core. Circular buffers hold data and have an associated config which indicates usage of the address space. If the config is specified for multiple buffer indices, the circular buffer address space is shared and each buffer index can potentially have a unique view of the shared space.</p>
+<p>Creates a Circular Buffer (CB) in L1 memory of all cores within core ranges (inclusive) and adds it to the program. There can be a total of NUM_CIRCULAR_BUFFERS (32) circular buffers per core. Circular buffers hold data and have an associated config which indicates usage of the address space. If the config is specified for multiple buffer indices, the circular buffer address space is shared and each buffer index can potentially have a unique view of the shared space.</p>
 <p>Circular buffers can be dynamically allocated or program-local allocated. If the config is created with an L1 buffer or sets a globally allocated address it is dynamic and shares the same address space as the L1 buffer. Otherwise, the circular buffer address space is managed by the program. Address space for program-local circular buffers does not persist across programs.</p>
-<p>Return value: Circular <a class="el" href="classBuffer.html">Buffer</a> ID (uintptr_t)</p>
+<p>Return value: Circular Buffer ID (uintptr_t)</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
@@ -384,8 +385,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a8332bdd9a9ffe6e0cedf921e438fe7ed" name="a8332bdd9a9ffe6e0cedf921e438fe7ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8332bdd9a9ffe6e0cedf921e438fe7ed">&#9670;&#160;</a></span>CreateDevice()</h2>
+<a id="acfbb2695f1ea832a3d12724a54de28e6" name="acfbb2695f1ea832a3d12724a54de28e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfbb2695f1ea832a3d12724a54de28e6">&#9670;&#160;</a></span>CreateDevice()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -417,6 +418,12 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">DispatchCoreType&#160;</td>
+          <td class="paramname"><em>dispatch_core_type</em> = <code>DispatchCoreType::WORKER</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">const std::vector&lt; uint32_t &gt; &amp;&#160;</td>
           <td class="paramname"><em>l1_bank_remap</em> = <code>{}</code>&#160;</td>
         </tr>
@@ -438,8 +445,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a07e0aaf41772593d1d017db950e3b7b3" name="a07e0aaf41772593d1d017db950e3b7b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07e0aaf41772593d1d017db950e3b7b3">&#9670;&#160;</a></span>CreateDeviceMinimal()</h2>
+<a id="a2b65aae891efb62bb5baf5cbfd5e971b" name="a2b65aae891efb62bb5baf5cbfd5e971b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b65aae891efb62bb5baf5cbfd5e971b">&#9670;&#160;</a></span>CreateDeviceMinimal()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -448,8 +455,24 @@ Functions</h2></td></tr>
           <td class="memname">Device * tt::tt_metal::CreateDeviceMinimal </td>
           <td>(</td>
           <td class="paramtype">chip_id_t&#160;</td>
-          <td class="paramname"><em>device_id</em></td><td>)</td>
+          <td class="paramname"><em>device_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>num_hw_cqs</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DispatchCoreType&#160;</td>
+          <td class="paramname"><em>dispatch_core_type</em> = <code>DispatchCoreType::WORKER</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -600,7 +623,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void tt::tt_metal::DeallocateBuffer </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classBuffer.html">Buffer</a> &amp;&#160;</td>
+          <td class="paramtype">Buffer &amp;&#160;</td>
           <td class="paramname"><em>buffer</em></td><td>)</td>
           <td></td>
         </tr>
@@ -612,7 +635,7 @@ Functions</h2></td></tr>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">buffer   </td><td class="markdownTableBodyNone">The buffer to deallocate from device   </td><td class="markdownTableBodyNone"><a class="el" href="classBuffer.html">Buffer</a> &amp;   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Yes   </td></tr>
+<td class="markdownTableBodyNone">buffer   </td><td class="markdownTableBodyNone">The buffer to deallocate from device   </td><td class="markdownTableBodyNone">Buffer &amp;   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Yes   </td></tr>
 </table>
 
 </div>
@@ -763,7 +786,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::variant&lt; std::reference_wrapper&lt; <a class="el" href="classBuffer.html">Buffer</a> &gt;, std::shared_ptr&lt; <a class="el" href="classBuffer.html">Buffer</a> &gt; &gt;&#160;</td>
+          <td class="paramtype">std::variant&lt; std::reference_wrapper&lt; Buffer &gt;, std::shared_ptr&lt; Buffer &gt; &gt;&#160;</td>
           <td class="paramname"><em>buffer</em>, </td>
         </tr>
         <tr>
@@ -793,7 +816,7 @@ Functions</h2></td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">cq   </td><td class="markdownTableBodyNone">The command queue object which dispatches the command to the hardware   </td><td class="markdownTableBodyNone">CommandQueue &amp;   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Yes    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">buffer   </td><td class="markdownTableBodyNone">The device buffer we are reading from   </td><td class="markdownTableBodyNone"><a class="el" href="classBuffer.html">Buffer</a> &amp; or std::shared_ptr&lt;Buffer&gt;   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Yes    </td></tr>
+<td class="markdownTableBodyNone">buffer   </td><td class="markdownTableBodyNone">The device buffer we are reading from   </td><td class="markdownTableBodyNone">Buffer &amp; or std::shared_ptr&lt;Buffer&gt;   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Yes    </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">dst   </td><td class="markdownTableBodyNone">The vector where the results that are read will be stored   </td><td class="markdownTableBodyNone">vector&lt;uint32_t&gt; &amp;   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Yes    </td></tr>
 <tr class="markdownTableRowEven">
@@ -817,7 +840,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::variant&lt; std::reference_wrapper&lt; <a class="el" href="classBuffer.html">Buffer</a> &gt;, std::shared_ptr&lt; <a class="el" href="classBuffer.html">Buffer</a> &gt; &gt;&#160;</td>
+          <td class="paramtype">std::variant&lt; std::reference_wrapper&lt; Buffer &gt;, std::shared_ptr&lt; Buffer &gt; &gt;&#160;</td>
           <td class="paramname"><em>buffer</em>, </td>
         </tr>
         <tr>
@@ -847,7 +870,7 @@ Functions</h2></td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">cq   </td><td class="markdownTableBodyNone">The command queue object which dispatches the command to the hardware   </td><td class="markdownTableBodyNone">CommandQueue &amp;   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Yes    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">buffer   </td><td class="markdownTableBodyNone">The device buffer we are reading from   </td><td class="markdownTableBodyNone"><a class="el" href="classBuffer.html">Buffer</a> &amp; or std::shared_ptr&lt;Buffer&gt;   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Yes    </td></tr>
+<td class="markdownTableBodyNone">buffer   </td><td class="markdownTableBodyNone">The device buffer we are reading from   </td><td class="markdownTableBodyNone">Buffer &amp; or std::shared_ptr&lt;Buffer&gt;   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Yes    </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">dst   </td><td class="markdownTableBodyNone">The memory where the result will be stored   </td><td class="markdownTableBodyNone">void*   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Yes    </td></tr>
 <tr class="markdownTableRowEven">
@@ -993,7 +1016,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::variant&lt; std::reference_wrapper&lt; <a class="el" href="classBuffer.html">Buffer</a> &gt;, std::shared_ptr&lt; <a class="el" href="classBuffer.html">Buffer</a> &gt; &gt;&#160;</td>
+          <td class="paramtype">std::variant&lt; std::reference_wrapper&lt; Buffer &gt;, std::shared_ptr&lt; Buffer &gt; &gt;&#160;</td>
           <td class="paramname"><em>buffer</em>, </td>
         </tr>
         <tr>
@@ -1023,7 +1046,7 @@ Functions</h2></td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">cq   </td><td class="markdownTableBodyNone">The command queue object which dispatches the command to the hardware   </td><td class="markdownTableBodyNone">CommandQueue &amp;   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Yes    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">buffer   </td><td class="markdownTableBodyNone">The device buffer we are writing to   </td><td class="markdownTableBodyNone"><a class="el" href="classBuffer.html">Buffer</a> &amp; or std::shared_ptr&lt;Buffer&gt;   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Yes    </td></tr>
+<td class="markdownTableBodyNone">buffer   </td><td class="markdownTableBodyNone">The device buffer we are writing to   </td><td class="markdownTableBodyNone">Buffer &amp; or std::shared_ptr&lt;Buffer&gt;   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Yes    </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">src   </td><td class="markdownTableBodyNone">The memory we are writing to the device   </td><td class="markdownTableBodyNone">HostDataType   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Yes    </td></tr>
 <tr class="markdownTableRowEven">
@@ -1047,7 +1070,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::variant&lt; std::reference_wrapper&lt; <a class="el" href="classBuffer.html">Buffer</a> &gt;, std::shared_ptr&lt; <a class="el" href="classBuffer.html">Buffer</a> &gt; &gt;&#160;</td>
+          <td class="paramtype">std::variant&lt; std::reference_wrapper&lt; Buffer &gt;, std::shared_ptr&lt; Buffer &gt; &gt;&#160;</td>
           <td class="paramname"><em>buffer</em>, </td>
         </tr>
         <tr>
@@ -1077,7 +1100,7 @@ Functions</h2></td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">cq   </td><td class="markdownTableBodyNone">The command queue object which dispatches the command to the hardware   </td><td class="markdownTableBodyNone">CommandQueue &amp;   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Yes    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">buffer   </td><td class="markdownTableBodyNone">The device buffer we are writing to   </td><td class="markdownTableBodyNone"><a class="el" href="classBuffer.html">Buffer</a> &amp; or std::shared_ptr&lt;Buffer&gt;   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Yes    </td></tr>
+<td class="markdownTableBodyNone">buffer   </td><td class="markdownTableBodyNone">The device buffer we are writing to   </td><td class="markdownTableBodyNone">Buffer &amp; or std::shared_ptr&lt;Buffer&gt;   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Yes    </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">src   </td><td class="markdownTableBodyNone">The vector we are writing to the device   </td><td class="markdownTableBodyNone">vector&lt;uint32_t&gt; &amp;   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Yes    </td></tr>
 <tr class="markdownTableRowEven">
@@ -1711,6 +1734,44 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a8a7da70517597db5090819de93f3d75b" name="a8a7da70517597db5090819de93f3d75b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a7da70517597db5090819de93f3d75b">&#9670;&#160;</a></span>Synchronize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tt::tt_metal::Synchronize </td>
+          <td>(</td>
+          <td class="paramtype">Device *&#160;</td>
+          <td class="paramname"><em>device</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::optional&lt; uint8_t &gt;&#160;</td>
+          <td class="paramname"><em>cq_id</em> = <code>std::nullopt</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Synchronize the device with host by waiting for all operations to complete. If cq_id is provided then only the operations associated with that cq_id are waited for, otherwise operations for all command queues are waited on.</p>
+<p>Return value: void</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">device   </td><td class="markdownTableBodyNone">The device to synchronize.   </td><td class="markdownTableBodyNone">Device *   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Yes    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">cq_id   </td><td class="markdownTableBodyNone">The specific command queue id to synchronize .   </td><td class="markdownTableBodyNone">uint8_t   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">No   </td></tr>
+</table>
+
+</div>
+</div>
 <a id="a92e93610eb6b826263eb803608c33889" name="a92e93610eb6b826263eb803608c33889"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a92e93610eb6b826263eb803608c33889">&#9670;&#160;</a></span>UpdateCircularBufferPageSize()</h2>
 
@@ -1829,7 +1890,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classBuffer.html">Buffer</a> &amp;&#160;</td>
+          <td class="paramtype">const Buffer &amp;&#160;</td>
           <td class="paramname"><em>buffer</em>&#160;</td>
         </tr>
         <tr>
@@ -1847,7 +1908,7 @@ Functions</h2></td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">program   </td><td class="markdownTableBodyNone">The program containing the circular buffer   </td><td class="markdownTableBodyNone">Program &amp;   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Yes   </td></tr>
 </table>
-<p>| cb_handle | ID of the circular buffer, returned by <code>CreateCircularBuffers</code> | CBHandle (uintptr_t) | | Yes | | | buffer | Dynamically allocated L1 buffer that shares address space of circular buffer <code>cb_handle</code> | const <a class="el" href="classBuffer.html">Buffer</a> &amp; | L1 buffer | Yes | </p>
+<p>| cb_handle | ID of the circular buffer, returned by <code>CreateCircularBuffers</code> | CBHandle (uintptr_t) | | Yes | | | buffer | Dynamically allocated L1 buffer that shares address space of circular buffer <code>cb_handle</code> | const Buffer &amp; | L1 buffer | Yes | </p>
 
 </div>
 </div>

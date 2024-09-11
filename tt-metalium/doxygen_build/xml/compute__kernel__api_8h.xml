@@ -54,7 +54,7 @@
       <sectiondef kind="define">
       <memberdef kind="define" id="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" prot="public" static="no">
         <name>ALWI</name>
-        <initializer>inline <ref refid="dataflow__api_8h_1aaeb67c582bba445a7c2e7eac520cd84e" kindref="member">__attribute__</ref>((always_inline))</initializer>
+        <initializer>inline __attribute__((always_inline))</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -456,7 +456,8 @@
 <codeline lineno="888"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_unary_sfpu_unary_lt_init&lt;APPROX&gt;()<sp/>));</highlight></codeline>
 <codeline lineno="889"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="890"><highlight class="normal"></highlight></codeline>
-<codeline lineno="891"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>ckernel</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="891"><highlight class="normal"></highlight></codeline>
+<codeline lineno="892"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>ckernel</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="tt_metal/include/compute_kernel_api.h"/>
   </compounddef>

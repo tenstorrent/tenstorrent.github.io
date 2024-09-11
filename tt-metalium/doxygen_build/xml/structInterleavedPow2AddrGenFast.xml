@@ -22,11 +22,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="1033" column="14" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1033" bodyend="-1"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="966" column="14" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="966" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structInterleavedPow2AddrGenFast_1a4df6258d8374687eca0ba28b5a0fc50f" prot="public" static="no" mutable="no">
-        <type>uint32_t</type>
-        <definition>uint32_t InterleavedPow2AddrGenFast&lt; DRAM &gt;::log_base_2_of_page_size</definition>
+      <memberdef kind="variable" id="structInterleavedPow2AddrGenFast_1ad7ca2d8d5c158d35f460261f5dc09054" prot="public" static="no" mutable="no">
+        <type>const uint32_t</type>
+        <definition>const uint32_t InterleavedPow2AddrGenFast&lt; DRAM &gt;::log_base_2_of_page_size</definition>
         <argsstring></argsstring>
         <name>log_base_2_of_page_size</name>
         <qualifiedname>InterleavedPow2AddrGenFast::log_base_2_of_page_size</qualifiedname>
@@ -36,10 +36,81 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="1034" column="14" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1034" bodyend="-1"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="967" column="20" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="967" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structInterleavedPow2AddrGenFast_1a3224a2e3ac1ee4f310032d79f75d21b3" prot="public" static="no" mutable="no">
+        <type>const uint32_t</type>
+        <definition>const uint32_t InterleavedPow2AddrGenFast&lt; DRAM &gt;::aligned_log_base_2_of_page_size</definition>
+        <argsstring></argsstring>
+        <name>aligned_log_base_2_of_page_size</name>
+        <qualifiedname>InterleavedPow2AddrGenFast::aligned_log_base_2_of_page_size</qualifiedname>
+        <initializer>= this-&gt;log_base_2_of_page_size &gt; LOG_BASE_2_OF_ALLOCATOR_ALIGNMENT
+                                                   ? this-&gt;log_base_2_of_page_size
+                                                   : LOG_BASE_2_OF_ALLOCATOR_ALIGNMENT</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="968" column="20" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="968" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
+      <memberdef kind="function" id="structInterleavedPow2AddrGenFast_1a631a54e1f98535b32539a8b6e63b400b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t InterleavedPow2AddrGenFast&lt; DRAM &gt;::get_addr</definition>
+        <argsstring>(const uint32_t id, const uint32_t bank_offset_index, const uint32_t bank_index, const uint32_t offset=0) const</argsstring>
+        <name>get_addr</name>
+        <qualifiedname>InterleavedPow2AddrGenFast::get_addr</qualifiedname>
+        <param>
+          <type>const uint32_t</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>const uint32_t</type>
+          <declname>bank_offset_index</declname>
+        </param>
+        <param>
+          <type>const uint32_t</type>
+          <declname>bank_index</declname>
+        </param>
+        <param>
+          <type>const uint32_t</type>
+          <declname>offset</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="973" column="14" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="973" bodyend="975"/>
+      </memberdef>
+      <memberdef kind="function" id="structInterleavedPow2AddrGenFast_1afabb17a140e599c6b8bf490693a5e508" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::uint64_t</type>
+        <definition>std::uint64_t InterleavedPow2AddrGenFast&lt; DRAM &gt;::get_noc_addr</definition>
+        <argsstring>(const uint32_t id, const uint32_t offset=0) const</argsstring>
+        <name>get_noc_addr</name>
+        <qualifiedname>InterleavedPow2AddrGenFast::get_noc_addr</qualifiedname>
+        <param>
+          <type>const uint32_t</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>const uint32_t</type>
+          <declname>offset</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="978" column="19" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="978" bodyend="987"/>
+      </memberdef>
       <memberdef kind="function" id="structInterleavedPow2AddrGenFast_1a764088893f2c2406f2b8f126d922950e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void InterleavedPow2AddrGenFast&lt; DRAM &gt;::noc_async_read_page</definition>
@@ -65,7 +136,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="1037" column="10" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1037" bodyend="1079"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="990" column="10" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="990" bodyend="1007"/>
       </memberdef>
       <memberdef kind="function" id="structInterleavedPow2AddrGenFast_1a00f1b06cfc28aebf5a06ebf19020e981" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -95,7 +166,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="1082" column="10" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1082" bodyend="1124"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1010" column="10" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1010" bodyend="1027"/>
       </memberdef>
       <memberdef kind="function" id="structInterleavedPow2AddrGenFast_1afa84cb4c74013f4a405b0c50c76b4fd6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -126,17 +197,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="1127" column="10" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1127" bodyend="1176"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1030" column="10" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1030" bodyend="1054"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="tt_metal/hw/inc/dataflow_api.h" line="1032" column="1" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1032" bodyend="1177"/>
+    <location file="tt_metal/hw/inc/dataflow_api.h" line="965" column="1" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="965" bodyend="1055"/>
     <listofallmembers>
+      <member refid="structInterleavedPow2AddrGenFast_1a3224a2e3ac1ee4f310032d79f75d21b3" prot="public" virt="non-virtual"><scope>InterleavedPow2AddrGenFast</scope><name>aligned_log_base_2_of_page_size</name></member>
       <member refid="structInterleavedPow2AddrGenFast_1ac18418a3bb8b3b3b424b8394ba20936f" prot="public" virt="non-virtual"><scope>InterleavedPow2AddrGenFast</scope><name>bank_base_address</name></member>
-      <member refid="structInterleavedPow2AddrGenFast_1a4df6258d8374687eca0ba28b5a0fc50f" prot="public" virt="non-virtual"><scope>InterleavedPow2AddrGenFast</scope><name>log_base_2_of_page_size</name></member>
+      <member refid="structInterleavedPow2AddrGenFast_1a631a54e1f98535b32539a8b6e63b400b" prot="public" virt="non-virtual"><scope>InterleavedPow2AddrGenFast</scope><name>get_addr</name></member>
+      <member refid="structInterleavedPow2AddrGenFast_1afabb17a140e599c6b8bf490693a5e508" prot="public" virt="non-virtual"><scope>InterleavedPow2AddrGenFast</scope><name>get_noc_addr</name></member>
+      <member refid="structInterleavedPow2AddrGenFast_1ad7ca2d8d5c158d35f460261f5dc09054" prot="public" virt="non-virtual"><scope>InterleavedPow2AddrGenFast</scope><name>log_base_2_of_page_size</name></member>
       <member refid="structInterleavedPow2AddrGenFast_1a764088893f2c2406f2b8f126d922950e" prot="public" virt="non-virtual"><scope>InterleavedPow2AddrGenFast</scope><name>noc_async_read_page</name></member>
       <member refid="structInterleavedPow2AddrGenFast_1a00f1b06cfc28aebf5a06ebf19020e981" prot="public" virt="non-virtual"><scope>InterleavedPow2AddrGenFast</scope><name>noc_async_read_partial_page</name></member>
       <member refid="structInterleavedPow2AddrGenFast_1afa84cb4c74013f4a405b0c50c76b4fd6" prot="public" virt="non-virtual"><scope>InterleavedPow2AddrGenFast</scope><name>noc_async_write_page</name></member>

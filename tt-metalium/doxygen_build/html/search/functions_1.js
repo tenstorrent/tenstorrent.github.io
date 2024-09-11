@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['assignglobalbuffertoprogram_0',['AssignGlobalBufferToProgram',['../host__api_8hpp.html#a4e29ca9df8b6f13424f2a392d8971483',1,'tt::tt_metal']]]
+  ['begintracecapture_0',['BeginTraceCapture',['../host__api_8hpp.html#a2bb0ca68f1afddfbefc78b497d21943c',1,'tt::tt_metal']]]
 ];

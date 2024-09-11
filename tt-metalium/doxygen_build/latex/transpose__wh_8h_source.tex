@@ -24,38 +24,39 @@
 \DoxyCodeLine{00028\ \{}
 \DoxyCodeLine{00029\ \ \ \ \ MATH((\ llk\_math\_eltwise\_unary\_datacopy\_init<A2D,\ BroadcastType::NONE,\ DST\_ACCUM\_MODE>(\textcolor{keyword}{true},\ \textcolor{keyword}{true},\ icb)\ ));}
 \DoxyCodeLine{00030\ \ \ \ \ MATH((\ llk\_math\_pack\_sync\_init<DST\_ACCUM\_MODE>()\ ));}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \ \ \ \ PACK((\ llk\_pack\_hw\_configure\_disaggregated<false,\ DST\_ACCUM\_MODE>(ocb)\ ));}
-\DoxyCodeLine{00033\ \ \ \ \ PACK((\ llk\_pack\_init(ocb)\ ));}
-\DoxyCodeLine{00034\ \ \ \ \ PACK((\ llk\_setup\_outputs()\ ));}
-\DoxyCodeLine{00035\ \ \ \ \ PACK((\ llk\_pack\_dest\_init<false,\ DST\_ACCUM\_MODE>()\ ));}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \ \ \ \ UNPACK((\ llk\_setup\_operands()\ ));}
-\DoxyCodeLine{00038\ \ \ \ \ UNPACK((\ llk\_unpack\_A\_hw\_configure\_disaggregated<DST\_ACCUM\_MODE>(0,\ \textcolor{keyword}{true})\ ));}
-\DoxyCodeLine{00039\ \ \ \ \ UNPACK((\ llk\_unpack\_A\_init<BroadcastType::NONE,\ true,\ EltwiseBinaryReuseDestType::NONE>(\textcolor{keyword}{true},\ \textcolor{keyword}{true})\ \ ));}
-\DoxyCodeLine{00040\ \}}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00045\ ALWI\ \textcolor{keywordtype}{void}\ transpose\_wh\_init\_short(uint32\_t\ icb)}
-\DoxyCodeLine{00046\ \{}
-\DoxyCodeLine{00047\ \ \ \ \ MATH((\ llk\_math\_eltwise\_unary\_datacopy\_init<A2D,\ BroadcastType::NONE,\ DST\_ACCUM\_MODE>(\textcolor{keyword}{true},\ \textcolor{keyword}{true},\ icb)\ ));}
-\DoxyCodeLine{00048\ }
-\DoxyCodeLine{00049\ \ \ \ \ UNPACK((\ llk\_unpack\_A\_init<BroadcastType::NONE,\ true,\ EltwiseBinaryReuseDestType::NONE>(\textcolor{keyword}{true},\ \textcolor{keyword}{true})\ \ ));}
-\DoxyCodeLine{00050\ \}}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00068\ ALWI\ \textcolor{keywordtype}{void}\ transpose\_wh\_tile(uint32\_t\ icb,\ uint32\_t\ itile,\ uint32\_t\ idst)}
-\DoxyCodeLine{00069\ \{}
-\DoxyCodeLine{00070\ \ \ \ \ UNPACK((}
-\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \#ifdef\ ARCH\_GRAYSKULL}
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ llk\_unpack\_A<BroadcastType::NONE,\ false>(icb,\ itile,\ \textcolor{keyword}{true})}
-\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \#\textcolor{keywordflow}{else}}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ llk\_unpack\_A<BroadcastType::NONE,\ false>(icb,\ itile,\ \textcolor{keyword}{false})}
-\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \#endif}
-\DoxyCodeLine{00076\ \ \ \ \ ));}
-\DoxyCodeLine{00077\ \ \ \ \ MATH((\ llk\_math\_eltwise\_unary\_datacopy<A2D,\ BroadcastType::NONE,\ DST\_ACCUM\_MODE>(idst)\ ));}
-\DoxyCodeLine{00078\ \}}
-\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00031\ \ \ \ \ MATH((\ llk\_math\_hw\_configure\_disaggregated()\ ));}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ PACK((\ llk\_pack\_hw\_configure\_disaggregated<false,\ DST\_ACCUM\_MODE>(ocb)\ ));}
+\DoxyCodeLine{00034\ \ \ \ \ PACK((\ llk\_pack\_init(ocb)\ ));}
+\DoxyCodeLine{00035\ \ \ \ \ PACK((\ llk\_setup\_outputs()\ ));}
+\DoxyCodeLine{00036\ \ \ \ \ PACK((\ llk\_pack\_dest\_init<false,\ DST\_ACCUM\_MODE>()\ ));}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ UNPACK((\ llk\_setup\_operands()\ ));}
+\DoxyCodeLine{00039\ \ \ \ \ UNPACK((\ llk\_unpack\_A\_hw\_configure\_disaggregated<DST\_ACCUM\_MODE>(0,\ \textcolor{keyword}{true})\ ));}
+\DoxyCodeLine{00040\ \ \ \ \ UNPACK((\ llk\_unpack\_A\_init<BroadcastType::NONE,\ true,\ EltwiseBinaryReuseDestType::NONE>(\textcolor{keyword}{true},\ \textcolor{keyword}{true})\ \ ));}
+\DoxyCodeLine{00041\ \}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00046\ ALWI\ \textcolor{keywordtype}{void}\ transpose\_wh\_init\_short(uint32\_t\ icb)}
+\DoxyCodeLine{00047\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ MATH((\ llk\_math\_eltwise\_unary\_datacopy\_init<A2D,\ BroadcastType::NONE,\ DST\_ACCUM\_MODE>(\textcolor{keyword}{true},\ \textcolor{keyword}{true},\ icb)\ ));}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ UNPACK((\ llk\_unpack\_A\_init<BroadcastType::NONE,\ true,\ EltwiseBinaryReuseDestType::NONE>(\textcolor{keyword}{true},\ \textcolor{keyword}{true})\ \ ));}
+\DoxyCodeLine{00051\ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00069\ ALWI\ \textcolor{keywordtype}{void}\ transpose\_wh\_tile(uint32\_t\ icb,\ uint32\_t\ itile,\ uint32\_t\ idst)}
+\DoxyCodeLine{00070\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ UNPACK((}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \#ifdef\ ARCH\_GRAYSKULL}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ llk\_unpack\_A<BroadcastType::NONE,\ false>(icb,\ itile,\ \textcolor{keyword}{true})}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \#\textcolor{keywordflow}{else}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ llk\_unpack\_A<BroadcastType::NONE,\ false>(icb,\ itile,\ \textcolor{keyword}{false})}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \#endif}
+\DoxyCodeLine{00077\ \ \ \ \ ));}
+\DoxyCodeLine{00078\ \ \ \ \ MATH((\ llk\_math\_eltwise\_unary\_datacopy<A2D,\ BroadcastType::NONE,\ DST\_ACCUM\_MODE>(idst)\ ));}
+\DoxyCodeLine{00079\ \}}
 \DoxyCodeLine{00080\ }
 \DoxyCodeLine{00081\ }
-\DoxyCodeLine{00082\ \}\ \textcolor{comment}{//\ namespace\ ckernel}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \}\ \textcolor{comment}{//\ namespace\ ckernel}}
 
 \end{DoxyCode}

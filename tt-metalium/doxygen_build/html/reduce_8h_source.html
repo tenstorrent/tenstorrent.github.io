@@ -96,7 +96,7 @@ $(function() {
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">namespace </span>ckernel {</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">template</span>&lt;<span class="keywordtype">bool</span> at_start, PoolType reduce_type = REDUCE_OP, ReduceDim reduce_dim = REDUCE_DIM&gt;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>ALWI <span class="keywordtype">void</span> reduce_init(PoolType reduce_op, ReduceDim dim, uint32_t icb, uint32_t icb_scaler, uint32_t ocb = 16)</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>ALWI <span class="keywordtype">void</span> reduce_init(uint32_t icb, uint32_t icb_scaler, uint32_t ocb = 16)</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    UNPACK(( llk_setup_operands() ));</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    UNPACK(( llk_unpack_AB_hw_configure_disaggregated&lt;DST_ACCUM_MODE&gt;(icb, icb_scaler) ));</div>
@@ -104,67 +104,68 @@ $(function() {
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    MATH(( llk_math_reduce_init&lt;reduce_type, reduce_dim, MATH_FIDELITY&gt;() ));</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    MATH(( llk_math_pack_sync_init&lt;DST_ACCUM_MODE&gt;() ));</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    PACK(( llk_pack_init() ));</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    PACK(( llk_pack_reduce_config_v2&lt;reduce_dim, at_start, false, DST_ACCUM_MODE&gt;(ocb) ));</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    PACK(( llk_setup_outputs() ));</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    PACK(( llk_pack_dest_init&lt;false, DST_ACCUM_MODE&gt;() ));</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>}</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">template</span>&lt;PoolType reduce_type = REDUCE_OP, ReduceDim reduce_dim = REDUCE_DIM&gt;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>ALWI <span class="keywordtype">void</span> reduce_init_short(uint32_t icb, uint32_t icb_scaler, uint32_t ocb = 16) {</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    UNPACK(( llk_unpack_AB_reduce_init&lt;reduce_dim&gt;(icb, icb_scaler) ));</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    MATH(( llk_math_reduce_init&lt;reduce_type, reduce_dim, MATH_FIDELITY&gt;() ));</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    PACK(( llk_pack_reduce_config_v2&lt;reduce_dim, false, false, DST_ACCUM_MODE&gt;(ocb) ));</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>}</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">template</span>&lt;<span class="keywordtype">bool</span> at_start, PoolType reduce_type = REDUCE_OP, ReduceDim reduce_dim = REDUCE_DIM&gt;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>ALWI <span class="keywordtype">void</span> reduce_init_delta(PoolType reduce_op, ReduceDim dim, uint32_t ocb = 16, uint32_t icb0 = 0, uint32_t icb1 = 1)</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>{</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="comment">// FIXME: API Update needed in compute kernel?</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    UNPACK(( llk_unpack_AB_reduce_init&lt;reduce_dim&gt;(icb0, icb1) ));</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    MATH(( llk_math_reduce_init&lt;reduce_type, reduce_dim, MATH_FIDELITY&gt;() ));</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    PACK(( llk_pack_reduce_config_v2&lt;reduce_dim, at_start, false, DST_ACCUM_MODE&gt;(ocb) ));</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>}</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keyword">template</span>&lt;PoolType reduce_type = REDUCE_OP, ReduceDim reduce_dim = REDUCE_DIM&gt;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>ALWI <span class="keywordtype">void</span> reduce_init_delta_no_pack(uint32_t icb0 = 0, uint32_t icb1 = 1)</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>{</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="comment">// FIXME: API Update needed in compute kernel?</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    UNPACK(( llk_unpack_AB_init&lt;&gt;(icb0, icb1) ));</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    MATH(( llk_math_reduce_init&lt;reduce_type, reduce_dim, MATH_FIDELITY&gt;() ));</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>}</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="keyword">template</span>&lt;PoolType reduce_type = REDUCE_OP, ReduceDim reduce_dim = REDUCE_DIM&gt;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>ALWI <span class="keywordtype">void</span> reduce_init_delta_math()</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>{</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    MATH(( llk_math_reduce_init&lt;reduce_type, reduce_dim, MATH_FIDELITY&gt;() ));</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>}</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="keyword">template</span>&lt;ReduceDim reduce_dim = REDUCE_DIM&gt;</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>ALWI <span class="keywordtype">void</span> reduce_revert_delta(uint32_t ocb = 16)</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>{</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    PACK(( llk_pack_reduce_config_v2&lt;reduce_dim, false, true, DST_ACCUM_MODE&gt;(ocb) ));</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>}</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> <span class="keyword">template</span>&lt;PoolType reduce_type = REDUCE_OP, ReduceDim reduce_dim = REDUCE_DIM&gt;</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>ALWI <span class="keywordtype">void</span> reduce_tile(uint32_t icb0, uint32_t icb1, uint32_t itile0, uint32_t itile1, uint32_t idst)</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>{</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    MATH(( llk_math_reduce&lt;reduce_type, reduce_dim, MATH_FIDELITY, DST_ACCUM_MODE&gt;(idst) ));</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    UNPACK(( llk_unpack_AB(icb0, icb1, itile0, itile1) ));</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>}</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="keyword">template</span>&lt;PoolType reduce_type = REDUCE_OP, ReduceDim reduce_dim = REDUCE_DIM&gt;</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>ALWI <span class="keywordtype">void</span> reduce_tile_math(uint32_t idst, uint32_t num_faces = 4)</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>{</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    MATH(( llk_math_reduce&lt;reduce_type, reduce_dim, MATH_FIDELITY, DST_ACCUM_MODE&gt;(idst, num_faces) ));</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>}</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>} <span class="comment">// namespace ckernel</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    MATH(( llk_math_hw_configure_disaggregated() ));</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    PACK(( llk_pack_init() ));</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    PACK(( llk_pack_reduce_config_v2&lt;reduce_dim, at_start, false, DST_ACCUM_MODE&gt;(ocb) ));</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    PACK(( llk_setup_outputs() ));</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    PACK(( llk_pack_dest_init&lt;false, DST_ACCUM_MODE&gt;() ));</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>}</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">template</span>&lt;PoolType reduce_type = REDUCE_OP, ReduceDim reduce_dim = REDUCE_DIM&gt;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>ALWI <span class="keywordtype">void</span> reduce_init_short(uint32_t icb, uint32_t icb_scaler, uint32_t ocb = 16) {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    UNPACK(( llk_unpack_AB_reduce_init&lt;reduce_dim&gt;(icb, icb_scaler) ));</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    MATH(( llk_math_reduce_init&lt;reduce_type, reduce_dim, MATH_FIDELITY&gt;() ));</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    PACK(( llk_pack_reduce_config_v2&lt;reduce_dim, false, false, DST_ACCUM_MODE&gt;(ocb) ));</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>}</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">template</span>&lt;<span class="keywordtype">bool</span> at_start, PoolType reduce_type = REDUCE_OP, ReduceDim reduce_dim = REDUCE_DIM&gt;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>ALWI <span class="keywordtype">void</span> reduce_init_delta(uint32_t ocb = 16, uint32_t icb0 = 0, uint32_t icb1 = 1)</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>{</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="comment">// FIXME: API Update needed in compute kernel?</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    UNPACK(( llk_unpack_AB_reduce_init&lt;reduce_dim&gt;(icb0, icb1) ));</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    MATH(( llk_math_reduce_init&lt;reduce_type, reduce_dim, MATH_FIDELITY&gt;() ));</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    PACK(( llk_pack_reduce_config_v2&lt;reduce_dim, at_start, false, DST_ACCUM_MODE&gt;(ocb) ));</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>}</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keyword">template</span>&lt;PoolType reduce_type = REDUCE_OP, ReduceDim reduce_dim = REDUCE_DIM&gt;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>ALWI <span class="keywordtype">void</span> reduce_init_delta_no_pack(uint32_t icb0 = 0, uint32_t icb1 = 1)</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>{</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="comment">// FIXME: API Update needed in compute kernel?</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    UNPACK(( llk_unpack_AB_init&lt;&gt;(icb0, icb1) ));</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    MATH(( llk_math_reduce_init&lt;reduce_type, reduce_dim, MATH_FIDELITY&gt;() ));</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>}</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keyword">template</span>&lt;PoolType reduce_type = REDUCE_OP, ReduceDim reduce_dim = REDUCE_DIM&gt;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>ALWI <span class="keywordtype">void</span> reduce_init_delta_math()</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>{</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    MATH(( llk_math_reduce_init&lt;reduce_type, reduce_dim, MATH_FIDELITY&gt;() ));</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>}</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keyword">template</span>&lt;ReduceDim reduce_dim = REDUCE_DIM&gt;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>ALWI <span class="keywordtype">void</span> reduce_revert_delta(uint32_t ocb = 16)</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>{</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    PACK(( llk_pack_reduce_config_v2&lt;reduce_dim, false, true, DST_ACCUM_MODE&gt;(ocb) ));</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>}</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> <span class="keyword">template</span>&lt;PoolType reduce_type = REDUCE_OP, ReduceDim reduce_dim = REDUCE_DIM&gt;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>ALWI <span class="keywordtype">void</span> reduce_tile(uint32_t icb0, uint32_t icb1, uint32_t itile0, uint32_t itile1, uint32_t idst)</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>{</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    MATH(( llk_math_reduce&lt;reduce_type, reduce_dim, MATH_FIDELITY, DST_ACCUM_MODE&gt;(idst) ));</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    UNPACK(( llk_unpack_AB(icb0, icb1, itile0, itile1) ));</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>}</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="keyword">template</span>&lt;PoolType reduce_type = REDUCE_OP, ReduceDim reduce_dim = REDUCE_DIM&gt;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>ALWI <span class="keywordtype">void</span> reduce_tile_math(uint32_t idst, uint32_t num_faces = 4)</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>{</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    MATH(( llk_math_reduce&lt;reduce_type, reduce_dim, MATH_FIDELITY, DST_ACCUM_MODE&gt;(idst, num_faces) ));</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>}</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>} <span class="comment">// namespace ckernel</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

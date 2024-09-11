@@ -317,10 +317,10 @@
         </inbodydescription>
         <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="113" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="113" bodyend="126"/>
       </memberdef>
-      <memberdef kind="function" id="ethernet_2dataflow__api_8h_1a49af0f0508c67af19ceaadd83bc51eba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="ethernet_2dataflow__api_8h_1a5cb3e75736223670aaf5dcbc23d91471" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eth_send_bytes_over_channel_payload_only</definition>
-        <argsstring>(uint32_t src_addr, uint32_t dst_addr, uint32_t num_bytes, uint32_t channel, uint32_t num_bytes_per_send=16, uint32_t num_bytes_per_send_word_size=1)</argsstring>
+        <argsstring>(uint32_t src_addr, uint32_t dst_addr, uint32_t num_bytes, uint32_t num_bytes_per_send=16, uint32_t num_bytes_per_send_word_size=1)</argsstring>
         <name>eth_send_bytes_over_channel_payload_only</name>
         <param>
           <type>uint32_t</type>
@@ -333,10 +333,6 @@
         <param>
           <type>uint32_t</type>
           <declname>num_bytes</declname>
-        </param>
-        <param>
-          <type>uint32_t</type>
-          <declname>channel</declname>
         </param>
         <param>
           <type>uint32_t</type>
@@ -415,7 +411,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="148" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="148" bodyend="162"/>
+        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="148" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="148" bodyend="161"/>
       </memberdef>
       <memberdef kind="function" id="ethernet_2dataflow__api_8h_1a781562a3dd147fc9d9430ce037a1e3da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -436,7 +432,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="169" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="169" bodyend="178"/>
+        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="168" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="168" bodyend="177"/>
       </memberdef>
       <memberdef kind="function" id="ethernet_2dataflow__api_8h_1af8a3f69ac60c29d201771f16f6498cda" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -475,7 +471,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="181" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="181" bodyend="203"/>
+        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="180" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="180" bodyend="202"/>
       </memberdef>
       <memberdef kind="function" id="ethernet_2dataflow__api_8h_1aae485db00b351232851e5e43f5cbd0f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -521,7 +517,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="218" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="218" bodyend="220"/>
+        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="217" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="217" bodyend="219"/>
       </memberdef>
       <memberdef kind="function" id="ethernet_2dataflow__api_8h_1ad653825a0450903f666f7f2827a55b7c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -537,7 +533,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="232" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="232" bodyend="242"/>
+        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="231" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="231" bodyend="241"/>
       </memberdef>
       <memberdef kind="function" id="ethernet_2dataflow__api_8h_1a02966d06f690ca2d85533b5e6ce80809" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -580,7 +576,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="258" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="258" bodyend="260"/>
+        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="257" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="257" bodyend="259"/>
       </memberdef>
       <memberdef kind="function" id="ethernet_2dataflow__api_8h_1a1a37dd512972c4e57bbe6e0b198a3941" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -623,7 +619,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="276" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="276" bodyend="278"/>
+        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="275" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="275" bodyend="277"/>
       </memberdef>
       <memberdef kind="function" id="ethernet_2dataflow__api_8h_1a3ff986b2dd8f65e01aca7867bb166e96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -659,74 +655,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="292" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="292" bodyend="303"/>
-      </memberdef>
-      <memberdef kind="function" id="ethernet_2dataflow__api_8h_1a7be541a245801ba647612940108db385" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>bool</type>
-            <declname>write_barrier</declname>
-            <defname>write_barrier</defname>
-            <defval>false</defval>
-          </param>
-        </templateparamlist>
-        <type>void</type>
-        <definition>void eth_send_done</definition>
-        <argsstring>()</argsstring>
-        <name>eth_send_done</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>A blocking call that waits for remote receiver to acknowledge that all data sent with eth_send_bytes since the last reset_erisc_info call is no longer being used. Also, see <emphasis>eth_receiver_done()</emphasis>. This also syncs with the local receiver core using a semaphore and reads date from the receiver core</para>
-<para>Return value: None</para>
-<para><table rows="6" cols="5"><row>
-<entry thead="yes"><para>Argument   </para>
-</entry><entry thead="yes"><para>Description   </para>
-</entry><entry thead="yes"><para>Type   </para>
-</entry><entry thead="yes"><para>Valid Range   </para>
-</entry><entry thead="yes"><para>Required    </para>
-</entry></row>
-<row>
-<entry thead="no"><para>sender_semaphore_addr_ptr   </para>
-</entry><entry thead="no"><para>Semaphore address in local L1 memory   </para>
-</entry><entry thead="no"><para>uint32_t   </para>
-</entry><entry thead="no"><para>0..1MB   </para>
-</entry><entry thead="no"><para>True    </para>
-</entry></row>
-<row>
-<entry thead="no"><para>receiver_semaphore_noc_addr   </para>
-</entry><entry thead="no"><para>Encoding of the receiver semaphore location (x,y)+address   </para>
-</entry><entry thead="no"><para>uint64_t   </para>
-</entry><entry thead="no"><para>DOX-TODO(insert a reference to what constitutes valid coords)   </para>
-</entry><entry thead="no"><para>True    </para>
-</entry></row>
-<row>
-<entry thead="no"><para>receiver_data_noc_addr   </para>
-</entry><entry thead="no"><para>Encoding of the receiver source location (x,y)+address   </para>
-</entry><entry thead="no"><para>uint64_t   </para>
-</entry><entry thead="no"><para>DOX-TODO(ref to explain valid coords)   </para>
-</entry><entry thead="no"><para>True    </para>
-</entry></row>
-<row>
-<entry thead="no"><para>dst_local_l1_addr   </para>
-</entry><entry thead="no"><para>Address in local L1 memory   </para>
-</entry><entry thead="no"><para>uint32_t   </para>
-</entry><entry thead="no"><para>0..1MB   </para>
-</entry><entry thead="no"><para>True    </para>
-</entry></row>
-<row>
-<entry thead="no"><para>size   </para>
-</entry><entry thead="no"><para>Size of data transfer in bytes   </para>
-</entry><entry thead="no"><para>uint32_t   </para>
-</entry><entry thead="no"><para>0..1MB   </para>
-</entry><entry thead="no"><para>True   </para>
-</entry></row>
-</table>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="322" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="322" bodyend="328"/>
+        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="291" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="291" bodyend="302"/>
       </memberdef>
       <memberdef kind="function" id="ethernet_2dataflow__api_8h_1aa8e1a78afaa929435707fca21e2a25b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -758,7 +687,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="342" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="342" bodyend="346"/>
+        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="316" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="316" bodyend="320"/>
       </memberdef>
       <memberdef kind="function" id="ethernet_2dataflow__api_8h_1a1764bd208e8445bc7e47032ec99c3616" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -793,7 +722,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="361" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="361" bodyend="365"/>
+        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="335" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="335" bodyend="339"/>
       </memberdef>
       <memberdef kind="function" id="ethernet_2dataflow__api_8h_1af738caa9901266b6b58f0fa0b5ee779f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -829,7 +758,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="380" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="380" bodyend="382"/>
+        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="354" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="354" bodyend="356"/>
       </memberdef>
       <memberdef kind="function" id="ethernet_2dataflow__api_8h_1a43ad9b216541d5f830ce5297a8873b68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -876,7 +805,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="398" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="398" bodyend="417"/>
+        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="372" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="372" bodyend="391"/>
       </memberdef>
       <memberdef kind="function" id="ethernet_2dataflow__api_8h_1af27bb42b34afb388a0994da0f2b73c54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -892,7 +821,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="429" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="429" bodyend="436"/>
+        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="403" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="403" bodyend="410"/>
       </memberdef>
       <memberdef kind="function" id="ethernet_2dataflow__api_8h_1acd35fe4c1c09f60fc53d21a4bccbb71e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -928,7 +857,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="451" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="451" bodyend="460"/>
+        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="425" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="425" bodyend="434"/>
       </memberdef>
       <memberdef kind="function" id="ethernet_2dataflow__api_8h_1a32a1ef34f66d78ba3934c321595ff40d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -964,7 +893,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="475" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="475" bodyend="478"/>
+        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="449" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="449" bodyend="452"/>
       </memberdef>
       <memberdef kind="function" id="ethernet_2dataflow__api_8h_1a4ff4de9ce3be69c64f017b1b1facc090" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1025,7 +954,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="496" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="496" bodyend="508"/>
+        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="470" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="470" bodyend="482"/>
       </memberdef>
       <memberdef kind="function" id="ethernet_2dataflow__api_8h_1a5d550f7bf6d486b386ddea8c81ad0a82" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1043,7 +972,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="522" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="522" bodyend="529"/>
+        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="496" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="496" bodyend="503"/>
       </memberdef>
       <memberdef kind="function" id="ethernet_2dataflow__api_8h_1a4f1763214451d751d920191f201b2e1f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1061,94 +990,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="532" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="532" bodyend="536"/>
-      </memberdef>
-      <memberdef kind="function" id="ethernet_2dataflow__api_8h_1ab36fed1b5267fe75971b6f9e319e373b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>bool</type>
-            <declname>write_barrier</declname>
-            <defname>write_barrier</defname>
-            <defval>false</defval>
-          </param>
-        </templateparamlist>
-        <type>void</type>
-        <definition>void eth_wait_for_remote_receiver_done_and_get_local_receiver_data</definition>
-        <argsstring>(volatile uint32_t *sender_semaphore_addr_ptr, uint64_t receiver_semaphore_noc_addr, uint64_t receiver_data_noc_addr, uint32_t local_eth_l1_curr_src_addr, uint32_t size)</argsstring>
-        <name>eth_wait_for_remote_receiver_done_and_get_local_receiver_data</name>
-        <param>
-          <type>volatile uint32_t *</type>
-          <declname>sender_semaphore_addr_ptr</declname>
-        </param>
-        <param>
-          <type>uint64_t</type>
-          <declname>receiver_semaphore_noc_addr</declname>
-        </param>
-        <param>
-          <type>uint64_t</type>
-          <declname>receiver_data_noc_addr</declname>
-        </param>
-        <param>
-          <type>uint32_t</type>
-          <declname>local_eth_l1_curr_src_addr</declname>
-        </param>
-        <param>
-          <type>uint32_t</type>
-          <declname>size</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>A blocking call that waits for remote receiver to acknowledge that all data sent with eth_send_bytes since the last reset_erisc_info call is no longer being used. Also, see <emphasis>eth_receiver_done()</emphasis>. This also syncs with the local receiver core using a semaphore and reads date from the receiver core</para>
-<para>Return value: None</para>
-<para><table rows="6" cols="5"><row>
-<entry thead="yes"><para>Argument   </para>
-</entry><entry thead="yes"><para>Description   </para>
-</entry><entry thead="yes"><para>Type   </para>
-</entry><entry thead="yes"><para>Valid Range   </para>
-</entry><entry thead="yes"><para>Required    </para>
-</entry></row>
-<row>
-<entry thead="no"><para>sender_semaphore_addr_ptr   </para>
-</entry><entry thead="no"><para>Semaphore address in local L1 memory   </para>
-</entry><entry thead="no"><para>uint32_t   </para>
-</entry><entry thead="no"><para>0..1MB   </para>
-</entry><entry thead="no"><para>True    </para>
-</entry></row>
-<row>
-<entry thead="no"><para>receiver_semaphore_noc_addr   </para>
-</entry><entry thead="no"><para>Encoding of the receiver semaphore location (x,y)+address   </para>
-</entry><entry thead="no"><para>uint64_t   </para>
-</entry><entry thead="no"><para>DOX-TODO(insert a reference to what constitutes valid coords)   </para>
-</entry><entry thead="no"><para>True    </para>
-</entry></row>
-<row>
-<entry thead="no"><para>receiver_data_noc_addr   </para>
-</entry><entry thead="no"><para>Encoding of the receiver source location (x,y)+address   </para>
-</entry><entry thead="no"><para>uint64_t   </para>
-</entry><entry thead="no"><para>DOX-TODO(ref to explain valid coords)   </para>
-</entry><entry thead="no"><para>True    </para>
-</entry></row>
-<row>
-<entry thead="no"><para>dst_local_l1_addr   </para>
-</entry><entry thead="no"><para>Address in local L1 memory   </para>
-</entry><entry thead="no"><para>uint32_t   </para>
-</entry><entry thead="no"><para>0..1MB   </para>
-</entry><entry thead="no"><para>True    </para>
-</entry></row>
-<row>
-<entry thead="no"><para>size   </para>
-</entry><entry thead="no"><para>Size of data transfer in bytes   </para>
-</entry><entry thead="no"><para>uint32_t   </para>
-</entry><entry thead="no"><para>0..1MB   </para>
-</entry><entry thead="no"><para>True   </para>
-</entry></row>
-</table>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="556" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="556" bodyend="579"/>
+        <location file="tt_metal/hw/inc/ethernet/dataflow_api.h" line="506" column="6" bodyfile="tt_metal/hw/inc/ethernet/dataflow_api.h" bodystart="506" bodyend="510"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -1228,251 +1070,212 @@
 <codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>src_addr,</highlight></codeline>
 <codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>dst_addr,</highlight></codeline>
 <codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>num_bytes,</highlight></codeline>
-<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>channel,</highlight></codeline>
-<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>num_bytes_per_send<sp/>=<sp/>16,</highlight></codeline>
-<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>num_bytes_per_send_word_size<sp/>=<sp/>1)<sp/>{</highlight></codeline>
-<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>assert(channel<sp/>&lt;<sp/>4);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>num_bytes_sent<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(num_bytes_sent<sp/>&lt;<sp/>num_bytes)<sp/>{</highlight></codeline>
-<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>internal_::eth_send_packet(</highlight></codeline>
-<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,<sp/>((num_bytes_sent<sp/>+<sp/>src_addr)<sp/>&gt;&gt;<sp/>4),<sp/>((num_bytes_sent<sp/>+<sp/>dst_addr)<sp/>&gt;&gt;<sp/>4),<sp/>num_bytes_per_send_word_size);</highlight></codeline>
-<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>num_bytes_sent<sp/>+=<sp/>num_bytes_per_send;</highlight></codeline>
-<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="162"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="163"><highlight class="normal"></highlight></codeline>
-<codeline lineno="164"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
-<codeline lineno="165"><highlight class="comment"><sp/>*<sp/>Sends<sp/>the<sp/>write<sp/>completion<sp/>signal<sp/>to<sp/>the<sp/>receiver<sp/>ethernet<sp/>core,<sp/>for<sp/>transfers<sp/>where<sp/>the<sp/>payload<sp/>was<sp/>already<sp/>sent.</highlight></codeline>
-<codeline lineno="166"><highlight class="comment"><sp/>*<sp/>The<sp/>second<sp/>half<sp/>of<sp/>a<sp/>full<sp/>ethernet<sp/>send.</highlight></codeline>
-<codeline lineno="167"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="168"><highlight class="normal">FORCE_INLINE</highlight></codeline>
-<codeline lineno="169"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>eth_send_payload_complete_signal_over_channel(uint32_t<sp/>channel,<sp/>uint32_t<sp/>num_bytes)<sp/>{</highlight></codeline>
-<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>erisc_info-&gt;channels[channel].bytes_sent<sp/>=<sp/>num_bytes;</highlight></codeline>
-<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>erisc_info-&gt;channels[channel].receiver_ack<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>addr<sp/>=<sp/>((uint32_t)(&amp;(erisc_info-&gt;channels[channel].bytes_sent)))<sp/>&gt;&gt;<sp/>4;</highlight></codeline>
-<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>internal_::eth_send_packet(</highlight></codeline>
-<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>num_bytes_per_send<sp/>=<sp/>16,</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>num_bytes_per_send_word_size<sp/>=<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>assert(channel<sp/>&lt;<sp/>4);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>num_bytes_sent<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(num_bytes_sent<sp/>&lt;<sp/>num_bytes)<sp/>{</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>internal_::eth_send_packet(</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,<sp/>((num_bytes_sent<sp/>+<sp/>src_addr)<sp/>&gt;&gt;<sp/>4),<sp/>((num_bytes_sent<sp/>+<sp/>dst_addr)<sp/>&gt;&gt;<sp/>4),<sp/>num_bytes_per_send_word_size);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>num_bytes_sent<sp/>+=<sp/>num_bytes_per_send;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="164"><highlight class="comment"><sp/>*<sp/>Sends<sp/>the<sp/>write<sp/>completion<sp/>signal<sp/>to<sp/>the<sp/>receiver<sp/>ethernet<sp/>core,<sp/>for<sp/>transfers<sp/>where<sp/>the<sp/>payload<sp/>was<sp/>already<sp/>sent.</highlight></codeline>
+<codeline lineno="165"><highlight class="comment"><sp/>*<sp/>The<sp/>second<sp/>half<sp/>of<sp/>a<sp/>full<sp/>ethernet<sp/>send.</highlight></codeline>
+<codeline lineno="166"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal">FORCE_INLINE</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>eth_send_payload_complete_signal_over_channel(uint32_t<sp/>channel,<sp/>uint32_t<sp/>num_bytes)<sp/>{</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>erisc_info-&gt;channels[channel].bytes_sent<sp/>=<sp/>num_bytes;</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>erisc_info-&gt;channels[channel].receiver_ack<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>addr<sp/>=<sp/>((uint32_t)(&amp;(erisc_info-&gt;channels[channel].bytes_sent)))<sp/>&gt;&gt;<sp/>4;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>internal_::eth_send_packet(</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>addr,</highlight></codeline>
 <codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>addr,</highlight></codeline>
-<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>addr,</highlight></codeline>
-<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>1);</highlight></codeline>
-<codeline lineno="178"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="179"><highlight class="normal"></highlight></codeline>
-<codeline lineno="180"><highlight class="normal">FORCE_INLINE</highlight></codeline>
-<codeline lineno="181"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>eth_send_bytes_over_channel(</highlight></codeline>
-<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>src_addr,</highlight></codeline>
-<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>dst_addr,</highlight></codeline>
-<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>num_bytes,</highlight></codeline>
-<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>channel,</highlight></codeline>
-<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>num_bytes_per_send<sp/>=<sp/>16,</highlight></codeline>
-<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>num_bytes_per_send_word_size<sp/>=<sp/>1)<sp/>{</highlight></codeline>
-<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>assert(channel<sp/>&lt;<sp/>4);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>num_bytes_sent<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(num_bytes_sent<sp/>&lt;<sp/>num_bytes)<sp/>{</highlight></codeline>
-<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>internal_::eth_send_packet(</highlight></codeline>
-<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,<sp/>((num_bytes_sent<sp/>+<sp/>src_addr)<sp/>&gt;&gt;<sp/>4),<sp/>((num_bytes_sent<sp/>+<sp/>dst_addr)<sp/>&gt;&gt;<sp/>4),<sp/>num_bytes_per_send_word_size);</highlight></codeline>
-<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>num_bytes_sent<sp/>+=<sp/>num_bytes_per_send;</highlight></codeline>
-<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>erisc_info-&gt;channels[channel].bytes_sent<sp/>=<sp/>num_bytes;</highlight></codeline>
-<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/>erisc_info-&gt;channels[channel].receiver_ack<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>addr<sp/>=<sp/>((uint32_t)(&amp;(erisc_info-&gt;channels[channel].bytes_sent)))<sp/>&gt;&gt;<sp/>4;</highlight></codeline>
-<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>internal_::eth_send_packet(</highlight></codeline>
-<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>1);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal">FORCE_INLINE</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>eth_send_bytes_over_channel(</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>src_addr,</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>dst_addr,</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>num_bytes,</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>channel,</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>num_bytes_per_send<sp/>=<sp/>16,</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>num_bytes_per_send_word_size<sp/>=<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>assert(channel<sp/>&lt;<sp/>4);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>num_bytes_sent<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(num_bytes_sent<sp/>&lt;<sp/>num_bytes)<sp/>{</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>internal_::eth_send_packet(</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,<sp/>((num_bytes_sent<sp/>+<sp/>src_addr)<sp/>&gt;&gt;<sp/>4),<sp/>((num_bytes_sent<sp/>+<sp/>dst_addr)<sp/>&gt;&gt;<sp/>4),<sp/>num_bytes_per_send_word_size);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>num_bytes_sent<sp/>+=<sp/>num_bytes_per_send;</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>erisc_info-&gt;channels[channel].bytes_sent<sp/>=<sp/>num_bytes;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>erisc_info-&gt;channels[channel].receiver_ack<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>addr<sp/>=<sp/>((uint32_t)(&amp;(erisc_info-&gt;channels[channel].bytes_sent)))<sp/>&gt;&gt;<sp/>4;</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>internal_::eth_send_packet(</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>addr,</highlight></codeline>
 <codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>addr,</highlight></codeline>
-<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>addr,</highlight></codeline>
-<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>1);</highlight></codeline>
-<codeline lineno="203"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>1);</highlight></codeline>
+<codeline lineno="202"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
 <codeline lineno="204"><highlight class="normal"></highlight></codeline>
-<codeline lineno="205"><highlight class="normal"></highlight></codeline>
-<codeline lineno="217"><highlight class="normal">FORCE_INLINE</highlight></codeline>
-<codeline lineno="218"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>eth_write_remote_reg(uint32_t<sp/>reg_addr,<sp/>uint32_t<sp/>value)<sp/>{</highlight></codeline>
-<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/>internal_::eth_write_remote_reg(0,<sp/>reg_addr,<sp/>value);</highlight></codeline>
-<codeline lineno="220"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="221"><highlight class="normal"></highlight></codeline>
-<codeline lineno="231"><highlight class="normal">FORCE_INLINE</highlight></codeline>
-<codeline lineno="232"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>eth_wait_for_receiver_done()<sp/>{</highlight></codeline>
-<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/>internal_::eth_send_packet(</highlight></codeline>
-<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,</highlight></codeline>
-<codeline lineno="235"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal">FORCE_INLINE</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>eth_write_remote_reg(uint32_t<sp/>reg_addr,<sp/>uint32_t<sp/>value)<sp/>{</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/>internal_::eth_write_remote_reg(0,<sp/>reg_addr,<sp/>value);</highlight></codeline>
+<codeline lineno="219"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal">FORCE_INLINE</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>eth_wait_for_receiver_done()<sp/>{</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/>internal_::eth_send_packet(</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"></highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t)(&amp;(erisc_info-&gt;channels[0].bytes_sent)))<sp/>&gt;&gt;<sp/>4,</highlight></codeline>
 <codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t)(&amp;(erisc_info-&gt;channels[0].bytes_sent)))<sp/>&gt;&gt;<sp/>4,</highlight></codeline>
-<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t)(&amp;(erisc_info-&gt;channels[0].bytes_sent)))<sp/>&gt;&gt;<sp/>4,</highlight></codeline>
-<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1);</highlight></codeline>
-<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(erisc_info-&gt;channels[0].bytes_sent<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
-<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>run_routing();</highlight></codeline>
-<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="242"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="243"><highlight class="normal"></highlight></codeline>
-<codeline lineno="257"><highlight class="normal">FORCE_INLINE</highlight></codeline>
-<codeline lineno="258"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>eth_is_receiver_channel_send_acked(uint32_t<sp/>channel)<sp/>{</highlight></codeline>
-<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>erisc_info-&gt;channels[channel].receiver_ack<sp/>!=<sp/>0;</highlight></codeline>
-<codeline lineno="260"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="261"><highlight class="normal"></highlight></codeline>
-<codeline lineno="275"><highlight class="normal">FORCE_INLINE</highlight></codeline>
-<codeline lineno="276"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>eth_is_receiver_channel_send_done(uint32_t<sp/>channel)<sp/>{</highlight></codeline>
-<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>erisc_info-&gt;channels[channel].bytes_sent<sp/>==<sp/>0;</highlight></codeline>
-<codeline lineno="278"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="279"><highlight class="normal"></highlight></codeline>
-<codeline lineno="291"><highlight class="normal">FORCE_INLINE</highlight></codeline>
-<codeline lineno="292"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>eth_wait_for_receiver_channel_done(uint32_t<sp/>channel)<sp/>{</highlight></codeline>
-<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>count<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>max<sp/>=<sp/>100000;</highlight></codeline>
-<codeline lineno="295"><highlight class="normal"></highlight></codeline>
-<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(!eth_is_receiver_channel_send_done(channel))<sp/>{</highlight></codeline>
-<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>count++;</highlight></codeline>
-<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(count<sp/>&gt;<sp/>max)<sp/>{</highlight></codeline>
-<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>count<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>run_routing();</highlight></codeline>
-<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="303"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="304"><highlight class="normal"></highlight></codeline>
-<codeline lineno="320"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>write_barrier<sp/>=<sp/>false&gt;</highlight></codeline>
-<codeline lineno="321"><highlight class="normal">FORCE_INLINE</highlight></codeline>
-<codeline lineno="322"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>eth_send_done()<sp/>{</highlight></codeline>
-<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/>internal_::eth_send_packet(</highlight></codeline>
-<codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,</highlight></codeline>
-<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t)(&amp;(erisc_info-&gt;channels[0].bytes_sent)))<sp/>&gt;&gt;<sp/>4,</highlight></codeline>
-<codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t)(&amp;(erisc_info-&gt;channels[0].bytes_sent)))<sp/>&gt;&gt;<sp/>4,</highlight></codeline>
-<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1);</highlight></codeline>
-<codeline lineno="328"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="329"><highlight class="normal"></highlight></codeline>
-<codeline lineno="341"><highlight class="normal">FORCE_INLINE</highlight></codeline>
-<codeline lineno="342"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>eth_wait_receiver_done()<sp/>{</highlight></codeline>
-<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(erisc_info-&gt;channels[0].bytes_sent<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
-<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>run_routing();</highlight></codeline>
-<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="346"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="347"><highlight class="normal"></highlight></codeline>
-<codeline lineno="360"><highlight class="normal">FORCE_INLINE</highlight></codeline>
-<codeline lineno="361"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>eth_wait_for_bytes(uint32_t<sp/>num_bytes)<sp/>{</highlight></codeline>
-<codeline lineno="362"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(erisc_info-&gt;channels[0].bytes_sent<sp/>!=<sp/>num_bytes)<sp/>{</highlight></codeline>
-<codeline lineno="363"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>run_routing();</highlight></codeline>
-<codeline lineno="364"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="365"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="366"><highlight class="normal"></highlight></codeline>
-<codeline lineno="379"><highlight class="normal">FORCE_INLINE</highlight></codeline>
-<codeline lineno="380"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>eth_bytes_are_available_on_channel(uint8_t<sp/>channel)<sp/>{</highlight></codeline>
-<codeline lineno="381"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>erisc_info-&gt;channels[channel].bytes_sent<sp/>!=<sp/>0;</highlight></codeline>
-<codeline lineno="382"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="383"><highlight class="normal"></highlight></codeline>
-<codeline lineno="397"><highlight class="normal">FORCE_INLINE</highlight></codeline>
-<codeline lineno="398"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>eth_wait_for_bytes_on_channel(uint32_t<sp/>num_bytes,<sp/>uint8_t<sp/>channel)<sp/>{</highlight></codeline>
-<codeline lineno="399"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>assert(channel<sp/>&lt;<sp/>4);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="400"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>count<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="401"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>poll_count<sp/>=<sp/>1000000;</highlight></codeline>
-<codeline lineno="402"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>num_bytes_sent<sp/>=<sp/>erisc_info-&gt;channels[channel].bytes_sent;</highlight></codeline>
-<codeline lineno="403"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(num_bytes_sent<sp/>==<sp/>0)<sp/>{</highlight></codeline>
-<codeline lineno="404"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/>received_this_iter<sp/>=<sp/>erisc_info-&gt;channels[channel].bytes_sent;</highlight></codeline>
-<codeline lineno="405"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(received_this_iter<sp/>!=<sp/>num_bytes_sent)<sp/>{</highlight></codeline>
-<codeline lineno="406"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>We<sp/>are<sp/>currently<sp/>in<sp/>the<sp/>process<sp/>of<sp/>receiving<sp/>data<sp/>on<sp/>this<sp/>channel,<sp/>so<sp/>we<sp/>just<sp/>just<sp/>wait<sp/>a</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="407"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>bit<sp/>longer<sp/>instead<sp/>of<sp/>initiating<sp/>a<sp/>context<sp/>switch</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="408"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>num_bytes_sent<sp/>=<sp/>received_this_iter;</highlight></codeline>
-<codeline lineno="409"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="410"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>count++;</highlight></codeline>
-<codeline lineno="411"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(count<sp/>&gt;<sp/>poll_count)<sp/>{</highlight></codeline>
-<codeline lineno="412"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>count<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="413"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>run_routing();</highlight></codeline>
-<codeline lineno="414"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="415"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="416"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="417"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="418"><highlight class="normal"></highlight></codeline>
-<codeline lineno="428"><highlight class="normal">FORCE_INLINE</highlight></codeline>
-<codeline lineno="429"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>eth_receiver_done()<sp/>{</highlight></codeline>
-<codeline lineno="430"><highlight class="normal"><sp/><sp/><sp/><sp/>erisc_info-&gt;channels[0].bytes_sent<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="431"><highlight class="normal"><sp/><sp/><sp/><sp/>internal_::eth_send_packet(</highlight></codeline>
-<codeline lineno="432"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,</highlight></codeline>
-<codeline lineno="433"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t)(&amp;(erisc_info-&gt;channels[0].bytes_sent)))<sp/>&gt;&gt;<sp/>4,</highlight></codeline>
-<codeline lineno="434"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t)(&amp;(erisc_info-&gt;channels[0].bytes_sent)))<sp/>&gt;&gt;<sp/>4,</highlight></codeline>
-<codeline lineno="435"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1);</highlight></codeline>
-<codeline lineno="436"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="437"><highlight class="normal"></highlight></codeline>
-<codeline lineno="450"><highlight class="normal">FORCE_INLINE</highlight></codeline>
-<codeline lineno="451"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>eth_receiver_channel_done(uint32_t<sp/>channel)<sp/>{</highlight></codeline>
-<codeline lineno="452"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>assert(channel<sp/>&lt;<sp/>4);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="453"><highlight class="normal"><sp/><sp/><sp/><sp/>erisc_info-&gt;channels[channel].bytes_sent<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="454"><highlight class="normal"><sp/><sp/><sp/><sp/>erisc_info-&gt;channels[channel].receiver_ack<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="455"><highlight class="normal"><sp/><sp/><sp/><sp/>internal_::eth_send_packet(</highlight></codeline>
-<codeline lineno="456"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,</highlight></codeline>
-<codeline lineno="457"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t)(&amp;(erisc_info-&gt;channels[channel].bytes_sent)))<sp/>&gt;&gt;<sp/>4,</highlight></codeline>
-<codeline lineno="458"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t)(&amp;(erisc_info-&gt;channels[channel].bytes_sent)))<sp/>&gt;&gt;<sp/>4,</highlight></codeline>
-<codeline lineno="459"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1);</highlight></codeline>
-<codeline lineno="460"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="461"><highlight class="normal"></highlight></codeline>
-<codeline lineno="474"><highlight class="normal">FORCE_INLINE</highlight></codeline>
-<codeline lineno="475"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>eth_clear_sender_channel_ack(uint32_t<sp/>channel)<sp/>{</highlight></codeline>
-<codeline lineno="476"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>assert(channel<sp/>&lt;<sp/>4);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="477"><highlight class="normal"><sp/><sp/><sp/><sp/>erisc_info-&gt;channels[channel].receiver_ack<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="478"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="479"><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1);</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(erisc_info-&gt;channels[0].bytes_sent<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>run_routing();</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="241"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="normal">FORCE_INLINE</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>eth_is_receiver_channel_send_acked(uint32_t<sp/>channel)<sp/>{</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>erisc_info-&gt;channels[channel].receiver_ack<sp/>!=<sp/>0;</highlight></codeline>
+<codeline lineno="259"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"></highlight></codeline>
+<codeline lineno="274"><highlight class="normal">FORCE_INLINE</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>eth_is_receiver_channel_send_done(uint32_t<sp/>channel)<sp/>{</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>erisc_info-&gt;channels[channel].bytes_sent<sp/>==<sp/>0;</highlight></codeline>
+<codeline lineno="277"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"></highlight></codeline>
+<codeline lineno="290"><highlight class="normal">FORCE_INLINE</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>eth_wait_for_receiver_channel_done(uint32_t<sp/>channel)<sp/>{</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>count<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>max<sp/>=<sp/>100000;</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"></highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(!eth_is_receiver_channel_send_done(channel))<sp/>{</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>count++;</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(count<sp/>&gt;<sp/>max)<sp/>{</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>count<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>run_routing();</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="302"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"></highlight></codeline>
+<codeline lineno="315"><highlight class="normal">FORCE_INLINE</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>eth_wait_receiver_done()<sp/>{</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(erisc_info-&gt;channels[0].bytes_sent<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>run_routing();</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="320"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"></highlight></codeline>
+<codeline lineno="334"><highlight class="normal">FORCE_INLINE</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>eth_wait_for_bytes(uint32_t<sp/>num_bytes)<sp/>{</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(erisc_info-&gt;channels[0].bytes_sent<sp/>!=<sp/>num_bytes)<sp/>{</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>run_routing();</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="339"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"></highlight></codeline>
+<codeline lineno="353"><highlight class="normal">FORCE_INLINE</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>eth_bytes_are_available_on_channel(uint8_t<sp/>channel)<sp/>{</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>erisc_info-&gt;channels[channel].bytes_sent<sp/>!=<sp/>0;</highlight></codeline>
+<codeline lineno="356"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="357"><highlight class="normal"></highlight></codeline>
+<codeline lineno="371"><highlight class="normal">FORCE_INLINE</highlight></codeline>
+<codeline lineno="372"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>eth_wait_for_bytes_on_channel(uint32_t<sp/>num_bytes,<sp/>uint8_t<sp/>channel)<sp/>{</highlight></codeline>
+<codeline lineno="373"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>assert(channel<sp/>&lt;<sp/>4);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="374"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>count<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="375"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>poll_count<sp/>=<sp/>1000000;</highlight></codeline>
+<codeline lineno="376"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>num_bytes_sent<sp/>=<sp/>erisc_info-&gt;channels[channel].bytes_sent;</highlight></codeline>
+<codeline lineno="377"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(num_bytes_sent<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="378"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/>received_this_iter<sp/>=<sp/>erisc_info-&gt;channels[channel].bytes_sent;</highlight></codeline>
+<codeline lineno="379"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(received_this_iter<sp/>!=<sp/>num_bytes_sent)<sp/>{</highlight></codeline>
+<codeline lineno="380"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>We<sp/>are<sp/>currently<sp/>in<sp/>the<sp/>process<sp/>of<sp/>receiving<sp/>data<sp/>on<sp/>this<sp/>channel,<sp/>so<sp/>we<sp/>just<sp/>just<sp/>wait<sp/>a</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="381"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>bit<sp/>longer<sp/>instead<sp/>of<sp/>initiating<sp/>a<sp/>context<sp/>switch</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="382"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>num_bytes_sent<sp/>=<sp/>received_this_iter;</highlight></codeline>
+<codeline lineno="383"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="384"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>count++;</highlight></codeline>
+<codeline lineno="385"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(count<sp/>&gt;<sp/>poll_count)<sp/>{</highlight></codeline>
+<codeline lineno="386"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>count<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="387"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>run_routing();</highlight></codeline>
+<codeline lineno="388"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="389"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="390"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="391"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="392"><highlight class="normal"></highlight></codeline>
+<codeline lineno="402"><highlight class="normal">FORCE_INLINE</highlight></codeline>
+<codeline lineno="403"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>eth_receiver_done()<sp/>{</highlight></codeline>
+<codeline lineno="404"><highlight class="normal"><sp/><sp/><sp/><sp/>erisc_info-&gt;channels[0].bytes_sent<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="405"><highlight class="normal"><sp/><sp/><sp/><sp/>internal_::eth_send_packet(</highlight></codeline>
+<codeline lineno="406"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,</highlight></codeline>
+<codeline lineno="407"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t)(&amp;(erisc_info-&gt;channels[0].bytes_sent)))<sp/>&gt;&gt;<sp/>4,</highlight></codeline>
+<codeline lineno="408"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t)(&amp;(erisc_info-&gt;channels[0].bytes_sent)))<sp/>&gt;&gt;<sp/>4,</highlight></codeline>
+<codeline lineno="409"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1);</highlight></codeline>
+<codeline lineno="410"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="411"><highlight class="normal"></highlight></codeline>
+<codeline lineno="424"><highlight class="normal">FORCE_INLINE</highlight></codeline>
+<codeline lineno="425"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>eth_receiver_channel_done(uint32_t<sp/>channel)<sp/>{</highlight></codeline>
+<codeline lineno="426"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>assert(channel<sp/>&lt;<sp/>4);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="427"><highlight class="normal"><sp/><sp/><sp/><sp/>erisc_info-&gt;channels[channel].bytes_sent<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="428"><highlight class="normal"><sp/><sp/><sp/><sp/>erisc_info-&gt;channels[channel].receiver_ack<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="429"><highlight class="normal"><sp/><sp/><sp/><sp/>internal_::eth_send_packet(</highlight></codeline>
+<codeline lineno="430"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,</highlight></codeline>
+<codeline lineno="431"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t)(&amp;(erisc_info-&gt;channels[channel].bytes_sent)))<sp/>&gt;&gt;<sp/>4,</highlight></codeline>
+<codeline lineno="432"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t)(&amp;(erisc_info-&gt;channels[channel].bytes_sent)))<sp/>&gt;&gt;<sp/>4,</highlight></codeline>
+<codeline lineno="433"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1);</highlight></codeline>
+<codeline lineno="434"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="435"><highlight class="normal"></highlight></codeline>
+<codeline lineno="448"><highlight class="normal">FORCE_INLINE</highlight></codeline>
+<codeline lineno="449"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>eth_clear_sender_channel_ack(uint32_t<sp/>channel)<sp/>{</highlight></codeline>
+<codeline lineno="450"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>assert(channel<sp/>&lt;<sp/>4);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="451"><highlight class="normal"><sp/><sp/><sp/><sp/>erisc_info-&gt;channels[channel].receiver_ack<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="452"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="453"><highlight class="normal"></highlight></codeline>
+<codeline lineno="469"><highlight class="normal">FORCE_INLINE</highlight></codeline>
+<codeline lineno="470"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>eth_receiver_channel_ack(uint32_t<sp/>channel,<sp/>uint32_t<sp/>eth_transaction_ack_word_addr)<sp/>{</highlight></codeline>
+<codeline lineno="471"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>assert(channel<sp/>&lt;<sp/>4);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="472"><highlight class="normal"><sp/><sp/><sp/><sp/>erisc_info-&gt;channels[channel].receiver_ack<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="473"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT(</highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="keyword">volatile<sp/></highlight><highlight class="normal">uint32_t*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(eth_transaction_ack_word_addr)[0]<sp/>==<sp/>1);</highlight></codeline>
+<codeline lineno="474"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="keyword">volatile<sp/></highlight><highlight class="normal">uint32_t*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(eth_transaction_ack_word_addr)[1]<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="475"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Make<sp/>sure<sp/>we<sp/>don&apos;t<sp/>alias<sp/>the<sp/>erisc_info<sp/>eth_channel_sync_t</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="476"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT(eth_transaction_ack_word_addr<sp/>!=<sp/>((uint32_t)(&amp;(erisc_info-&gt;channels[channel].receiver_ack)))<sp/>&gt;&gt;<sp/>4);</highlight></codeline>
+<codeline lineno="477"><highlight class="normal"><sp/><sp/><sp/><sp/>internal_::eth_send_packet(</highlight></codeline>
+<codeline lineno="478"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,</highlight></codeline>
+<codeline lineno="479"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eth_transaction_ack_word_addr<sp/>&gt;&gt;<sp/>4,</highlight></codeline>
+<codeline lineno="480"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t)(&amp;(erisc_info-&gt;channels[channel].receiver_ack)))<sp/>&gt;&gt;<sp/>4,</highlight></codeline>
+<codeline lineno="481"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1);</highlight></codeline>
+<codeline lineno="482"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="483"><highlight class="normal"></highlight></codeline>
+<codeline lineno="484"><highlight class="normal"></highlight></codeline>
+<codeline lineno="485"><highlight class="normal"></highlight></codeline>
+<codeline lineno="486"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="487"><highlight class="comment"><sp/>*<sp/>Initiates<sp/>an<sp/>asynchronous<sp/>call<sp/>from<sp/>receiver<sp/>ethernet<sp/>core<sp/>to<sp/>tell<sp/>remote<sp/>sender<sp/>ethernet<sp/>core<sp/>that<sp/>data<sp/>sent</highlight></codeline>
+<codeline lineno="488"><highlight class="comment"><sp/>*<sp/>via<sp/>eth_send_bytes<sp/>has<sp/>been<sp/>received.<sp/>Also,<sp/>see<sp/>\a<sp/>eth_wait_for_receiver_done</highlight></codeline>
+<codeline lineno="489"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="490"><highlight class="comment"><sp/>*<sp/>Return<sp/>value:<sp/>None</highlight></codeline>
+<codeline lineno="491"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="492"><highlight class="comment"><sp/>*<sp/>|<sp/>Argument<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Description<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Type<sp/><sp/><sp/><sp/><sp/>|<sp/>Valid<sp/>Range<sp/>|<sp/>Required<sp/>|</highlight></codeline>
+<codeline lineno="493"><highlight class="comment"><sp/>*<sp/>|-------------------|---------------------------------------------------------|----------|-------------|----------|</highlight></codeline>
+<codeline lineno="494"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="495"><highlight class="normal">FORCE_INLINE</highlight></codeline>
-<codeline lineno="496"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>eth_receiver_channel_ack(uint32_t<sp/>channel,<sp/>uint32_t<sp/>eth_transaction_ack_word_addr)<sp/>{</highlight></codeline>
-<codeline lineno="497"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>assert(channel<sp/>&lt;<sp/>4);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="498"><highlight class="normal"><sp/><sp/><sp/><sp/>erisc_info-&gt;channels[channel].receiver_ack<sp/>=<sp/>1;</highlight></codeline>
-<codeline lineno="499"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT(</highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="keyword">volatile<sp/></highlight><highlight class="normal">uint32_t*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(eth_transaction_ack_word_addr)[0]<sp/>==<sp/>1);</highlight></codeline>
-<codeline lineno="500"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="keyword">volatile<sp/></highlight><highlight class="normal">uint32_t*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(eth_transaction_ack_word_addr)[1]<sp/>=<sp/>1;</highlight></codeline>
-<codeline lineno="501"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Make<sp/>sure<sp/>we<sp/>don&apos;t<sp/>alias<sp/>the<sp/>erisc_info<sp/>eth_channel_sync_t</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="502"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT(eth_transaction_ack_word_addr<sp/>!=<sp/>((uint32_t)(&amp;(erisc_info-&gt;channels[channel].receiver_ack)))<sp/>&gt;&gt;<sp/>4);</highlight></codeline>
-<codeline lineno="503"><highlight class="normal"><sp/><sp/><sp/><sp/>internal_::eth_send_packet(</highlight></codeline>
-<codeline lineno="504"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,</highlight></codeline>
-<codeline lineno="505"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eth_transaction_ack_word_addr<sp/>&gt;&gt;<sp/>4,</highlight></codeline>
-<codeline lineno="506"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t)(&amp;(erisc_info-&gt;channels[channel].receiver_ack)))<sp/>&gt;&gt;<sp/>4,</highlight></codeline>
-<codeline lineno="507"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1);</highlight></codeline>
-<codeline lineno="508"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="509"><highlight class="normal"></highlight></codeline>
-<codeline lineno="510"><highlight class="normal"></highlight></codeline>
-<codeline lineno="511"><highlight class="normal"></highlight></codeline>
-<codeline lineno="512"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
-<codeline lineno="513"><highlight class="comment"><sp/>*<sp/>Initiates<sp/>an<sp/>asynchronous<sp/>call<sp/>from<sp/>receiver<sp/>ethernet<sp/>core<sp/>to<sp/>tell<sp/>remote<sp/>sender<sp/>ethernet<sp/>core<sp/>that<sp/>data<sp/>sent</highlight></codeline>
-<codeline lineno="514"><highlight class="comment"><sp/>*<sp/>via<sp/>eth_send_bytes<sp/>has<sp/>been<sp/>received.<sp/>Also,<sp/>see<sp/>\a<sp/>eth_wait_for_receiver_done</highlight></codeline>
-<codeline lineno="515"><highlight class="comment"><sp/>*</highlight></codeline>
-<codeline lineno="516"><highlight class="comment"><sp/>*<sp/>Return<sp/>value:<sp/>None</highlight></codeline>
-<codeline lineno="517"><highlight class="comment"><sp/>*</highlight></codeline>
-<codeline lineno="518"><highlight class="comment"><sp/>*<sp/>|<sp/>Argument<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Description<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Type<sp/><sp/><sp/><sp/><sp/>|<sp/>Valid<sp/>Range<sp/>|<sp/>Required<sp/>|</highlight></codeline>
-<codeline lineno="519"><highlight class="comment"><sp/>*<sp/>|-------------------|---------------------------------------------------------|----------|-------------|----------|</highlight></codeline>
-<codeline lineno="520"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="521"><highlight class="normal">FORCE_INLINE</highlight></codeline>
-<codeline lineno="522"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>eth_receiver_acknowledge(uint8_t<sp/>channel<sp/>=<sp/>0)<sp/>{</highlight></codeline>
-<codeline lineno="523"><highlight class="normal"><sp/><sp/><sp/><sp/>erisc_info-&gt;channels[channel].bytes_sent<sp/>=<sp/>1;</highlight></codeline>
-<codeline lineno="524"><highlight class="normal"><sp/><sp/><sp/><sp/>internal_::eth_send_packet(</highlight></codeline>
-<codeline lineno="525"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,</highlight></codeline>
-<codeline lineno="526"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t)(&amp;(erisc_info-&gt;channels[channel].bytes_sent)))<sp/>&gt;&gt;<sp/>4,</highlight></codeline>
-<codeline lineno="527"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t)(&amp;(erisc_info-&gt;channels[channel].bytes_sent)))<sp/>&gt;&gt;<sp/>4,</highlight></codeline>
-<codeline lineno="528"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1);</highlight></codeline>
-<codeline lineno="529"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="530"><highlight class="normal"></highlight></codeline>
-<codeline lineno="531"><highlight class="normal">FORCE_INLINE</highlight></codeline>
-<codeline lineno="532"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>eth_wait_receiver_acknowledge(uint8_t<sp/>channel<sp/>=<sp/>0)<sp/>{</highlight></codeline>
-<codeline lineno="533"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(erisc_info-&gt;channels[channel].bytes_sent<sp/>!=<sp/>1)<sp/>{</highlight></codeline>
-<codeline lineno="534"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>run_routing();</highlight></codeline>
-<codeline lineno="535"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="536"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="537"><highlight class="normal"></highlight></codeline>
-<codeline lineno="538"><highlight class="normal"></highlight></codeline>
-<codeline lineno="554"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>write_barrier<sp/>=<sp/>false&gt;</highlight></codeline>
-<codeline lineno="555"><highlight class="normal">FORCE_INLINE</highlight></codeline>
-<codeline lineno="556"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>eth_wait_for_remote_receiver_done_and_get_local_receiver_data(</highlight></codeline>
-<codeline lineno="557"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/>tt_l1_ptr<sp/>uint32_t*<sp/>sender_semaphore_addr_ptr,</highlight></codeline>
-<codeline lineno="558"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/>receiver_semaphore_noc_addr,</highlight></codeline>
-<codeline lineno="559"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/>receiver_data_noc_addr,</highlight></codeline>
-<codeline lineno="560"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>local_eth_l1_curr_src_addr,</highlight></codeline>
-<codeline lineno="561"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>size</highlight></codeline>
-<codeline lineno="562"><highlight class="normal">)<sp/>{</highlight></codeline>
-<codeline lineno="563"><highlight class="normal"><sp/><sp/><sp/><sp/>internal_::eth_send_packet(</highlight></codeline>
-<codeline lineno="564"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,</highlight></codeline>
-<codeline lineno="565"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t)(&amp;(erisc_info-&gt;channels[0].bytes_sent)))<sp/>&gt;&gt;<sp/>4,</highlight></codeline>
-<codeline lineno="566"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t)(&amp;(erisc_info-&gt;channels[0].bytes_sent)))<sp/>&gt;&gt;<sp/>4,</highlight></codeline>
-<codeline lineno="567"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1);</highlight></codeline>
-<codeline lineno="568"><highlight class="normal"><sp/><sp/><sp/><sp/>eth_noc_semaphore_wait(sender_semaphore_addr_ptr,<sp/>1);</highlight></codeline>
-<codeline lineno="569"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dataflow__api_8h_1ab97e89d297b36a2143d7f57011dd7ec5" kindref="member">noc_async_read</ref>(receiver_data_noc_addr,<sp/>local_eth_l1_curr_src_addr,<sp/>size);</highlight></codeline>
-<codeline lineno="570"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dataflow__api_8h_1af02a9af640679b00da874318535aa397" kindref="member">noc_semaphore_set</ref>(sender_semaphore_addr_ptr,<sp/>0);</highlight></codeline>
-<codeline lineno="571"><highlight class="normal"><sp/><sp/><sp/><sp/>eth_noc_async_read_barrier();</highlight></codeline>
-<codeline lineno="572"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>(write_barrier)<sp/>{</highlight></codeline>
-<codeline lineno="573"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eth_noc_async_write_barrier();</highlight></codeline>
-<codeline lineno="574"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="575"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dataflow__api_8h_1a4eda1737bf554c8bfe4bc603f4d41a43" kindref="member">noc_semaphore_inc</ref>(receiver_semaphore_noc_addr,<sp/>1);</highlight></codeline>
-<codeline lineno="576"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(erisc_info-&gt;channels[0].bytes_sent<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
-<codeline lineno="577"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>internal_::risc_context_switch();</highlight></codeline>
-<codeline lineno="578"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="579"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="496"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>eth_receiver_acknowledge(uint8_t<sp/>channel<sp/>=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="497"><highlight class="normal"><sp/><sp/><sp/><sp/>erisc_info-&gt;channels[channel].bytes_sent<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="498"><highlight class="normal"><sp/><sp/><sp/><sp/>internal_::eth_send_packet(</highlight></codeline>
+<codeline lineno="499"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,</highlight></codeline>
+<codeline lineno="500"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t)(&amp;(erisc_info-&gt;channels[channel].bytes_sent)))<sp/>&gt;&gt;<sp/>4,</highlight></codeline>
+<codeline lineno="501"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t)(&amp;(erisc_info-&gt;channels[channel].bytes_sent)))<sp/>&gt;&gt;<sp/>4,</highlight></codeline>
+<codeline lineno="502"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1);</highlight></codeline>
+<codeline lineno="503"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="504"><highlight class="normal"></highlight></codeline>
+<codeline lineno="505"><highlight class="normal">FORCE_INLINE</highlight></codeline>
+<codeline lineno="506"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>eth_wait_receiver_acknowledge(uint8_t<sp/>channel<sp/>=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="507"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(erisc_info-&gt;channels[channel].bytes_sent<sp/>!=<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="508"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>run_routing();</highlight></codeline>
+<codeline lineno="509"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="510"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="tt_metal/hw/inc/ethernet/dataflow_api.h"/>
   </compounddef>

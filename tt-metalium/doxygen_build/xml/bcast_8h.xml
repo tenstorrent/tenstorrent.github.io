@@ -112,94 +112,95 @@
 <codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>PACK((<sp/>llk_pack_dest_init&lt;false,<sp/>DST_ACCUM_MODE&gt;()<sp/>));</highlight></codeline>
 <codeline lineno="124"><highlight class="normal"></highlight></codeline>
 <codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_pack_sync_init&lt;DST_ACCUM_MODE&gt;()<sp/>));</highlight></codeline>
-<codeline lineno="126"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_hw_configure_disaggregated()<sp/>));</highlight></codeline>
+<codeline lineno="127"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="128"><highlight class="normal"></highlight></codeline>
-<codeline lineno="129"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
-<codeline lineno="130"><highlight class="comment">Internal<sp/>helper<sp/>function<sp/>for<sp/>all<sp/>broadcast<sp/>ops</highlight></codeline>
-<codeline lineno="131"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="132"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;EltwiseBinaryType<sp/>tBcastOp,<sp/>BroadcastType<sp/>tBcastDim&gt;</highlight></codeline>
-<codeline lineno="133"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>any_tiles_bcast(uint32_t<sp/>icb0,<sp/>uint32_t<sp/>icb1,<sp/>uint32_t<sp/>itile0,<sp/>uint32_t<sp/>itile1,<sp/>uint32_t<sp/>idst)</highlight></codeline>
-<codeline lineno="134"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_binary&lt;tBcastOp,<sp/>tBcastDim,<sp/>MATH_FIDELITY,<sp/>EltwiseBinaryReuseDestType::NONE,<sp/>DST_ACCUM_MODE&gt;(icb0,<sp/>icb1,<sp/>idst)<sp/>));</highlight></codeline>
-<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_AB&lt;tBcastDim&gt;(icb0,<sp/>icb1,<sp/>itile0,<sp/>itile1)<sp/>));</highlight></codeline>
-<codeline lineno="137"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="138"><highlight class="normal"></highlight></codeline>
-<codeline lineno="178"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;BroadcastType<sp/>tBcastDim&gt;</highlight></codeline>
-<codeline lineno="179"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>add_tiles_bcast(uint32_t<sp/>icb0,<sp/>uint32_t<sp/>icb1,<sp/>uint32_t<sp/>itile0,<sp/>uint32_t<sp/>itile1,<sp/>uint32_t<sp/>idst)</highlight></codeline>
-<codeline lineno="180"><highlight class="normal">{<sp/>any_tiles_bcast&lt;EltwiseBinaryType::ELWADD,<sp/>tBcastDim&gt;(icb0,<sp/>icb1,<sp/>itile0,<sp/>itile1,<sp/>idst);<sp/>}</highlight></codeline>
-<codeline lineno="181"><highlight class="normal"></highlight></codeline>
-<codeline lineno="185"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;BroadcastType<sp/>tBcastDim&gt;</highlight></codeline>
-<codeline lineno="186"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>sub_tiles_bcast(uint32_t<sp/>icb0,<sp/>uint32_t<sp/>icb1,<sp/>uint32_t<sp/>itile0,<sp/>uint32_t<sp/>itile1,<sp/>uint32_t<sp/>idst)</highlight></codeline>
-<codeline lineno="187"><highlight class="normal">{<sp/>any_tiles_bcast&lt;EltwiseBinaryType::ELWSUB,<sp/>tBcastDim&gt;(icb0,<sp/>icb1,<sp/>itile0,<sp/>itile1,<sp/>idst);<sp/>}</highlight></codeline>
-<codeline lineno="188"><highlight class="normal"></highlight></codeline>
-<codeline lineno="192"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;BroadcastType<sp/>tBcastDim&gt;</highlight></codeline>
-<codeline lineno="193"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>mul_tiles_bcast(uint32_t<sp/>icb0,<sp/>uint32_t<sp/>icb1,<sp/>uint32_t<sp/>itile0,<sp/>uint32_t<sp/>itile1,<sp/>uint32_t<sp/>idst)</highlight></codeline>
-<codeline lineno="194"><highlight class="normal">{<sp/>any_tiles_bcast&lt;EltwiseBinaryType::ELWMUL,<sp/>tBcastDim&gt;(icb0,<sp/>icb1,<sp/>itile0,<sp/>itile1,<sp/>idst);<sp/>}</highlight></codeline>
-<codeline lineno="195"><highlight class="normal"></highlight></codeline>
-<codeline lineno="200"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>add_bcast_rows_init_short(uint32_t<sp/>icb0<sp/>=<sp/>0,<sp/>uint32_t<sp/>icb1<sp/>=<sp/>1)</highlight></codeline>
-<codeline lineno="201"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_binary_init&lt;ELWADD,<sp/>BroadcastType::ROW,<sp/>MATH_FIDELITY&gt;()<sp/>));</highlight></codeline>
-<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_AB_init&lt;BroadcastType::ROW&gt;(icb0,<sp/>icb1)<sp/>));</highlight></codeline>
-<codeline lineno="204"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="205"><highlight class="normal"></highlight></codeline>
-<codeline lineno="210"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>add_bcast_cols_init_short(uint32_t<sp/>icb0<sp/>=<sp/>0,<sp/>uint32_t<sp/>icb1<sp/>=<sp/>1)</highlight></codeline>
-<codeline lineno="211"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_binary_init&lt;ELWADD,<sp/>BroadcastType::COL&gt;()<sp/>));</highlight></codeline>
-<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>FIXME:<sp/>API<sp/>Update<sp/>needed<sp/>in<sp/>compute<sp/>kernel?</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_AB_init&lt;BroadcastType::COL&gt;(icb0,<sp/>icb1)<sp/>));</highlight></codeline>
-<codeline lineno="215"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="216"><highlight class="normal"></highlight></codeline>
-<codeline lineno="220"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>add_bcast_scalar_init_short(uint32_t<sp/>icb0<sp/>=<sp/>0,<sp/>uint32_t<sp/>icb1<sp/>=<sp/>1)</highlight></codeline>
-<codeline lineno="221"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_binary_init&lt;ELWADD,<sp/>BroadcastType::SCALAR,<sp/>MATH_FIDELITY&gt;()<sp/>));<sp/></highlight><highlight class="comment">//<sp/>TODO(AP)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>FIXME:<sp/>API<sp/>Update<sp/>needed<sp/>in<sp/>compute<sp/>kernel?</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_AB_init&lt;BroadcastType::SCALAR&gt;(icb0,<sp/>icb1)<sp/>));</highlight></codeline>
-<codeline lineno="225"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="226"><highlight class="normal"></highlight></codeline>
-<codeline lineno="230"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>mul_tiles_bcast_scalar_init_short(uint32_t<sp/>icb0<sp/>=<sp/>0,<sp/>uint32_t<sp/>icb1<sp/>=<sp/>1)</highlight></codeline>
-<codeline lineno="231"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_binary_init&lt;ELWMUL,<sp/>BroadcastType::SCALAR,<sp/>MATH_FIDELITY&gt;()<sp/>));<sp/></highlight><highlight class="comment">//<sp/>TODO(AP)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>FIXME:<sp/>API<sp/>Update<sp/>needed<sp/>in<sp/>compute<sp/>kernel?</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_AB_init&lt;BroadcastType::SCALAR&gt;(icb0,<sp/>icb1)<sp/>));</highlight></codeline>
-<codeline lineno="235"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="236"><highlight class="normal"></highlight></codeline>
-<codeline lineno="240"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>mul_tiles_bcast_scalar(uint32_t<sp/>icb0,<sp/>uint32_t<sp/>icb1,<sp/>uint32_t<sp/>itile0,<sp/>uint32_t<sp/>itile1,<sp/>uint32_t<sp/>idst)</highlight></codeline>
-<codeline lineno="241"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_binary&lt;ELWMUL,<sp/>BroadcastType::SCALAR,<sp/>MATH_FIDELITY,<sp/>EltwiseBinaryReuseDestType::NONE,<sp/>DST_ACCUM_MODE&gt;(icb0,<sp/>icb1,<sp/>idst)<sp/>));</highlight></codeline>
-<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_AB&lt;BroadcastType::SCALAR&gt;(icb0,<sp/>icb1,<sp/>itile0,<sp/>itile1)<sp/>));</highlight></codeline>
-<codeline lineno="244"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="245"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="131"><highlight class="comment">Internal<sp/>helper<sp/>function<sp/>for<sp/>all<sp/>broadcast<sp/>ops</highlight></codeline>
+<codeline lineno="132"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;EltwiseBinaryType<sp/>tBcastOp,<sp/>BroadcastType<sp/>tBcastDim&gt;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>any_tiles_bcast(uint32_t<sp/>icb0,<sp/>uint32_t<sp/>icb1,<sp/>uint32_t<sp/>itile0,<sp/>uint32_t<sp/>itile1,<sp/>uint32_t<sp/>idst)</highlight></codeline>
+<codeline lineno="135"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_binary&lt;tBcastOp,<sp/>tBcastDim,<sp/>MATH_FIDELITY,<sp/>EltwiseBinaryReuseDestType::NONE,<sp/>DST_ACCUM_MODE&gt;(icb0,<sp/>icb1,<sp/>idst)<sp/>));</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_AB&lt;tBcastDim&gt;(icb0,<sp/>icb1,<sp/>itile0,<sp/>itile1)<sp/>));</highlight></codeline>
+<codeline lineno="138"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;BroadcastType<sp/>tBcastDim&gt;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>add_tiles_bcast(uint32_t<sp/>icb0,<sp/>uint32_t<sp/>icb1,<sp/>uint32_t<sp/>itile0,<sp/>uint32_t<sp/>itile1,<sp/>uint32_t<sp/>idst)</highlight></codeline>
+<codeline lineno="181"><highlight class="normal">{<sp/>any_tiles_bcast&lt;EltwiseBinaryType::ELWADD,<sp/>tBcastDim&gt;(icb0,<sp/>icb1,<sp/>itile0,<sp/>itile1,<sp/>idst);<sp/>}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;BroadcastType<sp/>tBcastDim&gt;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>sub_tiles_bcast(uint32_t<sp/>icb0,<sp/>uint32_t<sp/>icb1,<sp/>uint32_t<sp/>itile0,<sp/>uint32_t<sp/>itile1,<sp/>uint32_t<sp/>idst)</highlight></codeline>
+<codeline lineno="188"><highlight class="normal">{<sp/>any_tiles_bcast&lt;EltwiseBinaryType::ELWSUB,<sp/>tBcastDim&gt;(icb0,<sp/>icb1,<sp/>itile0,<sp/>itile1,<sp/>idst);<sp/>}</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;BroadcastType<sp/>tBcastDim&gt;</highlight></codeline>
+<codeline lineno="194"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>mul_tiles_bcast(uint32_t<sp/>icb0,<sp/>uint32_t<sp/>icb1,<sp/>uint32_t<sp/>itile0,<sp/>uint32_t<sp/>itile1,<sp/>uint32_t<sp/>idst)</highlight></codeline>
+<codeline lineno="195"><highlight class="normal">{<sp/>any_tiles_bcast&lt;EltwiseBinaryType::ELWMUL,<sp/>tBcastDim&gt;(icb0,<sp/>icb1,<sp/>itile0,<sp/>itile1,<sp/>idst);<sp/>}</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>add_bcast_rows_init_short(uint32_t<sp/>icb0<sp/>=<sp/>0,<sp/>uint32_t<sp/>icb1<sp/>=<sp/>1)</highlight></codeline>
+<codeline lineno="202"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_binary_init&lt;ELWADD,<sp/>BroadcastType::ROW,<sp/>MATH_FIDELITY&gt;()<sp/>));</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_AB_init&lt;BroadcastType::ROW&gt;(icb0,<sp/>icb1)<sp/>));</highlight></codeline>
+<codeline lineno="205"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>add_bcast_cols_init_short(uint32_t<sp/>icb0<sp/>=<sp/>0,<sp/>uint32_t<sp/>icb1<sp/>=<sp/>1)</highlight></codeline>
+<codeline lineno="212"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_binary_init&lt;ELWADD,<sp/>BroadcastType::COL&gt;()<sp/>));</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>FIXME:<sp/>API<sp/>Update<sp/>needed<sp/>in<sp/>compute<sp/>kernel?</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_AB_init&lt;BroadcastType::COL&gt;(icb0,<sp/>icb1)<sp/>));</highlight></codeline>
+<codeline lineno="216"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>add_bcast_scalar_init_short(uint32_t<sp/>icb0<sp/>=<sp/>0,<sp/>uint32_t<sp/>icb1<sp/>=<sp/>1)</highlight></codeline>
+<codeline lineno="222"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_binary_init&lt;ELWADD,<sp/>BroadcastType::SCALAR,<sp/>MATH_FIDELITY&gt;()<sp/>));<sp/></highlight><highlight class="comment">//<sp/>TODO(AP)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>FIXME:<sp/>API<sp/>Update<sp/>needed<sp/>in<sp/>compute<sp/>kernel?</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_AB_init&lt;BroadcastType::SCALAR&gt;(icb0,<sp/>icb1)<sp/>));</highlight></codeline>
+<codeline lineno="226"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>mul_tiles_bcast_scalar_init_short(uint32_t<sp/>icb0<sp/>=<sp/>0,<sp/>uint32_t<sp/>icb1<sp/>=<sp/>1)</highlight></codeline>
+<codeline lineno="232"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_binary_init&lt;ELWMUL,<sp/>BroadcastType::SCALAR,<sp/>MATH_FIDELITY&gt;()<sp/>));<sp/></highlight><highlight class="comment">//<sp/>TODO(AP)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>FIXME:<sp/>API<sp/>Update<sp/>needed<sp/>in<sp/>compute<sp/>kernel?</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_AB_init&lt;BroadcastType::SCALAR&gt;(icb0,<sp/>icb1)<sp/>));</highlight></codeline>
+<codeline lineno="236"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>mul_tiles_bcast_scalar(uint32_t<sp/>icb0,<sp/>uint32_t<sp/>icb1,<sp/>uint32_t<sp/>itile0,<sp/>uint32_t<sp/>itile1,<sp/>uint32_t<sp/>idst)</highlight></codeline>
+<codeline lineno="242"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_binary&lt;ELWMUL,<sp/>BroadcastType::SCALAR,<sp/>MATH_FIDELITY,<sp/>EltwiseBinaryReuseDestType::NONE,<sp/>DST_ACCUM_MODE&gt;(icb0,<sp/>icb1,<sp/>idst)<sp/>));</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_AB&lt;BroadcastType::SCALAR&gt;(icb0,<sp/>icb1,<sp/>itile0,<sp/>itile1)<sp/>));</highlight></codeline>
+<codeline lineno="245"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="246"><highlight class="normal"></highlight></codeline>
-<codeline lineno="250"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>mul_bcast_cols_init_short(uint32_t<sp/>icb0<sp/>=<sp/>0,<sp/>uint32_t<sp/>icb1<sp/>=<sp/>1)</highlight></codeline>
-<codeline lineno="251"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_binary_init&lt;ELWMUL,<sp/>BroadcastType::COL,<sp/>MATH_FIDELITY&gt;()<sp/>));<sp/></highlight><highlight class="comment">//<sp/>TODO(AP)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>FIXME:<sp/>API<sp/>Update<sp/>needed<sp/>in<sp/>compute<sp/>kernel?</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_AB_init&lt;BroadcastType::COL&gt;(icb0,<sp/>icb1)<sp/>));</highlight></codeline>
-<codeline lineno="255"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="256"><highlight class="normal"></highlight></codeline>
-<codeline lineno="260"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>mul_bcast_rows_init_short(uint32_t<sp/>icb0<sp/>=<sp/>0,<sp/>uint32_t<sp/>icb1<sp/>=<sp/>1)</highlight></codeline>
-<codeline lineno="261"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_binary_init&lt;ELWMUL,<sp/>BroadcastType::ROW,<sp/>MATH_FIDELITY&gt;()<sp/>));</highlight></codeline>
-<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>FIXME:<sp/>API<sp/>Update<sp/>needed<sp/>in<sp/>compute<sp/>kernel?</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_AB_init&lt;BroadcastType::ROW&gt;(icb0,<sp/>icb1)<sp/>));</highlight></codeline>
-<codeline lineno="265"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="266"><highlight class="normal"></highlight></codeline>
-<codeline lineno="270"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>sub_bcast_cols_init_short(uint32_t<sp/>icb0<sp/>=<sp/>0,<sp/>uint32_t<sp/>icb1<sp/>=<sp/>1)</highlight></codeline>
-<codeline lineno="271"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_binary_init&lt;ELWSUB,<sp/>BroadcastType::COL,<sp/>MATH_FIDELITY&gt;()<sp/>));<sp/></highlight><highlight class="comment">//<sp/>TODO(AP)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>FIXME:<sp/>API<sp/>Update<sp/>needed<sp/>in<sp/>compute<sp/>kernel?</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_AB_init&lt;BroadcastType::COL&gt;(icb0,<sp/>icb1)<sp/>));</highlight></codeline>
-<codeline lineno="275"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="276"><highlight class="normal"></highlight></codeline>
-<codeline lineno="280"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>sub_tiles_bcast_scalar_init_short(uint32_t<sp/>icb0<sp/>=<sp/>0,<sp/>uint32_t<sp/>icb1<sp/>=<sp/>1)</highlight></codeline>
-<codeline lineno="281"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_binary_init&lt;ELWSUB,<sp/>BroadcastType::SCALAR,<sp/>MATH_FIDELITY&gt;()<sp/>));<sp/></highlight><highlight class="comment">//<sp/>TODO(AP)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>FIXME:<sp/>API<sp/>Update<sp/>needed<sp/>in<sp/>compute<sp/>kernel?</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_AB_init&lt;BroadcastType::SCALAR&gt;(icb0,<sp/>icb1)<sp/>));</highlight></codeline>
-<codeline lineno="285"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="286"><highlight class="normal"></highlight></codeline>
-<codeline lineno="287"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>ckernel</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>mul_bcast_cols_init_short(uint32_t<sp/>icb0<sp/>=<sp/>0,<sp/>uint32_t<sp/>icb1<sp/>=<sp/>1)</highlight></codeline>
+<codeline lineno="252"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_binary_init&lt;ELWMUL,<sp/>BroadcastType::COL,<sp/>MATH_FIDELITY&gt;()<sp/>));<sp/></highlight><highlight class="comment">//<sp/>TODO(AP)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>FIXME:<sp/>API<sp/>Update<sp/>needed<sp/>in<sp/>compute<sp/>kernel?</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_AB_init&lt;BroadcastType::COL&gt;(icb0,<sp/>icb1)<sp/>));</highlight></codeline>
+<codeline lineno="256"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>mul_bcast_rows_init_short(uint32_t<sp/>icb0<sp/>=<sp/>0,<sp/>uint32_t<sp/>icb1<sp/>=<sp/>1)</highlight></codeline>
+<codeline lineno="262"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_binary_init&lt;ELWMUL,<sp/>BroadcastType::ROW,<sp/>MATH_FIDELITY&gt;()<sp/>));</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>FIXME:<sp/>API<sp/>Update<sp/>needed<sp/>in<sp/>compute<sp/>kernel?</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_AB_init&lt;BroadcastType::ROW&gt;(icb0,<sp/>icb1)<sp/>));</highlight></codeline>
+<codeline lineno="266"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>sub_bcast_cols_init_short(uint32_t<sp/>icb0<sp/>=<sp/>0,<sp/>uint32_t<sp/>icb1<sp/>=<sp/>1)</highlight></codeline>
+<codeline lineno="272"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_binary_init&lt;ELWSUB,<sp/>BroadcastType::COL,<sp/>MATH_FIDELITY&gt;()<sp/>));<sp/></highlight><highlight class="comment">//<sp/>TODO(AP)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>FIXME:<sp/>API<sp/>Update<sp/>needed<sp/>in<sp/>compute<sp/>kernel?</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_AB_init&lt;BroadcastType::COL&gt;(icb0,<sp/>icb1)<sp/>));</highlight></codeline>
+<codeline lineno="276"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>sub_tiles_bcast_scalar_init_short(uint32_t<sp/>icb0<sp/>=<sp/>0,<sp/>uint32_t<sp/>icb1<sp/>=<sp/>1)</highlight></codeline>
+<codeline lineno="282"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_binary_init&lt;ELWSUB,<sp/>BroadcastType::SCALAR,<sp/>MATH_FIDELITY&gt;()<sp/>));<sp/></highlight><highlight class="comment">//<sp/>TODO(AP)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>FIXME:<sp/>API<sp/>Update<sp/>needed<sp/>in<sp/>compute<sp/>kernel?</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_unpack_AB_init&lt;BroadcastType::SCALAR&gt;(icb0,<sp/>icb1)<sp/>));</highlight></codeline>
+<codeline lineno="286"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"></highlight></codeline>
+<codeline lineno="288"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>ckernel</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="tt_metal/include/compute_kernel_api/bcast.h"/>
   </compounddef>

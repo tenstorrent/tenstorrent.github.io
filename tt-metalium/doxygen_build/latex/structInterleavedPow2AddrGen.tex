@@ -3,6 +3,9 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{structInterleavedPow2AddrGen_adbfd08ae3ae989af1e447d97320a76fa}\label{structInterleavedPow2AddrGen_adbfd08ae3ae989af1e447d97320a76fa}} 
+uint32\+\_\+t {\bfseries get\+\_\+addr} (const uint32\+\_\+t id, const uint32\+\_\+t bank\+\_\+offset\+\_\+index, const uint32\+\_\+t bank\+\_\+index, const uint32\+\_\+t offset=0) const
+\item 
 \mbox{\Hypertarget{structInterleavedPow2AddrGen_ab393848b387b4013278bd8d66bac3ee2}\label{structInterleavedPow2AddrGen_ab393848b387b4013278bd8d66bac3ee2}} 
 std\+::uint64\+\_\+t {\bfseries get\+\_\+noc\+\_\+addr} (const uint32\+\_\+t id, const uint32\+\_\+t offset=0) const
 \end{DoxyCompactItemize}
@@ -14,7 +17,26 @@ const uint32\+\_\+t {\bfseries bank\+\_\+base\+\_\+address}
 \item 
 \mbox{\Hypertarget{structInterleavedPow2AddrGen_a1bdda07b2df9e236c3b18683de154d96}\label{structInterleavedPow2AddrGen_a1bdda07b2df9e236c3b18683de154d96}} 
 const uint32\+\_\+t {\bfseries log\+\_\+base\+\_\+2\+\_\+of\+\_\+page\+\_\+size}
+\item 
+const uint32\+\_\+t \mbox{\hyperlink{structInterleavedPow2AddrGen_a4302cce27635310c3dc29c6ea2dc151e}{aligned\+\_\+log\+\_\+base\+\_\+2\+\_\+of\+\_\+page\+\_\+size}}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structInterleavedPow2AddrGen_a4302cce27635310c3dc29c6ea2dc151e}\label{structInterleavedPow2AddrGen_a4302cce27635310c3dc29c6ea2dc151e}} 
+\index{InterleavedPow2AddrGen$<$ DRAM $>$@{InterleavedPow2AddrGen$<$ DRAM $>$}!aligned\_log\_base\_2\_of\_page\_size@{aligned\_log\_base\_2\_of\_page\_size}}
+\index{aligned\_log\_base\_2\_of\_page\_size@{aligned\_log\_base\_2\_of\_page\_size}!InterleavedPow2AddrGen$<$ DRAM $>$@{InterleavedPow2AddrGen$<$ DRAM $>$}}
+\doxysubsubsection{\texorpdfstring{aligned\_log\_base\_2\_of\_page\_size}{aligned\_log\_base\_2\_of\_page\_size}}
+{\footnotesize\ttfamily template$<$bool DRAM$>$ \\
+const uint32\+\_\+t \mbox{\hyperlink{structInterleavedPow2AddrGen}{Interleaved\+Pow2\+Addr\+Gen}}$<$ DRAM $>$\+::aligned\+\_\+log\+\_\+base\+\_\+2\+\_\+of\+\_\+page\+\_\+size}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ this-\/>log\_base\_2\_of\_page\_size\ >\ LOG\_BASE\_2\_OF\_ALLOCATOR\_ALIGNMENT}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ?\ this-\/>log\_base\_2\_of\_page\_size}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ LOG\_BASE\_2\_OF\_ALLOCATOR\_ALIGNMENT}
+
+\end{DoxyCode}
 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}

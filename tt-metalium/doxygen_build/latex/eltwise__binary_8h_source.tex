@@ -29,106 +29,107 @@
 \DoxyCodeLine{00034\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_init<BroadcastType::NONE>(icb0,\ icb1)\ ));}
 \DoxyCodeLine{00035\ }
 \DoxyCodeLine{00036\ \ \ \ \ MATH((\ llk\_math\_pack\_sync\_init<DST\_ACCUM\_MODE>()\ ));}
-\DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ \ \ \ \ PACK((\ llk\_pack\_hw\_configure\_disaggregated<false,\ DST\_ACCUM\_MODE>(ocb)\ ));}
-\DoxyCodeLine{00039\ \ \ \ \ PACK((\ llk\_pack\_init(ocb)\ ));}
-\DoxyCodeLine{00040\ \ \ \ \ PACK((\ llk\_setup\_outputs()\ ));}
-\DoxyCodeLine{00041\ \ \ \ \ PACK((\ llk\_pack\_dest\_init<false,\ DST\_ACCUM\_MODE>()\ ));}
-\DoxyCodeLine{00042\ \}}
-\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00037\ \ \ \ \ MATH((\ llk\_math\_hw\_configure\_disaggregated()\ ));}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ PACK((\ llk\_pack\_hw\_configure\_disaggregated<false,\ DST\_ACCUM\_MODE>(ocb)\ ));}
+\DoxyCodeLine{00040\ \ \ \ \ PACK((\ llk\_pack\_init(ocb)\ ));}
+\DoxyCodeLine{00041\ \ \ \ \ PACK((\ llk\_setup\_outputs()\ ));}
+\DoxyCodeLine{00042\ \ \ \ \ PACK((\ llk\_pack\_dest\_init<false,\ DST\_ACCUM\_MODE>()\ ));}
+\DoxyCodeLine{00043\ \}}
 \DoxyCodeLine{00044\ }
-\DoxyCodeLine{00050\ ALWI\ \textcolor{keywordtype}{void}\ mul\_tiles\_init\_f()\ \{\ MATH((\ llk\_math\_eltwise\_binary\_init<ELWMUL,\ NONE,\ MATH\_FIDELITY>()\ ));\ \}}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00055\ ALWI\ \textcolor{keywordtype}{void}\ mul\_tiles\_init(uint32\_t\ icb0\ =\ 0,\ uint32\_t\ icb1\ =\ 1)\ \{}
-\DoxyCodeLine{00056\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary\_init<ELWMUL,\ NONE,\ MATH\_FIDELITY>()\ ));}
-\DoxyCodeLine{00057\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_init<BroadcastType::NONE>(icb0,\ icb1)\ ));}
-\DoxyCodeLine{00058\ \}}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00065\ ALWI\ \textcolor{keywordtype}{void}\ add\_tiles\_init\_nof()\ \{\ MATH((\ llk\_math\_eltwise\_binary\_init<ELWADD,\ NONE>()\ ));\ \}}
-\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00051\ ALWI\ \textcolor{keywordtype}{void}\ mul\_tiles\_init\_f()\ \{\ MATH((\ llk\_math\_eltwise\_binary\_init<ELWMUL,\ NONE,\ MATH\_FIDELITY>()\ ));\ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00056\ ALWI\ \textcolor{keywordtype}{void}\ mul\_tiles\_init(uint32\_t\ icb0\ =\ 0,\ uint32\_t\ icb1\ =\ 1)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary\_init<ELWMUL,\ NONE,\ MATH\_FIDELITY>()\ ));}
+\DoxyCodeLine{00058\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_init<BroadcastType::NONE>(icb0,\ icb1)\ ));}
+\DoxyCodeLine{00059\ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00066\ ALWI\ \textcolor{keywordtype}{void}\ add\_tiles\_init\_nof()\ \{\ MATH((\ llk\_math\_eltwise\_binary\_init<ELWADD,\ NONE>()\ ));\ \}}
 \DoxyCodeLine{00067\ }
-\DoxyCodeLine{00076\ ALWI\ \textcolor{keywordtype}{void}\ add\_tiles\_init(uint32\_t\ icb0\ =\ 0,\ uint32\_t\ icb1\ =\ 1,\ \textcolor{keywordtype}{bool}\ acc\_to\_dest\ =\ \textcolor{keyword}{false})\ \{}
-\DoxyCodeLine{00077\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary\_init<ELWADD,\ NONE>(0\textcolor{comment}{/*transpose*/},\ acc\_to\_dest)\ ));}
-\DoxyCodeLine{00078\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_init<BroadcastType::NONE>(icb0,\ icb1,\ 0\textcolor{comment}{/*transpose*/},\ acc\_to\_dest)\ ));}
-\DoxyCodeLine{00079\ \}}
-\DoxyCodeLine{00080\ }
-\DoxyCodeLine{00086\ ALWI\ \textcolor{keywordtype}{void}\ sub\_tiles\_init\_nof()\ \{\ MATH((\ llk\_math\_eltwise\_binary\_init<ELWSUB,\ NONE>()\ ));\ \}}
-\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00077\ ALWI\ \textcolor{keywordtype}{void}\ add\_tiles\_init(uint32\_t\ icb0\ =\ 0,\ uint32\_t\ icb1\ =\ 1,\ \textcolor{keywordtype}{bool}\ acc\_to\_dest\ =\ \textcolor{keyword}{false})\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary\_init<ELWADD,\ NONE>(0\textcolor{comment}{/*transpose*/},\ acc\_to\_dest)\ ));}
+\DoxyCodeLine{00079\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_init<BroadcastType::NONE>(icb0,\ icb1,\ 0\textcolor{comment}{/*transpose*/},\ acc\_to\_dest)\ ));}
+\DoxyCodeLine{00080\ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00087\ ALWI\ \textcolor{keywordtype}{void}\ sub\_tiles\_init\_nof()\ \{\ MATH((\ llk\_math\_eltwise\_binary\_init<ELWSUB,\ NONE>()\ ));\ \}}
 \DoxyCodeLine{00088\ }
-\DoxyCodeLine{00097\ ALWI\ \textcolor{keywordtype}{void}\ sub\_tiles\_init(uint32\_t\ icb0\ =\ 0,\ uint32\_t\ icb1\ =\ 1,\ \textcolor{keywordtype}{bool}\ acc\_to\_dest\ =\ \textcolor{keyword}{false})\ \{}
-\DoxyCodeLine{00098\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary\_init<ELWSUB,\ NONE>(0\textcolor{comment}{/*transpose*/},\ acc\_to\_dest)\ ));}
-\DoxyCodeLine{00099\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_init<BroadcastType::NONE>(icb0,\ icb1,\ 0\textcolor{comment}{/*transpose*/},\ acc\_to\_dest)\ ));}
-\DoxyCodeLine{00100\ \}}
-\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00098\ ALWI\ \textcolor{keywordtype}{void}\ sub\_tiles\_init(uint32\_t\ icb0\ =\ 0,\ uint32\_t\ icb1\ =\ 1,\ \textcolor{keywordtype}{bool}\ acc\_to\_dest\ =\ \textcolor{keyword}{false})\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary\_init<ELWSUB,\ NONE>(0\textcolor{comment}{/*transpose*/},\ acc\_to\_dest)\ ));}
+\DoxyCodeLine{00100\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_init<BroadcastType::NONE>(icb0,\ icb1,\ 0\textcolor{comment}{/*transpose*/},\ acc\_to\_dest)\ ));}
+\DoxyCodeLine{00101\ \}}
 \DoxyCodeLine{00102\ }
-\DoxyCodeLine{00119\ ALWI\ \textcolor{keywordtype}{void}\ mul\_tiles(\ uint32\_t\ icb0,\ uint32\_t\ icb1,\ uint32\_t\ itile0,\ uint32\_t\ itile1,\ uint32\_t\ idst)}
-\DoxyCodeLine{00120\ \{}
-\DoxyCodeLine{00121\ \ \ \ \ \textcolor{comment}{//static\ bool\ first\ =\ true;\ //\ TODO(AP):\ static\ initializer\ causes\ a\ hang,\ possibly\ investigate}}
-\DoxyCodeLine{00122\ \ \ \ \ \textcolor{comment}{//if\ (first)}}
-\DoxyCodeLine{00123\ \ \ \ \ \textcolor{comment}{//\ one\ possible\ solution\ is\ to\ add\ a\ local\ context\ in\ the\ kernel,\ pass\ it\ around\ and\ store\ init\ flags\ in\ it}}
-\DoxyCodeLine{00124\ \ \ \ \ \textcolor{comment}{//\ this\ way\ the\ compiler\ should\ be\ able\ to\ perform\ loop\ hoisting\ optimization}}
-\DoxyCodeLine{00125\ \ \ \ \ \textcolor{comment}{//\ -\/\ might\ need\ to\ add\ \_\_attribute\_\_((pure))\ to\ init\ calls\ for\ this\ to\ work}}
-\DoxyCodeLine{00126\ \ \ \ \ \textcolor{comment}{//\ Also\ pass\ -\/fmove-\/loop-\/invariants\ to\ g++}}
-\DoxyCodeLine{00127\ \ \ \ \ \textcolor{comment}{//mul\_tiles\_initf();}}
-\DoxyCodeLine{00128\ \ \ \ \ \textcolor{comment}{//first\ =\ false;}}
-\DoxyCodeLine{00129\ }
-\DoxyCodeLine{00130\ \ \ \ \ UNPACK((\ llk\_unpack\_AB(icb0,\ icb1,\ itile0,\ itile1)\ \ ));}
-\DoxyCodeLine{00131\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary<ELWMUL,\ NONE,\ MATH\_FIDELITY,\ EltwiseBinaryReuseDestType::NONE,\ DST\_ACCUM\_MODE>(icb0,\ icb1,\ idst)\ ));}
-\DoxyCodeLine{00132\ \}}
-\DoxyCodeLine{00133\ }
-\DoxyCodeLine{00150\ ALWI\ \textcolor{keywordtype}{void}\ add\_tiles(\ uint32\_t\ icb0,\ uint32\_t\ icb1,\ uint32\_t\ itile0,\ uint32\_t\ itile1,\ uint32\_t\ idst)}
-\DoxyCodeLine{00151\ \{}
-\DoxyCodeLine{00152\ \ \ \ \ UNPACK((\ llk\_unpack\_AB(icb0,\ icb1,\ itile0,\ itile1)\ \ ));}
-\DoxyCodeLine{00153\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary<ELWADD,\ NONE,\ MATH\_FIDELITY,\ EltwiseBinaryReuseDestType::NONE,\ DST\_ACCUM\_MODE>(icb0,\ icb1,\ idst)\ ));}
-\DoxyCodeLine{00154\ \}}
-\DoxyCodeLine{00155\ }
-\DoxyCodeLine{00172\ ALWI\ \textcolor{keywordtype}{void}\ sub\_tiles(\ uint32\_t\ icb0,\ uint32\_t\ icb1,\ uint32\_t\ itile0,\ uint32\_t\ itile1,\ uint32\_t\ idst)}
-\DoxyCodeLine{00173\ \{}
-\DoxyCodeLine{00174\ \ \ \ \ UNPACK((\ llk\_unpack\_AB(icb0,\ icb1,\ itile0,\ itile1)\ \ ));}
-\DoxyCodeLine{00175\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary<ELWSUB,\ NONE,\ MATH\_FIDELITY,\ EltwiseBinaryReuseDestType::NONE,\ DST\_ACCUM\_MODE>(icb0,\ icb1,\ idst)\ ));}
-\DoxyCodeLine{00176\ \}}
-\DoxyCodeLine{00177\ }
-\DoxyCodeLine{00184\ \textcolor{keyword}{template}<\textcolor{keywordtype}{bool}\ full\_init\ =\ false,\ EltwiseBinaryType\ eltwise\_binary\_op\_type\ =\ ELWADD>}
-\DoxyCodeLine{00185\ ALWI\ \textcolor{keywordtype}{void}\ binary\_op\_specific\_init()\ \textcolor{comment}{//\ TODO(AP):\ better\ naming}}
-\DoxyCodeLine{00186\ \{}
-\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (full\_init)\ \{}
-\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (eltwise\_binary\_op\_type\ ==\ ELWADD)\ \{}
-\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ add\_tiles\_init();}
-\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (eltwise\_binary\_op\_type\ ==\ ELWSUB)\ \{}
-\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ sub\_tiles\_init();}
-\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (eltwise\_binary\_op\_type\ ==\ ELWMUL)\ \{}
-\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ mul\_tiles\_init();}
-\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00195\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (eltwise\_binary\_op\_type\ ==\ ELWADD)\ \{}
-\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ add\_tiles\_init\_nof();}
-\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (eltwise\_binary\_op\_type\ ==\ ELWSUB)\ \{}
-\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ sub\_tiles\_init\_nof();}
-\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (eltwise\_binary\_op\_type\ ==\ ELWMUL)\ \{}
-\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ mul\_tiles\_init\_f();}
-\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00203\ \ \ \ \ \}}
-\DoxyCodeLine{00204\ \}}
-\DoxyCodeLine{00205\ }
-\DoxyCodeLine{00209\ \textcolor{keyword}{template}<}
-\DoxyCodeLine{00210\ EltwiseBinaryType\ eltwise\_binary\_type\ =\ ELWADD,}
-\DoxyCodeLine{00211\ EltwiseBinaryReuseDestType\ binary\_reuse\_dest\ =\ EltwiseBinaryReuseDestType::NONE>}
-\DoxyCodeLine{00212\ ALWI\ \textcolor{keywordtype}{void}\ binary\_dest\_reuse\_tiles\_init(uint32\_t\ icb0)\ \{}
-\DoxyCodeLine{00213\ \ \ \ \ UNPACK((\ llk\_unpack\_A\_init<BroadcastType::NONE,\ true,\ binary\_reuse\_dest>(\textcolor{keyword}{false},\ \textcolor{keyword}{false},\ icb0)\ ));}
-\DoxyCodeLine{00214\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary\_init<eltwise\_binary\_type,\ NONE,\ MATH\_FIDELITY,\ binary\_reuse\_dest>(\textcolor{keyword}{false},\ \textcolor{keyword}{false})\ ));}
-\DoxyCodeLine{00215\ \}}
-\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00120\ ALWI\ \textcolor{keywordtype}{void}\ mul\_tiles(\ uint32\_t\ icb0,\ uint32\_t\ icb1,\ uint32\_t\ itile0,\ uint32\_t\ itile1,\ uint32\_t\ idst)}
+\DoxyCodeLine{00121\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{comment}{//static\ bool\ first\ =\ true;\ //\ TODO(AP):\ static\ initializer\ causes\ a\ hang,\ possibly\ investigate}}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{comment}{//if\ (first)}}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{comment}{//\ one\ possible\ solution\ is\ to\ add\ a\ local\ context\ in\ the\ kernel,\ pass\ it\ around\ and\ store\ init\ flags\ in\ it}}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{comment}{//\ this\ way\ the\ compiler\ should\ be\ able\ to\ perform\ loop\ hoisting\ optimization}}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{comment}{//\ -\/\ might\ need\ to\ add\ \_\_attribute\_\_((pure))\ to\ init\ calls\ for\ this\ to\ work}}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{comment}{//\ Also\ pass\ -\/fmove-\/loop-\/invariants\ to\ g++}}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{comment}{//mul\_tiles\_initf();}}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{comment}{//first\ =\ false;}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ UNPACK((\ llk\_unpack\_AB(icb0,\ icb1,\ itile0,\ itile1)\ \ ));}
+\DoxyCodeLine{00132\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary<ELWMUL,\ NONE,\ MATH\_FIDELITY,\ EltwiseBinaryReuseDestType::NONE,\ DST\_ACCUM\_MODE>(icb0,\ icb1,\ idst)\ ));}
+\DoxyCodeLine{00133\ \}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00151\ ALWI\ \textcolor{keywordtype}{void}\ add\_tiles(\ uint32\_t\ icb0,\ uint32\_t\ icb1,\ uint32\_t\ itile0,\ uint32\_t\ itile1,\ uint32\_t\ idst)}
+\DoxyCodeLine{00152\ \{}
+\DoxyCodeLine{00153\ \ \ \ \ UNPACK((\ llk\_unpack\_AB(icb0,\ icb1,\ itile0,\ itile1)\ \ ));}
+\DoxyCodeLine{00154\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary<ELWADD,\ NONE,\ MATH\_FIDELITY,\ EltwiseBinaryReuseDestType::NONE,\ DST\_ACCUM\_MODE>(icb0,\ icb1,\ idst)\ ));}
+\DoxyCodeLine{00155\ \}}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00173\ ALWI\ \textcolor{keywordtype}{void}\ sub\_tiles(\ uint32\_t\ icb0,\ uint32\_t\ icb1,\ uint32\_t\ itile0,\ uint32\_t\ itile1,\ uint32\_t\ idst)}
+\DoxyCodeLine{00174\ \{}
+\DoxyCodeLine{00175\ \ \ \ \ UNPACK((\ llk\_unpack\_AB(icb0,\ icb1,\ itile0,\ itile1)\ \ ));}
+\DoxyCodeLine{00176\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary<ELWSUB,\ NONE,\ MATH\_FIDELITY,\ EltwiseBinaryReuseDestType::NONE,\ DST\_ACCUM\_MODE>(icb0,\ icb1,\ idst)\ ));}
+\DoxyCodeLine{00177\ \}}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00185\ \textcolor{keyword}{template}<\textcolor{keywordtype}{bool}\ full\_init\ =\ false,\ EltwiseBinaryType\ eltwise\_binary\_op\_type\ =\ ELWADD>}
+\DoxyCodeLine{00186\ ALWI\ \textcolor{keywordtype}{void}\ binary\_op\_specific\_init()\ \textcolor{comment}{//\ TODO(AP):\ better\ naming}}
+\DoxyCodeLine{00187\ \{}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (full\_init)\ \{}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (eltwise\_binary\_op\_type\ ==\ ELWADD)\ \{}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ add\_tiles\_init();}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (eltwise\_binary\_op\_type\ ==\ ELWSUB)\ \{}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ sub\_tiles\_init();}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (eltwise\_binary\_op\_type\ ==\ ELWMUL)\ \{}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ mul\_tiles\_init();}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00196\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (eltwise\_binary\_op\_type\ ==\ ELWADD)\ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ add\_tiles\_init\_nof();}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (eltwise\_binary\_op\_type\ ==\ ELWSUB)\ \{}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ sub\_tiles\_init\_nof();}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (eltwise\_binary\_op\_type\ ==\ ELWMUL)\ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ mul\_tiles\_init\_f();}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00204\ \ \ \ \ \}}
+\DoxyCodeLine{00205\ \}}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00210\ \textcolor{keyword}{template}<}
+\DoxyCodeLine{00211\ EltwiseBinaryType\ eltwise\_binary\_type\ =\ ELWADD,}
+\DoxyCodeLine{00212\ EltwiseBinaryReuseDestType\ binary\_reuse\_dest\ =\ EltwiseBinaryReuseDestType::NONE>}
+\DoxyCodeLine{00213\ ALWI\ \textcolor{keywordtype}{void}\ binary\_dest\_reuse\_tiles\_init(uint32\_t\ icb0)\ \{}
+\DoxyCodeLine{00214\ \ \ \ \ UNPACK((\ llk\_unpack\_A\_init<BroadcastType::NONE,\ true,\ binary\_reuse\_dest>(\textcolor{keyword}{false},\ \textcolor{keyword}{false},\ icb0)\ ));}
+\DoxyCodeLine{00215\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary\_init<eltwise\_binary\_type,\ NONE,\ MATH\_FIDELITY,\ binary\_reuse\_dest>(\textcolor{keyword}{false},\ \textcolor{keyword}{false})\ ));}
+\DoxyCodeLine{00216\ \}}
 \DoxyCodeLine{00217\ }
-\DoxyCodeLine{00239\ \textcolor{keyword}{template}<}
-\DoxyCodeLine{00240\ EltwiseBinaryType\ eltwise\_binary\_type\ =\ ELWADD,}
-\DoxyCodeLine{00241\ EltwiseBinaryReuseDestType\ binary\_reuse\_dest\ =\ EltwiseBinaryReuseDestType::NONE>}
-\DoxyCodeLine{00242\ ALWI\ \textcolor{keywordtype}{void}\ binary\_dest\_reuse\_tiles(\ uint32\_t\ in\_cb\_id,\ uint32\_t\ in\_tile\_index,\ uint32\_t\ dst\_tile\_index)}
-\DoxyCodeLine{00243\ \{}
-\DoxyCodeLine{00244\ \ \ \ \ UNPACK((\ llk\_unpack\_A<BroadcastType::NONE,\ true,\ binary\_reuse\_dest>(in\_cb\_id,\ in\_tile\_index)\ \ ));}
-\DoxyCodeLine{00245\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary<eltwise\_binary\_type,\ NONE,\ MATH\_FIDELITY,\ binary\_reuse\_dest,\ DST\_ACCUM\_MODE>(in\_tile\_index,\ in\_tile\_index,\ dst\_tile\_index)\ ));}
-\DoxyCodeLine{00246\ \}}
-\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00240\ \textcolor{keyword}{template}<}
+\DoxyCodeLine{00241\ EltwiseBinaryType\ eltwise\_binary\_type\ =\ ELWADD,}
+\DoxyCodeLine{00242\ EltwiseBinaryReuseDestType\ binary\_reuse\_dest\ =\ EltwiseBinaryReuseDestType::NONE>}
+\DoxyCodeLine{00243\ ALWI\ \textcolor{keywordtype}{void}\ binary\_dest\_reuse\_tiles(\ uint32\_t\ in\_cb\_id,\ uint32\_t\ in\_tile\_index,\ uint32\_t\ dst\_tile\_index)}
+\DoxyCodeLine{00244\ \{}
+\DoxyCodeLine{00245\ \ \ \ \ UNPACK((\ llk\_unpack\_A<BroadcastType::NONE,\ true,\ binary\_reuse\_dest>(in\_cb\_id,\ in\_tile\_index)\ \ ));}
+\DoxyCodeLine{00246\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary<eltwise\_binary\_type,\ NONE,\ MATH\_FIDELITY,\ binary\_reuse\_dest,\ DST\_ACCUM\_MODE>(in\_tile\_index,\ in\_tile\_index,\ dst\_tile\_index)\ ));}
+\DoxyCodeLine{00247\ \}}
 \DoxyCodeLine{00248\ }
-\DoxyCodeLine{00249\ \}\ \textcolor{comment}{//\ namespace\ ckernel}}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ \}\ \textcolor{comment}{//\ namespace\ ckernel}}
 
 \end{DoxyCode}
