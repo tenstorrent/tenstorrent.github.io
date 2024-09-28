@@ -1,10 +1,37 @@
 core:
-- latest
+  versions:
+    latest:
 syseng:
-- latest
+  versions:
+    latest:
 pybuda:
-- latest
+  versions:
+    latest:
 tt-metalium:
-- latest
+  versions:
+    latest:
+      additional_cmd: |
+        wget https://github.com/tenstorrent/tt-metal/releases/download/v0.51.0/metal_libs-0.51.0+wormhole.b0-cp38-cp38-linux_x86_64.whl
+        pip install --extra-index-url https://download.pytorch.org/whl/cpu metal_libs-0.51.0+wormhole.b0-cp38-cp38-linux_x86_64.whl
+    v0.51.0:
+      additional_cmd: |
+        wget https://github.com/tenstorrent/tt-metal/releases/download/v0.51.0/metal_libs-0.51.0+wormhole.b0-cp38-cp38-linux_x86_64.whl
+        pip install --extra-index-url https://download.pytorch.org/whl/cpu metal_libs-0.51.0+wormhole.b0-cp38-cp38-linux_x86_64.whl
+    v0.50.0:
+      additional_cmd: |
+        wget https://github.com/tenstorrent/tt-metal/releases/download/v0.50.0/metal_libs-0.51.0+wormhole.b0-cp38-cp38-linux_x86_64.whl
+        pip install --extra-index-url https://download.pytorch.org/whl/cpu metal_libs-0.50.0+wormhole.b0-cp38-cp38-linux_x86_64.whl
 ttnn:
-- latest
+  versions:
+    latest:
+       additional_cmd: |
+        wget https://github.com/tenstorrent/tt-metal/releases/download/v0.51.0/metal_libs-0.51.0+wormhole.b0-cp38-cp38-linux_x86_64.whl
+        pip install --extra-index-url https://download.pytorch.org/whl/cpu metal_libs-0.51.0+wormhole.b0-cp38-cp38-linux_x86_64.whl
+    v0.51.0:
+      additional_cmd: |
+        wget https://github.com/tenstorrent/tt-metal/releases/download/v0.51.0/metal_libs-0.51.0+wormhole.b0-cp38-cp38-linux_x86_64.whl
+        pip install --extra-index-url https://download.pytorch.org/whl/cpu metal_libs-0.51.0+wormhole.b0-cp38-cp38-linux_x86_64.whl
+    v0.50.0:
+      additional_cmd: |
+        wget https://github.com/tenstorrent/tt-metal/releases/download/v0.50.0/metal_libs-0.51.0+wormhole.b0-cp38-cp38-linux_x86_64.whl
+        pip install --extra-index-url https://download.pytorch.org/whl/cpu metal_libs-0.50.0+wormhole.b0-cp38-cp38-linux_x86_64.whl
