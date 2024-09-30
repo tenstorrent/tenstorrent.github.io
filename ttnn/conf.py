@@ -93,7 +93,7 @@ import pdb
 pdb.set_trace()
 
 html_context = {
-    "versions": versions["versions"].keys(),
+    "versions": list(versions["versions"].keys()),
     "project_code": metal_sphinx_config.shortname,
     "current_version": os.environ.get("current_version"),
     "logo_link_url": os.environ.get("homepage")
