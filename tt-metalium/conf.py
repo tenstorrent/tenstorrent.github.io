@@ -87,9 +87,6 @@ import yaml
 with open("../versions.yml", "r") as yaml_file:
     versions = yaml.safe_load(yaml_file)["tt-metalium"]
 
-import pdb
-pdb.set_trace()
-
 html_context = {
     "versions": list(versions["versions"].keys()),
     "project_code": metal_sphinx_config.shortname,

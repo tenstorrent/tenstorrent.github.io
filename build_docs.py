@@ -22,8 +22,6 @@ def build_doc(project, version, additional_cmd):
     if additional_cmd:
         command += additional_cmd
 
-    #command += f"wget https://github.com/tenstorrent/tt-metal/releases/download/{version}/metal_libs-{version_no_v}+wormhole.b0-cp38-cp38-linux_x86_64.whl\n"
-    #command += f"pip install --extra-index-url https://download.pytorch.org/whl/cpu metal_libs-{version_no_v}+wormhole.b0-cp38-cp38-linux_x86_64.whl\n"
     command += f"cd {project} && make html\n"
     command += "deactivate\n"
     print("Full command to execute", command)
