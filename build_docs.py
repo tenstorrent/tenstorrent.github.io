@@ -11,7 +11,7 @@ def build_doc(project, version, additional_cmd):
         return
     
     subprocess.run(f"git checkout {project}_{version}", shell=True)
-    subprocess.run("git checkout dimitri/build_process_for_multiple_versions -- versions.yaml", shell=True)
+    subprocess.run("git checkout dimitri/build_process_for_multiple_versions -- versions.yml", shell=True)
     subprocess.run("git checkout dimitri/build_process_for_multiple_versions -- tt-metalium/conf.py", shell=True)
     subprocess.run("git checkout dimitri/build_process_for_multiple_versions -- ttnn/conf.py", shell=True)
 
