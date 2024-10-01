@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['releasetrace_0',['ReleaseTrace',['../host__api_8hpp.html#a526ece1a413c039607e2973b97cdfa75',1,'tt::tt_metal']]],
-  ['replaytrace_1',['ReplayTrace',['../host__api_8hpp.html#a12e0b86cbb5a6ef9930562b684898d90',1,'tt::tt_metal']]]
+  ['setcommonruntimeargs_0',['SetCommonRuntimeArgs',['../host__api_8hpp.html#a3b4cf7321eea21c21850b447312f02fa',1,'tt::tt_metal']]],
+  ['setruntimeargs_1',['SetRuntimeArgs',['../host__api_8hpp.html#a491996adcf69861c22eed34ce1ac68cc',1,'tt::tt_metal::SetRuntimeArgs(const Program &amp;program, KernelHandle kernel, const std::variant&lt; CoreCoord, CoreRange, CoreRangeSet &gt; &amp;core_spec, const std::vector&lt; uint32_t &gt; &amp;runtime_args)'],['../host__api_8hpp.html#af27c6b3f5c79fb792beb4ab2169683b7',1,'tt::tt_metal::SetRuntimeArgs(const Program &amp;program, KernelHandle kernel, const std::vector&lt; CoreCoord &gt; &amp;core_spec, const std::vector&lt; std::vector&lt; uint32_t &gt; &gt; &amp;runtime_args)'],['../host__api_8hpp.html#a7c10cd46327ef8693169b3aee8846a7a',1,'tt::tt_metal::SetRuntimeArgs(Device *device, const std::shared_ptr&lt; Kernel &gt; kernel, const std::variant&lt; CoreCoord, CoreRange, CoreRangeSet &gt; &amp;core_spec, std::shared_ptr&lt; RuntimeArgs &gt; runtime_args)'],['../host__api_8hpp.html#a5abdf19459659b61a4c2bbcf172f6f35',1,'tt::tt_metal::SetRuntimeArgs(Device *device, const std::shared_ptr&lt; Kernel &gt; kernel, const std::vector&lt; CoreCoord &gt; &amp;core_spec, const std::vector&lt; std::shared_ptr&lt; RuntimeArgs &gt; &gt; runtime_args)']]],
+  ['synchronize_2',['Synchronize',['../host__api_8hpp.html#a8a7da70517597db5090819de93f3d75b',1,'tt::tt_metal']]]
 ];

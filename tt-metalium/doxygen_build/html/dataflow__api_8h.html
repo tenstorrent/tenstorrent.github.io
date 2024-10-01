@@ -76,16 +76,16 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#define-members">Macros</a> &#124;
-<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">dataflow_api.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &quot;core_config.h&quot;</code><br />
 <code>#include &quot;circular_buffer.h&quot;</code><br />
 <code>#include &quot;debug/sanitize_noc.h&quot;</code><br />
-<code>#include &quot;debug/status.h&quot;</code><br />
+<code>#include &quot;debug/waypoint.h&quot;</code><br />
 <code>#include &quot;eth_l1_address_map.h&quot;</code><br />
 <code>#include &quot;hostdevcommon/common_runtime_address_map.h&quot;</code><br />
 <code>#include &quot;hostdevcommon/common_values.hpp&quot;</code><br />
@@ -106,8 +106,6 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structInterleavedPow2AddrGenFast.html">InterleavedPow2AddrGenFast&lt; DRAM &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuffer.html">Buffer</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
@@ -120,34 +118,36 @@ Macros</h2></td></tr>
 <tr class="memitem:a49104913a904db0ef5c642d10a33c923"><td class="memItemLeft" align="right" valign="top"><a id="a49104913a904db0ef5c642d10a33c923" name="a49104913a904db0ef5c642d10a33c923"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>NOC_DISPATCH_MULTICAST_WRITE_VC</b>&#160;&#160;&#160;5</td></tr>
 <tr class="separator:a49104913a904db0ef5c642d10a33c923"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30875365be2fa364de8962ef1d25630a"><td class="memItemLeft" align="right" valign="top"><a id="a30875365be2fa364de8962ef1d25630a" name="a30875365be2fa364de8962ef1d25630a"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>COMMON_RT_ARGS_INDEX</b>&#160;&#160;&#160;0</td></tr>
-<tr class="separator:a30875365be2fa364de8962ef1d25630a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab97f9dbfbb4150cb324f21520b8e6cfe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#ab97f9dbfbb4150cb324f21520b8e6cfe">get_compile_time_arg_val</a>(arg_idx)&#160;&#160;&#160;KERNEL_COMPILE_TIME_ARG_##arg_idx</td></tr>
 <tr class="separator:ab97f9dbfbb4150cb324f21520b8e6cfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:a49d45df0fdb5ae1977850c809e49c448"><td class="memItemLeft" align="right" valign="top"><a id="a49d45df0fdb5ae1977850c809e49c448" name="a49d45df0fdb5ae1977850c809e49c448"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>BufferType</b> : uint8_t { <b>DRAM</b> = 0
-, <b>L1</b> = 1
-, <b>SYSTEM_MEMORY</b> = 2
-, <b>L1_SMALL</b> = 3
- }</td></tr>
-<tr class="separator:a49d45df0fdb5ae1977850c809e49c448"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ac4752c4d9a07974ce99aaa671a675fe2"><td class="memItemLeft" align="right" valign="top"><a id="ac4752c4d9a07974ce99aaa671a675fe2" name="ac4752c4d9a07974ce99aaa671a675fe2"></a>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>align</b> (uint32_t addr, uint32_t alignment)</td></tr>
 <tr class="separator:ac4752c4d9a07974ce99aaa671a675fe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4018be9d6302207fdc0dac085663e184"><td class="memTemplParams" colspan="2"><a id="a4018be9d6302207fdc0dac085663e184" name="a4018be9d6302207fdc0dac085663e184"></a>
+template&lt;bool DRAM&gt; </td></tr>
+<tr class="memitem:a4018be9d6302207fdc0dac085663e184"><td class="memTemplItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memTemplItemRight" valign="bottom"><b>interleaved_addr_gen::get_bank_offset_index</b> (uint32_t id)</td></tr>
+<tr class="separator:a4018be9d6302207fdc0dac085663e184"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63194c761e19c2a9d096f91c9e9be63c"><td class="memTemplParams" colspan="2"><a id="a63194c761e19c2a9d096f91c9e9be63c" name="a63194c761e19c2a9d096f91c9e9be63c"></a>
+template&lt;bool DRAM&gt; </td></tr>
+<tr class="memitem:a63194c761e19c2a9d096f91c9e9be63c"><td class="memTemplItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memTemplItemRight" valign="bottom"><b>interleaved_addr_gen::get_bank_index</b> (uint32_t id, uint32_t bank_offset_index)</td></tr>
+<tr class="separator:a63194c761e19c2a9d096f91c9e9be63c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7581885ee418929f06551a5e8f9649c2"><td class="memTemplParams" colspan="2"><a id="a7581885ee418929f06551a5e8f9649c2" name="a7581885ee418929f06551a5e8f9649c2"></a>
+template&lt;bool DRAM&gt; </td></tr>
+<tr class="memitem:a7581885ee418929f06551a5e8f9649c2"><td class="memTemplItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memTemplItemRight" valign="bottom"><b>interleaved_addr_gen::get_noc_xy</b> (uint32_t bank_index)</td></tr>
+<tr class="separator:a7581885ee418929f06551a5e8f9649c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a593eecf4e9f53608d0c5c82e54b36b03"><td class="memTemplParams" colspan="2"><a id="a593eecf4e9f53608d0c5c82e54b36b03" name="a593eecf4e9f53608d0c5c82e54b36b03"></a>
+template&lt;bool DRAM&gt; </td></tr>
+<tr class="memitem:a593eecf4e9f53608d0c5c82e54b36b03"><td class="memTemplItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memTemplItemRight" valign="bottom"><b>interleaved_addr_gen::get_bank_offset</b> (uint32_t bank_index)</td></tr>
+<tr class="separator:a593eecf4e9f53608d0c5c82e54b36b03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a5074e8cd2732fcecab57fced3ebd1f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a6a5074e8cd2732fcecab57fced3ebd1f"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#a6a5074e8cd2732fcecab57fced3ebd1f">get_arg_val</a> (int arg_idx)</td></tr>
 <tr class="separator:a6a5074e8cd2732fcecab57fced3ebd1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abba486e3732fb5ea715651f92234e60a"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:abba486e3732fb5ea715651f92234e60a"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#abba486e3732fb5ea715651f92234e60a">get_common_arg_val</a> (int arg_idx)</td></tr>
 <tr class="separator:abba486e3732fb5ea715651f92234e60a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaeb67c582bba445a7c2e7eac520cd84e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#aaeb67c582bba445a7c2e7eac520cd84e">__attribute__</a> ((always_inline)) const expr static std</td></tr>
-<tr class="separator:aaeb67c582bba445a7c2e7eac520cd84e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81357224b88562601b42833eec676ffb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#a81357224b88562601b42833eec676ffb">cb_push_back</a> (const int32_t operand, const int32_t num_pages)</td></tr>
 <tr class="separator:a81357224b88562601b42833eec676ffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3daf8e5e7299140cf2607be1a8656b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#aa3daf8e5e7299140cf2607be1a8656b0">cb_pop_front</a> (int32_t operand, int32_t num_pages)</td></tr>
@@ -158,6 +158,10 @@ constexpr std::int32_t&#160;</td><td class="memItemRight" valign="bottom"><b>get
 <tr class="memitem:ae214b6c2f978e745f9c24d397dad906d"><td class="memItemLeft" align="right" valign="top"><a id="ae214b6c2f978e745f9c24d397dad906d" name="ae214b6c2f978e745f9c24d397dad906d"></a>
 constexpr DataFormat&#160;</td><td class="memItemRight" valign="bottom"><b>get_dataformat</b> (const std::int32_t operand)</td></tr>
 <tr class="separator:ae214b6c2f978e745f9c24d397dad906d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a593e43aff0c85e4b3f86d13f1d7350dd"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#a593e43aff0c85e4b3f86d13f1d7350dd">get_write_ptr</a> (uint32_t operand)</td></tr>
+<tr class="separator:a593e43aff0c85e4b3f86d13f1d7350dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66a31715a14cea1a63cbdca8c99b0827"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#a66a31715a14cea1a63cbdca8c99b0827">get_read_ptr</a> (uint32_t operand)</td></tr>
+<tr class="separator:a66a31715a14cea1a63cbdca8c99b0827"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2384f3c7d9784e3e662093136cbed25"><td class="memItemLeft" align="right" valign="top"><a id="af2384f3c7d9784e3e662093136cbed25" name="af2384f3c7d9784e3e662093136cbed25"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>wait_for_sync_register_value</b> (uint32_t addr, int32_t val)</td></tr>
 <tr class="separator:af2384f3c7d9784e3e662093136cbed25"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -249,12 +253,10 @@ template&lt;bool DRAM&gt; </td></tr>
 template&lt;bool DRAM&gt; </td></tr>
 <tr class="memitem:afa1c9f72ce143d24b995167a49eff5e4"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>noc_async_write_tile</b> (const uint32_t id, const <a class="el" href="structInterleavedAddrGenFast.html">InterleavedAddrGenFast</a>&lt; DRAM &gt; &amp;s, std::uint32_t src_local_l1_addr)</td></tr>
 <tr class="separator:afa1c9f72ce143d24b995167a49eff5e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade59434c56510191b5e64e8bb024b4c6"><td class="memItemLeft" align="right" valign="top"><a id="ade59434c56510191b5e64e8bb024b4c6" name="ade59434c56510191b5e64e8bb024b4c6"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>get_semaphore</b> (uint32_t semaphore_id)</td></tr>
-<tr class="separator:ade59434c56510191b5e64e8bb024b4c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3abbaf66b17c8ab4eb6c4576ef775e0b"><td class="memItemLeft" align="right" valign="top"><a id="a3abbaf66b17c8ab4eb6c4576ef775e0b" name="a3abbaf66b17c8ab4eb6c4576ef775e0b"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>eth_get_semaphore</b> (uint32_t semaphore_id)</td></tr>
-<tr class="separator:a3abbaf66b17c8ab4eb6c4576ef775e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad24ffd7fc05b797ce38e6072c2f0eab"><td class="memTemplParams" colspan="2"><a id="aad24ffd7fc05b797ce38e6072c2f0eab" name="aad24ffd7fc05b797ce38e6072c2f0eab"></a>
+template&lt;ProgrammableCoreType type = ProgrammableCoreType::TENSIX&gt; </td></tr>
+<tr class="memitem:aad24ffd7fc05b797ce38e6072c2f0eab"><td class="memTemplItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memTemplItemRight" valign="bottom"><b>get_semaphore</b> (uint32_t semaphore_id)</td></tr>
+<tr class="separator:aad24ffd7fc05b797ce38e6072c2f0eab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff57d6bb75c161882cd3751a3f4a67ba"><td class="memItemLeft" align="right" valign="top"><a id="aff57d6bb75c161882cd3751a3f4a67ba" name="aff57d6bb75c161882cd3751a3f4a67ba"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>noc_semaphore_set_remote</b> (std::uint32_t src_local_l1_addr, std::uint64_t dst_noc_addr)</td></tr>
 <tr class="separator:aff57d6bb75c161882cd3751a3f4a67ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -274,8 +276,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>noc_async_write_multi
 <tr class="separator:a8a1af3e9115ddcd9d2e4b0c8b4a4b680"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82c38db0fda2eaafccd0aac9635f0dc1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#a82c38db0fda2eaafccd0aac9635f0dc1">noc_async_writes_flushed</a> ()</td></tr>
 <tr class="separator:a82c38db0fda2eaafccd0aac9635f0dc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22e07009373e4c4c04a0af18ca73cfd7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#a22e07009373e4c4c04a0af18ca73cfd7">noc_async_atomic_barrier</a> ()</td></tr>
-<tr class="separator:a22e07009373e4c4c04a0af18ca73cfd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13a74d46d62931d19a406414db103c4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#a13a74d46d62931d19a406414db103c4b">noc_async_atomic_barrier</a> (uint8_t noc_idx=noc_index)</td></tr>
+<tr class="separator:a13a74d46d62931d19a406414db103c4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f714cc4a08a2eaac5e3f7fae9d1383a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#a4f714cc4a08a2eaac5e3f7fae9d1383a">noc_semaphore_wait</a> (volatile uint32_t *sem_addr, uint32_t val)</td></tr>
 <tr class="separator:a4f714cc4a08a2eaac5e3f7fae9d1383a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84a965a61b65152c42835f35dca007af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#a84a965a61b65152c42835f35dca007af">noc_semaphore_wait_min</a> (volatile uint32_t *sem_addr, uint32_t val)</td></tr>
@@ -284,18 +286,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>noc_async_write_multi
 <tr class="separator:af02a9af640679b00da874318535aa397"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f11981622b01c9e42d44a939ec30be1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#a1f11981622b01c9e42d44a939ec30be1">noc_inline_dw_write</a> (uint64_t addr, uint32_t val, uint8_t be=0xF)</td></tr>
 <tr class="separator:a1f11981622b01c9e42d44a939ec30be1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4eda1737bf554c8bfe4bc603f4d41a43"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#a4eda1737bf554c8bfe4bc603f4d41a43">noc_semaphore_inc</a> (uint64_t addr, uint32_t incr)</td></tr>
-<tr class="separator:a4eda1737bf554c8bfe4bc603f4d41a43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a962d804ce21d1d26ccb4241e2eb6ac9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#a962d804ce21d1d26ccb4241e2eb6ac9f">noc_semaphore_inc</a> (uint64_t addr, uint32_t incr, uint8_t noc_id=noc_index)</td></tr>
+<tr class="separator:a962d804ce21d1d26ccb4241e2eb6ac9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e9618b5b64ed1ae0d0a747ac0f10745"><td class="memItemLeft" align="right" valign="top"><a id="a9e9618b5b64ed1ae0d0a747ac0f10745" name="a9e9618b5b64ed1ae0d0a747ac0f10745"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>RISC_POST_HEARTBEAT</b> (uint32_t &amp;heartbeat)</td></tr>
 <tr class="separator:a9e9618b5b64ed1ae0d0a747ac0f10745"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29bd290aaee1b41529717b029dc14952"><td class="memItemLeft" align="right" valign="top"><a id="a29bd290aaee1b41529717b029dc14952" name="a29bd290aaee1b41529717b029dc14952"></a>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>min</b> (uint32_t a, uint32_t b)</td></tr>
 <tr class="separator:a29bd290aaee1b41529717b029dc14952"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a901d9922d4a71afe3e51189d4f414b04"><td class="memTemplParams" colspan="2"><a id="a901d9922d4a71afe3e51189d4f414b04" name="a901d9922d4a71afe3e51189d4f414b04"></a>
-template&lt;bool READ&gt; </td></tr>
-<tr class="memitem:a901d9922d4a71afe3e51189d4f414b04"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>noc_async_sharded_read_write_helper</b> (const uint32_t num_cores, const uint32_t page_size, const uint32_t bank_base_address, volatile uint32_t *base_command_addr, const uint32_t addr, const uint32_t num_pages, const uint32_t page_id)</td></tr>
-<tr class="separator:a901d9922d4a71afe3e51189d4f414b04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0de16ed70bc7231b31eb861b6d0a6842"><td class="memTemplParams" colspan="2"><a id="a0de16ed70bc7231b31eb861b6d0a6842" name="a0de16ed70bc7231b31eb861b6d0a6842"></a>
 template&lt;uint32_t page_size, bool use_vc&gt; </td></tr>
 <tr class="memitem:a0de16ed70bc7231b31eb861b6d0a6842"><td class="memTemplItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memTemplItemRight" valign="bottom"><b>noc_async_read_tile_dram_sharded_set_state</b> (uint32_t bank_base_address, uint32_t bank_id=0, const uint32_t vc=0)</td></tr>
@@ -318,9 +316,15 @@ Variables</h2></td></tr>
 <tr class="memitem:a58bc3a01e945dbd421fce21906e94441"><td class="memItemLeft" align="right" valign="top"><a id="a58bc3a01e945dbd421fce21906e94441" name="a58bc3a01e945dbd421fce21906e94441"></a>
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>noc_index</b></td></tr>
 <tr class="separator:a58bc3a01e945dbd421fce21906e94441"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9b846802ae938aab4c8c7d55647d902"><td class="memItemLeft" align="right" valign="top"><a id="ae9b846802ae938aab4c8c7d55647d902" name="ae9b846802ae938aab4c8c7d55647d902"></a>
-uint32_t *&#160;</td><td class="memItemRight" valign="bottom"><b>l1_arg_base</b></td></tr>
-<tr class="separator:ae9b846802ae938aab4c8c7d55647d902"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2366e9251332058fa1fa368903d1d760"><td class="memItemLeft" align="right" valign="top"><a id="a2366e9251332058fa1fa368903d1d760" name="a2366e9251332058fa1fa368903d1d760"></a>
+uint32_t *&#160;</td><td class="memItemRight" valign="bottom"><b>rta_l1_base</b></td></tr>
+<tr class="separator:a2366e9251332058fa1fa368903d1d760"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74c5ca11f2fb15c25af4a74db732a5fc"><td class="memItemLeft" align="right" valign="top"><a id="a74c5ca11f2fb15c25af4a74db732a5fc" name="a74c5ca11f2fb15c25af4a74db732a5fc"></a>
+uint32_t *&#160;</td><td class="memItemRight" valign="bottom"><b>crta_l1_base</b></td></tr>
+<tr class="separator:a74c5ca11f2fb15c25af4a74db732a5fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a237705982b987907cbfca699e32a9c64"><td class="memItemLeft" align="right" valign="top"><a id="a237705982b987907cbfca699e32a9c64" name="a237705982b987907cbfca699e32a9c64"></a>
+uint32_t *&#160;</td><td class="memItemRight" valign="bottom"><b>sem_l1_base</b> []</td></tr>
+<tr class="separator:a237705982b987907cbfca699e32a9c64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="ab97f9dbfbb4150cb324f21520b8e6cfe" name="ab97f9dbfbb4150cb324f21520b8e6cfe"></a>
@@ -350,49 +354,6 @@ uint32_t *&#160;</td><td class="memItemRight" valign="bottom"><b>l1_arg_base</b>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="aaeb67c582bba445a7c2e7eac520cd84e" name="aaeb67c582bba445a7c2e7eac520cd84e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaeb67c582bba445a7c2e7eac520cd84e">&#9670;&#160;</a></span>__attribute__()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">__attribute__ </td>
-          <td>(</td>
-          <td class="paramtype">(always_inline)&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Returns a pointer to the beginning of a memory block previously reserved by cb_reserve_back. Note that this call is only valid between calls to cb_reserve_back and cb_push_back. The amount of valid memory is equal to the number of tiles requested in a prior cb_reserve_back call.</p>
-<p>CB total size must be an even multiple of this call.</p>
-<p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">operand   </td><td class="markdownTableBodyNone">The index of the circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
-<p>Returns a pointer to the beginning of a memory block previously received by cb_wait_front. Note that this call is only valid between calls to cb_wait_front and cb_pop_front. The amount of valid memory is equal to the number of tiles requested in a prior cb_wait_front call.</p>
-<p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">operand   </td><td class="markdownTableBodyNone">The index of the circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
-
-</div>
-</div>
 <a id="aa3daf8e5e7299140cf2607be1a8656b0" name="aa3daf8e5e7299140cf2607be1a8656b0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa3daf8e5e7299140cf2607be1a8656b0">&#9670;&#160;</a></span>cb_pop_front()</h2>
 
@@ -612,8 +573,61 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a22e07009373e4c4c04a0af18ca73cfd7" name="a22e07009373e4c4c04a0af18ca73cfd7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a22e07009373e4c4c04a0af18ca73cfd7">&#9670;&#160;</a></span>noc_async_atomic_barrier()</h2>
+<a id="a66a31715a14cea1a63cbdca8c99b0827" name="a66a31715a14cea1a63cbdca8c99b0827"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66a31715a14cea1a63cbdca8c99b0827">&#9670;&#160;</a></span>get_read_ptr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t get_read_ptr </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>operand</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns a pointer to the beginning of a memory block previously received by cb_wait_front. Note that this call is only valid between calls to cb_wait_front and cb_pop_front. The amount of valid memory is equal to the number of tiles requested in a prior cb_wait_front call.</p>
+<p>Return value: None</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">operand   </td><td class="markdownTableBodyNone">The index of the circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True   </td></tr>
+</table>
+
+</div>
+</div>
+<a id="a593e43aff0c85e4b3f86d13f1d7350dd" name="a593e43aff0c85e4b3f86d13f1d7350dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a593e43aff0c85e4b3f86d13f1d7350dd">&#9670;&#160;</a></span>get_write_ptr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t get_write_ptr </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>operand</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns a pointer to the beginning of a memory block previously reserved by cb_reserve_back. Note that this call is only valid between calls to cb_reserve_back and cb_push_back. The amount of valid memory is equal to the number of tiles requested in a prior cb_reserve_back call.</p>
+<p>CB total size must be an even multiple of this call.</p>
+<p>Return value: None</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">operand   </td><td class="markdownTableBodyNone">The index of the circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True   </td></tr>
+</table>
+
+</div>
+</div>
+<a id="a13a74d46d62931d19a406414db103c4b" name="a13a74d46d62931d19a406414db103c4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13a74d46d62931d19a406414db103c4b">&#9670;&#160;</a></span>noc_async_atomic_barrier()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -621,7 +635,8 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">void noc_async_atomic_barrier </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>noc_idx</em> = <code>noc_index</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -925,8 +940,8 @@ template&lt;uint32_t max_page_size = NOC_MAX_BURST_SIZE + 1&gt; </div>
 
 </div>
 </div>
-<a id="a4eda1737bf554c8bfe4bc603f4d41a43" name="a4eda1737bf554c8bfe4bc603f4d41a43"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4eda1737bf554c8bfe4bc603f4d41a43">&#9670;&#160;</a></span>noc_semaphore_inc()</h2>
+<a id="a962d804ce21d1d26ccb4241e2eb6ac9f" name="a962d804ce21d1d26ccb4241e2eb6ac9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a962d804ce21d1d26ccb4241e2eb6ac9f">&#9670;&#160;</a></span>noc_semaphore_inc()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -944,7 +959,13 @@ template&lt;uint32_t max_page_size = NOC_MAX_BURST_SIZE + 1&gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>incr</em>&#160;</td>
+          <td class="paramname"><em>incr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>noc_id</em> = <code>noc_index</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1128,7 +1149,7 @@ template&lt;uint32_t max_page_size = NOC_MAX_BURST_SIZE + 1&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>Initiates an asynchronous write from a source address in L1 memory on the Tensix core executing this function call to a rectangular destination grid. The destinations are specified using a uint64_t encoding referencing an on-chip grid of nodes located at NOC coordinate range (x_start,y_start,x_end,y_end) and a local address created using <em>get_noc_multicast_addr</em> function. The size of data that is sent is 4 Bytes. This is usually used to set a semaphore value at the destination nodes, as a way of a synchronization mechanism. The same as <em>noc_async_write_multicast</em> with preset size of 4 Bytes.</p>
-<p>With this API, you cannot send data only to the source node. That is, if num_dests is 1 and the encoded destination nodes consist of the node sending the data, then no data will be sent. The method call will be a no-op.</p>
+<p>Note: With this API, sending data only to the source node (when num_dests is 1) may result in unexpected behaviour. For some parameters, hangs have been observed. For some other parameters, nothing may happen. Consider using regular non multicast operations such as <em>noc_async_write</em> in this case.</p>
 <p>Return value: None</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">

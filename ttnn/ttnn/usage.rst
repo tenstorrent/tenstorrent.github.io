@@ -89,9 +89,6 @@ Basic Examples
     # To print currently executing ttnn operations
     export TTNN_CONFIG_OVERRIDES='{"enable_fast_runtime_mode": false, "enable_logging": true}'
 
-    # To generate a csv with all of the ttnn and tt_lib operations, their attributes and their input tensors:
-    export OPERATION_HISTORY_CSV=operation_history.csv
-
     # To print the currently executing ttnn and tt_lib operation and its input tensors to stdout
     export TT_METAL_LOGGER_TYPES=Op
     export TT_METAL_LOGGER_LEVEL=Debug
@@ -251,25 +248,23 @@ Open the visualizer by running the following command:
 13. Query all operations
 ------------------------
 
-.. note::
-   This basic snippet is under construction, and may not work on all hardware architectures.
-
 .. code-block:: python
 
     import ttnn
     ttnn.query_registered_operations()
 
 
+14. Falling back to torch
+-------------------------
 
-14. Disable Fallbacks
----------------------
+.. code-block:: python
 
-.. note::
-   This basic snippet is under construction, and may not work on all hardware architectures.
+.. literalinclude:: examples/usage/falling_back_to_torch.py
+   :language: python
 
-Fallbacks are used when the operation is not supported by the device. The fallbacks are implemented in the host and are slower than the device operations.
-The user will be notified when a fallback is used. The fallbacks can be disabled by setting the following environment variable.
 
-.. code-block:: bash
+15. Capturing graph of C++ functions, buffer allocations, etc
+-------------------------------------------------------------
 
-     export TTNN_THROW_EXCEPTION_ON_FALLBACK=True
+.. literalinclude:: examples/usage/graph_capture.py
+   :language: python

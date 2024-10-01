@@ -46,20 +46,33 @@
 <codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_pop_tiles(cbid,<sp/>ntiles)<sp/><sp/>));</highlight></codeline>
 <codeline lineno="75"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="76"><highlight class="normal"></highlight></codeline>
-<codeline lineno="77"><highlight class="normal"></highlight></codeline>
-<codeline lineno="91"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dataflow__api_8h_1a29521dee07b0070674a988f66c01ffed" kindref="member">cb_reserve_back</ref>(uint32_t<sp/>cbid,<sp/>uint32_t<sp/>ntiles)</highlight></codeline>
-<codeline lineno="92"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>PACK((<sp/>llk_wait_for_free_tiles&lt;false,false,false&gt;(cbid,ntiles)<sp/><sp/>));</highlight></codeline>
-<codeline lineno="94"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"></highlight></codeline>
-<codeline lineno="96"><highlight class="normal"></highlight></codeline>
-<codeline lineno="125"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dataflow__api_8h_1a81357224b88562601b42833eec676ffb" kindref="member">cb_push_back</ref>(uint32_t<sp/>cbid,<sp/>uint32_t<sp/>ntiles)</highlight></codeline>
-<codeline lineno="126"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>PACK((<sp/>llk_push_tiles&lt;false,false&gt;(cbid,<sp/>ntiles)<sp/><sp/>));</highlight></codeline>
-<codeline lineno="128"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="129"><highlight class="normal"></highlight></codeline>
-<codeline lineno="130"><highlight class="normal"></highlight></codeline>
-<codeline lineno="131"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>ckernel</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dataflow__api_8h_1a29521dee07b0070674a988f66c01ffed" kindref="member">cb_reserve_back</ref>(uint32_t<sp/>cbid,<sp/>uint32_t<sp/>ntiles)</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>PACK((<sp/>llk_wait_for_free_tiles&lt;false,false,false&gt;(cbid,ntiles)<sp/><sp/>));</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dataflow__api_8h_1a81357224b88562601b42833eec676ffb" kindref="member">cb_push_back</ref>(uint32_t<sp/>cbid,<sp/>uint32_t<sp/>ntiles)</highlight></codeline>
+<codeline lineno="124"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>PACK((<sp/>llk_push_tiles&lt;false,false&gt;(cbid,<sp/>ntiles)<sp/><sp/>));</highlight></codeline>
+<codeline lineno="126"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>cb_get_tile(uint32_t<sp/>cb_id,<sp/>uint32_t<sp/>index,<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>p_tile)<sp/>{</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK(llk_unpack_get_tile(cb_id,<sp/>index,<sp/>(uint32_t*)p_tile));</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH(llk_math_get_tile(cb_id,<sp/>index,<sp/>(uint32_t*)p_tile));</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>PACK(llk_pack_get_tile(cb_id,<sp/>index,<sp/>(uint32_t*)p_tile));</highlight></codeline>
+<codeline lineno="147"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>cb_release_tile(uint32_t<sp/>cb_id)<sp/>{</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK(llk_unpack_release_tile(cb_id));</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH(llk_math_release_tile(cb_id));</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>PACK(llk_pack_release_tile(cb_id));</highlight></codeline>
+<codeline lineno="165"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>ckernel</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="tt_metal/include/compute_kernel_api/cb_api.h"/>
   </compounddef>

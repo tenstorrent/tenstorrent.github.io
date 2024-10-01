@@ -78,109 +78,107 @@
 \DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordflow}{else}}
 \DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary\_init<tBcastOp,\ tBcastDim>()\ ));}
 \DoxyCodeLine{00109\ }
-\DoxyCodeLine{00110\ \ \ \ \ UNPACK((\ llk\_setup\_operands()\ ));}
-\DoxyCodeLine{00111\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_hw\_configure\_disaggregated<DST\_ACCUM\_MODE>(icb0,\ icb1)\ ));}
-\DoxyCodeLine{00112\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_init<tBcastDim>(icb0,\ icb1)\ ));}
-\DoxyCodeLine{00113\ \ \ \ \ \textcolor{comment}{//\ TODO(AP):\ running\ this\ specific\ init\ after\ common\ AB\ init\ causes\ a\ hang}}
-\DoxyCodeLine{00114\ }
-\DoxyCodeLine{00115\ \ \ \ \ \textcolor{comment}{//\ clone\ of\ general\ init\ for\ AB\ TODO(AP):\ commonize}}
-\DoxyCodeLine{00116\ \ \ \ \ \textcolor{comment}{//UNPACK((\ llk\_setup\_operands()\ ));}}
-\DoxyCodeLine{00117\ \ \ \ \ \textcolor{comment}{//UNPACK((\ llk\_unpack\_AB\_init<BroadcastType::NONE>()\ ));}}
-\DoxyCodeLine{00118\ \ \ \ \ \textcolor{comment}{//UNPACK((\ llk\_unpack\_AB\_hw\_configure\_disaggregated<BroadcastType::NONE>(icb0,\ icb1)\ ));}}
-\DoxyCodeLine{00119\ }
-\DoxyCodeLine{00120\ \ \ \ \ PACK((\ llk\_pack\_hw\_configure\_disaggregated<false,\ DST\_ACCUM\_MODE>(ocb)\ ));}
-\DoxyCodeLine{00121\ \ \ \ \ PACK((\ llk\_pack\_init(ocb)\ ));}
-\DoxyCodeLine{00122\ \ \ \ \ PACK((\ llk\_setup\_outputs()\ ));}
-\DoxyCodeLine{00123\ \ \ \ \ PACK((\ llk\_pack\_dest\_init<false,\ DST\_ACCUM\_MODE>()\ ));}
-\DoxyCodeLine{00124\ }
-\DoxyCodeLine{00125\ \ \ \ \ MATH((\ llk\_math\_pack\_sync\_init<DST\_ACCUM\_MODE>()\ ));}
-\DoxyCodeLine{00126\ \}}
-\DoxyCodeLine{00127\ }
-\DoxyCodeLine{00128\ }
-\DoxyCodeLine{00129\ \textcolor{comment}{/*}}
-\DoxyCodeLine{00130\ \textcolor{comment}{Internal\ helper\ function\ for\ all\ broadcast\ ops}}
-\DoxyCodeLine{00131\ \textcolor{comment}{*/}}
-\DoxyCodeLine{00132\ \textcolor{keyword}{template}<EltwiseBinaryType\ tBcastOp,\ BroadcastType\ tBcastDim>}
-\DoxyCodeLine{00133\ ALWI\ \textcolor{keywordtype}{void}\ any\_tiles\_bcast(uint32\_t\ icb0,\ uint32\_t\ icb1,\ uint32\_t\ itile0,\ uint32\_t\ itile1,\ uint32\_t\ idst)}
-\DoxyCodeLine{00134\ \{}
-\DoxyCodeLine{00135\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary<tBcastOp,\ tBcastDim,\ MATH\_FIDELITY,\ EltwiseBinaryReuseDestType::NONE,\ DST\_ACCUM\_MODE>(icb0,\ icb1,\ idst)\ ));}
-\DoxyCodeLine{00136\ \ \ \ \ UNPACK((\ llk\_unpack\_AB<tBcastDim>(icb0,\ icb1,\ itile0,\ itile1)\ ));}
-\DoxyCodeLine{00137\ \}}
-\DoxyCodeLine{00138\ }
-\DoxyCodeLine{00178\ \textcolor{keyword}{template}<BroadcastType\ tBcastDim>}
-\DoxyCodeLine{00179\ ALWI\ \textcolor{keywordtype}{void}\ add\_tiles\_bcast(uint32\_t\ icb0,\ uint32\_t\ icb1,\ uint32\_t\ itile0,\ uint32\_t\ itile1,\ uint32\_t\ idst)}
-\DoxyCodeLine{00180\ \{\ any\_tiles\_bcast<EltwiseBinaryType::ELWADD,\ tBcastDim>(icb0,\ icb1,\ itile0,\ itile1,\ idst);\ \}}
-\DoxyCodeLine{00181\ }
-\DoxyCodeLine{00185\ \textcolor{keyword}{template}<BroadcastType\ tBcastDim>}
-\DoxyCodeLine{00186\ ALWI\ \textcolor{keywordtype}{void}\ sub\_tiles\_bcast(uint32\_t\ icb0,\ uint32\_t\ icb1,\ uint32\_t\ itile0,\ uint32\_t\ itile1,\ uint32\_t\ idst)}
-\DoxyCodeLine{00187\ \{\ any\_tiles\_bcast<EltwiseBinaryType::ELWSUB,\ tBcastDim>(icb0,\ icb1,\ itile0,\ itile1,\ idst);\ \}}
-\DoxyCodeLine{00188\ }
-\DoxyCodeLine{00192\ \textcolor{keyword}{template}<BroadcastType\ tBcastDim>}
-\DoxyCodeLine{00193\ ALWI\ \textcolor{keywordtype}{void}\ mul\_tiles\_bcast(uint32\_t\ icb0,\ uint32\_t\ icb1,\ uint32\_t\ itile0,\ uint32\_t\ itile1,\ uint32\_t\ idst)}
-\DoxyCodeLine{00194\ \{\ any\_tiles\_bcast<EltwiseBinaryType::ELWMUL,\ tBcastDim>(icb0,\ icb1,\ itile0,\ itile1,\ idst);\ \}}
-\DoxyCodeLine{00195\ }
-\DoxyCodeLine{00200\ ALWI\ \textcolor{keywordtype}{void}\ add\_bcast\_rows\_init\_short(uint32\_t\ icb0\ =\ 0,\ uint32\_t\ icb1\ =\ 1)}
-\DoxyCodeLine{00201\ \{}
-\DoxyCodeLine{00202\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary\_init<ELWADD,\ BroadcastType::ROW,\ MATH\_FIDELITY>()\ ));}
-\DoxyCodeLine{00203\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_init<BroadcastType::ROW>(icb0,\ icb1)\ ));}
-\DoxyCodeLine{00204\ \}}
-\DoxyCodeLine{00205\ }
-\DoxyCodeLine{00210\ ALWI\ \textcolor{keywordtype}{void}\ add\_bcast\_cols\_init\_short(uint32\_t\ icb0\ =\ 0,\ uint32\_t\ icb1\ =\ 1)}
-\DoxyCodeLine{00211\ \{}
-\DoxyCodeLine{00212\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary\_init<ELWADD,\ BroadcastType::COL>()\ ));}
-\DoxyCodeLine{00213\ \ \ \ \ \textcolor{comment}{//\ FIXME:\ API\ Update\ needed\ in\ compute\ kernel?}}
-\DoxyCodeLine{00214\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_init<BroadcastType::COL>(icb0,\ icb1)\ ));}
-\DoxyCodeLine{00215\ \}}
-\DoxyCodeLine{00216\ }
-\DoxyCodeLine{00220\ ALWI\ \textcolor{keywordtype}{void}\ add\_bcast\_scalar\_init\_short(uint32\_t\ icb0\ =\ 0,\ uint32\_t\ icb1\ =\ 1)}
-\DoxyCodeLine{00221\ \{}
-\DoxyCodeLine{00222\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary\_init<ELWADD,\ BroadcastType::SCALAR,\ MATH\_FIDELITY>()\ ));\ \textcolor{comment}{//\ TODO(AP)}}
-\DoxyCodeLine{00223\ \ \ \ \ \textcolor{comment}{//\ FIXME:\ API\ Update\ needed\ in\ compute\ kernel?}}
-\DoxyCodeLine{00224\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_init<BroadcastType::SCALAR>(icb0,\ icb1)\ ));}
-\DoxyCodeLine{00225\ \}}
-\DoxyCodeLine{00226\ }
-\DoxyCodeLine{00230\ ALWI\ \textcolor{keywordtype}{void}\ mul\_tiles\_bcast\_scalar\_init\_short(uint32\_t\ icb0\ =\ 0,\ uint32\_t\ icb1\ =\ 1)}
-\DoxyCodeLine{00231\ \{}
-\DoxyCodeLine{00232\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary\_init<ELWMUL,\ BroadcastType::SCALAR,\ MATH\_FIDELITY>()\ ));\ \textcolor{comment}{//\ TODO(AP)}}
-\DoxyCodeLine{00233\ \ \ \ \ \textcolor{comment}{//\ FIXME:\ API\ Update\ needed\ in\ compute\ kernel?}}
-\DoxyCodeLine{00234\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_init<BroadcastType::SCALAR>(icb0,\ icb1)\ ));}
-\DoxyCodeLine{00235\ \}}
-\DoxyCodeLine{00236\ }
-\DoxyCodeLine{00240\ ALWI\ \textcolor{keywordtype}{void}\ mul\_tiles\_bcast\_scalar(uint32\_t\ icb0,\ uint32\_t\ icb1,\ uint32\_t\ itile0,\ uint32\_t\ itile1,\ uint32\_t\ idst)}
-\DoxyCodeLine{00241\ \{}
-\DoxyCodeLine{00242\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary<ELWMUL,\ BroadcastType::SCALAR,\ MATH\_FIDELITY,\ EltwiseBinaryReuseDestType::NONE,\ DST\_ACCUM\_MODE>(icb0,\ icb1,\ idst)\ ));}
-\DoxyCodeLine{00243\ \ \ \ \ UNPACK((\ llk\_unpack\_AB<BroadcastType::SCALAR>(icb0,\ icb1,\ itile0,\ itile1)\ ));}
-\DoxyCodeLine{00244\ \}}
-\DoxyCodeLine{00245\ }
-\DoxyCodeLine{00246\ }
-\DoxyCodeLine{00250\ ALWI\ \textcolor{keywordtype}{void}\ mul\_bcast\_cols\_init\_short(uint32\_t\ icb0\ =\ 0,\ uint32\_t\ icb1\ =\ 1)}
-\DoxyCodeLine{00251\ \{}
-\DoxyCodeLine{00252\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary\_init<ELWMUL,\ BroadcastType::COL,\ MATH\_FIDELITY>()\ ));\ \textcolor{comment}{//\ TODO(AP)}}
-\DoxyCodeLine{00253\ \ \ \ \ \textcolor{comment}{//\ FIXME:\ API\ Update\ needed\ in\ compute\ kernel?}}
-\DoxyCodeLine{00254\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_init<BroadcastType::COL>(icb0,\ icb1)\ ));}
-\DoxyCodeLine{00255\ \}}
-\DoxyCodeLine{00256\ }
-\DoxyCodeLine{00260\ ALWI\ \textcolor{keywordtype}{void}\ mul\_bcast\_rows\_init\_short(uint32\_t\ icb0\ =\ 0,\ uint32\_t\ icb1\ =\ 1)}
-\DoxyCodeLine{00261\ \{}
-\DoxyCodeLine{00262\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary\_init<ELWMUL,\ BroadcastType::ROW,\ MATH\_FIDELITY>()\ ));}
-\DoxyCodeLine{00263\ \ \ \ \ \textcolor{comment}{//\ FIXME:\ API\ Update\ needed\ in\ compute\ kernel?}}
-\DoxyCodeLine{00264\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_init<BroadcastType::ROW>(icb0,\ icb1)\ ));}
-\DoxyCodeLine{00265\ \}}
-\DoxyCodeLine{00266\ }
-\DoxyCodeLine{00270\ ALWI\ \textcolor{keywordtype}{void}\ sub\_bcast\_cols\_init\_short(uint32\_t\ icb0\ =\ 0,\ uint32\_t\ icb1\ =\ 1)}
-\DoxyCodeLine{00271\ \{}
-\DoxyCodeLine{00272\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary\_init<ELWSUB,\ BroadcastType::COL,\ MATH\_FIDELITY>()\ ));\ \textcolor{comment}{//\ TODO(AP)}}
-\DoxyCodeLine{00273\ \ \ \ \ \textcolor{comment}{//\ FIXME:\ API\ Update\ needed\ in\ compute\ kernel?}}
-\DoxyCodeLine{00274\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_init<BroadcastType::COL>(icb0,\ icb1)\ ));}
-\DoxyCodeLine{00275\ \}}
-\DoxyCodeLine{00276\ }
-\DoxyCodeLine{00280\ ALWI\ \textcolor{keywordtype}{void}\ sub\_tiles\_bcast\_scalar\_init\_short(uint32\_t\ icb0\ =\ 0,\ uint32\_t\ icb1\ =\ 1)}
-\DoxyCodeLine{00281\ \{}
-\DoxyCodeLine{00282\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary\_init<ELWSUB,\ BroadcastType::SCALAR,\ MATH\_FIDELITY>()\ ));\ \textcolor{comment}{//\ TODO(AP)}}
-\DoxyCodeLine{00283\ \ \ \ \ \textcolor{comment}{//\ FIXME:\ API\ Update\ needed\ in\ compute\ kernel?}}
-\DoxyCodeLine{00284\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_init<BroadcastType::SCALAR>(icb0,\ icb1)\ ));}
-\DoxyCodeLine{00285\ \}}
-\DoxyCodeLine{00286\ }
-\DoxyCodeLine{00287\ \}\ \textcolor{comment}{//\ namespace\ ckernel}}
+\DoxyCodeLine{00110\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_hw\_configure\_disaggregated<DST\_ACCUM\_MODE>(icb0,\ icb1)\ ));}
+\DoxyCodeLine{00111\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_init<tBcastDim>(icb0,\ icb1)\ ));}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{comment}{//\ TODO(AP):\ running\ this\ specific\ init\ after\ common\ AB\ init\ causes\ a\ hang}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{comment}{//\ clone\ of\ general\ init\ for\ AB\ TODO(AP):\ commonize}}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{comment}{//UNPACK((\ llk\_unpack\_AB\_init<BroadcastType::NONE>()\ ));}}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{comment}{//UNPACK((\ llk\_unpack\_AB\_hw\_configure\_disaggregated<BroadcastType::NONE>(icb0,\ icb1)\ ));}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ PACK((\ llk\_pack\_hw\_configure\_disaggregated<false,\ DST\_ACCUM\_MODE>(ocb)\ ));}
+\DoxyCodeLine{00119\ \ \ \ \ PACK((\ llk\_pack\_init(ocb)\ ));}
+\DoxyCodeLine{00120\ \ \ \ \ PACK((\ llk\_pack\_dest\_init<false,\ DST\_ACCUM\_MODE>()\ ));}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ MATH((\ llk\_math\_pack\_sync\_init<DST\_ACCUM\_MODE>()\ ));}
+\DoxyCodeLine{00123\ \ \ \ \ MATH((\ llk\_math\_hw\_configure\_disaggregated()\ ));}
+\DoxyCodeLine{00124\ \}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00128\ \textcolor{comment}{Internal\ helper\ function\ for\ all\ broadcast\ ops}}
+\DoxyCodeLine{00129\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00130\ \textcolor{keyword}{template}<EltwiseBinaryType\ tBcastOp,\ BroadcastType\ tBcastDim>}
+\DoxyCodeLine{00131\ ALWI\ \textcolor{keywordtype}{void}\ any\_tiles\_bcast(uint32\_t\ icb0,\ uint32\_t\ icb1,\ uint32\_t\ itile0,\ uint32\_t\ itile1,\ uint32\_t\ idst)}
+\DoxyCodeLine{00132\ \{}
+\DoxyCodeLine{00133\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary<tBcastOp,\ tBcastDim,\ MATH\_FIDELITY,\ EltwiseBinaryReuseDestType::NONE,\ DST\_ACCUM\_MODE>(icb0,\ icb1,\ idst)\ ));}
+\DoxyCodeLine{00134\ \ \ \ \ UNPACK((\ llk\_unpack\_AB<tBcastDim>(icb0,\ icb1,\ itile0,\ itile1)\ ));}
+\DoxyCodeLine{00135\ \}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00176\ \textcolor{keyword}{template}<BroadcastType\ tBcastDim>}
+\DoxyCodeLine{00177\ ALWI\ \textcolor{keywordtype}{void}\ add\_tiles\_bcast(uint32\_t\ icb0,\ uint32\_t\ icb1,\ uint32\_t\ itile0,\ uint32\_t\ itile1,\ uint32\_t\ idst)}
+\DoxyCodeLine{00178\ \{\ any\_tiles\_bcast<EltwiseBinaryType::ELWADD,\ tBcastDim>(icb0,\ icb1,\ itile0,\ itile1,\ idst);\ \}}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00183\ \textcolor{keyword}{template}<BroadcastType\ tBcastDim>}
+\DoxyCodeLine{00184\ ALWI\ \textcolor{keywordtype}{void}\ sub\_tiles\_bcast(uint32\_t\ icb0,\ uint32\_t\ icb1,\ uint32\_t\ itile0,\ uint32\_t\ itile1,\ uint32\_t\ idst)}
+\DoxyCodeLine{00185\ \{\ any\_tiles\_bcast<EltwiseBinaryType::ELWSUB,\ tBcastDim>(icb0,\ icb1,\ itile0,\ itile1,\ idst);\ \}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00190\ \textcolor{keyword}{template}<BroadcastType\ tBcastDim>}
+\DoxyCodeLine{00191\ ALWI\ \textcolor{keywordtype}{void}\ mul\_tiles\_bcast(uint32\_t\ icb0,\ uint32\_t\ icb1,\ uint32\_t\ itile0,\ uint32\_t\ itile1,\ uint32\_t\ idst)}
+\DoxyCodeLine{00192\ \{\ any\_tiles\_bcast<EltwiseBinaryType::ELWMUL,\ tBcastDim>(icb0,\ icb1,\ itile0,\ itile1,\ idst);\ \}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00198\ ALWI\ \textcolor{keywordtype}{void}\ add\_bcast\_rows\_init\_short(uint32\_t\ icb0\ =\ 0,\ uint32\_t\ icb1\ =\ 1)}
+\DoxyCodeLine{00199\ \{}
+\DoxyCodeLine{00200\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary\_init<ELWADD,\ BroadcastType::ROW,\ MATH\_FIDELITY>()\ ));}
+\DoxyCodeLine{00201\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_init<BroadcastType::ROW>(icb0,\ icb1)\ ));}
+\DoxyCodeLine{00202\ \}}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00208\ ALWI\ \textcolor{keywordtype}{void}\ add\_bcast\_cols\_init\_short(uint32\_t\ icb0\ =\ 0,\ uint32\_t\ icb1\ =\ 1)}
+\DoxyCodeLine{00209\ \{}
+\DoxyCodeLine{00210\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary\_init<ELWADD,\ BroadcastType::COL>()\ ));}
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{comment}{//\ FIXME:\ API\ Update\ needed\ in\ compute\ kernel?}}
+\DoxyCodeLine{00212\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_init<BroadcastType::COL>(icb0,\ icb1)\ ));}
+\DoxyCodeLine{00213\ \}}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00218\ ALWI\ \textcolor{keywordtype}{void}\ add\_bcast\_scalar\_init\_short(uint32\_t\ icb0\ =\ 0,\ uint32\_t\ icb1\ =\ 1)}
+\DoxyCodeLine{00219\ \{}
+\DoxyCodeLine{00220\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary\_init<ELWADD,\ BroadcastType::SCALAR,\ MATH\_FIDELITY>()\ ));\ \textcolor{comment}{//\ TODO(AP)}}
+\DoxyCodeLine{00221\ \ \ \ \ \textcolor{comment}{//\ FIXME:\ API\ Update\ needed\ in\ compute\ kernel?}}
+\DoxyCodeLine{00222\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_init<BroadcastType::SCALAR>(icb0,\ icb1)\ ));}
+\DoxyCodeLine{00223\ \}}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00228\ ALWI\ \textcolor{keywordtype}{void}\ mul\_tiles\_bcast\_scalar\_init\_short(uint32\_t\ icb0\ =\ 0,\ uint32\_t\ icb1\ =\ 1)}
+\DoxyCodeLine{00229\ \{}
+\DoxyCodeLine{00230\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary\_init<ELWMUL,\ BroadcastType::SCALAR,\ MATH\_FIDELITY>()\ ));\ \textcolor{comment}{//\ TODO(AP)}}
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{comment}{//\ FIXME:\ API\ Update\ needed\ in\ compute\ kernel?}}
+\DoxyCodeLine{00232\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_init<BroadcastType::SCALAR>(icb0,\ icb1)\ ));}
+\DoxyCodeLine{00233\ \}}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00238\ ALWI\ \textcolor{keywordtype}{void}\ mul\_tiles\_bcast\_scalar(uint32\_t\ icb0,\ uint32\_t\ icb1,\ uint32\_t\ itile0,\ uint32\_t\ itile1,\ uint32\_t\ idst)}
+\DoxyCodeLine{00239\ \{}
+\DoxyCodeLine{00240\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary<ELWMUL,\ BroadcastType::SCALAR,\ MATH\_FIDELITY,\ EltwiseBinaryReuseDestType::NONE,\ DST\_ACCUM\_MODE>(icb0,\ icb1,\ idst)\ ));}
+\DoxyCodeLine{00241\ \ \ \ \ UNPACK((\ llk\_unpack\_AB<BroadcastType::SCALAR>(icb0,\ icb1,\ itile0,\ itile1)\ ));}
+\DoxyCodeLine{00242\ \}}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00248\ ALWI\ \textcolor{keywordtype}{void}\ mul\_bcast\_cols\_init\_short(uint32\_t\ icb0\ =\ 0,\ uint32\_t\ icb1\ =\ 1)}
+\DoxyCodeLine{00249\ \{}
+\DoxyCodeLine{00250\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary\_init<ELWMUL,\ BroadcastType::COL,\ MATH\_FIDELITY>()\ ));\ \textcolor{comment}{//\ TODO(AP)}}
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{comment}{//\ FIXME:\ API\ Update\ needed\ in\ compute\ kernel?}}
+\DoxyCodeLine{00252\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_init<BroadcastType::COL>(icb0,\ icb1)\ ));}
+\DoxyCodeLine{00253\ \}}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00258\ ALWI\ \textcolor{keywordtype}{void}\ mul\_bcast\_rows\_init\_short(uint32\_t\ icb0\ =\ 0,\ uint32\_t\ icb1\ =\ 1)}
+\DoxyCodeLine{00259\ \{}
+\DoxyCodeLine{00260\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary\_init<ELWMUL,\ BroadcastType::ROW,\ MATH\_FIDELITY>()\ ));}
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{comment}{//\ FIXME:\ API\ Update\ needed\ in\ compute\ kernel?}}
+\DoxyCodeLine{00262\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_init<BroadcastType::ROW>(icb0,\ icb1)\ ));}
+\DoxyCodeLine{00263\ \}}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00268\ ALWI\ \textcolor{keywordtype}{void}\ sub\_bcast\_cols\_init\_short(uint32\_t\ icb0\ =\ 0,\ uint32\_t\ icb1\ =\ 1)}
+\DoxyCodeLine{00269\ \{}
+\DoxyCodeLine{00270\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary\_init<ELWSUB,\ BroadcastType::COL,\ MATH\_FIDELITY>()\ ));\ \textcolor{comment}{//\ TODO(AP)}}
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{comment}{//\ FIXME:\ API\ Update\ needed\ in\ compute\ kernel?}}
+\DoxyCodeLine{00272\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_init<BroadcastType::COL>(icb0,\ icb1)\ ));}
+\DoxyCodeLine{00273\ \}}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00278\ ALWI\ \textcolor{keywordtype}{void}\ sub\_tiles\_bcast\_scalar\_init\_short(uint32\_t\ icb0\ =\ 0,\ uint32\_t\ icb1\ =\ 1)}
+\DoxyCodeLine{00279\ \{}
+\DoxyCodeLine{00280\ \ \ \ \ MATH((\ llk\_math\_eltwise\_binary\_init<ELWSUB,\ BroadcastType::SCALAR,\ MATH\_FIDELITY>()\ ));\ \textcolor{comment}{//\ TODO(AP)}}
+\DoxyCodeLine{00281\ \ \ \ \ \textcolor{comment}{//\ FIXME:\ API\ Update\ needed\ in\ compute\ kernel?}}
+\DoxyCodeLine{00282\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_init<BroadcastType::SCALAR>(icb0,\ icb1)\ ));}
+\DoxyCodeLine{00283\ \}}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00285\ \}\ \textcolor{comment}{//\ namespace\ ckernel}}
 
 \end{DoxyCode}

@@ -20,70 +20,67 @@
 \DoxyCodeLine{00016\ \textcolor{keyword}{namespace\ }ckernel\ \{}
 \DoxyCodeLine{00017\ }
 \DoxyCodeLine{00030\ ALWI\ \textcolor{keywordtype}{void}\ mm\_init(uint32\_t\ in0\_cb\_id\ =\ 0,\ uint32\_t\ in1\_cb\_id\ =\ 1,\ uint32\_t\ out\_cb\_id\ =\ 16,\ \textcolor{keyword}{const}\ uint32\_t\ transpose=0)\ \{}
-\DoxyCodeLine{00031\ \ \ \ \ UNPACK((\ llk\_setup\_operands()\ ));}
-\DoxyCodeLine{00032\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_matmul\_hw\_configure\_disaggregated<DST\_ACCUM\_MODE>(in0\_cb\_id,\ in1\_cb\_id)\ ));}
-\DoxyCodeLine{00033\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_matmul\_init(in0\_cb\_id,\ in1\_cb\_id,\ transpose)\ ));}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \ \ \ \ MATH((\ llk\_math\_matmul\_init<MATH\_FIDELITY>(in0\_cb\_id,\ in1\_cb\_id,\ transpose)\ ));}
-\DoxyCodeLine{00036\ \ \ \ \ MATH((\ llk\_math\_pack\_sync\_init<DST\_ACCUM\_MODE>()\ \ ));}
+\DoxyCodeLine{00031\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_matmul\_hw\_configure\_disaggregated<DST\_ACCUM\_MODE>(in0\_cb\_id,\ in1\_cb\_id)\ ));}
+\DoxyCodeLine{00032\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_matmul\_init(in0\_cb\_id,\ in1\_cb\_id,\ transpose)\ ));}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ MATH((\ llk\_math\_matmul\_init<MATH\_FIDELITY>(in0\_cb\_id,\ in1\_cb\_id,\ transpose)\ ));}
+\DoxyCodeLine{00035\ \ \ \ \ MATH((\ llk\_math\_pack\_sync\_init<DST\_ACCUM\_MODE>()\ \ ));}
+\DoxyCodeLine{00036\ \ \ \ \ MATH((\ llk\_math\_hw\_configure\_disaggregated()\ ));}
 \DoxyCodeLine{00037\ }
 \DoxyCodeLine{00038\ \ \ \ \ PACK((\ llk\_pack\_hw\_configure\_disaggregated<false,\ DST\_ACCUM\_MODE>(out\_cb\_id)\ ));}
 \DoxyCodeLine{00039\ \ \ \ \ PACK((\ llk\_pack\_init(out\_cb\_id)\ \ ));}
-\DoxyCodeLine{00040\ \ \ \ \ PACK((\ llk\_setup\_outputs()\ \ ));}
-\DoxyCodeLine{00041\ \ \ \ \ PACK((\ llk\_pack\_dest\_init<false,\ DST\_ACCUM\_MODE>()\ \ ));}
-\DoxyCodeLine{00042\ \}}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00060\ ALWI\ \textcolor{keywordtype}{void}\ matmul\_tiles(uint32\_t\ in0\_cb\_id,\ uint32\_t\ in1\_cb\_id,\ uint32\_t\ in0\_tile\_index,\ uint32\_t\ in1\_tile\_index,\ uint32\_t\ idst,\ \textcolor{keyword}{const}\ uint32\_t\ transpose)\ \{}
-\DoxyCodeLine{00061\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_matmul(in0\_cb\_id,\ in1\_cb\_id,\ in0\_tile\_index,\ in1\_tile\_index)\ ));}
-\DoxyCodeLine{00062\ \ \ \ \ MATH((\ llk\_math\_matmul<MATH\_FIDELITY>(idst,\ transpose)\ \ ));}
-\DoxyCodeLine{00063\ \}}
-\DoxyCodeLine{00064\ }
-\DoxyCodeLine{00077\ \textcolor{keyword}{template}\ <u\textcolor{keywordtype}{int}32\_t\ num\_faces\ =\ 4>}
-\DoxyCodeLine{00078\ ALWI\ \textcolor{keywordtype}{void}\ matmul\_tiles\_math(uint32\_t\ idst)\ \{}
-\DoxyCodeLine{00079\ \ \ \ \ MATH((\ llk\_math\_matmul<MATH\_FIDELITY,\ num\_faces>(idst)\ \ ));}
-\DoxyCodeLine{00080\ \}}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00094\ ALWI\ \textcolor{keywordtype}{void}\ mm\_init\_short(uint32\_t\ in0\_cb\_id\ =\ 0,\ uint32\_t\ in1\_cb\_id\ =\ 1,\ \textcolor{keyword}{const}\ uint32\_t\ transpose=0)\ \{}
-\DoxyCodeLine{00095\ \ \ \ \ MATH((\ llk\_math\_matmul\_init<MATH\_FIDELITY>(in0\_cb\_id,\ in1\_cb\_id,\ transpose)\ \ ));}
-\DoxyCodeLine{00096\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_matmul\_init(in0\_cb\_id,\ in1\_cb\_id,\ transpose)\ \ ));}
-\DoxyCodeLine{00097\ \}}
-\DoxyCodeLine{00098\ }
-\DoxyCodeLine{00112\ ALWI\ \textcolor{keywordtype}{void}\ mm\_init\_short\_with\_dt(uint32\_t\ in0\_cb\_id\ =\ 0,\ uint32\_t\ in1\_cb\_id\ =\ 1,\ uint32\_t\ c\_in\_old\_srca\ =\ 2,\ \textcolor{keyword}{const}\ uint32\_t\ transpose=0)\ \{}
-\DoxyCodeLine{00113\ \ \ \ \ UNPACK((\ llk\_unpack\_reconfig\_data\_format\_srca(c\_in\_old\_srca,\ in1\_cb\_id)\ ));}
-\DoxyCodeLine{00114\ \ \ \ \ mm\_init\_short(in0\_cb\_id,\ in1\_cb\_id,\ transpose);}
-\DoxyCodeLine{00115\ \}}
-\DoxyCodeLine{00116\ }
-\DoxyCodeLine{00131\ ALWI\ \textcolor{keywordtype}{void}\ mm\_block\_init(uint32\_t\ in0\_cb\_id\ =\ 0,\ uint32\_t\ in1\_cb\_id\ =\ 1,\ uint32\_t\ out\_cb\_id\ =\ 16,\ \textcolor{keyword}{const}\ uint32\_t\ transpose\ =\ 0,\ uint32\_t\ ct\_dim\ =\ 1,\ uint32\_t\ rt\_dim\ =\ 1,\ uint32\_t\ kt\_dim\ =\ 1)\ \{}
-\DoxyCodeLine{00132\ \ \ \ \ UNPACK((\ llk\_setup\_operands()\ ));}
-\DoxyCodeLine{00133\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_matmul\_hw\_configure\_disaggregated<DST\_ACCUM\_MODE>(in0\_cb\_id,\ in1\_cb\_id)\ ));}
-\DoxyCodeLine{00134\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_matmul\_init(in0\_cb\_id,\ in1\_cb\_id,\ transpose,\ ct\_dim,\ rt\_dim,\ kt\_dim)\ ));}
-\DoxyCodeLine{00135\ }
-\DoxyCodeLine{00136\ \ \ \ \ MATH((\ llk\_math\_matmul\_init<MATH\_FIDELITY>(in0\_cb\_id,\ in1\_cb\_id,\ transpose,\ ct\_dim,\ rt\_dim,\ kt\_dim)\ ));}
-\DoxyCodeLine{00137\ \ \ \ \ MATH((\ llk\_math\_pack\_sync\_init<DST\_ACCUM\_MODE>()\ \ ));}
-\DoxyCodeLine{00138\ }
-\DoxyCodeLine{00139\ \ \ \ \ PACK((\ llk\_pack\_hw\_configure\_disaggregated<false,\ DST\_ACCUM\_MODE>(out\_cb\_id)\ ));}
-\DoxyCodeLine{00140\ \ \ \ \ PACK((\ llk\_pack\_init<false,\ false>(out\_cb\_id)\ \ ));}
-\DoxyCodeLine{00141\ \ \ \ \ PACK((\ llk\_setup\_outputs()\ \ ));}
-\DoxyCodeLine{00142\ \ \ \ \ PACK((\ llk\_pack\_dest\_init<false,\ DST\_ACCUM\_MODE>()\ \ ));}
-\DoxyCodeLine{00143\ \}}
-\DoxyCodeLine{00144\ }
-\DoxyCodeLine{00165\ ALWI\ \textcolor{keywordtype}{void}\ matmul\_block(uint32\_t\ in0\_cb\_id,\ uint32\_t\ in1\_cb\_id,\ uint32\_t\ in0\_tile\_index,\ uint32\_t\ in1\_tile\_index,\ uint32\_t\ idst,\ \textcolor{keyword}{const}\ uint32\_t\ transpose,\ uint32\_t\ ct\_dim,\ uint32\_t\ rt\_dim,\ uint32\_t\ kt\_dim)\ \{}
-\DoxyCodeLine{00166\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_matmul(in0\_cb\_id,\ in1\_cb\_id,\ in0\_tile\_index,\ in1\_tile\_index,\ ct\_dim,\ rt\_dim,\ kt\_dim)\ ));}
-\DoxyCodeLine{00167\ \ \ \ \ MATH((\ llk\_math\_matmul<MATH\_FIDELITY>(idst,\ transpose,\ ct\_dim,\ rt\_dim,\ kt\_dim)\ \ ));}
-\DoxyCodeLine{00168\ \}}
-\DoxyCodeLine{00169\ }
-\DoxyCodeLine{00185\ ALWI\ \textcolor{keywordtype}{void}\ mm\_block\_init\_short(uint32\_t\ in0\_cb\_id\ =\ 0,\ uint32\_t\ in1\_cb\_id\ =\ 1,\ \textcolor{keyword}{const}\ uint32\_t\ transpose=0,\ uint32\_t\ ct\_dim\ =\ 1,\ uint32\_t\ rt\_dim\ =\ 1,\ uint32\_t\ kt\_dim\ =\ 1)\ \{}
-\DoxyCodeLine{00186\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_matmul\_init(in0\_cb\_id,\ in1\_cb\_id,\ transpose,\ ct\_dim,\ rt\_dim,\ kt\_dim)\ ));}
-\DoxyCodeLine{00187\ \ \ \ \ MATH((\ llk\_math\_matmul\_init<MATH\_FIDELITY>(in0\_cb\_id,\ in1\_cb\_id,\ transpose,\ ct\_dim,\ rt\_dim,\ kt\_dim)\ \ ));}
-\DoxyCodeLine{00188\ \}}
-\DoxyCodeLine{00189\ }
-\DoxyCodeLine{00205\ ALWI\ \textcolor{keywordtype}{void}\ mm\_block\_init\_short\_with\_dt(uint32\_t\ in0\_cb\_id\ =\ 0,\ uint32\_t\ in1\_cb\_id\ =\ 1,\ uint32\_t\ old\_in1\_cb\_id=2,\ \textcolor{keyword}{const}\ uint32\_t\ transpose=0,\ uint32\_t\ ct\_dim\ =\ 1,\ uint32\_t\ rt\_dim\ =\ 1,\ uint32\_t\ kt\_dim\ =\ 1)\ \{}
-\DoxyCodeLine{00206\ \ \ \ \ UNPACK((\ llk\_unpack\_reconfig\_data\_format\_srca(old\_in1\_cb\_id,\ in1\_cb\_id)\ ));}
-\DoxyCodeLine{00207\ \ \ \ \ mm\_block\_init\_short(in0\_cb\_id,\ in1\_cb\_id,\ transpose,\ ct\_dim,\ rt\_dim,\ kt\_dim);}
-\DoxyCodeLine{00208\ \}}
-\DoxyCodeLine{00209\ }
-\DoxyCodeLine{00210\ }
-\DoxyCodeLine{00211\ }
-\DoxyCodeLine{00212\ \}\ \textcolor{comment}{//\ namespace\ ckernel}}
+\DoxyCodeLine{00040\ \ \ \ \ PACK((\ llk\_pack\_dest\_init<false,\ DST\_ACCUM\_MODE>()\ \ ));}
+\DoxyCodeLine{00041\ \}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00059\ ALWI\ \textcolor{keywordtype}{void}\ matmul\_tiles(uint32\_t\ in0\_cb\_id,\ uint32\_t\ in1\_cb\_id,\ uint32\_t\ in0\_tile\_index,\ uint32\_t\ in1\_tile\_index,\ uint32\_t\ idst,\ \textcolor{keyword}{const}\ uint32\_t\ transpose)\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_matmul(in0\_cb\_id,\ in1\_cb\_id,\ in0\_tile\_index,\ in1\_tile\_index)\ ));}
+\DoxyCodeLine{00061\ \ \ \ \ MATH((\ llk\_math\_matmul<MATH\_FIDELITY>(idst,\ transpose)\ \ ));}
+\DoxyCodeLine{00062\ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00076\ \textcolor{keyword}{template}\ <u\textcolor{keywordtype}{int}32\_t\ num\_faces\ =\ 4>}
+\DoxyCodeLine{00077\ ALWI\ \textcolor{keywordtype}{void}\ matmul\_tiles\_math(uint32\_t\ idst)\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ MATH((\ llk\_math\_matmul<MATH\_FIDELITY,\ num\_faces>(idst)\ \ ));}
+\DoxyCodeLine{00079\ \}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00093\ ALWI\ \textcolor{keywordtype}{void}\ mm\_init\_short(uint32\_t\ in0\_cb\_id\ =\ 0,\ uint32\_t\ in1\_cb\_id\ =\ 1,\ \textcolor{keyword}{const}\ uint32\_t\ transpose=0)\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ MATH((\ llk\_math\_matmul\_init<MATH\_FIDELITY>(in0\_cb\_id,\ in1\_cb\_id,\ transpose)\ \ ));}
+\DoxyCodeLine{00095\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_matmul\_init(in0\_cb\_id,\ in1\_cb\_id,\ transpose)\ \ ));}
+\DoxyCodeLine{00096\ \}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00111\ ALWI\ \textcolor{keywordtype}{void}\ mm\_init\_short\_with\_dt(uint32\_t\ in0\_cb\_id\ =\ 0,\ uint32\_t\ in1\_cb\_id\ =\ 1,\ uint32\_t\ c\_in\_old\_srca\ =\ 2,\ \textcolor{keyword}{const}\ uint32\_t\ transpose=0)\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ UNPACK((\ llk\_unpack\_reconfig\_data\_format\_srca(c\_in\_old\_srca,\ in1\_cb\_id)\ ));}
+\DoxyCodeLine{00113\ \ \ \ \ mm\_init\_short(in0\_cb\_id,\ in1\_cb\_id,\ transpose);}
+\DoxyCodeLine{00114\ \}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00130\ ALWI\ \textcolor{keywordtype}{void}\ mm\_block\_init(uint32\_t\ in0\_cb\_id\ =\ 0,\ uint32\_t\ in1\_cb\_id\ =\ 1,\ uint32\_t\ out\_cb\_id\ =\ 16,\ \textcolor{keyword}{const}\ uint32\_t\ transpose\ =\ 0,\ uint32\_t\ ct\_dim\ =\ 1,\ uint32\_t\ rt\_dim\ =\ 1,\ uint32\_t\ kt\_dim\ =\ 1)\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_matmul\_hw\_configure\_disaggregated<DST\_ACCUM\_MODE>(in0\_cb\_id,\ in1\_cb\_id)\ ));}
+\DoxyCodeLine{00132\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_matmul\_init(in0\_cb\_id,\ in1\_cb\_id,\ transpose,\ ct\_dim,\ rt\_dim,\ kt\_dim)\ ));}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ MATH((\ llk\_math\_matmul\_init<MATH\_FIDELITY>(in0\_cb\_id,\ in1\_cb\_id,\ transpose,\ ct\_dim,\ rt\_dim,\ kt\_dim)\ ));}
+\DoxyCodeLine{00135\ \ \ \ \ MATH((\ llk\_math\_pack\_sync\_init<DST\_ACCUM\_MODE>()\ \ ));}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ PACK((\ llk\_pack\_hw\_configure\_disaggregated<false,\ DST\_ACCUM\_MODE>(out\_cb\_id)\ ));}
+\DoxyCodeLine{00138\ \ \ \ \ PACK((\ llk\_pack\_init<false,\ false>(out\_cb\_id)\ \ ));}
+\DoxyCodeLine{00139\ \ \ \ \ PACK((\ llk\_pack\_dest\_init<false,\ DST\_ACCUM\_MODE>()\ \ ));}
+\DoxyCodeLine{00140\ \}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00162\ ALWI\ \textcolor{keywordtype}{void}\ matmul\_block(uint32\_t\ in0\_cb\_id,\ uint32\_t\ in1\_cb\_id,\ uint32\_t\ in0\_tile\_index,\ uint32\_t\ in1\_tile\_index,\ uint32\_t\ idst,\ \textcolor{keyword}{const}\ uint32\_t\ transpose,\ uint32\_t\ ct\_dim,\ uint32\_t\ rt\_dim,\ uint32\_t\ kt\_dim)\ \{}
+\DoxyCodeLine{00163\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_matmul(in0\_cb\_id,\ in1\_cb\_id,\ in0\_tile\_index,\ in1\_tile\_index,\ ct\_dim,\ rt\_dim,\ kt\_dim)\ ));}
+\DoxyCodeLine{00164\ \ \ \ \ MATH((\ llk\_math\_matmul<MATH\_FIDELITY>(idst,\ transpose,\ ct\_dim,\ rt\_dim,\ kt\_dim)\ \ ));}
+\DoxyCodeLine{00165\ \}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00182\ ALWI\ \textcolor{keywordtype}{void}\ mm\_block\_init\_short(uint32\_t\ in0\_cb\_id\ =\ 0,\ uint32\_t\ in1\_cb\_id\ =\ 1,\ \textcolor{keyword}{const}\ uint32\_t\ transpose=0,\ uint32\_t\ ct\_dim\ =\ 1,\ uint32\_t\ rt\_dim\ =\ 1,\ uint32\_t\ kt\_dim\ =\ 1)\ \{}
+\DoxyCodeLine{00183\ \ \ \ \ UNPACK((\ llk\_unpack\_AB\_matmul\_init(in0\_cb\_id,\ in1\_cb\_id,\ transpose,\ ct\_dim,\ rt\_dim,\ kt\_dim)\ ));}
+\DoxyCodeLine{00184\ \ \ \ \ MATH((\ llk\_math\_matmul\_init<MATH\_FIDELITY>(in0\_cb\_id,\ in1\_cb\_id,\ transpose,\ ct\_dim,\ rt\_dim,\ kt\_dim)\ \ ));}
+\DoxyCodeLine{00185\ \}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00202\ ALWI\ \textcolor{keywordtype}{void}\ mm\_block\_init\_short\_with\_dt(uint32\_t\ in0\_cb\_id\ =\ 0,\ uint32\_t\ in1\_cb\_id\ =\ 1,\ uint32\_t\ old\_in1\_cb\_id=2,\ \textcolor{keyword}{const}\ uint32\_t\ transpose=0,\ uint32\_t\ ct\_dim\ =\ 1,\ uint32\_t\ rt\_dim\ =\ 1,\ uint32\_t\ kt\_dim\ =\ 1)\ \{}
+\DoxyCodeLine{00203\ \ \ \ \ UNPACK((\ llk\_unpack\_reconfig\_data\_format\_srca(old\_in1\_cb\_id,\ in1\_cb\_id)\ ));}
+\DoxyCodeLine{00204\ \ \ \ \ mm\_block\_init\_short(in0\_cb\_id,\ in1\_cb\_id,\ transpose,\ ct\_dim,\ rt\_dim,\ kt\_dim);}
+\DoxyCodeLine{00205\ \}}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \}\ \textcolor{comment}{//\ namespace\ ckernel}}
 
 \end{DoxyCode}

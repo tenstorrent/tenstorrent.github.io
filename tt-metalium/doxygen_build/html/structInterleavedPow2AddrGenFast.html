@@ -79,6 +79,12 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a631a54e1f98535b32539a8b6e63b400b"><td class="memItemLeft" align="right" valign="top"><a id="a631a54e1f98535b32539a8b6e63b400b" name="a631a54e1f98535b32539a8b6e63b400b"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>get_addr</b> (const uint32_t id, const uint32_t bank_offset_index, const uint32_t bank_index, const uint32_t offset=0) const</td></tr>
+<tr class="separator:a631a54e1f98535b32539a8b6e63b400b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afabb17a140e599c6b8bf490693a5e508"><td class="memItemLeft" align="right" valign="top"><a id="afabb17a140e599c6b8bf490693a5e508" name="afabb17a140e599c6b8bf490693a5e508"></a>
+std::uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>get_noc_addr</b> (const uint32_t id, const uint32_t offset=0) const</td></tr>
+<tr class="separator:afabb17a140e599c6b8bf490693a5e508"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a764088893f2c2406f2b8f126d922950e"><td class="memItemLeft" align="right" valign="top"><a id="a764088893f2c2406f2b8f126d922950e" name="a764088893f2c2406f2b8f126d922950e"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>noc_async_read_page</b> (const uint32_t id, uint32_t dest_addr, const uint32_t offset=0) const</td></tr>
 <tr class="separator:a764088893f2c2406f2b8f126d922950e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -94,10 +100,32 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ac18418a3bb8b3b3b424b8394ba20936f"><td class="memItemLeft" align="right" valign="top"><a id="ac18418a3bb8b3b3b424b8394ba20936f" name="ac18418a3bb8b3b3b424b8394ba20936f"></a>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>bank_base_address</b></td></tr>
 <tr class="separator:ac18418a3bb8b3b3b424b8394ba20936f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4df6258d8374687eca0ba28b5a0fc50f"><td class="memItemLeft" align="right" valign="top"><a id="a4df6258d8374687eca0ba28b5a0fc50f" name="a4df6258d8374687eca0ba28b5a0fc50f"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>log_base_2_of_page_size</b></td></tr>
-<tr class="separator:a4df6258d8374687eca0ba28b5a0fc50f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7ca2d8d5c158d35f460261f5dc09054"><td class="memItemLeft" align="right" valign="top"><a id="ad7ca2d8d5c158d35f460261f5dc09054" name="ad7ca2d8d5c158d35f460261f5dc09054"></a>
+const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>log_base_2_of_page_size</b></td></tr>
+<tr class="separator:ad7ca2d8d5c158d35f460261f5dc09054"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3224a2e3ac1ee4f310032d79f75d21b3"><td class="memItemLeft" align="right" valign="top">const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structInterleavedPow2AddrGenFast.html#a3224a2e3ac1ee4f310032d79f75d21b3">aligned_log_base_2_of_page_size</a></td></tr>
+<tr class="separator:a3224a2e3ac1ee4f310032d79f75d21b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a3224a2e3ac1ee4f310032d79f75d21b3" name="a3224a2e3ac1ee4f310032d79f75d21b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3224a2e3ac1ee4f310032d79f75d21b3">&#9670;&#160;</a></span>aligned_log_base_2_of_page_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool DRAM&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint32_t <a class="el" href="structInterleavedPow2AddrGenFast.html">InterleavedPow2AddrGenFast</a>&lt; DRAM &gt;::aligned_log_base_2_of_page_size</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= this-&gt;log_base_2_of_page_size &gt; LOG_BASE_2_OF_ALLOCATOR_ALIGNMENT</div>
+<div class="line">                                                   ? this-&gt;log_base_2_of_page_size</div>
+<div class="line">                                                   : LOG_BASE_2_OF_ALLOCATOR_ALIGNMENT</div>
+</div><!-- fragment -->
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>tt_metal/hw/inc/<a class="el" href="dataflow__api_8h_source.html">dataflow_api.h</a></li>
 </ul>

@@ -3,6 +3,9 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{structInterleavedAddrGen_a49558fb0a925773898f8e32ed14d3fe8}\label{structInterleavedAddrGen_a49558fb0a925773898f8e32ed14d3fe8}} 
+uint32\+\_\+t {\bfseries get\+\_\+addr} (const uint32\+\_\+t id, const uint32\+\_\+t bank\+\_\+offset\+\_\+index, const uint32\+\_\+t bank\+\_\+index, const uint32\+\_\+t offset=0) const
+\item 
 \mbox{\Hypertarget{structInterleavedAddrGen_acdf9396fff622c57dd7eb42349d5dd0f}\label{structInterleavedAddrGen_acdf9396fff622c57dd7eb42349d5dd0f}} 
 std\+::uint64\+\_\+t {\bfseries get\+\_\+noc\+\_\+addr} (const uint32\+\_\+t id, const uint32\+\_\+t offset=0) const
 \item 
@@ -15,8 +18,11 @@ void {\bfseries noc\+\_\+async\+\_\+read\+\_\+page} (const uint32\+\_\+t id, con
 \mbox{\Hypertarget{structInterleavedAddrGen_a9a6b4336c1f9059c48f7dd38d3c223ba}\label{structInterleavedAddrGen_a9a6b4336c1f9059c48f7dd38d3c223ba}} 
 uint32\+\_\+t {\bfseries bank\+\_\+base\+\_\+address}
 \item 
-\mbox{\Hypertarget{structInterleavedAddrGen_a990164fddbcfb10bbe0a7f2912dfc0f9}\label{structInterleavedAddrGen_a990164fddbcfb10bbe0a7f2912dfc0f9}} 
-uint32\+\_\+t {\bfseries page\+\_\+size}
+\mbox{\Hypertarget{structInterleavedAddrGen_ae87a663744676dd0bda03190f2258213}\label{structInterleavedAddrGen_ae87a663744676dd0bda03190f2258213}} 
+const uint32\+\_\+t {\bfseries page\+\_\+size}
+\item 
+\mbox{\Hypertarget{structInterleavedAddrGen_a35965eeb3ca9036dd89a46ac81c435b7}\label{structInterleavedAddrGen_a35965eeb3ca9036dd89a46ac81c435b7}} 
+const uint32\+\_\+t {\bfseries aligned\+\_\+page\+\_\+size} = align(page\+\_\+size, ALLOCATOR\+\_\+\+ALIGNMENT)
 \end{DoxyCompactItemize}
 
 

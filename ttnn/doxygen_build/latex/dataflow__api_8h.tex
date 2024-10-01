@@ -1,9 +1,10 @@
 \hypertarget{dataflow__api_8h}{}\doxysection{tt\+\_\+metal/hw/inc/dataflow\+\_\+api.h File Reference}
 \label{dataflow__api_8h}\index{tt\_metal/hw/inc/dataflow\_api.h@{tt\_metal/hw/inc/dataflow\_api.h}}
 {\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}core\+\_\+config.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}circular\+\_\+buffer.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}debug/sanitize\+\_\+noc.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}debug/status.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}debug/waypoint.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}eth\+\_\+l1\+\_\+address\+\_\+map.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}hostdevcommon/common\+\_\+runtime\+\_\+address\+\_\+map.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}hostdevcommon/common\+\_\+values.\+hpp\char`\"{}}\newline
@@ -21,8 +22,6 @@ struct \mbox{\hyperlink{structInterleavedPow2AddrGen}{Interleaved\+Pow2\+Addr\+G
 struct \mbox{\hyperlink{structInterleavedAddrGenFast}{Interleaved\+Addr\+Gen\+Fast$<$ DRAM $>$}}
 \item 
 struct \mbox{\hyperlink{structInterleavedPow2AddrGenFast}{Interleaved\+Pow2\+Addr\+Gen\+Fast$<$ DRAM $>$}}
-\item 
-class \mbox{\hyperlink{classBuffer}{Buffer}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
@@ -36,20 +35,7 @@ class \mbox{\hyperlink{classBuffer}{Buffer}}
 \mbox{\Hypertarget{dataflow__api_8h_a49104913a904db0ef5c642d10a33c923}\label{dataflow__api_8h_a49104913a904db0ef5c642d10a33c923}} 
 \#define {\bfseries NOC\+\_\+\+DISPATCH\+\_\+\+MULTICAST\+\_\+\+WRITE\+\_\+\+VC}~5
 \item 
-\mbox{\Hypertarget{dataflow__api_8h_a30875365be2fa364de8962ef1d25630a}\label{dataflow__api_8h_a30875365be2fa364de8962ef1d25630a}} 
-\#define {\bfseries COMMON\+\_\+\+RT\+\_\+\+ARGS\+\_\+\+INDEX}~0
-\item 
 \#define \mbox{\hyperlink{dataflow__api_8h_ab97f9dbfbb4150cb324f21520b8e6cfe}{get\+\_\+compile\+\_\+time\+\_\+arg\+\_\+val}}(arg\+\_\+idx)~KERNEL\+\_\+\+COMPILE\+\_\+\+TIME\+\_\+\+ARG\+\_\+\#\#arg\+\_\+idx
-\end{DoxyCompactItemize}
-\doxysubsection*{Enumerations}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{dataflow__api_8h_a49d45df0fdb5ae1977850c809e49c448}\label{dataflow__api_8h_a49d45df0fdb5ae1977850c809e49c448}} 
-enum class {\bfseries Buffer\+Type} \+: uint8\+\_\+t \{ {\bfseries DRAM} = 0
-, {\bfseries L1} = 1
-, {\bfseries SYSTEM\+\_\+\+MEMORY} = 2
-, {\bfseries L1\+\_\+\+SMALL} = 3
- \}
 \end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -57,11 +43,21 @@ enum class {\bfseries Buffer\+Type} \+: uint8\+\_\+t \{ {\bfseries DRAM} = 0
 \mbox{\Hypertarget{dataflow__api_8h_ac4752c4d9a07974ce99aaa671a675fe2}\label{dataflow__api_8h_ac4752c4d9a07974ce99aaa671a675fe2}} 
 uint32\+\_\+t {\bfseries align} (uint32\+\_\+t addr, uint32\+\_\+t alignment)
 \item 
+\mbox{\Hypertarget{dataflow__api_8h_a4018be9d6302207fdc0dac085663e184}\label{dataflow__api_8h_a4018be9d6302207fdc0dac085663e184}} 
+{\footnotesize template$<$bool DRAM$>$ }\\uint32\+\_\+t {\bfseries interleaved\+\_\+addr\+\_\+gen\+::get\+\_\+bank\+\_\+offset\+\_\+index} (uint32\+\_\+t id)
+\item 
+\mbox{\Hypertarget{dataflow__api_8h_a63194c761e19c2a9d096f91c9e9be63c}\label{dataflow__api_8h_a63194c761e19c2a9d096f91c9e9be63c}} 
+{\footnotesize template$<$bool DRAM$>$ }\\uint32\+\_\+t {\bfseries interleaved\+\_\+addr\+\_\+gen\+::get\+\_\+bank\+\_\+index} (uint32\+\_\+t id, uint32\+\_\+t bank\+\_\+offset\+\_\+index)
+\item 
+\mbox{\Hypertarget{dataflow__api_8h_a7581885ee418929f06551a5e8f9649c2}\label{dataflow__api_8h_a7581885ee418929f06551a5e8f9649c2}} 
+{\footnotesize template$<$bool DRAM$>$ }\\uint32\+\_\+t {\bfseries interleaved\+\_\+addr\+\_\+gen\+::get\+\_\+noc\+\_\+xy} (uint32\+\_\+t bank\+\_\+index)
+\item 
+\mbox{\Hypertarget{dataflow__api_8h_a593eecf4e9f53608d0c5c82e54b36b03}\label{dataflow__api_8h_a593eecf4e9f53608d0c5c82e54b36b03}} 
+{\footnotesize template$<$bool DRAM$>$ }\\uint32\+\_\+t {\bfseries interleaved\+\_\+addr\+\_\+gen\+::get\+\_\+bank\+\_\+offset} (uint32\+\_\+t bank\+\_\+index)
+\item 
 {\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{dataflow__api_8h_a6a5074e8cd2732fcecab57fced3ebd1f}{get\+\_\+arg\+\_\+val}} (int arg\+\_\+idx)
 \item 
 {\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{dataflow__api_8h_abba486e3732fb5ea715651f92234e60a}{get\+\_\+common\+\_\+arg\+\_\+val}} (int arg\+\_\+idx)
-\item 
-\mbox{\hyperlink{dataflow__api_8h_aaeb67c582bba445a7c2e7eac520cd84e}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((always\+\_\+inline)) const expr static std
 \item 
 void \mbox{\hyperlink{dataflow__api_8h_a81357224b88562601b42833eec676ffb}{cb\+\_\+push\+\_\+back}} (const int32\+\_\+t operand, const int32\+\_\+t num\+\_\+pages)
 \item 
@@ -72,6 +68,10 @@ constexpr std\+::int32\+\_\+t {\bfseries get\+\_\+tile\+\_\+size} (const std\+::
 \item 
 \mbox{\Hypertarget{dataflow__api_8h_ae214b6c2f978e745f9c24d397dad906d}\label{dataflow__api_8h_ae214b6c2f978e745f9c24d397dad906d}} 
 constexpr Data\+Format {\bfseries get\+\_\+dataformat} (const std\+::int32\+\_\+t operand)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dataflow__api_8h_a593e43aff0c85e4b3f86d13f1d7350dd}{get\+\_\+write\+\_\+ptr}} (uint32\+\_\+t operand)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dataflow__api_8h_a66a31715a14cea1a63cbdca8c99b0827}{get\+\_\+read\+\_\+ptr}} (uint32\+\_\+t operand)
 \item 
 \mbox{\Hypertarget{dataflow__api_8h_af2384f3c7d9784e3e662093136cbed25}\label{dataflow__api_8h_af2384f3c7d9784e3e662093136cbed25}} 
 void {\bfseries wait\+\_\+for\+\_\+sync\+\_\+register\+\_\+value} (uint32\+\_\+t addr, int32\+\_\+t val)
@@ -153,11 +153,8 @@ void {\bfseries noc\+\_\+async\+\_\+write\+\_\+multicast\+\_\+one\+\_\+packet} (
 \mbox{\Hypertarget{dataflow__api_8h_afa1c9f72ce143d24b995167a49eff5e4}\label{dataflow__api_8h_afa1c9f72ce143d24b995167a49eff5e4}} 
 {\footnotesize template$<$bool DRAM$>$ }\\void {\bfseries noc\+\_\+async\+\_\+write\+\_\+tile} (const uint32\+\_\+t id, const \mbox{\hyperlink{structInterleavedAddrGenFast}{Interleaved\+Addr\+Gen\+Fast}}$<$ DRAM $>$ \&s, std\+::uint32\+\_\+t src\+\_\+local\+\_\+l1\+\_\+addr)
 \item 
-\mbox{\Hypertarget{dataflow__api_8h_ade59434c56510191b5e64e8bb024b4c6}\label{dataflow__api_8h_ade59434c56510191b5e64e8bb024b4c6}} 
-uint32\+\_\+t {\bfseries get\+\_\+semaphore} (uint32\+\_\+t semaphore\+\_\+id)
-\item 
-\mbox{\Hypertarget{dataflow__api_8h_a3abbaf66b17c8ab4eb6c4576ef775e0b}\label{dataflow__api_8h_a3abbaf66b17c8ab4eb6c4576ef775e0b}} 
-uint32\+\_\+t {\bfseries eth\+\_\+get\+\_\+semaphore} (uint32\+\_\+t semaphore\+\_\+id)
+\mbox{\Hypertarget{dataflow__api_8h_aad24ffd7fc05b797ce38e6072c2f0eab}\label{dataflow__api_8h_aad24ffd7fc05b797ce38e6072c2f0eab}} 
+{\footnotesize template$<$Programmable\+Core\+Type type = Programmable\+Core\+Type\+::\+TENSIX$>$ }\\uint32\+\_\+t {\bfseries get\+\_\+semaphore} (uint32\+\_\+t semaphore\+\_\+id)
 \item 
 \mbox{\Hypertarget{dataflow__api_8h_aff57d6bb75c161882cd3751a3f4a67ba}\label{dataflow__api_8h_aff57d6bb75c161882cd3751a3f4a67ba}} 
 void {\bfseries noc\+\_\+semaphore\+\_\+set\+\_\+remote} (std\+::uint32\+\_\+t src\+\_\+local\+\_\+l1\+\_\+addr, std\+::uint64\+\_\+t dst\+\_\+noc\+\_\+addr)
@@ -177,7 +174,7 @@ void \mbox{\hyperlink{dataflow__api_8h_a8a1af3e9115ddcd9d2e4b0c8b4a4b680}{noc\+\
 \item 
 void \mbox{\hyperlink{dataflow__api_8h_a82c38db0fda2eaafccd0aac9635f0dc1}{noc\+\_\+async\+\_\+writes\+\_\+flushed}} ()
 \item 
-void \mbox{\hyperlink{dataflow__api_8h_a22e07009373e4c4c04a0af18ca73cfd7}{noc\+\_\+async\+\_\+atomic\+\_\+barrier}} ()
+void \mbox{\hyperlink{dataflow__api_8h_a13a74d46d62931d19a406414db103c4b}{noc\+\_\+async\+\_\+atomic\+\_\+barrier}} (uint8\+\_\+t noc\+\_\+idx=noc\+\_\+index)
 \item 
 void \mbox{\hyperlink{dataflow__api_8h_a4f714cc4a08a2eaac5e3f7fae9d1383a}{noc\+\_\+semaphore\+\_\+wait}} (volatile uint32\+\_\+t $\ast$sem\+\_\+addr, uint32\+\_\+t val)
 \item 
@@ -187,16 +184,13 @@ void \mbox{\hyperlink{dataflow__api_8h_af02a9af640679b00da874318535aa397}{noc\+\
 \item 
 void \mbox{\hyperlink{dataflow__api_8h_a1f11981622b01c9e42d44a939ec30be1}{noc\+\_\+inline\+\_\+dw\+\_\+write}} (uint64\+\_\+t addr, uint32\+\_\+t val, uint8\+\_\+t be=0xF)
 \item 
-void \mbox{\hyperlink{dataflow__api_8h_a4eda1737bf554c8bfe4bc603f4d41a43}{noc\+\_\+semaphore\+\_\+inc}} (uint64\+\_\+t addr, uint32\+\_\+t incr)
+void \mbox{\hyperlink{dataflow__api_8h_a962d804ce21d1d26ccb4241e2eb6ac9f}{noc\+\_\+semaphore\+\_\+inc}} (uint64\+\_\+t addr, uint32\+\_\+t incr, uint8\+\_\+t noc\+\_\+id=noc\+\_\+index)
 \item 
 \mbox{\Hypertarget{dataflow__api_8h_a9e9618b5b64ed1ae0d0a747ac0f10745}\label{dataflow__api_8h_a9e9618b5b64ed1ae0d0a747ac0f10745}} 
 void {\bfseries RISC\+\_\+\+POST\+\_\+\+HEARTBEAT} (uint32\+\_\+t \&heartbeat)
 \item 
 \mbox{\Hypertarget{dataflow__api_8h_a29bd290aaee1b41529717b029dc14952}\label{dataflow__api_8h_a29bd290aaee1b41529717b029dc14952}} 
 uint32\+\_\+t {\bfseries min} (uint32\+\_\+t a, uint32\+\_\+t b)
-\item 
-\mbox{\Hypertarget{dataflow__api_8h_a901d9922d4a71afe3e51189d4f414b04}\label{dataflow__api_8h_a901d9922d4a71afe3e51189d4f414b04}} 
-{\footnotesize template$<$bool READ$>$ }\\void {\bfseries noc\+\_\+async\+\_\+sharded\+\_\+read\+\_\+write\+\_\+helper} (const uint32\+\_\+t num\+\_\+cores, const uint32\+\_\+t page\+\_\+size, const uint32\+\_\+t bank\+\_\+base\+\_\+address, volatile uint32\+\_\+t $\ast$base\+\_\+command\+\_\+addr, const uint32\+\_\+t addr, const uint32\+\_\+t num\+\_\+pages, const uint32\+\_\+t page\+\_\+id)
 \item 
 \mbox{\Hypertarget{dataflow__api_8h_a0de16ed70bc7231b31eb861b6d0a6842}\label{dataflow__api_8h_a0de16ed70bc7231b31eb861b6d0a6842}} 
 {\footnotesize template$<$uint32\+\_\+t page\+\_\+size, bool use\+\_\+vc$>$ }\\uint32\+\_\+t {\bfseries noc\+\_\+async\+\_\+read\+\_\+tile\+\_\+dram\+\_\+sharded\+\_\+set\+\_\+state} (uint32\+\_\+t bank\+\_\+base\+\_\+address, uint32\+\_\+t bank\+\_\+id=0, const uint32\+\_\+t vc=0)
@@ -219,8 +213,14 @@ void {\bfseries noc\+\_\+async\+\_\+read\+\_\+barrier\+\_\+with\+\_\+trid} (uint
 \mbox{\Hypertarget{dataflow__api_8h_a58bc3a01e945dbd421fce21906e94441}\label{dataflow__api_8h_a58bc3a01e945dbd421fce21906e94441}} 
 uint8\+\_\+t {\bfseries noc\+\_\+index}
 \item 
-\mbox{\Hypertarget{dataflow__api_8h_ae9b846802ae938aab4c8c7d55647d902}\label{dataflow__api_8h_ae9b846802ae938aab4c8c7d55647d902}} 
-uint32\+\_\+t $\ast$ {\bfseries l1\+\_\+arg\+\_\+base}
+\mbox{\Hypertarget{dataflow__api_8h_a2366e9251332058fa1fa368903d1d760}\label{dataflow__api_8h_a2366e9251332058fa1fa368903d1d760}} 
+uint32\+\_\+t $\ast$ {\bfseries rta\+\_\+l1\+\_\+base}
+\item 
+\mbox{\Hypertarget{dataflow__api_8h_a74c5ca11f2fb15c25af4a74db732a5fc}\label{dataflow__api_8h_a74c5ca11f2fb15c25af4a74db732a5fc}} 
+uint32\+\_\+t $\ast$ {\bfseries crta\+\_\+l1\+\_\+base}
+\item 
+\mbox{\Hypertarget{dataflow__api_8h_a237705982b987907cbfca699e32a9c64}\label{dataflow__api_8h_a237705982b987907cbfca699e32a9c64}} 
+uint32\+\_\+t $\ast$ {\bfseries sem\+\_\+l1\+\_\+base} \mbox{[}$\,$\mbox{]}
 \end{DoxyCompactItemize}
 
 
@@ -250,48 +250,6 @@ arg\+\_\+idx   &The index of the argument   &uint32\+\_\+t   &0 to 31   &True   
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{dataflow__api_8h_aaeb67c582bba445a7c2e7eac520cd84e}\label{dataflow__api_8h_aaeb67c582bba445a7c2e7eac520cd84e}} 
-\index{dataflow\_api.h@{dataflow\_api.h}!\_\_attribute\_\_@{\_\_attribute\_\_}}
-\index{\_\_attribute\_\_@{\_\_attribute\_\_}!dataflow\_api.h@{dataflow\_api.h}}
-\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}}
-{\footnotesize\ttfamily \+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(always\+\_\+inline)}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-Returns a pointer to the beginning of a memory block previously reserved by cb\+\_\+reserve\+\_\+back. Note that this call is only valid between calls to cb\+\_\+reserve\+\_\+back and cb\+\_\+push\+\_\+back. The amount of valid memory is equal to the number of tiles requested in a prior cb\+\_\+reserve\+\_\+back call.
-
-CB total size must be an even multiple of this call.
-
-Return value\+: None
-
-\tabulinesep=1mm
-\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
-\hline
-\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
-\endfirsthead
-\hline
-\endfoot
-\hline
-\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
-\endhead
-operand   &The index of the circular buffer (CB)   &uint32\+\_\+t   &0 to 31   &True   \\\cline{1-5}
-\end{longtabu}
-
-
-Returns a pointer to the beginning of a memory block previously received by cb\+\_\+wait\+\_\+front. Note that this call is only valid between calls to cb\+\_\+wait\+\_\+front and cb\+\_\+pop\+\_\+front. The amount of valid memory is equal to the number of tiles requested in a prior cb\+\_\+wait\+\_\+front call.
-
-Return value\+: None
-
-\tabulinesep=1mm
-\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
-\hline
-\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
-\endfirsthead
-\hline
-\endfoot
-\hline
-\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
-\endhead
-operand   &The index of the circular buffer (CB)   &uint32\+\_\+t   &0 to 31   &True   \\\cline{1-5}
-\end{longtabu}
 \mbox{\Hypertarget{dataflow__api_8h_aa3daf8e5e7299140cf2607be1a8656b0}\label{dataflow__api_8h_aa3daf8e5e7299140cf2607be1a8656b0}} 
 \index{dataflow\_api.h@{dataflow\_api.h}!cb\_pop\_front@{cb\_pop\_front}}
 \index{cb\_pop\_front@{cb\_pop\_front}!dataflow\_api.h@{dataflow\_api.h}}
@@ -446,11 +404,57 @@ Return value\+: The value associated with the common runtime argument index
 arg\+\_\+idx   &Common Runtime argument index   &uint32\+\_\+t   &0 to 255   &True    \\\cline{1-5}
 T (template argument)   &Data type of the returned argument   &Any 4-\/byte sized type   &N/A   &True   \\\cline{1-5}
 \end{longtabu}
-\mbox{\Hypertarget{dataflow__api_8h_a22e07009373e4c4c04a0af18ca73cfd7}\label{dataflow__api_8h_a22e07009373e4c4c04a0af18ca73cfd7}} 
+\mbox{\Hypertarget{dataflow__api_8h_a66a31715a14cea1a63cbdca8c99b0827}\label{dataflow__api_8h_a66a31715a14cea1a63cbdca8c99b0827}} 
+\index{dataflow\_api.h@{dataflow\_api.h}!get\_read\_ptr@{get\_read\_ptr}}
+\index{get\_read\_ptr@{get\_read\_ptr}!dataflow\_api.h@{dataflow\_api.h}}
+\doxysubsubsection{\texorpdfstring{get\_read\_ptr()}{get\_read\_ptr()}}
+{\footnotesize\ttfamily uint32\+\_\+t get\+\_\+read\+\_\+ptr (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{operand }\end{DoxyParamCaption})}
+
+Returns a pointer to the beginning of a memory block previously received by cb\+\_\+wait\+\_\+front. Note that this call is only valid between calls to cb\+\_\+wait\+\_\+front and cb\+\_\+pop\+\_\+front. The amount of valid memory is equal to the number of tiles requested in a prior cb\+\_\+wait\+\_\+front call.
+
+Return value\+: None
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endhead
+operand   &The index of the circular buffer (CB)   &uint32\+\_\+t   &0 to 31   &True   \\\cline{1-5}
+\end{longtabu}
+\mbox{\Hypertarget{dataflow__api_8h_a593e43aff0c85e4b3f86d13f1d7350dd}\label{dataflow__api_8h_a593e43aff0c85e4b3f86d13f1d7350dd}} 
+\index{dataflow\_api.h@{dataflow\_api.h}!get\_write\_ptr@{get\_write\_ptr}}
+\index{get\_write\_ptr@{get\_write\_ptr}!dataflow\_api.h@{dataflow\_api.h}}
+\doxysubsubsection{\texorpdfstring{get\_write\_ptr()}{get\_write\_ptr()}}
+{\footnotesize\ttfamily uint32\+\_\+t get\+\_\+write\+\_\+ptr (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{operand }\end{DoxyParamCaption})}
+
+Returns a pointer to the beginning of a memory block previously reserved by cb\+\_\+reserve\+\_\+back. Note that this call is only valid between calls to cb\+\_\+reserve\+\_\+back and cb\+\_\+push\+\_\+back. The amount of valid memory is equal to the number of tiles requested in a prior cb\+\_\+reserve\+\_\+back call.
+
+CB total size must be an even multiple of this call.
+
+Return value\+: None
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endhead
+operand   &The index of the circular buffer (CB)   &uint32\+\_\+t   &0 to 31   &True   \\\cline{1-5}
+\end{longtabu}
+\mbox{\Hypertarget{dataflow__api_8h_a13a74d46d62931d19a406414db103c4b}\label{dataflow__api_8h_a13a74d46d62931d19a406414db103c4b}} 
 \index{dataflow\_api.h@{dataflow\_api.h}!noc\_async\_atomic\_barrier@{noc\_async\_atomic\_barrier}}
 \index{noc\_async\_atomic\_barrier@{noc\_async\_atomic\_barrier}!dataflow\_api.h@{dataflow\_api.h}}
 \doxysubsubsection{\texorpdfstring{noc\_async\_atomic\_barrier()}{noc\_async\_atomic\_barrier()}}
-{\footnotesize\ttfamily void noc\+\_\+async\+\_\+atomic\+\_\+barrier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void noc\+\_\+async\+\_\+atomic\+\_\+barrier (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{noc\+\_\+idx = {\ttfamily noc\+\_\+index} }\end{DoxyParamCaption})}
 
 This blocking call waits for all the outstanding enqueued {\itshape noc\+\_\+async\+\_\+write} calls issued on the current Tensix core to complete. After returning from this call the {\itshape noc\+\_\+async\+\_\+write} queue will be empty for the current Tensix core.
 
@@ -587,11 +591,11 @@ addr   &Encoding of the destination location (x,y)+address   &uint64\+\_\+t   &D
 val   &The value to be written   &uint32\+\_\+t   &Any uint32\+\_\+t value   &True    \\\cline{1-5}
 be   &Byte-\/enable   &uint8\+\_\+t   &0x1-\/0xF   &False   \\\cline{1-5}
 \end{longtabu}
-\mbox{\Hypertarget{dataflow__api_8h_a4eda1737bf554c8bfe4bc603f4d41a43}\label{dataflow__api_8h_a4eda1737bf554c8bfe4bc603f4d41a43}} 
+\mbox{\Hypertarget{dataflow__api_8h_a962d804ce21d1d26ccb4241e2eb6ac9f}\label{dataflow__api_8h_a962d804ce21d1d26ccb4241e2eb6ac9f}} 
 \index{dataflow\_api.h@{dataflow\_api.h}!noc\_semaphore\_inc@{noc\_semaphore\_inc}}
 \index{noc\_semaphore\_inc@{noc\_semaphore\_inc}!dataflow\_api.h@{dataflow\_api.h}}
 \doxysubsubsection{\texorpdfstring{noc\_semaphore\_inc()}{noc\_semaphore\_inc()}}
-{\footnotesize\ttfamily void noc\+\_\+semaphore\+\_\+inc (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{addr,  }\item[{uint32\+\_\+t}]{incr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily void noc\+\_\+semaphore\+\_\+inc (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{addr,  }\item[{uint32\+\_\+t}]{incr,  }\item[{uint8\+\_\+t}]{noc\+\_\+id = {\ttfamily noc\+\_\+index} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 The Tensix core executing this function call initiates an atomic increment (with 32-\/bit wrap) of a remote Tensix core L1 memory address. This L1 memory address is used as a semaphore of size 4 Bytes, as a synchronization mechanism.
 
@@ -667,7 +671,7 @@ num\+\_\+dests   &Number of destinations that the multicast source is targetting
 
 Initiates an asynchronous write from a source address in L1 memory on the Tensix core executing this function call to a rectangular destination grid. The destinations are specified using a uint64\+\_\+t encoding referencing an on-\/chip grid of nodes located at NOC coordinate range (x\+\_\+start,y\+\_\+start,x\+\_\+end,y\+\_\+end) and a local address created using {\itshape get\+\_\+noc\+\_\+multicast\+\_\+addr} function. The size of data that is sent is 4 Bytes. This is usually used to set a semaphore value at the destination nodes, as a way of a synchronization mechanism. The same as {\itshape noc\+\_\+async\+\_\+write\+\_\+multicast} with preset size of 4 Bytes.
 
-With this API, you cannot send data only to the source node. That is, if num\+\_\+dests is 1 and the encoded destination nodes consist of the node sending the data, then no data will be sent. The method call will be a no-\/op.
+Note\+: With this API, sending data only to the source node (when num\+\_\+dests is 1) may result in unexpected behaviour. For some parameters, hangs have been observed. For some other parameters, nothing may happen. Consider using regular non multicast operations such as {\itshape noc\+\_\+async\+\_\+write} in this case.
 
 Return value\+: None
 

@@ -79,6 +79,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a49558fb0a925773898f8e32ed14d3fe8"><td class="memItemLeft" align="right" valign="top"><a id="a49558fb0a925773898f8e32ed14d3fe8" name="a49558fb0a925773898f8e32ed14d3fe8"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>get_addr</b> (const uint32_t id, const uint32_t bank_offset_index, const uint32_t bank_index, const uint32_t offset=0) const</td></tr>
+<tr class="separator:a49558fb0a925773898f8e32ed14d3fe8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acdf9396fff622c57dd7eb42349d5dd0f"><td class="memItemLeft" align="right" valign="top"><a id="acdf9396fff622c57dd7eb42349d5dd0f" name="acdf9396fff622c57dd7eb42349d5dd0f"></a>
 std::uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>get_noc_addr</b> (const uint32_t id, const uint32_t offset=0) const</td></tr>
 <tr class="separator:acdf9396fff622c57dd7eb42349d5dd0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -91,9 +94,12 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a9a6b4336c1f9059c48f7dd38d3c223ba"><td class="memItemLeft" align="right" valign="top"><a id="a9a6b4336c1f9059c48f7dd38d3c223ba" name="a9a6b4336c1f9059c48f7dd38d3c223ba"></a>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>bank_base_address</b></td></tr>
 <tr class="separator:a9a6b4336c1f9059c48f7dd38d3c223ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a990164fddbcfb10bbe0a7f2912dfc0f9"><td class="memItemLeft" align="right" valign="top"><a id="a990164fddbcfb10bbe0a7f2912dfc0f9" name="a990164fddbcfb10bbe0a7f2912dfc0f9"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>page_size</b></td></tr>
-<tr class="separator:a990164fddbcfb10bbe0a7f2912dfc0f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae87a663744676dd0bda03190f2258213"><td class="memItemLeft" align="right" valign="top"><a id="ae87a663744676dd0bda03190f2258213" name="ae87a663744676dd0bda03190f2258213"></a>
+const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>page_size</b></td></tr>
+<tr class="separator:ae87a663744676dd0bda03190f2258213"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35965eeb3ca9036dd89a46ac81c435b7"><td class="memItemLeft" align="right" valign="top"><a id="a35965eeb3ca9036dd89a46ac81c435b7" name="a35965eeb3ca9036dd89a46ac81c435b7"></a>
+const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>aligned_page_size</b> = align(page_size, ALLOCATOR_ALIGNMENT)</td></tr>
+<tr class="separator:a35965eeb3ca9036dd89a46ac81c435b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>tt_metal/hw/inc/<a class="el" href="dataflow__api_8h_source.html">dataflow_api.h</a></li>

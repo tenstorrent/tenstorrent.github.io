@@ -44,11 +44,11 @@
 <codeline lineno="81"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="82"><highlight class="normal"></highlight></codeline>
 <codeline lineno="86"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>pack_reconfig_data_format(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>new_operand)<sp/>{</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>PACK((<sp/>llk_pack_reconfig_data_format(new_operand)<sp/>));</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>PACK((<sp/>llk_pack_reconfig_data_format&lt;DST_ACCUM_MODE&gt;(new_operand)<sp/>));</highlight></codeline>
 <codeline lineno="88"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="89"><highlight class="normal"></highlight></codeline>
 <codeline lineno="93"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>pack_reconfig_data_format(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>old_operand,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>new_operand)<sp/>{</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>PACK((<sp/>llk_pack_reconfig_data_format(old_operand,<sp/>new_operand)<sp/>));</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>PACK((<sp/>llk_pack_reconfig_data_format&lt;DST_ACCUM_MODE&gt;(old_operand,<sp/>new_operand)<sp/>));</highlight></codeline>
 <codeline lineno="95"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="96"><highlight class="normal"></highlight></codeline>
 <codeline lineno="100"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>pack_reconfig_l1_acc(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>l1_acc_en)<sp/>{</highlight></codeline>

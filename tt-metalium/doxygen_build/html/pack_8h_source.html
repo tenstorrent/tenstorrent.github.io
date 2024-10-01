@@ -100,11 +100,11 @@ $(function() {
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>}</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>ALWI <span class="keywordtype">void</span> pack_reconfig_data_format(<span class="keyword">const</span> uint32_t new_operand) {</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    PACK(( llk_pack_reconfig_data_format(new_operand) ));</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    PACK(( llk_pack_reconfig_data_format&lt;DST_ACCUM_MODE&gt;(new_operand) ));</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>}</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>ALWI <span class="keywordtype">void</span> pack_reconfig_data_format(<span class="keyword">const</span> uint32_t old_operand, <span class="keyword">const</span> uint32_t new_operand) {</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    PACK(( llk_pack_reconfig_data_format(old_operand, new_operand) ));</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    PACK(( llk_pack_reconfig_data_format&lt;DST_ACCUM_MODE&gt;(old_operand, new_operand) ));</div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>}</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>ALWI <span class="keywordtype">void</span> pack_reconfig_l1_acc(<span class="keyword">const</span> uint32_t l1_acc_en) {</div>
