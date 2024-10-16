@@ -1,0 +1,238 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dependencies &mdash; TT-NN  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/tt_theme.css?v=0bbfeaf8" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
+      <script src="../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="TT-LIB" href="tt_lib.html" />
+    <link rel="prev" title="Profiling ttnn Operations" href="../profiling_ttnn_operations.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+<a href="https://tenstorrent.github.io/">
+    <img src="../../_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+
+<a href="../../index.html">
+    TT-NN
+</a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">TTNN</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about.html">What is ttnn?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Using ttnn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor.html">Tensor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../onboarding.html">Onboarding New Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../converting_torch_model_to_ttnn.html">Converting torch Model to ttnn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../adding_new_ttnn_operation.html">Adding New ttnn Operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../profiling_ttnn_operations.html">Profiling ttnn Operations</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Dependencies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tt_lib.html">TT-LIB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tensor.html">Tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html">Examples of Tensor and TT-LIB Use</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../demos.html">Building and Uplifting Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ttnn_sweeps/index.html">Placeholder title</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Models</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tt_metal_models/get_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tt_metal_models/get_performance.html">Performance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/support.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/contributing.html">Contributing as a developer</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">TT-NN</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Dependencies</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/ttnn/dependencies/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dependencies">
+<h1>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading"></a>
+</h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="tt_lib.html">TT-LIB</a><ul>
+<li class="toctree-l2">
+<a class="reference internal" href="tt_lib.html#overview">Overview</a><ul>
+<li class="toctree-l3">
+<a class="reference internal" href="tt_lib.html#operation-infrastructure">Operation Infrastructure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tt_lib.html#new-device-operation">New Device Operation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tt_lib.html#new-device-operation-with-a-member">New Device Operation with a member</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tt_lib.html#new-device-operation-with-optional-input-tensors">New Device Operation with Optional Input Tensors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tt_lib.html#new-device-operation-with-optional-output-tensors">New Device Operation with Optional Output Tensors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tt_lib.html#new-host-operation">New Host Operation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tt_lib.html#profiler">Profiler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tt_lib.html#fast-dispatch">Fast Dispatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tt_lib.html#program-caching">Program Caching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tt_lib.html#logs">Logs</a></li>
+</ul>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="tt_lib.html#tt-lib-api-through-tt-lib">TT-LIB API through <code class="docutils literal notranslate"><span class="pre">tt_lib</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tt_lib.html#primary-operations">Primary Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tt_lib.html#enums">Enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tt_lib.html#tensor-elementwise-operations">Tensor elementwise operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tt_lib.html#tensor-relational-operations">Tensor relational operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tt_lib.html#tensor-ternary-operations">Tensor ternary operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tt_lib.html#tensor-matrix-math-operations">Tensor matrix math operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tt_lib.html#tensor-creation-operations">Tensor creation operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tt_lib.html#broadcast-and-reduce">Broadcast and Reduce</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tt_lib.html#fallback-operations">Fallback Operations</a></li>
+<li class="toctree-l2">
+<a class="reference internal" href="tt_lib.html#experimental-operations">Experimental Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tt_lib.html#fused-operations-from-tt-lib-mini-graph-library">Fused Operations from <code class="docutils literal notranslate"><span class="pre">tt_lib</span></code> Mini-Graph Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tt_lib.html#complex-operations">Complex Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tt_lib.html#complex-operations-type-2">Complex Operations (Type 2)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tt_lib.html#other-operations">Other Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tt_lib.html#backward-operations">Backward Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tt_lib.html#loss-functions">Loss Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1">
+<a class="reference internal" href="tensor.html">Tensor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tensor.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tensor.html#tensor-storage">Tensor Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tensor.html#tensor-api">Tensor API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tensor.html#memoryconfig">MemoryConfig</a></li>
+<li class="toctree-l2">
+<a class="reference internal" href="tensor.html#examples-of-converting-between-pytorch-tensor-and-tt-tensor">Examples of converting between PyTorch Tensor and TT Tensor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tensor.html#converting-a-pytorch-tensor-to-a-tt-tensor">Converting a PyTorch Tensor to a TT Tensor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tensor.html#converting-a-tt-tensor-to-a-pytorch-tensor">Converting a TT Tensor to a PyTorch Tensor</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1">
+<a class="reference internal" href="examples.html">Examples of Tensor and TT-LIB Use</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#run-one-op-from-tt-lib-on-tt-accelerator-device">Run one OP from <cite>TT-LIB</cite> on TT Accelerator device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#run-tt-lib-and-pytorch-ops">Run <cite>TT-LIB</cite> and PyTorch OPs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#tensors-with-odd-size-of-last-dim">Tensors with odd size of last dim</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../profiling_ttnn_operations.html" class="btn btn-neutral float-left" title="Profiling ttnn Operations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tt_lib.html" class="btn btn-neutral float-right" title="TT-LIB" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Tenstorrent.
+      <span class="lastupdated">Last updated on Oct 16, 2024.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        Version: latest
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        
+        <dl>
+            <dt>Versions</dt>
+            
+            <dd><a href="https://tenstorrent.github.io/ttnn/latest/index.html">latest</a></dd>
+            
+            <dd><a href="https://tenstorrent.github.io/ttnn/v0.52.0/index.html">v0.52.0</a></dd>
+            
+        </dl>
+        
+        <br>
+        </dl>
+    </div>
+</div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
