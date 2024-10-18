@@ -1,0 +1,522 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TT-LIB &mdash; TT-NN  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/tt_theme.css?v=0bbfeaf8" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
+      <script src="../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Tensor" href="tensor.html" />
+    <link rel="prev" title="Dependencies" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+<a href="https://tenstorrent.github.io/">
+    <img src="../../_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+
+<a href="../../index.html">
+    TT-NN
+</a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">TTNN</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about.html">What is ttnn?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Using ttnn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor.html">Tensor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../onboarding.html">Onboarding New Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../converting_torch_model_to_ttnn.html">Converting torch Model to ttnn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../adding_new_ttnn_operation.html">Adding New ttnn Operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../profiling_ttnn_operations.html">Profiling ttnn Operations</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Dependencies</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">TT-LIB</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#operation-infrastructure">Operation Infrastructure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiler">Profiler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fast-dispatch">Fast Dispatch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#program-caching">Program Caching</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#logs">Logs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tt-lib-api-through-tt-lib">TT-LIB API through <code class="docutils literal notranslate"><span class="pre">tt_lib</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#primary-operations">Primary Operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enums">Enums</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tensor-elementwise-operations">Tensor elementwise operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tensor-relational-operations">Tensor relational operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tensor-ternary-operations">Tensor ternary operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tensor-matrix-math-operations">Tensor matrix math operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tensor-creation-operations">Tensor creation operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#broadcast-and-reduce">Broadcast and Reduce</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#fallback-operations">Fallback Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#experimental-operations">Experimental Operations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fused-operations-from-tt-lib-mini-graph-library">Fused Operations from <code class="docutils literal notranslate"><span class="pre">tt_lib</span></code> Mini-Graph Library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#complex-operations">Complex Operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#complex-operations-type-2">Complex Operations (Type 2)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#other-operations">Other Operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#backward-operations">Backward Operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loss-functions">Loss Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tensor.html">Tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html">Examples of Tensor and TT-LIB Use</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../demos.html">Building and Uplifting Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ttnn_sweeps/index.html">Placeholder title</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Models</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tt_metal_models/get_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tt_metal_models/get_performance.html">Performance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/support.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/contributing.html">Contributing as a developer</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">TT-NN</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Dependencies</a></li>
+      <li class="breadcrumb-item active">TT-LIB</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/ttnn/dependencies/tt_lib.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tt-lib">
+<span id="id1"></span><h1>TT-LIB<a class="headerlink" href="#tt-lib" title="Permalink to this heading"></a>
+</h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a>
+</h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">tt_lib</span></code> Python module is a
+unified Python interface to the Tensor library located within <code class="docutils literal notranslate"><span class="pre">tt_eager</span></code>. This library currently only supports 4 dimensional tensors with shape <code class="docutils literal notranslate"><span class="pre">[W,</span> <span class="pre">Z,</span> <span class="pre">Y,</span> <span class="pre">X]</span></code>, in ROW_MAJOR layout, and with BFLOAT16 data type.</p>
+<p>Some OPs in this library might change layout of input tensors and pad them to better match expectations of execution kernels on TT Accelerator device.
+These OPs will unpad the result tensor before it is returned to caller.</p>
+<p>There is a limitation that tensor in ROW_MAJOR layout on TT Accelerator device must have the size of last dimension <code class="docutils literal notranslate"><span class="pre">X</span></code> be divisible by 2.
+You can’t create these type of tensors on TT Accelerator device or send them to TT Accelerator device with <code class="docutils literal notranslate"><span class="pre">`tt_lib.tensor.Tensor.to()</span></code>.
+However, you can supply these type of tensors to OPs from TT-LIB library as they can automatically pad the last dimension before moving the tensor
+to TT Accelerator device. To use this functionality, you must call <cite>tt_lib.device.SetDefaultDevice(tt_device)</cite> to set your TT Accelerator device
+as the default device that will be used to execute operations on tensors that are on host machine.</p>
+<section id="operation-infrastructure">
+<h3>Operation Infrastructure<a class="headerlink" href="#operation-infrastructure" title="Permalink to this heading"></a>
+</h3>
+<p>TT-LIB has operation infrastructure which is used to launch, profile and cache operations generically.</p>
+<p>To add a new operation that can plug in to the infrastructure, all that’s needed is a struct that implements methods needed by operation interface.
+Below, is an example of how to declare a new on-device operation with all of the methods required by the interface.</p>
+<section id="new-device-operation">
+<h4>New Device Operation<a class="headerlink" href="#new-device-operation" title="Permalink to this heading"></a>
+</h4>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="o">&lt;</span><span class="n">NewOperation</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">input_tensors</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Shape</span><span class="o">&gt;</span><span class="w"> </span><span class="n">compute_output_shapes</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">input_tensors</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="n">create_output_tensors</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">input_tensors</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">operation</span><span class="o">::</span><span class="n">ProgramWithCallbacks</span><span class="w"> </span><span class="nf">create_program</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">input_tensors</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">output_tensors</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">attribute_names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">forward_as_tuple</span><span class="p">();</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">attribute_values</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">forward_as_tuple</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</section>
+<section id="new-device-operation-with-a-member">
+<h4>New Device Operation with a member<a class="headerlink" href="#new-device-operation-with-a-member" title="Permalink to this heading"></a>
+</h4>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="o">&lt;</span><span class="n">NewOperation</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">some_member</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">validate</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">input_tensors</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Shape</span><span class="o">&gt;</span><span class="w"> </span><span class="n">compute_output_shapes</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">input_tensors</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="n">create_output_tensors</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">input_tensors</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">operation</span><span class="o">::</span><span class="n">ProgramWithCallbacks</span><span class="w"> </span><span class="nf">create_program</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">input_tensors</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">output_tensors</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">attribute_names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">forward_as_tuple</span><span class="p">(</span><span class="s">"some_member"</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">attribute_values</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">forward_as_tuple</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">cref</span><span class="p">(</span><span class="n">some_member</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</section>
+<section id="new-device-operation-with-optional-input-tensors">
+<h4>New Device Operation with Optional Input Tensors<a class="headerlink" href="#new-device-operation-with-optional-input-tensors" title="Permalink to this heading"></a>
+</h4>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="o">&lt;</span><span class="n">NewOperation</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">input_tensors</span><span class="p">,</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">optional</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">Tensor</span><span class="o">&gt;&gt;&amp;</span><span class="w"> </span><span class="n">optional_input_tensors</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Shape</span><span class="o">&gt;</span><span class="w"> </span><span class="n">compute_output_shapes</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">input_tensors</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="n">create_output_tensors</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">input_tensors</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">operation</span><span class="o">::</span><span class="n">ProgramWithCallbacks</span><span class="w"> </span><span class="nf">create_program</span><span class="p">(</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">input_tensors</span><span class="p">,</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">optional</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">Tensor</span><span class="o">&gt;&gt;&amp;</span><span class="w"> </span><span class="n">optional_input_tensors</span><span class="p">,</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">output_tensors</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">attribute_names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">forward_as_tuple</span><span class="p">();</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">attribute_values</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">forward_as_tuple</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</section>
+<section id="new-device-operation-with-optional-output-tensors">
+<h4>New Device Operation with Optional Output Tensors<a class="headerlink" href="#new-device-operation-with-optional-output-tensors" title="Permalink to this heading"></a>
+</h4>
+<p>If an operation is expected to leverage optional output tensors, please use instead the validate_with_output_tensors
+and create_output_tensors with the additional parameter for the output_tensors.</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="o">&lt;</span><span class="n">NewOperation</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">validate_with_output_tensors</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">input_tensors</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">optional</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;&gt;&amp;</span><span class="w"> </span><span class="n">output_tensors</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Shape</span><span class="o">&gt;</span><span class="w"> </span><span class="n">compute_output_shapes</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">input_tensors</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">optional</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">create_output_tensors</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">input_tensors</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">optional</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;&gt;&amp;</span><span class="w"> </span><span class="n">output_tensors</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">operation</span><span class="o">::</span><span class="n">ProgramWithOptionalOutputTensors</span><span class="w"> </span><span class="nf">create_program</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">input_tensors</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">optional</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">output_tensors</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">attribute_names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">forward_as_tuple</span><span class="p">();</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">attribute_values</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">forward_as_tuple</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</section>
+<section id="new-host-operation">
+<h4>New Host Operation<a class="headerlink" href="#new-host-operation" title="Permalink to this heading"></a>
+</h4>
+<p>And below, is an example of how to declare a new on-host operation with all of the methods required by the interface.</p>
+<div class="highlight-default notranslate">
+<div class="highlight"><pre><span></span><span class="n">struct</span> <span class="o">&lt;</span><span class="n">NewOperation</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="n">void</span> <span class="n">validate</span><span class="p">(</span><span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">input_tensors</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
+    <span class="n">std</span><span class="p">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Shape</span><span class="o">&gt;</span> <span class="n">compute_output_shapes</span><span class="p">(</span><span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">input_tensors</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
+    <span class="n">std</span><span class="p">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span> <span class="n">compute_output_tensors</span><span class="p">(</span><span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">input_tensors</span><span class="p">)</span> <span class="n">const</span><span class="p">;</span>
+
+    <span class="n">static</span> <span class="n">constexpr</span> <span class="n">auto</span> <span class="n">attribute_names</span> <span class="o">=</span> <span class="n">std</span><span class="p">::</span><span class="n">forward_as_tuple</span><span class="p">();</span>
+    <span class="n">const</span> <span class="n">auto</span> <span class="n">attribute_values</span><span class="p">()</span> <span class="n">const</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">std</span><span class="p">::</span><span class="n">forward_as_tuple</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="profiler">
+<h3>Profiler<a class="headerlink" href="#profiler" title="Permalink to this heading"></a>
+</h3>
+<p>Profiler is supported out of the box for any op.</p>
+<p>And there are 2 special methods that can be optionally implemented to set the preferred_name and parallelization_strategy.</p>
+<div class="highlight-default notranslate">
+<div class="highlight"><pre><span></span>// Implement `get_parallelization_strategy` to set the parallelization strategy on the profiler
+struct &lt;NewOperation&gt; {
+    &lt;ParallelizationStrategyEnum&gt; get_parallelization_strategy(const std::vector&lt;Tensor&gt; &amp;input_tensors) const;
+};
+</pre></div>
+</div>
+</section>
+<section id="fast-dispatch">
+<h3>Fast Dispatch<a class="headerlink" href="#fast-dispatch" title="Permalink to this heading"></a>
+</h3>
+<p>Fast dispatch allows programs/kernels to be enqueued to run, so host code does not have to wait for ops/programs to finish running.
+The enqueued programs run asynchronously to the host code.
+To wait for kernels to complete, either read a tensor from device to host with:</p>
+<p>or to perform only a wait, use:</p>
+</section>
+<section id="program-caching">
+<h3>Program Caching<a class="headerlink" href="#program-caching" title="Permalink to this heading"></a>
+</h3>
+<p>Program caching provides an ability for an operation to cache the program and simply reload it the next time the same operation is used.</p>
+<p>It can be enabled by running:</p>
+<div class="highlight-default notranslate">
+<div class="highlight"><pre><span></span><span class="n">tt</span><span class="p">::</span><span class="n">tt_metal</span><span class="p">::</span><span class="n">program_cache</span><span class="p">::</span><span class="n">enable</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>And it can be disabled by running:</p>
+<div class="highlight-default notranslate">
+<div class="highlight"><pre><span></span><span class="n">tt</span><span class="p">::</span><span class="n">tt_metal</span><span class="p">::</span><span class="n">program_cache</span><span class="p">::</span><span class="n">disable_and_clear</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Number of entries can be queried using:</p>
+<div class="highlight-default notranslate">
+<div class="highlight"><pre><span></span><span class="n">tt</span><span class="p">::</span><span class="n">tt_metal</span><span class="p">::</span><span class="n">program_cache</span><span class="p">::</span><span class="n">num_entries</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>In order for an op to be cachable, it needs to implement the following:</p>
+<div class="highlight-default notranslate">
+<div class="highlight"><pre><span></span>struct &lt;NewOperation&gt; {
+   // Mandatory methods
+
+    // Return type of `create_program` needs to implement override_runtime_args_callback
+    // i.e.:
+    operation::ProgramWithCallbacks create_program(const std::vector&lt;Tensor&gt; &amp;input_tensors) const {
+
+        Program program{};
+
+        // ...
+
+        auto override_runtime_args_callback = [unary_reader_kernel_id, unary_writer_kernel_id](
+            const Program &amp;program,
+            const std::vector&lt;Buffer*&gt;&amp; input_buffers,
+            const std::vector&lt;Buffer*&gt;&amp; output_buffers
+        ) {
+
+            auto src_dram_buffer = input_buffers.at(0);
+            auto dst_dram_buffer = output_buffers.at(0);
+
+            CoreCoord core = {0, 0};
+
+            {
+                auto &amp;runtime_args = GetRuntimeArgs(program, unary_reader_kernel_id, core);
+                runtime_args[0] = src_dram_buffer-&gt;address();
+            }
+
+            {
+                auto &amp;runtime_args = GetRuntimeArgs(program, unary_writer_kernel_id, core);
+                runtime_args[0] = dst_dram_buffer-&gt;address();
+            }
+        };
+
+        return {std::move(program), override_runtime_args_callback};
+    }
+};
+</pre></div>
+</div>
+</section>
+<section id="logs">
+<h3>Logs<a class="headerlink" href="#logs" title="Permalink to this heading"></a>
+</h3>
+<p>To see logs related to operation infrastructure, use the following environment variables:</p>
+<div class="highlight-default notranslate">
+<div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">TT_METAL_LOGGER_TYPES</span><span class="o">=</span><span class="n">Op</span>
+<span class="n">export</span> <span class="n">TT_METAL_LOGGER_LEVEL</span><span class="o">=</span><span class="n">Debug</span>
+</pre></div>
+</div>
+<p>The logs will print currently running op and information related to program caching. i.e.:</p>
+<div class="highlight-default notranslate">
+<div class="highlight"><pre><span></span><span class="n">Op</span> <span class="o">|</span> <span class="n">DEBUG</span>    <span class="o">|</span> <span class="n">Operation</span> <span class="n">Type</span><span class="p">:</span> <span class="n">silu</span> <span class="p">(</span><span class="n">fallback</span> <span class="n">operation</span><span class="p">)</span>
+<span class="n">Op</span> <span class="o">|</span> <span class="n">DEBUG</span>    <span class="o">|</span> <span class="n">Operation</span> <span class="n">Attributes</span><span class="p">:</span> <span class="p">()</span>
+<span class="n">Op</span> <span class="o">|</span> <span class="n">DEBUG</span>    <span class="o">|</span> <span class="n">Input</span> <span class="n">Tensors</span><span class="p">:</span> <span class="p">{</span><span class="n">tt</span><span class="p">::</span><span class="n">tt_metal</span><span class="p">::</span><span class="n">Tensor</span><span class="p">(</span><span class="n">storage</span><span class="o">=</span><span class="n">tt</span><span class="p">::</span><span class="n">tt_metal</span><span class="p">::</span><span class="n">DeviceStorage</span><span class="p">(</span><span class="n">memory_config</span><span class="o">=</span><span class="n">tt</span><span class="p">::</span><span class="n">tt_metal</span><span class="p">::</span><span class="n">MemoryConfig</span><span class="p">(</span><span class="n">memory_layout</span><span class="o">=</span><span class="n">tt</span><span class="p">::</span><span class="n">tt_metal</span><span class="p">::</span><span class="n">TensorMemoryLayout</span><span class="p">::</span><span class="n">INTERLEAVED</span><span class="p">,</span> <span class="n">buffer_type</span><span class="o">=</span><span class="n">tt</span><span class="p">::</span><span class="n">tt_metal</span><span class="p">::</span><span class="n">BufferType</span><span class="p">::</span><span class="n">DRAM</span><span class="p">)),</span> <span class="n">shape</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1280</span><span class="p">},</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tt</span><span class="p">::</span><span class="n">tt_metal</span><span class="p">::</span><span class="n">DataType</span><span class="p">::</span><span class="n">BFLOAT16</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">tt</span><span class="p">::</span><span class="n">tt_metal</span><span class="p">::</span><span class="n">Layout</span><span class="p">::</span><span class="n">ROW_MAJOR</span><span class="p">)}</span>
+<span class="n">Op</span> <span class="o">|</span> <span class="n">DEBUG</span>    <span class="o">|</span> <span class="n">Operation</span> <span class="n">Type</span><span class="p">:</span> <span class="n">tt</span><span class="p">::</span><span class="n">tt_metal</span><span class="p">::</span><span class="n">LayoutConversionOnHost</span>
+<span class="n">Op</span> <span class="o">|</span> <span class="n">DEBUG</span>    <span class="o">|</span> <span class="n">Operation</span> <span class="n">Attributes</span><span class="p">:</span> <span class="p">(</span><span class="n">target_layout</span><span class="o">=</span><span class="n">tt</span><span class="p">::</span><span class="n">tt_metal</span><span class="p">::</span><span class="n">Layout</span><span class="p">::</span><span class="n">TILE</span><span class="p">)</span>
+<span class="n">Op</span> <span class="o">|</span> <span class="n">DEBUG</span>    <span class="o">|</span> <span class="n">Input</span> <span class="n">Tensors</span><span class="p">:</span> <span class="p">{</span><span class="n">tt</span><span class="p">::</span><span class="n">tt_metal</span><span class="p">::</span><span class="n">Tensor</span><span class="p">(</span><span class="n">storage</span><span class="o">=</span><span class="n">tt</span><span class="p">::</span><span class="n">tt_metal</span><span class="p">::</span><span class="n">OwnedStorage</span><span class="p">(),</span> <span class="n">shape</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">1280</span><span class="p">},</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tt</span><span class="p">::</span><span class="n">tt_metal</span><span class="p">::</span><span class="n">DataType</span><span class="p">::</span><span class="n">BFLOAT16</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">tt</span><span class="p">::</span><span class="n">tt_metal</span><span class="p">::</span><span class="n">Layout</span><span class="p">::</span><span class="n">ROW_MAJOR</span><span class="p">)}</span>
+<span class="o">...</span>
+<span class="n">Op</span> <span class="o">|</span> <span class="n">DEBUG</span>    <span class="o">|</span> <span class="n">Program</span> <span class="n">Cache</span><span class="p">:</span> <span class="n">MISS</span> <span class="o">-</span> <span class="n">Compiling</span> <span class="n">new</span> <span class="n">program</span> <span class="s2">"tt::tt_metal::EltwiseUnary(op_type=tt::tt_metal::UnaryOpType::Enum::GELU, param=1)_tt::tt_metal::Tensor(storage=tt::tt_metal::DeviceStorage(memory_config=tt::tt_metal::MemoryConfig(memory_layout=tt::tt_metal::TensorMemoryLayout::INTERLEAVED, buffer_type=tt::tt_metal::BufferType::DRAM)), shape={1, 1, 32, 32}, dtype=tt::tt_metal::DataType::BFLOAT16, layout=tt::tt_metal::Layout::TILE)"</span>
+<span class="n">Op</span> <span class="o">|</span> <span class="n">DEBUG</span>    <span class="o">|</span> <span class="n">Operation</span> <span class="n">Name</span><span class="p">:</span> <span class="n">tt</span><span class="p">::</span><span class="n">tt_metal</span><span class="p">::</span><span class="n">EltwiseUnary</span>
+<span class="n">Op</span> <span class="o">|</span> <span class="n">DEBUG</span>    <span class="o">|</span> <span class="n">Operation</span> <span class="n">Attributes</span><span class="p">:</span> <span class="p">(</span><span class="n">op_type</span><span class="o">=</span><span class="n">tt</span><span class="p">::</span><span class="n">tt_metal</span><span class="p">::</span><span class="n">UnaryOpType</span><span class="p">::</span><span class="n">Enum</span><span class="p">::</span><span class="n">GELU</span><span class="p">,</span> <span class="n">param</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">Op</span> <span class="o">|</span> <span class="n">DEBUG</span>    <span class="o">|</span> <span class="n">Input</span> <span class="n">Tensors</span><span class="p">:</span> <span class="p">{</span><span class="n">tt</span><span class="p">::</span><span class="n">tt_metal</span><span class="p">::</span><span class="n">Tensor</span><span class="p">(</span><span class="n">storage</span><span class="o">=</span><span class="n">tt</span><span class="p">::</span><span class="n">tt_metal</span><span class="p">::</span><span class="n">DeviceStorage</span><span class="p">(</span><span class="n">memory_config</span><span class="o">=</span><span class="n">tt</span><span class="p">::</span><span class="n">tt_metal</span><span class="p">::</span><span class="n">MemoryConfig</span><span class="p">(</span><span class="n">memory_layout</span><span class="o">=</span><span class="n">tt</span><span class="p">::</span><span class="n">tt_metal</span><span class="p">::</span><span class="n">TensorMemoryLayout</span><span class="p">::</span><span class="n">INTERLEAVED</span><span class="p">,</span> <span class="n">buffer_type</span><span class="o">=</span><span class="n">tt</span><span class="p">::</span><span class="n">tt_metal</span><span class="p">::</span><span class="n">BufferType</span><span class="p">::</span><span class="n">DRAM</span><span class="p">)),</span> <span class="n">shape</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">},</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tt</span><span class="p">::</span><span class="n">tt_metal</span><span class="p">::</span><span class="n">DataType</span><span class="p">::</span><span class="n">BFLOAT16</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">tt</span><span class="p">::</span><span class="n">tt_metal</span><span class="p">::</span><span class="n">Layout</span><span class="p">::</span><span class="n">TILE</span><span class="p">)}</span>
+</pre></div>
+</div>
+<p>If <cite>OPERATION_HISTORY_CSV=&lt;csv_file_path&gt;</cite> environment variable is set, then the history of all executed operations will be dumped into <cite>&lt;csv_file_path&gt;</cite></p>
+</section>
+</section>
+<section id="tt-lib-api-through-tt-lib">
+<h2>TT-LIB API through <code class="docutils literal notranslate"><span class="pre">tt_lib</span></code><a class="headerlink" href="#tt-lib-api-through-tt-lib" title="Permalink to this heading"></a>
+</h2>
+<section id="primary-operations">
+<h3>Primary Operations<a class="headerlink" href="#primary-operations" title="Permalink to this heading"></a>
+</h3>
+<p>autofunction:: tt_lib.operations.primary.matmul</p>
+</section>
+<section id="enums">
+<h3>Enums<a class="headerlink" href="#enums" title="Permalink to this heading"></a>
+</h3>
+</section>
+<section id="tensor-elementwise-operations">
+<h3>Tensor elementwise operations<a class="headerlink" href="#tensor-elementwise-operations" title="Permalink to this heading"></a>
+</h3>
+</section>
+<section id="tensor-relational-operations">
+<h3>Tensor relational operations<a class="headerlink" href="#tensor-relational-operations" title="Permalink to this heading"></a>
+</h3>
+</section>
+<section id="tensor-ternary-operations">
+<h3>Tensor ternary operations<a class="headerlink" href="#tensor-ternary-operations" title="Permalink to this heading"></a>
+</h3>
+</section>
+<section id="tensor-matrix-math-operations">
+<h3>Tensor matrix math operations<a class="headerlink" href="#tensor-matrix-math-operations" title="Permalink to this heading"></a>
+</h3>
+<p>Tensor manipulation operations
+-=============================</p>
+<p>These operations change the tensor shape in some way, giving it new dimensions
+but in general retaining the data.</p>
+</section>
+<section id="tensor-creation-operations">
+<h3>Tensor creation operations<a class="headerlink" href="#tensor-creation-operations" title="Permalink to this heading"></a>
+</h3>
+</section>
+<section id="broadcast-and-reduce">
+<h3>Broadcast and Reduce<a class="headerlink" href="#broadcast-and-reduce" title="Permalink to this heading"></a>
+</h3>
+</section>
+</section>
+<section id="fallback-operations">
+<h2>Fallback Operations<a class="headerlink" href="#fallback-operations" title="Permalink to this heading"></a>
+</h2>
+<p>These operations are currently not supported on TT accelerator device and will execute on host machine using Pytorch.</p>
+</section>
+<section id="experimental-operations">
+<h2>Experimental Operations<a class="headerlink" href="#experimental-operations" title="Permalink to this heading"></a>
+</h2>
+<p>Operations in this section are experimental, don’t have full support, and may behave in unexpected ways.</p>
+<section id="fused-operations-from-tt-lib-mini-graph-library">
+<h3>Fused Operations from <code class="docutils literal notranslate"><span class="pre">tt_lib</span></code> Mini-Graph Library<a class="headerlink" href="#fused-operations-from-tt-lib-mini-graph-library" title="Permalink to this heading"></a>
+</h3>
+<p>We have a variety of common operations that require fusion of multiple
+base operations together.</p>
+</section>
+<section id="complex-operations">
+<h3>Complex Operations<a class="headerlink" href="#complex-operations" title="Permalink to this heading"></a>
+</h3>
+<blockquote>
+<div>
+<dl class="simple">
+<dt>We use the following Tensor representation for complex tensors on device; we support complex tensor <strong>x</strong> as  N,H,W,C rank-4 tensor with last dim of size divisible by 64 to represent real and imaginary components</dt>
+<dd>
+<ul class="simple">
+<li><p>with indices [:,:,:,0:N/2] being real, and</p></li>
+<li><p>with indices [:,:,:,N/2:N] being imaginary.</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+</blockquote>
+<p>The following functions are available,</p>
+<p>Complex arithmetic can be carried out for multiply, divide, add and subtract as follows:</p>
+<p>and then unary operations for,</p>
+</section>
+<section id="complex-operations-type-2">
+<h3>Complex Operations (Type 2)<a class="headerlink" href="#complex-operations-type-2" title="Permalink to this heading"></a>
+</h3>
+<p>Type 2 Complex representation allows for more flexible storage than earlier one while providing same set of
+operations; specifically this storage allows for compute without the cost of split-concat implicit in
+the Type 1 contiguous representations.</p>
+</section>
+<section id="other-operations">
+<h3>Other Operations<a class="headerlink" href="#other-operations" title="Permalink to this heading"></a>
+</h3>
+</section>
+<section id="backward-operations">
+<h3>Backward Operations<a class="headerlink" href="#backward-operations" title="Permalink to this heading"></a>
+</h3>
+</section>
+<section id="loss-functions">
+<h3>Loss Functions<a class="headerlink" href="#loss-functions" title="Permalink to this heading"></a>
+</h3>
+</section>
+</section>
+</section>
+
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Dependencies" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tensor.html" class="btn btn-neutral float-right" title="Tensor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Tenstorrent.
+      <span class="lastupdated">Last updated on Oct 18, 2024.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        Version: latest
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        
+        <dl>
+            <dt>Versions</dt>
+            
+            <dd><a href="https://tenstorrent.github.io/ttnn/latest/index.html">latest</a></dd>
+            
+            <dd><a href="https://tenstorrent.github.io/ttnn/v0.52.0/index.html">v0.52.0</a></dd>
+            
+        </dl>
+        
+        <br>
+        </dl>
+    </div>
+</div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
