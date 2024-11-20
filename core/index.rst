@@ -216,10 +216,6 @@ Tenstorrent
             <img src="_static/home/tt-metalium.png" alt="TT-Metalium™" />
             <h4>TT-Metalium™</h4>
           </a>
-          <a target="_blank" href="https://tenstorrent.github.io/syseng/latest/index.html" class="card small-card">
-            <img src="_static/home/software-utilities.png" alt="Software/Utilities" />
-            <h4>Software/Utilities</h4>
-          </a>
           <a target="_blank" href="https://docs.tenstorrent.com/tt-mlir/" class="card small-card">
             <img src="_static/home/tt-mlir.png" alt="TT-MLIR" />
             <h4>TT-MLIR</h4>
