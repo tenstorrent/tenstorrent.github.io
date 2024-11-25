@@ -1,42 +1,5 @@
 # User Guide
 
-## Quick Start
-
-Compiling and running a PyBuda workload is as easy as:
-
-1. Downloading an off the shelf model from huggingface
-2. Wrapping it in a PyBuda module
-3. Create a tenstorrent device
-4. Running a program on the currently bound device
-
-```python
-import pybuda
-import torch
-from transformers import BertModel, BertConfig
-
-# Download the model from huggingface
-model = BertModel.from_pretrained("bert-base-uncased")
-
-# Wrap the pytorch model in a PyBuda module wrapper
-module = pybuda.PyTorchModule("bert_encoder", model.encoder)
-
-# Create a tenstorrent device
-tt0 = pybuda.TTDevice(
-    "tt0",
-    module=module,
-    arch=pybuda.BackendDevice.Wormhole_B0,
-    devtype=pybuda.BackendType.Silicon,
-)
-
-# Create an input tensor
-seq_len = 128
-input = torch.randn(1, seq_len, model.config.hidden_size)
-
-# Compile and run inference
-output_queue = pybuda.run_inference(inputs=[input])
-print(output_queue.get())
-```
-
 ## Framework Support
 
 Pybuda itself is a standalone ML framework and has an API heavily inspired by Pytorch.  That said, it is often more convenient to run models that have already been written using another major framework.  This is why we support a Pybuda backend for TVM which allows many popular frameworks to target our pybuda compiler. We support many major frameworks that TVM supports including:

@@ -11,7 +11,6 @@ Welcome to TT-NN documentation!
 
    ttnn/about
    ttnn/get_started
-   ttnn/installing
    ttnn/usage
    ttnn/tensor
    ttnn/api

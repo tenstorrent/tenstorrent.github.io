@@ -7,7 +7,6 @@ TT-Buda
    :glob:
 
    index.md
-   installation.md
    user_guide.md
    api.md
    terminology.md

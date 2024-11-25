@@ -1,9 +1,6 @@
 core:
   versions:
     latest:
-syseng:
-  versions:
-    latest:
 pybuda:
   versions:
     latest:

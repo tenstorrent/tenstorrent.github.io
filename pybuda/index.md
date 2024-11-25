@@ -2,20 +2,12 @@
 
 PyBuda ™ is a compute framework used to develop, run, and analyze ML workloads on Tenstorrent hardware.
 
-For a quick start, follow [installation](installation.md) steps, and then look at the user guide [user_guide](user_guide.md).
+For a quick start, follow [First 5 Things](https://github.com/tenstorrent/tt-buda-demos/tree/main/first_5_steps) for **TT-Buda**.
 
 ## Table of Contents
 
 * [Introduction to PyBuda]()
-* [TT-BUDA Installation](installation.md)
-  * [Overview](installation.md#overview)
-  * [Prerequisites](installation.md#prerequisites)
-  * [Download](installation.md#download)
-  * [Install](installation.md#install)
-  * [Installation Prerequisites](installation.md#installation-prerequisites)
-  * [Smoke Test](installation.md#smoke-test)
 * [User Guide](user_guide.md)
-  * [Quick Start](user_guide.md#quick-start)
   * [Framework Support](user_guide.md#framework-support)
   * [PyBuda Introduction](user_guide.md#pybuda-introduction)
   * [Saving and Loading Models](user_guide.md#saving-and-loading-models)

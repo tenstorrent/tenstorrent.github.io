@@ -4,5 +4,5 @@ This section outlines the system requirements, physical installation instruction
 
 - [Specifications/Requirements](./specifications.md)
 - [Installation](./installation.md)
-- [Software Setup](https://docs.tenstorrent.com/syseng/latest/softwaresetup.html)
+- [Software Setup](https://docs.tenstorrent.com/quickstart.html)
 - [Regulatory Compliance](../compliance.md)

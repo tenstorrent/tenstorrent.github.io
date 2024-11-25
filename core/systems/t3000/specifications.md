@@ -59,4 +59,4 @@ Please visit the [SuperMicro SuperServer SYS-740GP-TNRT](https://www.supermicro.
 
 ## Software Setup
 
-Instructions on how to set up software on TT-LoudBox are available [here](https://docs.tenstorrent.com/syseng/latest/softwaresetup.html).
+Instructions on how to set up software on TT-LoudBox are available [here](https://docs.tenstorrent.com/quickstart.html).

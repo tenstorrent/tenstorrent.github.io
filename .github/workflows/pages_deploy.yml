@@ -34,10 +34,6 @@ jobs:
           python3 -m venv .docs-env
           source .docs-env/bin/activate
           pip install -r requirements.txt
-      - name: Convert Installation.md to .rst in ttnn and tt-metallium docs
-        run: |
-          pandoc --from=markdown --to=rst --output=ttnn/ttnn/installing.rst ttnn/ttnn/installing.md
-          pandoc --from=markdown --to=rst --output=tt-metalium/installing.rst tt-metalium/installing.md
       - name: Build documentation
         run: |
           source .docs-env/bin/activate

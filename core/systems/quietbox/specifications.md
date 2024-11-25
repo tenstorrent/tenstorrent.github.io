@@ -51,4 +51,4 @@ The TT-QuietBox uses a Bitspower RF Remote Controller Hub to control the lightin
 
 ## Software Setup
 
-Instructions on how to set up software on TT-QuietBox are available [here](https://docs.tenstorrent.com/syseng/latest/softwaresetup.html).
+Instructions on how to set up software on TT-QuietBox are available [here](https://docs.tenstorrent.com/quickstart.html).
