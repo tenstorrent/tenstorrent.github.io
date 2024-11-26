@@ -2,15 +2,14 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
   <compounddef id="host__api_8hpp" kind="file" language="C++">
     <compoundname>host_api.hpp</compoundname>
-    <includes local="no">optional</includes>
     <includes local="no">variant</includes>
     <includes local="no">vector</includes>
-    <includes local="no">future</includes>
-    <includes local="yes">tt_metal/common/core_coord.h</includes>
+    <includes local="yes">tt_metal/impl/kernels/runtime_args_data.hpp</includes>
     <includes local="yes">tt_metal/impl/program/program.hpp</includes>
-    <includes local="yes">tt_metal/impl/buffers/buffer.hpp</includes>
-    <includes local="yes">tt_metal/impl/event/event.hpp</includes>
-    <includes local="yes">tt_metal/impl/device/device_pool.hpp</includes>
+    <includes local="yes">tt_metal/impl/device/device.hpp</includes>
+    <includes local="yes">tt_metal/impl/sub_device/sub_device_types.hpp</includes>
+    <includes local="yes">tt_metal/tt_stl/span.hpp</includes>
+    <includedby refid="types_8hpp" local="yes">tt_metal/include/tt_metal/types.hpp</includedby>
     <incdepgraph>
       <node id="1">
         <label>tt_metal/host_api.hpp</label>
@@ -29,41 +28,106 @@
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
+      </node>
+      <node id="6">
+        <label>tt_metal/impl/device/device.hpp</label>
+      </node>
+      <node id="4">
+        <label>tt_metal/impl/kernels/runtime_args_data.hpp</label>
+      </node>
+      <node id="5">
+        <label>tt_metal/impl/program/program.hpp</label>
+      </node>
+      <node id="7">
+        <label>tt_metal/impl/sub_device/sub_device_types.hpp</label>
+      </node>
+      <node id="8">
+        <label>tt_metal/tt_stl/span.hpp</label>
+      </node>
+      <node id="2">
+        <label>variant</label>
+      </node>
+      <node id="3">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>tt_metal/host_api.hpp</label>
+        <link refid="host__api_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>tt_metal/include/tt_metal/buffer.hpp</label>
+        <link refid="buffer_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>tt_metal/include/tt_metal/command_queue.hpp</label>
+        <link refid="command__queue_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>tt_metal/include/tt_metal/device.hpp</label>
+        <link refid="device_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>tt_metal/include/tt_metal/event.hpp</label>
+        <link refid="event_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>tt_metal/include/tt_metal/kernel.hpp</label>
+        <link refid="kernel_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>tt_metal/include/tt_metal/metal.hpp</label>
+        <link refid="metal_8hpp"/>
+      </node>
+      <node id="9">
+        <label>tt_metal/include/tt_metal/program.hpp</label>
+        <link refid="program_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>tt_metal/include/tt_metal/trace.hpp</label>
+        <link refid="trace_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>tt_metal/include/tt_metal/types.hpp</label>
+        <link refid="types_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
         <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="10" relation="include">
         </childnode>
       </node>
-      <node id="5">
-        <label>future</label>
-      </node>
-      <node id="2">
-        <label>optional</label>
-      </node>
-      <node id="6">
-        <label>tt_metal/common/core_coord.h</label>
-      </node>
-      <node id="8">
-        <label>tt_metal/impl/buffers/buffer.hpp</label>
-      </node>
-      <node id="10">
-        <label>tt_metal/impl/device/device_pool.hpp</label>
-      </node>
-      <node id="9">
-        <label>tt_metal/impl/event/event.hpp</label>
-      </node>
-      <node id="7">
-        <label>tt_metal/impl/program/program.hpp</label>
-      </node>
-      <node id="3">
-        <label>variant</label>
-      </node>
-      <node id="4">
-        <label>vector</label>
-      </node>
-    </incdepgraph>
+    </invincdepgraph>
     <innernamespace refid="namespacett">tt</innernamespace>
     <innernamespace refid="namespacett_1_1tt__metal">tt::tt_metal</innernamespace>
+    <innernamespace refid="namespacett_1_1tt__metal_1_1v0" inline="yes">tt::tt_metal::v0</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
@@ -75,140 +139,229 @@
 <codeline lineno="4"><highlight class="normal"></highlight></codeline>
 <codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="6"><highlight class="normal"></highlight></codeline>
-<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;optional&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;variant&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;future&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tt_metal/common/core_coord.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tt_metal/impl/program/program.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tt_metal/impl/buffers/buffer.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tt_metal/impl/event/event.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tt_metal/impl/device/device_pool.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">tt<sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;variant&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tt_metal/impl/kernels/runtime_args_data.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tt_metal/impl/program/program.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tt_metal/impl/device/device.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tt_metal/impl/sub_device/sub_device_types.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tt_metal/tt_stl/span.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">CoreRange;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">CoreRangeSet;</highlight></codeline>
 <codeline lineno="30"><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">tt_metal<sp/>{</highlight></codeline>
+<codeline lineno="31" refid="namespacett" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacett" kindref="compound">tt</ref><sp/>{</highlight></codeline>
 <codeline lineno="32"><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Program;</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Host;</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Device;</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">CommandQueue;</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Trace;</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">CircularBuffer;</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"></highlight></codeline>
-<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment">//<sp/>==================================================</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="41"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>HOST<sp/>API:<sp/>Device<sp/>management</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">//<sp/>==================================================</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"></highlight></codeline>
-<codeline lineno="49" refid="host__api_8hpp_1a06ba0ab5eeb2da5af625a8b7f95ca48e" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="host__api_8hpp_1a06ba0ab5eeb2da5af625a8b7f95ca48e" kindref="member">GetNumAvailableDevices</ref>();</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"></highlight></codeline>
-<codeline lineno="56" refid="host__api_8hpp_1aa18761d248b0a8081c84440f3aeafcfc" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="host__api_8hpp_1aa18761d248b0a8081c84440f3aeafcfc" kindref="member">GetNumPCIeDevices</ref>();</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"></highlight></codeline>
-<codeline lineno="67" refid="host__api_8hpp_1a8332bdd9a9ffe6e0cedf921e438fe7ed" refkind="member"><highlight class="normal">Device<sp/>*<ref refid="host__api_8hpp_1a8332bdd9a9ffe6e0cedf921e438fe7ed" kindref="member">CreateDevice</ref>(</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>chip_id_t<sp/>device_id,</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>num_hw_cqs<sp/>=<sp/>1,</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>l1_small_size<sp/>=<sp/>DEFAULT_L1_SMALL_SIZE,</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>trace_region_size<sp/>=<sp/>DEFAULT_TRACE_REGION_SIZE,</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;uint32_t&gt;<sp/>&amp;l1_bank_remap<sp/>=<sp/>{});</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"></highlight></codeline>
-<codeline lineno="83" refid="host__api_8hpp_1a07e0aaf41772593d1d017db950e3b7b3" refkind="member"><highlight class="normal">Device<sp/>*<ref refid="host__api_8hpp_1a07e0aaf41772593d1d017db950e3b7b3" kindref="member">CreateDeviceMinimal</ref>(</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>chip_id_t<sp/>device_id);</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"></highlight></codeline>
-<codeline lineno="95" refid="host__api_8hpp_1a25ae925200ca85a3274824f1b945ebc1" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="host__api_8hpp_1a25ae925200ca85a3274824f1b945ebc1" kindref="member">CloseDevice</ref>(Device<sp/>*device);</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"></highlight></codeline>
-<codeline lineno="97"><highlight class="normal"></highlight><highlight class="comment">//<sp/>==================================================</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="98"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>HOST<sp/>API:<sp/>program<sp/>&amp;<sp/>kernels</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="99"><highlight class="normal"></highlight><highlight class="comment">//<sp/>==================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="namespacett_1_1tt__metal" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">tt_metal<sp/>{</highlight></codeline>
+<codeline lineno="34" refid="namespacett_1_1tt__metal_1_1v0" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">v0<sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Program;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Device;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">CommandQueue;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Trace;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">CircularBuffer;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Event;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Buffer;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">GlobalSemaphore;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment">//<sp/>==================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>HOST<sp/>API:<sp/>Device<sp/>management</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">//<sp/>==================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="namespacett_1_1tt__metal_1_1v0_1a1e4322b747fd7823e878c3e2ae729e27" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1a1e4322b747fd7823e878c3e2ae729e27" kindref="member">GetNumAvailableDevices</ref>();</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="namespacett_1_1tt__metal_1_1v0_1a63ede0a0180762c7d1f091176738237c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1a63ede0a0180762c7d1f091176738237c" kindref="member">IsGalaxyCluster</ref>();</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="namespacett_1_1tt__metal_1_1v0_1a4f05b332fd6f861bb3540dbe2af433be" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1a4f05b332fd6f861bb3540dbe2af433be" kindref="member">GetNumPCIeDevices</ref>();</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70" refid="namespacett_1_1tt__metal_1_1v0_1af46d5827805ba92482cddb5591c69a45" refkind="member"><highlight class="normal">chip_id_t<sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1af46d5827805ba92482cddb5591c69a45" kindref="member">GetPCIeDeviceID</ref>(chip_id_t<sp/>device_id);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="namespacett_1_1tt__metal_1_1v0_1abe3488f7ac4863b7b372f344f863bc84" refkind="member"><highlight class="normal">Device<sp/>*<ref refid="namespacett_1_1tt__metal_1_1v0_1abe3488f7ac4863b7b372f344f863bc84" kindref="member">CreateDevice</ref>(</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>chip_id_t<sp/>device_id,</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>num_hw_cqs<sp/>=<sp/>1,</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>l1_small_size<sp/>=<sp/>DEFAULT_L1_SMALL_SIZE,</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>trace_region_size<sp/>=<sp/>DEFAULT_TRACE_REGION_SIZE,</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>DispatchCoreType<sp/>dispatch_core_type<sp/>=<sp/>DispatchCoreType::WORKER,</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;uint32_t&gt;<sp/>&amp;l1_bank_remap<sp/>=<sp/>{});</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98" refid="namespacett_1_1tt__metal_1_1v0_1a1690575bfc5a81f0a7bc44b0a1f4780b" refkind="member"><highlight class="normal">Device<sp/>*<ref refid="namespacett_1_1tt__metal_1_1v0_1a1690575bfc5a81f0a7bc44b0a1f4780b" kindref="member">CreateDeviceMinimal</ref>(</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>chip_id_t<sp/>device_id,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>num_hw_cqs<sp/>=<sp/>1,<sp/>DispatchCoreType<sp/>dispatch_core_type<sp/>=<sp/>DispatchCoreType::WORKER);</highlight></codeline>
 <codeline lineno="100"><highlight class="normal"></highlight></codeline>
-<codeline lineno="106" refid="host__api_8hpp_1a48b1af1b20561d626ff34f39282f1dea" refkind="member"><highlight class="normal">Program<sp/><ref refid="host__api_8hpp_1a48b1af1b20561d626ff34f39282f1dea" kindref="member">CreateProgram</ref>();</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"></highlight></codeline>
-<codeline lineno="120" refid="host__api_8hpp_1ae7930dd08bf0ae0c83c8ee55f3f604b9" refkind="member"><highlight class="normal">KernelHandle<sp/><ref refid="host__api_8hpp_1ae7930dd08bf0ae0c83c8ee55f3f604b9" kindref="member">CreateKernel</ref>(</highlight></codeline>
-<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>Program<sp/>&amp;program,</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;file_name,</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::variant&lt;CoreCoord,<sp/>CoreRange,<sp/>CoreRangeSet&gt;<sp/>&amp;core_spec,</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::variant&lt;DataMovementConfig,<sp/>ComputeConfig,<sp/>EthernetConfig&gt;<sp/>&amp;config);</highlight></codeline>
-<codeline lineno="125"><highlight class="normal"></highlight></codeline>
-<codeline lineno="126"><highlight class="normal"></highlight><highlight class="comment">//<sp/>==================================================</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="127"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>HOST<sp/>API:<sp/>buffers</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="128"><highlight class="normal"></highlight><highlight class="comment">//<sp/>==================================================</highlight></codeline>
-<codeline lineno="145" refid="host__api_8hpp_1a62b10a9d4d6ed91eacaba5d27c9761fb" refkind="member"><highlight class="comment"></highlight><highlight class="normal">CBHandle<sp/><ref refid="host__api_8hpp_1a62b10a9d4d6ed91eacaba5d27c9761fb" kindref="member">CreateCircularBuffer</ref>(Program<sp/>&amp;program,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::variant&lt;CoreCoord,<sp/>CoreRange,<sp/>CoreRangeSet&gt;<sp/>&amp;core_spec,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>CircularBufferConfig<sp/>&amp;config);</highlight></codeline>
-<codeline lineno="146"><highlight class="normal"></highlight></codeline>
-<codeline lineno="157" refid="host__api_8hpp_1a95bdaeb43136c4db864dd95481fa0a16" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>CircularBufferConfig<sp/>&amp;<ref refid="host__api_8hpp_1a95bdaeb43136c4db864dd95481fa0a16" kindref="member">GetCircularBufferConfig</ref>(Program<sp/>&amp;program,<sp/>CBHandle<sp/>cb_handle);</highlight></codeline>
+<codeline lineno="110" refid="namespacett_1_1tt__metal_1_1v0_1a26cb44c89e3231cade68dca1a6990bbb" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1a26cb44c89e3231cade68dca1a6990bbb" kindref="member">CloseDevice</ref>(Device<sp/>*device);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="comment">//<sp/>==================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>HOST<sp/>API:<sp/>program<sp/>&amp;<sp/>kernels</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="comment">//<sp/>==================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121" refid="namespacett_1_1tt__metal_1_1v0_1a826db8a9c40c91034bc2a5f0f6e9b75e" refkind="member"><highlight class="normal">Program<sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1a826db8a9c40c91034bc2a5f0f6e9b75e" kindref="member">CreateProgram</ref>();</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135" refid="namespacett_1_1tt__metal_1_1v0_1a0e68e0e2cb813bf5814ddb02d82cd1d0" refkind="member"><highlight class="normal">KernelHandle<sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1a0e68e0e2cb813bf5814ddb02d82cd1d0" kindref="member">CreateKernel</ref>(</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>Program<sp/>&amp;program,</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;file_name,</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::variant&lt;CoreCoord,<sp/>CoreRange,<sp/>CoreRangeSet&gt;<sp/>&amp;core_spec,</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::variant&lt;DataMovementConfig,<sp/>ComputeConfig,<sp/>EthernetConfig&gt;<sp/>&amp;config);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153" refid="namespacett_1_1tt__metal_1_1v0_1a63aefd0f3f82e3dd0d66ff2ca72453c8" refkind="member"><highlight class="normal">KernelHandle<sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1a63aefd0f3f82e3dd0d66ff2ca72453c8" kindref="member">CreateKernelFromString</ref>(</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>Program<sp/>&amp;program,</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;kernel_src_code,</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::variant&lt;CoreCoord,<sp/>CoreRange,<sp/>CoreRangeSet&gt;<sp/>&amp;core_spec,</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::variant&lt;DataMovementConfig,<sp/>ComputeConfig,<sp/>EthernetConfig&gt;<sp/>&amp;config);</highlight></codeline>
 <codeline lineno="158"><highlight class="normal"></highlight></codeline>
-<codeline lineno="170" refid="host__api_8hpp_1a39e124f62d4c172a44abc0c22fa3ee04" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="host__api_8hpp_1a39e124f62d4c172a44abc0c22fa3ee04" kindref="member">UpdateCircularBufferTotalSize</ref>(Program<sp/>&amp;program,<sp/>CBHandle<sp/>cb_handle,<sp/>uint32_t<sp/>total_size);</highlight></codeline>
-<codeline lineno="171"><highlight class="normal"></highlight></codeline>
-<codeline lineno="184" refid="host__api_8hpp_1a92e93610eb6b826263eb803608c33889" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="host__api_8hpp_1a92e93610eb6b826263eb803608c33889" kindref="member">UpdateCircularBufferPageSize</ref>(Program<sp/>&amp;program,<sp/>CBHandle<sp/>cb_handle,<sp/>uint8_t<sp/>buffer_index,<sp/>uint32_t<sp/>page_size);</highlight></codeline>
-<codeline lineno="185"><highlight class="normal"></highlight></codeline>
-<codeline lineno="197" refid="host__api_8hpp_1aac851bed71135fa02e28caf0c0ae58b0" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="host__api_8hpp_1aac851bed71135fa02e28caf0c0ae58b0" kindref="member">UpdateDynamicCircularBufferAddress</ref>(Program<sp/>&amp;program,<sp/>CBHandle<sp/>cb_handle,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classBuffer" kindref="compound">Buffer</ref><sp/>&amp;buffer);</highlight></codeline>
-<codeline lineno="198"><highlight class="normal"></highlight></codeline>
-<codeline lineno="211" refid="host__api_8hpp_1a8860cbc40324a9cc2e18badc55a77a68" refkind="member"><highlight class="normal">uint32_t<sp/><ref refid="host__api_8hpp_1a8860cbc40324a9cc2e18badc55a77a68" kindref="member">CreateSemaphore</ref>(Program<sp/>&amp;program,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::variant&lt;CoreRange,CoreRangeSet&gt;<sp/>&amp;core_spec,<sp/>uint32_t<sp/>initial_value,<sp/>CoreType<sp/>core_type=CoreType::WORKER);</highlight></codeline>
-<codeline lineno="212"><highlight class="normal"></highlight></codeline>
-<codeline lineno="222" refid="host__api_8hpp_1a44f12170a79821c7a1eb7dcad8e9014e" refkind="member"><highlight class="normal">std::shared_ptr&lt;Buffer&gt;<sp/><ref refid="host__api_8hpp_1a44f12170a79821c7a1eb7dcad8e9014e" kindref="member">CreateBuffer</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>InterleavedBufferConfig<sp/>&amp;config);</highlight></codeline>
-<codeline lineno="223"><highlight class="normal"></highlight></codeline>
-<codeline lineno="233" refid="host__api_8hpp_1a8e5af0183154c8b303d43acec393ec29" refkind="member"><highlight class="normal">std::shared_ptr&lt;Buffer&gt;<sp/><ref refid="host__api_8hpp_1a44f12170a79821c7a1eb7dcad8e9014e" kindref="member">CreateBuffer</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ShardedBufferConfig<sp/>&amp;config);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight><highlight class="comment">//<sp/>==================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>HOST<sp/>API:<sp/>buffers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight><highlight class="comment">//<sp/>==================================================</highlight></codeline>
+<codeline lineno="178" refid="namespacett_1_1tt__metal_1_1v0_1a4b1e837406fd39ad2b671b7836ce3e4c" refkind="member"><highlight class="comment"></highlight><highlight class="normal">CBHandle<sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1a4b1e837406fd39ad2b671b7836ce3e4c" kindref="member">CreateCircularBuffer</ref>(</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>Program<sp/>&amp;program,</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::variant&lt;CoreCoord,<sp/>CoreRange,<sp/>CoreRangeSet&gt;<sp/>&amp;core_spec,</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>CircularBufferConfig<sp/>&amp;config);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193" refid="namespacett_1_1tt__metal_1_1v0_1ac4b1a13298da52770f32ddeeabd2c65a" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>CircularBufferConfig<sp/>&amp;<ref refid="namespacett_1_1tt__metal_1_1v0_1ac4b1a13298da52770f32ddeeabd2c65a" kindref="member">GetCircularBufferConfig</ref>(Program<sp/>&amp;program,<sp/>CBHandle<sp/>cb_handle);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206" refid="namespacett_1_1tt__metal_1_1v0_1a220dc8a16809c1c12a44348b9a76ab08" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1a220dc8a16809c1c12a44348b9a76ab08" kindref="member">UpdateCircularBufferTotalSize</ref>(Program<sp/>&amp;program,<sp/>CBHandle<sp/>cb_handle,<sp/>uint32_t<sp/>total_size);</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220" refid="namespacett_1_1tt__metal_1_1v0_1a3831e993c64a578637c9fc73b059412d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1a3831e993c64a578637c9fc73b059412d" kindref="member">UpdateCircularBufferPageSize</ref>(Program<sp/>&amp;program,<sp/>CBHandle<sp/>cb_handle,<sp/>uint8_t<sp/>buffer_index,<sp/>uint32_t<sp/>page_size);</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="233" refid="namespacett_1_1tt__metal_1_1v0_1a0cf0d51e979e755908ee29c30401ee53" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1a0cf0d51e979e755908ee29c30401ee53" kindref="member">UpdateDynamicCircularBufferAddress</ref>(Program<sp/>&amp;program,<sp/>CBHandle<sp/>cb_handle,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Buffer<sp/>&amp;buffer);</highlight></codeline>
 <codeline lineno="234"><highlight class="normal"></highlight></codeline>
-<codeline lineno="244" refid="host__api_8hpp_1a6a064752ab55b4fac953ba8bde7daf52" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="host__api_8hpp_1a6a064752ab55b4fac953ba8bde7daf52" kindref="member">DeallocateBuffer</ref>(<ref refid="classBuffer" kindref="compound">Buffer</ref><sp/>&amp;buffer);</highlight></codeline>
-<codeline lineno="245"><highlight class="normal"></highlight></codeline>
-<codeline lineno="256" refid="host__api_8hpp_1a4e29ca9df8b6f13424f2a392d8971483" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="host__api_8hpp_1a4e29ca9df8b6f13424f2a392d8971483" kindref="member">AssignGlobalBufferToProgram</ref>(std::shared_ptr&lt;Buffer&gt;<sp/>buffer,<sp/>std::variant&lt;std::reference_wrapper&lt;Program&gt;,<sp/>std::shared_ptr&lt;Program&gt;&gt;<sp/>program);</highlight></codeline>
-<codeline lineno="257"><highlight class="normal"></highlight></codeline>
-<codeline lineno="258"><highlight class="normal"></highlight><highlight class="comment">//<sp/>==================================================</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="259"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>COMPILE<sp/>&amp;<sp/>EXECUTE<sp/>KENRNELS</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="260"><highlight class="normal"></highlight><highlight class="comment">//<sp/>==================================================</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="261"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">RuntimeArgs<sp/>=<sp/>std::vector&lt;std::variant&lt;Buffer*,<sp/>uint32_t&gt;&gt;;</highlight></codeline>
-<codeline lineno="275" refid="host__api_8hpp_1a491996adcf69861c22eed34ce1ac68cc" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="host__api_8hpp_1a491996adcf69861c22eed34ce1ac68cc" kindref="member">SetRuntimeArgs</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Program<sp/>&amp;program,<sp/>KernelHandle<sp/>kernel,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::variant&lt;CoreCoord,<sp/>CoreRange,<sp/>CoreRangeSet&gt;<sp/>&amp;core_spec,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;uint32_t&gt;<sp/>&amp;runtime_args);</highlight></codeline>
-<codeline lineno="276"><highlight class="normal"></highlight></codeline>
-<codeline lineno="290" refid="host__api_8hpp_1af27c6b3f5c79fb792beb4ab2169683b7" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="host__api_8hpp_1a491996adcf69861c22eed34ce1ac68cc" kindref="member">SetRuntimeArgs</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Program<sp/>&amp;program,<sp/>KernelHandle<sp/>kernel,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;<sp/>CoreCoord<sp/>&gt;<sp/>&amp;<sp/>core_spec,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;<sp/>std::vector&lt;uint32_t&gt;<sp/>&gt;<sp/>&amp;runtime_args);</highlight></codeline>
-<codeline lineno="291"><highlight class="normal"></highlight></codeline>
-<codeline lineno="305" refid="host__api_8hpp_1a7c10cd46327ef8693169b3aee8846a7a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="host__api_8hpp_1a491996adcf69861c22eed34ce1ac68cc" kindref="member">SetRuntimeArgs</ref>(Device*<sp/>device,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;Kernel&gt;<sp/>kernel,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::variant&lt;CoreCoord,<sp/>CoreRange,<sp/>CoreRangeSet&gt;<sp/>&amp;core_spec,<sp/>std::shared_ptr&lt;RuntimeArgs&gt;<sp/>runtime_args);</highlight></codeline>
-<codeline lineno="306"><highlight class="normal"></highlight></codeline>
-<codeline lineno="319" refid="host__api_8hpp_1a5abdf19459659b61a4c2bbcf172f6f35" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="host__api_8hpp_1a491996adcf69861c22eed34ce1ac68cc" kindref="member">SetRuntimeArgs</ref>(Device*<sp/>device,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;Kernel&gt;<sp/>kernel,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;<sp/>CoreCoord<sp/>&gt;<sp/>&amp;<sp/>core_spec,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;std::shared_ptr&lt;RuntimeArgs&gt;&gt;<sp/>runtime_args);</highlight></codeline>
-<codeline lineno="320"><highlight class="normal"></highlight></codeline>
-<codeline lineno="321"><highlight class="normal"></highlight></codeline>
-<codeline lineno="334" refid="host__api_8hpp_1a3b4cf7321eea21c21850b447312f02fa" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="host__api_8hpp_1a3b4cf7321eea21c21850b447312f02fa" kindref="member">SetCommonRuntimeArgs</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Program<sp/>&amp;program,<sp/>KernelHandle<sp/>kernel_id,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;uint32_t&gt;<sp/>&amp;runtime_args);</highlight></codeline>
-<codeline lineno="335"><highlight class="normal"></highlight></codeline>
-<codeline lineno="336"><highlight class="normal"></highlight></codeline>
-<codeline lineno="348" refid="host__api_8hpp_1a8dd2e6d874b20a87745ae83cc88afb51" refkind="member"><highlight class="normal">RuntimeArgsData<sp/>&amp;<sp/><ref refid="host__api_8hpp_1a8dd2e6d874b20a87745ae83cc88afb51" kindref="member">GetRuntimeArgs</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Program<sp/>&amp;program,<sp/>KernelHandle<sp/>kernel_id,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>CoreCoord<sp/>&amp;logical_core);</highlight></codeline>
-<codeline lineno="349"><highlight class="normal"></highlight></codeline>
-<codeline lineno="360" refid="host__api_8hpp_1a1b62db611a9ad2d24c90c043dae989a6" refkind="member"><highlight class="normal">std::vector&lt;<sp/>std::vector&lt;<sp/>RuntimeArgsData<sp/>&gt;<sp/>&gt;<sp/>&amp;<sp/><ref refid="host__api_8hpp_1a8dd2e6d874b20a87745ae83cc88afb51" kindref="member">GetRuntimeArgs</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Program<sp/>&amp;program,<sp/>KernelHandle<sp/>kernel_id);</highlight></codeline>
-<codeline lineno="361"><highlight class="normal"></highlight></codeline>
-<codeline lineno="372" refid="host__api_8hpp_1a2af22a7fb7c71050de7ec2fc9d487ab6" refkind="member"><highlight class="normal">RuntimeArgsData<sp/>&amp;<sp/><ref refid="host__api_8hpp_1a2af22a7fb7c71050de7ec2fc9d487ab6" kindref="member">GetCommonRuntimeArgs</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Program<sp/>&amp;program,<sp/>KernelHandle<sp/>kernel_id);</highlight></codeline>
-<codeline lineno="373"><highlight class="normal"></highlight></codeline>
-<codeline lineno="386" refid="host__api_8hpp_1a72bce18ec81347c077fb802271a7c562" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="host__api_8hpp_1a72bce18ec81347c077fb802271a7c562" kindref="member">EnqueueReadBuffer</ref>(CommandQueue&amp;<sp/>cq,<sp/>std::variant&lt;std::reference_wrapper&lt;Buffer&gt;,<sp/>std::shared_ptr&lt;Buffer&gt;<sp/>&gt;<sp/>buffer,<sp/>std::vector&lt;uint32_t&gt;&amp;<sp/>dst,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>blocking);</highlight></codeline>
-<codeline lineno="387"><highlight class="normal"></highlight></codeline>
-<codeline lineno="400" refid="host__api_8hpp_1a769957ca9a07e91d82cac6fd682a7fd1" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="host__api_8hpp_1a72bce18ec81347c077fb802271a7c562" kindref="member">EnqueueReadBuffer</ref>(CommandQueue&amp;<sp/>cq,<sp/>std::variant&lt;std::reference_wrapper&lt;Buffer&gt;,<sp/>std::shared_ptr&lt;Buffer&gt;<sp/>&gt;<sp/>buffer,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>dst,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>blocking);</highlight></codeline>
-<codeline lineno="401"><highlight class="normal"></highlight></codeline>
-<codeline lineno="414" refid="host__api_8hpp_1a41f4ff2e9c7fca0b1287446f57d37e34" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="host__api_8hpp_1a41f4ff2e9c7fca0b1287446f57d37e34" kindref="member">EnqueueWriteBuffer</ref>(CommandQueue&amp;<sp/>cq,<sp/>std::variant&lt;std::reference_wrapper&lt;Buffer&gt;,<sp/>std::shared_ptr&lt;Buffer&gt;<sp/>&gt;<sp/>buffer,<sp/>std::vector&lt;uint32_t&gt;&amp;<sp/>src,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>blocking);</highlight></codeline>
-<codeline lineno="415"><highlight class="normal"></highlight></codeline>
-<codeline lineno="428" refid="host__api_8hpp_1a474bb3622a9e2927298d2a2a70c90774" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="host__api_8hpp_1a41f4ff2e9c7fca0b1287446f57d37e34" kindref="member">EnqueueWriteBuffer</ref>(CommandQueue&amp;<sp/>cq,<sp/>std::variant&lt;std::reference_wrapper&lt;Buffer&gt;,<sp/>std::shared_ptr&lt;Buffer&gt;<sp/>&gt;<sp/>buffer,<sp/>HostDataType<sp/>src,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>blocking);</highlight></codeline>
-<codeline lineno="429"><highlight class="normal"></highlight></codeline>
-<codeline lineno="441" refid="host__api_8hpp_1a573978c2536748213de459b0a09477b7" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="host__api_8hpp_1a573978c2536748213de459b0a09477b7" kindref="member">EnqueueProgram</ref>(CommandQueue&amp;<sp/>cq,<sp/>std::variant&lt;std::reference_wrapper&lt;Program&gt;,<sp/>std::shared_ptr&lt;Program&gt;<sp/>&gt;<sp/>program,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>blocking);</highlight></codeline>
-<codeline lineno="442"><highlight class="normal"></highlight></codeline>
-<codeline lineno="452" refid="host__api_8hpp_1afc3cc77a54213457805a878231ca3643" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="host__api_8hpp_1afc3cc77a54213457805a878231ca3643" kindref="member">Finish</ref>(CommandQueue&amp;<sp/>cq);</highlight></codeline>
-<codeline lineno="453"><highlight class="normal"></highlight></codeline>
-<codeline lineno="466" refid="host__api_8hpp_1a2bb0ca68f1afddfbefc78b497d21943c" refkind="member"><highlight class="normal">uint32_t<sp/><ref refid="host__api_8hpp_1a2bb0ca68f1afddfbefc78b497d21943c" kindref="member">BeginTraceCapture</ref>(Device<sp/>*device,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>cq_id);</highlight></codeline>
-<codeline lineno="467"><highlight class="normal"></highlight></codeline>
-<codeline lineno="482" refid="host__api_8hpp_1a3eaf4c5845ee7d8153c6ca9cc250df30" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="host__api_8hpp_1a3eaf4c5845ee7d8153c6ca9cc250df30" kindref="member">EndTraceCapture</ref>(Device<sp/>*device,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>cq_id,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>tid);</highlight></codeline>
+<codeline lineno="247" refid="namespacett_1_1tt__metal_1_1v0_1ad7ce765d28d851983f910495c44411cd" refkind="member"><highlight class="normal">uint32_t<sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1ad7ce765d28d851983f910495c44411cd" kindref="member">CreateSemaphore</ref>(</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/>Program<sp/>&amp;program,</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::variant&lt;CoreRange,<sp/>CoreRangeSet&gt;<sp/>&amp;core_spec,</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>initial_value,</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/>CoreType<sp/>core_type<sp/>=<sp/>CoreType::WORKER);</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"></highlight></codeline>
+<codeline lineno="266" refid="namespacett_1_1tt__metal_1_1v0_1a087c394c5ec94274c150ee18ef88ef78" refkind="member"><highlight class="normal">std::unique_ptr&lt;GlobalSemaphore&gt;<sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1a087c394c5ec94274c150ee18ef88ef78" kindref="member">CreateGlobalSemaphore</ref>(</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/>Device<sp/>*device,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>CoreRangeSet<sp/>&amp;cores,<sp/>uint32_t<sp/>initial_value,<sp/>BufferType<sp/>buffer_type<sp/>=<sp/>BufferType::L1);</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"></highlight></codeline>
+<codeline lineno="282" refid="namespacett_1_1tt__metal_1_1v0_1acd4672dc795d11eeac8c1c45bfed6a87" refkind="member"><highlight class="normal">std::unique_ptr&lt;GlobalSemaphore&gt;<sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1a087c394c5ec94274c150ee18ef88ef78" kindref="member">CreateGlobalSemaphore</ref>(</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/>Device<sp/>*device,<sp/>CoreRangeSet<sp/>&amp;&amp;cores,<sp/>uint32_t<sp/>initial_value,<sp/>BufferType<sp/>buffer_type<sp/>=<sp/>BufferType::L1);</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"></highlight></codeline>
+<codeline lineno="294" refid="namespacett_1_1tt__metal_1_1v0_1aec7794124ecb8f3b20ffe95a4c8b390d" refkind="member"><highlight class="normal">std::shared_ptr&lt;Buffer&gt;<sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1aec7794124ecb8f3b20ffe95a4c8b390d" kindref="member">CreateBuffer</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>InterleavedBufferConfig<sp/>&amp;config);</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"></highlight></codeline>
+<codeline lineno="306" refid="namespacett_1_1tt__metal_1_1v0_1a74ad24acd85d50aebe09a2220fd1237c" refkind="member"><highlight class="normal">std::shared_ptr&lt;Buffer&gt;<sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1aec7794124ecb8f3b20ffe95a4c8b390d" kindref="member">CreateBuffer</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>InterleavedBufferConfig<sp/>&amp;config,<sp/>DeviceAddr<sp/>address);</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"></highlight></codeline>
+<codeline lineno="318" refid="namespacett_1_1tt__metal_1_1v0_1a88eb77e75d74b91bec6ad22064eb3b38" refkind="member"><highlight class="normal">std::shared_ptr&lt;Buffer&gt;<sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1aec7794124ecb8f3b20ffe95a4c8b390d" kindref="member">CreateBuffer</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>InterleavedBufferConfig<sp/>&amp;config,<sp/>SubDeviceId<sp/>sub_device_id);</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"></highlight></codeline>
+<codeline lineno="329" refid="namespacett_1_1tt__metal_1_1v0_1a6c254d5b77d19539fd7999c73b7606ad" refkind="member"><highlight class="normal">std::shared_ptr&lt;Buffer&gt;<sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1aec7794124ecb8f3b20ffe95a4c8b390d" kindref="member">CreateBuffer</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ShardedBufferConfig<sp/>&amp;config);</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"></highlight></codeline>
+<codeline lineno="341" refid="namespacett_1_1tt__metal_1_1v0_1ac9703a61146ccd855bea828aade6a720" refkind="member"><highlight class="normal">std::shared_ptr&lt;Buffer&gt;<sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1aec7794124ecb8f3b20ffe95a4c8b390d" kindref="member">CreateBuffer</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ShardedBufferConfig<sp/>&amp;config,<sp/>DeviceAddr<sp/>address);</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"></highlight></codeline>
+<codeline lineno="353" refid="namespacett_1_1tt__metal_1_1v0_1ac9b0f4582de81688db0f46ab932f74f8" refkind="member"><highlight class="normal">std::shared_ptr&lt;Buffer&gt;<sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1aec7794124ecb8f3b20ffe95a4c8b390d" kindref="member">CreateBuffer</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ShardedBufferConfig<sp/>&amp;config,<sp/>SubDeviceId<sp/>sub_device_id);</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"></highlight></codeline>
+<codeline lineno="364" refid="namespacett_1_1tt__metal_1_1v0_1abce385d98e86cf18acb680f183039cb5" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1abce385d98e86cf18acb680f183039cb5" kindref="member">DeallocateBuffer</ref>(Buffer<sp/>&amp;buffer);</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"></highlight></codeline>
+<codeline lineno="376" refid="namespacett_1_1tt__metal_1_1v0_1a1ebc34320ecacb398a25f67c206422d5" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1a1ebc34320ecacb398a25f67c206422d5" kindref="member">AssignGlobalBufferToProgram</ref>(std::shared_ptr&lt;Buffer&gt;<sp/>buffer,<sp/>Program&amp;<sp/>program);</highlight></codeline>
+<codeline lineno="377"><highlight class="normal"></highlight></codeline>
+<codeline lineno="378"><highlight class="normal"></highlight><highlight class="comment">//<sp/>==================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="379"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>COMPILE<sp/>&amp;<sp/>EXECUTE<sp/>KENRNELS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="380"><highlight class="normal"></highlight><highlight class="comment">//<sp/>==================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="381" refid="namespacett_1_1tt__metal_1_1v0_1a5d1cfea010cb740e7307b18b4a7ec9e8" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespacett_1_1tt__metal_1_1v0_1a5d1cfea010cb740e7307b18b4a7ec9e8" kindref="member">RuntimeArgs</ref><sp/>=<sp/>std::vector&lt;std::variant&lt;Buffer<sp/>*,<sp/>uint32_t&gt;&gt;;</highlight></codeline>
+<codeline lineno="395" refid="namespacett_1_1tt__metal_1_1v0_1afb2ca08d5f123ed98b99498324061ba4" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1afb2ca08d5f123ed98b99498324061ba4" kindref="member">SetRuntimeArgs</ref>(</highlight></codeline>
+<codeline lineno="396"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Program<sp/>&amp;program,</highlight></codeline>
+<codeline lineno="397"><highlight class="normal"><sp/><sp/><sp/><sp/>KernelHandle<sp/>kernel,</highlight></codeline>
+<codeline lineno="398"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::variant&lt;CoreCoord,<sp/>CoreRange,<sp/>CoreRangeSet&gt;<sp/>&amp;core_spec,</highlight></codeline>
+<codeline lineno="399"><highlight class="normal"><sp/><sp/><sp/><sp/>stl::Span&lt;const<sp/>uint32_t&gt;<sp/>runtime_args);</highlight></codeline>
+<codeline lineno="400"><highlight class="normal"></highlight></codeline>
+<codeline lineno="414" refid="namespacett_1_1tt__metal_1_1v0_1a74ca7c2b7c798d3c16af2dc931d68df0" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1afb2ca08d5f123ed98b99498324061ba4" kindref="member">SetRuntimeArgs</ref>(</highlight></codeline>
+<codeline lineno="415"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Program<sp/>&amp;program,</highlight></codeline>
+<codeline lineno="416"><highlight class="normal"><sp/><sp/><sp/><sp/>KernelHandle<sp/>kernel,</highlight></codeline>
+<codeline lineno="417"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;CoreCoord&gt;<sp/>&amp;core_spec,</highlight></codeline>
+<codeline lineno="418"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;std::vector&lt;uint32_t&gt;&gt;<sp/>&amp;runtime_args);</highlight></codeline>
+<codeline lineno="419"><highlight class="normal"></highlight></codeline>
+<codeline lineno="433" refid="namespacett_1_1tt__metal_1_1v0_1afdb3df50326c491a4612d21ce45a518a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1afb2ca08d5f123ed98b99498324061ba4" kindref="member">SetRuntimeArgs</ref>(</highlight></codeline>
+<codeline lineno="434"><highlight class="normal"><sp/><sp/><sp/><sp/>Device<sp/>*device,</highlight></codeline>
+<codeline lineno="435"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;Kernel&gt;<sp/>kernel,</highlight></codeline>
+<codeline lineno="436"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::variant&lt;CoreCoord,<sp/>CoreRange,<sp/>CoreRangeSet&gt;<sp/>&amp;core_spec,</highlight></codeline>
+<codeline lineno="437"><highlight class="normal"><sp/><sp/><sp/><sp/>std::shared_ptr&lt;RuntimeArgs&gt;<sp/>runtime_args);</highlight></codeline>
+<codeline lineno="438"><highlight class="normal"></highlight></codeline>
+<codeline lineno="451" refid="namespacett_1_1tt__metal_1_1v0_1a774adf0f130e4a8f75007cca0a33fcb6" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1afb2ca08d5f123ed98b99498324061ba4" kindref="member">SetRuntimeArgs</ref>(</highlight></codeline>
+<codeline lineno="452"><highlight class="normal"><sp/><sp/><sp/><sp/>Device<sp/>*device,</highlight></codeline>
+<codeline lineno="453"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;Kernel&gt;<sp/>kernel,</highlight></codeline>
+<codeline lineno="454"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;CoreCoord&gt;<sp/>&amp;core_spec,</highlight></codeline>
+<codeline lineno="455"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;std::shared_ptr&lt;RuntimeArgs&gt;&gt;<sp/>runtime_args);</highlight></codeline>
+<codeline lineno="456"><highlight class="normal"></highlight></codeline>
+<codeline lineno="469" refid="namespacett_1_1tt__metal_1_1v0_1a8263eba8cd8279b6c1e6db233ec5f133" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1a8263eba8cd8279b6c1e6db233ec5f133" kindref="member">SetCommonRuntimeArgs</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Program<sp/>&amp;program,<sp/>KernelHandle<sp/>kernel_id,<sp/>stl::Span&lt;const<sp/>uint32_t&gt;<sp/>runtime_args);</highlight></codeline>
+<codeline lineno="470"><highlight class="normal"></highlight></codeline>
+<codeline lineno="482" refid="namespacett_1_1tt__metal_1_1v0_1a609d42acfdab49842d577aae66de2e67" refkind="member"><highlight class="normal">RuntimeArgsData<sp/>&amp;<ref refid="namespacett_1_1tt__metal_1_1v0_1a609d42acfdab49842d577aae66de2e67" kindref="member">GetRuntimeArgs</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Program<sp/>&amp;program,<sp/>KernelHandle<sp/>kernel_id,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>CoreCoord<sp/>&amp;logical_core);</highlight></codeline>
 <codeline lineno="483"><highlight class="normal"></highlight></codeline>
-<codeline lineno="496" refid="host__api_8hpp_1a12e0b86cbb5a6ef9930562b684898d90" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="host__api_8hpp_1a12e0b86cbb5a6ef9930562b684898d90" kindref="member">ReplayTrace</ref>(Device<sp/>*device,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>cq_id,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>tid,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>blocking);</highlight></codeline>
-<codeline lineno="497"><highlight class="normal"></highlight></codeline>
-<codeline lineno="510" refid="host__api_8hpp_1a526ece1a413c039607e2973b97cdfa75" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="host__api_8hpp_1a526ece1a413c039607e2973b97cdfa75" kindref="member">ReleaseTrace</ref>(Device<sp/>*device,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>tid);</highlight></codeline>
-<codeline lineno="511"><highlight class="normal"></highlight></codeline>
-<codeline lineno="524" refid="host__api_8hpp_1ac56da2798d8d1a093846845ff06fd773" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="host__api_8hpp_1ac56da2798d8d1a093846845ff06fd773" kindref="member">EnqueueTrace</ref>(CommandQueue<sp/>&amp;cq,<sp/>uint32_t<sp/>trace_id,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>blocking);</highlight></codeline>
-<codeline lineno="525"><highlight class="normal"></highlight></codeline>
-<codeline lineno="538" refid="host__api_8hpp_1a5087c491b5788ee5878cf049066c355a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="host__api_8hpp_1a5087c491b5788ee5878cf049066c355a" kindref="member">DumpDeviceProfileResults</ref>(Device<sp/>*device,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Program<sp/>&amp;program);</highlight></codeline>
-<codeline lineno="539"><highlight class="normal"></highlight></codeline>
-<codeline lineno="548" refid="host__api_8hpp_1a6c9d6bc143bf01946b145bb20c9a4ccd" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="host__api_8hpp_1a6c9d6bc143bf01946b145bb20c9a4ccd" kindref="member">EnqueueRecordEvent</ref>(CommandQueue&amp;<sp/>cq,<sp/>std::shared_ptr&lt;Event&gt;<sp/>event);</highlight></codeline>
-<codeline lineno="549"><highlight class="normal"></highlight></codeline>
-<codeline lineno="559" refid="host__api_8hpp_1a2560cd6db65a03de3e9aad52ff381b6e" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="host__api_8hpp_1a2560cd6db65a03de3e9aad52ff381b6e" kindref="member">EnqueueWaitForEvent</ref>(CommandQueue&amp;<sp/>cq,<sp/>std::shared_ptr&lt;Event&gt;<sp/>event);</highlight></codeline>
+<codeline lineno="494" refid="namespacett_1_1tt__metal_1_1v0_1a65abc534c2bbbe36d118c3b844350a72" refkind="member"><highlight class="normal">std::vector&lt;std::vector&lt;RuntimeArgsData&gt;&gt;<sp/>&amp;<ref refid="namespacett_1_1tt__metal_1_1v0_1a609d42acfdab49842d577aae66de2e67" kindref="member">GetRuntimeArgs</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Program<sp/>&amp;program,<sp/>KernelHandle<sp/>kernel_id);</highlight></codeline>
+<codeline lineno="495"><highlight class="normal"></highlight></codeline>
+<codeline lineno="506" refid="namespacett_1_1tt__metal_1_1v0_1a9117d8f938e3b0c3e6b146f960eafa2f" refkind="member"><highlight class="normal">RuntimeArgsData<sp/>&amp;<ref refid="namespacett_1_1tt__metal_1_1v0_1a9117d8f938e3b0c3e6b146f960eafa2f" kindref="member">GetCommonRuntimeArgs</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Program<sp/>&amp;program,<sp/>KernelHandle<sp/>kernel_id);</highlight></codeline>
+<codeline lineno="507"><highlight class="normal"></highlight></codeline>
+<codeline lineno="521" refid="namespacett_1_1tt__metal_1_1v0_1a76bb833452d2265a33a294eef1140782" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1a76bb833452d2265a33a294eef1140782" kindref="member">EnqueueReadBuffer</ref>(</highlight></codeline>
+<codeline lineno="522"><highlight class="normal"><sp/><sp/><sp/><sp/>CommandQueue<sp/>&amp;cq,</highlight></codeline>
+<codeline lineno="523"><highlight class="normal"><sp/><sp/><sp/><sp/>std::variant&lt;std::reference_wrapper&lt;Buffer&gt;,<sp/>std::shared_ptr&lt;Buffer&gt;&gt;<sp/>buffer,</highlight></codeline>
+<codeline lineno="524"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*dst,</highlight></codeline>
+<codeline lineno="525"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>blocking,</highlight></codeline>
+<codeline lineno="526"><highlight class="normal"><sp/><sp/><sp/><sp/>tt::stl::Span&lt;const<sp/>SubDeviceId&gt;<sp/>sub_device_ids<sp/>=<sp/>{});</highlight></codeline>
+<codeline lineno="527"><highlight class="normal"></highlight></codeline>
+<codeline lineno="541"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>DType&gt;</highlight></codeline>
+<codeline lineno="542" refid="namespacett_1_1tt__metal_1_1v0_1aed6950194c0970fe3d6f35657524e44b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1a76bb833452d2265a33a294eef1140782" kindref="member">EnqueueReadBuffer</ref>(</highlight></codeline>
+<codeline lineno="543"><highlight class="normal"><sp/><sp/><sp/><sp/>CommandQueue<sp/>&amp;cq,</highlight></codeline>
+<codeline lineno="544"><highlight class="normal"><sp/><sp/><sp/><sp/>Buffer&amp;<sp/>buffer,</highlight></codeline>
+<codeline lineno="545"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;DType&gt;<sp/>&amp;dst,</highlight></codeline>
+<codeline lineno="546"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>blocking,</highlight></codeline>
+<codeline lineno="547"><highlight class="normal"><sp/><sp/><sp/><sp/>tt::stl::Span&lt;const<sp/>SubDeviceId&gt;<sp/>sub_device_ids<sp/>=<sp/>{})<sp/>{</highlight></codeline>
+<codeline lineno="548"><highlight class="normal"><sp/><sp/><sp/><sp/>dst.resize(buffer.page_size()<sp/>*<sp/>buffer.num_pages()<sp/>/<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(DType));</highlight></codeline>
+<codeline lineno="549"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1a76bb833452d2265a33a294eef1140782" kindref="member">EnqueueReadBuffer</ref>(cq,<sp/>buffer,<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(dst.data()),<sp/>blocking,<sp/>sub_device_ids);</highlight></codeline>
+<codeline lineno="550"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="551"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>DType&gt;</highlight></codeline>
+<codeline lineno="552" refid="namespacett_1_1tt__metal_1_1v0_1adfbc3816d634690201a2864b0e6ea1d8" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1a76bb833452d2265a33a294eef1140782" kindref="member">EnqueueReadBuffer</ref>(</highlight></codeline>
+<codeline lineno="553"><highlight class="normal"><sp/><sp/><sp/><sp/>CommandQueue<sp/>&amp;cq,</highlight></codeline>
+<codeline lineno="554"><highlight class="normal"><sp/><sp/><sp/><sp/>std::shared_ptr&lt;Buffer&gt;<sp/>buffer,</highlight></codeline>
+<codeline lineno="555"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;DType&gt;<sp/>&amp;dst,</highlight></codeline>
+<codeline lineno="556"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>blocking,</highlight></codeline>
+<codeline lineno="557"><highlight class="normal"><sp/><sp/><sp/><sp/>tt::stl::Span&lt;const<sp/>SubDeviceId&gt;<sp/>sub_device_ids<sp/>=<sp/>{})<sp/>{</highlight></codeline>
+<codeline lineno="558"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1a76bb833452d2265a33a294eef1140782" kindref="member">EnqueueReadBuffer</ref>(cq,<sp/>*buffer,<sp/>dst,<sp/>blocking,<sp/>sub_device_ids);</highlight></codeline>
+<codeline lineno="559"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="560"><highlight class="normal"></highlight></codeline>
-<codeline lineno="568" refid="host__api_8hpp_1a503f5ffa5860947b42872b7fe326bac5" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="host__api_8hpp_1a503f5ffa5860947b42872b7fe326bac5" kindref="member">EventSynchronize</ref>(std::shared_ptr&lt;Event&gt;<sp/>event);</highlight></codeline>
-<codeline lineno="569"><highlight class="normal"></highlight></codeline>
-<codeline lineno="577" refid="host__api_8hpp_1a017d64ee3fbb64880859d52a21f7f474" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="host__api_8hpp_1a017d64ee3fbb64880859d52a21f7f474" kindref="member">EventQuery</ref>(std::shared_ptr&lt;Event&gt;<sp/>event);</highlight></codeline>
-<codeline lineno="578"><highlight class="normal"></highlight></codeline>
-<codeline lineno="579"><highlight class="normal"></highlight></codeline>
-<codeline lineno="580"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>tt_metal</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="581"><highlight class="normal"></highlight></codeline>
-<codeline lineno="582"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>tt</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="575"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>DType&gt;</highlight></codeline>
+<codeline lineno="576" refid="namespacett_1_1tt__metal_1_1v0_1a7c3bea917e3563c642147c3f34911270" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1a7c3bea917e3563c642147c3f34911270" kindref="member">EnqueueWriteBuffer</ref>(</highlight></codeline>
+<codeline lineno="577"><highlight class="normal"><sp/><sp/><sp/><sp/>CommandQueue<sp/>&amp;cq,</highlight></codeline>
+<codeline lineno="578"><highlight class="normal"><sp/><sp/><sp/><sp/>std::variant&lt;std::reference_wrapper&lt;Buffer&gt;,<sp/>std::shared_ptr&lt;Buffer&gt;&gt;<sp/>buffer,</highlight></codeline>
+<codeline lineno="579"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;DType&gt;<sp/>&amp;src,</highlight></codeline>
+<codeline lineno="580"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>blocking,</highlight></codeline>
+<codeline lineno="581"><highlight class="normal"><sp/><sp/><sp/><sp/>tt::stl::Span&lt;const<sp/>SubDeviceId&gt;<sp/>sub_device_ids<sp/>=<sp/>{})<sp/>{</highlight></codeline>
+<codeline lineno="582"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1a7c3bea917e3563c642147c3f34911270" kindref="member">EnqueueWriteBuffer</ref>(cq,<sp/>buffer,<sp/>src.data(),<sp/>blocking,<sp/>sub_device_ids);</highlight></codeline>
+<codeline lineno="583"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="584"><highlight class="normal"></highlight></codeline>
+<codeline lineno="598" refid="namespacett_1_1tt__metal_1_1v0_1a634370b608fd0b78795ab3d7b128c9f0" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1a7c3bea917e3563c642147c3f34911270" kindref="member">EnqueueWriteBuffer</ref>(</highlight></codeline>
+<codeline lineno="599"><highlight class="normal"><sp/><sp/><sp/><sp/>CommandQueue<sp/>&amp;cq,</highlight></codeline>
+<codeline lineno="600"><highlight class="normal"><sp/><sp/><sp/><sp/>std::variant&lt;std::reference_wrapper&lt;Buffer&gt;,<sp/>std::shared_ptr&lt;Buffer&gt;&gt;<sp/>buffer,</highlight></codeline>
+<codeline lineno="601"><highlight class="normal"><sp/><sp/><sp/><sp/>HostDataType<sp/>src,</highlight></codeline>
+<codeline lineno="602"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>blocking,</highlight></codeline>
+<codeline lineno="603"><highlight class="normal"><sp/><sp/><sp/><sp/>tt::stl::Span&lt;const<sp/>SubDeviceId&gt;<sp/>sub_device_ids<sp/>=<sp/>{});</highlight></codeline>
+<codeline lineno="604"><highlight class="normal"></highlight></codeline>
+<codeline lineno="616" refid="namespacett_1_1tt__metal_1_1v0_1ab74d31b79ae9a8fe25468bc95b13ee2a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1ab74d31b79ae9a8fe25468bc95b13ee2a" kindref="member">EnqueueProgram</ref>(CommandQueue&amp;<sp/>cq,<sp/>Program&amp;<sp/>program,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>blocking);</highlight></codeline>
+<codeline lineno="617"><highlight class="normal"></highlight></codeline>
+<codeline lineno="628" refid="namespacett_1_1tt__metal_1_1v0_1a41ad47ba118422cf5d162a24289f53cb" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1a41ad47ba118422cf5d162a24289f53cb" kindref="member">Finish</ref>(CommandQueue<sp/>&amp;cq,<sp/>tt::stl::Span&lt;const<sp/>SubDeviceId&gt;<sp/>sub_device_ids<sp/>=<sp/>{});</highlight></codeline>
+<codeline lineno="629"><highlight class="normal"></highlight></codeline>
+<codeline lineno="642" refid="namespacett_1_1tt__metal_1_1v0_1a2ebe853244ec21092c0a4c24a76ac9d7" refkind="member"><highlight class="normal">uint32_t<sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1a2ebe853244ec21092c0a4c24a76ac9d7" kindref="member">BeginTraceCapture</ref>(Device<sp/>*device,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>cq_id);</highlight></codeline>
+<codeline lineno="643"><highlight class="normal"></highlight></codeline>
+<codeline lineno="658" refid="namespacett_1_1tt__metal_1_1v0_1a868dff83af5a6f69735afddfb8123016" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1a868dff83af5a6f69735afddfb8123016" kindref="member">EndTraceCapture</ref>(Device<sp/>*device,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>cq_id,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>tid);</highlight></codeline>
+<codeline lineno="659"><highlight class="normal"></highlight></codeline>
+<codeline lineno="672" refid="namespacett_1_1tt__metal_1_1v0_1aaf7e23130adb368821457f261e37cd9b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1aaf7e23130adb368821457f261e37cd9b" kindref="member">ReplayTrace</ref>(Device<sp/>*device,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>cq_id,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>tid,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>blocking);</highlight></codeline>
+<codeline lineno="673"><highlight class="normal"></highlight></codeline>
+<codeline lineno="686" refid="namespacett_1_1tt__metal_1_1v0_1ad8540d48e27a58a9519483782991eba0" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1ad8540d48e27a58a9519483782991eba0" kindref="member">ReleaseTrace</ref>(Device<sp/>*device,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>tid);</highlight></codeline>
+<codeline lineno="687"><highlight class="normal"></highlight></codeline>
+<codeline lineno="700" refid="namespacett_1_1tt__metal_1_1v0_1a35c2d778c2f00844d1113c0e011522f2" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1a35c2d778c2f00844d1113c0e011522f2" kindref="member">EnqueueTrace</ref>(CommandQueue<sp/>&amp;cq,<sp/>uint32_t<sp/>trace_id,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>blocking);</highlight></codeline>
+<codeline lineno="701"><highlight class="normal"></highlight></codeline>
+<codeline lineno="714" refid="namespacett_1_1tt__metal_1_1v0_1a617bb9ae1b430271808f81999a4ef53e" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1a617bb9ae1b430271808f81999a4ef53e" kindref="member">DumpDeviceProfileResults</ref>(Device<sp/>*device,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Program<sp/>&amp;program);</highlight></codeline>
+<codeline lineno="715"><highlight class="normal"></highlight></codeline>
+<codeline lineno="725" refid="namespacett_1_1tt__metal_1_1v0_1a57cb44e976abef6030c7dbb73970d800" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1a57cb44e976abef6030c7dbb73970d800" kindref="member">EnqueueRecordEvent</ref>(CommandQueue<sp/>&amp;cq,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;Event&gt;<sp/>&amp;event,<sp/>tt::stl::Span&lt;const<sp/>SubDeviceId&gt;<sp/>sub_device_ids<sp/>=<sp/>{});</highlight></codeline>
+<codeline lineno="726"><highlight class="normal"></highlight></codeline>
+<codeline lineno="736" refid="namespacett_1_1tt__metal_1_1v0_1a0348eff37a292f881b5b88193d8196f6" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1a0348eff37a292f881b5b88193d8196f6" kindref="member">EnqueueWaitForEvent</ref>(CommandQueue<sp/>&amp;cq,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;Event&gt;<sp/>&amp;event);</highlight></codeline>
+<codeline lineno="737"><highlight class="normal"></highlight></codeline>
+<codeline lineno="745" refid="namespacett_1_1tt__metal_1_1v0_1a7965734b9b4f42fd7b96da7cdcc45927" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1a7965734b9b4f42fd7b96da7cdcc45927" kindref="member">EventSynchronize</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;Event&gt;<sp/>&amp;event);</highlight></codeline>
+<codeline lineno="746"><highlight class="normal"></highlight></codeline>
+<codeline lineno="754" refid="namespacett_1_1tt__metal_1_1v0_1a51fd82461b3734afccb8f11427564181" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1a51fd82461b3734afccb8f11427564181" kindref="member">EventQuery</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;Event&gt;<sp/>&amp;event);</highlight></codeline>
+<codeline lineno="755"><highlight class="normal"></highlight></codeline>
+<codeline lineno="769" refid="namespacett_1_1tt__metal_1_1v0_1abbef214f3ba879469488d367053046cb" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v0_1abbef214f3ba879469488d367053046cb" kindref="member">Synchronize</ref>(Device<sp/>*device,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::optional&lt;uint8_t&gt;<sp/>cq_id<sp/>=<sp/>std::nullopt,<sp/>tt::stl::Span&lt;const<sp/>SubDeviceId&gt;<sp/>sub_device_ids<sp/>=<sp/>{});</highlight></codeline>
+<codeline lineno="770"><highlight class="normal"></highlight></codeline>
+<codeline lineno="771"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>v0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="772"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>tt_metal</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="773"><highlight class="normal"></highlight></codeline>
+<codeline lineno="774"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>tt</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="tt_metal/host_api.hpp"/>
   </compounddef>

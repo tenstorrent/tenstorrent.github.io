@@ -1,15 +1,11 @@
 var searchData=
 [
-  ['cb_5fpop_5ffront_0',['cb_pop_front',['../dataflow__api_8h.html#aa3daf8e5e7299140cf2607be1a8656b0',1,'dataflow_api.h']]],
-  ['cb_5fpush_5fback_1',['cb_push_back',['../dataflow__api_8h.html#a81357224b88562601b42833eec676ffb',1,'dataflow_api.h']]],
-  ['cb_5freserve_5fback_2',['cb_reserve_back',['../dataflow__api_8h.html#a29521dee07b0070674a988f66c01ffed',1,'dataflow_api.h']]],
-  ['cb_5fwait_5ffront_3',['cb_wait_front',['../dataflow__api_8h.html#af6d8057bd05a650c3501c5208f7d9f8a',1,'dataflow_api.h']]],
-  ['closedevice_4',['CloseDevice',['../host__api_8hpp.html#a25ae925200ca85a3274824f1b945ebc1',1,'tt::tt_metal']]],
-  ['createbuffer_5',['CreateBuffer',['../host__api_8hpp.html#a44f12170a79821c7a1eb7dcad8e9014e',1,'tt::tt_metal::CreateBuffer(const InterleavedBufferConfig &amp;config)'],['../host__api_8hpp.html#a8e5af0183154c8b303d43acec393ec29',1,'tt::tt_metal::CreateBuffer(const ShardedBufferConfig &amp;config)']]],
-  ['createcircularbuffer_6',['CreateCircularBuffer',['../host__api_8hpp.html#a62b10a9d4d6ed91eacaba5d27c9761fb',1,'tt::tt_metal']]],
-  ['createdevice_7',['CreateDevice',['../host__api_8hpp.html#a8332bdd9a9ffe6e0cedf921e438fe7ed',1,'tt::tt_metal']]],
-  ['createdeviceminimal_8',['CreateDeviceMinimal',['../host__api_8hpp.html#a07e0aaf41772593d1d017db950e3b7b3',1,'tt::tt_metal']]],
-  ['createkernel_9',['CreateKernel',['../host__api_8hpp.html#ae7930dd08bf0ae0c83c8ee55f3f604b9',1,'tt::tt_metal']]],
-  ['createprogram_10',['CreateProgram',['../host__api_8hpp.html#a48b1af1b20561d626ff34f39282f1dea',1,'tt::tt_metal']]],
-  ['createsemaphore_11',['CreateSemaphore',['../host__api_8hpp.html#a8860cbc40324a9cc2e18badc55a77a68',1,'tt::tt_metal']]]
+  ['dbg_5fhalt_0',['dbg_halt',['../namespaceckernel.html#a27956d536797fa0c3dad4eab6148d731',1,'ckernel']]],
+  ['dbg_5fread_5fdest_5facc_5frow_1',['dbg_read_dest_acc_row',['../namespaceckernel.html#a5df20a0a40dac9e97e6b73b0d4fd0c88',1,'ckernel']]],
+  ['dbg_5funhalt_2',['dbg_unhalt',['../namespaceckernel.html#aa73b548e1869c77a4b1d2a4a345b942d',1,'ckernel']]],
+  ['deallocatebuffer_3',['DeallocateBuffer',['../namespacett_1_1tt__metal_1_1v0.html#abce385d98e86cf18acb680f183039cb5',1,'tt::tt_metal::DeallocateBuffer()'],['../namespacett_1_1tt__metal_1_1v0.html#abce385d98e86cf18acb680f183039cb5',1,'tt::tt_metal::v0::DeallocateBuffer()'],['../namespacett_1_1tt__metal_1_1v1.html#ab8878e4e772b19708f2ffb47aef88b46',1,'tt::tt_metal::v1::DeallocateBuffer(BufferHandle buffer)']]],
+  ['deallocatebuffers_4',['DeallocateBuffers',['../namespacett_1_1tt__metal_1_1v1.html#a7d62fcb4cb9f38f4bb66ac7ec545dd1d',1,'tt::tt_metal::v1']]],
+  ['devicesynchronize_5',['DeviceSynchronize',['../namespacett_1_1tt__metal_1_1v1.html#a88371fc86019f3020c265456c559929b',1,'tt::tt_metal::v1']]],
+  ['disableandclearprogramcache_6',['DisableAndClearProgramCache',['../namespacett_1_1tt__metal_1_1v1.html#a52a74fef1f54b84399e622a704af37e5',1,'tt::tt_metal::v1']]],
+  ['dumpdeviceprofileresults_7',['DumpDeviceProfileResults',['../namespacett_1_1tt__metal_1_1v0.html#a617bb9ae1b430271808f81999a4ef53e',1,'tt::tt_metal::DumpDeviceProfileResults()'],['../namespacett_1_1tt__metal_1_1v0.html#a617bb9ae1b430271808f81999a4ef53e',1,'tt::tt_metal::v0::DumpDeviceProfileResults()'],['../namespacett_1_1tt__metal_1_1v1.html#a6af2edef85ff9e04ef2a45eda2148f16',1,'tt::tt_metal::v1::DumpDeviceProfileResults()']]]
 ];

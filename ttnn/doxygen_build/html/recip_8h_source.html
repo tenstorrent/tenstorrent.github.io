@@ -76,7 +76,7 @@ $(function() {
   <div class="headertitle"><div class="title">recip.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// SPDX-FileCopyrightText: © 2023 Tenstorrent Inc.</span></div>
+<a href="recip_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// SPDX-FileCopyrightText: © 2023 Tenstorrent Inc.</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">//</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
@@ -89,22 +89,27 @@ $(function() {
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#define MAIN math_main()</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#define MATH(x) x</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#else</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#define MATH(x)</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="recip_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">   14</a></span><span class="preprocessor">#define MATH(x)</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">namespace </span>ckernel {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceckernel.html">ckernel</a> {</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>ALWI <span class="keywordtype">void</span> recip_tile_init() {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    MATH(( llk_math_eltwise_unary_sfpu_reciprocal_init&lt;APPROX&gt;() ));</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="namespaceckernel.html#a506824a7a457435e622ba1fffc8d8678">   24</a></span><a class="code hl_define" href="compute__kernel__api_8h.html#a102b55d753f30b2569dd7976e1917038">ALWI</a> <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceckernel.html#a506824a7a457435e622ba1fffc8d8678">recip_tile_init</a>() {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_define" href="erf__erfc_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">MATH</a>(( llk_math_eltwise_unary_sfpu_reciprocal_init&lt;APPROX&gt;() ));</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>}</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>ALWI <span class="keywordtype">void</span> recip_tile(uint32_t idst) {</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    MATH(( llk_math_eltwise_unary_sfpu_reciprocal&lt;APPROX&gt;(idst) ));</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>}</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>} <span class="comment">// namespace ckernel</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="namespaceckernel.html#a31441a86e04985c013f03fca3c59f55d">   41</a></span><a class="code hl_define" href="compute__kernel__api_8h.html#a102b55d753f30b2569dd7976e1917038">ALWI</a> <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceckernel.html#a31441a86e04985c013f03fca3c59f55d">recip_tile</a>(uint32_t idst) {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_define" href="erf__erfc_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">MATH</a>(( llk_math_eltwise_unary_sfpu_reciprocal&lt;APPROX, DST_ACCUM_MODE&gt;(idst) ));</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>}</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>} <span class="comment">// namespace ckernel</span></div>
+<div class="ttc" id="acompute__kernel__api_8h_html_a102b55d753f30b2569dd7976e1917038"><div class="ttname"><a href="compute__kernel__api_8h.html#a102b55d753f30b2569dd7976e1917038">ALWI</a></div><div class="ttdeci">#define ALWI</div><div class="ttdef"><b>Definition:</b> compute_kernel_api.h:15</div></div>
+<div class="ttc" id="aerf__erfc_8h_html_a5f8a5b21f170f78a59c6aca4376e757d"><div class="ttname"><a href="erf__erfc_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">MATH</a></div><div class="ttdeci">#define MATH(x)</div><div class="ttdef"><b>Definition:</b> erf_erfc.h:13</div></div>
+<div class="ttc" id="anamespaceckernel_html"><div class="ttname"><a href="namespaceckernel.html">ckernel</a></div><div class="ttdef"><b>Definition:</b> erf_erfc.h:16</div></div>
+<div class="ttc" id="anamespaceckernel_html_a31441a86e04985c013f03fca3c59f55d"><div class="ttname"><a href="namespaceckernel.html#a31441a86e04985c013f03fca3c59f55d">ckernel::recip_tile</a></div><div class="ttdeci">void recip_tile(uint32_t idst)</div><div class="ttdef"><b>Definition:</b> recip.h:41</div></div>
+<div class="ttc" id="anamespaceckernel_html_a506824a7a457435e622ba1fffc8d8678"><div class="ttname"><a href="namespaceckernel.html#a506824a7a457435e622ba1fffc8d8678">ckernel::recip_tile_init</a></div><div class="ttdeci">void recip_tile_init()</div><div class="ttdef"><b>Definition:</b> recip.h:24</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

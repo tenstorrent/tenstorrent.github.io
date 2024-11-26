@@ -1,4 +1,28 @@
 var searchData=
 [
-  ['_5f_5fattribute_5f_5f_0',['__attribute__',['../dataflow__api_8h.html#aaeb67c582bba445a7c2e7eac520cd84e',1,'dataflow_api.h']]]
+  ['abs_5ftile_0',['abs_tile',['../namespaceckernel.html#aac709b6fecfd6b34793d44b8a0283530',1,'ckernel']]],
+  ['abs_5ftile_5finit_1',['abs_tile_init',['../namespaceckernel.html#ac9164eb8233a4b5db0165ef3879c13d3',1,'ckernel']]],
+  ['acos_5ftile_2',['acos_tile',['../namespaceckernel.html#ac71f04a726285cd4b0bfadc31eb6cbeb',1,'ckernel']]],
+  ['acos_5ftile_5finit_3',['acos_tile_init',['../namespaceckernel.html#ae3124122e43788f56d6d93e3e668bd0b',1,'ckernel']]],
+  ['acquire_5fdst_4',['acquire_dst',['../namespaceckernel.html#ab3e5c0b33fb9768ebd6a7649dca13d56',1,'ckernel']]],
+  ['add_5fbcast_5fcols_5finit_5fshort_5',['add_bcast_cols_init_short',['../namespaceckernel.html#ae985587f12cada5d6a8af4c1a2252e92',1,'ckernel']]],
+  ['add_5fbcast_5frows_5finit_5fshort_6',['add_bcast_rows_init_short',['../namespaceckernel.html#ac8358653b6f7b22d1931166373b21b07',1,'ckernel']]],
+  ['add_5fbcast_5fscalar_5finit_5fshort_7',['add_bcast_scalar_init_short',['../namespaceckernel.html#a335020a55a6f60210246e438a16bbeee',1,'ckernel']]],
+  ['add_5ftiles_8',['add_tiles',['../namespaceckernel.html#a5a091c5371932422fc303adea3eec806',1,'ckernel']]],
+  ['add_5ftiles_5fbcast_9',['add_tiles_bcast',['../namespaceckernel.html#ab69ce76cfa211ae46dea6f04035a8050',1,'ckernel']]],
+  ['add_5ftiles_5fbcast_5fcols_10',['add_tiles_bcast_cols',['../namespaceckernel.html#ac6a07f0334b79f3a1945e988bed27e95',1,'ckernel']]],
+  ['add_5ftiles_5fbcast_5frows_11',['add_tiles_bcast_rows',['../namespaceckernel.html#aab33367f38dde9e23fe6125541eb0568',1,'ckernel']]],
+  ['add_5ftiles_5fbcast_5fscalar_12',['add_tiles_bcast_scalar',['../namespaceckernel.html#ae0c56cbe89c2bf82e59321407a6397de',1,'ckernel']]],
+  ['add_5ftiles_5finit_13',['add_tiles_init',['../namespaceckernel.html#ab15f8bb9e954453c9391caf073cbb2ee',1,'ckernel']]],
+  ['add_5ftiles_5finit_5fnof_14',['add_tiles_init_nof',['../namespaceckernel.html#a38862808571447611983528275f91831',1,'ckernel']]],
+  ['align_15',['align',['../dataflow__api_8h.html#ac4752c4d9a07974ce99aaa671a675fe2',1,'dataflow_api.h']]],
+  ['aligned_5flog_5fbase_5f2_5fof_5fpage_5fsize_16',['aligned_log_base_2_of_page_size',['../structInterleavedPow2AddrGenFast.html#a3224a2e3ac1ee4f310032d79f75d21b3',1,'InterleavedPow2AddrGenFast::aligned_log_base_2_of_page_size()'],['../structInterleavedPow2AddrGen.html#a4302cce27635310c3dc29c6ea2dc151e',1,'InterleavedPow2AddrGen::aligned_log_base_2_of_page_size()']]],
+  ['aligned_5fpage_5fsize_17',['aligned_page_size',['../structInterleavedAddrGen.html#a35965eeb3ca9036dd89a46ac81c435b7',1,'InterleavedAddrGen']]],
+  ['alwi_18',['ALWI',['../compute__kernel__api_8h.html#a102b55d753f30b2569dd7976e1917038',1,'compute_kernel_api.h']]],
+  ['any_5ftiles_5fbcast_19',['any_tiles_bcast',['../namespaceckernel.html#a6a7594ecae6f992d81148ab148486906',1,'ckernel']]],
+  ['asin_5ftile_20',['asin_tile',['../namespaceckernel.html#a7300e956259f09f938aaf30d266145b3',1,'ckernel']]],
+  ['asin_5ftile_5finit_21',['asin_tile_init',['../namespaceckernel.html#ae301e69cc106f101a05c17943f50a709',1,'ckernel']]],
+  ['assignglobalbuffertoprogram_22',['AssignGlobalBufferToProgram',['../namespacett_1_1tt__metal_1_1v0.html#a1ebc34320ecacb398a25f67c206422d5',1,'tt::tt_metal::AssignGlobalBufferToProgram()'],['../namespacett_1_1tt__metal_1_1v0.html#a1ebc34320ecacb398a25f67c206422d5',1,'tt::tt_metal::v0::AssignGlobalBufferToProgram()']]],
+  ['atan_5ftile_23',['atan_tile',['../namespaceckernel.html#ada371d824d49e63e32e718eea281959f',1,'ckernel']]],
+  ['atan_5ftile_5finit_24',['atan_tile_init',['../namespaceckernel.html#a74eef3940cc3f25fa0c5d99f4e1098ac',1,'ckernel']]]
 ];

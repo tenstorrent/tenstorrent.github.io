@@ -1,8 +1,8 @@
 \hypertarget{tilize_8h_source}{}\doxysection{tilize.\+h}
 \label{tilize_8h_source}\index{tt\_metal/include/compute\_kernel\_api/tilize.h@{tt\_metal/include/compute\_kernel\_api/tilize.h}}
-
+\mbox{\hyperlink{tilize_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{comment}{//\ SPDX-\/FileCopyrightText:\ ©\ 2023\ Tenstorrent\ Inc.}}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ SPDX-\/FileCopyrightText:\ ©\ 2024\ Tenstorrent\ Inc.}}
 \DoxyCodeLine{00002\ \textcolor{comment}{//}}
 \DoxyCodeLine{00003\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
 \DoxyCodeLine{00004\ }
@@ -19,127 +19,136 @@
 \DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}llk\_unpack\_tilize\_api.h"{}}}
 \DoxyCodeLine{00016\ \textcolor{preprocessor}{\#endif}}
 \DoxyCodeLine{00017\ }
-\DoxyCodeLine{00018\ \textcolor{keyword}{namespace\ }ckernel\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceckernel}{ckernel}}\ \{}
 \DoxyCodeLine{00019\ }
 \DoxyCodeLine{00020\ }
 \DoxyCodeLine{00021\ }
-\DoxyCodeLine{00025\ ALWI\ \textcolor{keywordtype}{void}\ tilize\_init(uint32\_t\ icb,\ uint32\_t\ block,\ uint32\_t\ ocb\ =\ 16)}
+\DoxyCodeLine{00025\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a8eba17d70dc66acc17db5fb7badb16ae}{tilize\_init}}(uint32\_t\ icb,\ uint32\_t\ block,\ uint32\_t\ ocb\ =\ 16)}
 \DoxyCodeLine{00026\ \{}
-\DoxyCodeLine{00027\ \ \ \ \ MATH((\ llk\_math\_eltwise\_unary\_datacopy\_init<A2D,\ BroadcastType::NONE,\ DST\_ACCUM\_MODE>(\textcolor{keyword}{false}\ \textcolor{comment}{/*transpose\ of\ faces*/},\ \textcolor{keyword}{false}\ \textcolor{comment}{/*transpose\ within\ 16x16\ face*/},\ icb)\ ));}
-\DoxyCodeLine{00028\ \ \ \ \ MATH((\ llk\_math\_pack\_sync\_init<DST\_ACCUM\_MODE>()\ ));}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \ \ \ \ PACK((\ llk\_pack\_hw\_configure\_disaggregated<false,\ DST\_ACCUM\_MODE>(ocb)\ ));}
-\DoxyCodeLine{00031\ \ \ \ \ PACK((\ llk\_pack\_init(ocb)\ ));}
-\DoxyCodeLine{00032\ \ \ \ \ PACK((\ llk\_setup\_outputs()\ ));}
-\DoxyCodeLine{00033\ \ \ \ \ PACK((\ llk\_pack\_dest\_init<false,\ DST\_ACCUM\_MODE>(ocb)\ ));}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((\ llk\_math\_eltwise\_unary\_datacopy\_init<A2D,\ BroadcastType::NONE,\ DST\_ACCUM\_MODE,\ false/*is\_int\_en*/,\ true/*tilize\ en*/>(\textcolor{keyword}{false}\ \textcolor{comment}{/*transpose\ of\ faces*/},\ \textcolor{keyword}{false}\ \textcolor{comment}{/*transpose\ within\ 16x16\ face*/},\ icb)\ ));}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((\ llk\_math\_pack\_sync\_init<DST\_ACCUM\_MODE>()\ ));}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((\ llk\_math\_hw\_configure\_disaggregated(icb,\ icb)\ ));}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a06e48c7c5c133a4905da88bd82bd6b91}{PACK}}((\ llk\_pack\_hw\_configure\_disaggregated<false,\ DST\_ACCUM\_MODE,\ ReluType::NO\_RELU,\ 0,\ true/*tilize\ en*/>(ocb)\ ));}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a06e48c7c5c133a4905da88bd82bd6b91}{PACK}}((\ llk\_pack\_init<false,\ false,\ true/*tilize\ en*/>(ocb)\ ));}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a06e48c7c5c133a4905da88bd82bd6b91}{PACK}}((\ llk\_pack\_dest\_init<false,\ DST\_ACCUM\_MODE>(ocb)\ ));}
 \DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \ \ \ \ UNPACK((\ llk\_setup\_operands()\ ));}
-\DoxyCodeLine{00036\ \ \ \ \ UNPACK((\ llk\_unpack\_tilize\_hw\_configure\_disaggregated<DST\_ACCUM\_MODE>(icb)\ ));}
-\DoxyCodeLine{00037\ \ \ \ \ UNPACK((\ llk\_unpack\_tilize\_init(icb,\ block)\ ));}
-\DoxyCodeLine{00038\ \}}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#if\ (defined(REDUCE\_OP)\ and\ defined(REDUCE\_DIM))\ or\ defined(\_\_DOXYGEN\_\_)}}
-\DoxyCodeLine{00044\ ALWI\ \textcolor{keywordtype}{void}\ tilizeA\_B\_reduce\_init(uint32\_t\ icb0,\ uint32\_t\ icb1\_scaler,\ uint32\_t\ block,\ uint32\_t\ ocb\ =\ 16,\ uint32\_t\ num\_faces\ =\ 4,\ uint32\_t\ face\_r\_dim\ =\ 16)}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((\ llk\_unpack\_tilize\_hw\_configure\_disaggregated<DST\_ACCUM\_MODE>(icb)\ ));}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((\ llk\_unpack\_tilize\_init(icb,\ block)\ ));}
+\DoxyCodeLine{00037\ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#if\ (defined(REDUCE\_OP)\ and\ defined(REDUCE\_DIM))\ or\ defined(\_\_DOXYGEN\_\_)}}
+\DoxyCodeLine{00043\ \textcolor{keyword}{template}<\textcolor{keywordtype}{bool}\ neginf\_srcA\ =\ true,\ \textcolor{keywordtype}{bool}\ zero\_srcA\_reduce\ =\ false>}
+\DoxyCodeLine{00044\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a4f14abbc6a9f82516c94a9c6876d4765}{tilizeA\_B\_reduce\_init}}(uint32\_t\ icb0,\ uint32\_t\ icb1\_scaler,\ uint32\_t\ block,\ uint32\_t\ ocb\ =\ 16,\ uint32\_t\ num\_faces\ =\ 4,\ uint32\_t\ face\_r\_dim\ =\ 16)}
 \DoxyCodeLine{00045\ \{}
-\DoxyCodeLine{00046\ \ \ \ \ UNPACK((\ llk\_setup\_operands()\ ));}
-\DoxyCodeLine{00047\ \ \ \ \ UNPACK((\ llk\_unpack\_tilizeA\_B\_hw\_configure\_disaggregated<DST\_ACCUM\_MODE>(icb0,\ icb1\_scaler)\ ));}
-\DoxyCodeLine{00048\ \ \ \ \ UNPACK((\ llk\_unpack\_tilizeA\_B\_init<true,\ true>(icb0,\ icb1\_scaler,\ block,\ num\_faces,\ face\_r\_dim,\ 1)\ ));}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \ \ \ \ MATH((\ llk\_math\_reduce\_init<REDUCE\_OP,\ REDUCE\_DIM,\ MATH\_FIDELITY>()\ ));}
-\DoxyCodeLine{00051\ \ \ \ \ MATH((\ llk\_math\_pack\_sync\_init()\ ));}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((\ llk\_unpack\_tilizeA\_B\_hw\_configure\_disaggregated<DST\_ACCUM\_MODE>(icb0,\ icb1\_scaler)\ ));}
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((\ llk\_unpack\_tilizeA\_B\_init<neginf\_srcA,\ true,\ false,\ zero\_srcA\_reduce>(icb0,\ icb1\_scaler,\ block,\ num\_faces,\ face\_r\_dim,\ 1)\ ));}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((\ llk\_math\_reduce\_init<REDUCE\_OP,\ REDUCE\_DIM,\ MATH\_FIDELITY>()\ ));}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((\ llk\_math\_pack\_sync\_init()\ ));}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((\ llk\_math\_hw\_configure\_disaggregated(icb0,\ icb1\_scaler)\ ));}
 \DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \ \ \ \ PACK((\ llk\_pack\_hw\_configure\_disaggregated<false,\ DST\_ACCUM\_MODE>(ocb)\ ));}
-\DoxyCodeLine{00054\ \ \ \ \ PACK((\ llk\_pack\_init(ocb)\ ));}
-\DoxyCodeLine{00055\ \ \ \ \ PACK((\ llk\_setup\_outputs()\ ));}
-\DoxyCodeLine{00056\ \ \ \ \ PACK((\ llk\_pack\_dest\_init<false,\ DST\_ACCUM\_MODE>(ocb)\ ));}
-\DoxyCodeLine{00057\ \}}
-\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00076\ ALWI\ \textcolor{keywordtype}{void}\ tilizeA\_B\_dot\_product\_init(uint32\_t\ icb0,\ uint32\_t\ icb1,\ uint32\_t\ block,\ uint32\_t\ ocb\ =\ 16,\ uint32\_t\ num\_faces\ =\ 4,\ uint32\_t\ face\_r\_dim\ =\ 16)}
-\DoxyCodeLine{00077\ \{}
-\DoxyCodeLine{00078\ \ \ \ \ UNPACK((\ llk\_setup\_operands()\ ));}
-\DoxyCodeLine{00079\ \ \ \ \ UNPACK((\ llk\_unpack\_tilizeA\_B\_hw\_configure\_disaggregated<DST\_ACCUM\_MODE>(icb0,\ icb1)\ ));}
-\DoxyCodeLine{00080\ \ \ \ \ UNPACK((\ llk\_unpack\_tilizeA\_B\_init<false,\ false,\ true>(icb0,\ icb1,\ block,\ num\_faces,\ face\_r\_dim,\ face\_r\_dim)\ ));}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00082\ \ \ \ \ MATH((\ llk\_math\_matmul\_init<MATH\_FIDELITY>(icb0,\ icb1)\ ));}
-\DoxyCodeLine{00083\ \ \ \ \ MATH((\ llk\_math\_pack\_sync\_init()\ ));}
-\DoxyCodeLine{00084\ }
-\DoxyCodeLine{00085\ \ \ \ \ PACK((\ llk\_pack\_hw\_configure\_disaggregated<false,\ DST\_ACCUM\_MODE>(ocb)\ ));}
-\DoxyCodeLine{00086\ \ \ \ \ PACK((\ llk\_pack\_init(ocb)\ ));}
-\DoxyCodeLine{00087\ \ \ \ \ PACK((\ llk\_setup\_outputs()\ ));}
-\DoxyCodeLine{00088\ \ \ \ \ PACK((\ llk\_pack\_dest\_init<false,\ DST\_ACCUM\_MODE>(ocb)\ ));}
-\DoxyCodeLine{00089\ \}}
-\DoxyCodeLine{00090\ }
-\DoxyCodeLine{00094\ ALWI\ \textcolor{keywordtype}{void}\ tilize\_init\_short(uint32\_t\ icb,\ uint32\_t\ block)}
-\DoxyCodeLine{00095\ \{}
-\DoxyCodeLine{00096\ \ \ \ \ MATH((\ llk\_math\_eltwise\_unary\_datacopy\_init<A2D,\ BroadcastType::NONE,\ DST\_ACCUM\_MODE>(\textcolor{keyword}{false}\ \textcolor{comment}{/*transpose\ of\ faces*/},\ \textcolor{keyword}{false}\ \textcolor{comment}{/*transpose\ within\ 16x16\ face*/},\ icb)\ ));}
-\DoxyCodeLine{00097\ \ \ \ \ UNPACK((\ llk\_unpack\_tilize\_init(icb,\ block)\ ));}
-\DoxyCodeLine{00098\ \}}
-\DoxyCodeLine{00099\ }
-\DoxyCodeLine{00100\ ALWI\ \textcolor{keywordtype}{void}\ tilize\_init\_unpack(uint32\_t\ icb,\ uint32\_t\ block)}
-\DoxyCodeLine{00101\ \{}
-\DoxyCodeLine{00102\ \ \ \ \ UNPACK((\ llk\_unpack\_tilize\_init(icb,\ block)\ ));}
-\DoxyCodeLine{00103\ \}}
-\DoxyCodeLine{00104\ }
-\DoxyCodeLine{00105\ ALWI\ \textcolor{keywordtype}{void}\ tilizeA\_B\_init\_unpack(uint32\_t\ icb0,\ uint32\_t\ icb1,\ uint32\_t\ block)}
-\DoxyCodeLine{00106\ \{}
-\DoxyCodeLine{00107\ \ \ \ \ UNPACK((\ llk\_unpack\_tilizeA\_B\_init(icb0,\ icb1,\ block)\ ));}
-\DoxyCodeLine{00108\ \}}
-\DoxyCodeLine{00109\ }
-\DoxyCodeLine{00113\ ALWI\ \textcolor{keywordtype}{void}\ tilize\_init\_short\_with\_dt(uint32\_t\ old\_icb,\ uint32\_t\ new\_icb,\ uint32\_t\ block)\ \{}
-\DoxyCodeLine{00114\ }
-\DoxyCodeLine{00115\ \ \ \ \ MATH((\ llk\_math\_eltwise\_unary\_datacopy\_init<A2D,\ BroadcastType::NONE,\ DST\_ACCUM\_MODE>(\textcolor{keyword}{false}\ \textcolor{comment}{/*transpose\ of\ faces*/},\ \textcolor{keyword}{false}\ \textcolor{comment}{/*transpose\ within\ 16x16\ face*/},\ new\_icb)\ ));}
-\DoxyCodeLine{00116\ \ \ \ \ \textcolor{comment}{//\ This\ reconfig\ call\ checks\ if\ old\ operand\ has\ different\ data\ format\ to}}
-\DoxyCodeLine{00117\ \ \ \ \ \textcolor{comment}{//\ new\ operand\ idx,\ otherwise\ no\ reconfig\ call\ occurs}}
-\DoxyCodeLine{00118\ \ \ \ \ UNPACK((\ llk\_unpack\_reconfig\_data\_format\_srca(old\_icb,\ new\_icb)\ ));}
-\DoxyCodeLine{00119\ \ \ \ \ UNPACK((\ llk\_unpack\_tilize\_init(new\_icb,\ block)\ ));}
-\DoxyCodeLine{00120\ \}}
-\DoxyCodeLine{00121\ }
-\DoxyCodeLine{00125\ ALWI\ \textcolor{keywordtype}{void}\ tilize\_block(uint32\_t\ icb,\ uint32\_t\ block,\ uint32\_t\ ocb)}
-\DoxyCodeLine{00126\ \{}
-\DoxyCodeLine{00127\ \ \ \ \ UNPACK((\ llk\_unpack\_tilize\_block(icb,\ block)\ ));}
-\DoxyCodeLine{00128\ }
-\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ t\ =\ 0;\ t\ <\ block;\ t++)\ \{}
-\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Acquire\ dst}}
-\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ MATH((\ llk\_math\_wait\_for\_dest\_available()\ ));}
-\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ PACK((\ llk\_packer\_wait\_for\_math\_done()\ ));}
-\DoxyCodeLine{00133\ }
-\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Datacopy}}
-\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ MATH((\ llk\_math\_eltwise\_unary\_datacopy<A2D,\ BroadcastType::NONE>(0\ \textcolor{comment}{/*dst\ index*/})\ ));}
-\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ PACK((\ llk\_pack<false,\ false\ >(0\ \textcolor{comment}{/*tile\ index*/},\ ocb)\ \ ));}
-\DoxyCodeLine{00137\ }
-\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Release\ dest}}
-\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ MATH((\ llk\_math\_dest\_section\_done<DST\_ACCUM\_MODE>()\ ));}
-\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ PACK((\ llk\_pack\_dest\_section\_done<DST\_ACCUM\_MODE>()\ ));}
-\DoxyCodeLine{00141\ \ \ \ \ \}}
-\DoxyCodeLine{00142\ \}}
-\DoxyCodeLine{00143\ }
-\DoxyCodeLine{00144\ ALWI\ \textcolor{keywordtype}{void}\ unpack\_tilize\_block(uint32\_t\ icb,\ uint32\_t\ block)}
-\DoxyCodeLine{00145\ \{}
-\DoxyCodeLine{00146\ \ \ \ \ UNPACK((\ llk\_unpack\_tilize\_block(icb,\ block)\ ));}
-\DoxyCodeLine{00147\ \}}
-\DoxyCodeLine{00148\ }
-\DoxyCodeLine{00149\ ALWI\ \textcolor{keywordtype}{void}\ unpack\_tilizeA\_B\_block(uint32\_t\ icb0,\ uint32\_t\ icb1,\ uint32\_t\ block,\ uint32\_t\ tile\_idx\_b,\ uint32\_t\ num\_faces\ =\ 4)}
-\DoxyCodeLine{00150\ \{}
-\DoxyCodeLine{00151\ \ \ \ \ UNPACK((\ llk\_unpack\_tilizeA\_B\_block(icb0,\ icb1,\ block,\ tile\_idx\_b,\ num\_faces)\ ));}
-\DoxyCodeLine{00152\ \}}
-\DoxyCodeLine{00153\ }
-\DoxyCodeLine{00177\ ALWI\ \textcolor{keywordtype}{void}\ unpack\_tilizeA\_B\_dot\_product\_block(uint32\_t\ icb0,\ uint32\_t\ icb1,\ uint32\_t\ block,\ uint32\_t\ tile\_idx\_b,\ uint32\_t\ num\_faces\ =\ 4)}
-\DoxyCodeLine{00178\ \{}
-\DoxyCodeLine{00179\ \ \ \ \ UNPACK((\ llk\_unpack\_tilizeA\_B\_block<true>(icb0,\ icb1,\ block,\ tile\_idx\_b,\ num\_faces)\ ));}
-\DoxyCodeLine{00180\ \}}
-\DoxyCodeLine{00181\ }
-\DoxyCodeLine{00185\ ALWI\ \textcolor{keywordtype}{void}\ tilize\_uninit(uint32\_t\ icb)}
-\DoxyCodeLine{00186\ \{}
-\DoxyCodeLine{00187\ \ \ \ \ UNPACK((\ llk\_unpack\_tilize\_uninit(icb)\ ));}
-\DoxyCodeLine{00188\ \}}
-\DoxyCodeLine{00189\ }
-\DoxyCodeLine{00193\ ALWI\ \textcolor{keywordtype}{void}\ tilize\_uninit\_with\_dt(uint32\_t\ old\_icb\ =\ 0,\ uint32\_t\ new\_icb\ =\ 1)\ \{}
-\DoxyCodeLine{00194\ \ \ \ \ UNPACK((\ llk\_unpack\_tilize\_uninit(old\_icb)\ ));}
-\DoxyCodeLine{00195\ \ \ \ \ UNPACK((\ llk\_unpack\_reconfig\_data\_format\_srca(old\_icb,\ new\_icb)\ ));}
-\DoxyCodeLine{00196\ \}}
-\DoxyCodeLine{00197\ }
-\DoxyCodeLine{00198\ }
-\DoxyCodeLine{00199\ \}}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a06e48c7c5c133a4905da88bd82bd6b91}{PACK}}((\ llk\_pack\_hw\_configure\_disaggregated<false,\ DST\_ACCUM\_MODE>(ocb)\ ));}
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a06e48c7c5c133a4905da88bd82bd6b91}{PACK}}((\ llk\_pack\_init(ocb)\ ));}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a06e48c7c5c133a4905da88bd82bd6b91}{PACK}}((\ llk\_pack\_dest\_init<false,\ DST\_ACCUM\_MODE>(ocb)\ ));}
+\DoxyCodeLine{00056\ \}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00075\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a649de9891a5d99ebab2c2e1aa75b9a27}{tilizeA\_B\_dot\_product\_init}}(uint32\_t\ icb0,\ uint32\_t\ icb1,\ uint32\_t\ block,\ uint32\_t\ ocb\ =\ 16,\ uint32\_t\ num\_faces\ =\ 4,\ uint32\_t\ face\_r\_dim\ =\ 16)}
+\DoxyCodeLine{00076\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((\ llk\_unpack\_tilizeA\_B\_hw\_configure\_disaggregated<DST\_ACCUM\_MODE>(icb0,\ icb1)\ ));}
+\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((\ llk\_unpack\_tilizeA\_B\_init<false,\ false,\ true>(icb0,\ icb1,\ block,\ num\_faces,\ face\_r\_dim,\ face\_r\_dim)\ ));}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((\ llk\_math\_matmul\_init<MATH\_FIDELITY>(icb0,\ icb1)\ ));}
+\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((\ llk\_math\_pack\_sync\_init()\ ));}
+\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((\ llk\_math\_hw\_configure\_disaggregated(icb0,\ icb1)\ ));}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a06e48c7c5c133a4905da88bd82bd6b91}{PACK}}((\ llk\_pack\_hw\_configure\_disaggregated<false,\ DST\_ACCUM\_MODE>(ocb)\ ));}
+\DoxyCodeLine{00085\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a06e48c7c5c133a4905da88bd82bd6b91}{PACK}}((\ llk\_pack\_init(ocb)\ ));}
+\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a06e48c7c5c133a4905da88bd82bd6b91}{PACK}}((\ llk\_pack\_dest\_init<false,\ DST\_ACCUM\_MODE>(ocb)\ ));}
+\DoxyCodeLine{00087\ \}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00092\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a2626e407c919742cff8789652cc08165}{tilize\_init\_short}}(uint32\_t\ icb,\ uint32\_t\ block,\ uint32\_t\ ocb\ =\ 16)}
+\DoxyCodeLine{00093\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((\ llk\_math\_eltwise\_unary\_datacopy\_init<A2D,\ BroadcastType::NONE,\ DST\_ACCUM\_MODE,\ false/*is\_int\_en*/,\ true/*tilize\ en*/>(\textcolor{keyword}{false}\ \textcolor{comment}{/*transpose\ of\ faces*/},\ \textcolor{keyword}{false}\ \textcolor{comment}{/*transpose\ within\ 16x16\ face*/},\ icb)\ ));}
+\DoxyCodeLine{00095\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((\ llk\_unpack\_tilize\_init(icb,\ block)\ ));}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ ARCH\_BLACKHOLE}}
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a06e48c7c5c133a4905da88bd82bd6b91}{PACK}}((\ llk\_pack\_init<false,\ false,\ true/*tilize\ en*/>(ocb)\ ));}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00100\ \}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a3300fef3143945210d4e18f9bcf1760c}{tilize\_init\_unpack}}(uint32\_t\ icb,\ uint32\_t\ block)}
+\DoxyCodeLine{00103\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((\ llk\_unpack\_tilize\_init(icb,\ block)\ ));}
+\DoxyCodeLine{00105\ \}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00110\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a205b48db5a98b47825937c82a777a965}{tilize\_init\_short\_with\_dt}}(uint32\_t\ old\_icb,\ uint32\_t\ new\_icb,\ uint32\_t\ block,\ uint32\_t\ ocb\ =\ 16)}
+\DoxyCodeLine{00111\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((\ llk\_math\_eltwise\_unary\_datacopy\_init<A2D,\ BroadcastType::NONE,\ DST\_ACCUM\_MODE,\ false/*is\_int\_en*/,\ true/*tilize\ en*/>(\textcolor{keyword}{false}\ \textcolor{comment}{/*transpose\ of\ faces*/},\ \textcolor{keyword}{false}\ \textcolor{comment}{/*transpose\ within\ 16x16\ face*/},\ new\_icb)\ ));}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{comment}{//\ This\ reconfig\ call\ checks\ if\ old\ operand\ has\ different\ data\ format\ to}}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{comment}{//\ new\ operand\ idx,\ otherwise\ no\ reconfig\ call\ occurs}}
+\DoxyCodeLine{00115\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((\ llk\_unpack\_reconfig\_data\_format\_srca(old\_icb,\ new\_icb)\ ));}
+\DoxyCodeLine{00116\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((\ llk\_math\_reconfig\_data\_format\_srca(old\_icb,\ new\_icb)\ ));}
+\DoxyCodeLine{00117\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((\ llk\_unpack\_tilize\_init(new\_icb,\ block)\ ));}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ ARCH\_BLACKHOLE}}
+\DoxyCodeLine{00120\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a06e48c7c5c133a4905da88bd82bd6b91}{PACK}}((\ llk\_pack\_init<false,\ false,\ true/*tilize\ en*/>(ocb)\ ));}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00122\ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00127\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_aea0827dbb324004596b2971a52c4d0ad}{tilize\_block}}(uint32\_t\ icb,\ uint32\_t\ block,\ uint32\_t\ ocb)}
+\DoxyCodeLine{00128\ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((\ llk\_unpack\_tilize\_block(icb,\ block)\ ));}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ t\ =\ 0;\ t\ <\ block;\ t++)\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Acquire\ dst}}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((\ llk\_math\_wait\_for\_dest\_available()\ ));}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a06e48c7c5c133a4905da88bd82bd6b91}{PACK}}((\ llk\_packer\_wait\_for\_math\_done()\ ));}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Datacopy}}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((\ llk\_math\_eltwise\_unary\_datacopy<A2D,\ BroadcastType::NONE>(0\ \textcolor{comment}{/*dst\ index*/})\ ));}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a06e48c7c5c133a4905da88bd82bd6b91}{PACK}}((\ llk\_pack<false,\ false\ >(0\ \textcolor{comment}{/*tile\ index*/},\ ocb)\ \ ));}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Release\ dest}}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((\ llk\_math\_dest\_section\_done<DST\_ACCUM\_MODE>()\ ));}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a06e48c7c5c133a4905da88bd82bd6b91}{PACK}}((\ llk\_pack\_dest\_section\_done<DST\_ACCUM\_MODE>()\ ));}
+\DoxyCodeLine{00143\ \ \ \ \ \}}
+\DoxyCodeLine{00144\ \}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a8d9523f37c0573600360754d14776ab0}{unpack\_tilize\_block}}(uint32\_t\ icb,\ uint32\_t\ block)}
+\DoxyCodeLine{00147\ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((\ llk\_unpack\_tilize\_block(icb,\ block)\ ));}
+\DoxyCodeLine{00149\ \}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a17a976438c3449ea436628357b647852}{unpack\_tilizeA\_B\_block}}(uint32\_t\ icb0,\ uint32\_t\ icb1,\ uint32\_t\ block,\ uint32\_t\ tile\_idx\_b,\ uint32\_t\ num\_faces\ =\ 4,\ uint32\_t\ srca\_face\_r\_dim\ =\ 16)}
+\DoxyCodeLine{00152\ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((\ llk\_unpack\_tilizeA\_B\_block<true,\ true>(icb0,\ icb1,\ block,\ tile\_idx\_b,\ num\_faces,\ srca\_face\_r\_dim)\ ));}
+\DoxyCodeLine{00154\ \}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00179\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a100bc7f788be0c8206261722ac613de7}{unpack\_tilizeA\_B\_dot\_product\_block}}(uint32\_t\ icb0,\ uint32\_t\ icb1,\ uint32\_t\ block,\ uint32\_t\ tile\_idx\_b,\ uint32\_t\ num\_faces\ =\ 4)}
+\DoxyCodeLine{00180\ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((\ llk\_unpack\_tilizeA\_B\_block<false,\ false,\ true>(icb0,\ icb1,\ block,\ tile\_idx\_b,\ num\_faces)\ ));}
+\DoxyCodeLine{00182\ \}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00187\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a3be1c47ccd017a1129daf785e15f545c}{tilize\_uninit}}(uint32\_t\ icb,\ uint32\_t\ ocb\ =\ 16)}
+\DoxyCodeLine{00188\ \{}
+\DoxyCodeLine{00189\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((\ llk\_unpack\_tilize\_uninit(icb)\ ));}
+\DoxyCodeLine{00190\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ ARCH\_BLACKHOLE}}
+\DoxyCodeLine{00191\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a06e48c7c5c133a4905da88bd82bd6b91}{PACK}}((\ llk\_pack\_init(ocb)\ ));}
+\DoxyCodeLine{00192\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00193\ \}}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00198\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a40b2d7e5e9073c4e135581f08657dc3b}{tilize\_uninit\_with\_dt}}(uint32\_t\ old\_icb\ =\ 0,\ uint32\_t\ new\_icb\ =\ 1,\ uint32\_t\ ocb\ =\ 16)\ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((\ llk\_unpack\_tilize\_uninit(old\_icb)\ ));}
+\DoxyCodeLine{00200\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((\ llk\_unpack\_reconfig\_data\_format\_srca(old\_icb,\ new\_icb)\ ));}
+\DoxyCodeLine{00201\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((\ llk\_math\_reconfig\_data\_format\_srca(old\_icb,\ new\_icb)\ ));}
+\DoxyCodeLine{00202\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ ARCH\_BLACKHOLE}}
+\DoxyCodeLine{00203\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a06e48c7c5c133a4905da88bd82bd6b91}{PACK}}((\ llk\_pack\_init(ocb)\ ));}
+\DoxyCodeLine{00204\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00205\ \}}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \}}
 
 \end{DoxyCode}

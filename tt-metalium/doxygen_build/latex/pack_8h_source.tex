@@ -1,6 +1,6 @@
 \hypertarget{pack_8h_source}{}\doxysection{pack.\+h}
 \label{pack_8h_source}\index{tt\_metal/include/compute\_kernel\_api/pack.h@{tt\_metal/include/compute\_kernel\_api/pack.h}}
-
+\mbox{\hyperlink{pack_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//\ SPDX-\/FileCopyrightText:\ ©\ 2023\ Tenstorrent\ Inc.}}
 \DoxyCodeLine{00002\ \textcolor{comment}{//}}
@@ -11,30 +11,30 @@
 \DoxyCodeLine{00007\ }
 \DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}common\_globals.h"{}}}
 \DoxyCodeLine{00009\ }
-\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }ckernel\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceckernel}{ckernel}}\ \{}
 \DoxyCodeLine{00011\ }
 \DoxyCodeLine{00012\ }
 \DoxyCodeLine{00043\ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{bool}\ out\_of\_order\_output\ =\ false>}
-\DoxyCodeLine{00044\ ALWI\ \textcolor{keywordtype}{void}\ pack\_tile(uint32\_t\ ifrom\_dst,\ uint32\_t\ icb,\ std::uint32\_t\ output\_tile\_index\ =\ 0)}
+\DoxyCodeLine{00044\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a63c43acd48809eac8f0fd79a09cac7b7}{pack\_tile}}(uint32\_t\ ifrom\_dst,\ uint32\_t\ icb,\ std::uint32\_t\ output\_tile\_index\ =\ 0)}
 \DoxyCodeLine{00045\ \{}
-\DoxyCodeLine{00046\ \ \ \ \ PACK((\ \ llk\_pack<out\_of\_order\_output,\ false,\ DST\_ACCUM\_MODE>(ifrom\_dst,\ icb,\ output\_tile\_index)\ \ ));}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a06e48c7c5c133a4905da88bd82bd6b91}{PACK}}((\ \ llk\_pack<out\_of\_order\_output,\ false,\ DST\_ACCUM\_MODE>(ifrom\_dst,\ icb,\ output\_tile\_index)\ \ ));}
 \DoxyCodeLine{00047\ \}}
 \DoxyCodeLine{00048\ }
-\DoxyCodeLine{00078\ ALWI\ \textcolor{keywordtype}{void}\ matmul\_pack\_tile(uint32\_t\ ifrom\_dst,\ uint32\_t\ icb,\ uint32\_t\ ntiles)}
+\DoxyCodeLine{00078\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_aac63a0fae82e1b790a1f6b3a3d8d600f}{matmul\_pack\_tile}}(uint32\_t\ ifrom\_dst,\ uint32\_t\ icb,\ uint32\_t\ ntiles)}
 \DoxyCodeLine{00079\ \{}
-\DoxyCodeLine{00080\ \ \ \ \ PACK((\ \ llk\_matmul\_pack<false,\ false,\ DST\_ACCUM\_MODE>(ifrom\_dst,\ icb,\ ntiles)\ \ ));}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a06e48c7c5c133a4905da88bd82bd6b91}{PACK}}((\ \ llk\_matmul\_pack<false,\ false,\ DST\_ACCUM\_MODE>(ifrom\_dst,\ icb,\ ntiles)\ \ ));}
 \DoxyCodeLine{00081\ \}}
 \DoxyCodeLine{00082\ }
-\DoxyCodeLine{00086\ ALWI\ \textcolor{keywordtype}{void}\ pack\_reconfig\_data\_format(\textcolor{keyword}{const}\ uint32\_t\ new\_operand)\ \{}
-\DoxyCodeLine{00087\ \ \ \ \ PACK((\ llk\_pack\_reconfig\_data\_format(new\_operand)\ ));}
+\DoxyCodeLine{00086\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a9bf446c6f981d4fac592dd761236d013}{pack\_reconfig\_data\_format}}(\textcolor{keyword}{const}\ uint32\_t\ new\_operand)\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a06e48c7c5c133a4905da88bd82bd6b91}{PACK}}((\ llk\_pack\_reconfig\_data\_format<DST\_ACCUM\_MODE>(new\_operand)\ ));}
 \DoxyCodeLine{00088\ \}}
 \DoxyCodeLine{00089\ }
-\DoxyCodeLine{00093\ ALWI\ \textcolor{keywordtype}{void}\ pack\_reconfig\_data\_format(\textcolor{keyword}{const}\ uint32\_t\ old\_operand,\ \textcolor{keyword}{const}\ uint32\_t\ new\_operand)\ \{}
-\DoxyCodeLine{00094\ \ \ \ \ PACK((\ llk\_pack\_reconfig\_data\_format(old\_operand,\ new\_operand)\ ));}
+\DoxyCodeLine{00093\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a9bf446c6f981d4fac592dd761236d013}{pack\_reconfig\_data\_format}}(\textcolor{keyword}{const}\ uint32\_t\ old\_operand,\ \textcolor{keyword}{const}\ uint32\_t\ new\_operand)\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a06e48c7c5c133a4905da88bd82bd6b91}{PACK}}((\ llk\_pack\_reconfig\_data\_format<DST\_ACCUM\_MODE>(old\_operand,\ new\_operand)\ ));}
 \DoxyCodeLine{00095\ \}}
 \DoxyCodeLine{00096\ }
-\DoxyCodeLine{00100\ ALWI\ \textcolor{keywordtype}{void}\ pack\_reconfig\_l1\_acc(\textcolor{keyword}{const}\ uint32\_t\ l1\_acc\_en)\ \{}
-\DoxyCodeLine{00101\ \ \ \ \ PACK((\ llk\_pack\_reconfig\_l1\_acc(l1\_acc\_en)\ ));}
+\DoxyCodeLine{00100\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_ad0c6749f2bb88aafc343a6bd67911d66}{pack\_reconfig\_l1\_acc}}(\textcolor{keyword}{const}\ uint32\_t\ l1\_acc\_en)\ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a06e48c7c5c133a4905da88bd82bd6b91}{PACK}}((\ llk\_pack\_reconfig\_l1\_acc(l1\_acc\_en)\ ));}
 \DoxyCodeLine{00102\ \}}
 \DoxyCodeLine{00103\ }
 \DoxyCodeLine{00104\ \}}

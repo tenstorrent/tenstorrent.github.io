@@ -1,0 +1,35 @@
+\hypertarget{tilize_8h}{}\doxysection{tt\+\_\+metal/include/compute\+\_\+kernel\+\_\+api/tilize.h File Reference}
+\label{tilize_8h}\index{tt\_metal/include/compute\_kernel\_api/tilize.h@{tt\_metal/include/compute\_kernel\_api/tilize.h}}
+{\ttfamily \#include \char`\"{}compute\+\_\+kernel\+\_\+api/common.\+h\char`\"{}}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceckernel}{ckernel}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespaceckernel_a8eba17d70dc66acc17db5fb7badb16ae}{ckernel\+::tilize\+\_\+init}} (uint32\+\_\+t icb, uint32\+\_\+t block, uint32\+\_\+t ocb=16)
+\item 
+{\footnotesize template$<$bool neginf\+\_\+srcA = true, bool zero\+\_\+src\+A\+\_\+reduce = false$>$ }\\void \mbox{\hyperlink{namespaceckernel_a4f14abbc6a9f82516c94a9c6876d4765}{ckernel\+::tilize\+A\+\_\+\+B\+\_\+reduce\+\_\+init}} (uint32\+\_\+t icb0, uint32\+\_\+t icb1\+\_\+scaler, uint32\+\_\+t block, uint32\+\_\+t ocb=16, uint32\+\_\+t num\+\_\+faces=4, uint32\+\_\+t face\+\_\+r\+\_\+dim=16)
+\item 
+void \mbox{\hyperlink{namespaceckernel_a649de9891a5d99ebab2c2e1aa75b9a27}{ckernel\+::tilize\+A\+\_\+\+B\+\_\+dot\+\_\+product\+\_\+init}} (uint32\+\_\+t icb0, uint32\+\_\+t icb1, uint32\+\_\+t block, uint32\+\_\+t ocb=16, uint32\+\_\+t num\+\_\+faces=4, uint32\+\_\+t face\+\_\+r\+\_\+dim=16)
+\item 
+void \mbox{\hyperlink{namespaceckernel_a2626e407c919742cff8789652cc08165}{ckernel\+::tilize\+\_\+init\+\_\+short}} (uint32\+\_\+t icb, uint32\+\_\+t block, uint32\+\_\+t ocb=16)
+\item 
+void \mbox{\hyperlink{namespaceckernel_a3300fef3143945210d4e18f9bcf1760c}{ckernel\+::tilize\+\_\+init\+\_\+unpack}} (uint32\+\_\+t icb, uint32\+\_\+t block)
+\item 
+void \mbox{\hyperlink{namespaceckernel_a205b48db5a98b47825937c82a777a965}{ckernel\+::tilize\+\_\+init\+\_\+short\+\_\+with\+\_\+dt}} (uint32\+\_\+t old\+\_\+icb, uint32\+\_\+t new\+\_\+icb, uint32\+\_\+t block, uint32\+\_\+t ocb=16)
+\item 
+void \mbox{\hyperlink{namespaceckernel_aea0827dbb324004596b2971a52c4d0ad}{ckernel\+::tilize\+\_\+block}} (uint32\+\_\+t icb, uint32\+\_\+t block, uint32\+\_\+t ocb)
+\item 
+void \mbox{\hyperlink{namespaceckernel_a8d9523f37c0573600360754d14776ab0}{ckernel\+::unpack\+\_\+tilize\+\_\+block}} (uint32\+\_\+t icb, uint32\+\_\+t block)
+\item 
+void \mbox{\hyperlink{namespaceckernel_a17a976438c3449ea436628357b647852}{ckernel\+::unpack\+\_\+tilize\+A\+\_\+\+B\+\_\+block}} (uint32\+\_\+t icb0, uint32\+\_\+t icb1, uint32\+\_\+t block, uint32\+\_\+t tile\+\_\+idx\+\_\+b, uint32\+\_\+t num\+\_\+faces=4, uint32\+\_\+t srca\+\_\+face\+\_\+r\+\_\+dim=16)
+\item 
+void \mbox{\hyperlink{namespaceckernel_a100bc7f788be0c8206261722ac613de7}{ckernel\+::unpack\+\_\+tilize\+A\+\_\+\+B\+\_\+dot\+\_\+product\+\_\+block}} (uint32\+\_\+t icb0, uint32\+\_\+t icb1, uint32\+\_\+t block, uint32\+\_\+t tile\+\_\+idx\+\_\+b, uint32\+\_\+t num\+\_\+faces=4)
+\item 
+void \mbox{\hyperlink{namespaceckernel_a3be1c47ccd017a1129daf785e15f545c}{ckernel\+::tilize\+\_\+uninit}} (uint32\+\_\+t icb, uint32\+\_\+t ocb=16)
+\item 
+void \mbox{\hyperlink{namespaceckernel_a40b2d7e5e9073c4e135581f08657dc3b}{ckernel\+::tilize\+\_\+uninit\+\_\+with\+\_\+dt}} (uint32\+\_\+t old\+\_\+icb=0, uint32\+\_\+t new\+\_\+icb=1, uint32\+\_\+t ocb=16)
+\end{DoxyCompactItemize}

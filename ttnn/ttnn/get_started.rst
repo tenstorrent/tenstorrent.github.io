@@ -8,21 +8,21 @@ TT-NN is a user-friendly API running ML workloads on Tenstorrent hardware.
 The GitHub page for the project is located here:
 https://github.com/tenstorrent/tt-metal
 
-Quick Start Guide
------------------
+Installation and environment setup instructions are in the
+`installation guide <./installing.html>`_.
 
 1. Install and Build
 ^^^^^^^^^^^^^^^^^^^^
 
 Install and build the project by following the instructions in the
 `installation guide
-<https://github.com/tenstorrent/tt-metal/blob/main/INSTALLING.md>`_.
+<./installing.html>`_.
 
 2. Explore our model demos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Get started with the Falcon 7B demo. Navigate to the `Falcon 7B demo folder
-<https://github.com/tenstorrent/tt-metal/tree/main/models/demos/ttnn_falcon7b>`_
+<https://github.com/tenstorrent/tt-metal/tree/main/models/demos/wormhole/falcon7b>`_
 for details.
 
 You can also check our demos for
@@ -35,17 +35,11 @@ and
 3. TT-NN Tutorial: Multi-Head Attention (Simple)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. note::
-   This tutorial currently works on Grayskull only.
-
 Learn the basics of multi-head attention operations with TT-NN
 with a simple example: `TT-NN simple module <./tutorials/ttnn_tutorials/003.html#Write-Multi-Head-Attention-using-ttnn>`_.
 
 4. TT-NN Tutorial: Multi-Head Attention (Optimized)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. note::
-   This tutorial currently works on Grayskull only.
 
 Dive deeper into multi-head attention operations in TT-NN, optimizing
 performance: `optimizing performance <./tutorials/ttnn_tutorials/003.html#Write-optimized-version-of-Multi-Head-Attention>`_.

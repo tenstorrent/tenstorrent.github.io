@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle" kind="class" language="C++" prot="public">
+    <compoundname>tt::tt_metal::v1::CommandQueueHandle</compoundname>
+    <includes refid="types_8hpp" local="no">types.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle_1aedd531eb28fd056fb788adc289b6cdbb" prot="private" static="no" mutable="no">
+        <type>DeviceHandle</type>
+        <definition>DeviceHandle tt::tt_metal::v1::CommandQueueHandle::device</definition>
+        <argsstring></argsstring>
+        <name>device</name>
+        <qualifiedname>tt::tt_metal::v1::CommandQueueHandle::device</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/include/tt_metal/types.hpp" line="20" column="18" bodyfile="tt_metal/include/tt_metal/types.hpp" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle_1a96705cf484d9494dbda9741ea8d9ec7b" prot="private" static="no" mutable="no">
+        <type>std::uint8_t</type>
+        <definition>std::uint8_t tt::tt_metal::v1::CommandQueueHandle::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>tt::tt_metal::v1::CommandQueueHandle::id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/include/tt_metal/types.hpp" line="21" column="18" bodyfile="tt_metal/include/tt_metal/types.hpp" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle_1a191f95e98797cca0b9ccc3445156c21c" prot="private" static="no" constexpr="yes" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr tt::tt_metal::v1::CommandQueueHandle::CommandQueueHandle</definition>
+        <argsstring>(DeviceHandle device, std::uint8_t id=0)</argsstring>
+        <name>CommandQueueHandle</name>
+        <qualifiedname>tt::tt_metal::v1::CommandQueueHandle::CommandQueueHandle</qualifiedname>
+        <param>
+          <type>DeviceHandle</type>
+          <declname>device</declname>
+        </param>
+        <param>
+          <type>std::uint8_t</type>
+          <declname>id</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/include/tt_metal/types.hpp" line="18" column="24" bodyfile="tt_metal/include/tt_metal/types.hpp" bodystart="18" bodyend="18"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle_1a8bd41618a8e41d72b764a5861a421da2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle" kindref="compound">CommandQueueHandle</ref></type>
+        <definition>CommandQueueHandle GetCommandQueue</definition>
+        <argsstring>(DeviceHandle device, std::uint8_t id)</argsstring>
+        <name>GetCommandQueue</name>
+        <qualifiedname>tt::tt_metal::v1::CommandQueueHandle::GetCommandQueue</qualifiedname>
+        <param>
+          <type>DeviceHandle</type>
+          <declname>device</declname>
+        </param>
+        <param>
+          <type>std::uint8_t</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Retrieves a command queue from the device for a given queue ID. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>device</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The device to query. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cq_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The command queue ID. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>CommandQueue handle. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/include/tt_metal/types.hpp" line="23" column="31"/>
+      </memberdef>
+      <memberdef kind="friend" id="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle_1a08c6342b029b946a6f7b121f13e83e34" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>DeviceHandle</type>
+        <definition>DeviceHandle GetDevice</definition>
+        <argsstring>(CommandQueueHandle cq)</argsstring>
+        <name>GetDevice</name>
+        <qualifiedname>tt::tt_metal::v1::CommandQueueHandle::GetDevice</qualifiedname>
+        <param>
+          <type><ref refid="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle" kindref="compound">CommandQueueHandle</ref></type>
+          <declname>cq</declname>
+        </param>
+        <briefdescription>
+<para>Retrieves the device associated with the command queue. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cq</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The command queue to query. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Device handle associated with the command queue. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/include/tt_metal/types.hpp" line="24" column="25"/>
+      </memberdef>
+      <memberdef kind="friend" id="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle_1abb66f17aa02187a034cebed7c3866e00" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::uint8_t</type>
+        <definition>std::uint8_t GetId</definition>
+        <argsstring>(CommandQueueHandle cq)</argsstring>
+        <name>GetId</name>
+        <qualifiedname>tt::tt_metal::v1::CommandQueueHandle::GetId</qualifiedname>
+        <param>
+          <type><ref refid="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle" kindref="compound">CommandQueueHandle</ref></type>
+          <declname>cq</declname>
+        </param>
+        <briefdescription>
+<para>Retrieves the ID of the command queue. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cq</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The command queue to query. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ID of the command queue. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/include/tt_metal/types.hpp" line="25" column="25"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="tt_metal/include/tt_metal/types.hpp" line="16" column="1" bodyfile="tt_metal/include/tt_metal/types.hpp" bodystart="16" bodyend="26"/>
+    <listofallmembers>
+      <member refid="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle_1a191f95e98797cca0b9ccc3445156c21c" prot="private" virt="non-virtual"><scope>tt::tt_metal::v1::CommandQueueHandle</scope><name>CommandQueueHandle</name></member>
+      <member refid="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle_1aedd531eb28fd056fb788adc289b6cdbb" prot="private" virt="non-virtual"><scope>tt::tt_metal::v1::CommandQueueHandle</scope><name>device</name></member>
+      <member refid="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle_1a8bd41618a8e41d72b764a5861a421da2" prot="private" virt="non-virtual"><scope>tt::tt_metal::v1::CommandQueueHandle</scope><name>GetCommandQueue</name></member>
+      <member refid="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle_1a08c6342b029b946a6f7b121f13e83e34" prot="private" virt="non-virtual"><scope>tt::tt_metal::v1::CommandQueueHandle</scope><name>GetDevice</name></member>
+      <member refid="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle_1abb66f17aa02187a034cebed7c3866e00" prot="private" virt="non-virtual"><scope>tt::tt_metal::v1::CommandQueueHandle</scope><name>GetId</name></member>
+      <member refid="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle_1a96705cf484d9494dbda9741ea8d9ec7b" prot="private" virt="non-virtual"><scope>tt::tt_metal::v1::CommandQueueHandle</scope><name>id</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

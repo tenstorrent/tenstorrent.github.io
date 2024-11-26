@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions" kind="struct" language="C++" prot="public">
+    <compoundname>tt::tt_metal::v1::CreateDeviceOptions</compoundname>
+    <includes refid="device_8hpp" local="no">device.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions_1ab0589d708073ae872a5d8633d30c17a0" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t tt::tt_metal::v1::CreateDeviceOptions::num_hw_cqs</definition>
+        <argsstring></argsstring>
+        <name>num_hw_cqs</name>
+        <qualifiedname>tt::tt_metal::v1::CreateDeviceOptions::num_hw_cqs</qualifiedname>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Number of hardware command queues (default: 1, valid range: 1 to 2). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/include/tt_metal/device.hpp" line="49" column="13" bodyfile="tt_metal/include/tt_metal/device.hpp" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions_1a92a4d40077ada8708a9d992f577fdd34" prot="public" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t tt::tt_metal::v1::CreateDeviceOptions::l1_small_size</definition>
+        <argsstring></argsstring>
+        <name>l1_small_size</name>
+        <qualifiedname>tt::tt_metal::v1::CreateDeviceOptions::l1_small_size</qualifiedname>
+        <initializer>= DEFAULT_L1_SMALL_SIZE</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>L1 small space to reserve (default: DEFAULT_L1_SMALL_SIZE). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/include/tt_metal/device.hpp" line="53" column="17" bodyfile="tt_metal/include/tt_metal/device.hpp" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions_1ae3ae33ccd4bad0cf7d09c0a8b3b85cea" prot="public" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t tt::tt_metal::v1::CreateDeviceOptions::trace_region_size</definition>
+        <argsstring></argsstring>
+        <name>trace_region_size</name>
+        <qualifiedname>tt::tt_metal::v1::CreateDeviceOptions::trace_region_size</qualifiedname>
+        <initializer>= DEFAULT_TRACE_REGION_SIZE</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Trace region size to reserve (default: DEFAULT_TRACE_REGION_SIZE). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/include/tt_metal/device.hpp" line="57" column="17" bodyfile="tt_metal/include/tt_metal/device.hpp" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions_1a7faf35fea5c38d43f089059fc99f02cf" prot="public" static="no" mutable="no">
+        <type>DispatchCoreType</type>
+        <definition>DispatchCoreType tt::tt_metal::v1::CreateDeviceOptions::dispatch_core_type</definition>
+        <argsstring></argsstring>
+        <name>dispatch_core_type</name>
+        <qualifiedname>tt::tt_metal::v1::CreateDeviceOptions::dispatch_core_type</qualifiedname>
+        <initializer>= DispatchCoreType::WORKER</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Dispatch core type to use (default: DispatchCoreType::WORKER). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/include/tt_metal/device.hpp" line="61" column="22" bodyfile="tt_metal/include/tt_metal/device.hpp" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions_1ae51eaece3f174b6cd9847f6e5230b44c" prot="public" static="no" mutable="no">
+        <type>stl::Span&lt; const std::uint32_t &gt;</type>
+        <definition>stl::Span&lt;const std::uint32_t&gt; tt::tt_metal::v1::CreateDeviceOptions::l1_bank_remap</definition>
+        <argsstring></argsstring>
+        <name>l1_bank_remap</name>
+        <qualifiedname>tt::tt_metal::v1::CreateDeviceOptions::l1_bank_remap</qualifiedname>
+        <initializer>= {}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>For shuffling bank id offsets </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/include/tt_metal/device.hpp" line="65" column="15" bodyfile="tt_metal/include/tt_metal/device.hpp" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Configuration options for CreateDevice </para>
+    </detaileddescription>
+    <location file="tt_metal/include/tt_metal/device.hpp" line="45" column="1" bodyfile="tt_metal/include/tt_metal/device.hpp" bodystart="45" bodyend="66"/>
+    <listofallmembers>
+      <member refid="structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions_1a7faf35fea5c38d43f089059fc99f02cf" prot="public" virt="non-virtual"><scope>tt::tt_metal::v1::CreateDeviceOptions</scope><name>dispatch_core_type</name></member>
+      <member refid="structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions_1ae51eaece3f174b6cd9847f6e5230b44c" prot="public" virt="non-virtual"><scope>tt::tt_metal::v1::CreateDeviceOptions</scope><name>l1_bank_remap</name></member>
+      <member refid="structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions_1a92a4d40077ada8708a9d992f577fdd34" prot="public" virt="non-virtual"><scope>tt::tt_metal::v1::CreateDeviceOptions</scope><name>l1_small_size</name></member>
+      <member refid="structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions_1ab0589d708073ae872a5d8633d30c17a0" prot="public" virt="non-virtual"><scope>tt::tt_metal::v1::CreateDeviceOptions</scope><name>num_hw_cqs</name></member>
+      <member refid="structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions_1ae3ae33ccd4bad0cf7d09c0a8b3b85cea" prot="public" virt="non-virtual"><scope>tt::tt_metal::v1::CreateDeviceOptions</scope><name>trace_region_size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

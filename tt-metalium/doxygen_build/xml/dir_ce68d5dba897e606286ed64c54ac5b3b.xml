@@ -8,12 +8,12 @@
     <innerfile refid="eltwise__binary_8h">eltwise_binary.h</innerfile>
     <innerfile refid="matmul_8h">matmul.h</innerfile>
     <innerfile refid="pack_8h">pack.h</innerfile>
+    <innerfile refid="reconfig__data__format_8h">reconfig_data_format.h</innerfile>
     <innerfile refid="reduce_8h">reduce.h</innerfile>
     <innerfile refid="reg__api_8h">reg_api.h</innerfile>
     <innerfile refid="tile__move__copy_8h">tile_move_copy.h</innerfile>
     <innerfile refid="tilize_8h">tilize.h</innerfile>
     <innerfile refid="transpose__wh_8h">transpose_wh.h</innerfile>
-    <innerfile refid="unpack_8h">unpack.h</innerfile>
     <innerfile refid="untilize_8h">untilize.h</innerfile>
     <briefdescription>
     </briefdescription>

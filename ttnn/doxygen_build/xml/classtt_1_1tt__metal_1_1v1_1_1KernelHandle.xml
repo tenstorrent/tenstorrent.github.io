@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classtt_1_1tt__metal_1_1v1_1_1KernelHandle" kind="class" language="C++" prot="public">
+    <compoundname>tt::tt_metal::v1::KernelHandle</compoundname>
+    <includes refid="types_8hpp" local="no">types.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classtt_1_1tt__metal_1_1v1_1_1KernelHandle_1aba09a1b26fe31d16e3207ebca3c9ea59" prot="private" static="no" mutable="no">
+        <type>tt_metal::KernelHandle</type>
+        <definition>tt_metal::KernelHandle tt::tt_metal::v1::KernelHandle::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>tt::tt_metal::v1::KernelHandle::id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/include/tt_metal/types.hpp" line="49" column="28" bodyfile="tt_metal/include/tt_metal/types.hpp" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classtt_1_1tt__metal_1_1v1_1_1KernelHandle_1a661384877cb93b37bbf630c31131e981" prot="public" static="no" constexpr="yes" const="no" explicit="yes" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr tt::tt_metal::v1::KernelHandle::KernelHandle</definition>
+        <argsstring>(tt_metal::KernelHandle id) noexcept</argsstring>
+        <name>KernelHandle</name>
+        <qualifiedname>tt::tt_metal::v1::KernelHandle::KernelHandle</qualifiedname>
+        <param>
+          <type>tt_metal::KernelHandle</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/include/tt_metal/types.hpp" line="44" column="24" bodyfile="tt_metal/include/tt_metal/types.hpp" bodystart="44" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classtt_1_1tt__metal_1_1v1_1_1KernelHandle_1aeda14edd5ec3fc85942dfa00c7ae6b79" prot="public" static="no" constexpr="yes" const="yes" explicit="yes" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr tt::tt_metal::v1::KernelHandle::operator tt_metal::KernelHandle</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>operator tt_metal::KernelHandle</name>
+        <qualifiedname>tt::tt_metal::v1::KernelHandle::KernelHandle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/include/tt_metal/types.hpp" line="46" column="24" bodyfile="tt_metal/include/tt_metal/types.hpp" bodystart="46" bodyend="46"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="tt_metal/include/tt_metal/types.hpp" line="42" column="1" bodyfile="tt_metal/include/tt_metal/types.hpp" bodystart="42" bodyend="50"/>
+    <listofallmembers>
+      <member refid="classtt_1_1tt__metal_1_1v1_1_1KernelHandle_1aba09a1b26fe31d16e3207ebca3c9ea59" prot="private" virt="non-virtual"><scope>tt::tt_metal::v1::KernelHandle</scope><name>id</name></member>
+      <member refid="classtt_1_1tt__metal_1_1v1_1_1KernelHandle_1a661384877cb93b37bbf630c31131e981" prot="public" virt="non-virtual"><scope>tt::tt_metal::v1::KernelHandle</scope><name>KernelHandle</name></member>
+      <member refid="classtt_1_1tt__metal_1_1v1_1_1KernelHandle_1aeda14edd5ec3fc85942dfa00c7ae6b79" prot="public" virt="non-virtual"><scope>tt::tt_metal::v1::KernelHandle</scope><name>operator tt_metal::KernelHandle</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

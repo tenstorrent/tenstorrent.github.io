@@ -2,17 +2,24 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
   <compounddef id="structInterleavedAddrGenFast" kind="struct" language="C++" prot="public">
     <compoundname>InterleavedAddrGenFast</compoundname>
+    <includes refid="dataflow__api_8h" local="no">dataflow_api.h</includes>
     <templateparamlist>
       <param>
         <type>bool</type>
         <declname>DRAM</declname>
         <defname>DRAM</defname>
       </param>
+      <param>
+        <type>uint32_t</type>
+        <declname>tile_hw</declname>
+        <defname>tile_hw</defname>
+        <defval>1024</defval>
+      </param>
     </templateparamlist>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structInterleavedAddrGenFast_1abe6d0419b318f5b384c23dacdc06de01" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="structInterleavedAddrGenFast_1a75f8e84dc2ed014494e27a9a66d08da0" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
-        <definition>uint32_t InterleavedAddrGenFast&lt; DRAM &gt;::bank_base_address</definition>
+        <definition>uint32_t InterleavedAddrGenFast&lt; DRAM, tile_hw &gt;::bank_base_address</definition>
         <argsstring></argsstring>
         <name>bank_base_address</name>
         <qualifiedname>InterleavedAddrGenFast::bank_base_address</qualifiedname>
@@ -22,11 +29,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="881" column="14" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="881" bodyend="-1"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1036" column="14" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1036" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structInterleavedAddrGenFast_1adcda56d740e71d953bddfc7b3f9c9841" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="structInterleavedAddrGenFast_1aa28ff99f21ae59113e530e7ada1e7db4" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
-        <definition>uint32_t InterleavedAddrGenFast&lt; DRAM &gt;::page_size</definition>
+        <definition>uint32_t InterleavedAddrGenFast&lt; DRAM, tile_hw &gt;::page_size</definition>
         <argsstring></argsstring>
         <name>page_size</name>
         <qualifiedname>InterleavedAddrGenFast::page_size</qualifiedname>
@@ -36,11 +43,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="882" column="14" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="882" bodyend="-1"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1038" column="14" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1038" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structInterleavedAddrGenFast_1a29203b200ccf0265e84f7720236d3c04" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="structInterleavedAddrGenFast_1a99a3860f937c77a3443ef7f4f81c3868" prot="public" static="no" mutable="no">
         <type>DataFormat</type>
-        <definition>DataFormat InterleavedAddrGenFast&lt; DRAM &gt;::data_format</definition>
+        <definition>DataFormat InterleavedAddrGenFast&lt; DRAM, tile_hw &gt;::data_format</definition>
         <argsstring></argsstring>
         <name>data_format</name>
         <qualifiedname>InterleavedAddrGenFast::data_format</qualifiedname>
@@ -50,19 +57,27 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="883" column="16" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="883" bodyend="-1"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1039" column="16" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1039" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structInterleavedAddrGenFast_1add07fcdcff66fb5d819246f59b075672" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>std::uint64_t</type>
-        <definition>std::uint64_t InterleavedAddrGenFast&lt; DRAM &gt;::get_noc_addr</definition>
-        <argsstring>(const uint32_t id, const uint32_t offset=0) const</argsstring>
-        <name>get_noc_addr</name>
-        <qualifiedname>InterleavedAddrGenFast::get_noc_addr</qualifiedname>
+      <memberdef kind="function" id="structInterleavedAddrGenFast_1ae9e86548f004368f621fefc309352b68" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t InterleavedAddrGenFast&lt; DRAM, tile_hw &gt;::get_addr</definition>
+        <argsstring>(const uint32_t id, const uint32_t bank_offset_index, const uint32_t bank_index, const uint32_t offset=0) const</argsstring>
+        <name>get_addr</name>
+        <qualifiedname>InterleavedAddrGenFast::get_addr</qualifiedname>
         <param>
           <type>const uint32_t</type>
           <declname>id</declname>
+        </param>
+        <param>
+          <type>const uint32_t</type>
+          <declname>bank_offset_index</declname>
+        </param>
+        <param>
+          <type>const uint32_t</type>
+          <declname>bank_index</declname>
         </param>
         <param>
           <type>const uint32_t</type>
@@ -75,12 +90,40 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="886" column="19" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="886" bodyend="919"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1042" column="14" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1042" bodyend="1044"/>
       </memberdef>
-      <memberdef kind="function" id="structInterleavedAddrGenFast_1adb2ddec50af80b9bd1327f4eadaed63b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structInterleavedAddrGenFast_1a3093c8318703ed28c1de8ae69f81f066" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::uint64_t</type>
+        <definition>std::uint64_t InterleavedAddrGenFast&lt; DRAM, tile_hw &gt;::get_noc_addr</definition>
+        <argsstring>(const uint32_t id, const uint32_t offset=0, uint8_t noc=noc_index) const</argsstring>
+        <name>get_noc_addr</name>
+        <qualifiedname>InterleavedAddrGenFast::get_noc_addr</qualifiedname>
+        <param>
+          <type>const uint32_t</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>const uint32_t</type>
+          <declname>offset</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>noc</declname>
+          <defval><ref refid="dataflow__api_8h_1a58bc3a01e945dbd421fce21906e94441" kindref="member">noc_index</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1047" column="19" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1047" bodyend="1055"/>
+      </memberdef>
+      <memberdef kind="function" id="structInterleavedAddrGenFast_1a6b8754cfefa3b0a98de891459fcce786" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
-        <definition>void InterleavedAddrGenFast&lt; DRAM &gt;::noc_async_read_tile</definition>
-        <argsstring>(const uint32_t id, uint32_t dest_addr, const uint32_t offset=0) const</argsstring>
+        <definition>void InterleavedAddrGenFast&lt; DRAM, tile_hw &gt;::noc_async_read_tile</definition>
+        <argsstring>(const uint32_t id, uint32_t dest_addr, const uint32_t offset=0, uint8_t noc=noc_index) const</argsstring>
         <name>noc_async_read_tile</name>
         <qualifiedname>InterleavedAddrGenFast::noc_async_read_tile</qualifiedname>
         <param>
@@ -96,18 +139,23 @@
           <declname>offset</declname>
           <defval>0</defval>
         </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>noc</declname>
+          <defval><ref refid="dataflow__api_8h_1a58bc3a01e945dbd421fce21906e94441" kindref="member">noc_index</ref></defval>
+        </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="922" column="10" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="922" bodyend="968"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1058" column="10" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1058" bodyend="1075"/>
       </memberdef>
-      <memberdef kind="function" id="structInterleavedAddrGenFast_1a4221b39a7361b18dda2d406f52faad67" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structInterleavedAddrGenFast_1a03073c2fbb753af33ee13ca95deecab7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
-        <definition>void InterleavedAddrGenFast&lt; DRAM &gt;::noc_async_write_tile</definition>
-        <argsstring>(const uint32_t id, uint32_t src_addr) const</argsstring>
+        <definition>void InterleavedAddrGenFast&lt; DRAM, tile_hw &gt;::noc_async_write_tile</definition>
+        <argsstring>(const uint32_t id, uint32_t src_addr, uint8_t noc=noc_index) const</argsstring>
         <name>noc_async_write_tile</name>
         <qualifiedname>InterleavedAddrGenFast::noc_async_write_tile</qualifiedname>
         <param>
@@ -118,27 +166,33 @@
           <type>uint32_t</type>
           <declname>src_addr</declname>
         </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>noc</declname>
+          <defval><ref refid="dataflow__api_8h_1a58bc3a01e945dbd421fce21906e94441" kindref="member">noc_index</ref></defval>
+        </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="973" column="10" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="973" bodyend="1026"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1078" column="10" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1078" bodyend="1102"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="tt_metal/hw/inc/dataflow_api.h" line="880" column="1" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="880" bodyend="1027"/>
+    <location file="tt_metal/hw/inc/dataflow_api.h" line="1035" column="1" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1035" bodyend="1103"/>
     <listofallmembers>
-      <member refid="structInterleavedAddrGenFast_1abe6d0419b318f5b384c23dacdc06de01" prot="public" virt="non-virtual"><scope>InterleavedAddrGenFast</scope><name>bank_base_address</name></member>
-      <member refid="structInterleavedAddrGenFast_1a29203b200ccf0265e84f7720236d3c04" prot="public" virt="non-virtual"><scope>InterleavedAddrGenFast</scope><name>data_format</name></member>
-      <member refid="structInterleavedAddrGenFast_1add07fcdcff66fb5d819246f59b075672" prot="public" virt="non-virtual"><scope>InterleavedAddrGenFast</scope><name>get_noc_addr</name></member>
-      <member refid="structInterleavedAddrGenFast_1adb2ddec50af80b9bd1327f4eadaed63b" prot="public" virt="non-virtual"><scope>InterleavedAddrGenFast</scope><name>noc_async_read_tile</name></member>
-      <member refid="structInterleavedAddrGenFast_1a4221b39a7361b18dda2d406f52faad67" prot="public" virt="non-virtual"><scope>InterleavedAddrGenFast</scope><name>noc_async_write_tile</name></member>
-      <member refid="structInterleavedAddrGenFast_1adcda56d740e71d953bddfc7b3f9c9841" prot="public" virt="non-virtual"><scope>InterleavedAddrGenFast</scope><name>page_size</name></member>
+      <member refid="structInterleavedAddrGenFast_1a75f8e84dc2ed014494e27a9a66d08da0" prot="public" virt="non-virtual"><scope>InterleavedAddrGenFast</scope><name>bank_base_address</name></member>
+      <member refid="structInterleavedAddrGenFast_1a99a3860f937c77a3443ef7f4f81c3868" prot="public" virt="non-virtual"><scope>InterleavedAddrGenFast</scope><name>data_format</name></member>
+      <member refid="structInterleavedAddrGenFast_1ae9e86548f004368f621fefc309352b68" prot="public" virt="non-virtual"><scope>InterleavedAddrGenFast</scope><name>get_addr</name></member>
+      <member refid="structInterleavedAddrGenFast_1a3093c8318703ed28c1de8ae69f81f066" prot="public" virt="non-virtual"><scope>InterleavedAddrGenFast</scope><name>get_noc_addr</name></member>
+      <member refid="structInterleavedAddrGenFast_1a6b8754cfefa3b0a98de891459fcce786" prot="public" virt="non-virtual"><scope>InterleavedAddrGenFast</scope><name>noc_async_read_tile</name></member>
+      <member refid="structInterleavedAddrGenFast_1a03073c2fbb753af33ee13ca95deecab7" prot="public" virt="non-virtual"><scope>InterleavedAddrGenFast</scope><name>noc_async_write_tile</name></member>
+      <member refid="structInterleavedAddrGenFast_1aa28ff99f21ae59113e530e7ada1e7db4" prot="public" virt="non-virtual"><scope>InterleavedAddrGenFast</scope><name>page_size</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

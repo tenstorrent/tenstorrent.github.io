@@ -1,0 +1,564 @@
+\hypertarget{ethernet_2dataflow__api_8h}{}\doxysection{tt\+\_\+metal/hw/inc/ethernet/dataflow\+\_\+api.h File Reference}
+\label{ethernet_2dataflow__api_8h}\index{tt\_metal/hw/inc/ethernet/dataflow\_api.h@{tt\_metal/hw/inc/ethernet/dataflow\_api.h}}
+{\ttfamily \#include \char`\"{}risc\+\_\+common.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dev\+\_\+msgs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}eth\+\_\+l1\+\_\+address\+\_\+map.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tt\+\_\+eth\+\_\+api.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}erisc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tools/profiler/kernel\+\_\+profiler.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}noc\+\_\+nonblocking\+\_\+api.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../dataflow\+\_\+api.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tunneling.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{ethernet_2dataflow__api_8h_a9d454f81bcb8875f528a900fa9326bc6}{eth\+\_\+txq\+\_\+is\+\_\+busy}} ()
+\item 
+void \mbox{\hyperlink{ethernet_2dataflow__api_8h_a651e015fbc27db86a39aeab1eea57958}{wait\+\_\+for\+\_\+eth\+\_\+txq\+\_\+cmd\+\_\+space}} (uint32\+\_\+t wait\+\_\+min=0)
+\item 
+void \mbox{\hyperlink{ethernet_2dataflow__api_8h_afe0921cad600041ff9a1eff295697d3b}{eth\+\_\+noc\+\_\+semaphore\+\_\+wait}} (volatile uint32\+\_\+t $\ast$sem\+\_\+addr, uint32\+\_\+t val, uint32\+\_\+t wait\+\_\+min=0)
+\item 
+void \mbox{\hyperlink{ethernet_2dataflow__api_8h_a743b107f28868db5a3af175957fd2fa2}{eth\+\_\+noc\+\_\+semaphore\+\_\+wait\+\_\+min}} (volatile uint32\+\_\+t $\ast$sem\+\_\+addr, uint32\+\_\+t val, uint32\+\_\+t wait\+\_\+min=0)
+\item 
+void \mbox{\hyperlink{ethernet_2dataflow__api_8h_ae23f90aed9456576bb85b298a1ce877b}{eth\+\_\+noc\+\_\+async\+\_\+read\+\_\+barrier}} ()
+\item 
+void \mbox{\hyperlink{ethernet_2dataflow__api_8h_a9d47f0940202285a7f23982692e20f59}{eth\+\_\+noc\+\_\+async\+\_\+write\+\_\+barrier}} ()
+\item 
+void \mbox{\hyperlink{ethernet_2dataflow__api_8h_a5b57f8d14c6a15d3680d7284582a786c}{eth\+\_\+send\+\_\+bytes}} (uint32\+\_\+t src\+\_\+addr, uint32\+\_\+t dst\+\_\+addr, uint32\+\_\+t num\+\_\+bytes, uint32\+\_\+t num\+\_\+bytes\+\_\+per\+\_\+send=16, uint32\+\_\+t num\+\_\+bytes\+\_\+per\+\_\+send\+\_\+word\+\_\+size=1)
+\item 
+void \mbox{\hyperlink{ethernet_2dataflow__api_8h_a5cb3e75736223670aaf5dcbc23d91471}{eth\+\_\+send\+\_\+bytes\+\_\+over\+\_\+channel\+\_\+payload\+\_\+only}} (uint32\+\_\+t src\+\_\+addr, uint32\+\_\+t dst\+\_\+addr, uint32\+\_\+t num\+\_\+bytes, uint32\+\_\+t num\+\_\+bytes\+\_\+per\+\_\+send=16, uint32\+\_\+t num\+\_\+bytes\+\_\+per\+\_\+send\+\_\+word\+\_\+size=1)
+\item 
+void \mbox{\hyperlink{ethernet_2dataflow__api_8h_a912b2c36c968ad797b313fa3468666f9}{eth\+\_\+send\+\_\+bytes\+\_\+over\+\_\+channel\+\_\+payload\+\_\+only\+\_\+unsafe}} (uint32\+\_\+t src\+\_\+addr, uint32\+\_\+t dst\+\_\+addr, uint32\+\_\+t num\+\_\+bytes, uint32\+\_\+t num\+\_\+bytes\+\_\+per\+\_\+send=16, uint32\+\_\+t num\+\_\+bytes\+\_\+per\+\_\+send\+\_\+word\+\_\+size=1)
+\item 
+void \mbox{\hyperlink{ethernet_2dataflow__api_8h_a781562a3dd147fc9d9430ce037a1e3da}{eth\+\_\+send\+\_\+payload\+\_\+complete\+\_\+signal\+\_\+over\+\_\+channel}} (uint32\+\_\+t channel, uint32\+\_\+t num\+\_\+bytes)
+\item 
+void \mbox{\hyperlink{ethernet_2dataflow__api_8h_af8a3f69ac60c29d201771f16f6498cda}{eth\+\_\+send\+\_\+bytes\+\_\+over\+\_\+channel}} (uint32\+\_\+t src\+\_\+addr, uint32\+\_\+t dst\+\_\+addr, uint32\+\_\+t num\+\_\+bytes, uint32\+\_\+t channel, uint32\+\_\+t num\+\_\+bytes\+\_\+per\+\_\+send=16, uint32\+\_\+t num\+\_\+bytes\+\_\+per\+\_\+send\+\_\+word\+\_\+size=1)
+\item 
+void \mbox{\hyperlink{ethernet_2dataflow__api_8h_aae485db00b351232851e5e43f5cbd0f8}{eth\+\_\+write\+\_\+remote\+\_\+reg}} (uint32\+\_\+t reg\+\_\+addr, uint32\+\_\+t value)
+\item 
+void \mbox{\hyperlink{ethernet_2dataflow__api_8h_a48d73eaaa1ed9d986a96a7bef2c9531f}{eth\+\_\+wait\+\_\+for\+\_\+receiver\+\_\+done}} (uint32\+\_\+t wait\+\_\+min=0)
+\item 
+bool \mbox{\hyperlink{ethernet_2dataflow__api_8h_a02966d06f690ca2d85533b5e6ce80809}{eth\+\_\+is\+\_\+receiver\+\_\+channel\+\_\+send\+\_\+acked}} (uint32\+\_\+t channel)
+\item 
+bool \mbox{\hyperlink{ethernet_2dataflow__api_8h_a1a37dd512972c4e57bbe6e0b198a3941}{eth\+\_\+is\+\_\+receiver\+\_\+channel\+\_\+send\+\_\+done}} (uint32\+\_\+t channel)
+\item 
+void \mbox{\hyperlink{ethernet_2dataflow__api_8h_a3ff986b2dd8f65e01aca7867bb166e96}{eth\+\_\+wait\+\_\+for\+\_\+receiver\+\_\+channel\+\_\+done}} (uint32\+\_\+t channel)
+\item 
+void \mbox{\hyperlink{ethernet_2dataflow__api_8h_a18b56aac8ce0c479e1e5e1009908f7a2}{eth\+\_\+wait\+\_\+receiver\+\_\+done}} (uint32\+\_\+t wait\+\_\+min=0)
+\item 
+void \mbox{\hyperlink{ethernet_2dataflow__api_8h_a5544279ed9fdd9fe6ce2f4d2315e0072}{eth\+\_\+wait\+\_\+for\+\_\+bytes}} (uint32\+\_\+t num\+\_\+bytes, uint32\+\_\+t wait\+\_\+min=0)
+\item 
+bool \mbox{\hyperlink{ethernet_2dataflow__api_8h_af738caa9901266b6b58f0fa0b5ee779f}{eth\+\_\+bytes\+\_\+are\+\_\+available\+\_\+on\+\_\+channel}} (uint8\+\_\+t channel)
+\item 
+void \mbox{\hyperlink{ethernet_2dataflow__api_8h_adedc3100f41c4d1fca3f2ef234985bda}{eth\+\_\+wait\+\_\+for\+\_\+bytes\+\_\+on\+\_\+channel\+\_\+sync\+\_\+addr}} (uint32\+\_\+t num\+\_\+bytes, volatile eth\+\_\+channel\+\_\+sync\+\_\+t $\ast$eth\+\_\+channel\+\_\+syncs, uint32\+\_\+t wait\+\_\+min=1000000)
+\item 
+void \mbox{\hyperlink{ethernet_2dataflow__api_8h_aa0026b0696cbbada2f46119c30c850af}{eth\+\_\+wait\+\_\+for\+\_\+bytes\+\_\+on\+\_\+channel}} (uint32\+\_\+t num\+\_\+bytes, uint8\+\_\+t channel, uint32\+\_\+t wait\+\_\+min=1000000)
+\item 
+void \mbox{\hyperlink{ethernet_2dataflow__api_8h_af27bb42b34afb388a0994da0f2b73c54}{eth\+\_\+receiver\+\_\+done}} ()
+\item 
+void \mbox{\hyperlink{ethernet_2dataflow__api_8h_ae1583ac42a8f9f11794a096506d954a6}{send\+\_\+eth\+\_\+receiver\+\_\+channel\+\_\+done}} (volatile eth\+\_\+channel\+\_\+sync\+\_\+t $\ast$channel\+\_\+sync)
+\item 
+void \mbox{\hyperlink{ethernet_2dataflow__api_8h_acd35fe4c1c09f60fc53d21a4bccbb71e}{eth\+\_\+receiver\+\_\+channel\+\_\+done}} (uint32\+\_\+t channel)
+\item 
+void \mbox{\hyperlink{ethernet_2dataflow__api_8h_a32a1ef34f66d78ba3934c321595ff40d}{eth\+\_\+clear\+\_\+sender\+\_\+channel\+\_\+ack}} (uint32\+\_\+t channel)
+\item 
+void \mbox{\hyperlink{ethernet_2dataflow__api_8h_a4ff4de9ce3be69c64f017b1b1facc090}{eth\+\_\+receiver\+\_\+channel\+\_\+ack}} (uint32\+\_\+t channel, uint32\+\_\+t eth\+\_\+transaction\+\_\+ack\+\_\+word\+\_\+addr)
+\item 
+void \mbox{\hyperlink{ethernet_2dataflow__api_8h_a5d550f7bf6d486b386ddea8c81ad0a82}{eth\+\_\+receiver\+\_\+acknowledge}} (uint8\+\_\+t channel=0)
+\item 
+void \mbox{\hyperlink{ethernet_2dataflow__api_8h_a4f1763214451d751d920191f201b2e1f}{eth\+\_\+wait\+\_\+receiver\+\_\+acknowledge}} (uint8\+\_\+t channel=0)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ethernet_2dataflow__api_8h_af738caa9901266b6b58f0fa0b5ee779f}\label{ethernet_2dataflow__api_8h_af738caa9901266b6b58f0fa0b5ee779f}} 
+\index{dataflow\_api.h@{dataflow\_api.h}!eth\_bytes\_are\_available\_on\_channel@{eth\_bytes\_are\_available\_on\_channel}}
+\index{eth\_bytes\_are\_available\_on\_channel@{eth\_bytes\_are\_available\_on\_channel}!dataflow\_api.h@{dataflow\_api.h}}
+\doxysubsubsection{\texorpdfstring{eth\_bytes\_are\_available\_on\_channel()}{eth\_bytes\_are\_available\_on\_channel()}}
+{\footnotesize\ttfamily bool eth\+\_\+bytes\+\_\+are\+\_\+available\+\_\+on\+\_\+channel (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{channel }\end{DoxyParamCaption})}
+
+Caller is expected to be receiver side. This call will tell the receiver whether or not there is payload data to in the local buffer
+
+Non-\/blocking
+
+Return value\+: bool\+: True if payload data was sent (and not yet cleared) on the channel
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endhead
+channel   &Which transaction channel to check   &uint32\+\_\+t   &0..7   &True   \\\cline{1-5}
+\end{longtabu}
+\mbox{\Hypertarget{ethernet_2dataflow__api_8h_a32a1ef34f66d78ba3934c321595ff40d}\label{ethernet_2dataflow__api_8h_a32a1ef34f66d78ba3934c321595ff40d}} 
+\index{dataflow\_api.h@{dataflow\_api.h}!eth\_clear\_sender\_channel\_ack@{eth\_clear\_sender\_channel\_ack}}
+\index{eth\_clear\_sender\_channel\_ack@{eth\_clear\_sender\_channel\_ack}!dataflow\_api.h@{dataflow\_api.h}}
+\doxysubsubsection{\texorpdfstring{eth\_clear\_sender\_channel\_ack()}{eth\_clear\_sender\_channel\_ack()}}
+{\footnotesize\ttfamily void eth\+\_\+clear\+\_\+sender\+\_\+channel\+\_\+ack (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{channel }\end{DoxyParamCaption})}
+
+Caller is expected to be sender side. This clears the local first level ack field. Useful when resetting on sender side in preparation for next send
+
+Non-\/blocking
+
+Return value\+: None
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endhead
+channel   &Which transaction channel to check   &uint32\+\_\+t   &0..7   &True   \\\cline{1-5}
+\end{longtabu}
+\mbox{\Hypertarget{ethernet_2dataflow__api_8h_a02966d06f690ca2d85533b5e6ce80809}\label{ethernet_2dataflow__api_8h_a02966d06f690ca2d85533b5e6ce80809}} 
+\index{dataflow\_api.h@{dataflow\_api.h}!eth\_is\_receiver\_channel\_send\_acked@{eth\_is\_receiver\_channel\_send\_acked}}
+\index{eth\_is\_receiver\_channel\_send\_acked@{eth\_is\_receiver\_channel\_send\_acked}!dataflow\_api.h@{dataflow\_api.h}}
+\doxysubsubsection{\texorpdfstring{eth\_is\_receiver\_channel\_send\_acked()}{eth\_is\_receiver\_channel\_send\_acked()}}
+{\footnotesize\ttfamily bool eth\+\_\+is\+\_\+receiver\+\_\+channel\+\_\+send\+\_\+acked (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{channel }\end{DoxyParamCaption})}
+
+Caller is expected to be sender side. Indicates to caller that the receiver has received the last payload sent, and that the local sender buffer can be cleared safely
+
+Non-\/blocking
+
+Return value\+: bool\+: true if the receiver has acked
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endhead
+channel   &Which transaction channel to check. Corresponds to   &uint32\+\_\+t   &0..7   &True    \\\cline{1-5}
+&channels in erisc\+\_\+info\+\_\+t   &&&\\\cline{1-5}
+\end{longtabu}
+\mbox{\Hypertarget{ethernet_2dataflow__api_8h_a1a37dd512972c4e57bbe6e0b198a3941}\label{ethernet_2dataflow__api_8h_a1a37dd512972c4e57bbe6e0b198a3941}} 
+\index{dataflow\_api.h@{dataflow\_api.h}!eth\_is\_receiver\_channel\_send\_done@{eth\_is\_receiver\_channel\_send\_done}}
+\index{eth\_is\_receiver\_channel\_send\_done@{eth\_is\_receiver\_channel\_send\_done}!dataflow\_api.h@{dataflow\_api.h}}
+\doxysubsubsection{\texorpdfstring{eth\_is\_receiver\_channel\_send\_done()}{eth\_is\_receiver\_channel\_send\_done()}}
+{\footnotesize\ttfamily bool eth\+\_\+is\+\_\+receiver\+\_\+channel\+\_\+send\+\_\+done (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{channel }\end{DoxyParamCaption})}
+
+Caller is expected to be sender side. Tells caller that the receiver has both received the last payload sent, and also that it has cleared it to its consumers. If true, indicates that caller (sender) send safely send more data.
+
+Non-\/blocking
+
+Return value\+: bool\+: true if the receiver has acked and forwarded the payload.
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endhead
+channel   &Which transaction channel to check. Corresponds to   &uint32\+\_\+t   &0..7   &True    \\\cline{1-5}
+&channels in erisc\+\_\+info\+\_\+t   &&&\\\cline{1-5}
+\end{longtabu}
+\mbox{\Hypertarget{ethernet_2dataflow__api_8h_ae23f90aed9456576bb85b298a1ce877b}\label{ethernet_2dataflow__api_8h_ae23f90aed9456576bb85b298a1ce877b}} 
+\index{dataflow\_api.h@{dataflow\_api.h}!eth\_noc\_async\_read\_barrier@{eth\_noc\_async\_read\_barrier}}
+\index{eth\_noc\_async\_read\_barrier@{eth\_noc\_async\_read\_barrier}!dataflow\_api.h@{dataflow\_api.h}}
+\doxysubsubsection{\texorpdfstring{eth\_noc\_async\_read\_barrier()}{eth\_noc\_async\_read\_barrier()}}
+{\footnotesize\ttfamily void eth\+\_\+noc\+\_\+async\+\_\+read\+\_\+barrier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This blocking call waits for all the outstanding enqueued {\itshape noc\+\_\+async\+\_\+read} calls issued on the current Tensix core to complete. After returning from this call the {\itshape noc\+\_\+async\+\_\+read} queue will be empty for the current Tensix core.
+
+Return value\+: None \mbox{\Hypertarget{ethernet_2dataflow__api_8h_a9d47f0940202285a7f23982692e20f59}\label{ethernet_2dataflow__api_8h_a9d47f0940202285a7f23982692e20f59}} 
+\index{dataflow\_api.h@{dataflow\_api.h}!eth\_noc\_async\_write\_barrier@{eth\_noc\_async\_write\_barrier}}
+\index{eth\_noc\_async\_write\_barrier@{eth\_noc\_async\_write\_barrier}!dataflow\_api.h@{dataflow\_api.h}}
+\doxysubsubsection{\texorpdfstring{eth\_noc\_async\_write\_barrier()}{eth\_noc\_async\_write\_barrier()}}
+{\footnotesize\ttfamily void eth\+\_\+noc\+\_\+async\+\_\+write\+\_\+barrier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This blocking call waits for all the outstanding enqueued {\itshape noc\+\_\+async\+\_\+write} calls issued on the current Tensix core to complete. After returning from this call the {\itshape noc\+\_\+async\+\_\+write} queue will be empty for the current Tensix core.
+
+Return value\+: None \mbox{\Hypertarget{ethernet_2dataflow__api_8h_afe0921cad600041ff9a1eff295697d3b}\label{ethernet_2dataflow__api_8h_afe0921cad600041ff9a1eff295697d3b}} 
+\index{dataflow\_api.h@{dataflow\_api.h}!eth\_noc\_semaphore\_wait@{eth\_noc\_semaphore\_wait}}
+\index{eth\_noc\_semaphore\_wait@{eth\_noc\_semaphore\_wait}!dataflow\_api.h@{dataflow\_api.h}}
+\doxysubsubsection{\texorpdfstring{eth\_noc\_semaphore\_wait()}{eth\_noc\_semaphore\_wait()}}
+{\footnotesize\ttfamily void eth\+\_\+noc\+\_\+semaphore\+\_\+wait (\begin{DoxyParamCaption}\item[{volatile uint32\+\_\+t $\ast$}]{sem\+\_\+addr,  }\item[{uint32\+\_\+t}]{val,  }\item[{uint32\+\_\+t}]{wait\+\_\+min = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+A blocking call that waits until the value of a local L1 memory address on the Tensix core executing this function becomes equal to a target value. This L1 memory address is used as a semaphore of size 4 Bytes, as a synchronization mechanism. Also, see {\itshape noc\+\_\+semaphore\+\_\+set}.
+
+Return value\+: None
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endhead
+sem\+\_\+addr   &Semaphore address in local L1 memory   &uint32\+\_\+t   &0..1MB   &True    \\\cline{1-5}
+val   &The target value of the semaphore   &uint32\+\_\+t   &Any uint32\+\_\+t value   &True    \\\cline{1-5}
+wait\+\_\+min   &The number of cycles to wait before performing run\+\_\+routing()   &uint32\+\_\+t   &Any uint32\+\_\+t value   &False   \\\cline{1-5}
+\end{longtabu}
+\mbox{\Hypertarget{ethernet_2dataflow__api_8h_a743b107f28868db5a3af175957fd2fa2}\label{ethernet_2dataflow__api_8h_a743b107f28868db5a3af175957fd2fa2}} 
+\index{dataflow\_api.h@{dataflow\_api.h}!eth\_noc\_semaphore\_wait\_min@{eth\_noc\_semaphore\_wait\_min}}
+\index{eth\_noc\_semaphore\_wait\_min@{eth\_noc\_semaphore\_wait\_min}!dataflow\_api.h@{dataflow\_api.h}}
+\doxysubsubsection{\texorpdfstring{eth\_noc\_semaphore\_wait\_min()}{eth\_noc\_semaphore\_wait\_min()}}
+{\footnotesize\ttfamily void eth\+\_\+noc\+\_\+semaphore\+\_\+wait\+\_\+min (\begin{DoxyParamCaption}\item[{volatile uint32\+\_\+t $\ast$}]{sem\+\_\+addr,  }\item[{uint32\+\_\+t}]{val,  }\item[{uint32\+\_\+t}]{wait\+\_\+min = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+A blocking call that waits until the value of a local L1 memory address on the Tensix core executing this function becomes equal to or greater than a target value. This L1 memory address is used as a semaphore of size 4 Bytes, as a synchronization mechanism. Also, see {\itshape noc\+\_\+semaphore\+\_\+set}.
+
+Return value\+: None
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endhead
+sem\+\_\+addr   &Semaphore address in local L1 memory   &uint32\+\_\+t   &0..1MB   &True    \\\cline{1-5}
+val   &The target value of the semaphore   &uint32\+\_\+t   &Any uint32\+\_\+t value   &True    \\\cline{1-5}
+wait\+\_\+min   &The number of cycles to wait before performing run\+\_\+routing()   &uint32\+\_\+t   &Any uint32\+\_\+t value   &False   \\\cline{1-5}
+\end{longtabu}
+\mbox{\Hypertarget{ethernet_2dataflow__api_8h_a5d550f7bf6d486b386ddea8c81ad0a82}\label{ethernet_2dataflow__api_8h_a5d550f7bf6d486b386ddea8c81ad0a82}} 
+\index{dataflow\_api.h@{dataflow\_api.h}!eth\_receiver\_acknowledge@{eth\_receiver\_acknowledge}}
+\index{eth\_receiver\_acknowledge@{eth\_receiver\_acknowledge}!dataflow\_api.h@{dataflow\_api.h}}
+\doxysubsubsection{\texorpdfstring{eth\_receiver\_acknowledge()}{eth\_receiver\_acknowledge()}}
+{\footnotesize\ttfamily void eth\+\_\+receiver\+\_\+acknowledge (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{channel = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ethernet_2dataflow__api_8h_a4ff4de9ce3be69c64f017b1b1facc090}\label{ethernet_2dataflow__api_8h_a4ff4de9ce3be69c64f017b1b1facc090}} 
+\index{dataflow\_api.h@{dataflow\_api.h}!eth\_receiver\_channel\_ack@{eth\_receiver\_channel\_ack}}
+\index{eth\_receiver\_channel\_ack@{eth\_receiver\_channel\_ack}!dataflow\_api.h@{dataflow\_api.h}}
+\doxysubsubsection{\texorpdfstring{eth\_receiver\_channel\_ack()}{eth\_receiver\_channel\_ack()}}
+{\footnotesize\ttfamily void eth\+\_\+receiver\+\_\+channel\+\_\+ack (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{channel,  }\item[{uint32\+\_\+t}]{eth\+\_\+transaction\+\_\+ack\+\_\+word\+\_\+addr }\end{DoxyParamCaption})}
+
+Caller is expected to be receiver side. This sends the first level ack to sender, indicating that the last payload sent on the channel was received and that sender is free to clear its buffer
+
+Non-\/blocking
+
+Return value\+: None
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endhead
+channel   &Which transaction channel to ack   &uint32\+\_\+t   &0..7   &True    \\\cline{1-5}
+eth\+\_\+transaction\+\_\+ack\+\_\+word\+\_\+addr   &Address of 16B memory (also 16B aligned) segment with   &uint32\+\_\+t   &L1 address   &True    \\\cline{1-5}
+&to send the eth\+\_\+channel\+\_\+sync\+\_\+t to sender for first level   &uint32\+\_\+t   &L1 address   &True    \\\cline{1-5}
+&ack. Must {\itshape not} alias erisc\+\_\+info-\/\texorpdfstring{$>$}{>}channels\mbox{[}channel\mbox{]}   &uint32\+\_\+t   &L1 address   &True   \\\cline{1-5}
+\end{longtabu}
+\mbox{\Hypertarget{ethernet_2dataflow__api_8h_acd35fe4c1c09f60fc53d21a4bccbb71e}\label{ethernet_2dataflow__api_8h_acd35fe4c1c09f60fc53d21a4bccbb71e}} 
+\index{dataflow\_api.h@{dataflow\_api.h}!eth\_receiver\_channel\_done@{eth\_receiver\_channel\_done}}
+\index{eth\_receiver\_channel\_done@{eth\_receiver\_channel\_done}!dataflow\_api.h@{dataflow\_api.h}}
+\doxysubsubsection{\texorpdfstring{eth\_receiver\_channel\_done()}{eth\_receiver\_channel\_done()}}
+{\footnotesize\ttfamily void eth\+\_\+receiver\+\_\+channel\+\_\+done (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{channel }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ethernet_2dataflow__api_8h_af27bb42b34afb388a0994da0f2b73c54}\label{ethernet_2dataflow__api_8h_af27bb42b34afb388a0994da0f2b73c54}} 
+\index{dataflow\_api.h@{dataflow\_api.h}!eth\_receiver\_done@{eth\_receiver\_done}}
+\index{eth\_receiver\_done@{eth\_receiver\_done}!dataflow\_api.h@{dataflow\_api.h}}
+\doxysubsubsection{\texorpdfstring{eth\_receiver\_done()}{eth\_receiver\_done()}}
+{\footnotesize\ttfamily void eth\+\_\+receiver\+\_\+done (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Initiates an asynchronous call from receiver ethernet core to tell remote sender ethernet core that data sent via eth\+\_\+send\+\_\+bytes is no longer being used. Also, see {\itshape eth\+\_\+wait\+\_\+for\+\_\+receiver\+\_\+done}. Sends over channel 0
+
+Return value\+: None
+
+$\vert$ Argument $\vert$ Description $\vert$ Type $\vert$ Valid Range $\vert$ Required $\vert$ $\vert$-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---$\vert$-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---$\vert$-\/-\/-\/-\/-\/-\/-\/---$\vert$-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---$\vert$-\/-\/-\/-\/-\/-\/-\/---$\vert$ \mbox{\Hypertarget{ethernet_2dataflow__api_8h_a5b57f8d14c6a15d3680d7284582a786c}\label{ethernet_2dataflow__api_8h_a5b57f8d14c6a15d3680d7284582a786c}} 
+\index{dataflow\_api.h@{dataflow\_api.h}!eth\_send\_bytes@{eth\_send\_bytes}}
+\index{eth\_send\_bytes@{eth\_send\_bytes}!dataflow\_api.h@{dataflow\_api.h}}
+\doxysubsubsection{\texorpdfstring{eth\_send\_bytes()}{eth\_send\_bytes()}}
+{\footnotesize\ttfamily void eth\+\_\+send\+\_\+bytes (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{src\+\_\+addr,  }\item[{uint32\+\_\+t}]{dst\+\_\+addr,  }\item[{uint32\+\_\+t}]{num\+\_\+bytes,  }\item[{uint32\+\_\+t}]{num\+\_\+bytes\+\_\+per\+\_\+send = {\ttfamily 16},  }\item[{uint32\+\_\+t}]{num\+\_\+bytes\+\_\+per\+\_\+send\+\_\+word\+\_\+size = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+Initiates an asynchronous write from a source address in L1 memory on the local ethernet core to L1 of the connected remote ethernet core. Also, see {\itshape eth\+\_\+wait\+\_\+for\+\_\+receiver\+\_\+done} and {\itshape eth\+\_\+wait\+\_\+for\+\_\+bytes}.
+
+Return value\+: None
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endhead
+src\+\_\+addr   &Source address in local eth core L1 memory   &uint32\+\_\+t   &0..256kB   &True    \\\cline{1-5}
+dst\+\_\+addr   &Destination address in remote eth core L1 memory   &uint32\+\_\+t   &0..256kB   &True    \\\cline{1-5}
+num\+\_\+bytes   &Size of data transfer in bytes, must be multiple of 16   &uint32\+\_\+t   &0..256kB   &True   \\\cline{1-5}
+\end{longtabu}
+\mbox{\Hypertarget{ethernet_2dataflow__api_8h_af8a3f69ac60c29d201771f16f6498cda}\label{ethernet_2dataflow__api_8h_af8a3f69ac60c29d201771f16f6498cda}} 
+\index{dataflow\_api.h@{dataflow\_api.h}!eth\_send\_bytes\_over\_channel@{eth\_send\_bytes\_over\_channel}}
+\index{eth\_send\_bytes\_over\_channel@{eth\_send\_bytes\_over\_channel}!dataflow\_api.h@{dataflow\_api.h}}
+\doxysubsubsection{\texorpdfstring{eth\_send\_bytes\_over\_channel()}{eth\_send\_bytes\_over\_channel()}}
+{\footnotesize\ttfamily void eth\+\_\+send\+\_\+bytes\+\_\+over\+\_\+channel (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{src\+\_\+addr,  }\item[{uint32\+\_\+t}]{dst\+\_\+addr,  }\item[{uint32\+\_\+t}]{num\+\_\+bytes,  }\item[{uint32\+\_\+t}]{channel,  }\item[{uint32\+\_\+t}]{num\+\_\+bytes\+\_\+per\+\_\+send = {\ttfamily 16},  }\item[{uint32\+\_\+t}]{num\+\_\+bytes\+\_\+per\+\_\+send\+\_\+word\+\_\+size = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ethernet_2dataflow__api_8h_a5cb3e75736223670aaf5dcbc23d91471}\label{ethernet_2dataflow__api_8h_a5cb3e75736223670aaf5dcbc23d91471}} 
+\index{dataflow\_api.h@{dataflow\_api.h}!eth\_send\_bytes\_over\_channel\_payload\_only@{eth\_send\_bytes\_over\_channel\_payload\_only}}
+\index{eth\_send\_bytes\_over\_channel\_payload\_only@{eth\_send\_bytes\_over\_channel\_payload\_only}!dataflow\_api.h@{dataflow\_api.h}}
+\doxysubsubsection{\texorpdfstring{eth\_send\_bytes\_over\_channel\_payload\_only()}{eth\_send\_bytes\_over\_channel\_payload\_only()}}
+{\footnotesize\ttfamily void eth\+\_\+send\+\_\+bytes\+\_\+over\+\_\+channel\+\_\+payload\+\_\+only (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{src\+\_\+addr,  }\item[{uint32\+\_\+t}]{dst\+\_\+addr,  }\item[{uint32\+\_\+t}]{num\+\_\+bytes,  }\item[{uint32\+\_\+t}]{num\+\_\+bytes\+\_\+per\+\_\+send = {\ttfamily 16},  }\item[{uint32\+\_\+t}]{num\+\_\+bytes\+\_\+per\+\_\+send\+\_\+word\+\_\+size = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+Initiates an asynchronous write from a source address in L1 memory on the local ethernet core to L1 of the connected remote ethernet core. However, this is only the first half of the sender\textquotesingle{}s part of then transaction. It does not include the sending of the write completion signature to the receiver.
+
+Non-\/blocking
+
+Return value\+: None
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endhead
+src\+\_\+addr   &Source address in local eth core L1 memory   &uint32\+\_\+t   &0..256kB   &True    \\\cline{1-5}
+dst\+\_\+addr   &Destination address in remote eth core L1 memory   &uint32\+\_\+t   &0..256kB   &True    \\\cline{1-5}
+num\+\_\+bytes   &Size of data transfer in bytes, must be multiple of 16   &uint32\+\_\+t   &0..256kB   &True    \\\cline{1-5}
+channel   &Which transaction channel to use. Corresponds to   &uint32\+\_\+t   &0..7   &True    \\\cline{1-5}
+&channels in erisc\+\_\+info\+\_\+t   &&&\\\cline{1-5}
+num\+\_\+bytes\+\_\+per\+\_\+send   &Number of bytes to send per packet   &uint32\+\_\+t   &16..1MB   &False    \\\cline{1-5}
+num\+\_\+bytes\+\_\+per\+\_\+send\+\_\+word\+\_\+size   &num\+\_\+bytes\+\_\+per\+\_\+send shifted right 4   &uint32\+\_\+t   &1..256kB   &False   \\\cline{1-5}
+\end{longtabu}
+\mbox{\Hypertarget{ethernet_2dataflow__api_8h_a912b2c36c968ad797b313fa3468666f9}\label{ethernet_2dataflow__api_8h_a912b2c36c968ad797b313fa3468666f9}} 
+\index{dataflow\_api.h@{dataflow\_api.h}!eth\_send\_bytes\_over\_channel\_payload\_only\_unsafe@{eth\_send\_bytes\_over\_channel\_payload\_only\_unsafe}}
+\index{eth\_send\_bytes\_over\_channel\_payload\_only\_unsafe@{eth\_send\_bytes\_over\_channel\_payload\_only\_unsafe}!dataflow\_api.h@{dataflow\_api.h}}
+\doxysubsubsection{\texorpdfstring{eth\_send\_bytes\_over\_channel\_payload\_only\_unsafe()}{eth\_send\_bytes\_over\_channel\_payload\_only\_unsafe()}}
+{\footnotesize\ttfamily void eth\+\_\+send\+\_\+bytes\+\_\+over\+\_\+channel\+\_\+payload\+\_\+only\+\_\+unsafe (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{src\+\_\+addr,  }\item[{uint32\+\_\+t}]{dst\+\_\+addr,  }\item[{uint32\+\_\+t}]{num\+\_\+bytes,  }\item[{uint32\+\_\+t}]{num\+\_\+bytes\+\_\+per\+\_\+send = {\ttfamily 16},  }\item[{uint32\+\_\+t}]{num\+\_\+bytes\+\_\+per\+\_\+send\+\_\+word\+\_\+size = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ethernet_2dataflow__api_8h_a781562a3dd147fc9d9430ce037a1e3da}\label{ethernet_2dataflow__api_8h_a781562a3dd147fc9d9430ce037a1e3da}} 
+\index{dataflow\_api.h@{dataflow\_api.h}!eth\_send\_payload\_complete\_signal\_over\_channel@{eth\_send\_payload\_complete\_signal\_over\_channel}}
+\index{eth\_send\_payload\_complete\_signal\_over\_channel@{eth\_send\_payload\_complete\_signal\_over\_channel}!dataflow\_api.h@{dataflow\_api.h}}
+\doxysubsubsection{\texorpdfstring{eth\_send\_payload\_complete\_signal\_over\_channel()}{eth\_send\_payload\_complete\_signal\_over\_channel()}}
+{\footnotesize\ttfamily void eth\+\_\+send\+\_\+payload\+\_\+complete\+\_\+signal\+\_\+over\+\_\+channel (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{channel,  }\item[{uint32\+\_\+t}]{num\+\_\+bytes }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ethernet_2dataflow__api_8h_a9d454f81bcb8875f528a900fa9326bc6}\label{ethernet_2dataflow__api_8h_a9d454f81bcb8875f528a900fa9326bc6}} 
+\index{dataflow\_api.h@{dataflow\_api.h}!eth\_txq\_is\_busy@{eth\_txq\_is\_busy}}
+\index{eth\_txq\_is\_busy@{eth\_txq\_is\_busy}!dataflow\_api.h@{dataflow\_api.h}}
+\doxysubsubsection{\texorpdfstring{eth\_txq\_is\_busy()}{eth\_txq\_is\_busy()}}
+{\footnotesize\ttfamily bool eth\+\_\+txq\+\_\+is\+\_\+busy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Indicates if the ethernet transaction queue is busy ingesting a command at this moment,
+
+Return value\+: bool\+: true if the queue is ingesting a command and cannot accept a new one at this specific moment \mbox{\Hypertarget{ethernet_2dataflow__api_8h_a5544279ed9fdd9fe6ce2f4d2315e0072}\label{ethernet_2dataflow__api_8h_a5544279ed9fdd9fe6ce2f4d2315e0072}} 
+\index{dataflow\_api.h@{dataflow\_api.h}!eth\_wait\_for\_bytes@{eth\_wait\_for\_bytes}}
+\index{eth\_wait\_for\_bytes@{eth\_wait\_for\_bytes}!dataflow\_api.h@{dataflow\_api.h}}
+\doxysubsubsection{\texorpdfstring{eth\_wait\_for\_bytes()}{eth\_wait\_for\_bytes()}}
+{\footnotesize\ttfamily void eth\+\_\+wait\+\_\+for\+\_\+bytes (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{num\+\_\+bytes,  }\item[{uint32\+\_\+t}]{wait\+\_\+min = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+A blocking call that waits for num\+\_\+bytes of data to be sent from the remote sender ethernet core using any number of eth\+\_\+send\+\_\+byte. User must ensure that num\+\_\+bytes is equal to the total number of bytes sent. Example 1\+: eth\+\_\+send\+\_\+bytes(32), eth\+\_\+wait\+\_\+for\+\_\+bytes(32). Example 2\+: eth\+\_\+send\+\_\+bytes(16), eth\+\_\+send\+\_\+bytes(32), eth\+\_\+wait\+\_\+for\+\_\+bytes(48).
+
+Return value\+: None
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endhead
+num\+\_\+bytes   &Size of data transfer in bytes, must be multiple of 16   &uint32\+\_\+t   &0..256kB   &True    \\\cline{1-5}
+wait\+\_\+min   &The number of cycles to wait before performing run\+\_\+routing()   &uint32\+\_\+t   &Any uint32\+\_\+t value   &False   \\\cline{1-5}
+\end{longtabu}
+\mbox{\Hypertarget{ethernet_2dataflow__api_8h_aa0026b0696cbbada2f46119c30c850af}\label{ethernet_2dataflow__api_8h_aa0026b0696cbbada2f46119c30c850af}} 
+\index{dataflow\_api.h@{dataflow\_api.h}!eth\_wait\_for\_bytes\_on\_channel@{eth\_wait\_for\_bytes\_on\_channel}}
+\index{eth\_wait\_for\_bytes\_on\_channel@{eth\_wait\_for\_bytes\_on\_channel}!dataflow\_api.h@{dataflow\_api.h}}
+\doxysubsubsection{\texorpdfstring{eth\_wait\_for\_bytes\_on\_channel()}{eth\_wait\_for\_bytes\_on\_channel()}}
+{\footnotesize\ttfamily void eth\+\_\+wait\+\_\+for\+\_\+bytes\+\_\+on\+\_\+channel (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{num\+\_\+bytes,  }\item[{uint8\+\_\+t}]{channel,  }\item[{uint32\+\_\+t}]{wait\+\_\+min = {\ttfamily 1000000} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ethernet_2dataflow__api_8h_adedc3100f41c4d1fca3f2ef234985bda}\label{ethernet_2dataflow__api_8h_adedc3100f41c4d1fca3f2ef234985bda}} 
+\index{dataflow\_api.h@{dataflow\_api.h}!eth\_wait\_for\_bytes\_on\_channel\_sync\_addr@{eth\_wait\_for\_bytes\_on\_channel\_sync\_addr}}
+\index{eth\_wait\_for\_bytes\_on\_channel\_sync\_addr@{eth\_wait\_for\_bytes\_on\_channel\_sync\_addr}!dataflow\_api.h@{dataflow\_api.h}}
+\doxysubsubsection{\texorpdfstring{eth\_wait\_for\_bytes\_on\_channel\_sync\_addr()}{eth\_wait\_for\_bytes\_on\_channel\_sync\_addr()}}
+{\footnotesize\ttfamily void eth\+\_\+wait\+\_\+for\+\_\+bytes\+\_\+on\+\_\+channel\+\_\+sync\+\_\+addr (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{num\+\_\+bytes,  }\item[{volatile eth\+\_\+channel\+\_\+sync\+\_\+t $\ast$}]{eth\+\_\+channel\+\_\+syncs,  }\item[{uint32\+\_\+t}]{wait\+\_\+min = {\ttfamily 1000000} }\end{DoxyParamCaption})}
+
+Caller is expected to be receiver side. This call block until there is payload data in the local buffer associated with the channel
+
+Blocking
+
+Return value\+: None
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endhead
+num\+\_\+bytes   &Number of bytes to receive before returning to caller   &uint32\+\_\+t   &0..1MB   &True    \\\cline{1-5}
+channel   &Which transaction channel to check   &uint32\+\_\+t   &0..7   &True   \\\cline{1-5}
+\end{longtabu}
+\mbox{\Hypertarget{ethernet_2dataflow__api_8h_a3ff986b2dd8f65e01aca7867bb166e96}\label{ethernet_2dataflow__api_8h_a3ff986b2dd8f65e01aca7867bb166e96}} 
+\index{dataflow\_api.h@{dataflow\_api.h}!eth\_wait\_for\_receiver\_channel\_done@{eth\_wait\_for\_receiver\_channel\_done}}
+\index{eth\_wait\_for\_receiver\_channel\_done@{eth\_wait\_for\_receiver\_channel\_done}!dataflow\_api.h@{dataflow\_api.h}}
+\doxysubsubsection{\texorpdfstring{eth\_wait\_for\_receiver\_channel\_done()}{eth\_wait\_for\_receiver\_channel\_done()}}
+{\footnotesize\ttfamily void eth\+\_\+wait\+\_\+for\+\_\+receiver\+\_\+channel\+\_\+done (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{channel }\end{DoxyParamCaption})}
+
+Caller is expected to be sender side. This call will block until receiver sends both levels of ack
+
+Blocking
+
+Return value\+: None
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endhead
+channel   &Which transaction channel to block on   &uint32\+\_\+t   &0..7   &True   \\\cline{1-5}
+\end{longtabu}
+\mbox{\Hypertarget{ethernet_2dataflow__api_8h_a48d73eaaa1ed9d986a96a7bef2c9531f}\label{ethernet_2dataflow__api_8h_a48d73eaaa1ed9d986a96a7bef2c9531f}} 
+\index{dataflow\_api.h@{dataflow\_api.h}!eth\_wait\_for\_receiver\_done@{eth\_wait\_for\_receiver\_done}}
+\index{eth\_wait\_for\_receiver\_done@{eth\_wait\_for\_receiver\_done}!dataflow\_api.h@{dataflow\_api.h}}
+\doxysubsubsection{\texorpdfstring{eth\_wait\_for\_receiver\_done()}{eth\_wait\_for\_receiver\_done()}}
+{\footnotesize\ttfamily void eth\+\_\+wait\+\_\+for\+\_\+receiver\+\_\+done (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{wait\+\_\+min = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+A blocking call that waits for receiver to acknowledge that all data sent with eth\+\_\+send\+\_\+bytes since the last reset\+\_\+erisc\+\_\+info call is no longer being used. Also, see {\itshape \mbox{\hyperlink{ethernet_2dataflow__api_8h_af27bb42b34afb388a0994da0f2b73c54}{eth\+\_\+receiver\+\_\+done()}}}.
+
+Return value\+: None
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endhead
+wait\+\_\+min   &The number of cycles to wait before performing run\+\_\+routing()   &uint32\+\_\+t   &Any uint32\+\_\+t value   &False   \\\cline{1-5}
+\end{longtabu}
+\mbox{\Hypertarget{ethernet_2dataflow__api_8h_a4f1763214451d751d920191f201b2e1f}\label{ethernet_2dataflow__api_8h_a4f1763214451d751d920191f201b2e1f}} 
+\index{dataflow\_api.h@{dataflow\_api.h}!eth\_wait\_receiver\_acknowledge@{eth\_wait\_receiver\_acknowledge}}
+\index{eth\_wait\_receiver\_acknowledge@{eth\_wait\_receiver\_acknowledge}!dataflow\_api.h@{dataflow\_api.h}}
+\doxysubsubsection{\texorpdfstring{eth\_wait\_receiver\_acknowledge()}{eth\_wait\_receiver\_acknowledge()}}
+{\footnotesize\ttfamily void eth\+\_\+wait\+\_\+receiver\+\_\+acknowledge (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{channel = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ethernet_2dataflow__api_8h_a18b56aac8ce0c479e1e5e1009908f7a2}\label{ethernet_2dataflow__api_8h_a18b56aac8ce0c479e1e5e1009908f7a2}} 
+\index{dataflow\_api.h@{dataflow\_api.h}!eth\_wait\_receiver\_done@{eth\_wait\_receiver\_done}}
+\index{eth\_wait\_receiver\_done@{eth\_wait\_receiver\_done}!dataflow\_api.h@{dataflow\_api.h}}
+\doxysubsubsection{\texorpdfstring{eth\_wait\_receiver\_done()}{eth\_wait\_receiver\_done()}}
+{\footnotesize\ttfamily void eth\+\_\+wait\+\_\+receiver\+\_\+done (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{wait\+\_\+min = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Caller is expected to be sender side. This call will block until receiver sends both levels of ack
+
+Blocking
+
+Return value\+: None
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endhead
+channel   &Which transaction channel to block on   &uint32\+\_\+t   &0..7   &True    \\\cline{1-5}
+wait\+\_\+min   &The number of cycles to wait before performing run\+\_\+routing()   &uint32\+\_\+t   &Any uint32\+\_\+t value   &False   \\\cline{1-5}
+\end{longtabu}
+\mbox{\Hypertarget{ethernet_2dataflow__api_8h_aae485db00b351232851e5e43f5cbd0f8}\label{ethernet_2dataflow__api_8h_aae485db00b351232851e5e43f5cbd0f8}} 
+\index{dataflow\_api.h@{dataflow\_api.h}!eth\_write\_remote\_reg@{eth\_write\_remote\_reg}}
+\index{eth\_write\_remote\_reg@{eth\_write\_remote\_reg}!dataflow\_api.h@{dataflow\_api.h}}
+\doxysubsubsection{\texorpdfstring{eth\_write\_remote\_reg()}{eth\_write\_remote\_reg()}}
+{\footnotesize\ttfamily void eth\+\_\+write\+\_\+remote\+\_\+reg (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{reg\+\_\+addr,  }\item[{uint32\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Initiates an asynchronous write from the local ethernet core to a register of the connected remote ethernet core.
+
+Return value\+: None
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endhead
+reg\+\_\+addr   &Destination address in remote eth core reg space   &uint32\+\_\+t   &0x\+FF000000+   &True    \\\cline{1-5}
+value   &Value to be written   &uint32\+\_\+t   &Any value   &True   \\\cline{1-5}
+\end{longtabu}
+\mbox{\Hypertarget{ethernet_2dataflow__api_8h_ae1583ac42a8f9f11794a096506d954a6}\label{ethernet_2dataflow__api_8h_ae1583ac42a8f9f11794a096506d954a6}} 
+\index{dataflow\_api.h@{dataflow\_api.h}!send\_eth\_receiver\_channel\_done@{send\_eth\_receiver\_channel\_done}}
+\index{send\_eth\_receiver\_channel\_done@{send\_eth\_receiver\_channel\_done}!dataflow\_api.h@{dataflow\_api.h}}
+\doxysubsubsection{\texorpdfstring{send\_eth\_receiver\_channel\_done()}{send\_eth\_receiver\_channel\_done()}}
+{\footnotesize\ttfamily void send\+\_\+eth\+\_\+receiver\+\_\+channel\+\_\+done (\begin{DoxyParamCaption}\item[{volatile eth\+\_\+channel\+\_\+sync\+\_\+t $\ast$}]{channel\+\_\+sync }\end{DoxyParamCaption})}
+
+Caller is expected to be receiver side. This call sends the second (and first) level ack to sender, indicating that the receiver flushed its buffer and is able to accept more data
+
+Non-\/nlocking
+
+Return value\+: None
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endhead
+channel   &Which transaction channel to ack   &uint32\+\_\+t   &0..7   &True   \\\cline{1-5}
+\end{longtabu}
+\mbox{\Hypertarget{ethernet_2dataflow__api_8h_a651e015fbc27db86a39aeab1eea57958}\label{ethernet_2dataflow__api_8h_a651e015fbc27db86a39aeab1eea57958}} 
+\index{dataflow\_api.h@{dataflow\_api.h}!wait\_for\_eth\_txq\_cmd\_space@{wait\_for\_eth\_txq\_cmd\_space}}
+\index{wait\_for\_eth\_txq\_cmd\_space@{wait\_for\_eth\_txq\_cmd\_space}!dataflow\_api.h@{dataflow\_api.h}}
+\doxysubsubsection{\texorpdfstring{wait\_for\_eth\_txq\_cmd\_space()}{wait\_for\_eth\_txq\_cmd\_space()}}
+{\footnotesize\ttfamily void wait\+\_\+for\+\_\+eth\+\_\+txq\+\_\+cmd\+\_\+space (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{wait\+\_\+min = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Wait until the ethernet transaction queue is no longer busy ingesting a command
+
+Return value\+: None
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endhead
+wait\+\_\+min   &The number of cycles to wait before performing run\+\_\+routing()   &uint32\+\_\+t   &Any uint32\+\_\+t value   &False   \\\cline{1-5}
+\end{longtabu}

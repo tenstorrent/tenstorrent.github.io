@@ -1,6 +1,6 @@
 \hypertarget{erf__erfc_8h_source}{}\doxysection{erf\+\_\+erfc.\+h}
 \label{erf__erfc_8h_source}\index{tt\_metal/include/compute\_kernel\_api/eltwise\_unary/erf\_erfc.h@{tt\_metal/include/compute\_kernel\_api/eltwise\_unary/erf\_erfc.h}}
-
+\mbox{\hyperlink{erf__erfc_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//\ SPDX-\/FileCopyrightText:\ ©\ 2023\ Tenstorrent\ Inc.}}
 \DoxyCodeLine{00002\ \textcolor{comment}{//}}
@@ -17,31 +17,31 @@
 \DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ MATH(x)}}
 \DoxyCodeLine{00014\ \textcolor{preprocessor}{\#endif}}
 \DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ \textcolor{keyword}{namespace\ }ckernel\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceckernel}{ckernel}}\ \{}
 \DoxyCodeLine{00017\ }
 \DoxyCodeLine{00018\ \textcolor{comment}{/**************\ ERF\ *****************/}}
 \DoxyCodeLine{00022\ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{bool}\ fast\_and\_approx\ =\ true>}
-\DoxyCodeLine{00023\ ALWI\ \textcolor{keywordtype}{void}\ erf\_tile\_init()\ \{}
-\DoxyCodeLine{00024\ \ \ \ \ MATH((llk\_math\_eltwise\_unary\_sfpu\_erf\_init<fast\_and\_approx>()));}
+\DoxyCodeLine{00023\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a457fed1c2f71b59d1949d93479d54f8c}{erf\_tile\_init}}()\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((llk\_math\_eltwise\_unary\_sfpu\_erf\_init<fast\_and\_approx>()));}
 \DoxyCodeLine{00025\ \}}
 \DoxyCodeLine{00026\ }
 \DoxyCodeLine{00027\ }
 \DoxyCodeLine{00040\ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{bool}\ fast\_and\_approx\ =\ true>}
-\DoxyCodeLine{00041\ ALWI\ \textcolor{keywordtype}{void}\ erf\_tile(uint32\_t\ idst)\ \{}
-\DoxyCodeLine{00042\ \ \ \ \ MATH((\ llk\_math\_eltwise\_unary\_sfpu\_erf<fast\_and\_approx>(idst)\ ));}
+\DoxyCodeLine{00041\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_ab2e2745c2e1e812179a659ffac84f231}{erf\_tile}}(uint32\_t\ idst)\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((\ llk\_math\_eltwise\_unary\_sfpu\_erf<fast\_and\_approx>(idst)\ ));}
 \DoxyCodeLine{00043\ \}}
 \DoxyCodeLine{00044\ }
 \DoxyCodeLine{00045\ \textcolor{comment}{/**************\ ERFC\ *****************/}}
 \DoxyCodeLine{00046\ }
 \DoxyCodeLine{00050\ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{bool}\ fast\_and\_approx\ =\ true>}
-\DoxyCodeLine{00051\ ALWI\ \textcolor{keywordtype}{void}\ erfc\_tile\_init()\ \{}
-\DoxyCodeLine{00052\ \ \ \ \ MATH((llk\_math\_eltwise\_unary\_sfpu\_erfc\_init<fast\_and\_approx>()));}
+\DoxyCodeLine{00051\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a8d55d9b6ac18b93104f4cddf6da7aea1}{erfc\_tile\_init}}()\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((llk\_math\_eltwise\_unary\_sfpu\_erfc\_init<fast\_and\_approx>()));}
 \DoxyCodeLine{00053\ \}}
 \DoxyCodeLine{00054\ }
 \DoxyCodeLine{00055\ }
 \DoxyCodeLine{00068\ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{bool}\ fast\_and\_approx\ =\ true>}
-\DoxyCodeLine{00069\ ALWI\ \textcolor{keywordtype}{void}\ erfc\_tile(uint32\_t\ idst)\ \{}
-\DoxyCodeLine{00070\ \ \ \ \ MATH((\ llk\_math\_eltwise\_unary\_sfpu\_erfc<fast\_and\_approx>(idst)\ ));}
+\DoxyCodeLine{00069\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a262be4a133a92ad6d55e6f505dfce753}{erfc\_tile}}(uint32\_t\ idst)\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((\ llk\_math\_eltwise\_unary\_sfpu\_erfc<fast\_and\_approx>(idst)\ ));}
 \DoxyCodeLine{00071\ \}}
 \DoxyCodeLine{00072\ }
 \DoxyCodeLine{00073\ \}\ \ \textcolor{comment}{//\ namespace\ ckernel}}

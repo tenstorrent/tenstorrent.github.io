@@ -76,25 +76,221 @@ $(function() {
   <div class="headertitle"><div class="title">InterleavedAddrGen&lt; DRAM &gt; Struct Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="dataflow__api_8h_source.html">dataflow_api.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:acdf9396fff622c57dd7eb42349d5dd0f"><td class="memItemLeft" align="right" valign="top"><a id="acdf9396fff622c57dd7eb42349d5dd0f" name="acdf9396fff622c57dd7eb42349d5dd0f"></a>
-std::uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>get_noc_addr</b> (const uint32_t id, const uint32_t offset=0) const</td></tr>
-<tr class="separator:acdf9396fff622c57dd7eb42349d5dd0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f721b07e180187a4f7281789e626988"><td class="memItemLeft" align="right" valign="top"><a id="a5f721b07e180187a4f7281789e626988" name="a5f721b07e180187a4f7281789e626988"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>noc_async_read_page</b> (const uint32_t id, const uint32_t dest_addr, const uint32_t offset=0) const</td></tr>
-<tr class="separator:a5f721b07e180187a4f7281789e626988"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49558fb0a925773898f8e32ed14d3fe8"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structInterleavedAddrGen.html#a49558fb0a925773898f8e32ed14d3fe8">get_addr</a> (const uint32_t id, const uint32_t bank_offset_index, const uint32_t bank_index, const uint32_t offset=0) const</td></tr>
+<tr class="separator:a49558fb0a925773898f8e32ed14d3fe8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6b00d5f98bd8bd1945bda54d8340104"><td class="memItemLeft" align="right" valign="top">std::uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structInterleavedAddrGen.html#ad6b00d5f98bd8bd1945bda54d8340104">get_noc_addr</a> (const uint32_t id, const uint32_t offset=0, uint8_t noc=<a class="el" href="dataflow__api_8h.html#a58bc3a01e945dbd421fce21906e94441">noc_index</a>) const</td></tr>
+<tr class="separator:ad6b00d5f98bd8bd1945bda54d8340104"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fcc74ae538bc06c73f7ae33737c13b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structInterleavedAddrGen.html#a5fcc74ae538bc06c73f7ae33737c13b6">noc_async_read_page</a> (const uint32_t id, const uint32_t dest_addr, const uint32_t offset=0, uint8_t noc=<a class="el" href="dataflow__api_8h.html#a58bc3a01e945dbd421fce21906e94441">noc_index</a>) const</td></tr>
+<tr class="separator:a5fcc74ae538bc06c73f7ae33737c13b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a9a6b4336c1f9059c48f7dd38d3c223ba"><td class="memItemLeft" align="right" valign="top"><a id="a9a6b4336c1f9059c48f7dd38d3c223ba" name="a9a6b4336c1f9059c48f7dd38d3c223ba"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>bank_base_address</b></td></tr>
+<tr class="memitem:a9a6b4336c1f9059c48f7dd38d3c223ba"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structInterleavedAddrGen.html#a9a6b4336c1f9059c48f7dd38d3c223ba">bank_base_address</a></td></tr>
 <tr class="separator:a9a6b4336c1f9059c48f7dd38d3c223ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a990164fddbcfb10bbe0a7f2912dfc0f9"><td class="memItemLeft" align="right" valign="top"><a id="a990164fddbcfb10bbe0a7f2912dfc0f9" name="a990164fddbcfb10bbe0a7f2912dfc0f9"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>page_size</b></td></tr>
-<tr class="separator:a990164fddbcfb10bbe0a7f2912dfc0f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae87a663744676dd0bda03190f2258213"><td class="memItemLeft" align="right" valign="top">const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structInterleavedAddrGen.html#ae87a663744676dd0bda03190f2258213">page_size</a></td></tr>
+<tr class="separator:ae87a663744676dd0bda03190f2258213"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35965eeb3ca9036dd89a46ac81c435b7"><td class="memItemLeft" align="right" valign="top">const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structInterleavedAddrGen.html#a35965eeb3ca9036dd89a46ac81c435b7">aligned_page_size</a> = <a class="el" href="dataflow__api_8h.html#ac4752c4d9a07974ce99aaa671a675fe2">align</a>(<a class="el" href="structInterleavedAddrGen.html#ae87a663744676dd0bda03190f2258213">page_size</a>, ALLOCATOR_ALIGNMENT)</td></tr>
+<tr class="separator:a35965eeb3ca9036dd89a46ac81c435b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a49558fb0a925773898f8e32ed14d3fe8" name="a49558fb0a925773898f8e32ed14d3fe8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49558fb0a925773898f8e32ed14d3fe8">&#9670;&#160;</a></span>get_addr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool DRAM&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="structInterleavedAddrGen.html">InterleavedAddrGen</a>&lt; DRAM &gt;::get_addr </td>
+          <td>(</td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>bank_offset_index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>bank_index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>offset</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad6b00d5f98bd8bd1945bda54d8340104" name="ad6b00d5f98bd8bd1945bda54d8340104"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6b00d5f98bd8bd1945bda54d8340104">&#9670;&#160;</a></span>get_noc_addr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool DRAM&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::uint64_t <a class="el" href="structInterleavedAddrGen.html">InterleavedAddrGen</a>&lt; DRAM &gt;::get_noc_addr </td>
+          <td>(</td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>offset</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>noc</em> = <code><a class="el" href="dataflow__api_8h.html#a58bc3a01e945dbd421fce21906e94441">noc_index</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5fcc74ae538bc06c73f7ae33737c13b6" name="a5fcc74ae538bc06c73f7ae33737c13b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fcc74ae538bc06c73f7ae33737c13b6">&#9670;&#160;</a></span>noc_async_read_page()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool DRAM&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="structInterleavedAddrGen.html">InterleavedAddrGen</a>&lt; DRAM &gt;::noc_async_read_page </td>
+          <td>(</td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>dest_addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>offset</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>noc</em> = <code><a class="el" href="dataflow__api_8h.html#a58bc3a01e945dbd421fce21906e94441">noc_index</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a35965eeb3ca9036dd89a46ac81c435b7" name="a35965eeb3ca9036dd89a46ac81c435b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35965eeb3ca9036dd89a46ac81c435b7">&#9670;&#160;</a></span>aligned_page_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool DRAM&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint32_t <a class="el" href="structInterleavedAddrGen.html">InterleavedAddrGen</a>&lt; DRAM &gt;::aligned_page_size = <a class="el" href="dataflow__api_8h.html#ac4752c4d9a07974ce99aaa671a675fe2">align</a>(<a class="el" href="structInterleavedAddrGen.html#ae87a663744676dd0bda03190f2258213">page_size</a>, ALLOCATOR_ALIGNMENT)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9a6b4336c1f9059c48f7dd38d3c223ba" name="a9a6b4336c1f9059c48f7dd38d3c223ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a6b4336c1f9059c48f7dd38d3c223ba">&#9670;&#160;</a></span>bank_base_address</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool DRAM&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="structInterleavedAddrGen.html">InterleavedAddrGen</a>&lt; DRAM &gt;::bank_base_address</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae87a663744676dd0bda03190f2258213" name="ae87a663744676dd0bda03190f2258213"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae87a663744676dd0bda03190f2258213">&#9670;&#160;</a></span>page_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool DRAM&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint32_t <a class="el" href="structInterleavedAddrGen.html">InterleavedAddrGen</a>&lt; DRAM &gt;::page_size</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>tt_metal/hw/inc/<a class="el" href="dataflow__api_8h_source.html">dataflow_api.h</a></li>
 </ul>

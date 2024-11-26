@@ -1,4 +1,4 @@
 EventQuery
 ==========
 
-.. doxygenfunction:: EventQuery(std::shared_ptr<Event> event)
+.. doxygenfunction:: tt::tt_metal::v0::EventQuery

@@ -1,0 +1,53 @@
+\hypertarget{reconfig__data__format_8h_source}{}\doxysection{reconfig\+\_\+data\+\_\+format.\+h}
+\label{reconfig__data__format_8h_source}\index{tt\_metal/include/compute\_kernel\_api/reconfig\_data\_format.h@{tt\_metal/include/compute\_kernel\_api/reconfig\_data\_format.h}}
+\mbox{\hyperlink{reconfig__data__format_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ SPDX-\/FileCopyrightText:\ ©\ 2024\ Tenstorrent\ Inc.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}common\_globals.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceckernel}{ckernel}}\ \{}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{bool}\ to\_from\_\textcolor{keywordtype}{int}8\ =\ false>}
+\DoxyCodeLine{00015\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a9a5800c870a89695e8de483bfdec9d8c}{reconfig\_data\_format}}(\textcolor{keyword}{const}\ uint32\_t\ srca\_new\_operand,\ \textcolor{keyword}{const}\ uint32\_t\ srcb\_new\_operand)\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((\ llk\_unpack\_reconfig\_data\_format<to\_from\_int8,\ DST\_ACCUM\_MODE>(srca\_new\_operand,\ srcb\_new\_operand)\ ));}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((\ llk\_math\_reconfig\_data\_format<to\_from\_int8,\ DST\_ACCUM\_MODE>(srca\_new\_operand,\ srcb\_new\_operand)\ ));}
+\DoxyCodeLine{00018\ \}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{bool}\ to\_from\_\textcolor{keywordtype}{int}8\ =\ false>}
+\DoxyCodeLine{00024\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a9a5800c870a89695e8de483bfdec9d8c}{reconfig\_data\_format}}(\textcolor{keyword}{const}\ uint32\_t\ srca\_old\_operand,\ \textcolor{keyword}{const}\ uint32\_t\ srca\_new\_operand,\ \textcolor{keyword}{const}\ uint32\_t\ srcb\_old\_operand,\ \textcolor{keyword}{const}\ uint32\_t\ srcb\_new\_operand)\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((\ llk\_unpack\_reconfig\_data\_format<to\_from\_int8,\ DST\_ACCUM\_MODE>(srca\_old\_operand,\ srca\_new\_operand,\ srcb\_old\_operand,\ srcb\_new\_operand)\ ));}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((\ llk\_math\_reconfig\_data\_format<to\_from\_int8,\ DST\_ACCUM\_MODE>(srca\_old\_operand,\ srca\_new\_operand,\ srcb\_old\_operand,\ srcb\_new\_operand)\ ));}
+\DoxyCodeLine{00027\ \}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{bool}\ to\_from\_\textcolor{keywordtype}{int}8\ =\ false>}
+\DoxyCodeLine{00033\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a0bb205e7b72524a5e756c97070b2f75e}{reconfig\_data\_format\_srca}}(\textcolor{keyword}{const}\ uint32\_t\ srca\_new\_operand)\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((\ llk\_unpack\_reconfig\_data\_format\_srca<to\_from\_int8,\ DST\_ACCUM\_MODE>(srca\_new\_operand)\ ));}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((\ llk\_math\_reconfig\_data\_format\_srca<to\_from\_int8,\ DST\_ACCUM\_MODE>(srca\_new\_operand)\ ));}
+\DoxyCodeLine{00036\ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{bool}\ to\_from\_\textcolor{keywordtype}{int}8\ =\ false>}
+\DoxyCodeLine{00042\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a0bb205e7b72524a5e756c97070b2f75e}{reconfig\_data\_format\_srca}}(\textcolor{keyword}{const}\ uint32\_t\ srca\_old\_operand,\ \textcolor{keyword}{const}\ uint32\_t\ srca\_new\_operand)\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((\ llk\_unpack\_reconfig\_data\_format\_srca<to\_from\_int8,\ DST\_ACCUM\_MODE>(srca\_old\_operand,\ srca\_new\_operand)\ ));}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((\ llk\_math\_reconfig\_data\_format\_srca<to\_from\_int8,\ DST\_ACCUM\_MODE>(srca\_old\_operand,\ srca\_new\_operand)\ ));}
+\DoxyCodeLine{00045\ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{bool}\ to\_from\_\textcolor{keywordtype}{int}8\ =\ false>}
+\DoxyCodeLine{00051\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a920d5a56cc4204d7fb4dae0c0629e8d1}{reconfig\_data\_format\_srcb}}(\textcolor{keyword}{const}\ uint32\_t\ srcb\_new\_operand)\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((\ llk\_unpack\_reconfig\_data\_format\_srcb<to\_from\_int8,\ DST\_ACCUM\_MODE>(srcb\_new\_operand)\ ));}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((\ llk\_math\_reconfig\_data\_format\_srcb<to\_from\_int8,\ DST\_ACCUM\_MODE>(srcb\_new\_operand)\ ));}
+\DoxyCodeLine{00054\ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{bool}\ to\_from\_\textcolor{keywordtype}{int}8\ =\ false>}
+\DoxyCodeLine{00060\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a920d5a56cc4204d7fb4dae0c0629e8d1}{reconfig\_data\_format\_srcb}}(\textcolor{keyword}{const}\ uint32\_t\ srcb\_old\_operand,\ \textcolor{keyword}{const}\ uint32\_t\ srcb\_new\_operand)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((\ llk\_unpack\_reconfig\_data\_format\_srcb<to\_from\_int8,\ DST\_ACCUM\_MODE>(srcb\_old\_operand,\ srcb\_new\_operand)\ ));}
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((\ llk\_math\_reconfig\_data\_format\_srcb<to\_from\_int8,\ DST\_ACCUM\_MODE>(srcb\_old\_operand,\ srcb\_new\_operand)\ ));}
+\DoxyCodeLine{00063\ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classtt_1_1tt__metal_1_1v1_1_1EventHandle" kind="class" language="C++" prot="public">
+    <compoundname>tt::tt_metal::v1::EventHandle</compoundname>
+    <includes refid="types_8hpp" local="no">types.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1a13675f51b330bb09a17025b2bbc001a2" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; v0::Event &gt;</type>
+        <definition>std::shared_ptr&lt;v0::Event&gt; tt::tt_metal::v1::EventHandle::event_ptr</definition>
+        <argsstring></argsstring>
+        <name>event_ptr</name>
+        <qualifiedname>tt::tt_metal::v1::EventHandle::event_ptr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/include/tt_metal/types.hpp" line="90" column="21" bodyfile="tt_metal/include/tt_metal/types.hpp" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1ab29359689b0f6afdfb6951feb0c677c3" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>tt::tt_metal::v1::EventHandle::EventHandle</definition>
+        <argsstring>()</argsstring>
+        <name>EventHandle</name>
+        <qualifiedname>tt::tt_metal::v1::EventHandle::EventHandle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/include/tt_metal/types.hpp" line="79" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1a2b6c639bd0942e17d27049fc506804c5" prot="public" static="no" const="no" explicit="yes" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>tt::tt_metal::v1::EventHandle::EventHandle</definition>
+        <argsstring>(const std::shared_ptr&lt; v0::Event &gt; &amp;event_ptr) noexcept</argsstring>
+        <name>EventHandle</name>
+        <qualifiedname>tt::tt_metal::v1::EventHandle::EventHandle</qualifiedname>
+        <param>
+          <type>const std::shared_ptr&lt; v0::Event &gt; &amp;</type>
+          <declname>event_ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/include/tt_metal/types.hpp" line="80" column="14" bodyfile="tt_metal/include/tt_metal/types.hpp" bodystart="80" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1a6d473515fbd1a10aaa34bfe7f6d32461" prot="public" static="no" const="no" explicit="yes" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>tt::tt_metal::v1::EventHandle::EventHandle</definition>
+        <argsstring>(std::shared_ptr&lt; v0::Event &gt; &amp;&amp;event_ptr) noexcept</argsstring>
+        <name>EventHandle</name>
+        <qualifiedname>tt::tt_metal::v1::EventHandle::EventHandle</qualifiedname>
+        <param>
+          <type>std::shared_ptr&lt; v0::Event &gt; &amp;&amp;</type>
+          <declname>event_ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/include/tt_metal/types.hpp" line="81" column="14" bodyfile="tt_metal/include/tt_metal/types.hpp" bodystart="81" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1a0dcdd812c1b46a812399f8247691a0de" prot="public" static="no" const="yes" explicit="yes" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>tt::tt_metal::v1::EventHandle::operator const std::shared_ptr&lt; v0::Event &gt; &amp;</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>operator const std::shared_ptr&lt; v0::Event &gt; &amp;</name>
+        <qualifiedname>tt::tt_metal::v1::EventHandle::shared_ptr&lt; v0::Event &gt; &amp;</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/include/tt_metal/types.hpp" line="84" column="14" bodyfile="tt_metal/include/tt_metal/types.hpp" bodystart="84" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1a7deae344ab08631d25b36b4ae222f6df" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>v0::Event &amp;</type>
+        <definition>v0::Event &amp; tt::tt_metal::v1::EventHandle::operator*</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>operator*</name>
+        <qualifiedname>tt::tt_metal::v1::EventHandle::operator*</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/include/tt_metal/types.hpp" line="86" column="15" bodyfile="tt_metal/include/tt_metal/types.hpp" bodystart="86" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1aef34aec71cd59b975c4a6f7c1413e31b" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>v0::Event *</type>
+        <definition>v0::Event * tt::tt_metal::v1::EventHandle::operator-&gt;</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>operator-&gt;</name>
+        <qualifiedname>tt::tt_metal::v1::EventHandle::operator-&gt;</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/include/tt_metal/types.hpp" line="87" column="15" bodyfile="tt_metal/include/tt_metal/types.hpp" bodystart="87" bodyend="87"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="tt_metal/include/tt_metal/types.hpp" line="77" column="1" bodyfile="tt_metal/include/tt_metal/types.hpp" bodystart="77" bodyend="91"/>
+    <listofallmembers>
+      <member refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1a13675f51b330bb09a17025b2bbc001a2" prot="private" virt="non-virtual"><scope>tt::tt_metal::v1::EventHandle</scope><name>event_ptr</name></member>
+      <member refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1ab29359689b0f6afdfb6951feb0c677c3" prot="public" virt="non-virtual"><scope>tt::tt_metal::v1::EventHandle</scope><name>EventHandle</name></member>
+      <member refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1a2b6c639bd0942e17d27049fc506804c5" prot="public" virt="non-virtual"><scope>tt::tt_metal::v1::EventHandle</scope><name>EventHandle</name></member>
+      <member refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1a6d473515fbd1a10aaa34bfe7f6d32461" prot="public" virt="non-virtual"><scope>tt::tt_metal::v1::EventHandle</scope><name>EventHandle</name></member>
+      <member refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1a0dcdd812c1b46a812399f8247691a0de" prot="public" virt="non-virtual"><scope>tt::tt_metal::v1::EventHandle</scope><name>operator const std::shared_ptr&lt; v0::Event &gt; &amp;</name></member>
+      <member refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1a7deae344ab08631d25b36b4ae222f6df" prot="public" virt="non-virtual"><scope>tt::tt_metal::v1::EventHandle</scope><name>operator*</name></member>
+      <member refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1aef34aec71cd59b975c4a6f7c1413e31b" prot="public" virt="non-virtual"><scope>tt::tt_metal::v1::EventHandle</scope><name>operator-&gt;</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

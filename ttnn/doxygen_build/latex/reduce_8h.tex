@@ -1,0 +1,27 @@
+\hypertarget{reduce_8h}{}\doxysection{tt\+\_\+metal/include/compute\+\_\+kernel\+\_\+api/reduce.h File Reference}
+\label{reduce_8h}\index{tt\_metal/include/compute\_kernel\_api/reduce.h@{tt\_metal/include/compute\_kernel\_api/reduce.h}}
+{\ttfamily \#include \char`\"{}compute\+\_\+kernel\+\_\+api/common.\+h\char`\"{}}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceckernel}{ckernel}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$bool at\+\_\+start, Pool\+Type reduce\+\_\+type = REDUCE\+\_\+\+OP, Reduce\+Dim reduce\+\_\+dim = REDUCE\+\_\+\+DIM$>$ }\\void \mbox{\hyperlink{namespaceckernel_a3d6b64a03989f4fd9c3a8755bae1f370}{ckernel\+::reduce\+\_\+init}} (uint32\+\_\+t icb, uint32\+\_\+t icb\+\_\+scaler, uint32\+\_\+t ocb=16)
+\item 
+{\footnotesize template$<$Pool\+Type reduce\+\_\+type = REDUCE\+\_\+\+OP, Reduce\+Dim reduce\+\_\+dim = REDUCE\+\_\+\+DIM$>$ }\\void \mbox{\hyperlink{namespaceckernel_abb192e99620377ed7ba18b34a1263d48}{ckernel\+::reduce\+\_\+init\+\_\+short}} (uint32\+\_\+t icb, uint32\+\_\+t icb\+\_\+scaler, uint32\+\_\+t ocb=16)
+\item 
+{\footnotesize template$<$bool at\+\_\+start, Pool\+Type reduce\+\_\+type = REDUCE\+\_\+\+OP, Reduce\+Dim reduce\+\_\+dim = REDUCE\+\_\+\+DIM$>$ }\\void \mbox{\hyperlink{namespaceckernel_a04bc71a2296a8b19afdcaf438899c771}{ckernel\+::reduce\+\_\+init\+\_\+delta}} (uint32\+\_\+t ocb=16, uint32\+\_\+t icb0=0, uint32\+\_\+t icb1=1)
+\item 
+{\footnotesize template$<$Pool\+Type reduce\+\_\+type = REDUCE\+\_\+\+OP, Reduce\+Dim reduce\+\_\+dim = REDUCE\+\_\+\+DIM$>$ }\\void \mbox{\hyperlink{namespaceckernel_a08616241482665e17211f3050e640f05}{ckernel\+::reduce\+\_\+init\+\_\+delta\+\_\+no\+\_\+pack}} (uint32\+\_\+t icb0=0, uint32\+\_\+t icb1=1)
+\item 
+{\footnotesize template$<$Pool\+Type reduce\+\_\+type = REDUCE\+\_\+\+OP, Reduce\+Dim reduce\+\_\+dim = REDUCE\+\_\+\+DIM$>$ }\\void \mbox{\hyperlink{namespaceckernel_a1a344e91c5c3a258554c507ae85dd03c}{ckernel\+::reduce\+\_\+init\+\_\+delta\+\_\+math}} ()
+\item 
+{\footnotesize template$<$Reduce\+Dim reduce\+\_\+dim = REDUCE\+\_\+\+DIM$>$ }\\void \mbox{\hyperlink{namespaceckernel_a13fc1a7ae6af7595b5a0a2782e4cbbbb}{ckernel\+::reduce\+\_\+revert\+\_\+delta}} (uint32\+\_\+t ocb=16)
+\item 
+{\footnotesize template$<$Pool\+Type reduce\+\_\+type = REDUCE\+\_\+\+OP, Reduce\+Dim reduce\+\_\+dim = REDUCE\+\_\+\+DIM$>$ }\\void \mbox{\hyperlink{namespaceckernel_a38f4526f08151193fd4a2b8006c3543e}{ckernel\+::reduce\+\_\+tile}} (uint32\+\_\+t icb0, uint32\+\_\+t icb1, uint32\+\_\+t itile0, uint32\+\_\+t itile1, uint32\+\_\+t idst)
+\item 
+{\footnotesize template$<$Pool\+Type reduce\+\_\+type = REDUCE\+\_\+\+OP, Reduce\+Dim reduce\+\_\+dim = REDUCE\+\_\+\+DIM$>$ }\\void \mbox{\hyperlink{namespaceckernel_a12ea45120e9ffcb785c88effcbd9e42b}{ckernel\+::reduce\+\_\+tile\+\_\+math}} (uint32\+\_\+t idst, uint32\+\_\+t num\+\_\+faces=4)
+\end{DoxyCompactItemize}

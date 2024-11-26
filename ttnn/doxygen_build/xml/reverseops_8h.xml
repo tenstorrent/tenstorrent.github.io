@@ -46,12 +46,12 @@
 <codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAIN<sp/>math_main()</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MATH(x)<sp/>x</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MATH(x)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="reverseops_8h_1a5f8a5b21f170f78a59c6aca4376e757d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MATH(x)</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="16"><highlight class="normal"></highlight></codeline>
 <codeline lineno="17"><highlight class="normal"></highlight></codeline>
 <codeline lineno="18"><highlight class="normal"></highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">ckernel<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceckernel" kindref="compound">ckernel</ref><sp/>{</highlight></codeline>
 <codeline lineno="20"><highlight class="normal"></highlight></codeline>
 <codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">//rpow:<sp/>implemented<sp/>as<sp/>a<sp/>composite<sp/>operator</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">//rpow(a,k)<sp/>=<sp/>k**(a)</highlight><highlight class="normal"></highlight></codeline>
@@ -61,12 +61,12 @@
 <codeline lineno="26"><highlight class="normal"></highlight></codeline>
 <codeline lineno="27"><highlight class="normal"></highlight><highlight class="comment">//RSUB<sp/>:<sp/>rsub(x,y)<sp/>=<sp/>y-x</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="28"><highlight class="normal"></highlight></codeline>
-<codeline lineno="42"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>rsub_tile(uint32_t<sp/>idst,uint32_t<sp/>param0)<sp/>{</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_unary_sfpu_rsub&lt;APPROX&gt;(idst,param0)<sp/>));</highlight></codeline>
+<codeline lineno="42" refid="namespaceckernel_1ae56fe236cbce161cc69af6a64abd6580" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1ae56fe236cbce161cc69af6a64abd6580" kindref="member">rsub_tile</ref>(uint32_t<sp/>idst,uint32_t<sp/>param0)<sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="erf__erfc_8h_1a5f8a5b21f170f78a59c6aca4376e757d" kindref="member">MATH</ref>((<sp/>llk_math_eltwise_unary_sfpu_rsub&lt;APPROX&gt;(idst,param0)<sp/>));</highlight></codeline>
 <codeline lineno="44"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="45"><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>rsub_tile_init()<sp/>{</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_unary_sfpu_rsub_init&lt;APPROX&gt;()<sp/>));</highlight></codeline>
+<codeline lineno="49" refid="namespaceckernel_1ae67bbff0728951b06c54865adb9b1e6d" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1ae67bbff0728951b06c54865adb9b1e6d" kindref="member">rsub_tile_init</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="erf__erfc_8h_1a5f8a5b21f170f78a59c6aca4376e757d" kindref="member">MATH</ref>((<sp/>llk_math_eltwise_unary_sfpu_rsub_init&lt;APPROX&gt;()<sp/>));</highlight></codeline>
 <codeline lineno="51"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="52"><highlight class="normal"></highlight></codeline>
 <codeline lineno="53"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>ckerne</highlight><highlight class="normal"></highlight></codeline>

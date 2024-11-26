@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['get_5fcompile_5ftime_5farg_5fval_0',['get_compile_time_arg_val',['../dataflow__api_8h.html#ab97f9dbfbb4150cb324f21520b8e6cfe',1,'dataflow_api.h']]]
+  ['alwi_0',['ALWI',['../compute__kernel__api_8h.html#a102b55d753f30b2569dd7976e1917038',1,'compute_kernel_api.h']]]
 ];

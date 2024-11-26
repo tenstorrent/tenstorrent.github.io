@@ -46,19 +46,19 @@
 <codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAIN<sp/>math_main()</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MATH(x)<sp/>x</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MATH(x)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="sqrt_8h_1a5f8a5b21f170f78a59c6aca4376e757d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MATH(x)</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="16"><highlight class="normal"></highlight></codeline>
 <codeline lineno="17"><highlight class="normal"></highlight></codeline>
 <codeline lineno="18"><highlight class="normal"></highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">ckernel<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceckernel" kindref="compound">ckernel</ref><sp/>{</highlight></codeline>
 <codeline lineno="20"><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>sqrt_tile_init()<sp/>{</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_unary_sfpu_sqrt_init&lt;APPROX&gt;()<sp/>));</highlight></codeline>
+<codeline lineno="24" refid="namespaceckernel_1a54e1e97c019937643933a7b5ec4a73ff" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1a54e1e97c019937643933a7b5ec4a73ff" kindref="member">sqrt_tile_init</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="erf__erfc_8h_1a5f8a5b21f170f78a59c6aca4376e757d" kindref="member">MATH</ref>((<sp/>llk_math_eltwise_unary_sfpu_sqrt_init&lt;APPROX&gt;()<sp/>));</highlight></codeline>
 <codeline lineno="26"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="27"><highlight class="normal"></highlight></codeline>
-<codeline lineno="40"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>sqrt_tile(uint32_t<sp/>idst)<sp/>{</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_unary_sfpu_sqrt&lt;APPROX&gt;(idst)<sp/>));</highlight></codeline>
+<codeline lineno="40" refid="namespaceckernel_1ad7c2391b46aa28abea6e13bbe7610780" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1ad7c2391b46aa28abea6e13bbe7610780" kindref="member">sqrt_tile</ref>(uint32_t<sp/>idst)<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="erf__erfc_8h_1a5f8a5b21f170f78a59c6aca4376e757d" kindref="member">MATH</ref>((<sp/>llk_math_eltwise_unary_sfpu_sqrt&lt;APPROX&gt;(idst)<sp/>));</highlight></codeline>
 <codeline lineno="42"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="43"><highlight class="normal"></highlight></codeline>
 <codeline lineno="44"><highlight class="normal"></highlight></codeline>

@@ -45,34 +45,34 @@
 <codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAIN<sp/>math_main()</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MATH(x)<sp/>x</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MATH(x)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="erf__erfc_8h_1a5f8a5b21f170f78a59c6aca4376e757d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MATH(x)</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="15"><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">ckernel<sp/>{</highlight></codeline>
+<codeline lineno="16" refid="namespaceckernel" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceckernel" kindref="compound">ckernel</ref><sp/>{</highlight></codeline>
 <codeline lineno="17"><highlight class="normal"></highlight></codeline>
 <codeline lineno="18"><highlight class="normal"></highlight><highlight class="comment">/**************<sp/>ERF<sp/>*****************/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>fast_and_approx<sp/>=<sp/>true&gt;</highlight></codeline>
-<codeline lineno="23"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>erf_tile_init()<sp/>{</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((llk_math_eltwise_unary_sfpu_erf_init&lt;fast_and_approx&gt;()));</highlight></codeline>
+<codeline lineno="23" refid="namespaceckernel_1a457fed1c2f71b59d1949d93479d54f8c" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1a457fed1c2f71b59d1949d93479d54f8c" kindref="member">erf_tile_init</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="erf__erfc_8h_1a5f8a5b21f170f78a59c6aca4376e757d" kindref="member">MATH</ref>((llk_math_eltwise_unary_sfpu_erf_init&lt;fast_and_approx&gt;()));</highlight></codeline>
 <codeline lineno="25"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="26"><highlight class="normal"></highlight></codeline>
 <codeline lineno="27"><highlight class="normal"></highlight></codeline>
 <codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>fast_and_approx<sp/>=<sp/>true&gt;</highlight></codeline>
-<codeline lineno="41"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>erf_tile(uint32_t<sp/>idst)<sp/>{</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_unary_sfpu_erf&lt;fast_and_approx&gt;(idst)<sp/>));</highlight></codeline>
+<codeline lineno="41" refid="namespaceckernel_1ab2e2745c2e1e812179a659ffac84f231" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1ab2e2745c2e1e812179a659ffac84f231" kindref="member">erf_tile</ref>(uint32_t<sp/>idst)<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="erf__erfc_8h_1a5f8a5b21f170f78a59c6aca4376e757d" kindref="member">MATH</ref>((<sp/>llk_math_eltwise_unary_sfpu_erf&lt;fast_and_approx&gt;(idst)<sp/>));</highlight></codeline>
 <codeline lineno="43"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="44"><highlight class="normal"></highlight></codeline>
 <codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment">/**************<sp/>ERFC<sp/>*****************/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="46"><highlight class="normal"></highlight></codeline>
 <codeline lineno="50"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>fast_and_approx<sp/>=<sp/>true&gt;</highlight></codeline>
-<codeline lineno="51"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>erfc_tile_init()<sp/>{</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((llk_math_eltwise_unary_sfpu_erfc_init&lt;fast_and_approx&gt;()));</highlight></codeline>
+<codeline lineno="51" refid="namespaceckernel_1a8d55d9b6ac18b93104f4cddf6da7aea1" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1a8d55d9b6ac18b93104f4cddf6da7aea1" kindref="member">erfc_tile_init</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="erf__erfc_8h_1a5f8a5b21f170f78a59c6aca4376e757d" kindref="member">MATH</ref>((llk_math_eltwise_unary_sfpu_erfc_init&lt;fast_and_approx&gt;()));</highlight></codeline>
 <codeline lineno="53"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="54"><highlight class="normal"></highlight></codeline>
 <codeline lineno="55"><highlight class="normal"></highlight></codeline>
 <codeline lineno="68"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>fast_and_approx<sp/>=<sp/>true&gt;</highlight></codeline>
-<codeline lineno="69"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>erfc_tile(uint32_t<sp/>idst)<sp/>{</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>MATH((<sp/>llk_math_eltwise_unary_sfpu_erfc&lt;fast_and_approx&gt;(idst)<sp/>));</highlight></codeline>
+<codeline lineno="69" refid="namespaceckernel_1a262be4a133a92ad6d55e6f505dfce753" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1a262be4a133a92ad6d55e6f505dfce753" kindref="member">erfc_tile</ref>(uint32_t<sp/>idst)<sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="erf__erfc_8h_1a5f8a5b21f170f78a59c6aca4376e757d" kindref="member">MATH</ref>((<sp/>llk_math_eltwise_unary_sfpu_erfc&lt;fast_and_approx&gt;(idst)<sp/>));</highlight></codeline>
 <codeline lineno="71"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="72"><highlight class="normal"></highlight></codeline>
 <codeline lineno="73"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>ckernel</highlight><highlight class="normal"></highlight></codeline>

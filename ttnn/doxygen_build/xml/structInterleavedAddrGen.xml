@@ -2,6 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
   <compounddef id="structInterleavedAddrGen" kind="struct" language="C++" prot="public">
     <compoundname>InterleavedAddrGen</compoundname>
+    <includes refid="dataflow__api_8h" local="no">dataflow_api.h</includes>
     <templateparamlist>
       <param>
         <type>bool</type>
@@ -22,11 +23,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="792" column="14" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="792" bodyend="-1"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="982" column="14" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="982" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structInterleavedAddrGen_1a990164fddbcfb10bbe0a7f2912dfc0f9" prot="public" static="no" mutable="no">
-        <type>uint32_t</type>
-        <definition>uint32_t InterleavedAddrGen&lt; DRAM &gt;::page_size</definition>
+      <memberdef kind="variable" id="structInterleavedAddrGen_1ae87a663744676dd0bda03190f2258213" prot="public" static="no" mutable="no">
+        <type>const uint32_t</type>
+        <definition>const uint32_t InterleavedAddrGen&lt; DRAM &gt;::page_size</definition>
         <argsstring></argsstring>
         <name>page_size</name>
         <qualifiedname>InterleavedAddrGen::page_size</qualifiedname>
@@ -36,19 +37,42 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="793" column="14" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="793" bodyend="-1"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="983" column="20" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="983" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structInterleavedAddrGen_1a35965eeb3ca9036dd89a46ac81c435b7" prot="public" static="no" mutable="no">
+        <type>const uint32_t</type>
+        <definition>const uint32_t InterleavedAddrGen&lt; DRAM &gt;::aligned_page_size</definition>
+        <argsstring></argsstring>
+        <name>aligned_page_size</name>
+        <qualifiedname>InterleavedAddrGen::aligned_page_size</qualifiedname>
+        <initializer>= <ref refid="dataflow__api_8h_1ac4752c4d9a07974ce99aaa671a675fe2" kindref="member">align</ref>(<ref refid="structInterleavedAddrGen_1ae87a663744676dd0bda03190f2258213" kindref="member">page_size</ref>, ALLOCATOR_ALIGNMENT)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="984" column="20" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="984" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structInterleavedAddrGen_1acdf9396fff622c57dd7eb42349d5dd0f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>std::uint64_t</type>
-        <definition>std::uint64_t InterleavedAddrGen&lt; DRAM &gt;::get_noc_addr</definition>
-        <argsstring>(const uint32_t id, const uint32_t offset=0) const</argsstring>
-        <name>get_noc_addr</name>
-        <qualifiedname>InterleavedAddrGen::get_noc_addr</qualifiedname>
+      <memberdef kind="function" id="structInterleavedAddrGen_1a49558fb0a925773898f8e32ed14d3fe8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t InterleavedAddrGen&lt; DRAM &gt;::get_addr</definition>
+        <argsstring>(const uint32_t id, const uint32_t bank_offset_index, const uint32_t bank_index, const uint32_t offset=0) const</argsstring>
+        <name>get_addr</name>
+        <qualifiedname>InterleavedAddrGen::get_addr</qualifiedname>
         <param>
           <type>const uint32_t</type>
           <declname>id</declname>
+        </param>
+        <param>
+          <type>const uint32_t</type>
+          <declname>bank_offset_index</declname>
+        </param>
+        <param>
+          <type>const uint32_t</type>
+          <declname>bank_index</declname>
         </param>
         <param>
           <type>const uint32_t</type>
@@ -61,12 +85,40 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="796" column="19" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="796" bodyend="827"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="987" column="14" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="987" bodyend="989"/>
       </memberdef>
-      <memberdef kind="function" id="structInterleavedAddrGen_1a5f721b07e180187a4f7281789e626988" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structInterleavedAddrGen_1ad6b00d5f98bd8bd1945bda54d8340104" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::uint64_t</type>
+        <definition>std::uint64_t InterleavedAddrGen&lt; DRAM &gt;::get_noc_addr</definition>
+        <argsstring>(const uint32_t id, const uint32_t offset=0, uint8_t noc=noc_index) const</argsstring>
+        <name>get_noc_addr</name>
+        <qualifiedname>InterleavedAddrGen::get_noc_addr</qualifiedname>
+        <param>
+          <type>const uint32_t</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>const uint32_t</type>
+          <declname>offset</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>noc</declname>
+          <defval><ref refid="dataflow__api_8h_1a58bc3a01e945dbd421fce21906e94441" kindref="member">noc_index</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="992" column="19" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="992" bodyend="1000"/>
+      </memberdef>
+      <memberdef kind="function" id="structInterleavedAddrGen_1a5fcc74ae538bc06c73f7ae33737c13b6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void InterleavedAddrGen&lt; DRAM &gt;::noc_async_read_page</definition>
-        <argsstring>(const uint32_t id, const uint32_t dest_addr, const uint32_t offset=0) const</argsstring>
+        <argsstring>(const uint32_t id, const uint32_t dest_addr, const uint32_t offset=0, uint8_t noc=noc_index) const</argsstring>
         <name>noc_async_read_page</name>
         <qualifiedname>InterleavedAddrGen::noc_async_read_page</qualifiedname>
         <param>
@@ -82,25 +134,32 @@
           <declname>offset</declname>
           <defval>0</defval>
         </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>noc</declname>
+          <defval><ref refid="dataflow__api_8h_1a58bc3a01e945dbd421fce21906e94441" kindref="member">noc_index</ref></defval>
+        </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="830" column="10" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="830" bodyend="832"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1003" column="10" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1003" bodyend="1005"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="tt_metal/hw/inc/dataflow_api.h" line="791" column="1" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="791" bodyend="833"/>
+    <location file="tt_metal/hw/inc/dataflow_api.h" line="981" column="1" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="981" bodyend="1006"/>
     <listofallmembers>
+      <member refid="structInterleavedAddrGen_1a35965eeb3ca9036dd89a46ac81c435b7" prot="public" virt="non-virtual"><scope>InterleavedAddrGen</scope><name>aligned_page_size</name></member>
       <member refid="structInterleavedAddrGen_1a9a6b4336c1f9059c48f7dd38d3c223ba" prot="public" virt="non-virtual"><scope>InterleavedAddrGen</scope><name>bank_base_address</name></member>
-      <member refid="structInterleavedAddrGen_1acdf9396fff622c57dd7eb42349d5dd0f" prot="public" virt="non-virtual"><scope>InterleavedAddrGen</scope><name>get_noc_addr</name></member>
-      <member refid="structInterleavedAddrGen_1a5f721b07e180187a4f7281789e626988" prot="public" virt="non-virtual"><scope>InterleavedAddrGen</scope><name>noc_async_read_page</name></member>
-      <member refid="structInterleavedAddrGen_1a990164fddbcfb10bbe0a7f2912dfc0f9" prot="public" virt="non-virtual"><scope>InterleavedAddrGen</scope><name>page_size</name></member>
+      <member refid="structInterleavedAddrGen_1a49558fb0a925773898f8e32ed14d3fe8" prot="public" virt="non-virtual"><scope>InterleavedAddrGen</scope><name>get_addr</name></member>
+      <member refid="structInterleavedAddrGen_1ad6b00d5f98bd8bd1945bda54d8340104" prot="public" virt="non-virtual"><scope>InterleavedAddrGen</scope><name>get_noc_addr</name></member>
+      <member refid="structInterleavedAddrGen_1a5fcc74ae538bc06c73f7ae33737c13b6" prot="public" virt="non-virtual"><scope>InterleavedAddrGen</scope><name>noc_async_read_page</name></member>
+      <member refid="structInterleavedAddrGen_1ae87a663744676dd0bda03190f2258213" prot="public" virt="non-virtual"><scope>InterleavedAddrGen</scope><name>page_size</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

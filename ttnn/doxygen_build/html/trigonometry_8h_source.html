@@ -76,7 +76,7 @@ $(function() {
   <div class="headertitle"><div class="title">trigonometry.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// SPDX-FileCopyrightText: © 2023 Tenstorrent Inc.</span></div>
+<a href="trigonometry_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// SPDX-FileCopyrightText: © 2023 Tenstorrent Inc.</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">//</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
@@ -88,39 +88,48 @@ $(function() {
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#define MAIN math_main()</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#define MATH(x) x</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#else</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#define MATH(x)</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="trigonometry_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">   13</a></span><span class="preprocessor">#define MATH(x)</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span>ckernel {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceckernel.html">ckernel</a> {</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>ALWI <span class="keywordtype">void</span> sin_tile_init() {</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    MATH((llk_math_eltwise_unary_sfpu_sine_init&lt;APPROX&gt;()));</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="namespaceckernel.html#a060c4ee2f9fd4e95f083612d0e5462d7">   21</a></span><a class="code hl_define" href="compute__kernel__api_8h.html#a102b55d753f30b2569dd7976e1917038">ALWI</a> <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceckernel.html#a060c4ee2f9fd4e95f083612d0e5462d7">sin_tile_init</a>() {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_define" href="erf__erfc_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">MATH</a>((llk_math_eltwise_unary_sfpu_sine_init&lt;APPROX&gt;()));</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>}</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>ALWI <span class="keywordtype">void</span> sin_tile(uint32_t idst) {</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    MATH((llk_math_eltwise_unary_sfpu_sine_op&lt;APPROX&gt;(idst)));</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="namespaceckernel.html#a47a673f6f27ef504770b0b47891cea9c">   38</a></span><a class="code hl_define" href="compute__kernel__api_8h.html#a102b55d753f30b2569dd7976e1917038">ALWI</a> <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceckernel.html#a47a673f6f27ef504770b0b47891cea9c">sin_tile</a>(uint32_t idst) {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_define" href="erf__erfc_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">MATH</a>((llk_math_eltwise_unary_sfpu_sine_op&lt;APPROX&gt;(idst)));</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>}</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>ALWI <span class="keywordtype">void</span> cos_tile_init() {</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    MATH((llk_math_eltwise_unary_sfpu_cosine_init&lt;APPROX&gt;()));</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="namespaceckernel.html#abf68d57fea4010334471559c44e7b8b5">   45</a></span><a class="code hl_define" href="compute__kernel__api_8h.html#a102b55d753f30b2569dd7976e1917038">ALWI</a> <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceckernel.html#abf68d57fea4010334471559c44e7b8b5">cos_tile_init</a>() {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_define" href="erf__erfc_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">MATH</a>((llk_math_eltwise_unary_sfpu_cosine_init&lt;APPROX&gt;()));</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>}</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>ALWI <span class="keywordtype">void</span> cos_tile(uint32_t idst) {</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    MATH((llk_math_eltwise_unary_sfpu_cosine_op&lt;APPROX&gt;(idst)));</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="namespaceckernel.html#aeb6b37aa28157a3c79780f7053d752f2">   62</a></span><a class="code hl_define" href="compute__kernel__api_8h.html#a102b55d753f30b2569dd7976e1917038">ALWI</a> <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceckernel.html#aeb6b37aa28157a3c79780f7053d752f2">cos_tile</a>(uint32_t idst) {</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <a class="code hl_define" href="erf__erfc_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">MATH</a>((llk_math_eltwise_unary_sfpu_cosine_op&lt;APPROX&gt;(idst)));</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>}</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>ALWI <span class="keywordtype">void</span> tan_tile_init() {</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    MATH((llk_math_eltwise_unary_sfpu_tan_init&lt;APPROX&gt;()));</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="namespaceckernel.html#ab8e56f700e9f9c0d201dc4cfa63ecbf9">   69</a></span><a class="code hl_define" href="compute__kernel__api_8h.html#a102b55d753f30b2569dd7976e1917038">ALWI</a> <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceckernel.html#ab8e56f700e9f9c0d201dc4cfa63ecbf9">tan_tile_init</a>() {</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <a class="code hl_define" href="erf__erfc_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">MATH</a>((llk_math_eltwise_unary_sfpu_tan_init&lt;APPROX&gt;()));</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>}</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>ALWI <span class="keywordtype">void</span> tan_tile(uint32_t idst) {</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    MATH((llk_math_eltwise_unary_sfpu_tan_op&lt;APPROX&gt;(idst)));</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="namespaceckernel.html#a340b3d31ff3f60adb500d58dbca820b7">   87</a></span><a class="code hl_define" href="compute__kernel__api_8h.html#a102b55d753f30b2569dd7976e1917038">ALWI</a> <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceckernel.html#a340b3d31ff3f60adb500d58dbca820b7">tan_tile</a>(uint32_t idst) {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <a class="code hl_define" href="erf__erfc_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">MATH</a>((llk_math_eltwise_unary_sfpu_tan_op&lt;APPROX&gt;(idst)));</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>}</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>} <span class="comment">// namespace ckernel</span></div>
+<div class="ttc" id="acompute__kernel__api_8h_html_a102b55d753f30b2569dd7976e1917038"><div class="ttname"><a href="compute__kernel__api_8h.html#a102b55d753f30b2569dd7976e1917038">ALWI</a></div><div class="ttdeci">#define ALWI</div><div class="ttdef"><b>Definition:</b> compute_kernel_api.h:15</div></div>
+<div class="ttc" id="aerf__erfc_8h_html_a5f8a5b21f170f78a59c6aca4376e757d"><div class="ttname"><a href="erf__erfc_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">MATH</a></div><div class="ttdeci">#define MATH(x)</div><div class="ttdef"><b>Definition:</b> erf_erfc.h:13</div></div>
+<div class="ttc" id="anamespaceckernel_html"><div class="ttname"><a href="namespaceckernel.html">ckernel</a></div><div class="ttdef"><b>Definition:</b> erf_erfc.h:16</div></div>
+<div class="ttc" id="anamespaceckernel_html_a060c4ee2f9fd4e95f083612d0e5462d7"><div class="ttname"><a href="namespaceckernel.html#a060c4ee2f9fd4e95f083612d0e5462d7">ckernel::sin_tile_init</a></div><div class="ttdeci">void sin_tile_init()</div><div class="ttdef"><b>Definition:</b> trigonometry.h:21</div></div>
+<div class="ttc" id="anamespaceckernel_html_a340b3d31ff3f60adb500d58dbca820b7"><div class="ttname"><a href="namespaceckernel.html#a340b3d31ff3f60adb500d58dbca820b7">ckernel::tan_tile</a></div><div class="ttdeci">void tan_tile(uint32_t idst)</div><div class="ttdef"><b>Definition:</b> trigonometry.h:87</div></div>
+<div class="ttc" id="anamespaceckernel_html_a47a673f6f27ef504770b0b47891cea9c"><div class="ttname"><a href="namespaceckernel.html#a47a673f6f27ef504770b0b47891cea9c">ckernel::sin_tile</a></div><div class="ttdeci">void sin_tile(uint32_t idst)</div><div class="ttdef"><b>Definition:</b> trigonometry.h:38</div></div>
+<div class="ttc" id="anamespaceckernel_html_ab8e56f700e9f9c0d201dc4cfa63ecbf9"><div class="ttname"><a href="namespaceckernel.html#ab8e56f700e9f9c0d201dc4cfa63ecbf9">ckernel::tan_tile_init</a></div><div class="ttdeci">void tan_tile_init()</div><div class="ttdef"><b>Definition:</b> trigonometry.h:69</div></div>
+<div class="ttc" id="anamespaceckernel_html_abf68d57fea4010334471559c44e7b8b5"><div class="ttname"><a href="namespaceckernel.html#abf68d57fea4010334471559c44e7b8b5">ckernel::cos_tile_init</a></div><div class="ttdeci">void cos_tile_init()</div><div class="ttdef"><b>Definition:</b> trigonometry.h:45</div></div>
+<div class="ttc" id="anamespaceckernel_html_aeb6b37aa28157a3c79780f7053d752f2"><div class="ttname"><a href="namespaceckernel.html#aeb6b37aa28157a3c79780f7053d752f2">ckernel::cos_tile</a></div><div class="ttdeci">void cos_tile(uint32_t idst)</div><div class="ttdef"><b>Definition:</b> trigonometry.h:62</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

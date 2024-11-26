@@ -149,9 +149,9 @@ appropriate tile count when assigning args.
         CoreCoord core = {i / num_cores_y, i % num_cores_y};
 
         uint32_t num_output_tiles_per_core;
-        if (core_group_1.core_coord_in_core_ranges(core)) {
+        if (core_group_1.contains(core)) {
             num_output_tiles_per_core = num_output_tiles_per_core_group_1;
-        } else if (core_group_2.core_coord_in_core_ranges(core)) {
+        } else if (core_group_2.contains(core)) {
             num_output_tiles_per_core = num_output_tiles_per_core_group_2;
         } else {
             TT_ASSERT(false, "Core not in specified core ranges");
@@ -187,5 +187,5 @@ Conclusion
 ----------
 
 Those are all the major changes that we made in order to upgrade our single
-core matmul example into one that will use as many cores as possible.  To see a more complicated example using data reuse among these cores, please refer to please refer to the :ref:`Matmul
+core matmul example into one that will use as many cores as possible.  To see a more complicated example using data reuse among these cores, please refer to the :ref:`Matmul
 multi-core data reuse example<MatMul_Multi_Core_Data_Reuse_example>`.

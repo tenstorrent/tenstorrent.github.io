@@ -76,7 +76,7 @@ $(function() {
   <div class="headertitle"><div class="title">logical_not_noti.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// SPDX-FileCopyrightText: © 2023 Tenstorrent Inc.</span></div>
+<a href="logical__not__noti_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// SPDX-FileCopyrightText: © 2023 Tenstorrent Inc.</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">//</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
@@ -88,18 +88,23 @@ $(function() {
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#define MAIN math_main()</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#define MATH(x) x</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#else</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#define MATH(x)</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="logical__not__noti_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">   13</a></span><span class="preprocessor">#define MATH(x)</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span>ckernel {</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>ALWI <span class="keywordtype">void</span> logical_not_unary_tile(uint32_t idst) {</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    MATH((llk_math_eltwise_unary_sfpu_logical_not_unary_op&lt;APPROX&gt;(idst)));</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceckernel.html">ckernel</a> {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="namespaceckernel.html#a8eb2237676286e9427ec296e6cc5ab26">   29</a></span><a class="code hl_define" href="compute__kernel__api_8h.html#a102b55d753f30b2569dd7976e1917038">ALWI</a> <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceckernel.html#a8eb2237676286e9427ec296e6cc5ab26">logical_not_unary_tile</a>(uint32_t idst) {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_define" href="erf__erfc_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">MATH</a>((llk_math_eltwise_unary_sfpu_logical_not_unary_op&lt;APPROX&gt;(idst)));</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>}</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>ALWI <span class="keywordtype">void</span> logical_not_unary_tile_init() {</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    MATH((llk_math_eltwise_unary_sfpu_logical_not_unary_init&lt;APPROX&gt;() ));</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="namespaceckernel.html#aea8c76b173d12fc2c8d4b6a69268fd90">   36</a></span><a class="code hl_define" href="compute__kernel__api_8h.html#a102b55d753f30b2569dd7976e1917038">ALWI</a> <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceckernel.html#aea8c76b173d12fc2c8d4b6a69268fd90">logical_not_unary_tile_init</a>() {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_define" href="erf__erfc_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">MATH</a>((llk_math_eltwise_unary_sfpu_logical_not_unary_init&lt;APPROX&gt;() ));</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>}</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>} <span class="comment">// namespace ckernel</span></div>
+<div class="ttc" id="acompute__kernel__api_8h_html_a102b55d753f30b2569dd7976e1917038"><div class="ttname"><a href="compute__kernel__api_8h.html#a102b55d753f30b2569dd7976e1917038">ALWI</a></div><div class="ttdeci">#define ALWI</div><div class="ttdef"><b>Definition:</b> compute_kernel_api.h:15</div></div>
+<div class="ttc" id="aerf__erfc_8h_html_a5f8a5b21f170f78a59c6aca4376e757d"><div class="ttname"><a href="erf__erfc_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">MATH</a></div><div class="ttdeci">#define MATH(x)</div><div class="ttdef"><b>Definition:</b> erf_erfc.h:13</div></div>
+<div class="ttc" id="anamespaceckernel_html"><div class="ttname"><a href="namespaceckernel.html">ckernel</a></div><div class="ttdef"><b>Definition:</b> erf_erfc.h:16</div></div>
+<div class="ttc" id="anamespaceckernel_html_a8eb2237676286e9427ec296e6cc5ab26"><div class="ttname"><a href="namespaceckernel.html#a8eb2237676286e9427ec296e6cc5ab26">ckernel::logical_not_unary_tile</a></div><div class="ttdeci">void logical_not_unary_tile(uint32_t idst)</div><div class="ttdef"><b>Definition:</b> logical_not_noti.h:29</div></div>
+<div class="ttc" id="anamespaceckernel_html_aea8c76b173d12fc2c8d4b6a69268fd90"><div class="ttname"><a href="namespaceckernel.html#aea8c76b173d12fc2c8d4b6a69268fd90">ckernel::logical_not_unary_tile_init</a></div><div class="ttdeci">void logical_not_unary_tile_init()</div><div class="ttdef"><b>Definition:</b> logical_not_noti.h:36</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -1,0 +1,121 @@
+\hypertarget{namespacett_1_1tt__metal}{}\doxysection{tt\+::tt\+\_\+metal Namespace Reference}
+\label{namespacett_1_1tt__metal}\index{tt::tt\_metal@{tt::tt\_metal}}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0}{v0}}
+\item 
+namespace \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1}{v1}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a5d1cfea010cb740e7307b18b4a7ec9e8}{Runtime\+Args}} = std\+::vector$<$ std\+::variant$<$ Buffer $\ast$, uint32\+\_\+t $>$ $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a1e4322b747fd7823e878c3e2ae729e27}{Get\+Num\+Available\+Devices}} ()
+\item 
+bool \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a63ede0a0180762c7d1f091176738237c}{Is\+Galaxy\+Cluster}} ()
+\item 
+size\+\_\+t \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a4f05b332fd6f861bb3540dbe2af433be}{Get\+Num\+PCIe\+Devices}} ()
+\item 
+chip\+\_\+id\+\_\+t \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_af46d5827805ba92482cddb5591c69a45}{Get\+PCIe\+Device\+ID}} (chip\+\_\+id\+\_\+t device\+\_\+id)
+\item 
+Device $\ast$ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_abe3488f7ac4863b7b372f344f863bc84}{Create\+Device}} (chip\+\_\+id\+\_\+t device\+\_\+id, const uint8\+\_\+t num\+\_\+hw\+\_\+cqs=1, const size\+\_\+t l1\+\_\+small\+\_\+size=DEFAULT\+\_\+\+L1\+\_\+\+SMALL\+\_\+\+SIZE, const size\+\_\+t trace\+\_\+region\+\_\+size=DEFAULT\+\_\+\+TRACE\+\_\+\+REGION\+\_\+\+SIZE, Dispatch\+Core\+Type dispatch\+\_\+core\+\_\+type=Dispatch\+Core\+Type\+::\+WORKER, const std\+::vector$<$ uint32\+\_\+t $>$ \&l1\+\_\+bank\+\_\+remap=\{\})
+\item 
+Device $\ast$ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a1690575bfc5a81f0a7bc44b0a1f4780b}{Create\+Device\+Minimal}} (chip\+\_\+id\+\_\+t device\+\_\+id, const uint8\+\_\+t num\+\_\+hw\+\_\+cqs=1, Dispatch\+Core\+Type dispatch\+\_\+core\+\_\+type=Dispatch\+Core\+Type\+::\+WORKER)
+\item 
+bool \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a26cb44c89e3231cade68dca1a6990bbb}{Close\+Device}} (Device $\ast$device)
+\item 
+Program \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a826db8a9c40c91034bc2a5f0f6e9b75e}{Create\+Program}} ()
+\item 
+Kernel\+Handle \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a0e68e0e2cb813bf5814ddb02d82cd1d0}{Create\+Kernel}} (Program \&program, const std\+::string \&file\+\_\+name, const std\+::variant$<$ Core\+Coord, Core\+Range, Core\+Range\+Set $>$ \&core\+\_\+spec, const std\+::variant$<$ Data\+Movement\+Config, Compute\+Config, Ethernet\+Config $>$ \&config)
+\item 
+Kernel\+Handle \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a63aefd0f3f82e3dd0d66ff2ca72453c8}{Create\+Kernel\+From\+String}} (Program \&program, const std\+::string \&kernel\+\_\+src\+\_\+code, const std\+::variant$<$ Core\+Coord, Core\+Range, Core\+Range\+Set $>$ \&core\+\_\+spec, const std\+::variant$<$ Data\+Movement\+Config, Compute\+Config, Ethernet\+Config $>$ \&config)
+\item 
+CBHandle \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a4b1e837406fd39ad2b671b7836ce3e4c}{Create\+Circular\+Buffer}} (Program \&program, const std\+::variant$<$ Core\+Coord, Core\+Range, Core\+Range\+Set $>$ \&core\+\_\+spec, const Circular\+Buffer\+Config \&config)
+\item 
+const Circular\+Buffer\+Config \& \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_ac4b1a13298da52770f32ddeeabd2c65a}{Get\+Circular\+Buffer\+Config}} (Program \&program, CBHandle cb\+\_\+handle)
+\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a220dc8a16809c1c12a44348b9a76ab08}{Update\+Circular\+Buffer\+Total\+Size}} (Program \&program, CBHandle cb\+\_\+handle, uint32\+\_\+t total\+\_\+size)
+\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a3831e993c64a578637c9fc73b059412d}{Update\+Circular\+Buffer\+Page\+Size}} (Program \&program, CBHandle cb\+\_\+handle, uint8\+\_\+t buffer\+\_\+index, uint32\+\_\+t page\+\_\+size)
+\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a0cf0d51e979e755908ee29c30401ee53}{Update\+Dynamic\+Circular\+Buffer\+Address}} (Program \&program, CBHandle cb\+\_\+handle, const Buffer \&buffer)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_ad7ce765d28d851983f910495c44411cd}{Create\+Semaphore}} (Program \&program, const std\+::variant$<$ Core\+Range, Core\+Range\+Set $>$ \&core\+\_\+spec, uint32\+\_\+t initial\+\_\+value, Core\+Type core\+\_\+type=Core\+Type\+::\+WORKER)
+\item 
+std\+::unique\+\_\+ptr$<$ Global\+Semaphore $>$ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a087c394c5ec94274c150ee18ef88ef78}{Create\+Global\+Semaphore}} (Device $\ast$device, const Core\+Range\+Set \&cores, uint32\+\_\+t initial\+\_\+value, Buffer\+Type buffer\+\_\+type=Buffer\+Type\+::\+L1)
+\item 
+std\+::unique\+\_\+ptr$<$ Global\+Semaphore $>$ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_acd4672dc795d11eeac8c1c45bfed6a87}{Create\+Global\+Semaphore}} (Device $\ast$device, Core\+Range\+Set \&\&cores, uint32\+\_\+t initial\+\_\+value, Buffer\+Type buffer\+\_\+type=Buffer\+Type\+::\+L1)
+\item 
+std\+::shared\+\_\+ptr$<$ Buffer $>$ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_aec7794124ecb8f3b20ffe95a4c8b390d}{Create\+Buffer}} (const Interleaved\+Buffer\+Config \&config)
+\item 
+std\+::shared\+\_\+ptr$<$ Buffer $>$ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a74ad24acd85d50aebe09a2220fd1237c}{Create\+Buffer}} (const Interleaved\+Buffer\+Config \&config, Device\+Addr address)
+\item 
+std\+::shared\+\_\+ptr$<$ Buffer $>$ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a88eb77e75d74b91bec6ad22064eb3b38}{Create\+Buffer}} (const Interleaved\+Buffer\+Config \&config, Sub\+Device\+Id sub\+\_\+device\+\_\+id)
+\item 
+std\+::shared\+\_\+ptr$<$ Buffer $>$ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a6c254d5b77d19539fd7999c73b7606ad}{Create\+Buffer}} (const Sharded\+Buffer\+Config \&config)
+\item 
+std\+::shared\+\_\+ptr$<$ Buffer $>$ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_ac9703a61146ccd855bea828aade6a720}{Create\+Buffer}} (const Sharded\+Buffer\+Config \&config, Device\+Addr address)
+\item 
+std\+::shared\+\_\+ptr$<$ Buffer $>$ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_ac9b0f4582de81688db0f46ab932f74f8}{Create\+Buffer}} (const Sharded\+Buffer\+Config \&config, Sub\+Device\+Id sub\+\_\+device\+\_\+id)
+\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_abce385d98e86cf18acb680f183039cb5}{Deallocate\+Buffer}} (Buffer \&buffer)
+\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a1ebc34320ecacb398a25f67c206422d5}{Assign\+Global\+Buffer\+To\+Program}} (std\+::shared\+\_\+ptr$<$ Buffer $>$ buffer, Program \&program)
+\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_afb2ca08d5f123ed98b99498324061ba4}{Set\+Runtime\+Args}} (const Program \&program, Kernel\+Handle kernel, const std\+::variant$<$ Core\+Coord, Core\+Range, Core\+Range\+Set $>$ \&core\+\_\+spec, stl\+::\+Span$<$ const uint32\+\_\+t $>$ runtime\+\_\+args)
+\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a74ca7c2b7c798d3c16af2dc931d68df0}{Set\+Runtime\+Args}} (const Program \&program, Kernel\+Handle kernel, const std\+::vector$<$ Core\+Coord $>$ \&core\+\_\+spec, const std\+::vector$<$ std\+::vector$<$ uint32\+\_\+t $>$ $>$ \&runtime\+\_\+args)
+\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_afdb3df50326c491a4612d21ce45a518a}{Set\+Runtime\+Args}} (Device $\ast$device, const std\+::shared\+\_\+ptr$<$ Kernel $>$ kernel, const std\+::variant$<$ Core\+Coord, Core\+Range, Core\+Range\+Set $>$ \&core\+\_\+spec, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a5d1cfea010cb740e7307b18b4a7ec9e8}{Runtime\+Args}} $>$ runtime\+\_\+args)
+\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a774adf0f130e4a8f75007cca0a33fcb6}{Set\+Runtime\+Args}} (Device $\ast$device, const std\+::shared\+\_\+ptr$<$ Kernel $>$ kernel, const std\+::vector$<$ Core\+Coord $>$ \&core\+\_\+spec, const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a5d1cfea010cb740e7307b18b4a7ec9e8}{Runtime\+Args}} $>$ $>$ runtime\+\_\+args)
+\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a8263eba8cd8279b6c1e6db233ec5f133}{Set\+Common\+Runtime\+Args}} (const Program \&program, Kernel\+Handle kernel\+\_\+id, stl\+::\+Span$<$ const uint32\+\_\+t $>$ runtime\+\_\+args)
+\item 
+Runtime\+Args\+Data \& \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a609d42acfdab49842d577aae66de2e67}{Get\+Runtime\+Args}} (const Program \&program, Kernel\+Handle kernel\+\_\+id, const Core\+Coord \&logical\+\_\+core)
+\item 
+std\+::vector$<$ std\+::vector$<$ Runtime\+Args\+Data $>$ $>$ \& \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a65abc534c2bbbe36d118c3b844350a72}{Get\+Runtime\+Args}} (const Program \&program, Kernel\+Handle kernel\+\_\+id)
+\item 
+Runtime\+Args\+Data \& \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a9117d8f938e3b0c3e6b146f960eafa2f}{Get\+Common\+Runtime\+Args}} (const Program \&program, Kernel\+Handle kernel\+\_\+id)
+\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a76bb833452d2265a33a294eef1140782}{Enqueue\+Read\+Buffer}} (Command\+Queue \&cq, std\+::variant$<$ std\+::reference\+\_\+wrapper$<$ Buffer $>$, std\+::shared\+\_\+ptr$<$ Buffer $>$ $>$ buffer, void $\ast$dst, bool blocking, tt\+::stl\+::\+Span$<$ const Sub\+Device\+Id $>$ sub\+\_\+device\+\_\+ids=\{\})
+\item 
+{\footnotesize template$<$typename DType $>$ }\\void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_aed6950194c0970fe3d6f35657524e44b}{Enqueue\+Read\+Buffer}} (Command\+Queue \&cq, Buffer \&buffer, std\+::vector$<$ DType $>$ \&dst, bool blocking, tt\+::stl\+::\+Span$<$ const Sub\+Device\+Id $>$ sub\+\_\+device\+\_\+ids=\{\})
+\item 
+{\footnotesize template$<$typename DType $>$ }\\void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_adfbc3816d634690201a2864b0e6ea1d8}{Enqueue\+Read\+Buffer}} (Command\+Queue \&cq, std\+::shared\+\_\+ptr$<$ Buffer $>$ buffer, std\+::vector$<$ DType $>$ \&dst, bool blocking, tt\+::stl\+::\+Span$<$ const Sub\+Device\+Id $>$ sub\+\_\+device\+\_\+ids=\{\})
+\item 
+{\footnotesize template$<$typename DType $>$ }\\void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a7c3bea917e3563c642147c3f34911270}{Enqueue\+Write\+Buffer}} (Command\+Queue \&cq, std\+::variant$<$ std\+::reference\+\_\+wrapper$<$ Buffer $>$, std\+::shared\+\_\+ptr$<$ Buffer $>$ $>$ buffer, std\+::vector$<$ DType $>$ \&src, bool blocking, tt\+::stl\+::\+Span$<$ const Sub\+Device\+Id $>$ sub\+\_\+device\+\_\+ids=\{\})
+\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a634370b608fd0b78795ab3d7b128c9f0}{Enqueue\+Write\+Buffer}} (Command\+Queue \&cq, std\+::variant$<$ std\+::reference\+\_\+wrapper$<$ Buffer $>$, std\+::shared\+\_\+ptr$<$ Buffer $>$ $>$ buffer, Host\+Data\+Type src, bool blocking, tt\+::stl\+::\+Span$<$ const Sub\+Device\+Id $>$ sub\+\_\+device\+\_\+ids=\{\})
+\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_ab74d31b79ae9a8fe25468bc95b13ee2a}{Enqueue\+Program}} (Command\+Queue \&cq, Program \&program, bool blocking)
+\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a41ad47ba118422cf5d162a24289f53cb}{Finish}} (Command\+Queue \&cq, tt\+::stl\+::\+Span$<$ const Sub\+Device\+Id $>$ sub\+\_\+device\+\_\+ids=\{\})
+\item 
+uint32\+\_\+t \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a2ebe853244ec21092c0a4c24a76ac9d7}{Begin\+Trace\+Capture}} (Device $\ast$device, const uint8\+\_\+t cq\+\_\+id)
+\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a868dff83af5a6f69735afddfb8123016}{End\+Trace\+Capture}} (Device $\ast$device, const uint8\+\_\+t cq\+\_\+id, const uint32\+\_\+t tid)
+\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_aaf7e23130adb368821457f261e37cd9b}{Replay\+Trace}} (Device $\ast$device, const uint8\+\_\+t cq\+\_\+id, const uint32\+\_\+t tid, const bool blocking)
+\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_ad8540d48e27a58a9519483782991eba0}{Release\+Trace}} (Device $\ast$device, const uint32\+\_\+t tid)
+\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a35c2d778c2f00844d1113c0e011522f2}{Enqueue\+Trace}} (Command\+Queue \&cq, uint32\+\_\+t trace\+\_\+id, bool blocking)
+\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a617bb9ae1b430271808f81999a4ef53e}{Dump\+Device\+Profile\+Results}} (Device $\ast$device, const Program \&program)
+\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a57cb44e976abef6030c7dbb73970d800}{Enqueue\+Record\+Event}} (Command\+Queue \&cq, const std\+::shared\+\_\+ptr$<$ Event $>$ \&event, tt\+::stl\+::\+Span$<$ const Sub\+Device\+Id $>$ sub\+\_\+device\+\_\+ids=\{\})
+\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a0348eff37a292f881b5b88193d8196f6}{Enqueue\+Wait\+For\+Event}} (Command\+Queue \&cq, const std\+::shared\+\_\+ptr$<$ Event $>$ \&event)
+\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a7965734b9b4f42fd7b96da7cdcc45927}{Event\+Synchronize}} (const std\+::shared\+\_\+ptr$<$ Event $>$ \&event)
+\item 
+bool \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a51fd82461b3734afccb8f11427564181}{Event\+Query}} (const std\+::shared\+\_\+ptr$<$ Event $>$ \&event)
+\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_abbef214f3ba879469488d367053046cb}{Synchronize}} (Device $\ast$device, const std\+::optional$<$ uint8\+\_\+t $>$ cq\+\_\+id=std\+::nullopt, tt\+::stl\+::\+Span$<$ const Sub\+Device\+Id $>$ sub\+\_\+device\+\_\+ids=\{\})
+\end{DoxyCompactItemize}

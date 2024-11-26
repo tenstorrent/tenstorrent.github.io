@@ -1,6 +1,6 @@
 \hypertarget{reg__api_8h_source}{}\doxysection{reg\+\_\+api.\+h}
 \label{reg__api_8h_source}\index{tt\_metal/include/compute\_kernel\_api/reg\_api.h@{tt\_metal/include/compute\_kernel\_api/reg\_api.h}}
-
+\mbox{\hyperlink{reg__api_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//\ SPDX-\/FileCopyrightText:\ ©\ 2023\ Tenstorrent\ Inc.}}
 \DoxyCodeLine{00002\ \textcolor{comment}{//}}
@@ -10,38 +10,40 @@
 \DoxyCodeLine{00006\ }
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}compute\_kernel\_api/common\_globals.h"{}}}
 \DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }ckernel\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceckernel}{ckernel}}\ \{}
 \DoxyCodeLine{00010\ }
-\DoxyCodeLine{00028\ ALWI\ \textcolor{keywordtype}{void}\ acquire\_dst(tt::DstMode\ mode)\ \{}
-\DoxyCodeLine{00029\ \ \ \ \ MATH((\ llk\_math\_wait\_for\_dest\_available()\ \ ));}
+\DoxyCodeLine{00027\ [[deprecated(\textcolor{stringliteral}{"{}Use\ tile\_regs\_acquire()\ instead"{}})]]}
+\DoxyCodeLine{00028\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_ab3e5c0b33fb9768ebd6a7649dca13d56}{acquire\_dst}}()\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((\ llk\_math\_wait\_for\_dest\_available()\ \ ));}
 \DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \ \ \ \ PACK((\ llk\_packer\_wait\_for\_math\_done()\ \ ));}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a06e48c7c5c133a4905da88bd82bd6b91}{PACK}}((\ llk\_packer\_wait\_for\_math\_done()\ \ ));}
 \DoxyCodeLine{00032\ \}}
 \DoxyCodeLine{00033\ }
 \DoxyCodeLine{00034\ \textcolor{comment}{//\ new\ APIs,\ TODO:\ migrate\ all\ kernels\ to\ these}}
 \DoxyCodeLine{00035\ }
-\DoxyCodeLine{00041\ ALWI\ \textcolor{keywordtype}{void}\ tile\_regs\_acquire()\ \{}
-\DoxyCodeLine{00042\ \ \ \ \ MATH((\ llk\_math\_wait\_for\_dest\_available()\ \ ));}
+\DoxyCodeLine{00041\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a34467f46da4221ff3a2820ff1baec122}{tile\_regs\_acquire}}()\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((\ llk\_math\_wait\_for\_dest\_available()\ \ ));}
 \DoxyCodeLine{00043\ \}}
 \DoxyCodeLine{00044\ }
-\DoxyCodeLine{00050\ ALWI\ \textcolor{keywordtype}{void}\ tile\_regs\_wait()\ \{}
-\DoxyCodeLine{00051\ \ \ \ \ PACK((\ llk\_packer\_wait\_for\_math\_done()\ \ ));}
+\DoxyCodeLine{00050\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_acc5591aaa5084f829a43b6282da1dec0}{tile\_regs\_wait}}()\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a06e48c7c5c133a4905da88bd82bd6b91}{PACK}}((\ llk\_packer\_wait\_for\_math\_done()\ \ ));}
 \DoxyCodeLine{00052\ \}}
 \DoxyCodeLine{00053\ }
-\DoxyCodeLine{00067\ ALWI\ \textcolor{keywordtype}{void}\ release\_dst(tt::DstMode\ mode)\ \{}
-\DoxyCodeLine{00068\ \ \ \ \ MATH((\ llk\_math\_dest\_section\_done()\ \ ));}
+\DoxyCodeLine{00066\ [[deprecated(\textcolor{stringliteral}{"{}Use\ tile\_regs\_release()\ instead"{}})]]}
+\DoxyCodeLine{00067\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_aca8a1c47b441f374e4ad21ed8d2f8a4e}{release\_dst}}()\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((\ llk\_math\_dest\_section\_done()\ \ ));}
 \DoxyCodeLine{00069\ }
-\DoxyCodeLine{00070\ \ \ \ \ PACK((\ llk\_pack\_dest\_section\_done()\ \ ));}
+\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a06e48c7c5c133a4905da88bd82bd6b91}{PACK}}((\ llk\_pack\_dest\_section\_done()\ \ ));}
 \DoxyCodeLine{00071\ \}}
 \DoxyCodeLine{00072\ }
 \DoxyCodeLine{00073\ \textcolor{comment}{//\ new\ APIs,\ TODO:\ migrate\ all\ kernels\ to\ these}}
 \DoxyCodeLine{00074\ }
-\DoxyCodeLine{00078\ ALWI\ \textcolor{keywordtype}{void}\ tile\_regs\_commit()\ \{}
-\DoxyCodeLine{00079\ \ \ \ \ MATH((\ llk\_math\_dest\_section\_done()\ \ ));}
+\DoxyCodeLine{00078\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_adaf34bbf977944a7913f979f709214c6}{tile\_regs\_commit}}()\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((\ llk\_math\_dest\_section\_done()\ \ ));}
 \DoxyCodeLine{00080\ \}}
 \DoxyCodeLine{00081\ }
-\DoxyCodeLine{00085\ ALWI\ \textcolor{keywordtype}{void}\ tile\_regs\_release()\ \{}
-\DoxyCodeLine{00086\ \ \ \ \ PACK((\ llk\_pack\_dest\_section\_done()\ \ ));}
+\DoxyCodeLine{00085\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_addd3679665da343bd51f76ced7154c4a}{tile\_regs\_release}}()\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a06e48c7c5c133a4905da88bd82bd6b91}{PACK}}((\ llk\_pack\_dest\_section\_done()\ \ ));}
 \DoxyCodeLine{00087\ \}}
 \DoxyCodeLine{00088\ }
 \DoxyCodeLine{00089\ \}\ \textcolor{comment}{//\ namespace\ ckernel}}

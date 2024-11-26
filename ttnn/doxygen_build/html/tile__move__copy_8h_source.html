@@ -76,7 +76,7 @@ $(function() {
   <div class="headertitle"><div class="title">tile_move_copy.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// SPDX-FileCopyrightText: © 2023 Tenstorrent Inc.</span></div>
+<a href="tile__move__copy_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// SPDX-FileCopyrightText: © 2023 Tenstorrent Inc.</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">//</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
@@ -91,39 +91,49 @@ $(function() {
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#ifdef TRISC_UNPACK</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;llk_unpack_A_api.h&quot;</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span>ckernel {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceckernel.html">ckernel</a> {</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>ALWI <span class="keywordtype">void</span> copy_tile_to_dst_init_short(uint32_t cbid = 0, uint32_t transpose = 0)</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="namespaceckernel.html#aee656afd9be0e1341190c24a349fe54e">   27</a></span><a class="code hl_define" href="compute__kernel__api_8h.html#a102b55d753f30b2569dd7976e1917038">ALWI</a> <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceckernel.html#aee656afd9be0e1341190c24a349fe54e">copy_tile_to_dst_init_short</a>(uint32_t cbid = 0, uint32_t transpose = 0)</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>{</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    UNPACK(( llk_unpack_A_init&lt;BroadcastType::NONE, false, EltwiseBinaryReuseDestType::NONE, UnpackToDestEn&gt;(transpose, <span class="keyword">false</span> <span class="comment">/*transpose within 16x16 face*/</span>, cbid)  ));</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    MATH(( llk_math_eltwise_unary_datacopy_init&lt;A2D, BroadcastType::NONE, DST_ACCUM_MODE&gt;(<span class="keyword">false</span> <span class="comment">/*transpose of faces*/</span>, <span class="keyword">false</span> <span class="comment">/*transpose within 16x16 face*/</span>, cbid)  ));</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_define" href="compute__kernel__api_8h.html#a5221b9dd336f28fd88546cf7afe5edaf">UNPACK</a>(( llk_unpack_A_init&lt;BroadcastType::NONE, false, EltwiseBinaryReuseDestType::NONE, UnpackToDestEn&gt;(transpose, <span class="keyword">false</span> <span class="comment">/*transpose within 16x16 face*/</span>, cbid)  ));</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_define" href="erf__erfc_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">MATH</a>(( llk_math_eltwise_unary_datacopy_init&lt;A2D, BroadcastType::NONE, DST_ACCUM_MODE&gt;(<span class="keyword">false</span> <span class="comment">/*transpose of faces*/</span>, <span class="keyword">false</span> <span class="comment">/*transpose within 16x16 face*/</span>, cbid)  ));</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>}</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>ALWI <span class="keywordtype">void</span> copy_tile_init()</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="namespaceckernel.html#aea570483ca5371db26adbdb562bdc640">   35</a></span><a class="code hl_define" href="compute__kernel__api_8h.html#a102b55d753f30b2569dd7976e1917038">ALWI</a> <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceckernel.html#aea570483ca5371db26adbdb562bdc640">copy_tile_init</a>()</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>{</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    copy_tile_to_dst_init_short();</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_function" href="namespaceckernel.html#aee656afd9be0e1341190c24a349fe54e">copy_tile_to_dst_init_short</a>();</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>}</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>ALWI <span class="keywordtype">void</span> copy_tile_to_dst_init_short_with_dt(uint32_t old_cbid, uint32_t new_cbid, uint32_t transpose = 0)</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="namespaceckernel.html#a4de2f4f17e04dc5219e09945e754c6a9">   49</a></span><a class="code hl_define" href="compute__kernel__api_8h.html#a102b55d753f30b2569dd7976e1917038">ALWI</a> <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceckernel.html#a4de2f4f17e04dc5219e09945e754c6a9">copy_tile_to_dst_init_short_with_dt</a>(uint32_t old_cbid, uint32_t new_cbid, uint32_t transpose = 0)</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>{</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="comment">// This reconfig call checks if old operand has different data format to</span></div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="comment">// new operand idx, otherwise no reconfig call occurs</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    UNPACK(( llk_unpack_reconfig_data_format_srca(old_cbid, new_cbid) ));</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    copy_tile_to_dst_init_short(new_cbid, transpose);</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>}</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>ALWI <span class="keywordtype">void</span> copy_tile(uint32_t in_cb_id, uint32_t in_tile_index, uint32_t dst_tile_index)</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>{</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    UNPACK(( llk_unpack_A&lt;BroadcastType::NONE, false, EltwiseBinaryReuseDestType::NONE, UnpackToDestEn&gt;(in_cb_id, in_tile_index)  ));</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    MATH(( llk_math_eltwise_unary_datacopy&lt;A2D, BroadcastType::NONE, DST_ACCUM_MODE, UnpackToDestEn&gt;(dst_tile_index, in_cb_id)  ));</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>}</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>ALWI <span class="keywordtype">void</span> copy_block_matmul_partials(uint32_t in_cb_id, uint32_t start_in_tile_index, uint32_t start_dst_tile_index, uint32_t ntiles)</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>{</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    UNPACK(( llk_unpack_A_block&lt;BroadcastType::NONE, false, EltwiseBinaryReuseDestType::NONE, UnpackToDestEn&gt;(in_cb_id, start_in_tile_index, ntiles, <span class="keyword">false</span>)  ));</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    MATH(( llk_math_eltwise_unary_datacopy_block&lt;A2D, BroadcastType::NONE, DST_ACCUM_MODE, UnpackToDestEn&gt;(start_dst_tile_index, ntiles, in_cb_id)  ));</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>}</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>}</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <a class="code hl_define" href="compute__kernel__api_8h.html#a5221b9dd336f28fd88546cf7afe5edaf">UNPACK</a>(( llk_unpack_reconfig_data_format_srca(old_cbid, new_cbid) ));</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_define" href="erf__erfc_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">MATH</a>(( llk_math_reconfig_data_format_srca(old_cbid, new_cbid) ));</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_function" href="namespaceckernel.html#aee656afd9be0e1341190c24a349fe54e">copy_tile_to_dst_init_short</a>(new_cbid, transpose);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>}</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="namespaceckernel.html#a150166792eaa318a5837165e71e8b44c">   77</a></span><a class="code hl_define" href="compute__kernel__api_8h.html#a102b55d753f30b2569dd7976e1917038">ALWI</a> <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceckernel.html#a150166792eaa318a5837165e71e8b44c">copy_tile</a>(uint32_t in_cb_id, uint32_t in_tile_index, uint32_t dst_tile_index)</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>{</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <a class="code hl_define" href="compute__kernel__api_8h.html#a5221b9dd336f28fd88546cf7afe5edaf">UNPACK</a>(( llk_unpack_A&lt;BroadcastType::NONE, false, EltwiseBinaryReuseDestType::NONE, UnpackToDestEn&gt;(in_cb_id, in_tile_index)  ));</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <a class="code hl_define" href="erf__erfc_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">MATH</a>(( llk_math_eltwise_unary_datacopy&lt;A2D, BroadcastType::NONE, DST_ACCUM_MODE, UnpackToDestEn&gt;(dst_tile_index, in_cb_id)  ));</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>}</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="namespaceckernel.html#a567258ec8567e874535c0e9017e0ca64">   83</a></span><a class="code hl_define" href="compute__kernel__api_8h.html#a102b55d753f30b2569dd7976e1917038">ALWI</a> <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceckernel.html#a567258ec8567e874535c0e9017e0ca64">copy_block_matmul_partials</a>(uint32_t in_cb_id, uint32_t start_in_tile_index, uint32_t start_dst_tile_index, uint32_t ntiles)</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>{</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <a class="code hl_define" href="compute__kernel__api_8h.html#a5221b9dd336f28fd88546cf7afe5edaf">UNPACK</a>(( llk_unpack_A_block&lt;BroadcastType::NONE, false, EltwiseBinaryReuseDestType::NONE, UnpackToDestEn&gt;(in_cb_id, start_in_tile_index, ntiles, <span class="keyword">false</span>)  ));</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <a class="code hl_define" href="erf__erfc_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">MATH</a>(( llk_math_eltwise_unary_datacopy_block&lt;A2D, BroadcastType::NONE, DST_ACCUM_MODE, UnpackToDestEn&gt;(start_dst_tile_index, ntiles, in_cb_id)  ));</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>}</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>}</div>
+<div class="ttc" id="acompute__kernel__api_8h_html_a102b55d753f30b2569dd7976e1917038"><div class="ttname"><a href="compute__kernel__api_8h.html#a102b55d753f30b2569dd7976e1917038">ALWI</a></div><div class="ttdeci">#define ALWI</div><div class="ttdef"><b>Definition:</b> compute_kernel_api.h:15</div></div>
+<div class="ttc" id="acompute__kernel__api_8h_html_a5221b9dd336f28fd88546cf7afe5edaf"><div class="ttname"><a href="compute__kernel__api_8h.html#a5221b9dd336f28fd88546cf7afe5edaf">UNPACK</a></div><div class="ttdeci">#define UNPACK(x)</div><div class="ttdef"><b>Definition:</b> compute_kernel_api.h:51</div></div>
+<div class="ttc" id="aerf__erfc_8h_html_a5f8a5b21f170f78a59c6aca4376e757d"><div class="ttname"><a href="erf__erfc_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">MATH</a></div><div class="ttdeci">#define MATH(x)</div><div class="ttdef"><b>Definition:</b> erf_erfc.h:13</div></div>
+<div class="ttc" id="anamespaceckernel_html"><div class="ttname"><a href="namespaceckernel.html">ckernel</a></div><div class="ttdef"><b>Definition:</b> erf_erfc.h:16</div></div>
+<div class="ttc" id="anamespaceckernel_html_a150166792eaa318a5837165e71e8b44c"><div class="ttname"><a href="namespaceckernel.html#a150166792eaa318a5837165e71e8b44c">ckernel::copy_tile</a></div><div class="ttdeci">void copy_tile(uint32_t in_cb_id, uint32_t in_tile_index, uint32_t dst_tile_index)</div><div class="ttdef"><b>Definition:</b> tile_move_copy.h:77</div></div>
+<div class="ttc" id="anamespaceckernel_html_a4de2f4f17e04dc5219e09945e754c6a9"><div class="ttname"><a href="namespaceckernel.html#a4de2f4f17e04dc5219e09945e754c6a9">ckernel::copy_tile_to_dst_init_short_with_dt</a></div><div class="ttdeci">void copy_tile_to_dst_init_short_with_dt(uint32_t old_cbid, uint32_t new_cbid, uint32_t transpose=0)</div><div class="ttdef"><b>Definition:</b> tile_move_copy.h:49</div></div>
+<div class="ttc" id="anamespaceckernel_html_a567258ec8567e874535c0e9017e0ca64"><div class="ttname"><a href="namespaceckernel.html#a567258ec8567e874535c0e9017e0ca64">ckernel::copy_block_matmul_partials</a></div><div class="ttdeci">void copy_block_matmul_partials(uint32_t in_cb_id, uint32_t start_in_tile_index, uint32_t start_dst_tile_index, uint32_t ntiles)</div><div class="ttdef"><b>Definition:</b> tile_move_copy.h:83</div></div>
+<div class="ttc" id="anamespaceckernel_html_aea570483ca5371db26adbdb562bdc640"><div class="ttname"><a href="namespaceckernel.html#aea570483ca5371db26adbdb562bdc640">ckernel::copy_tile_init</a></div><div class="ttdeci">void copy_tile_init()</div><div class="ttdef"><b>Definition:</b> tile_move_copy.h:35</div></div>
+<div class="ttc" id="anamespaceckernel_html_aee656afd9be0e1341190c24a349fe54e"><div class="ttname"><a href="namespaceckernel.html#aee656afd9be0e1341190c24a349fe54e">ckernel::copy_tile_to_dst_init_short</a></div><div class="ttdeci">void copy_tile_to_dst_init_short(uint32_t cbid=0, uint32_t transpose=0)</div><div class="ttdef"><b>Definition:</b> tile_move_copy.h:27</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

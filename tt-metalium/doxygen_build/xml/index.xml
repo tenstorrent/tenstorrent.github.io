@@ -1,304 +1,492 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.6" xml:lang="en-US">
-  <compound refid="classBuffer" kind="class"><name>Buffer</name>
-    <member refid="classBuffer_1a4fcde15c4c0e5f58dc66954df5b2d9d1" kind="variable"><name>bank_base_address</name></member>
-    <member refid="classBuffer_1a9c646f4ddd9781c561e07349c77f6027" kind="variable"><name>page_size_</name></member>
-    <member refid="classBuffer_1a741b8feb511462e572a305f19fa42b9c" kind="variable"><name>get_noc_addr_helper</name></member>
-    <member refid="classBuffer_1a707c62bb98bf8441208b327feee25567" kind="variable"><name>type</name></member>
-    <member refid="classBuffer_1a0a530546e63032af005d4716073c0f63" kind="variable"><name>sharded</name></member>
-    <member refid="classBuffer_1a755c964266ffef77da45df548f8ffa99" kind="variable"><name>base_command_addr_</name></member>
-    <member refid="classBuffer_1a238c96eb2c8f78e1bba599cbab638465" kind="variable"><name>num_cores_</name></member>
-    <member refid="classBuffer_1a1f97c0e35e44c85c0df9e87b887c69c6" kind="function"><name>set_type</name></member>
-    <member refid="classBuffer_1afe5b3d787cc7240fe7d2027405f29c2f" kind="function"><name>get_noc_addr_</name></member>
-    <member refid="classBuffer_1ae7ef2cd201190fde551dcb902627112b" kind="function"><name>Buffer</name></member>
-    <member refid="classBuffer_1afacc4743c31d1116b66c87bf1cff5207" kind="function"><name>Buffer</name></member>
-    <member refid="classBuffer_1a0e0755ca6cd872218206f3810fcace2b" kind="function"><name>Buffer</name></member>
-    <member refid="classBuffer_1a21650fb20bd71111f2610bbf8e670b6f" kind="function"><name>init</name></member>
-    <member refid="classBuffer_1af83e5d4c89b13e27ae5fa6a7af43a817" kind="function"><name>get_type</name></member>
-    <member refid="classBuffer_1a7c16bf384aecc72858a96bd890c0710e" kind="function"><name>init_sharded</name></member>
-    <member refid="classBuffer_1a71147cfe8b83840caceeec89e0d23a2f" kind="function"><name>page_size</name></member>
-    <member refid="classBuffer_1ade497473777a2b889eadc29c50590f82" kind="function"><name>noc_async_write_buffer</name></member>
-    <member refid="classBuffer_1aaeb6821b61163828cda1c7db86d13609" kind="function"><name>noc_async_read_buffer</name></member>
+  <compound refid="classtt_1_1tt__metal_1_1v1_1_1BufferHandle" kind="class"><name>tt::tt_metal::v1::BufferHandle</name>
+    <member refid="classtt_1_1tt__metal_1_1v1_1_1BufferHandle_1a33a1f074b1e1f0b4a316fcb35997668d" kind="variable"><name>buffer_ptr</name></member>
+    <member refid="classtt_1_1tt__metal_1_1v1_1_1BufferHandle_1aaa219b9d194b5347cd3e1751db0812bb" kind="function"><name>BufferHandle</name></member>
+    <member refid="classtt_1_1tt__metal_1_1v1_1_1BufferHandle_1aeea975ed418d10ab49b39895594d208e" kind="function"><name>BufferHandle</name></member>
+    <member refid="classtt_1_1tt__metal_1_1v1_1_1BufferHandle_1a040c8d7a470f1caa91c8c1292e54adda" kind="function"><name>operator const std::shared_ptr&lt; v0::Buffer &gt; &amp;</name></member>
+    <member refid="classtt_1_1tt__metal_1_1v1_1_1BufferHandle_1a7c90aa98728f3f74c225713f8fe8d040" kind="function"><name>operator*</name></member>
+    <member refid="classtt_1_1tt__metal_1_1v1_1_1BufferHandle_1ac1883f3f5cf6494121fe2dc550a3dc84" kind="function"><name>operator-&gt;</name></member>
+  </compound>
+  <compound refid="classtt_1_1tt__metal_1_1v1_1_1CircularBufferHandle" kind="class"><name>tt::tt_metal::v1::CircularBufferHandle</name>
+    <member refid="classtt_1_1tt__metal_1_1v1_1_1CircularBufferHandle_1a9e46c975193be21d672d2c9257f2e07c" kind="variable"><name>cb_id</name></member>
+    <member refid="classtt_1_1tt__metal_1_1v1_1_1CircularBufferHandle_1a26b8d94a1e19c016888070fa8305dff8" kind="function"><name>CircularBufferHandle</name></member>
+    <member refid="classtt_1_1tt__metal_1_1v1_1_1CircularBufferHandle_1a3d1689afd997b3df36d371bc9d344d07" kind="function"><name>operator v0::CBHandle</name></member>
+  </compound>
+  <compound refid="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle" kind="class"><name>tt::tt_metal::v1::CommandQueueHandle</name>
+    <member refid="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle_1aedd531eb28fd056fb788adc289b6cdbb" kind="variable"><name>device</name></member>
+    <member refid="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle_1a96705cf484d9494dbda9741ea8d9ec7b" kind="variable"><name>id</name></member>
+    <member refid="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle_1a191f95e98797cca0b9ccc3445156c21c" kind="function"><name>CommandQueueHandle</name></member>
+    <member refid="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle_1a8bd41618a8e41d72b764a5861a421da2" kind="friend"><name>GetCommandQueue</name></member>
+    <member refid="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle_1a08c6342b029b946a6f7b121f13e83e34" kind="friend"><name>GetDevice</name></member>
+    <member refid="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle_1abb66f17aa02187a034cebed7c3866e00" kind="friend"><name>GetId</name></member>
+  </compound>
+  <compound refid="structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions" kind="struct"><name>tt::tt_metal::v1::CreateDeviceOptions</name>
+    <member refid="structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions_1ab0589d708073ae872a5d8633d30c17a0" kind="variable"><name>num_hw_cqs</name></member>
+    <member refid="structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions_1a92a4d40077ada8708a9d992f577fdd34" kind="variable"><name>l1_small_size</name></member>
+    <member refid="structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions_1ae3ae33ccd4bad0cf7d09c0a8b3b85cea" kind="variable"><name>trace_region_size</name></member>
+    <member refid="structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions_1a7faf35fea5c38d43f089059fc99f02cf" kind="variable"><name>dispatch_core_type</name></member>
+    <member refid="structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions_1ae51eaece3f174b6cd9847f6e5230b44c" kind="variable"><name>l1_bank_remap</name></member>
+  </compound>
+  <compound refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle" kind="class"><name>tt::tt_metal::v1::EventHandle</name>
+    <member refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1a13675f51b330bb09a17025b2bbc001a2" kind="variable"><name>event_ptr</name></member>
+    <member refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1ab29359689b0f6afdfb6951feb0c677c3" kind="function"><name>EventHandle</name></member>
+    <member refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1a2b6c639bd0942e17d27049fc506804c5" kind="function"><name>EventHandle</name></member>
+    <member refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1a6d473515fbd1a10aaa34bfe7f6d32461" kind="function"><name>EventHandle</name></member>
+    <member refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1a0dcdd812c1b46a812399f8247691a0de" kind="function"><name>operator const std::shared_ptr&lt; v0::Event &gt; &amp;</name></member>
+    <member refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1a7deae344ab08631d25b36b4ae222f6df" kind="function"><name>operator*</name></member>
+    <member refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1aef34aec71cd59b975c4a6f7c1413e31b" kind="function"><name>operator-&gt;</name></member>
   </compound>
   <compound refid="structInterleavedAddrGen" kind="struct"><name>InterleavedAddrGen</name>
     <member refid="structInterleavedAddrGen_1a9a6b4336c1f9059c48f7dd38d3c223ba" kind="variable"><name>bank_base_address</name></member>
-    <member refid="structInterleavedAddrGen_1a990164fddbcfb10bbe0a7f2912dfc0f9" kind="variable"><name>page_size</name></member>
-    <member refid="structInterleavedAddrGen_1acdf9396fff622c57dd7eb42349d5dd0f" kind="function"><name>get_noc_addr</name></member>
-    <member refid="structInterleavedAddrGen_1a5f721b07e180187a4f7281789e626988" kind="function"><name>noc_async_read_page</name></member>
+    <member refid="structInterleavedAddrGen_1ae87a663744676dd0bda03190f2258213" kind="variable"><name>page_size</name></member>
+    <member refid="structInterleavedAddrGen_1a35965eeb3ca9036dd89a46ac81c435b7" kind="variable"><name>aligned_page_size</name></member>
+    <member refid="structInterleavedAddrGen_1a49558fb0a925773898f8e32ed14d3fe8" kind="function"><name>get_addr</name></member>
+    <member refid="structInterleavedAddrGen_1ad6b00d5f98bd8bd1945bda54d8340104" kind="function"><name>get_noc_addr</name></member>
+    <member refid="structInterleavedAddrGen_1a5fcc74ae538bc06c73f7ae33737c13b6" kind="function"><name>noc_async_read_page</name></member>
   </compound>
   <compound refid="structInterleavedAddrGenFast" kind="struct"><name>InterleavedAddrGenFast</name>
-    <member refid="structInterleavedAddrGenFast_1abe6d0419b318f5b384c23dacdc06de01" kind="variable"><name>bank_base_address</name></member>
-    <member refid="structInterleavedAddrGenFast_1adcda56d740e71d953bddfc7b3f9c9841" kind="variable"><name>page_size</name></member>
-    <member refid="structInterleavedAddrGenFast_1a29203b200ccf0265e84f7720236d3c04" kind="variable"><name>data_format</name></member>
-    <member refid="structInterleavedAddrGenFast_1add07fcdcff66fb5d819246f59b075672" kind="function"><name>get_noc_addr</name></member>
-    <member refid="structInterleavedAddrGenFast_1adb2ddec50af80b9bd1327f4eadaed63b" kind="function"><name>noc_async_read_tile</name></member>
-    <member refid="structInterleavedAddrGenFast_1a4221b39a7361b18dda2d406f52faad67" kind="function"><name>noc_async_write_tile</name></member>
+    <member refid="structInterleavedAddrGenFast_1a75f8e84dc2ed014494e27a9a66d08da0" kind="variable"><name>bank_base_address</name></member>
+    <member refid="structInterleavedAddrGenFast_1aa28ff99f21ae59113e530e7ada1e7db4" kind="variable"><name>page_size</name></member>
+    <member refid="structInterleavedAddrGenFast_1a99a3860f937c77a3443ef7f4f81c3868" kind="variable"><name>data_format</name></member>
+    <member refid="structInterleavedAddrGenFast_1ae9e86548f004368f621fefc309352b68" kind="function"><name>get_addr</name></member>
+    <member refid="structInterleavedAddrGenFast_1a3093c8318703ed28c1de8ae69f81f066" kind="function"><name>get_noc_addr</name></member>
+    <member refid="structInterleavedAddrGenFast_1a6b8754cfefa3b0a98de891459fcce786" kind="function"><name>noc_async_read_tile</name></member>
+    <member refid="structInterleavedAddrGenFast_1a03073c2fbb753af33ee13ca95deecab7" kind="function"><name>noc_async_write_tile</name></member>
   </compound>
   <compound refid="structInterleavedPow2AddrGen" kind="struct"><name>InterleavedPow2AddrGen</name>
     <member refid="structInterleavedPow2AddrGen_1a9966522b70ca72090ad65cbec56a3aa6" kind="variable"><name>bank_base_address</name></member>
     <member refid="structInterleavedPow2AddrGen_1a1bdda07b2df9e236c3b18683de154d96" kind="variable"><name>log_base_2_of_page_size</name></member>
-    <member refid="structInterleavedPow2AddrGen_1ab393848b387b4013278bd8d66bac3ee2" kind="function"><name>get_noc_addr</name></member>
+    <member refid="structInterleavedPow2AddrGen_1a4302cce27635310c3dc29c6ea2dc151e" kind="variable"><name>aligned_log_base_2_of_page_size</name></member>
+    <member refid="structInterleavedPow2AddrGen_1adbfd08ae3ae989af1e447d97320a76fa" kind="function"><name>get_addr</name></member>
+    <member refid="structInterleavedPow2AddrGen_1adf3ff9132dc2355a43889bcbd36a3a15" kind="function"><name>get_noc_addr</name></member>
   </compound>
   <compound refid="structInterleavedPow2AddrGenFast" kind="struct"><name>InterleavedPow2AddrGenFast</name>
     <member refid="structInterleavedPow2AddrGenFast_1ac18418a3bb8b3b3b424b8394ba20936f" kind="variable"><name>bank_base_address</name></member>
-    <member refid="structInterleavedPow2AddrGenFast_1a4df6258d8374687eca0ba28b5a0fc50f" kind="variable"><name>log_base_2_of_page_size</name></member>
-    <member refid="structInterleavedPow2AddrGenFast_1a764088893f2c2406f2b8f126d922950e" kind="function"><name>noc_async_read_page</name></member>
-    <member refid="structInterleavedPow2AddrGenFast_1a00f1b06cfc28aebf5a06ebf19020e981" kind="function"><name>noc_async_read_partial_page</name></member>
-    <member refid="structInterleavedPow2AddrGenFast_1afa84cb4c74013f4a405b0c50c76b4fd6" kind="function"><name>noc_async_write_page</name></member>
+    <member refid="structInterleavedPow2AddrGenFast_1ad7ca2d8d5c158d35f460261f5dc09054" kind="variable"><name>log_base_2_of_page_size</name></member>
+    <member refid="structInterleavedPow2AddrGenFast_1a3224a2e3ac1ee4f310032d79f75d21b3" kind="variable"><name>aligned_log_base_2_of_page_size</name></member>
+    <member refid="structInterleavedPow2AddrGenFast_1a631a54e1f98535b32539a8b6e63b400b" kind="function"><name>get_addr</name></member>
+    <member refid="structInterleavedPow2AddrGenFast_1acfc173d368553cf15cc595db0e77e387" kind="function"><name>get_noc_addr</name></member>
+    <member refid="structInterleavedPow2AddrGenFast_1ac2fd5942af869242940686d04fe6f84d" kind="function"><name>noc_async_read_page</name></member>
+    <member refid="structInterleavedPow2AddrGenFast_1a5799172827d92ec97f5ec3f9928489a4" kind="function"><name>noc_async_read_partial_page</name></member>
+    <member refid="structInterleavedPow2AddrGenFast_1a7c27898893344aa8f08fb3d7c64daa8c" kind="function"><name>noc_async_write_page</name></member>
+  </compound>
+  <compound refid="classtt_1_1tt__metal_1_1v1_1_1KernelHandle" kind="class"><name>tt::tt_metal::v1::KernelHandle</name>
+    <member refid="classtt_1_1tt__metal_1_1v1_1_1KernelHandle_1aba09a1b26fe31d16e3207ebca3c9ea59" kind="variable"><name>id</name></member>
+    <member refid="classtt_1_1tt__metal_1_1v1_1_1KernelHandle_1a661384877cb93b37bbf630c31131e981" kind="function"><name>KernelHandle</name></member>
+    <member refid="classtt_1_1tt__metal_1_1v1_1_1KernelHandle_1aeda14edd5ec3fc85942dfa00c7ae6b79" kind="function"><name>operator tt_metal::KernelHandle</name></member>
+  </compound>
+  <compound refid="classtt_1_1tt__metal_1_1v1_1_1TraceHandle" kind="class"><name>tt::tt_metal::v1::TraceHandle</name>
+    <member refid="classtt_1_1tt__metal_1_1v1_1_1TraceHandle_1a3c9dec6c9d3b4ef43d189bfdea516229" kind="variable"><name>cq</name></member>
+    <member refid="classtt_1_1tt__metal_1_1v1_1_1TraceHandle_1adf532f6d0a1bc9d7557ec4b4ad3d0624" kind="variable"><name>id</name></member>
+    <member refid="classtt_1_1tt__metal_1_1v1_1_1TraceHandle_1a1f2918a5a72aa155e7148433ab60cd99" kind="function"><name>operator std::uint32_t</name></member>
+    <member refid="classtt_1_1tt__metal_1_1v1_1_1TraceHandle_1a3e085c525caa5f2fdcf1f217bfa5b052" kind="function"><name>TraceHandle</name></member>
+    <member refid="classtt_1_1tt__metal_1_1v1_1_1TraceHandle_1a9fceb963f3c8d696143b5498b9539f71" kind="friend"><name>BeginTraceCapture</name></member>
+    <member refid="classtt_1_1tt__metal_1_1v1_1_1TraceHandle_1af84bd9f6c0d2a97ef8c2b6b491b0f0ea" kind="friend"><name>GetCommandQueue</name></member>
   </compound>
   <compound refid="namespaceckernel" kind="namespace"><name>ckernel</name>
-    <member refid="erf__erfc_8h_1a457fed1c2f71b59d1949d93479d54f8c" kind="function"><name>erf_tile_init</name></member>
-    <member refid="erf__erfc_8h_1ab2e2745c2e1e812179a659ffac84f231" kind="function"><name>erf_tile</name></member>
-    <member refid="erf__erfc_8h_1a8d55d9b6ac18b93104f4cddf6da7aea1" kind="function"><name>erfc_tile_init</name></member>
-    <member refid="erf__erfc_8h_1a262be4a133a92ad6d55e6f505dfce753" kind="function"><name>erfc_tile</name></member>
-    <member refid="erfinv_8h_1acd09eba45c8dd3c153752330aa240433" kind="function"><name>erfinv_tile</name></member>
-    <member refid="erfinv_8h_1ab511b6e54d4686ab30c35b169dadac56" kind="function"><name>erfinv_tile_init</name></member>
-    <member refid="exp_8h_1acd7b870d401c7fbed7ae21f8a6616019" kind="function"><name>exp_tile_init</name></member>
-    <member refid="exp_8h_1acf8ada6cea1eb5bfefab73dcf6f3b7a5" kind="function"><name>exp_tile</name></member>
-    <member refid="gelu_8h_1a2e0f2cefbe52082482d71f807145de1e" kind="function"><name>gelu_tile_init</name></member>
-    <member refid="gelu_8h_1a572012591ff76c4277ed48036399de6e" kind="function"><name>gelu_tile</name></member>
-    <member refid="recip_8h_1a506824a7a457435e622ba1fffc8d8678" kind="function"><name>recip_tile_init</name></member>
-    <member refid="recip_8h_1a31441a86e04985c013f03fca3c59f55d" kind="function"><name>recip_tile</name></member>
-    <member refid="sqrt_8h_1a54e1e97c019937643933a7b5ec4a73ff" kind="function"><name>sqrt_tile_init</name></member>
-    <member refid="sqrt_8h_1ad7c2391b46aa28abea6e13bbe7610780" kind="function"><name>sqrt_tile</name></member>
-    <member refid="elu_8h_1a7be3d49aef6238fcf0fe4dc67868d3bd" kind="function"><name>elu_tile</name></member>
-    <member refid="elu_8h_1a53917e4947e7f3de1c5ef5d1a22aecbc" kind="function"><name>elu_tile_init</name></member>
-    <member refid="relu_8h_1ab022361921e28e620e0aa64449d707a8" kind="function"><name>relu_max_tile</name></member>
-    <member refid="relu_8h_1aebd335c04a4da54f27b29814dc3ba06c" kind="function"><name>relu_max_tile_init</name></member>
-    <member refid="relu_8h_1a2055cc5f849f59581322d4f99aafe7fd" kind="function"><name>relu_min_tile</name></member>
-    <member refid="relu_8h_1accf551de7b8a1527a9f8d2ffde7ec468" kind="function"><name>relu_min_tile_init</name></member>
-    <member refid="relu_8h_1abb21cee43ed0d618c23762c357dcf1c2" kind="function"><name>relu_tile</name></member>
-    <member refid="relu_8h_1a6a214735fbd70467722ab3af7f2fb87b" kind="function"><name>relu_tile_init</name></member>
-    <member refid="relu_8h_1ab167dca912b99938abfacee8d0d8dc45" kind="function"><name>leaky_relu_tile</name></member>
-    <member refid="relu_8h_1ac696b79d37bcb5188163ffb166566ca6" kind="function"><name>leaky_relu_tile_init</name></member>
-    <member refid="i0_8h_1a08de262ccd14cf8a88f2e74a4d5c5713" kind="function"><name>i0_tile</name></member>
-    <member refid="i0_8h_1aa81bbfe5f0f38c17b58d56562e3ec734" kind="function"><name>i0_tile_init</name></member>
-    <member refid="reverseops_8h_1ae56fe236cbce161cc69af6a64abd6580" kind="function"><name>rsub_tile</name></member>
-    <member refid="reverseops_8h_1ae67bbff0728951b06c54865adb9b1e6d" kind="function"><name>rsub_tile_init</name></member>
-    <member refid="isinf__isnan_8h_1a560cbe71d63208236a384c40e6da61a7" kind="function"><name>isinf_tile</name></member>
-    <member refid="isinf__isnan_8h_1aff15ecc59d70682ad19f46ae6b3ab169" kind="function"><name>isinf_tile_init</name></member>
-    <member refid="isinf__isnan_8h_1a9abe529c6f48dc47b3590bddc44f75b9" kind="function"><name>isposinf_tile</name></member>
-    <member refid="isinf__isnan_8h_1a4903e99b9ac3930660daa6210989adc8" kind="function"><name>isposinf_tile_init</name></member>
-    <member refid="isinf__isnan_8h_1a023d3466cbf2b6d0bb6519164f058137" kind="function"><name>isneginf_tile</name></member>
-    <member refid="isinf__isnan_8h_1a6293738625933a80a8d3be6ea9090c97" kind="function"><name>isneginf_tile_init</name></member>
-    <member refid="isinf__isnan_8h_1a7cb289937576f99d689c1e0340aaa89b" kind="function"><name>isnan_tile</name></member>
-    <member refid="isinf__isnan_8h_1a753c8882bdd2d9d5ee76f5261143df24" kind="function"><name>isnan_tile_init</name></member>
-    <member refid="isinf__isnan_8h_1afb0329908fbe83bd7dc85fe97d621520" kind="function"><name>isfinite_tile</name></member>
-    <member refid="isinf__isnan_8h_1a475741e5433ee1dc3173fd791b88aa9c" kind="function"><name>isfinite_tile_init</name></member>
-    <member refid="logical__not__noti_8h_1a8eb2237676286e9427ec296e6cc5ab26" kind="function"><name>logical_not_unary_tile</name></member>
-    <member refid="logical__not__noti_8h_1aea8c76b173d12fc2c8d4b6a69268fd90" kind="function"><name>logical_not_unary_tile_init</name></member>
-    <member refid="trigonometry_8h_1a060c4ee2f9fd4e95f083612d0e5462d7" kind="function"><name>sin_tile_init</name></member>
-    <member refid="trigonometry_8h_1a47a673f6f27ef504770b0b47891cea9c" kind="function"><name>sin_tile</name></member>
-    <member refid="trigonometry_8h_1abf68d57fea4010334471559c44e7b8b5" kind="function"><name>cos_tile_init</name></member>
-    <member refid="trigonometry_8h_1aeb6b37aa28157a3c79780f7053d752f2" kind="function"><name>cos_tile</name></member>
-    <member refid="trigonometry_8h_1ab8e56f700e9f9c0d201dc4cfa63ecbf9" kind="function"><name>tan_tile_init</name></member>
-    <member refid="trigonometry_8h_1a340b3d31ff3f60adb500d58dbca820b7" kind="function"><name>tan_tile</name></member>
-    <member refid="bcast_8h_1a9732357a3d198fca729c337979f0c374" kind="function"><name>sub_tiles_bcast_cols</name></member>
-    <member refid="bcast_8h_1a4d2d1f70dd8d9cba1330480bda3fe9cf" kind="function"><name>sub_tiles_bcast_scalar</name></member>
-    <member refid="bcast_8h_1aec9c6f83f3bb8ee245c6e81d78512498" kind="function"><name>mul_tiles_bcast_cols</name></member>
-    <member refid="bcast_8h_1a676bdf18fdcf79931c618493b7b06438" kind="function"><name>mul_tiles_bcast_rows</name></member>
-    <member refid="bcast_8h_1aab33367f38dde9e23fe6125541eb0568" kind="function"><name>add_tiles_bcast_rows</name></member>
-    <member refid="bcast_8h_1ac6a07f0334b79f3a1945e988bed27e95" kind="function"><name>add_tiles_bcast_cols</name></member>
-    <member refid="bcast_8h_1ae0c56cbe89c2bf82e59321407a6397de" kind="function"><name>add_tiles_bcast_scalar</name></member>
-    <member refid="bcast_8h_1a87794bafca1824e6e8e8a4d8a9f0465c" kind="function"><name>init_bcast</name></member>
-    <member refid="bcast_8h_1a6a7594ecae6f992d81148ab148486906" kind="function"><name>any_tiles_bcast</name></member>
-    <member refid="bcast_8h_1ab69ce76cfa211ae46dea6f04035a8050" kind="function"><name>add_tiles_bcast</name></member>
-    <member refid="bcast_8h_1a045c8a2d7ddbb1993bbeceaff52b3185" kind="function"><name>sub_tiles_bcast</name></member>
-    <member refid="bcast_8h_1abcb3059dafd1abba339a9ab4218bf873" kind="function"><name>mul_tiles_bcast</name></member>
-    <member refid="bcast_8h_1ac8358653b6f7b22d1931166373b21b07" kind="function"><name>add_bcast_rows_init_short</name></member>
-    <member refid="bcast_8h_1ae985587f12cada5d6a8af4c1a2252e92" kind="function"><name>add_bcast_cols_init_short</name></member>
-    <member refid="bcast_8h_1a335020a55a6f60210246e438a16bbeee" kind="function"><name>add_bcast_scalar_init_short</name></member>
-    <member refid="bcast_8h_1ab35ea7911483802a312e9d8667316bc4" kind="function"><name>mul_tiles_bcast_scalar_init_short</name></member>
-    <member refid="bcast_8h_1aadf053fb4909a8dde19f43d65823a784" kind="function"><name>mul_tiles_bcast_scalar</name></member>
-    <member refid="bcast_8h_1aab5aa9bbc1b46b6135b629d0f1278a86" kind="function"><name>mul_bcast_cols_init_short</name></member>
-    <member refid="bcast_8h_1afb428b7e7ac6982665a7facc912fd9a5" kind="function"><name>mul_bcast_rows_init_short</name></member>
-    <member refid="bcast_8h_1a3f808cf8022ca4533ca149257ffa779b" kind="function"><name>sub_bcast_cols_init_short</name></member>
-    <member refid="bcast_8h_1a2071bf381ca9dc8ed656c3cf8f7ea746" kind="function"><name>sub_tiles_bcast_scalar_init_short</name></member>
-    <member refid="cb__api_8h_1a2d20635facce5ae4c7ee121028740b38" kind="function"><name>cb_wait_front</name></member>
-    <member refid="cb__api_8h_1a09e8d82ba4b886f8e90eec038735d759" kind="function"><name>cb_pop_front</name></member>
-    <member refid="cb__api_8h_1af917245b58bfd6176048dc6844a7b7fe" kind="function"><name>cb_reserve_back</name></member>
-    <member refid="cb__api_8h_1af6f81e4da52b94a5397f904d446808c9" kind="function"><name>cb_push_back</name></member>
-    <member refid="eltwise__binary_8h_1aa8e3d7d25c1ebd5f6f1e0fe471a502f6" kind="function"><name>binary_op_init_common</name></member>
-    <member refid="eltwise__binary_8h_1af20703c9d347ca4c998ca32e38762cd5" kind="function"><name>mul_tiles_init_f</name></member>
-    <member refid="eltwise__binary_8h_1a5d7722fc6c62a98e87aa80dfd4addc04" kind="function"><name>mul_tiles_init</name></member>
-    <member refid="eltwise__binary_8h_1a38862808571447611983528275f91831" kind="function"><name>add_tiles_init_nof</name></member>
-    <member refid="eltwise__binary_8h_1ab15f8bb9e954453c9391caf073cbb2ee" kind="function"><name>add_tiles_init</name></member>
-    <member refid="eltwise__binary_8h_1a136179be2361633cae3291b6d25fa2a5" kind="function"><name>sub_tiles_init_nof</name></member>
-    <member refid="eltwise__binary_8h_1a1b96384bfa2d9947faea6cd7d7f61b6c" kind="function"><name>sub_tiles_init</name></member>
-    <member refid="eltwise__binary_8h_1a5d86448b624a24f6bf77c45334590835" kind="function"><name>mul_tiles</name></member>
-    <member refid="eltwise__binary_8h_1a5a091c5371932422fc303adea3eec806" kind="function"><name>add_tiles</name></member>
-    <member refid="eltwise__binary_8h_1acc846385166d37dbbab9e602e44e1fb3" kind="function"><name>sub_tiles</name></member>
-    <member refid="eltwise__binary_8h_1ae239860fe24a16896deca931882e7bd6" kind="function"><name>binary_op_specific_init</name></member>
-    <member refid="eltwise__binary_8h_1a1ca6439309935d12d0f15ca795bb8985" kind="function"><name>binary_dest_reuse_tiles_init</name></member>
-    <member refid="eltwise__binary_8h_1a9f5d8b2767ab4f1e188aac1ee4a8c744" kind="function"><name>binary_dest_reuse_tiles</name></member>
-    <member refid="matmul_8h_1adeadefda1b391d2924a635b87f264c9f" kind="function"><name>mm_init</name></member>
-    <member refid="matmul_8h_1ae3b5c274614aec08a77df1f78829c39d" kind="function"><name>matmul_tiles</name></member>
-    <member refid="matmul_8h_1a11c225636a89c5fbc8e3ab0f17902f88" kind="function"><name>matmul_tiles_math</name></member>
-    <member refid="matmul_8h_1a035a5d432eee641ae14275669d349f9e" kind="function"><name>mm_init_short</name></member>
-    <member refid="matmul_8h_1acc9da9bf23131b50fcd49cff381df661" kind="function"><name>mm_init_short_with_dt</name></member>
-    <member refid="matmul_8h_1af455b928c9eb2b460ea9d3816f84c652" kind="function"><name>mm_block_init</name></member>
-    <member refid="matmul_8h_1aaf96a5576438c50eba97c7669ec2ebdb" kind="function"><name>matmul_block</name></member>
-    <member refid="matmul_8h_1a6a95a903f77a9f781fbabd4f083b743f" kind="function"><name>mm_block_init_short</name></member>
-    <member refid="matmul_8h_1a0ae4aa02b645cb258c3c763d4ffc5c1c" kind="function"><name>mm_block_init_short_with_dt</name></member>
-    <member refid="pack_8h_1a63c43acd48809eac8f0fd79a09cac7b7" kind="function"><name>pack_tile</name></member>
-    <member refid="pack_8h_1aac63a0fae82e1b790a1f6b3a3d8d600f" kind="function"><name>matmul_pack_tile</name></member>
-    <member refid="pack_8h_1a9bf446c6f981d4fac592dd761236d013" kind="function"><name>pack_reconfig_data_format</name></member>
-    <member refid="pack_8h_1aa72f60c412aeb6d07dfc4b72e1c6370d" kind="function"><name>pack_reconfig_data_format</name></member>
-    <member refid="pack_8h_1ad0c6749f2bb88aafc343a6bd67911d66" kind="function"><name>pack_reconfig_l1_acc</name></member>
-    <member refid="reduce_8h_1a459c59ef86b9b3341f1c78bc276d7405" kind="function"><name>reduce_init</name></member>
-    <member refid="reduce_8h_1abb192e99620377ed7ba18b34a1263d48" kind="function"><name>reduce_init_short</name></member>
-    <member refid="reduce_8h_1ac8d7a85125b91d74fd0a270d1a3b5c9e" kind="function"><name>reduce_init_delta</name></member>
-    <member refid="reduce_8h_1a08616241482665e17211f3050e640f05" kind="function"><name>reduce_init_delta_no_pack</name></member>
-    <member refid="reduce_8h_1a1a344e91c5c3a258554c507ae85dd03c" kind="function"><name>reduce_init_delta_math</name></member>
-    <member refid="reduce_8h_1a13fc1a7ae6af7595b5a0a2782e4cbbbb" kind="function"><name>reduce_revert_delta</name></member>
-    <member refid="reduce_8h_1a38f4526f08151193fd4a2b8006c3543e" kind="function"><name>reduce_tile</name></member>
-    <member refid="reduce_8h_1a12ea45120e9ffcb785c88effcbd9e42b" kind="function"><name>reduce_tile_math</name></member>
-    <member refid="reg__api_8h_1a52a6c17f8cfc82f82d8e5bb590f75320" kind="function"><name>acquire_dst</name></member>
-    <member refid="reg__api_8h_1a34467f46da4221ff3a2820ff1baec122" kind="function"><name>tile_regs_acquire</name></member>
-    <member refid="reg__api_8h_1acc5591aaa5084f829a43b6282da1dec0" kind="function"><name>tile_regs_wait</name></member>
-    <member refid="reg__api_8h_1a41a51d98e308ab1fe7148ee992542189" kind="function"><name>release_dst</name></member>
-    <member refid="reg__api_8h_1adaf34bbf977944a7913f979f709214c6" kind="function"><name>tile_regs_commit</name></member>
-    <member refid="reg__api_8h_1addd3679665da343bd51f76ced7154c4a" kind="function"><name>tile_regs_release</name></member>
-    <member refid="tile__move__copy_8h_1aee656afd9be0e1341190c24a349fe54e" kind="function"><name>copy_tile_to_dst_init_short</name></member>
-    <member refid="tile__move__copy_8h_1aea570483ca5371db26adbdb562bdc640" kind="function"><name>copy_tile_init</name></member>
-    <member refid="tile__move__copy_8h_1a4de2f4f17e04dc5219e09945e754c6a9" kind="function"><name>copy_tile_to_dst_init_short_with_dt</name></member>
-    <member refid="tile__move__copy_8h_1a150166792eaa318a5837165e71e8b44c" kind="function"><name>copy_tile</name></member>
-    <member refid="tile__move__copy_8h_1a567258ec8567e874535c0e9017e0ca64" kind="function"><name>copy_block_matmul_partials</name></member>
-    <member refid="tilize_8h_1a8eba17d70dc66acc17db5fb7badb16ae" kind="function"><name>tilize_init</name></member>
-    <member refid="tilize_8h_1ac96fec8a3d20ea3686b0499ee56c47d7" kind="function"><name>tilizeA_B_reduce_init</name></member>
-    <member refid="tilize_8h_1a649de9891a5d99ebab2c2e1aa75b9a27" kind="function"><name>tilizeA_B_dot_product_init</name></member>
-    <member refid="tilize_8h_1abf481ad79f8d0c5587a22f90450da70f" kind="function"><name>tilize_init_short</name></member>
-    <member refid="tilize_8h_1a3300fef3143945210d4e18f9bcf1760c" kind="function"><name>tilize_init_unpack</name></member>
-    <member refid="tilize_8h_1abe98a12c09dbf4e03ee9ce875881cc5e" kind="function"><name>tilizeA_B_init_unpack</name></member>
-    <member refid="tilize_8h_1a1d90428e7cf53183a579428d6549b2d0" kind="function"><name>tilize_init_short_with_dt</name></member>
-    <member refid="tilize_8h_1aea0827dbb324004596b2971a52c4d0ad" kind="function"><name>tilize_block</name></member>
-    <member refid="tilize_8h_1a8d9523f37c0573600360754d14776ab0" kind="function"><name>unpack_tilize_block</name></member>
-    <member refid="tilize_8h_1a1a006562733ba55a177369ddde70e812" kind="function"><name>unpack_tilizeA_B_block</name></member>
-    <member refid="tilize_8h_1a100bc7f788be0c8206261722ac613de7" kind="function"><name>unpack_tilizeA_B_dot_product_block</name></member>
-    <member refid="tilize_8h_1a2706e2f78a8cb6f4adbfbc0892bf82e0" kind="function"><name>tilize_uninit</name></member>
-    <member refid="tilize_8h_1a825cce04214c7ccfe315f88463afbcc3" kind="function"><name>tilize_uninit_with_dt</name></member>
-    <member refid="transpose__wh_8h_1aa5fd30268e7264eac2189db54b6f60f7" kind="function"><name>transpose_wh_init</name></member>
-    <member refid="transpose__wh_8h_1a8fcfeec0c3262ec9fd53b6dbdc67100c" kind="function"><name>transpose_wh_init_short</name></member>
-    <member refid="transpose__wh_8h_1ab885f1c61cacad96feb21ff8c9b099aa" kind="function"><name>transpose_wh_tile</name></member>
-    <member refid="unpack_8h_1a9df632be3476144161be96f731ba35a9" kind="function"><name>unpack_reconfig_data_format</name></member>
-    <member refid="unpack_8h_1aaa2fb3896a40de403e16b1b43af0c827" kind="function"><name>unpack_reconfig_data_format</name></member>
-    <member refid="unpack_8h_1ae6a6aab9b15a7d5134d66e5e026f7453" kind="function"><name>unpack_reconfig_data_format_srca</name></member>
-    <member refid="unpack_8h_1ac2c6269249de2cf0dc23b4c70dbbcee8" kind="function"><name>unpack_reconfig_data_format_srca</name></member>
-    <member refid="unpack_8h_1acb8a241b975454ca5ca8bf7125b30788" kind="function"><name>unpack_reconfig_data_format_srcb</name></member>
-    <member refid="unpack_8h_1a9886e779959c09971cce5b38d4a53f66" kind="function"><name>unpack_reconfig_data_format_srcb</name></member>
-    <member refid="untilize_8h_1a74d5a0f5a3a5fa918e9c5d51a7d12ed8" kind="function"><name>untilize_init</name></member>
-    <member refid="untilize_8h_1ae4d031d36cb76c55a761108f7c5dd1a5" kind="function"><name>untilize_init_short</name></member>
-    <member refid="untilize_8h_1abdf529b965f1e85626342a4027d36461" kind="function"><name>untilize_block</name></member>
-    <member refid="untilize_8h_1a9a9d99d57d7e3d97a8554498e24b55c8" kind="function"><name>untilize_uninit</name></member>
-    <member refid="compute__kernel__api_8h_1a84b982392e5295a3ac4fb3624f984dd4" kind="function"><name>rsqrt_tile_init</name></member>
-    <member refid="compute__kernel__api_8h_1a9f4b979b10529e525e0e58a0b64dc0cf" kind="function"><name>rsqrt_tile</name></member>
-    <member refid="compute__kernel__api_8h_1a7445ef9a78452c5695742dd3f9163ce1" kind="function"><name>sigmoid_tile_init</name></member>
-    <member refid="compute__kernel__api_8h_1a0213ec935c1dc8512ab030b6066b36b1" kind="function"><name>sigmoid_tile</name></member>
-    <member refid="compute__kernel__api_8h_1a9b586e3fde261f186ba8f0e2053a99b1" kind="function"><name>log_tile_init</name></member>
-    <member refid="compute__kernel__api_8h_1a39e0a5fd307d540f06493088cf39a4f0" kind="function"><name>log_tile</name></member>
-    <member refid="compute__kernel__api_8h_1a1c75f0f070bb3d196be28db50ec60bcd" kind="function"><name>log_with_base_tile_init</name></member>
-    <member refid="compute__kernel__api_8h_1a3275407181325047284ab43e349a63b2" kind="function"><name>log_with_base_tile</name></member>
-    <member refid="compute__kernel__api_8h_1a3f6ed2b53e52e4d1cc2552443a62c759" kind="function"><name>tanh_tile_init</name></member>
-    <member refid="compute__kernel__api_8h_1aba0ddaa8a8947a0d2e82ad4f4afeb0bb" kind="function"><name>tanh_tile</name></member>
-    <member refid="compute__kernel__api_8h_1aa745471355960e008e844dc3f313ab05" kind="function"><name>signbit_tile_init</name></member>
-    <member refid="compute__kernel__api_8h_1ac6ebf44b4c1d78c118fce325aff3a709" kind="function"><name>signbit_tile</name></member>
-    <member refid="compute__kernel__api_8h_1aac709b6fecfd6b34793d44b8a0283530" kind="function"><name>abs_tile</name></member>
-    <member refid="compute__kernel__api_8h_1ac9164eb8233a4b5db0165ef3879c13d3" kind="function"><name>abs_tile_init</name></member>
-    <member refid="compute__kernel__api_8h_1ab6168b98b6911e7e8d65bcce66a98703" kind="function"><name>sign_tile</name></member>
-    <member refid="compute__kernel__api_8h_1a6854705311e47923c390b236cdcec41e" kind="function"><name>sign_tile_init</name></member>
-    <member refid="compute__kernel__api_8h_1af987308b41a50236bc0a3850fd7165fb" kind="function"><name>square_tile</name></member>
-    <member refid="compute__kernel__api_8h_1a9d8e08b22bbbbf7960311670af37750e" kind="function"><name>square_tile_init</name></member>
-    <member refid="compute__kernel__api_8h_1ae87b691c6559e7b1435d83403abc4301" kind="function"><name>ltz_tile</name></member>
-    <member refid="compute__kernel__api_8h_1aa89f5e45a5227a1378526b21be12d62e" kind="function"><name>ltz_tile_init</name></member>
-    <member refid="compute__kernel__api_8h_1a77afa61bee15eebd67803d76c955f360" kind="function"><name>eqz_tile</name></member>
-    <member refid="compute__kernel__api_8h_1a688933a08b41a8d5d283aa75216eae27" kind="function"><name>eqz_tile_init</name></member>
-    <member refid="compute__kernel__api_8h_1a1817972ea6391813a8948bfad83ab981" kind="function"><name>lez_tile</name></member>
-    <member refid="compute__kernel__api_8h_1a5ce91ef9087a7c7216fbe8032dafa49e" kind="function"><name>lez_tile_init</name></member>
-    <member refid="compute__kernel__api_8h_1a015f70b923b3dc75073f42d5be952c9a" kind="function"><name>tiled_prod_tile</name></member>
-    <member refid="compute__kernel__api_8h_1a6b5c549b48da0bc2c9c6f22fd7932676" kind="function"><name>tiled_prod_tile_init</name></member>
-    <member refid="compute__kernel__api_8h_1ade26cd0bc2247bd4eaf7685eadb88afd" kind="function"><name>gtz_tile</name></member>
-    <member refid="compute__kernel__api_8h_1ae9e6fe3d6395ed10fe6c1a3774d0c591" kind="function"><name>gtz_tile_init</name></member>
-    <member refid="compute__kernel__api_8h_1a114da0de25df24111f54d4ae54daf716" kind="function"><name>nez_tile</name></member>
-    <member refid="compute__kernel__api_8h_1a724bcc13c2cecd7e12e2efbd31207b8f" kind="function"><name>nez_tile_init</name></member>
-    <member refid="compute__kernel__api_8h_1a51558a724938976ece1be18997ced97f" kind="function"><name>gez_tile</name></member>
-    <member refid="compute__kernel__api_8h_1a4e1406d244d304ea48ce12568911df7f" kind="function"><name>gez_tile_init</name></member>
-    <member refid="compute__kernel__api_8h_1a61fe18515827e58bdfea82fa99daee38" kind="function"><name>power_tile</name></member>
-    <member refid="compute__kernel__api_8h_1a7cd6f51f9220905884e315442843d2d2" kind="function"><name>power_tile_init</name></member>
-    <member refid="compute__kernel__api_8h_1a2d1714bd980954724d51080e29b5d0fd" kind="function"><name>max_tile</name></member>
-    <member refid="compute__kernel__api_8h_1a92ba747a6e5b80c727984c62b7d0056e" kind="function"><name>max_tile_init</name></member>
-    <member refid="compute__kernel__api_8h_1a2febadfd150cb455955f67746253f116" kind="function"><name>exp2_tile</name></member>
-    <member refid="compute__kernel__api_8h_1aae54e275fe6d550c7cb151f24503e958" kind="function"><name>exp2_tile_init</name></member>
-    <member refid="compute__kernel__api_8h_1ad36c2e30b06007215d6b69568691ed3f" kind="function"><name>heaviside_tile</name></member>
-    <member refid="compute__kernel__api_8h_1abb18b07f6934634afcb9ed022b36d858" kind="function"><name>heaviside_tile_init</name></member>
-    <member refid="compute__kernel__api_8h_1adf08edc7ebeb842eb1addfc2ac53da34" kind="function"><name>unary_ne_tile</name></member>
-    <member refid="compute__kernel__api_8h_1a86f5e14f68cb732534c41d400843fced" kind="function"><name>unary_ne_tile_init</name></member>
-    <member refid="compute__kernel__api_8h_1a44e2f1766f4513494f768cffa10b0737" kind="function"><name>expm1_tile</name></member>
-    <member refid="compute__kernel__api_8h_1a7168260d89bae9c8cd208b0a636dc1bf" kind="function"><name>expm1_tile_init</name></member>
-    <member refid="compute__kernel__api_8h_1a7300e956259f09f938aaf30d266145b3" kind="function"><name>asin_tile</name></member>
-    <member refid="compute__kernel__api_8h_1ae301e69cc106f101a05c17943f50a709" kind="function"><name>asin_tile_init</name></member>
-    <member refid="compute__kernel__api_8h_1ada371d824d49e63e32e718eea281959f" kind="function"><name>atan_tile</name></member>
-    <member refid="compute__kernel__api_8h_1a74eef3940cc3f25fa0c5d99f4e1098ac" kind="function"><name>atan_tile_init</name></member>
-    <member refid="compute__kernel__api_8h_1ac71f04a726285cd4b0bfadc31eb6cbeb" kind="function"><name>acos_tile</name></member>
-    <member refid="compute__kernel__api_8h_1ae3124122e43788f56d6d93e3e668bd0b" kind="function"><name>acos_tile_init</name></member>
-    <member refid="compute__kernel__api_8h_1adc4b7d15d9f6ca928626b1a246d7e2d1" kind="function"><name>silu_tile</name></member>
-    <member refid="compute__kernel__api_8h_1a77f006579d8fe02aa468eb8bf260c47e" kind="function"><name>silu_tile_init</name></member>
-    <member refid="compute__kernel__api_8h_1aa5210fb3aea6ef6c09eba614308a25c5" kind="function"><name>topk_local_sort</name></member>
-    <member refid="compute__kernel__api_8h_1a2938cab3b09934d9f491eb7e8e46a9c6" kind="function"><name>topk_merge</name></member>
-    <member refid="compute__kernel__api_8h_1ae1cbdb83cc5bc20da93967c2252354b8" kind="function"><name>topk_rebuild</name></member>
-    <member refid="compute__kernel__api_8h_1a53c812a947f6d756ea625b7361174037" kind="function"><name>topk_tile_init</name></member>
-    <member refid="compute__kernel__api_8h_1a27956d536797fa0c3dad4eab6148d731" kind="function"><name>dbg_halt</name></member>
-    <member refid="compute__kernel__api_8h_1aa73b548e1869c77a4b1d2a4a345b942d" kind="function"><name>dbg_unhalt</name></member>
-    <member refid="compute__kernel__api_8h_1a5df20a0a40dac9e97e6b73b0d4fd0c88" kind="function"><name>dbg_read_dest_acc_row</name></member>
-    <member refid="compute__kernel__api_8h_1a3beb809d58bbce0ee44b0d9f6e3e0caf" kind="function"><name>unary_gt_tile</name></member>
-    <member refid="compute__kernel__api_8h_1aa8a849876763dfccf446df2954aa531d" kind="function"><name>unary_gt_tile_init</name></member>
-    <member refid="compute__kernel__api_8h_1a3efdf48fde7c2df0e8236b387c1ff873" kind="function"><name>unary_lt_tile</name></member>
-    <member refid="compute__kernel__api_8h_1a0c1307468c0b580c07969a1359769cff" kind="function"><name>unary_lt_tile_init</name></member>
+    <member refid="namespaceckernel_1a457fed1c2f71b59d1949d93479d54f8c" kind="function"><name>erf_tile_init</name></member>
+    <member refid="namespaceckernel_1ab2e2745c2e1e812179a659ffac84f231" kind="function"><name>erf_tile</name></member>
+    <member refid="namespaceckernel_1a8d55d9b6ac18b93104f4cddf6da7aea1" kind="function"><name>erfc_tile_init</name></member>
+    <member refid="namespaceckernel_1a262be4a133a92ad6d55e6f505dfce753" kind="function"><name>erfc_tile</name></member>
+    <member refid="namespaceckernel_1acd09eba45c8dd3c153752330aa240433" kind="function"><name>erfinv_tile</name></member>
+    <member refid="namespaceckernel_1ab511b6e54d4686ab30c35b169dadac56" kind="function"><name>erfinv_tile_init</name></member>
+    <member refid="namespaceckernel_1acd7b870d401c7fbed7ae21f8a6616019" kind="function"><name>exp_tile_init</name></member>
+    <member refid="namespaceckernel_1acf8ada6cea1eb5bfefab73dcf6f3b7a5" kind="function"><name>exp_tile</name></member>
+    <member refid="namespaceckernel_1a2e0f2cefbe52082482d71f807145de1e" kind="function"><name>gelu_tile_init</name></member>
+    <member refid="namespaceckernel_1a572012591ff76c4277ed48036399de6e" kind="function"><name>gelu_tile</name></member>
+    <member refid="namespaceckernel_1a506824a7a457435e622ba1fffc8d8678" kind="function"><name>recip_tile_init</name></member>
+    <member refid="namespaceckernel_1a31441a86e04985c013f03fca3c59f55d" kind="function"><name>recip_tile</name></member>
+    <member refid="namespaceckernel_1a54e1e97c019937643933a7b5ec4a73ff" kind="function"><name>sqrt_tile_init</name></member>
+    <member refid="namespaceckernel_1ad7c2391b46aa28abea6e13bbe7610780" kind="function"><name>sqrt_tile</name></member>
+    <member refid="namespaceckernel_1a7be3d49aef6238fcf0fe4dc67868d3bd" kind="function"><name>elu_tile</name></member>
+    <member refid="namespaceckernel_1a53917e4947e7f3de1c5ef5d1a22aecbc" kind="function"><name>elu_tile_init</name></member>
+    <member refid="namespaceckernel_1ab022361921e28e620e0aa64449d707a8" kind="function"><name>relu_max_tile</name></member>
+    <member refid="namespaceckernel_1aebd335c04a4da54f27b29814dc3ba06c" kind="function"><name>relu_max_tile_init</name></member>
+    <member refid="namespaceckernel_1a2055cc5f849f59581322d4f99aafe7fd" kind="function"><name>relu_min_tile</name></member>
+    <member refid="namespaceckernel_1accf551de7b8a1527a9f8d2ffde7ec468" kind="function"><name>relu_min_tile_init</name></member>
+    <member refid="namespaceckernel_1abb21cee43ed0d618c23762c357dcf1c2" kind="function"><name>relu_tile</name></member>
+    <member refid="namespaceckernel_1a6a214735fbd70467722ab3af7f2fb87b" kind="function"><name>relu_tile_init</name></member>
+    <member refid="namespaceckernel_1a8f979e18403c78aab904f362ec748f7e" kind="function"><name>leaky_relu_tile</name></member>
+    <member refid="namespaceckernel_1ac696b79d37bcb5188163ffb166566ca6" kind="function"><name>leaky_relu_tile_init</name></member>
+    <member refid="namespaceckernel_1a08de262ccd14cf8a88f2e74a4d5c5713" kind="function"><name>i0_tile</name></member>
+    <member refid="namespaceckernel_1aa81bbfe5f0f38c17b58d56562e3ec734" kind="function"><name>i0_tile_init</name></member>
+    <member refid="namespaceckernel_1ae56fe236cbce161cc69af6a64abd6580" kind="function"><name>rsub_tile</name></member>
+    <member refid="namespaceckernel_1ae67bbff0728951b06c54865adb9b1e6d" kind="function"><name>rsub_tile_init</name></member>
+    <member refid="namespaceckernel_1a560cbe71d63208236a384c40e6da61a7" kind="function"><name>isinf_tile</name></member>
+    <member refid="namespaceckernel_1aff15ecc59d70682ad19f46ae6b3ab169" kind="function"><name>isinf_tile_init</name></member>
+    <member refid="namespaceckernel_1a9abe529c6f48dc47b3590bddc44f75b9" kind="function"><name>isposinf_tile</name></member>
+    <member refid="namespaceckernel_1a4903e99b9ac3930660daa6210989adc8" kind="function"><name>isposinf_tile_init</name></member>
+    <member refid="namespaceckernel_1a023d3466cbf2b6d0bb6519164f058137" kind="function"><name>isneginf_tile</name></member>
+    <member refid="namespaceckernel_1a6293738625933a80a8d3be6ea9090c97" kind="function"><name>isneginf_tile_init</name></member>
+    <member refid="namespaceckernel_1a7cb289937576f99d689c1e0340aaa89b" kind="function"><name>isnan_tile</name></member>
+    <member refid="namespaceckernel_1a753c8882bdd2d9d5ee76f5261143df24" kind="function"><name>isnan_tile_init</name></member>
+    <member refid="namespaceckernel_1afb0329908fbe83bd7dc85fe97d621520" kind="function"><name>isfinite_tile</name></member>
+    <member refid="namespaceckernel_1a475741e5433ee1dc3173fd791b88aa9c" kind="function"><name>isfinite_tile_init</name></member>
+    <member refid="namespaceckernel_1a8eb2237676286e9427ec296e6cc5ab26" kind="function"><name>logical_not_unary_tile</name></member>
+    <member refid="namespaceckernel_1aea8c76b173d12fc2c8d4b6a69268fd90" kind="function"><name>logical_not_unary_tile_init</name></member>
+    <member refid="namespaceckernel_1a060c4ee2f9fd4e95f083612d0e5462d7" kind="function"><name>sin_tile_init</name></member>
+    <member refid="namespaceckernel_1a47a673f6f27ef504770b0b47891cea9c" kind="function"><name>sin_tile</name></member>
+    <member refid="namespaceckernel_1abf68d57fea4010334471559c44e7b8b5" kind="function"><name>cos_tile_init</name></member>
+    <member refid="namespaceckernel_1aeb6b37aa28157a3c79780f7053d752f2" kind="function"><name>cos_tile</name></member>
+    <member refid="namespaceckernel_1ab8e56f700e9f9c0d201dc4cfa63ecbf9" kind="function"><name>tan_tile_init</name></member>
+    <member refid="namespaceckernel_1a340b3d31ff3f60adb500d58dbca820b7" kind="function"><name>tan_tile</name></member>
+    <member refid="namespaceckernel_1a9732357a3d198fca729c337979f0c374" kind="function"><name>sub_tiles_bcast_cols</name></member>
+    <member refid="namespaceckernel_1a4d2d1f70dd8d9cba1330480bda3fe9cf" kind="function"><name>sub_tiles_bcast_scalar</name></member>
+    <member refid="namespaceckernel_1aec9c6f83f3bb8ee245c6e81d78512498" kind="function"><name>mul_tiles_bcast_cols</name></member>
+    <member refid="namespaceckernel_1a676bdf18fdcf79931c618493b7b06438" kind="function"><name>mul_tiles_bcast_rows</name></member>
+    <member refid="namespaceckernel_1aab33367f38dde9e23fe6125541eb0568" kind="function"><name>add_tiles_bcast_rows</name></member>
+    <member refid="namespaceckernel_1ac6a07f0334b79f3a1945e988bed27e95" kind="function"><name>add_tiles_bcast_cols</name></member>
+    <member refid="namespaceckernel_1ae0c56cbe89c2bf82e59321407a6397de" kind="function"><name>add_tiles_bcast_scalar</name></member>
+    <member refid="namespaceckernel_1a87794bafca1824e6e8e8a4d8a9f0465c" kind="function"><name>init_bcast</name></member>
+    <member refid="namespaceckernel_1a6a7594ecae6f992d81148ab148486906" kind="function"><name>any_tiles_bcast</name></member>
+    <member refid="namespaceckernel_1ab69ce76cfa211ae46dea6f04035a8050" kind="function"><name>add_tiles_bcast</name></member>
+    <member refid="namespaceckernel_1a045c8a2d7ddbb1993bbeceaff52b3185" kind="function"><name>sub_tiles_bcast</name></member>
+    <member refid="namespaceckernel_1abcb3059dafd1abba339a9ab4218bf873" kind="function"><name>mul_tiles_bcast</name></member>
+    <member refid="namespaceckernel_1ac8358653b6f7b22d1931166373b21b07" kind="function"><name>add_bcast_rows_init_short</name></member>
+    <member refid="namespaceckernel_1ae985587f12cada5d6a8af4c1a2252e92" kind="function"><name>add_bcast_cols_init_short</name></member>
+    <member refid="namespaceckernel_1a335020a55a6f60210246e438a16bbeee" kind="function"><name>add_bcast_scalar_init_short</name></member>
+    <member refid="namespaceckernel_1ab35ea7911483802a312e9d8667316bc4" kind="function"><name>mul_tiles_bcast_scalar_init_short</name></member>
+    <member refid="namespaceckernel_1aadf053fb4909a8dde19f43d65823a784" kind="function"><name>mul_tiles_bcast_scalar</name></member>
+    <member refid="namespaceckernel_1aab5aa9bbc1b46b6135b629d0f1278a86" kind="function"><name>mul_bcast_cols_init_short</name></member>
+    <member refid="namespaceckernel_1afb428b7e7ac6982665a7facc912fd9a5" kind="function"><name>mul_bcast_rows_init_short</name></member>
+    <member refid="namespaceckernel_1a3f808cf8022ca4533ca149257ffa779b" kind="function"><name>sub_bcast_cols_init_short</name></member>
+    <member refid="namespaceckernel_1a2071bf381ca9dc8ed656c3cf8f7ea746" kind="function"><name>sub_tiles_bcast_scalar_init_short</name></member>
+    <member refid="namespaceckernel_1a2d20635facce5ae4c7ee121028740b38" kind="function"><name>cb_wait_front</name></member>
+    <member refid="namespaceckernel_1a09e8d82ba4b886f8e90eec038735d759" kind="function"><name>cb_pop_front</name></member>
+    <member refid="namespaceckernel_1af917245b58bfd6176048dc6844a7b7fe" kind="function"><name>cb_reserve_back</name></member>
+    <member refid="namespaceckernel_1af6f81e4da52b94a5397f904d446808c9" kind="function"><name>cb_push_back</name></member>
+    <member refid="namespaceckernel_1a60c38a99abe8e5e072ae3bc9ea35cf23" kind="function"><name>cb_get_tile</name></member>
+    <member refid="namespaceckernel_1ab833f2a940d6668f992dd77ca06ed03d" kind="function"><name>cb_release_tile</name></member>
+    <member refid="namespaceckernel_1aa8e3d7d25c1ebd5f6f1e0fe471a502f6" kind="function"><name>binary_op_init_common</name></member>
+    <member refid="namespaceckernel_1af20703c9d347ca4c998ca32e38762cd5" kind="function"><name>mul_tiles_init_f</name></member>
+    <member refid="namespaceckernel_1a5d7722fc6c62a98e87aa80dfd4addc04" kind="function"><name>mul_tiles_init</name></member>
+    <member refid="namespaceckernel_1a38862808571447611983528275f91831" kind="function"><name>add_tiles_init_nof</name></member>
+    <member refid="namespaceckernel_1ab15f8bb9e954453c9391caf073cbb2ee" kind="function"><name>add_tiles_init</name></member>
+    <member refid="namespaceckernel_1a136179be2361633cae3291b6d25fa2a5" kind="function"><name>sub_tiles_init_nof</name></member>
+    <member refid="namespaceckernel_1a1b96384bfa2d9947faea6cd7d7f61b6c" kind="function"><name>sub_tiles_init</name></member>
+    <member refid="namespaceckernel_1a5d86448b624a24f6bf77c45334590835" kind="function"><name>mul_tiles</name></member>
+    <member refid="namespaceckernel_1a5a091c5371932422fc303adea3eec806" kind="function"><name>add_tiles</name></member>
+    <member refid="namespaceckernel_1acc846385166d37dbbab9e602e44e1fb3" kind="function"><name>sub_tiles</name></member>
+    <member refid="namespaceckernel_1ae239860fe24a16896deca931882e7bd6" kind="function"><name>binary_op_specific_init</name></member>
+    <member refid="namespaceckernel_1a1ca6439309935d12d0f15ca795bb8985" kind="function"><name>binary_dest_reuse_tiles_init</name></member>
+    <member refid="namespaceckernel_1a9f5d8b2767ab4f1e188aac1ee4a8c744" kind="function"><name>binary_dest_reuse_tiles</name></member>
+    <member refid="namespaceckernel_1adeadefda1b391d2924a635b87f264c9f" kind="function"><name>mm_init</name></member>
+    <member refid="namespaceckernel_1ae3b5c274614aec08a77df1f78829c39d" kind="function"><name>matmul_tiles</name></member>
+    <member refid="namespaceckernel_1a11c225636a89c5fbc8e3ab0f17902f88" kind="function"><name>matmul_tiles_math</name></member>
+    <member refid="namespaceckernel_1a035a5d432eee641ae14275669d349f9e" kind="function"><name>mm_init_short</name></member>
+    <member refid="namespaceckernel_1acc9da9bf23131b50fcd49cff381df661" kind="function"><name>mm_init_short_with_dt</name></member>
+    <member refid="namespaceckernel_1af455b928c9eb2b460ea9d3816f84c652" kind="function"><name>mm_block_init</name></member>
+    <member refid="namespaceckernel_1aaf96a5576438c50eba97c7669ec2ebdb" kind="function"><name>matmul_block</name></member>
+    <member refid="namespaceckernel_1a6a95a903f77a9f781fbabd4f083b743f" kind="function"><name>mm_block_init_short</name></member>
+    <member refid="namespaceckernel_1a0ae4aa02b645cb258c3c763d4ffc5c1c" kind="function"><name>mm_block_init_short_with_dt</name></member>
+    <member refid="namespaceckernel_1a63c43acd48809eac8f0fd79a09cac7b7" kind="function"><name>pack_tile</name></member>
+    <member refid="namespaceckernel_1aac63a0fae82e1b790a1f6b3a3d8d600f" kind="function"><name>matmul_pack_tile</name></member>
+    <member refid="namespaceckernel_1a9bf446c6f981d4fac592dd761236d013" kind="function"><name>pack_reconfig_data_format</name></member>
+    <member refid="namespaceckernel_1aa72f60c412aeb6d07dfc4b72e1c6370d" kind="function"><name>pack_reconfig_data_format</name></member>
+    <member refid="namespaceckernel_1ad0c6749f2bb88aafc343a6bd67911d66" kind="function"><name>pack_reconfig_l1_acc</name></member>
+    <member refid="namespaceckernel_1a9a5800c870a89695e8de483bfdec9d8c" kind="function"><name>reconfig_data_format</name></member>
+    <member refid="namespaceckernel_1a94bb6b25a9a51fd1949d929fecd4e1a8" kind="function"><name>reconfig_data_format</name></member>
+    <member refid="namespaceckernel_1a0bb205e7b72524a5e756c97070b2f75e" kind="function"><name>reconfig_data_format_srca</name></member>
+    <member refid="namespaceckernel_1aaa0577f32a4e70d8ab0d4bbc70e929bc" kind="function"><name>reconfig_data_format_srca</name></member>
+    <member refid="namespaceckernel_1a920d5a56cc4204d7fb4dae0c0629e8d1" kind="function"><name>reconfig_data_format_srcb</name></member>
+    <member refid="namespaceckernel_1a261d53be7d210e871741821a126c34d3" kind="function"><name>reconfig_data_format_srcb</name></member>
+    <member refid="namespaceckernel_1a3d6b64a03989f4fd9c3a8755bae1f370" kind="function"><name>reduce_init</name></member>
+    <member refid="namespaceckernel_1abb192e99620377ed7ba18b34a1263d48" kind="function"><name>reduce_init_short</name></member>
+    <member refid="namespaceckernel_1a04bc71a2296a8b19afdcaf438899c771" kind="function"><name>reduce_init_delta</name></member>
+    <member refid="namespaceckernel_1a08616241482665e17211f3050e640f05" kind="function"><name>reduce_init_delta_no_pack</name></member>
+    <member refid="namespaceckernel_1a1a344e91c5c3a258554c507ae85dd03c" kind="function"><name>reduce_init_delta_math</name></member>
+    <member refid="namespaceckernel_1a13fc1a7ae6af7595b5a0a2782e4cbbbb" kind="function"><name>reduce_revert_delta</name></member>
+    <member refid="namespaceckernel_1a38f4526f08151193fd4a2b8006c3543e" kind="function"><name>reduce_tile</name></member>
+    <member refid="namespaceckernel_1a12ea45120e9ffcb785c88effcbd9e42b" kind="function"><name>reduce_tile_math</name></member>
+    <member refid="namespaceckernel_1ab3e5c0b33fb9768ebd6a7649dca13d56" kind="function"><name>acquire_dst</name></member>
+    <member refid="namespaceckernel_1a34467f46da4221ff3a2820ff1baec122" kind="function"><name>tile_regs_acquire</name></member>
+    <member refid="namespaceckernel_1acc5591aaa5084f829a43b6282da1dec0" kind="function"><name>tile_regs_wait</name></member>
+    <member refid="namespaceckernel_1aca8a1c47b441f374e4ad21ed8d2f8a4e" kind="function"><name>release_dst</name></member>
+    <member refid="namespaceckernel_1adaf34bbf977944a7913f979f709214c6" kind="function"><name>tile_regs_commit</name></member>
+    <member refid="namespaceckernel_1addd3679665da343bd51f76ced7154c4a" kind="function"><name>tile_regs_release</name></member>
+    <member refid="namespaceckernel_1aee656afd9be0e1341190c24a349fe54e" kind="function"><name>copy_tile_to_dst_init_short</name></member>
+    <member refid="namespaceckernel_1aea570483ca5371db26adbdb562bdc640" kind="function"><name>copy_tile_init</name></member>
+    <member refid="namespaceckernel_1a4de2f4f17e04dc5219e09945e754c6a9" kind="function"><name>copy_tile_to_dst_init_short_with_dt</name></member>
+    <member refid="namespaceckernel_1a150166792eaa318a5837165e71e8b44c" kind="function"><name>copy_tile</name></member>
+    <member refid="namespaceckernel_1a567258ec8567e874535c0e9017e0ca64" kind="function"><name>copy_block_matmul_partials</name></member>
+    <member refid="namespaceckernel_1a8eba17d70dc66acc17db5fb7badb16ae" kind="function"><name>tilize_init</name></member>
+    <member refid="namespaceckernel_1a4f14abbc6a9f82516c94a9c6876d4765" kind="function"><name>tilizeA_B_reduce_init</name></member>
+    <member refid="namespaceckernel_1a649de9891a5d99ebab2c2e1aa75b9a27" kind="function"><name>tilizeA_B_dot_product_init</name></member>
+    <member refid="namespaceckernel_1a2626e407c919742cff8789652cc08165" kind="function"><name>tilize_init_short</name></member>
+    <member refid="namespaceckernel_1a3300fef3143945210d4e18f9bcf1760c" kind="function"><name>tilize_init_unpack</name></member>
+    <member refid="namespaceckernel_1a205b48db5a98b47825937c82a777a965" kind="function"><name>tilize_init_short_with_dt</name></member>
+    <member refid="namespaceckernel_1aea0827dbb324004596b2971a52c4d0ad" kind="function"><name>tilize_block</name></member>
+    <member refid="namespaceckernel_1a8d9523f37c0573600360754d14776ab0" kind="function"><name>unpack_tilize_block</name></member>
+    <member refid="namespaceckernel_1a17a976438c3449ea436628357b647852" kind="function"><name>unpack_tilizeA_B_block</name></member>
+    <member refid="namespaceckernel_1a100bc7f788be0c8206261722ac613de7" kind="function"><name>unpack_tilizeA_B_dot_product_block</name></member>
+    <member refid="namespaceckernel_1a3be1c47ccd017a1129daf785e15f545c" kind="function"><name>tilize_uninit</name></member>
+    <member refid="namespaceckernel_1a40b2d7e5e9073c4e135581f08657dc3b" kind="function"><name>tilize_uninit_with_dt</name></member>
+    <member refid="namespaceckernel_1aa5fd30268e7264eac2189db54b6f60f7" kind="function"><name>transpose_wh_init</name></member>
+    <member refid="namespaceckernel_1a8fcfeec0c3262ec9fd53b6dbdc67100c" kind="function"><name>transpose_wh_init_short</name></member>
+    <member refid="namespaceckernel_1ab885f1c61cacad96feb21ff8c9b099aa" kind="function"><name>transpose_wh_tile</name></member>
+    <member refid="namespaceckernel_1a74d5a0f5a3a5fa918e9c5d51a7d12ed8" kind="function"><name>untilize_init</name></member>
+    <member refid="namespaceckernel_1ae4d031d36cb76c55a761108f7c5dd1a5" kind="function"><name>untilize_init_short</name></member>
+    <member refid="namespaceckernel_1abdf529b965f1e85626342a4027d36461" kind="function"><name>untilize_block</name></member>
+    <member refid="namespaceckernel_1a9a9d99d57d7e3d97a8554498e24b55c8" kind="function"><name>untilize_uninit</name></member>
+    <member refid="namespaceckernel_1a84b982392e5295a3ac4fb3624f984dd4" kind="function"><name>rsqrt_tile_init</name></member>
+    <member refid="namespaceckernel_1a9f4b979b10529e525e0e58a0b64dc0cf" kind="function"><name>rsqrt_tile</name></member>
+    <member refid="namespaceckernel_1a7445ef9a78452c5695742dd3f9163ce1" kind="function"><name>sigmoid_tile_init</name></member>
+    <member refid="namespaceckernel_1a0213ec935c1dc8512ab030b6066b36b1" kind="function"><name>sigmoid_tile</name></member>
+    <member refid="namespaceckernel_1a9b586e3fde261f186ba8f0e2053a99b1" kind="function"><name>log_tile_init</name></member>
+    <member refid="namespaceckernel_1a39e0a5fd307d540f06493088cf39a4f0" kind="function"><name>log_tile</name></member>
+    <member refid="namespaceckernel_1a1c75f0f070bb3d196be28db50ec60bcd" kind="function"><name>log_with_base_tile_init</name></member>
+    <member refid="namespaceckernel_1a3275407181325047284ab43e349a63b2" kind="function"><name>log_with_base_tile</name></member>
+    <member refid="namespaceckernel_1a3f6ed2b53e52e4d1cc2552443a62c759" kind="function"><name>tanh_tile_init</name></member>
+    <member refid="namespaceckernel_1aba0ddaa8a8947a0d2e82ad4f4afeb0bb" kind="function"><name>tanh_tile</name></member>
+    <member refid="namespaceckernel_1aa745471355960e008e844dc3f313ab05" kind="function"><name>signbit_tile_init</name></member>
+    <member refid="namespaceckernel_1ac6ebf44b4c1d78c118fce325aff3a709" kind="function"><name>signbit_tile</name></member>
+    <member refid="namespaceckernel_1aac709b6fecfd6b34793d44b8a0283530" kind="function"><name>abs_tile</name></member>
+    <member refid="namespaceckernel_1ac9164eb8233a4b5db0165ef3879c13d3" kind="function"><name>abs_tile_init</name></member>
+    <member refid="namespaceckernel_1ab6168b98b6911e7e8d65bcce66a98703" kind="function"><name>sign_tile</name></member>
+    <member refid="namespaceckernel_1a6854705311e47923c390b236cdcec41e" kind="function"><name>sign_tile_init</name></member>
+    <member refid="namespaceckernel_1af987308b41a50236bc0a3850fd7165fb" kind="function"><name>square_tile</name></member>
+    <member refid="namespaceckernel_1a9d8e08b22bbbbf7960311670af37750e" kind="function"><name>square_tile_init</name></member>
+    <member refid="namespaceckernel_1ae87b691c6559e7b1435d83403abc4301" kind="function"><name>ltz_tile</name></member>
+    <member refid="namespaceckernel_1aa89f5e45a5227a1378526b21be12d62e" kind="function"><name>ltz_tile_init</name></member>
+    <member refid="namespaceckernel_1a77afa61bee15eebd67803d76c955f360" kind="function"><name>eqz_tile</name></member>
+    <member refid="namespaceckernel_1a688933a08b41a8d5d283aa75216eae27" kind="function"><name>eqz_tile_init</name></member>
+    <member refid="namespaceckernel_1a1817972ea6391813a8948bfad83ab981" kind="function"><name>lez_tile</name></member>
+    <member refid="namespaceckernel_1a5ce91ef9087a7c7216fbe8032dafa49e" kind="function"><name>lez_tile_init</name></member>
+    <member refid="namespaceckernel_1a015f70b923b3dc75073f42d5be952c9a" kind="function"><name>tiled_prod_tile</name></member>
+    <member refid="namespaceckernel_1a6b5c549b48da0bc2c9c6f22fd7932676" kind="function"><name>tiled_prod_tile_init</name></member>
+    <member refid="namespaceckernel_1ade26cd0bc2247bd4eaf7685eadb88afd" kind="function"><name>gtz_tile</name></member>
+    <member refid="namespaceckernel_1ae9e6fe3d6395ed10fe6c1a3774d0c591" kind="function"><name>gtz_tile_init</name></member>
+    <member refid="namespaceckernel_1a114da0de25df24111f54d4ae54daf716" kind="function"><name>nez_tile</name></member>
+    <member refid="namespaceckernel_1a724bcc13c2cecd7e12e2efbd31207b8f" kind="function"><name>nez_tile_init</name></member>
+    <member refid="namespaceckernel_1a51558a724938976ece1be18997ced97f" kind="function"><name>gez_tile</name></member>
+    <member refid="namespaceckernel_1a4e1406d244d304ea48ce12568911df7f" kind="function"><name>gez_tile_init</name></member>
+    <member refid="namespaceckernel_1a61fe18515827e58bdfea82fa99daee38" kind="function"><name>power_tile</name></member>
+    <member refid="namespaceckernel_1a7cd6f51f9220905884e315442843d2d2" kind="function"><name>power_tile_init</name></member>
+    <member refid="namespaceckernel_1a2d1714bd980954724d51080e29b5d0fd" kind="function"><name>max_tile</name></member>
+    <member refid="namespaceckernel_1a92ba747a6e5b80c727984c62b7d0056e" kind="function"><name>max_tile_init</name></member>
+    <member refid="namespaceckernel_1a2febadfd150cb455955f67746253f116" kind="function"><name>exp2_tile</name></member>
+    <member refid="namespaceckernel_1aae54e275fe6d550c7cb151f24503e958" kind="function"><name>exp2_tile_init</name></member>
+    <member refid="namespaceckernel_1ad36c2e30b06007215d6b69568691ed3f" kind="function"><name>heaviside_tile</name></member>
+    <member refid="namespaceckernel_1abb18b07f6934634afcb9ed022b36d858" kind="function"><name>heaviside_tile_init</name></member>
+    <member refid="namespaceckernel_1adf08edc7ebeb842eb1addfc2ac53da34" kind="function"><name>unary_ne_tile</name></member>
+    <member refid="namespaceckernel_1a86f5e14f68cb732534c41d400843fced" kind="function"><name>unary_ne_tile_init</name></member>
+    <member refid="namespaceckernel_1a44e2f1766f4513494f768cffa10b0737" kind="function"><name>expm1_tile</name></member>
+    <member refid="namespaceckernel_1a7168260d89bae9c8cd208b0a636dc1bf" kind="function"><name>expm1_tile_init</name></member>
+    <member refid="namespaceckernel_1a7300e956259f09f938aaf30d266145b3" kind="function"><name>asin_tile</name></member>
+    <member refid="namespaceckernel_1ae301e69cc106f101a05c17943f50a709" kind="function"><name>asin_tile_init</name></member>
+    <member refid="namespaceckernel_1ada371d824d49e63e32e718eea281959f" kind="function"><name>atan_tile</name></member>
+    <member refid="namespaceckernel_1a74eef3940cc3f25fa0c5d99f4e1098ac" kind="function"><name>atan_tile_init</name></member>
+    <member refid="namespaceckernel_1ac71f04a726285cd4b0bfadc31eb6cbeb" kind="function"><name>acos_tile</name></member>
+    <member refid="namespaceckernel_1ae3124122e43788f56d6d93e3e668bd0b" kind="function"><name>acos_tile_init</name></member>
+    <member refid="namespaceckernel_1adc4b7d15d9f6ca928626b1a246d7e2d1" kind="function"><name>silu_tile</name></member>
+    <member refid="namespaceckernel_1a77f006579d8fe02aa468eb8bf260c47e" kind="function"><name>silu_tile_init</name></member>
+    <member refid="namespaceckernel_1aa5210fb3aea6ef6c09eba614308a25c5" kind="function"><name>topk_local_sort</name></member>
+    <member refid="namespaceckernel_1a2938cab3b09934d9f491eb7e8e46a9c6" kind="function"><name>topk_merge</name></member>
+    <member refid="namespaceckernel_1ae1cbdb83cc5bc20da93967c2252354b8" kind="function"><name>topk_rebuild</name></member>
+    <member refid="namespaceckernel_1a53c812a947f6d756ea625b7361174037" kind="function"><name>topk_tile_init</name></member>
+    <member refid="namespaceckernel_1a27956d536797fa0c3dad4eab6148d731" kind="function"><name>dbg_halt</name></member>
+    <member refid="namespaceckernel_1aa73b548e1869c77a4b1d2a4a345b942d" kind="function"><name>dbg_unhalt</name></member>
+    <member refid="namespaceckernel_1a5df20a0a40dac9e97e6b73b0d4fd0c88" kind="function"><name>dbg_read_dest_acc_row</name></member>
+    <member refid="namespaceckernel_1a3beb809d58bbce0ee44b0d9f6e3e0caf" kind="function"><name>unary_gt_tile</name></member>
+    <member refid="namespaceckernel_1aa8a849876763dfccf446df2954aa531d" kind="function"><name>unary_gt_tile_init</name></member>
+    <member refid="namespaceckernel_1a3efdf48fde7c2df0e8236b387c1ff873" kind="function"><name>unary_lt_tile</name></member>
+    <member refid="namespaceckernel_1a0c1307468c0b580c07969a1359769cff" kind="function"><name>unary_lt_tile_init</name></member>
+    <member refid="namespaceckernel_1a9a04b6745953bbc4da3c410db3497e39" kind="function"><name>get_compute_special_value_flags</name></member>
+    <member refid="namespaceckernel_1ab82cfb17a7aa5f2e577dccb8a109b6a1" kind="function"><name>get_compute_special_value_flags_fpu</name></member>
+    <member refid="namespaceckernel_1a2b5b8e81326c471d528729eaa179120c" kind="function"><name>get_compute_special_value_flags_sfpu</name></member>
+    <member refid="namespaceckernel_1a8babb406a90ed09abdce7a53d3e20b84" kind="function"><name>clear_compute_special_value_flags</name></member>
+    <member refid="namespaceckernel_1ac2326c4eb36719970602e257f21625f0" kind="function"><name>store_compute_special_value_flags_to_l1</name></member>
+  </compound>
+  <compound refid="namespaceinterleaved__addr__gen" kind="namespace"><name>interleaved_addr_gen</name>
+    <member refid="namespaceinterleaved__addr__gen_1a4018be9d6302207fdc0dac085663e184" kind="function"><name>get_bank_offset_index</name></member>
+    <member refid="namespaceinterleaved__addr__gen_1a63194c761e19c2a9d096f91c9e9be63c" kind="function"><name>get_bank_index</name></member>
+    <member refid="namespaceinterleaved__addr__gen_1a5a9ecce3a6a35846d19425e4b193d37e" kind="function"><name>get_noc_xy</name></member>
+    <member refid="namespaceinterleaved__addr__gen_1a593eecf4e9f53608d0c5c82e54b36b03" kind="function"><name>get_bank_offset</name></member>
   </compound>
   <compound refid="namespacett" kind="namespace"><name>tt</name>
   </compound>
   <compound refid="namespacett_1_1tt__metal" kind="namespace"><name>tt::tt_metal</name>
-    <member refid="host__api_8hpp_1af559e38779cb26844ec9a6b0bb41f940" kind="typedef"><name>RuntimeArgs</name></member>
-    <member refid="host__api_8hpp_1a06ba0ab5eeb2da5af625a8b7f95ca48e" kind="function"><name>GetNumAvailableDevices</name></member>
-    <member refid="host__api_8hpp_1aa18761d248b0a8081c84440f3aeafcfc" kind="function"><name>GetNumPCIeDevices</name></member>
-    <member refid="host__api_8hpp_1a8332bdd9a9ffe6e0cedf921e438fe7ed" kind="function"><name>CreateDevice</name></member>
-    <member refid="host__api_8hpp_1a07e0aaf41772593d1d017db950e3b7b3" kind="function"><name>CreateDeviceMinimal</name></member>
-    <member refid="host__api_8hpp_1a25ae925200ca85a3274824f1b945ebc1" kind="function"><name>CloseDevice</name></member>
-    <member refid="host__api_8hpp_1a48b1af1b20561d626ff34f39282f1dea" kind="function"><name>CreateProgram</name></member>
-    <member refid="host__api_8hpp_1ae7930dd08bf0ae0c83c8ee55f3f604b9" kind="function"><name>CreateKernel</name></member>
-    <member refid="host__api_8hpp_1a62b10a9d4d6ed91eacaba5d27c9761fb" kind="function"><name>CreateCircularBuffer</name></member>
-    <member refid="host__api_8hpp_1a95bdaeb43136c4db864dd95481fa0a16" kind="function"><name>GetCircularBufferConfig</name></member>
-    <member refid="host__api_8hpp_1a39e124f62d4c172a44abc0c22fa3ee04" kind="function"><name>UpdateCircularBufferTotalSize</name></member>
-    <member refid="host__api_8hpp_1a92e93610eb6b826263eb803608c33889" kind="function"><name>UpdateCircularBufferPageSize</name></member>
-    <member refid="host__api_8hpp_1aac851bed71135fa02e28caf0c0ae58b0" kind="function"><name>UpdateDynamicCircularBufferAddress</name></member>
-    <member refid="host__api_8hpp_1a8860cbc40324a9cc2e18badc55a77a68" kind="function"><name>CreateSemaphore</name></member>
-    <member refid="host__api_8hpp_1a44f12170a79821c7a1eb7dcad8e9014e" kind="function"><name>CreateBuffer</name></member>
-    <member refid="host__api_8hpp_1a8e5af0183154c8b303d43acec393ec29" kind="function"><name>CreateBuffer</name></member>
-    <member refid="host__api_8hpp_1a6a064752ab55b4fac953ba8bde7daf52" kind="function"><name>DeallocateBuffer</name></member>
-    <member refid="host__api_8hpp_1a4e29ca9df8b6f13424f2a392d8971483" kind="function"><name>AssignGlobalBufferToProgram</name></member>
-    <member refid="host__api_8hpp_1a491996adcf69861c22eed34ce1ac68cc" kind="function"><name>SetRuntimeArgs</name></member>
-    <member refid="host__api_8hpp_1af27c6b3f5c79fb792beb4ab2169683b7" kind="function"><name>SetRuntimeArgs</name></member>
-    <member refid="host__api_8hpp_1a7c10cd46327ef8693169b3aee8846a7a" kind="function"><name>SetRuntimeArgs</name></member>
-    <member refid="host__api_8hpp_1a5abdf19459659b61a4c2bbcf172f6f35" kind="function"><name>SetRuntimeArgs</name></member>
-    <member refid="host__api_8hpp_1a3b4cf7321eea21c21850b447312f02fa" kind="function"><name>SetCommonRuntimeArgs</name></member>
-    <member refid="host__api_8hpp_1a8dd2e6d874b20a87745ae83cc88afb51" kind="function"><name>GetRuntimeArgs</name></member>
-    <member refid="host__api_8hpp_1a1b62db611a9ad2d24c90c043dae989a6" kind="function"><name>GetRuntimeArgs</name></member>
-    <member refid="host__api_8hpp_1a2af22a7fb7c71050de7ec2fc9d487ab6" kind="function"><name>GetCommonRuntimeArgs</name></member>
-    <member refid="host__api_8hpp_1a72bce18ec81347c077fb802271a7c562" kind="function"><name>EnqueueReadBuffer</name></member>
-    <member refid="host__api_8hpp_1a769957ca9a07e91d82cac6fd682a7fd1" kind="function"><name>EnqueueReadBuffer</name></member>
-    <member refid="host__api_8hpp_1a41f4ff2e9c7fca0b1287446f57d37e34" kind="function"><name>EnqueueWriteBuffer</name></member>
-    <member refid="host__api_8hpp_1a474bb3622a9e2927298d2a2a70c90774" kind="function"><name>EnqueueWriteBuffer</name></member>
-    <member refid="host__api_8hpp_1a573978c2536748213de459b0a09477b7" kind="function"><name>EnqueueProgram</name></member>
-    <member refid="host__api_8hpp_1afc3cc77a54213457805a878231ca3643" kind="function"><name>Finish</name></member>
-    <member refid="host__api_8hpp_1a2bb0ca68f1afddfbefc78b497d21943c" kind="function"><name>BeginTraceCapture</name></member>
-    <member refid="host__api_8hpp_1a3eaf4c5845ee7d8153c6ca9cc250df30" kind="function"><name>EndTraceCapture</name></member>
-    <member refid="host__api_8hpp_1a12e0b86cbb5a6ef9930562b684898d90" kind="function"><name>ReplayTrace</name></member>
-    <member refid="host__api_8hpp_1a526ece1a413c039607e2973b97cdfa75" kind="function"><name>ReleaseTrace</name></member>
-    <member refid="host__api_8hpp_1ac56da2798d8d1a093846845ff06fd773" kind="function"><name>EnqueueTrace</name></member>
-    <member refid="host__api_8hpp_1a5087c491b5788ee5878cf049066c355a" kind="function"><name>DumpDeviceProfileResults</name></member>
-    <member refid="host__api_8hpp_1a6c9d6bc143bf01946b145bb20c9a4ccd" kind="function"><name>EnqueueRecordEvent</name></member>
-    <member refid="host__api_8hpp_1a2560cd6db65a03de3e9aad52ff381b6e" kind="function"><name>EnqueueWaitForEvent</name></member>
-    <member refid="host__api_8hpp_1a503f5ffa5860947b42872b7fe326bac5" kind="function"><name>EventSynchronize</name></member>
-    <member refid="host__api_8hpp_1a017d64ee3fbb64880859d52a21f7f474" kind="function"><name>EventQuery</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a5d1cfea010cb740e7307b18b4a7ec9e8" kind="typedef"><name>RuntimeArgs</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a1e4322b747fd7823e878c3e2ae729e27" kind="function"><name>GetNumAvailableDevices</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a63ede0a0180762c7d1f091176738237c" kind="function"><name>IsGalaxyCluster</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a4f05b332fd6f861bb3540dbe2af433be" kind="function"><name>GetNumPCIeDevices</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1af46d5827805ba92482cddb5591c69a45" kind="function"><name>GetPCIeDeviceID</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1abe3488f7ac4863b7b372f344f863bc84" kind="function"><name>CreateDevice</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a1690575bfc5a81f0a7bc44b0a1f4780b" kind="function"><name>CreateDeviceMinimal</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a26cb44c89e3231cade68dca1a6990bbb" kind="function"><name>CloseDevice</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a826db8a9c40c91034bc2a5f0f6e9b75e" kind="function"><name>CreateProgram</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a0e68e0e2cb813bf5814ddb02d82cd1d0" kind="function"><name>CreateKernel</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a63aefd0f3f82e3dd0d66ff2ca72453c8" kind="function"><name>CreateKernelFromString</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a4b1e837406fd39ad2b671b7836ce3e4c" kind="function"><name>CreateCircularBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1ac4b1a13298da52770f32ddeeabd2c65a" kind="function"><name>GetCircularBufferConfig</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a220dc8a16809c1c12a44348b9a76ab08" kind="function"><name>UpdateCircularBufferTotalSize</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a3831e993c64a578637c9fc73b059412d" kind="function"><name>UpdateCircularBufferPageSize</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a0cf0d51e979e755908ee29c30401ee53" kind="function"><name>UpdateDynamicCircularBufferAddress</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1ad7ce765d28d851983f910495c44411cd" kind="function"><name>CreateSemaphore</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a087c394c5ec94274c150ee18ef88ef78" kind="function"><name>CreateGlobalSemaphore</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1acd4672dc795d11eeac8c1c45bfed6a87" kind="function"><name>CreateGlobalSemaphore</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1aec7794124ecb8f3b20ffe95a4c8b390d" kind="function"><name>CreateBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a74ad24acd85d50aebe09a2220fd1237c" kind="function"><name>CreateBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a88eb77e75d74b91bec6ad22064eb3b38" kind="function"><name>CreateBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a6c254d5b77d19539fd7999c73b7606ad" kind="function"><name>CreateBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1ac9703a61146ccd855bea828aade6a720" kind="function"><name>CreateBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1ac9b0f4582de81688db0f46ab932f74f8" kind="function"><name>CreateBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1abce385d98e86cf18acb680f183039cb5" kind="function"><name>DeallocateBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a1ebc34320ecacb398a25f67c206422d5" kind="function"><name>AssignGlobalBufferToProgram</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1afb2ca08d5f123ed98b99498324061ba4" kind="function"><name>SetRuntimeArgs</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a74ca7c2b7c798d3c16af2dc931d68df0" kind="function"><name>SetRuntimeArgs</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1afdb3df50326c491a4612d21ce45a518a" kind="function"><name>SetRuntimeArgs</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a774adf0f130e4a8f75007cca0a33fcb6" kind="function"><name>SetRuntimeArgs</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a8263eba8cd8279b6c1e6db233ec5f133" kind="function"><name>SetCommonRuntimeArgs</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a609d42acfdab49842d577aae66de2e67" kind="function"><name>GetRuntimeArgs</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a65abc534c2bbbe36d118c3b844350a72" kind="function"><name>GetRuntimeArgs</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a9117d8f938e3b0c3e6b146f960eafa2f" kind="function"><name>GetCommonRuntimeArgs</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a76bb833452d2265a33a294eef1140782" kind="function"><name>EnqueueReadBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1aed6950194c0970fe3d6f35657524e44b" kind="function"><name>EnqueueReadBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1adfbc3816d634690201a2864b0e6ea1d8" kind="function"><name>EnqueueReadBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a7c3bea917e3563c642147c3f34911270" kind="function"><name>EnqueueWriteBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a634370b608fd0b78795ab3d7b128c9f0" kind="function"><name>EnqueueWriteBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1ab74d31b79ae9a8fe25468bc95b13ee2a" kind="function"><name>EnqueueProgram</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a41ad47ba118422cf5d162a24289f53cb" kind="function"><name>Finish</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a2ebe853244ec21092c0a4c24a76ac9d7" kind="function"><name>BeginTraceCapture</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a868dff83af5a6f69735afddfb8123016" kind="function"><name>EndTraceCapture</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1aaf7e23130adb368821457f261e37cd9b" kind="function"><name>ReplayTrace</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1ad8540d48e27a58a9519483782991eba0" kind="function"><name>ReleaseTrace</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a35c2d778c2f00844d1113c0e011522f2" kind="function"><name>EnqueueTrace</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a617bb9ae1b430271808f81999a4ef53e" kind="function"><name>DumpDeviceProfileResults</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a57cb44e976abef6030c7dbb73970d800" kind="function"><name>EnqueueRecordEvent</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a0348eff37a292f881b5b88193d8196f6" kind="function"><name>EnqueueWaitForEvent</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a7965734b9b4f42fd7b96da7cdcc45927" kind="function"><name>EventSynchronize</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a51fd82461b3734afccb8f11427564181" kind="function"><name>EventQuery</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1abbef214f3ba879469488d367053046cb" kind="function"><name>Synchronize</name></member>
+  </compound>
+  <compound refid="namespacett_1_1tt__metal_1_1v0" kind="namespace"><name>tt::tt_metal::v0</name>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a5d1cfea010cb740e7307b18b4a7ec9e8" kind="typedef"><name>RuntimeArgs</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a1e4322b747fd7823e878c3e2ae729e27" kind="function"><name>GetNumAvailableDevices</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a63ede0a0180762c7d1f091176738237c" kind="function"><name>IsGalaxyCluster</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a4f05b332fd6f861bb3540dbe2af433be" kind="function"><name>GetNumPCIeDevices</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1af46d5827805ba92482cddb5591c69a45" kind="function"><name>GetPCIeDeviceID</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1abe3488f7ac4863b7b372f344f863bc84" kind="function"><name>CreateDevice</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a1690575bfc5a81f0a7bc44b0a1f4780b" kind="function"><name>CreateDeviceMinimal</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a26cb44c89e3231cade68dca1a6990bbb" kind="function"><name>CloseDevice</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a826db8a9c40c91034bc2a5f0f6e9b75e" kind="function"><name>CreateProgram</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a0e68e0e2cb813bf5814ddb02d82cd1d0" kind="function"><name>CreateKernel</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a63aefd0f3f82e3dd0d66ff2ca72453c8" kind="function"><name>CreateKernelFromString</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a4b1e837406fd39ad2b671b7836ce3e4c" kind="function"><name>CreateCircularBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1ac4b1a13298da52770f32ddeeabd2c65a" kind="function"><name>GetCircularBufferConfig</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a220dc8a16809c1c12a44348b9a76ab08" kind="function"><name>UpdateCircularBufferTotalSize</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a3831e993c64a578637c9fc73b059412d" kind="function"><name>UpdateCircularBufferPageSize</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a0cf0d51e979e755908ee29c30401ee53" kind="function"><name>UpdateDynamicCircularBufferAddress</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1ad7ce765d28d851983f910495c44411cd" kind="function"><name>CreateSemaphore</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a087c394c5ec94274c150ee18ef88ef78" kind="function"><name>CreateGlobalSemaphore</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1acd4672dc795d11eeac8c1c45bfed6a87" kind="function"><name>CreateGlobalSemaphore</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1aec7794124ecb8f3b20ffe95a4c8b390d" kind="function"><name>CreateBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a74ad24acd85d50aebe09a2220fd1237c" kind="function"><name>CreateBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a88eb77e75d74b91bec6ad22064eb3b38" kind="function"><name>CreateBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a6c254d5b77d19539fd7999c73b7606ad" kind="function"><name>CreateBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1ac9703a61146ccd855bea828aade6a720" kind="function"><name>CreateBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1ac9b0f4582de81688db0f46ab932f74f8" kind="function"><name>CreateBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1abce385d98e86cf18acb680f183039cb5" kind="function"><name>DeallocateBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a1ebc34320ecacb398a25f67c206422d5" kind="function"><name>AssignGlobalBufferToProgram</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1afb2ca08d5f123ed98b99498324061ba4" kind="function"><name>SetRuntimeArgs</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a74ca7c2b7c798d3c16af2dc931d68df0" kind="function"><name>SetRuntimeArgs</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1afdb3df50326c491a4612d21ce45a518a" kind="function"><name>SetRuntimeArgs</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a774adf0f130e4a8f75007cca0a33fcb6" kind="function"><name>SetRuntimeArgs</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a8263eba8cd8279b6c1e6db233ec5f133" kind="function"><name>SetCommonRuntimeArgs</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a609d42acfdab49842d577aae66de2e67" kind="function"><name>GetRuntimeArgs</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a65abc534c2bbbe36d118c3b844350a72" kind="function"><name>GetRuntimeArgs</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a9117d8f938e3b0c3e6b146f960eafa2f" kind="function"><name>GetCommonRuntimeArgs</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a76bb833452d2265a33a294eef1140782" kind="function"><name>EnqueueReadBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1aed6950194c0970fe3d6f35657524e44b" kind="function"><name>EnqueueReadBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1adfbc3816d634690201a2864b0e6ea1d8" kind="function"><name>EnqueueReadBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a7c3bea917e3563c642147c3f34911270" kind="function"><name>EnqueueWriteBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a634370b608fd0b78795ab3d7b128c9f0" kind="function"><name>EnqueueWriteBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1ab74d31b79ae9a8fe25468bc95b13ee2a" kind="function"><name>EnqueueProgram</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a41ad47ba118422cf5d162a24289f53cb" kind="function"><name>Finish</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a2ebe853244ec21092c0a4c24a76ac9d7" kind="function"><name>BeginTraceCapture</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a868dff83af5a6f69735afddfb8123016" kind="function"><name>EndTraceCapture</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1aaf7e23130adb368821457f261e37cd9b" kind="function"><name>ReplayTrace</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1ad8540d48e27a58a9519483782991eba0" kind="function"><name>ReleaseTrace</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a35c2d778c2f00844d1113c0e011522f2" kind="function"><name>EnqueueTrace</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a617bb9ae1b430271808f81999a4ef53e" kind="function"><name>DumpDeviceProfileResults</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a57cb44e976abef6030c7dbb73970d800" kind="function"><name>EnqueueRecordEvent</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a0348eff37a292f881b5b88193d8196f6" kind="function"><name>EnqueueWaitForEvent</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a7965734b9b4f42fd7b96da7cdcc45927" kind="function"><name>EventSynchronize</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a51fd82461b3734afccb8f11427564181" kind="function"><name>EventQuery</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1abbef214f3ba879469488d367053046cb" kind="function"><name>Synchronize</name></member>
+  </compound>
+  <compound refid="namespacett_1_1tt__metal_1_1v1" kind="namespace"><name>tt::tt_metal::v1</name>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1aeb98f79faee0fc2ac9492dd5d295d126" kind="typedef"><name>ProgramHandle</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a41efe832ede2a68be6a45168f51dd5ae" kind="typedef"><name>RuntimeArgs</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a4ff4aaaef152608a56467ac85d05a8d9" kind="function"><name>CreateBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1ab8878e4e772b19708f2ffb47aef88b46" kind="function"><name>DeallocateBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a9fdc03261b0164072b9e30fad9e36099" kind="function"><name>WriteToBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a549dc0b0bd173491b5b67ec9efa599b5" kind="function"><name>ReadFromBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a44af81fe6c86b0d4f2e3c5cd414cf836" kind="function"><name>ReadFromShard</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a104050cb8afe039d4b233e5fde691377" kind="function"><name>GetCommandQueue</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a1d776f4c482bfa8ff8d5ce8950a02f82" kind="function"><name>GetDefaultCommandQueue</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a3de050e4a431b4dbcbd8e29f2ccd0fa6" kind="function"><name>EnqueueReadBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a175d287310173ef03a2e6bd2b1b0cfa3" kind="function"><name>EnqueueWriteBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a2e9787d7e5eaaeb6b838a9c6889c5626" kind="function"><name>EnqueueProgram</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a4749871772050bc38af4887d3543328b" kind="function"><name>Finish</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a6688cd88bb6474148452821a821e8730" kind="function"><name>SetLazyCommandQueueMode</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1aec81775023e516ef4b34eb5e973da3c0" kind="function"><name>GetDevice</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a8f206a4436d4dd2b00feb80e362759a6" kind="function"><name>GetId</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1ad490d6283121ce887c6209a0ca28265d" kind="function"><name>GetNumAvailableDevices</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1aea09ea2671460caa9fa47b65c8490ec9" kind="function"><name>GetNumPCIeDevices</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a05ecee1b9528084c6e7d4c3cf371f047" kind="function"><name>GetPCIeDeviceID</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a4cd4414bf13ee2acb9b2c6b8c546ee6e" kind="function"><name>CreateDevice</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a2631b7757fe06ad7c10b8ba599b1e074" kind="function"><name>CloseDevice</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a7d62fcb4cb9f38f4bb66ac7ec545dd1d" kind="function"><name>DeallocateBuffers</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a6af2edef85ff9e04ef2a45eda2148f16" kind="function"><name>DumpDeviceProfileResults</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1acd0244ed7bf2507b8299a555c2bbe3a0" kind="function"><name>GetArch</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1aecef2596d64d30b530d2013d69ee31c3" kind="function"><name>GetId</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a6f8191bd3eecb0dde06682e0beee93e2" kind="function"><name>GetNumDramChannels</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a868592eea2fb3cd50e4de99591b1812e" kind="function"><name>GetL1SizePerCore</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a60255a3c8d626d836533ba15f6531aa0" kind="function"><name>GetComputeWithStorageGridSize</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a41433cff493160e71b15c5d51e8898a1" kind="function"><name>GetDramGridSize</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a987aad0700d6d5b2b80a48a2cb80bb6d" kind="function"><name>EnableProgramCache</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a52a74fef1f54b84399e622a704af37e5" kind="function"><name>DisableAndClearProgramCache</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a0f9295aee290efd2c2330317353546c0" kind="function"><name>PushWork</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a944a8406570b0998bcc7f92c4e3a352f" kind="function"><name>Synchronize</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1af5eb41116f1ba1dc14f8e74f11f47452" kind="function"><name>GetEthernetSockets</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a8abc4ac0e93f258cec1908730e4a1622" kind="function"><name>GetNumBanks</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a17d8dafe30fab56e5ff58b30e3e3629c" kind="function"><name>GetBankOffset</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1aebcaa64de792f41f8f88d66192e93824" kind="function"><name>BankIdsFromLogicalCore</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1afcadd9379349203f6344281fec38c109" kind="function"><name>GetSfpuEps</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a9b48db93c5e56377e08242bc2ea406d5" kind="function"><name>GetSfpuNan</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a8527a71d31e9903b85c772747b68b192" kind="function"><name>GetSfpuInf</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a9cfd296d42fffa2b911d130116273cf0" kind="function"><name>GetWorkerMode</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1aff8fd1c289715aad386c6ee40eda1638" kind="function"><name>GetNumProgramCacheEntries</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1ac509df53069bbfb2423544bc4c1bda1b" kind="function"><name>EnqueueRecordEvent</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a75cf4017da0353e17f493d15b43292e8" kind="function"><name>EnqueueWaitForEvent</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a5f0339728931f881b0642a8656e636f4" kind="function"><name>EventSynchronize</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a0931a52a892ca8bb955ce8084425536a" kind="function"><name>EventQuery</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a88371fc86019f3020c265456c559929b" kind="function"><name>DeviceSynchronize</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a7859c7b14b4045333f51dea3f6fae966" kind="function"><name>CommandQueueSynchronize</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a5ee7734e47e504191e9c6711b40c5a1f" kind="function"><name>SetRuntimeArgs</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a18eef8efccb83fbe44e2ded7b0cc2c4f" kind="function"><name>SetCommonRuntimeArgs</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a87e7981e6346f3d538520f614e753151" kind="function"><name>GetRuntimeArgs</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a2909dc9be2ba6a1dc6011632e3444452" kind="function"><name>MAKE_ANY_RANGE</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a70ed6e34eb04904fe348d2a7afa8bc4c" kind="function"><name>MAKE_ANY_RANGE</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a00a5e549383bc80541272724fd1cf7e1" kind="function"><name>CreateProgram</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a14b6ebd539e126b2795faaf14ecf0728" kind="function"><name>CreateKernel</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a8ad4c0f98293c089f29e2264be6479c4" kind="function"><name>CreateKernel</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a38764f3b0cb2ace3685c134171f6b0fc" kind="function"><name>CreateKernel</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1ad5e43c40425409e8e18798ca4de93b71" kind="function"><name>CreateSemaphore</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a3beb08329677f6e2f130a0381f5646b6" kind="function"><name>CreateCircularBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a6ac21dc897d96d19e4aad97d1efcb239" kind="function"><name>GetCircularBufferConfig</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a063a64ba780bddf2bd64b16748ee602b" kind="function"><name>GetCircularBuffers</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a5a552dea5d7227a7805d72fb658f3d49" kind="function"><name>GetCircularBuffersOnCoreRange</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1af94866d5212ee53e90bbf8108e481011" kind="function"><name>UpdateCircularBufferTotalSize</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1aa514298587d69bf5490a52ed4ca04d77" kind="function"><name>UpdateDynamicCircularBufferAddress</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a19dbe074ea7eb58ae2debf7d51fa0234" kind="function"><name>GetCommandQueue</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a35c346d8491a7e2162a74e827633802c" kind="function"><name>BeginTraceCapture</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1af82f80c6f857daa6981e44e4c51c28c6" kind="function"><name>EndTraceCapture</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a25a658a690031902c1a8ecd1f0810902" kind="function"><name>ReplayTrace</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a8d79e634d906f2aa3a474224b60609fa" kind="function"><name>ReleaseTrace</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a52db18e0d55921f7e31df14444bac2da" kind="function"><name>EnqueueTrace</name></member>
   </compound>
   <compound refid="host__api_8hpp" kind="file"><name>host_api.hpp</name>
   </compound>
@@ -306,106 +494,122 @@
     <member refid="dataflow__api_8h_1a56cf50350ff87477df00fb899480ff2d" kind="define"><name>NOC_UNICAST_WRITE_VC</name></member>
     <member refid="dataflow__api_8h_1a5fb39d71d6c419e9ad7aa0f43e5a91d8" kind="define"><name>NOC_MULTICAST_WRITE_VC</name></member>
     <member refid="dataflow__api_8h_1a49104913a904db0ef5c642d10a33c923" kind="define"><name>NOC_DISPATCH_MULTICAST_WRITE_VC</name></member>
-    <member refid="dataflow__api_8h_1a30875365be2fa364de8962ef1d25630a" kind="define"><name>COMMON_RT_ARGS_INDEX</name></member>
+    <member refid="dataflow__api_8h_1afdf0e2f602d799115bb67b144ae7e3f7" kind="define"><name>EXCLUDE_ENABLED</name></member>
+    <member refid="dataflow__api_8h_1a21a8a64d9844a79b222a12e5ddf42028" kind="define"><name>EXCLUDE_ENABLED_OFFSET</name></member>
+    <member refid="dataflow__api_8h_1ad0fae11f46cf5042340264e92008ef07" kind="define"><name>EXCLUDE_DIRECTION_Y_OFFSET</name></member>
+    <member refid="dataflow__api_8h_1aa3426d319a63d0c7ba70305b4e1dfe31" kind="define"><name>EXCLUDE_DIRECTION_X_OFFSET</name></member>
+    <member refid="dataflow__api_8h_1a3cdfe0cbd91a7e89ec5f265be58d2046" kind="define"><name>EXCLUDE_START_Y_OFFSET</name></member>
+    <member refid="dataflow__api_8h_1a5fa0dd89473ba937f0a6f07ab69fe7dc" kind="define"><name>EXCLUDE_START_X_OFFSET</name></member>
+    <member refid="dataflow__api_8h_1a25a0d59e125c87ff2f8fe0c9a394626c" kind="define"><name>DYNAMIC_NOC_DIRECTION</name></member>
     <member refid="dataflow__api_8h_1ab97f9dbfbb4150cb324f21520b8e6cfe" kind="define"><name>get_compile_time_arg_val</name></member>
-    <member refid="dataflow__api_8h_1a49d45df0fdb5ae1977850c809e49c448" kind="enum"><name>BufferType</name></member>
-    <member refid="dataflow__api_8h_1a49d45df0fdb5ae1977850c809e49c448aebae17841ce69e653df838d8c20ace8d" kind="enumvalue"><name>DRAM</name></member>
-    <member refid="dataflow__api_8h_1a49d45df0fdb5ae1977850c809e49c448a9ec4c0afd450ceac7adb81c3bcfc9732" kind="enumvalue"><name>L1</name></member>
-    <member refid="dataflow__api_8h_1a49d45df0fdb5ae1977850c809e49c448a704a03105a5df911d6656c3c740277e2" kind="enumvalue"><name>SYSTEM_MEMORY</name></member>
-    <member refid="dataflow__api_8h_1a49d45df0fdb5ae1977850c809e49c448a208d7cc5d68aaefe0e5182d068264040" kind="enumvalue"><name>L1_SMALL</name></member>
     <member refid="dataflow__api_8h_1a58bc3a01e945dbd421fce21906e94441" kind="variable"><name>noc_index</name></member>
-    <member refid="dataflow__api_8h_1ae9b846802ae938aab4c8c7d55647d902" kind="variable"><name>l1_arg_base</name></member>
+    <member refid="dataflow__api_8h_1abfbb1273e3f29964043f4660b5c5bc1d" kind="variable"><name>noc_mode</name></member>
+    <member refid="dataflow__api_8h_1a2366e9251332058fa1fa368903d1d760" kind="variable"><name>rta_l1_base</name></member>
+    <member refid="dataflow__api_8h_1a74c5ca11f2fb15c25af4a74db732a5fc" kind="variable"><name>crta_l1_base</name></member>
+    <member refid="dataflow__api_8h_1a237705982b987907cbfca699e32a9c64" kind="variable"><name>sem_l1_base</name></member>
+    <member refid="dataflow__api_8h_1afa5a15ba6d1a0359eb8270daa81f6e1a" kind="variable"><name>read_cmd_buf</name></member>
+    <member refid="dataflow__api_8h_1ae53f3d62ad6a9eeabe5f4604e3e9b13f" kind="variable"><name>write_cmd_buf</name></member>
+    <member refid="dataflow__api_8h_1a6c97896ab8cfddde7d4951cd6f947e0f" kind="variable"><name>write_reg_cmd_buf</name></member>
+    <member refid="dataflow__api_8h_1a27c097a6b6c3174e4b39fa61e1aed761" kind="variable"><name>write_at_cmd_buf</name></member>
     <member refid="dataflow__api_8h_1a6738833d9844f57ccbb71859a4b8de05" kind="variable"><name>cb_interface</name></member>
     <member refid="dataflow__api_8h_1ac4752c4d9a07974ce99aaa671a675fe2" kind="function"><name>align</name></member>
     <member refid="dataflow__api_8h_1a25d62dac426c2869489c6a658de97058" kind="function"><name>get_arg_addr</name></member>
     <member refid="dataflow__api_8h_1aca9717f94b44990fc7fca49678eda5a0" kind="function"><name>get_common_arg_addr</name></member>
     <member refid="dataflow__api_8h_1a6a5074e8cd2732fcecab57fced3ebd1f" kind="function"><name>get_arg_val</name></member>
     <member refid="dataflow__api_8h_1abba486e3732fb5ea715651f92234e60a" kind="function"><name>get_common_arg_val</name></member>
-    <member refid="dataflow__api_8h_1aaeb67c582bba445a7c2e7eac520cd84e" kind="function"><name>__attribute__</name></member>
+    <member refid="dataflow__api_8h_1a4f3db5f995cef4fca051fe50ba763889" kind="function"><name>GET_TILE_SIZE</name></member>
+    <member refid="dataflow__api_8h_1aaac92d8e3952ed1c95ceb82071305b08" kind="function"><name>MUL_WITH_TILE_SIZE</name></member>
     <member refid="dataflow__api_8h_1a81357224b88562601b42833eec676ffb" kind="function"><name>cb_push_back</name></member>
     <member refid="dataflow__api_8h_1aa3daf8e5e7299140cf2607be1a8656b0" kind="function"><name>cb_pop_front</name></member>
     <member refid="dataflow__api_8h_1af4a1a9478a83ad216d826dc5f783d1f8" kind="function"><name>get_tile_size</name></member>
+    <member refid="dataflow__api_8h_1a8ccecfafffbcaa5ab433f25cec7fbd72" kind="function"><name>get_tile_hw</name></member>
+    <member refid="dataflow__api_8h_1a84cc2ffdf430e95ad915cca719f5fa2a" kind="function"><name>get_tile_num_faces</name></member>
     <member refid="dataflow__api_8h_1ae214b6c2f978e745f9c24d397dad906d" kind="function"><name>get_dataformat</name></member>
+    <member refid="dataflow__api_8h_1a593e43aff0c85e4b3f86d13f1d7350dd" kind="function"><name>get_write_ptr</name></member>
+    <member refid="dataflow__api_8h_1a66a31715a14cea1a63cbdca8c99b0827" kind="function"><name>get_read_ptr</name></member>
     <member refid="dataflow__api_8h_1af2384f3c7d9784e3e662093136cbed25" kind="function"><name>wait_for_sync_register_value</name></member>
+    <member refid="dataflow__api_8h_1aa465b4c6c7d0c83c7d27823ef3f97199" kind="function"><name>cb_pages_reservable_at_back</name></member>
     <member refid="dataflow__api_8h_1a29521dee07b0070674a988f66c01ffed" kind="function"><name>cb_reserve_back</name></member>
+    <member refid="dataflow__api_8h_1a579e354d124dd292ebf624551fb6f6cf" kind="function"><name>cb_pages_available_at_front</name></member>
     <member refid="dataflow__api_8h_1af6d8057bd05a650c3501c5208f7d9f8a" kind="function"><name>cb_wait_front</name></member>
-    <member refid="dataflow__api_8h_1ae4374fb8ab97c23045cf3f9dd8e1615f" kind="function"><name>get_noc_multicast_addr</name></member>
-    <member refid="dataflow__api_8h_1a6080fdaa08b51535164a0b439599c2b2" kind="function"><name>get_noc_addr</name></member>
+    <member refid="dataflow__api_8h_1af404b93ad6dbb9393b882bbf936a75d9" kind="function"><name>get_noc_multicast_addr</name></member>
+    <member refid="dataflow__api_8h_1aeec74feed8e1fce53c5561c28021eb63" kind="function"><name>get_noc_addr</name></member>
     <member refid="dataflow__api_8h_1aa850145f50aafa428c0d257cfed4fb8c" kind="function"><name>get_noc_addr_helper</name></member>
-    <member refid="dataflow__api_8h_1aba0d056dcf68dc0d8745c6eb6d6b36ef" kind="function"><name>get_dram_noc_addr</name></member>
-    <member refid="dataflow__api_8h_1aefcec950f39f40599c5c01a66d1055e1" kind="function"><name>get_l1_noc_addr</name></member>
-    <member refid="dataflow__api_8h_1a6cea6159b23fc89dcfb5daa668439d1c" kind="function"><name>get_system_memory_noc_addr</name></member>
-    <member refid="dataflow__api_8h_1ab2336f9ac51bfd90b0393665f608785f" kind="function"><name>get_noc_addr</name></member>
-    <member refid="dataflow__api_8h_1ab97e89d297b36a2143d7f57011dd7ec5" kind="function"><name>noc_async_read</name></member>
-    <member refid="dataflow__api_8h_1ad2263fe3188c0629cc6c40c30ad8dc27" kind="function"><name>noc_async_read_one_packet</name></member>
-    <member refid="dataflow__api_8h_1aa5dd39896c00012bcafdbff681f456be" kind="function"><name>noc_async_read_one_packet_set_state</name></member>
-    <member refid="dataflow__api_8h_1abf12fff178e5ec0115fcd9c503835bfe" kind="function"><name>noc_async_read_one_packet_with_state</name></member>
-    <member refid="dataflow__api_8h_1abc73bc75c5461bec168e308cc4dac463" kind="function"><name>noc_async_read_set_state</name></member>
-    <member refid="dataflow__api_8h_1a5f0190364ed02bd2ebd4ad9dcaf66606" kind="function"><name>noc_async_read_with_state</name></member>
-    <member refid="dataflow__api_8h_1a4258a390cad1838db7970453230d3f20" kind="function"><name>noc_async_read_inc_num_issued</name></member>
-    <member refid="dataflow__api_8h_1ace2e10391566bc043956841d26c2b96a" kind="function"><name>noc_async_write_one_packet</name></member>
-    <member refid="dataflow__api_8h_1a243f72eb0de9e7694030ecabbdd55441" kind="function"><name>noc_async_write_multicast_one_packet</name></member>
-    <member refid="dataflow__api_8h_1a5e5d48b77f56a10bf3edba5d5907ea25" kind="function"><name>noc_async_write_one_packet_set_state</name></member>
-    <member refid="dataflow__api_8h_1a99bf42adaae3e6926445b84e7c30e20e" kind="function"><name>noc_async_write_one_packet_with_state</name></member>
-    <member refid="dataflow__api_8h_1aacf5989f91beb6b0ab26d115ac12fe6f" kind="function"><name>get_noc_addr</name></member>
-    <member refid="dataflow__api_8h_1a1ca192ad50dc46eabb2688cf1e0f0575" kind="function"><name>get_noc_addr</name></member>
-    <member refid="dataflow__api_8h_1aee5ebbce5f15ef2a4999f983a7d13fe0" kind="function"><name>get_noc_addr</name></member>
-    <member refid="dataflow__api_8h_1aa628194296041838dd0512194f78cb4b" kind="function"><name>noc_async_read_page</name></member>
-    <member refid="dataflow__api_8h_1ab74a8d9d97b2e7d1c15454db2c7d7431" kind="function"><name>noc_async_read_tile</name></member>
-    <member refid="dataflow__api_8h_1ae5353d488f5a68e6eb89fae5ea1be951" kind="function"><name>noc_async_write</name></member>
-    <member refid="dataflow__api_8h_1afa1c9f72ce143d24b995167a49eff5e4" kind="function"><name>noc_async_write_tile</name></member>
-    <member refid="dataflow__api_8h_1ade59434c56510191b5e64e8bb024b4c6" kind="function"><name>get_semaphore</name></member>
-    <member refid="dataflow__api_8h_1a3abbaf66b17c8ab4eb6c4576ef775e0b" kind="function"><name>eth_get_semaphore</name></member>
-    <member refid="dataflow__api_8h_1aff57d6bb75c161882cd3751a3f4a67ba" kind="function"><name>noc_semaphore_set_remote</name></member>
-    <member refid="dataflow__api_8h_1aebb548dd7fb5654248c32b147531c8d2" kind="function"><name>noc_async_write_multicast</name></member>
-    <member refid="dataflow__api_8h_1af1debd77eb9592540a899290fb2a1709" kind="function"><name>noc_semaphore_set_multicast</name></member>
-    <member refid="dataflow__api_8h_1ab629fc4e0e17a8ed09e5a6b264927b18" kind="function"><name>noc_semaphore_set_multicast_loopback_src</name></member>
-    <member refid="dataflow__api_8h_1a4ac57ae59ef98d40b2081b80e5636d20" kind="function"><name>noc_async_write_multicast_loopback_src</name></member>
-    <member refid="dataflow__api_8h_1a8da61f7d36de3d865b04acf3656c7950" kind="function"><name>noc_async_read_barrier</name></member>
-    <member refid="dataflow__api_8h_1a8a1af3e9115ddcd9d2e4b0c8b4a4b680" kind="function"><name>noc_async_write_barrier</name></member>
-    <member refid="dataflow__api_8h_1a82c38db0fda2eaafccd0aac9635f0dc1" kind="function"><name>noc_async_writes_flushed</name></member>
-    <member refid="dataflow__api_8h_1a22e07009373e4c4c04a0af18ca73cfd7" kind="function"><name>noc_async_atomic_barrier</name></member>
+    <member refid="dataflow__api_8h_1ae8e59d5056ed48344b94e314fa8bd92c" kind="function"><name>get_noc_exclude_region</name></member>
+    <member refid="dataflow__api_8h_1ae6cc2abf3ea7ef206891ca06b1174122" kind="function"><name>get_dram_noc_addr</name></member>
+    <member refid="dataflow__api_8h_1a31a2b40a6884c495ec14250c528a4dd7" kind="function"><name>get_l1_noc_addr</name></member>
+    <member refid="dataflow__api_8h_1abe9291a1484765db08b61bb0be52135c" kind="function"><name>get_system_memory_noc_addr</name></member>
+    <member refid="dataflow__api_8h_1a9e17f34cbfaaf63b2479e4f755aaa12c" kind="function"><name>get_noc_addr</name></member>
+    <member refid="dataflow__api_8h_1a0fa390aaa2b1facb57041e9a2c48cfbf" kind="function"><name>noc_async_read</name></member>
+    <member refid="dataflow__api_8h_1a8aef5fd38ffe71fe3ec4a453aa39053b" kind="function"><name>noc_async_read_one_packet</name></member>
+    <member refid="dataflow__api_8h_1a3070e5dc8b9ed311b89d154643c4f8fd" kind="function"><name>noc_async_read_one_packet_set_state</name></member>
+    <member refid="dataflow__api_8h_1a4031bdbfa690ceee630ad17f8ca99fdb" kind="function"><name>noc_async_read_one_packet_with_state</name></member>
+    <member refid="dataflow__api_8h_1a60d8bc61e237ad566538149901b548ad" kind="function"><name>noc_async_read_set_state</name></member>
+    <member refid="dataflow__api_8h_1aa006454ec0ae734836c80ecc0a4cfe18" kind="function"><name>noc_async_read_with_state</name></member>
+    <member refid="dataflow__api_8h_1a8894085f35db86f5dd1b884d5168c166" kind="function"><name>noc_async_read_inc_num_issued</name></member>
+    <member refid="dataflow__api_8h_1a0fff80388ddc749f68da0a8e72320a89" kind="function"><name>noc_async_write_one_packet</name></member>
+    <member refid="dataflow__api_8h_1ae99484885c567e016e23899f0408bd57" kind="function"><name>noc_async_write_multicast_one_packet</name></member>
+    <member refid="dataflow__api_8h_1a107fbfba5c58e08da38918af048c8bc7" kind="function"><name>noc_async_write_one_packet_set_state</name></member>
+    <member refid="dataflow__api_8h_1a47736387eba0f8f4d5523a504508636d" kind="function"><name>noc_async_write_one_packet_with_state</name></member>
+    <member refid="dataflow__api_8h_1ac41af911427b28e8d8e87869679f27c4" kind="function"><name>get_noc_addr</name></member>
+    <member refid="dataflow__api_8h_1ae6c97b5ef900963ae9c3a5d87a7ef1ff" kind="function"><name>get_noc_addr</name></member>
+    <member refid="dataflow__api_8h_1a6c2101cd8c2aec4bec53247d732a956c" kind="function"><name>get_noc_addr</name></member>
+    <member refid="dataflow__api_8h_1a3a4948036d7191e294716b03d68b9d8a" kind="function"><name>noc_async_read_page</name></member>
+    <member refid="dataflow__api_8h_1a94f6b951ebf9742b2bea80741ff47d27" kind="function"><name>noc_async_read_tile</name></member>
+    <member refid="dataflow__api_8h_1a188eeb8f8c1f14b173ebe8c406133600" kind="function"><name>noc_async_write</name></member>
+    <member refid="dataflow__api_8h_1a4f6b5afaf9a9f9f4d9692dcd59fc62a0" kind="function"><name>noc_async_write_tile</name></member>
+    <member refid="dataflow__api_8h_1aad24ffd7fc05b797ce38e6072c2f0eab" kind="function"><name>get_semaphore</name></member>
+    <member refid="dataflow__api_8h_1aa85bbb469e6f0aaeabed92f4aeb6fc71" kind="function"><name>noc_semaphore_set_remote</name></member>
+    <member refid="dataflow__api_8h_1ab5abf4783385b9983021c773f47e3874" kind="function"><name>noc_async_write_multicast</name></member>
+    <member refid="dataflow__api_8h_1a125909749e0596744b6b27c288d566ce" kind="function"><name>noc_semaphore_set_multicast</name></member>
+    <member refid="dataflow__api_8h_1ac0375e12b7323fe5f3e8c25a800b7882" kind="function"><name>noc_semaphore_set_multicast_loopback_src</name></member>
+    <member refid="dataflow__api_8h_1a378aa2e8c1468ef8ef71ad74c70315a9" kind="function"><name>noc_async_write_multicast_loopback_src</name></member>
+    <member refid="dataflow__api_8h_1a2326e9e29ea607bc865e50b614f197dd" kind="function"><name>noc_async_read_barrier</name></member>
+    <member refid="dataflow__api_8h_1a57f29294fed4616943f1592452706467" kind="function"><name>noc_async_write_barrier</name></member>
+    <member refid="dataflow__api_8h_1a7075995d85a7119a04ad734bd34a4bf5" kind="function"><name>noc_async_writes_flushed</name></member>
+    <member refid="dataflow__api_8h_1a13a74d46d62931d19a406414db103c4b" kind="function"><name>noc_async_atomic_barrier</name></member>
     <member refid="dataflow__api_8h_1a4f714cc4a08a2eaac5e3f7fae9d1383a" kind="function"><name>noc_semaphore_wait</name></member>
     <member refid="dataflow__api_8h_1a84a965a61b65152c42835f35dca007af" kind="function"><name>noc_semaphore_wait_min</name></member>
     <member refid="dataflow__api_8h_1af02a9af640679b00da874318535aa397" kind="function"><name>noc_semaphore_set</name></member>
-    <member refid="dataflow__api_8h_1a1f11981622b01c9e42d44a939ec30be1" kind="function"><name>noc_inline_dw_write</name></member>
-    <member refid="dataflow__api_8h_1a4eda1737bf554c8bfe4bc603f4d41a43" kind="function"><name>noc_semaphore_inc</name></member>
+    <member refid="dataflow__api_8h_1ab5f779ea1675acf61c46613048ce96e1" kind="function"><name>noc_inline_dw_write</name></member>
+    <member refid="dataflow__api_8h_1a962d804ce21d1d26ccb4241e2eb6ac9f" kind="function"><name>noc_semaphore_inc</name></member>
     <member refid="dataflow__api_8h_1a9e9618b5b64ed1ae0d0a747ac0f10745" kind="function"><name>RISC_POST_HEARTBEAT</name></member>
     <member refid="dataflow__api_8h_1a29bd290aaee1b41529717b029dc14952" kind="function"><name>min</name></member>
-    <member refid="dataflow__api_8h_1a901d9922d4a71afe3e51189d4f414b04" kind="function"><name>noc_async_sharded_read_write_helper</name></member>
-    <member refid="dataflow__api_8h_1a0de16ed70bc7231b31eb861b6d0a6842" kind="function"><name>noc_async_read_tile_dram_sharded_set_state</name></member>
-    <member refid="dataflow__api_8h_1a907a8339412ff90e99743a4ca71af910" kind="function"><name>noc_async_read_tile_dram_sharded_with_state</name></member>
-    <member refid="dataflow__api_8h_1ae92c034dfaaa6b841194aab8e7d5ec42" kind="function"><name>noc_async_read_tile_dram_sharded_with_state_with_trid</name></member>
-    <member refid="dataflow__api_8h_1a799ce34e86a34e05f3dd8f30cf958378" kind="function"><name>noc_async_read_tile_dram_sharded_set_trid</name></member>
-    <member refid="dataflow__api_8h_1a5515ebbed8b273697e2f44894cf3be28" kind="function"><name>noc_async_read_barrier_with_trid</name></member>
+    <member refid="dataflow__api_8h_1a009e28764f70f39d1a2ccaaba8681973" kind="function"><name>noc_async_read_tile_dram_sharded_set_state</name></member>
+    <member refid="dataflow__api_8h_1a61cf808450c0213bcdc180a038aac523" kind="function"><name>noc_async_read_tile_dram_sharded_with_state</name></member>
+    <member refid="dataflow__api_8h_1a10ff412712df6c4f9f4e557ace59c1ec" kind="function"><name>noc_async_read_tile_dram_sharded_with_state_with_trid</name></member>
+    <member refid="dataflow__api_8h_1a905d1234815d8abd8aa72460d34386ed" kind="function"><name>noc_async_read_tile_dram_sharded_set_trid</name></member>
+    <member refid="dataflow__api_8h_1a98abddb8e88027a5299d2124b3953d19" kind="function"><name>noc_async_read_barrier_with_trid</name></member>
   </compound>
   <compound refid="ethernet_2dataflow__api_8h" kind="file"><name>dataflow_api.h</name>
     <member refid="ethernet_2dataflow__api_8h_1a9d454f81bcb8875f528a900fa9326bc6" kind="function"><name>eth_txq_is_busy</name></member>
-    <member refid="ethernet_2dataflow__api_8h_1a6329560698216d90086e2aa33b9ca1b3" kind="function"><name>eth_noc_semaphore_wait</name></member>
-    <member refid="ethernet_2dataflow__api_8h_1a898d637ad953ac08a4e5d2fe8b077049" kind="function"><name>eth_noc_semaphore_wait_min</name></member>
+    <member refid="ethernet_2dataflow__api_8h_1a651e015fbc27db86a39aeab1eea57958" kind="function"><name>wait_for_eth_txq_cmd_space</name></member>
+    <member refid="ethernet_2dataflow__api_8h_1afe0921cad600041ff9a1eff295697d3b" kind="function"><name>eth_noc_semaphore_wait</name></member>
+    <member refid="ethernet_2dataflow__api_8h_1a743b107f28868db5a3af175957fd2fa2" kind="function"><name>eth_noc_semaphore_wait_min</name></member>
     <member refid="ethernet_2dataflow__api_8h_1ae23f90aed9456576bb85b298a1ce877b" kind="function"><name>eth_noc_async_read_barrier</name></member>
     <member refid="ethernet_2dataflow__api_8h_1a9d47f0940202285a7f23982692e20f59" kind="function"><name>eth_noc_async_write_barrier</name></member>
     <member refid="ethernet_2dataflow__api_8h_1a5b57f8d14c6a15d3680d7284582a786c" kind="function"><name>eth_send_bytes</name></member>
-    <member refid="ethernet_2dataflow__api_8h_1a49af0f0508c67af19ceaadd83bc51eba" kind="function"><name>eth_send_bytes_over_channel_payload_only</name></member>
+    <member refid="ethernet_2dataflow__api_8h_1a5cb3e75736223670aaf5dcbc23d91471" kind="function"><name>eth_send_bytes_over_channel_payload_only</name></member>
+    <member refid="ethernet_2dataflow__api_8h_1a912b2c36c968ad797b313fa3468666f9" kind="function"><name>eth_send_bytes_over_channel_payload_only_unsafe</name></member>
     <member refid="ethernet_2dataflow__api_8h_1a781562a3dd147fc9d9430ce037a1e3da" kind="function"><name>eth_send_payload_complete_signal_over_channel</name></member>
     <member refid="ethernet_2dataflow__api_8h_1af8a3f69ac60c29d201771f16f6498cda" kind="function"><name>eth_send_bytes_over_channel</name></member>
     <member refid="ethernet_2dataflow__api_8h_1aae485db00b351232851e5e43f5cbd0f8" kind="function"><name>eth_write_remote_reg</name></member>
-    <member refid="ethernet_2dataflow__api_8h_1ad653825a0450903f666f7f2827a55b7c" kind="function"><name>eth_wait_for_receiver_done</name></member>
+    <member refid="ethernet_2dataflow__api_8h_1a48d73eaaa1ed9d986a96a7bef2c9531f" kind="function"><name>eth_wait_for_receiver_done</name></member>
     <member refid="ethernet_2dataflow__api_8h_1a02966d06f690ca2d85533b5e6ce80809" kind="function"><name>eth_is_receiver_channel_send_acked</name></member>
     <member refid="ethernet_2dataflow__api_8h_1a1a37dd512972c4e57bbe6e0b198a3941" kind="function"><name>eth_is_receiver_channel_send_done</name></member>
     <member refid="ethernet_2dataflow__api_8h_1a3ff986b2dd8f65e01aca7867bb166e96" kind="function"><name>eth_wait_for_receiver_channel_done</name></member>
-    <member refid="ethernet_2dataflow__api_8h_1a7be541a245801ba647612940108db385" kind="function"><name>eth_send_done</name></member>
-    <member refid="ethernet_2dataflow__api_8h_1aa8e1a78afaa929435707fca21e2a25b4" kind="function"><name>eth_wait_receiver_done</name></member>
-    <member refid="ethernet_2dataflow__api_8h_1a1764bd208e8445bc7e47032ec99c3616" kind="function"><name>eth_wait_for_bytes</name></member>
+    <member refid="ethernet_2dataflow__api_8h_1a18b56aac8ce0c479e1e5e1009908f7a2" kind="function"><name>eth_wait_receiver_done</name></member>
+    <member refid="ethernet_2dataflow__api_8h_1a5544279ed9fdd9fe6ce2f4d2315e0072" kind="function"><name>eth_wait_for_bytes</name></member>
     <member refid="ethernet_2dataflow__api_8h_1af738caa9901266b6b58f0fa0b5ee779f" kind="function"><name>eth_bytes_are_available_on_channel</name></member>
-    <member refid="ethernet_2dataflow__api_8h_1a43ad9b216541d5f830ce5297a8873b68" kind="function"><name>eth_wait_for_bytes_on_channel</name></member>
+    <member refid="ethernet_2dataflow__api_8h_1adedc3100f41c4d1fca3f2ef234985bda" kind="function"><name>eth_wait_for_bytes_on_channel_sync_addr</name></member>
+    <member refid="ethernet_2dataflow__api_8h_1aa0026b0696cbbada2f46119c30c850af" kind="function"><name>eth_wait_for_bytes_on_channel</name></member>
     <member refid="ethernet_2dataflow__api_8h_1af27bb42b34afb388a0994da0f2b73c54" kind="function"><name>eth_receiver_done</name></member>
+    <member refid="ethernet_2dataflow__api_8h_1ae1583ac42a8f9f11794a096506d954a6" kind="function"><name>send_eth_receiver_channel_done</name></member>
     <member refid="ethernet_2dataflow__api_8h_1acd35fe4c1c09f60fc53d21a4bccbb71e" kind="function"><name>eth_receiver_channel_done</name></member>
     <member refid="ethernet_2dataflow__api_8h_1a32a1ef34f66d78ba3934c321595ff40d" kind="function"><name>eth_clear_sender_channel_ack</name></member>
     <member refid="ethernet_2dataflow__api_8h_1a4ff4de9ce3be69c64f017b1b1facc090" kind="function"><name>eth_receiver_channel_ack</name></member>
     <member refid="ethernet_2dataflow__api_8h_1a5d550f7bf6d486b386ddea8c81ad0a82" kind="function"><name>eth_receiver_acknowledge</name></member>
     <member refid="ethernet_2dataflow__api_8h_1a4f1763214451d751d920191f201b2e1f" kind="function"><name>eth_wait_receiver_acknowledge</name></member>
-    <member refid="ethernet_2dataflow__api_8h_1ab36fed1b5267fe75971b6f9e319e373b" kind="function"><name>eth_wait_for_remote_receiver_done_and_get_local_receiver_data</name></member>
   </compound>
   <compound refid="compute__kernel__api_8h" kind="file"><name>compute_kernel_api.h</name>
     <member refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kind="define"><name>ALWI</name></member>
@@ -462,6 +666,8 @@
   </compound>
   <compound refid="pack_8h" kind="file"><name>pack.h</name>
   </compound>
+  <compound refid="reconfig__data__format_8h" kind="file"><name>reconfig_data_format.h</name>
+  </compound>
   <compound refid="reduce_8h" kind="file"><name>reduce.h</name>
   </compound>
   <compound refid="reg__api_8h" kind="file"><name>reg_api.h</name>
@@ -472,9 +678,27 @@
   </compound>
   <compound refid="transpose__wh_8h" kind="file"><name>transpose_wh.h</name>
   </compound>
-  <compound refid="unpack_8h" kind="file"><name>unpack.h</name>
-  </compound>
   <compound refid="untilize_8h" kind="file"><name>untilize.h</name>
+  </compound>
+  <compound refid="buffer_8hpp" kind="file"><name>buffer.hpp</name>
+  </compound>
+  <compound refid="command__queue_8hpp" kind="file"><name>command_queue.hpp</name>
+  </compound>
+  <compound refid="device_8hpp" kind="file"><name>device.hpp</name>
+  </compound>
+  <compound refid="event_8hpp" kind="file"><name>event.hpp</name>
+  </compound>
+  <compound refid="kernel_8hpp" kind="file"><name>kernel.hpp</name>
+  </compound>
+  <compound refid="metal_8hpp" kind="file"><name>metal.hpp</name>
+  </compound>
+  <compound refid="program_8hpp" kind="file"><name>program.hpp</name>
+  </compound>
+  <compound refid="trace_8hpp" kind="file"><name>trace.hpp</name>
+  </compound>
+  <compound refid="types_8hpp" kind="file"><name>types.hpp</name>
+  </compound>
+  <compound refid="deprecated" kind="page"><name>deprecated</name>
   </compound>
   <compound refid="dir_ce68d5dba897e606286ed64c54ac5b3b" kind="dir"><name>tt_metal/include/compute_kernel_api</name>
   </compound>
@@ -489,6 +713,8 @@
   <compound refid="dir_e7a35ecba5059d8a35f7cb283c4bd7d8" kind="dir"><name>tt_metal/include</name>
   </compound>
   <compound refid="dir_4fb3d687a4ff02ddb63514ccf23d36f6" kind="dir"><name>tt_metal</name>
+  </compound>
+  <compound refid="dir_10572b433422127021670a1e9a9ce32c" kind="dir"><name>tt_metal/include/tt_metal</name>
   </compound>
   <compound refid="indexpage" kind="page"><name>index</name>
   </compound>

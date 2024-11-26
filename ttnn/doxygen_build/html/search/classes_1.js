@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['interleavedaddrgen_0',['InterleavedAddrGen',['../structInterleavedAddrGen.html',1,'']]],
-  ['interleavedaddrgenfast_1',['InterleavedAddrGenFast',['../structInterleavedAddrGenFast.html',1,'']]],
-  ['interleavedpow2addrgen_2',['InterleavedPow2AddrGen',['../structInterleavedPow2AddrGen.html',1,'']]],
-  ['interleavedpow2addrgenfast_3',['InterleavedPow2AddrGenFast',['../structInterleavedPow2AddrGenFast.html',1,'']]]
+  ['circularbufferhandle_0',['CircularBufferHandle',['../classtt_1_1tt__metal_1_1v1_1_1CircularBufferHandle.html',1,'tt::tt_metal::v1']]],
+  ['commandqueuehandle_1',['CommandQueueHandle',['../classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle.html',1,'tt::tt_metal::v1']]],
+  ['createdeviceoptions_2',['CreateDeviceOptions',['../structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions.html',1,'tt::tt_metal::v1']]]
 ];

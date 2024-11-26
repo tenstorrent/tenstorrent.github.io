@@ -1,17 +1,19 @@
 var searchData=
 [
-  ['noc_5fasync_5fatomic_5fbarrier_0',['noc_async_atomic_barrier',['../dataflow__api_8h.html#a22e07009373e4c4c04a0af18ca73cfd7',1,'dataflow_api.h']]],
-  ['noc_5fasync_5fread_1',['noc_async_read',['../dataflow__api_8h.html#ab97e89d297b36a2143d7f57011dd7ec5',1,'dataflow_api.h']]],
-  ['noc_5fasync_5fread_5fbarrier_2',['noc_async_read_barrier',['../dataflow__api_8h.html#a8da61f7d36de3d865b04acf3656c7950',1,'dataflow_api.h']]],
-  ['noc_5fasync_5fwrite_3',['noc_async_write',['../dataflow__api_8h.html#ae5353d488f5a68e6eb89fae5ea1be951',1,'dataflow_api.h']]],
-  ['noc_5fasync_5fwrite_5fbarrier_4',['noc_async_write_barrier',['../dataflow__api_8h.html#a8a1af3e9115ddcd9d2e4b0c8b4a4b680',1,'dataflow_api.h']]],
-  ['noc_5fasync_5fwrite_5fmulticast_5',['noc_async_write_multicast',['../dataflow__api_8h.html#aebb548dd7fb5654248c32b147531c8d2',1,'dataflow_api.h']]],
-  ['noc_5fasync_5fwrites_5fflushed_6',['noc_async_writes_flushed',['../dataflow__api_8h.html#a82c38db0fda2eaafccd0aac9635f0dc1',1,'dataflow_api.h']]],
-  ['noc_5finline_5fdw_5fwrite_7',['noc_inline_dw_write',['../dataflow__api_8h.html#a1f11981622b01c9e42d44a939ec30be1',1,'dataflow_api.h']]],
-  ['noc_5fsemaphore_5finc_8',['noc_semaphore_inc',['../dataflow__api_8h.html#a4eda1737bf554c8bfe4bc603f4d41a43',1,'dataflow_api.h']]],
-  ['noc_5fsemaphore_5fset_9',['noc_semaphore_set',['../dataflow__api_8h.html#af02a9af640679b00da874318535aa397',1,'dataflow_api.h']]],
-  ['noc_5fsemaphore_5fset_5fmulticast_10',['noc_semaphore_set_multicast',['../dataflow__api_8h.html#af1debd77eb9592540a899290fb2a1709',1,'dataflow_api.h']]],
-  ['noc_5fsemaphore_5fset_5fmulticast_5floopback_5fsrc_11',['noc_semaphore_set_multicast_loopback_src',['../dataflow__api_8h.html#ab629fc4e0e17a8ed09e5a6b264927b18',1,'dataflow_api.h']]],
-  ['noc_5fsemaphore_5fwait_12',['noc_semaphore_wait',['../dataflow__api_8h.html#a4f714cc4a08a2eaac5e3f7fae9d1383a',1,'dataflow_api.h']]],
-  ['noc_5fsemaphore_5fwait_5fmin_13',['noc_semaphore_wait_min',['../dataflow__api_8h.html#a84a965a61b65152c42835f35dca007af',1,'dataflow_api.h']]]
+  ['l1_5fbank_5fremap_0',['l1_bank_remap',['../structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions.html#ae51eaece3f174b6cd9847f6e5230b44c',1,'tt::tt_metal::v1::CreateDeviceOptions']]],
+  ['l1_5fsmall_5fsize_1',['l1_small_size',['../structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions.html#a92a4d40077ada8708a9d992f577fdd34',1,'tt::tt_metal::v1::CreateDeviceOptions']]],
+  ['leaky_5frelu_5ftile_2',['leaky_relu_tile',['../namespaceckernel.html#a8f979e18403c78aab904f362ec748f7e',1,'ckernel']]],
+  ['leaky_5frelu_5ftile_5finit_3',['leaky_relu_tile_init',['../namespaceckernel.html#ac696b79d37bcb5188163ffb166566ca6',1,'ckernel']]],
+  ['lez_5ftile_4',['lez_tile',['../namespaceckernel.html#a1817972ea6391813a8948bfad83ab981',1,'ckernel']]],
+  ['lez_5ftile_5finit_5',['lez_tile_init',['../namespaceckernel.html#a5ce91ef9087a7c7216fbe8032dafa49e',1,'ckernel']]],
+  ['log_5fbase_5f2_5fof_5fpage_5fsize_6',['log_base_2_of_page_size',['../structInterleavedPow2AddrGenFast.html#ad7ca2d8d5c158d35f460261f5dc09054',1,'InterleavedPow2AddrGenFast::log_base_2_of_page_size()'],['../structInterleavedPow2AddrGen.html#a1bdda07b2df9e236c3b18683de154d96',1,'InterleavedPow2AddrGen::log_base_2_of_page_size()']]],
+  ['log_5ftile_7',['log_tile',['../namespaceckernel.html#a39e0a5fd307d540f06493088cf39a4f0',1,'ckernel']]],
+  ['log_5ftile_5finit_8',['log_tile_init',['../namespaceckernel.html#a9b586e3fde261f186ba8f0e2053a99b1',1,'ckernel']]],
+  ['log_5fwith_5fbase_5ftile_9',['log_with_base_tile',['../namespaceckernel.html#a3275407181325047284ab43e349a63b2',1,'ckernel']]],
+  ['log_5fwith_5fbase_5ftile_5finit_10',['log_with_base_tile_init',['../namespaceckernel.html#a1c75f0f070bb3d196be28db50ec60bcd',1,'ckernel']]],
+  ['logical_5fnot_5fnoti_2eh_11',['logical_not_noti.h',['../logical__not__noti_8h.html',1,'']]],
+  ['logical_5fnot_5funary_5ftile_12',['logical_not_unary_tile',['../namespaceckernel.html#a8eb2237676286e9427ec296e6cc5ab26',1,'ckernel']]],
+  ['logical_5fnot_5funary_5ftile_5finit_13',['logical_not_unary_tile_init',['../namespaceckernel.html#aea8c76b173d12fc2c8d4b6a69268fd90',1,'ckernel']]],
+  ['ltz_5ftile_14',['ltz_tile',['../namespaceckernel.html#ae87b691c6559e7b1435d83403abc4301',1,'ckernel']]],
+  ['ltz_5ftile_5finit_15',['ltz_tile_init',['../namespaceckernel.html#aa89f5e45a5227a1378526b21be12d62e',1,'ckernel']]]
 ];

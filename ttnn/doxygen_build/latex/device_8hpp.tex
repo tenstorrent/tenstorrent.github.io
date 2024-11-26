@@ -1,0 +1,75 @@
+\hypertarget{device_8hpp}{}\doxysection{tt\+\_\+metal/include/tt\+\_\+metal/device.hpp File Reference}
+\label{device_8hpp}\index{tt\_metal/include/tt\_metal/device.hpp@{tt\_metal/include/tt\_metal/device.hpp}}
+{\ttfamily \#include $<$cstddef$>$}\newline
+{\ttfamily \#include \char`\"{}tt\+\_\+metal/impl/buffers/buffer\+\_\+constants.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tt\+\_\+metal/impl/dispatch/work\+\_\+executor.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tt\+\_\+metal/types.\+hpp\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions}{tt\+::tt\+\_\+metal\+::v1\+::\+Create\+Device\+Options}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacett}{tt}}
+\item 
+namespace \mbox{\hyperlink{namespacett_1_1tt__metal}{tt\+::tt\+\_\+metal}}
+\item 
+namespace \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1}{tt\+::tt\+\_\+metal\+::v1}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::size\+\_\+t \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_ad490d6283121ce887c6209a0ca28265d}{tt\+::tt\+\_\+metal\+::v1\+::\+Get\+Num\+Available\+Devices}} ()
+\begin{DoxyCompactList}\small\item\em Returns the number of Tenstorrent devices that can be targeted. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aea09ea2671460caa9fa47b65c8490ec9}{tt\+::tt\+\_\+metal\+::v1\+::\+Get\+Num\+PCIe\+Devices}} ()
+\begin{DoxyCompactList}\small\item\em Returns the number of Tenstorrent devices connected via PCIe. \end{DoxyCompactList}\item 
+chip\+\_\+id\+\_\+t \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a05ecee1b9528084c6e7d4c3cf371f047}{tt\+::tt\+\_\+metal\+::v1\+::\+Get\+PCIe\+Device\+ID}} (chip\+\_\+id\+\_\+t device\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Retrieves the PCIe device ID for a given device ID. \end{DoxyCompactList}\item 
+Device\+Handle \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a4cd4414bf13ee2acb9b2c6b8c546ee6e}{tt\+::tt\+\_\+metal\+::v1\+::\+Create\+Device}} (chip\+\_\+id\+\_\+t device\+\_\+id, Create\+Device\+Options options=\{\})
+\begin{DoxyCompactList}\small\item\em Instantiates a Device object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a2631b7757fe06ad7c10b8ba599b1e074}{tt\+::tt\+\_\+metal\+::v1\+::\+Close\+Device}} (Device\+Handle device)
+\begin{DoxyCompactList}\small\item\em Resets and closes the device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a7d62fcb4cb9f38f4bb66ac7ec545dd1d}{tt\+::tt\+\_\+metal\+::v1\+::\+Deallocate\+Buffers}} (Device\+Handle device)
+\begin{DoxyCompactList}\small\item\em Deallocates all buffers on the device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a6af2edef85ff9e04ef2a45eda2148f16}{tt\+::tt\+\_\+metal\+::v1\+::\+Dump\+Device\+Profile\+Results}} (Device\+Handle device, const Core\+Range\+Set \&worker\+\_\+cores, bool last\+\_\+dump=false)
+\begin{DoxyCompactList}\small\item\em Dumps device-\/side profiler data to a CSV log. \end{DoxyCompactList}\item 
+ARCH \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_acd0244ed7bf2507b8299a555c2bbe3a0}{tt\+::tt\+\_\+metal\+::v1\+::\+Get\+Arch}} (Device\+Handle device)
+\begin{DoxyCompactList}\small\item\em Retrieves the architecture of the device. \end{DoxyCompactList}\item 
+chip\+\_\+id\+\_\+t \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aecef2596d64d30b530d2013d69ee31c3}{tt\+::tt\+\_\+metal\+::v1\+::\+Get\+Id}} (Device\+Handle device)
+\begin{DoxyCompactList}\small\item\em Retrieves the ID of the device. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a6f8191bd3eecb0dde06682e0beee93e2}{tt\+::tt\+\_\+metal\+::v1\+::\+Get\+Num\+Dram\+Channels}} (Device\+Handle device)
+\begin{DoxyCompactList}\small\item\em Retrieves the number of DRAM channels on the device. \end{DoxyCompactList}\item 
+std\+::uint32\+\_\+t \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a868592eea2fb3cd50e4de99591b1812e}{tt\+::tt\+\_\+metal\+::v1\+::\+Get\+L1\+Size\+Per\+Core}} (Device\+Handle device)
+\begin{DoxyCompactList}\small\item\em Retrieves the available L1 size per worker core on the device. \end{DoxyCompactList}\item 
+Core\+Coord \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a60255a3c8d626d836533ba15f6531aa0}{tt\+::tt\+\_\+metal\+::v1\+::\+Get\+Compute\+With\+Storage\+Grid\+Size}} (Device\+Handle device)
+\begin{DoxyCompactList}\small\item\em Computes the storage grid size for the device. \end{DoxyCompactList}\item 
+Core\+Coord \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a41433cff493160e71b15c5d51e8898a1}{tt\+::tt\+\_\+metal\+::v1\+::\+Get\+Dram\+Grid\+Size}} (Device\+Handle device)
+\begin{DoxyCompactList}\small\item\em Retrieves the DRAM grid size for the device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a987aad0700d6d5b2b80a48a2cb80bb6d}{tt\+::tt\+\_\+metal\+::v1\+::\+Enable\+Program\+Cache}} (Device\+Handle device)
+\begin{DoxyCompactList}\small\item\em Enables the program cache on the device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a52a74fef1f54b84399e622a704af37e5}{tt\+::tt\+\_\+metal\+::v1\+::\+Disable\+And\+Clear\+Program\+Cache}} (Device\+Handle device)
+\begin{DoxyCompactList}\small\item\em Disables and clears the program cache on the device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a0f9295aee290efd2c2330317353546c0}{tt\+::tt\+\_\+metal\+::v1\+::\+Push\+Work}} (Device\+Handle device, std\+::function$<$ void()$>$ work, bool blocking=false)
+\begin{DoxyCompactList}\small\item\em Pushes a work function onto the device\textquotesingle{}s work queue. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a944a8406570b0998bcc7f92c4e3a352f}{tt\+::tt\+\_\+metal\+::v1\+::\+Synchronize}} (Device\+Handle device)
+\begin{DoxyCompactList}\small\item\em Synchronizes operations on the given device. \end{DoxyCompactList}\item 
+std\+::vector$<$ Core\+Coord $>$ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_af5eb41116f1ba1dc14f8e74f11f47452}{tt\+::tt\+\_\+metal\+::v1\+::\+Get\+Ethernet\+Sockets}} (Device\+Handle device, chip\+\_\+id\+\_\+t connected\+\_\+chip\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Retrieves a list of Ethernet socket coordinates connected to a specific chip ID. \end{DoxyCompactList}\item 
+std\+::uint32\+\_\+t \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a8abc4ac0e93f258cec1908730e4a1622}{tt\+::tt\+\_\+metal\+::v1\+::\+Get\+Num\+Banks}} (Device\+Handle device, Buffer\+Type buffer\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Returns the number of banks for a specific buffer type on the device. \end{DoxyCompactList}\item 
+std\+::int32\+\_\+t \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a17d8dafe30fab56e5ff58b30e3e3629c}{tt\+::tt\+\_\+metal\+::v1\+::\+Get\+Bank\+Offset}} (Device\+Handle device, Buffer\+Type buffer\+\_\+type, std\+::uint32\+\_\+t bank\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Computes the offset of a specific bank for a buffer type on the device. \end{DoxyCompactList}\item 
+stl\+::\+Span$<$ const std\+::uint32\+\_\+t $>$ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aebcaa64de792f41f8f88d66192e93824}{tt\+::tt\+\_\+metal\+::v1\+::\+Bank\+Ids\+From\+Logical\+Core}} (Device\+Handle device, Buffer\+Type buffer\+\_\+type, Core\+Coord logical\+\_\+core)
+\begin{DoxyCompactList}\small\item\em Retrieves bank IDs associated with a logical core for a given buffer type. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_afcadd9379349203f6344281fec38c109}{tt\+::tt\+\_\+metal\+::v1\+::\+Get\+Sfpu\+Eps}} (Device\+Handle device)
+\begin{DoxyCompactList}\small\item\em Retrieves the machine epsilon for the SFPU on the device. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a9b48db93c5e56377e08242bc2ea406d5}{tt\+::tt\+\_\+metal\+::v1\+::\+Get\+Sfpu\+Nan}} (Device\+Handle device)
+\begin{DoxyCompactList}\small\item\em Retrieves the representation of NaN for the SFPU on the device. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a8527a71d31e9903b85c772747b68b192}{tt\+::tt\+\_\+metal\+::v1\+::\+Get\+Sfpu\+Inf}} (Device\+Handle device)
+\begin{DoxyCompactList}\small\item\em Retrieves the representation of infinity for the SFPU on the device. \end{DoxyCompactList}\item 
+Work\+Executor\+Mode \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a9cfd296d42fffa2b911d130116273cf0}{tt\+::tt\+\_\+metal\+::v1\+::\+Get\+Worker\+Mode}} (Device\+Handle device)
+\begin{DoxyCompactList}\small\item\em Retrieves the current worker mode of the device. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aff8fd1c289715aad386c6ee40eda1638}{tt\+::tt\+\_\+metal\+::v1\+::\+Get\+Num\+Program\+Cache\+Entries}} (Device\+Handle device)
+\begin{DoxyCompactList}\small\item\em Retrieves the number of entries in the program cache on the device. \end{DoxyCompactList}\end{DoxyCompactItemize}

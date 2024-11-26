@@ -65,7 +65,7 @@
   <option  id='TYPEDEF_HIDES_STRUCT' default='yes' type='bool'><value>NO</value></option>
   <option  id='LOOKUP_CACHE_SIZE' default='yes' type='int'><value>0</value></option>
   <option  id='NUM_PROC_THREADS' default='yes' type='int'><value>1</value></option>
-  <option  id='EXTRACT_ALL' default='yes' type='bool'><value>NO</value></option>
+  <option  id='EXTRACT_ALL' default='no' type='bool'><value>YES</value></option>
   <option  id='EXTRACT_PRIVATE' default='yes' type='bool'><value>NO</value></option>
   <option  id='EXTRACT_PRIV_VIRTUAL' default='yes' type='bool'><value>NO</value></option>
   <option  id='EXTRACT_PACKAGE' default='yes' type='bool'><value>NO</value></option>
@@ -140,15 +140,24 @@
     <value><![CDATA[tt_metal/include/compute_kernel_api/eltwise_binary.h]]></value>
     <value><![CDATA[tt_metal/include/compute_kernel_api/matmul.h]]></value>
     <value><![CDATA[tt_metal/include/compute_kernel_api/pack.h]]></value>
+    <value><![CDATA[tt_metal/include/compute_kernel_api/reconfig_data_format.h]]></value>
     <value><![CDATA[tt_metal/include/compute_kernel_api/reduce.h]]></value>
     <value><![CDATA[tt_metal/include/compute_kernel_api/reg_api.h]]></value>
     <value><![CDATA[tt_metal/include/compute_kernel_api/tile_move_copy.h]]></value>
     <value><![CDATA[tt_metal/include/compute_kernel_api/tilize.h]]></value>
     <value><![CDATA[tt_metal/include/compute_kernel_api/transpose_wh.h]]></value>
-    <value><![CDATA[tt_metal/include/compute_kernel_api/unpack.h]]></value>
     <value><![CDATA[tt_metal/include/compute_kernel_api/untilize.h]]></value>
     <value><![CDATA[tt_metal/include/compute_kernel_api.h]]></value>
     <value><![CDATA[tt_metal/impl/kernels/kernel_args.hpp]]></value>
+    <value><![CDATA[tt_metal/include/tt_metal/metal.hpp]]></value>
+    <value><![CDATA[tt_metal/include/tt_metal/types.hpp]]></value>
+    <value><![CDATA[tt_metal/include/tt_metal/buffer.hpp]]></value>
+    <value><![CDATA[tt_metal/include/tt_metal/command_queue.hpp]]></value>
+    <value><![CDATA[tt_metal/include/tt_metal/device.hpp]]></value>
+    <value><![CDATA[tt_metal/include/tt_metal/event.hpp]]></value>
+    <value><![CDATA[tt_metal/include/tt_metal/kernel.hpp]]></value>
+    <value><![CDATA[tt_metal/include/tt_metal/program.hpp]]></value>
+    <value><![CDATA[tt_metal/include/tt_metal/trace.hpp]]></value>
   </option>
   <option  id='INPUT_ENCODING' default='yes' type='string'><value><![CDATA[UTF-8]]></value></option>
   <option  id='INPUT_FILE_ENCODING' default='yes' type='stringlist'>

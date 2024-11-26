@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="event_8hpp" kind="file" language="C++">
+    <compoundname>event.hpp</compoundname>
+    <includes refid="types_8hpp" local="yes">types.hpp</includes>
+    <includedby refid="metal_8hpp" local="yes">tt_metal/include/tt_metal/metal.hpp</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>tt_metal/host_api.hpp</label>
+        <link refid="host__api_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>tt_metal/include/tt_metal/event.hpp</label>
+        <link refid="event_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>types.hpp</label>
+        <link refid="types_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>tt_metal/impl/device/device.hpp</label>
+      </node>
+      <node id="11">
+        <label>tt_metal/impl/device/device_handle.hpp</label>
+      </node>
+      <node id="6">
+        <label>tt_metal/impl/kernels/runtime_args_data.hpp</label>
+      </node>
+      <node id="7">
+        <label>tt_metal/impl/program/program.hpp</label>
+      </node>
+      <node id="9">
+        <label>tt_metal/impl/sub_device/sub_device_types.hpp</label>
+      </node>
+      <node id="10">
+        <label>tt_metal/tt_stl/span.hpp</label>
+      </node>
+      <node id="4">
+        <label>variant</label>
+      </node>
+      <node id="5">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>tt_metal/include/tt_metal/event.hpp</label>
+        <link refid="event_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>tt_metal/include/tt_metal/metal.hpp</label>
+        <link refid="metal_8hpp"/>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="namespacett">tt</innernamespace>
+    <innernamespace refid="namespacett_1_1tt__metal">tt::tt_metal</innernamespace>
+    <innernamespace refid="namespacett_1_1tt__metal_1_1v1">tt::tt_metal::v1</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>SPDX-FileCopyrightText:<sp/>©<sp/>2024<sp/>Tenstorrent<sp/>Inc.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>SPDX-License-Identifier:<sp/>Apache-2.0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="types_8hpp" kindref="compound">types.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//==================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EVENT<sp/>MANAGEMENT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//==================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacett_1_1tt__metal" kindref="compound">tt::tt_metal</ref>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">v1<sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="namespacett_1_1tt__metal_1_1v1_1ac509df53069bbfb2423544bc4c1bda1b" refkind="member"><highlight class="normal"><ref refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle" kindref="compound">EventHandle</ref><sp/><ref refid="namespacett_1_1tt__metal_1_1v1_1ac509df53069bbfb2423544bc4c1bda1b" kindref="member">EnqueueRecordEvent</ref>(<ref refid="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle" kindref="compound">CommandQueueHandle</ref><sp/>cq);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="namespacett_1_1tt__metal_1_1v1_1a75cf4017da0353e17f493d15b43292e8" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v1_1a75cf4017da0353e17f493d15b43292e8" kindref="member">EnqueueWaitForEvent</ref>(<ref refid="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle" kindref="compound">CommandQueueHandle</ref><sp/>cq,<sp/><ref refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle" kindref="compound">EventHandle</ref><sp/>event);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="namespacett_1_1tt__metal_1_1v1_1a5f0339728931f881b0642a8656e636f4" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v1_1a5f0339728931f881b0642a8656e636f4" kindref="member">EventSynchronize</ref>(<ref refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle" kindref="compound">EventHandle</ref><sp/>event);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="namespacett_1_1tt__metal_1_1v1_1a0931a52a892ca8bb955ce8084425536a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v1_1a0931a52a892ca8bb955ce8084425536a" kindref="member">EventQuery</ref>(<ref refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle" kindref="compound">EventHandle</ref><sp/>event);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="namespacett_1_1tt__metal_1_1v1_1a88371fc86019f3020c265456c559929b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v1_1a88371fc86019f3020c265456c559929b" kindref="member">DeviceSynchronize</ref>(DeviceHandle<sp/>device);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="namespacett_1_1tt__metal_1_1v1_1a7859c7b14b4045333f51dea3f6fae966" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacett_1_1tt__metal_1_1v1_1a7859c7b14b4045333f51dea3f6fae966" kindref="member">CommandQueueSynchronize</ref>(<ref refid="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle" kindref="compound">CommandQueueHandle</ref><sp/>cq);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>v1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>tt::tt_metal</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="tt_metal/include/tt_metal/event.hpp"/>
+  </compounddef>
+</doxygen>

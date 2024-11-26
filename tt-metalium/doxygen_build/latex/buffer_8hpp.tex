@@ -1,0 +1,26 @@
+\hypertarget{buffer_8hpp}{}\doxysection{tt\+\_\+metal/include/tt\+\_\+metal/buffer.hpp File Reference}
+\label{buffer_8hpp}\index{tt\_metal/include/tt\_metal/buffer.hpp@{tt\_metal/include/tt\_metal/buffer.hpp}}
+{\ttfamily \#include \char`\"{}tt\+\_\+metal/impl/buffers/buffer.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tt\+\_\+metal/types.\+hpp\char`\"{}}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacett}{tt}}
+\item 
+namespace \mbox{\hyperlink{namespacett_1_1tt__metal}{tt\+::tt\+\_\+metal}}
+\item 
+namespace \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1}{tt\+::tt\+\_\+metal\+::v1}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Buffer\+Handle \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a4ff4aaaef152608a56467ac85d05a8d9}{tt\+::tt\+\_\+metal\+::v1\+::\+Create\+Buffer}} (Interleaved\+Buffer\+Config config)
+\begin{DoxyCompactList}\small\item\em Allocates an interleaved DRAM or L1 buffer on the device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_ab8878e4e772b19708f2ffb47aef88b46}{tt\+::tt\+\_\+metal\+::v1\+::\+Deallocate\+Buffer}} (Buffer\+Handle buffer)
+\begin{DoxyCompactList}\small\item\em Deallocates a buffer from the device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a9fdc03261b0164072b9e30fad9e36099}{tt\+::tt\+\_\+metal\+::v1\+::\+Write\+To\+Buffer}} (Buffer\+Handle buffer, stl\+::\+Span$<$ const std\+::byte $>$ host\+\_\+buffer)
+\begin{DoxyCompactList}\small\item\em Copies data from a host buffer into the specified device buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a549dc0b0bd173491b5b67ec9efa599b5}{tt\+::tt\+\_\+metal\+::v1\+::\+Read\+From\+Buffer}} (Buffer\+Handle buffer, stl\+::\+Span$<$ std\+::byte $>$ host\+\_\+buffer, bool shard\+\_\+order=false)
+\begin{DoxyCompactList}\small\item\em Copies data from a device buffer into a host buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a44af81fe6c86b0d4f2e3c5cd414cf836}{tt\+::tt\+\_\+metal\+::v1\+::\+Read\+From\+Shard}} (Buffer\+Handle buffer, stl\+::\+Span$<$ std\+::byte $>$ host\+\_\+buffer, std\+::uint32\+\_\+t core\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Copies data from a specific shard of a device buffer into a host buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}

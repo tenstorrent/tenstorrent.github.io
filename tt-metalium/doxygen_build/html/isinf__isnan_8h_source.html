@@ -76,7 +76,7 @@ $(function() {
   <div class="headertitle"><div class="title">isinf_isnan.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// SPDX-FileCopyrightText: © 2023 Tenstorrent Inc.</span></div>
+<a href="isinf__isnan_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// SPDX-FileCopyrightText: © 2023 Tenstorrent Inc.</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">//</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
@@ -88,50 +88,63 @@ $(function() {
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#define MAIN math_main()</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#define MATH(x) x</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#else</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#define MATH(x)</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="isinf__isnan_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">   13</a></span><span class="preprocessor">#define MATH(x)</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span>ckernel {</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>ALWI <span class="keywordtype">void</span> isinf_tile(uint32_t idst) {</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    MATH((llk_math_eltwise_unary_sfpu_isinf&lt;APPROX&gt;(idst)));</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceckernel.html">ckernel</a> {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="namespaceckernel.html#a560cbe71d63208236a384c40e6da61a7">   29</a></span><a class="code hl_define" href="compute__kernel__api_8h.html#a102b55d753f30b2569dd7976e1917038">ALWI</a> <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceckernel.html#a560cbe71d63208236a384c40e6da61a7">isinf_tile</a>(uint32_t idst) {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_define" href="erf__erfc_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">MATH</a>((llk_math_eltwise_unary_sfpu_isinf&lt;APPROX&gt;(idst)));</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>}</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>ALWI <span class="keywordtype">void</span> isinf_tile_init() {</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    MATH((llk_math_eltwise_unary_sfpu_isinf_init&lt;APPROX&gt;() ));</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="namespaceckernel.html#aff15ecc59d70682ad19f46ae6b3ab169">   36</a></span><a class="code hl_define" href="compute__kernel__api_8h.html#a102b55d753f30b2569dd7976e1917038">ALWI</a> <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceckernel.html#aff15ecc59d70682ad19f46ae6b3ab169">isinf_tile_init</a>() {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_define" href="erf__erfc_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">MATH</a>((llk_math_eltwise_unary_sfpu_isinf_init&lt;APPROX&gt;() ));</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>}</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>ALWI <span class="keywordtype">void</span> isposinf_tile(uint32_t idst) {</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    MATH((llk_math_eltwise_unary_sfpu_isposinf&lt;APPROX&gt;(idst) ));</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="namespaceckernel.html#a9abe529c6f48dc47b3590bddc44f75b9">   52</a></span><a class="code hl_define" href="compute__kernel__api_8h.html#a102b55d753f30b2569dd7976e1917038">ALWI</a> <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceckernel.html#a9abe529c6f48dc47b3590bddc44f75b9">isposinf_tile</a>(uint32_t idst) {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <a class="code hl_define" href="erf__erfc_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">MATH</a>((llk_math_eltwise_unary_sfpu_isposinf&lt;APPROX&gt;(idst) ));</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>}</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>ALWI <span class="keywordtype">void</span> isposinf_tile_init() {</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    MATH((llk_math_eltwise_unary_sfpu_isposinf_init&lt;APPROX&gt;() ));</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="namespaceckernel.html#a4903e99b9ac3930660daa6210989adc8">   59</a></span><a class="code hl_define" href="compute__kernel__api_8h.html#a102b55d753f30b2569dd7976e1917038">ALWI</a> <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceckernel.html#a4903e99b9ac3930660daa6210989adc8">isposinf_tile_init</a>() {</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <a class="code hl_define" href="erf__erfc_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">MATH</a>((llk_math_eltwise_unary_sfpu_isposinf_init&lt;APPROX&gt;() ));</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>}</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>ALWI <span class="keywordtype">void</span> isneginf_tile(uint32_t idst) {</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    MATH((llk_math_eltwise_unary_sfpu_isneginf&lt;APPROX&gt;(idst) ));</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="namespaceckernel.html#a023d3466cbf2b6d0bb6519164f058137">   75</a></span><a class="code hl_define" href="compute__kernel__api_8h.html#a102b55d753f30b2569dd7976e1917038">ALWI</a> <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceckernel.html#a023d3466cbf2b6d0bb6519164f058137">isneginf_tile</a>(uint32_t idst) {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <a class="code hl_define" href="erf__erfc_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">MATH</a>((llk_math_eltwise_unary_sfpu_isneginf&lt;APPROX&gt;(idst) ));</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>}</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>ALWI <span class="keywordtype">void</span> isneginf_tile_init() {</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    MATH((llk_math_eltwise_unary_sfpu_isneginf_init&lt;APPROX&gt;() ));</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="namespaceckernel.html#a6293738625933a80a8d3be6ea9090c97">   82</a></span><a class="code hl_define" href="compute__kernel__api_8h.html#a102b55d753f30b2569dd7976e1917038">ALWI</a> <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceckernel.html#a6293738625933a80a8d3be6ea9090c97">isneginf_tile_init</a>() {</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <a class="code hl_define" href="erf__erfc_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">MATH</a>((llk_math_eltwise_unary_sfpu_isneginf_init&lt;APPROX&gt;() ));</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>}</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>ALWI <span class="keywordtype">void</span> isnan_tile(uint32_t idst) {</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    MATH((llk_math_eltwise_unary_sfpu_isnan&lt;APPROX&gt;(idst) ));</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="namespaceckernel.html#a7cb289937576f99d689c1e0340aaa89b">   98</a></span><a class="code hl_define" href="compute__kernel__api_8h.html#a102b55d753f30b2569dd7976e1917038">ALWI</a> <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceckernel.html#a7cb289937576f99d689c1e0340aaa89b">isnan_tile</a>(uint32_t idst) {</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <a class="code hl_define" href="erf__erfc_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">MATH</a>((llk_math_eltwise_unary_sfpu_isnan&lt;APPROX&gt;(idst) ));</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>}</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>ALWI <span class="keywordtype">void</span> isnan_tile_init() {</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    MATH((llk_math_eltwise_unary_sfpu_isnan_init&lt;APPROX&gt;() ));</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="namespaceckernel.html#a753c8882bdd2d9d5ee76f5261143df24">  105</a></span><a class="code hl_define" href="compute__kernel__api_8h.html#a102b55d753f30b2569dd7976e1917038">ALWI</a> <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceckernel.html#a753c8882bdd2d9d5ee76f5261143df24">isnan_tile_init</a>() {</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <a class="code hl_define" href="erf__erfc_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">MATH</a>((llk_math_eltwise_unary_sfpu_isnan_init&lt;APPROX&gt;() ));</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>}</div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>ALWI <span class="keywordtype">void</span> isfinite_tile(uint32_t idst) {</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    MATH((llk_math_eltwise_unary_sfpu_isfinite&lt;APPROX&gt;(idst) ));</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="namespaceckernel.html#afb0329908fbe83bd7dc85fe97d621520">  121</a></span><a class="code hl_define" href="compute__kernel__api_8h.html#a102b55d753f30b2569dd7976e1917038">ALWI</a> <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceckernel.html#afb0329908fbe83bd7dc85fe97d621520">isfinite_tile</a>(uint32_t idst) {</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <a class="code hl_define" href="erf__erfc_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">MATH</a>((llk_math_eltwise_unary_sfpu_isfinite&lt;APPROX&gt;(idst) ));</div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>}</div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>ALWI <span class="keywordtype">void</span> isfinite_tile_init() {</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    MATH((llk_math_eltwise_unary_sfpu_isfinite_init&lt;APPROX&gt;() ));</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="namespaceckernel.html#a475741e5433ee1dc3173fd791b88aa9c">  128</a></span><a class="code hl_define" href="compute__kernel__api_8h.html#a102b55d753f30b2569dd7976e1917038">ALWI</a> <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceckernel.html#a475741e5433ee1dc3173fd791b88aa9c">isfinite_tile_init</a>() {</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <a class="code hl_define" href="erf__erfc_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">MATH</a>((llk_math_eltwise_unary_sfpu_isfinite_init&lt;APPROX&gt;() ));</div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>}</div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>} <span class="comment">// namespace ckernel</span></div>
+<div class="ttc" id="acompute__kernel__api_8h_html_a102b55d753f30b2569dd7976e1917038"><div class="ttname"><a href="compute__kernel__api_8h.html#a102b55d753f30b2569dd7976e1917038">ALWI</a></div><div class="ttdeci">#define ALWI</div><div class="ttdef"><b>Definition:</b> compute_kernel_api.h:15</div></div>
+<div class="ttc" id="aerf__erfc_8h_html_a5f8a5b21f170f78a59c6aca4376e757d"><div class="ttname"><a href="erf__erfc_8h.html#a5f8a5b21f170f78a59c6aca4376e757d">MATH</a></div><div class="ttdeci">#define MATH(x)</div><div class="ttdef"><b>Definition:</b> erf_erfc.h:13</div></div>
+<div class="ttc" id="anamespaceckernel_html"><div class="ttname"><a href="namespaceckernel.html">ckernel</a></div><div class="ttdef"><b>Definition:</b> erf_erfc.h:16</div></div>
+<div class="ttc" id="anamespaceckernel_html_a023d3466cbf2b6d0bb6519164f058137"><div class="ttname"><a href="namespaceckernel.html#a023d3466cbf2b6d0bb6519164f058137">ckernel::isneginf_tile</a></div><div class="ttdeci">void isneginf_tile(uint32_t idst)</div><div class="ttdef"><b>Definition:</b> isinf_isnan.h:75</div></div>
+<div class="ttc" id="anamespaceckernel_html_a475741e5433ee1dc3173fd791b88aa9c"><div class="ttname"><a href="namespaceckernel.html#a475741e5433ee1dc3173fd791b88aa9c">ckernel::isfinite_tile_init</a></div><div class="ttdeci">void isfinite_tile_init()</div><div class="ttdef"><b>Definition:</b> isinf_isnan.h:128</div></div>
+<div class="ttc" id="anamespaceckernel_html_a4903e99b9ac3930660daa6210989adc8"><div class="ttname"><a href="namespaceckernel.html#a4903e99b9ac3930660daa6210989adc8">ckernel::isposinf_tile_init</a></div><div class="ttdeci">void isposinf_tile_init()</div><div class="ttdef"><b>Definition:</b> isinf_isnan.h:59</div></div>
+<div class="ttc" id="anamespaceckernel_html_a560cbe71d63208236a384c40e6da61a7"><div class="ttname"><a href="namespaceckernel.html#a560cbe71d63208236a384c40e6da61a7">ckernel::isinf_tile</a></div><div class="ttdeci">void isinf_tile(uint32_t idst)</div><div class="ttdef"><b>Definition:</b> isinf_isnan.h:29</div></div>
+<div class="ttc" id="anamespaceckernel_html_a6293738625933a80a8d3be6ea9090c97"><div class="ttname"><a href="namespaceckernel.html#a6293738625933a80a8d3be6ea9090c97">ckernel::isneginf_tile_init</a></div><div class="ttdeci">void isneginf_tile_init()</div><div class="ttdef"><b>Definition:</b> isinf_isnan.h:82</div></div>
+<div class="ttc" id="anamespaceckernel_html_a753c8882bdd2d9d5ee76f5261143df24"><div class="ttname"><a href="namespaceckernel.html#a753c8882bdd2d9d5ee76f5261143df24">ckernel::isnan_tile_init</a></div><div class="ttdeci">void isnan_tile_init()</div><div class="ttdef"><b>Definition:</b> isinf_isnan.h:105</div></div>
+<div class="ttc" id="anamespaceckernel_html_a7cb289937576f99d689c1e0340aaa89b"><div class="ttname"><a href="namespaceckernel.html#a7cb289937576f99d689c1e0340aaa89b">ckernel::isnan_tile</a></div><div class="ttdeci">void isnan_tile(uint32_t idst)</div><div class="ttdef"><b>Definition:</b> isinf_isnan.h:98</div></div>
+<div class="ttc" id="anamespaceckernel_html_a9abe529c6f48dc47b3590bddc44f75b9"><div class="ttname"><a href="namespaceckernel.html#a9abe529c6f48dc47b3590bddc44f75b9">ckernel::isposinf_tile</a></div><div class="ttdeci">void isposinf_tile(uint32_t idst)</div><div class="ttdef"><b>Definition:</b> isinf_isnan.h:52</div></div>
+<div class="ttc" id="anamespaceckernel_html_afb0329908fbe83bd7dc85fe97d621520"><div class="ttname"><a href="namespaceckernel.html#afb0329908fbe83bd7dc85fe97d621520">ckernel::isfinite_tile</a></div><div class="ttdeci">void isfinite_tile(uint32_t idst)</div><div class="ttdef"><b>Definition:</b> isinf_isnan.h:121</div></div>
+<div class="ttc" id="anamespaceckernel_html_aff15ecc59d70682ad19f46ae6b3ab169"><div class="ttname"><a href="namespaceckernel.html#aff15ecc59d70682ad19f46ae6b3ab169">ckernel::isinf_tile_init</a></div><div class="ttdeci">void isinf_tile_init()</div><div class="ttdef"><b>Definition:</b> isinf_isnan.h:36</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

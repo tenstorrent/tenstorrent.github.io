@@ -1,0 +1,88 @@
+\hypertarget{device_8hpp_source}{}\doxysection{device.\+hpp}
+\label{device_8hpp_source}\index{tt\_metal/include/tt\_metal/device.hpp@{tt\_metal/include/tt\_metal/device.hpp}}
+\mbox{\hyperlink{device_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ SPDX-\/FileCopyrightText:\ ©\ 2024\ Tenstorrent\ Inc.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}tt\_metal/impl/buffers/buffer\_constants.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}tt\_metal/impl/dispatch/work\_executor.hpp"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{types_8hpp}{tt\_metal/types.hpp}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{//==================================================}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DEVICE\ MANAGEMENT}}
+\DoxyCodeLine{00015\ \textcolor{comment}{//==================================================}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacett_1_1tt__metal}{tt::tt\_metal}}\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{namespace\ }v1\ \{}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00025\ std::size\_t\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_ad490d6283121ce887c6209a0ca28265d}{GetNumAvailableDevices}}();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00032\ std::size\_t\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aea09ea2671460caa9fa47b65c8490ec9}{GetNumPCIeDevices}}();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00040\ chip\_id\_t\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a05ecee1b9528084c6e7d4c3cf371f047}{GetPCIeDeviceID}}(chip\_id\_t\ device\_id);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions}{CreateDeviceOptions}}\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions_ab0589d708073ae872a5d8633d30c17a0}{num\_hw\_cqs}}\ =\ 1;}
+\DoxyCodeLine{00053\ \ \ \ \ std::size\_t\ \mbox{\hyperlink{structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions_a92a4d40077ada8708a9d992f577fdd34}{l1\_small\_size}}\ =\ DEFAULT\_L1\_SMALL\_SIZE;}
+\DoxyCodeLine{00057\ \ \ \ \ std::size\_t\ \mbox{\hyperlink{structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions_ae3ae33ccd4bad0cf7d09c0a8b3b85cea}{trace\_region\_size}}\ =\ DEFAULT\_TRACE\_REGION\_SIZE;}
+\DoxyCodeLine{00061\ \ \ \ \ DispatchCoreType\ \mbox{\hyperlink{structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions_a7faf35fea5c38d43f089059fc99f02cf}{dispatch\_core\_type}}\ =\ DispatchCoreType::WORKER;}
+\DoxyCodeLine{00065\ \ \ \ \ stl::Span<const\ std::uint32\_t>\ \mbox{\hyperlink{structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions_ae51eaece3f174b6cd9847f6e5230b44c}{l1\_bank\_remap}}\ =\ \{\};}
+\DoxyCodeLine{00066\ \};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00074\ DeviceHandle\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a4cd4414bf13ee2acb9b2c6b8c546ee6e}{CreateDevice}}(chip\_id\_t\ device\_id,\ \mbox{\hyperlink{structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions}{CreateDeviceOptions}}\ options\ =\ \{\});}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00082\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a2631b7757fe06ad7c10b8ba599b1e074}{CloseDevice}}(DeviceHandle\ device);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00087\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a7d62fcb4cb9f38f4bb66ac7ec545dd1d}{DeallocateBuffers}}(DeviceHandle\ device);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00096\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a6af2edef85ff9e04ef2a45eda2148f16}{DumpDeviceProfileResults}}(DeviceHandle\ device,\ \textcolor{keyword}{const}\ CoreRangeSet\ \&worker\_cores,\ \textcolor{keywordtype}{bool}\ last\_dump\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00104\ ARCH\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_acd0244ed7bf2507b8299a555c2bbe3a0}{GetArch}}(DeviceHandle\ device);}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00112\ chip\_id\_t\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a8f206a4436d4dd2b00feb80e362759a6}{GetId}}(DeviceHandle\ device);}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00120\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a6f8191bd3eecb0dde06682e0beee93e2}{GetNumDramChannels}}(DeviceHandle\ device);}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00128\ std::uint32\_t\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a868592eea2fb3cd50e4de99591b1812e}{GetL1SizePerCore}}(DeviceHandle\ device);}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00136\ CoreCoord\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a60255a3c8d626d836533ba15f6531aa0}{GetComputeWithStorageGridSize}}(DeviceHandle\ device);}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00144\ CoreCoord\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a41433cff493160e71b15c5d51e8898a1}{GetDramGridSize}}(DeviceHandle\ device);}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00151\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a987aad0700d6d5b2b80a48a2cb80bb6d}{EnableProgramCache}}(DeviceHandle\ device);}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00158\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a52a74fef1f54b84399e622a704af37e5}{DisableAndClearProgramCache}}(DeviceHandle\ device);}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00167\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a0f9295aee290efd2c2330317353546c0}{PushWork}}(DeviceHandle\ device,\ std::function<\textcolor{keywordtype}{void}()>\ work,\ \textcolor{keywordtype}{bool}\ blocking\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00174\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a944a8406570b0998bcc7f92c4e3a352f}{Synchronize}}(DeviceHandle\ device);}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00183\ std::vector<CoreCoord>\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_af5eb41116f1ba1dc14f8e74f11f47452}{GetEthernetSockets}}(DeviceHandle\ device,\ chip\_id\_t\ connected\_chip\_id);}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00192\ std::uint32\_t\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a8abc4ac0e93f258cec1908730e4a1622}{GetNumBanks}}(DeviceHandle\ device,\ BufferType\ buffer\_type);}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00202\ std::int32\_t\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a17d8dafe30fab56e5ff58b30e3e3629c}{GetBankOffset}}(DeviceHandle\ device,\ BufferType\ buffer\_type,\ std::uint32\_t\ bank\_id);}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00212\ stl::Span<const\ std::uint32\_t>\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aebcaa64de792f41f8f88d66192e93824}{BankIdsFromLogicalCore}}(}
+\DoxyCodeLine{00213\ \ \ \ \ DeviceHandle\ device,\ BufferType\ buffer\_type,\ CoreCoord\ logical\_core);}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00221\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_afcadd9379349203f6344281fec38c109}{GetSfpuEps}}(DeviceHandle\ device);}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00229\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a9b48db93c5e56377e08242bc2ea406d5}{GetSfpuNan}}(DeviceHandle\ device);}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00237\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a8527a71d31e9903b85c772747b68b192}{GetSfpuInf}}(DeviceHandle\ device);}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00245\ WorkExecutorMode\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a9cfd296d42fffa2b911d130116273cf0}{GetWorkerMode}}(DeviceHandle\ device);}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00253\ std::size\_t\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aff8fd1c289715aad386c6ee40eda1638}{GetNumProgramCacheEntries}}(DeviceHandle\ device);}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \}\ \ \textcolor{comment}{//\ namespace\ v1}}
+\DoxyCodeLine{00256\ \}\ \ \textcolor{comment}{//\ namespace\ tt::tt\_metal}}
+
+\end{DoxyCode}

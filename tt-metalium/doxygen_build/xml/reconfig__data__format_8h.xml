@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="reconfig__data__format_8h" kind="file" language="C++">
+    <compoundname>reconfig_data_format.h</compoundname>
+    <includes local="yes">common_globals.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>tt_metal/include/compute_kernel_api/reconfig_data_format.h</label>
+        <link refid="reconfig__data__format_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>common_globals.h</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceckernel">ckernel</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>SPDX-FileCopyrightText:<sp/>©<sp/>2024<sp/>Tenstorrent<sp/>Inc.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>SPDX-License-Identifier:<sp/>Apache-2.0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;common_globals.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceckernel" kindref="compound">ckernel</ref><sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>to_from_</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">8<sp/>=<sp/>false&gt;</highlight></codeline>
+<codeline lineno="15" refid="namespaceckernel_1a9a5800c870a89695e8de483bfdec9d8c" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1a9a5800c870a89695e8de483bfdec9d8c" kindref="member">reconfig_data_format</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>srca_new_operand,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>srcb_new_operand)<sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="compute__kernel__api_8h_1a5221b9dd336f28fd88546cf7afe5edaf" kindref="member">UNPACK</ref>((<sp/>llk_unpack_reconfig_data_format&lt;to_from_int8,<sp/>DST_ACCUM_MODE&gt;(srca_new_operand,<sp/>srcb_new_operand)<sp/>));</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="erf__erfc_8h_1a5f8a5b21f170f78a59c6aca4376e757d" kindref="member">MATH</ref>((<sp/>llk_math_reconfig_data_format&lt;to_from_int8,<sp/>DST_ACCUM_MODE&gt;(srca_new_operand,<sp/>srcb_new_operand)<sp/>));</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>to_from_</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">8<sp/>=<sp/>false&gt;</highlight></codeline>
+<codeline lineno="24" refid="namespaceckernel_1a94bb6b25a9a51fd1949d929fecd4e1a8" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1a9a5800c870a89695e8de483bfdec9d8c" kindref="member">reconfig_data_format</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>srca_old_operand,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>srca_new_operand,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>srcb_old_operand,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>srcb_new_operand)<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="compute__kernel__api_8h_1a5221b9dd336f28fd88546cf7afe5edaf" kindref="member">UNPACK</ref>((<sp/>llk_unpack_reconfig_data_format&lt;to_from_int8,<sp/>DST_ACCUM_MODE&gt;(srca_old_operand,<sp/>srca_new_operand,<sp/>srcb_old_operand,<sp/>srcb_new_operand)<sp/>));</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="erf__erfc_8h_1a5f8a5b21f170f78a59c6aca4376e757d" kindref="member">MATH</ref>((<sp/>llk_math_reconfig_data_format&lt;to_from_int8,<sp/>DST_ACCUM_MODE&gt;(srca_old_operand,<sp/>srca_new_operand,<sp/>srcb_old_operand,<sp/>srcb_new_operand)<sp/>));</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>to_from_</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">8<sp/>=<sp/>false&gt;</highlight></codeline>
+<codeline lineno="33" refid="namespaceckernel_1a0bb205e7b72524a5e756c97070b2f75e" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1a0bb205e7b72524a5e756c97070b2f75e" kindref="member">reconfig_data_format_srca</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>srca_new_operand)<sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="compute__kernel__api_8h_1a5221b9dd336f28fd88546cf7afe5edaf" kindref="member">UNPACK</ref>((<sp/>llk_unpack_reconfig_data_format_srca&lt;to_from_int8,<sp/>DST_ACCUM_MODE&gt;(srca_new_operand)<sp/>));</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="erf__erfc_8h_1a5f8a5b21f170f78a59c6aca4376e757d" kindref="member">MATH</ref>((<sp/>llk_math_reconfig_data_format_srca&lt;to_from_int8,<sp/>DST_ACCUM_MODE&gt;(srca_new_operand)<sp/>));</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>to_from_</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">8<sp/>=<sp/>false&gt;</highlight></codeline>
+<codeline lineno="42" refid="namespaceckernel_1aaa0577f32a4e70d8ab0d4bbc70e929bc" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1a0bb205e7b72524a5e756c97070b2f75e" kindref="member">reconfig_data_format_srca</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>srca_old_operand,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>srca_new_operand)<sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="compute__kernel__api_8h_1a5221b9dd336f28fd88546cf7afe5edaf" kindref="member">UNPACK</ref>((<sp/>llk_unpack_reconfig_data_format_srca&lt;to_from_int8,<sp/>DST_ACCUM_MODE&gt;(srca_old_operand,<sp/>srca_new_operand)<sp/>));</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="erf__erfc_8h_1a5f8a5b21f170f78a59c6aca4376e757d" kindref="member">MATH</ref>((<sp/>llk_math_reconfig_data_format_srca&lt;to_from_int8,<sp/>DST_ACCUM_MODE&gt;(srca_old_operand,<sp/>srca_new_operand)<sp/>));</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>to_from_</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">8<sp/>=<sp/>false&gt;</highlight></codeline>
+<codeline lineno="51" refid="namespaceckernel_1a920d5a56cc4204d7fb4dae0c0629e8d1" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1a920d5a56cc4204d7fb4dae0c0629e8d1" kindref="member">reconfig_data_format_srcb</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>srcb_new_operand)<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="compute__kernel__api_8h_1a5221b9dd336f28fd88546cf7afe5edaf" kindref="member">UNPACK</ref>((<sp/>llk_unpack_reconfig_data_format_srcb&lt;to_from_int8,<sp/>DST_ACCUM_MODE&gt;(srcb_new_operand)<sp/>));</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="erf__erfc_8h_1a5f8a5b21f170f78a59c6aca4376e757d" kindref="member">MATH</ref>((<sp/>llk_math_reconfig_data_format_srcb&lt;to_from_int8,<sp/>DST_ACCUM_MODE&gt;(srcb_new_operand)<sp/>));</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>to_from_</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">8<sp/>=<sp/>false&gt;</highlight></codeline>
+<codeline lineno="60" refid="namespaceckernel_1a261d53be7d210e871741821a126c34d3" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1a920d5a56cc4204d7fb4dae0c0629e8d1" kindref="member">reconfig_data_format_srcb</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>srcb_old_operand,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>srcb_new_operand)<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="compute__kernel__api_8h_1a5221b9dd336f28fd88546cf7afe5edaf" kindref="member">UNPACK</ref>((<sp/>llk_unpack_reconfig_data_format_srcb&lt;to_from_int8,<sp/>DST_ACCUM_MODE&gt;(srcb_old_operand,<sp/>srcb_new_operand)<sp/>));</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="erf__erfc_8h_1a5f8a5b21f170f78a59c6aca4376e757d" kindref="member">MATH</ref>((<sp/>llk_math_reconfig_data_format_srcb&lt;to_from_int8,<sp/>DST_ACCUM_MODE&gt;(srcb_old_operand,<sp/>srcb_new_operand)<sp/>));</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="tt_metal/include/compute_kernel_api/reconfig_data_format.h"/>
+  </compounddef>
+</doxygen>

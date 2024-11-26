@@ -36,30 +36,43 @@
 <codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="15"><highlight class="normal"></highlight></codeline>
 <codeline lineno="16"><highlight class="normal"></highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">ckernel<sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceckernel" kindref="compound">ckernel</ref><sp/>{</highlight></codeline>
 <codeline lineno="18"><highlight class="normal"></highlight></codeline>
-<codeline lineno="41"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dataflow__api_8h_1af6d8057bd05a650c3501c5208f7d9f8a" kindref="member">cb_wait_front</ref>(uint32_t<sp/>cbid,<sp/>uint32_t<sp/>ntiles)<sp/>{</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_wait_tiles(cbid,<sp/>ntiles)<sp/><sp/>));</highlight></codeline>
+<codeline lineno="41" refid="namespaceckernel_1a2d20635facce5ae4c7ee121028740b38" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1a2d20635facce5ae4c7ee121028740b38" kindref="member">cb_wait_front</ref>(uint32_t<sp/>cbid,<sp/>uint32_t<sp/>ntiles)<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="compute__kernel__api_8h_1a5221b9dd336f28fd88546cf7afe5edaf" kindref="member">UNPACK</ref>((<sp/>llk_wait_tiles(cbid,<sp/>ntiles)<sp/><sp/>));</highlight></codeline>
 <codeline lineno="43"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="44"><highlight class="normal"></highlight></codeline>
-<codeline lineno="73"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dataflow__api_8h_1aa3daf8e5e7299140cf2607be1a8656b0" kindref="member">cb_pop_front</ref>(uint32_t<sp/>cbid,<sp/>uint32_t<sp/>ntiles)<sp/>{</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>UNPACK((<sp/>llk_pop_tiles(cbid,<sp/>ntiles)<sp/><sp/>));</highlight></codeline>
+<codeline lineno="73" refid="namespaceckernel_1a09e8d82ba4b886f8e90eec038735d759" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1a09e8d82ba4b886f8e90eec038735d759" kindref="member">cb_pop_front</ref>(uint32_t<sp/>cbid,<sp/>uint32_t<sp/>ntiles)<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="compute__kernel__api_8h_1a5221b9dd336f28fd88546cf7afe5edaf" kindref="member">UNPACK</ref>((<sp/>llk_pop_tiles(cbid,<sp/>ntiles)<sp/><sp/>));</highlight></codeline>
 <codeline lineno="75"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="76"><highlight class="normal"></highlight></codeline>
-<codeline lineno="77"><highlight class="normal"></highlight></codeline>
-<codeline lineno="91"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dataflow__api_8h_1a29521dee07b0070674a988f66c01ffed" kindref="member">cb_reserve_back</ref>(uint32_t<sp/>cbid,<sp/>uint32_t<sp/>ntiles)</highlight></codeline>
-<codeline lineno="92"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>PACK((<sp/>llk_wait_for_free_tiles&lt;false,false,false&gt;(cbid,ntiles)<sp/><sp/>));</highlight></codeline>
-<codeline lineno="94"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"></highlight></codeline>
-<codeline lineno="96"><highlight class="normal"></highlight></codeline>
-<codeline lineno="125"><highlight class="normal">ALWI<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dataflow__api_8h_1a81357224b88562601b42833eec676ffb" kindref="member">cb_push_back</ref>(uint32_t<sp/>cbid,<sp/>uint32_t<sp/>ntiles)</highlight></codeline>
-<codeline lineno="126"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>PACK((<sp/>llk_push_tiles&lt;false,false&gt;(cbid,<sp/>ntiles)<sp/><sp/>));</highlight></codeline>
-<codeline lineno="128"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="129"><highlight class="normal"></highlight></codeline>
-<codeline lineno="130"><highlight class="normal"></highlight></codeline>
-<codeline lineno="131"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>ckernel</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90" refid="namespaceckernel_1af917245b58bfd6176048dc6844a7b7fe" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1af917245b58bfd6176048dc6844a7b7fe" kindref="member">cb_reserve_back</ref>(uint32_t<sp/>cbid,<sp/>uint32_t<sp/>ntiles)</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="compute__kernel__api_8h_1a06e48c7c5c133a4905da88bd82bd6b91" kindref="member">PACK</ref>((<sp/>llk_wait_for_free_tiles&lt;false,false,false&gt;(cbid,ntiles)<sp/><sp/>));</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123" refid="namespaceckernel_1af6f81e4da52b94a5397f904d446808c9" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1af6f81e4da52b94a5397f904d446808c9" kindref="member">cb_push_back</ref>(uint32_t<sp/>cbid,<sp/>uint32_t<sp/>ntiles)</highlight></codeline>
+<codeline lineno="124"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="compute__kernel__api_8h_1a06e48c7c5c133a4905da88bd82bd6b91" kindref="member">PACK</ref>((<sp/>llk_push_tiles&lt;false,false&gt;(cbid,<sp/>ntiles)<sp/><sp/>));</highlight></codeline>
+<codeline lineno="126"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141" refid="namespaceckernel_1a60c38a99abe8e5e072ae3bc9ea35cf23" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1a60c38a99abe8e5e072ae3bc9ea35cf23" kindref="member">cb_get_tile</ref>(uint32_t<sp/>cb_id,<sp/>uint32_t<sp/>index,<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>p_tile)<sp/>{</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="compute__kernel__api_8h_1a5221b9dd336f28fd88546cf7afe5edaf" kindref="member">UNPACK</ref>(llk_unpack_get_tile(cb_id,<sp/>index,<sp/>(uint32_t*)p_tile));</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="erf__erfc_8h_1a5f8a5b21f170f78a59c6aca4376e757d" kindref="member">MATH</ref>(llk_math_get_tile(cb_id,<sp/>index,<sp/>(uint32_t*)p_tile));</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="compute__kernel__api_8h_1a06e48c7c5c133a4905da88bd82bd6b91" kindref="member">PACK</ref>(llk_pack_get_tile(cb_id,<sp/>index,<sp/>(uint32_t*)p_tile));</highlight></codeline>
+<codeline lineno="147"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159" refid="namespaceckernel_1ab833f2a940d6668f992dd77ca06ed03d" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1ab833f2a940d6668f992dd77ca06ed03d" kindref="member">cb_release_tile</ref>(uint32_t<sp/>cb_id)<sp/>{</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="compute__kernel__api_8h_1a5221b9dd336f28fd88546cf7afe5edaf" kindref="member">UNPACK</ref>(llk_unpack_release_tile(cb_id));</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="erf__erfc_8h_1a5f8a5b21f170f78a59c6aca4376e757d" kindref="member">MATH</ref>(llk_math_release_tile(cb_id));</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="compute__kernel__api_8h_1a06e48c7c5c133a4905da88bd82bd6b91" kindref="member">PACK</ref>(llk_pack_release_tile(cb_id));</highlight></codeline>
+<codeline lineno="165"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>ckernel</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="tt_metal/include/compute_kernel_api/cb_api.h"/>
   </compounddef>

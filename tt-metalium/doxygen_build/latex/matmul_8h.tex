@@ -1,0 +1,29 @@
+\hypertarget{matmul_8h}{}\doxysection{tt\+\_\+metal/include/compute\+\_\+kernel\+\_\+api/matmul.h File Reference}
+\label{matmul_8h}\index{tt\_metal/include/compute\_kernel\_api/matmul.h@{tt\_metal/include/compute\_kernel\_api/matmul.h}}
+{\ttfamily \#include \char`\"{}compute\+\_\+kernel\+\_\+api/common.\+h\char`\"{}}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceckernel}{ckernel}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespaceckernel_adeadefda1b391d2924a635b87f264c9f}{ckernel\+::mm\+\_\+init}} (uint32\+\_\+t in0\+\_\+cb\+\_\+id=0, uint32\+\_\+t in1\+\_\+cb\+\_\+id=1, uint32\+\_\+t out\+\_\+cb\+\_\+id=16, const uint32\+\_\+t transpose=0)
+\item 
+void \mbox{\hyperlink{namespaceckernel_ae3b5c274614aec08a77df1f78829c39d}{ckernel\+::matmul\+\_\+tiles}} (uint32\+\_\+t in0\+\_\+cb\+\_\+id, uint32\+\_\+t in1\+\_\+cb\+\_\+id, uint32\+\_\+t in0\+\_\+tile\+\_\+index, uint32\+\_\+t in1\+\_\+tile\+\_\+index, uint32\+\_\+t idst, const uint32\+\_\+t transpose)
+\item 
+{\footnotesize template$<$uint32\+\_\+t num\+\_\+faces = 4$>$ }\\void \mbox{\hyperlink{namespaceckernel_a11c225636a89c5fbc8e3ab0f17902f88}{ckernel\+::matmul\+\_\+tiles\+\_\+math}} (uint32\+\_\+t idst)
+\item 
+void \mbox{\hyperlink{namespaceckernel_a035a5d432eee641ae14275669d349f9e}{ckernel\+::mm\+\_\+init\+\_\+short}} (uint32\+\_\+t in0\+\_\+cb\+\_\+id=0, uint32\+\_\+t in1\+\_\+cb\+\_\+id=1, const uint32\+\_\+t transpose=0)
+\item 
+void \mbox{\hyperlink{namespaceckernel_acc9da9bf23131b50fcd49cff381df661}{ckernel\+::mm\+\_\+init\+\_\+short\+\_\+with\+\_\+dt}} (uint32\+\_\+t in0\+\_\+cb\+\_\+id=0, uint32\+\_\+t in1\+\_\+cb\+\_\+id=1, uint32\+\_\+t c\+\_\+in\+\_\+old\+\_\+srca=2, const uint32\+\_\+t transpose=0)
+\item 
+void \mbox{\hyperlink{namespaceckernel_af455b928c9eb2b460ea9d3816f84c652}{ckernel\+::mm\+\_\+block\+\_\+init}} (uint32\+\_\+t in0\+\_\+cb\+\_\+id=0, uint32\+\_\+t in1\+\_\+cb\+\_\+id=1, uint32\+\_\+t out\+\_\+cb\+\_\+id=16, const uint32\+\_\+t transpose=0, uint32\+\_\+t ct\+\_\+dim=1, uint32\+\_\+t rt\+\_\+dim=1, uint32\+\_\+t kt\+\_\+dim=1)
+\item 
+void \mbox{\hyperlink{namespaceckernel_aaf96a5576438c50eba97c7669ec2ebdb}{ckernel\+::matmul\+\_\+block}} (uint32\+\_\+t in0\+\_\+cb\+\_\+id, uint32\+\_\+t in1\+\_\+cb\+\_\+id, uint32\+\_\+t in0\+\_\+tile\+\_\+index, uint32\+\_\+t in1\+\_\+tile\+\_\+index, uint32\+\_\+t idst, const uint32\+\_\+t transpose, uint32\+\_\+t ct\+\_\+dim, uint32\+\_\+t rt\+\_\+dim, uint32\+\_\+t kt\+\_\+dim)
+\item 
+void \mbox{\hyperlink{namespaceckernel_a6a95a903f77a9f781fbabd4f083b743f}{ckernel\+::mm\+\_\+block\+\_\+init\+\_\+short}} (uint32\+\_\+t in0\+\_\+cb\+\_\+id=0, uint32\+\_\+t in1\+\_\+cb\+\_\+id=1, const uint32\+\_\+t transpose=0, uint32\+\_\+t ct\+\_\+dim=1, uint32\+\_\+t rt\+\_\+dim=1, uint32\+\_\+t kt\+\_\+dim=1)
+\item 
+void \mbox{\hyperlink{namespaceckernel_a0ae4aa02b645cb258c3c763d4ffc5c1c}{ckernel\+::mm\+\_\+block\+\_\+init\+\_\+short\+\_\+with\+\_\+dt}} (uint32\+\_\+t in0\+\_\+cb\+\_\+id=0, uint32\+\_\+t in1\+\_\+cb\+\_\+id=1, uint32\+\_\+t old\+\_\+in1\+\_\+cb\+\_\+id=2, const uint32\+\_\+t transpose=0, uint32\+\_\+t ct\+\_\+dim=1, uint32\+\_\+t rt\+\_\+dim=1, uint32\+\_\+t kt\+\_\+dim=1)
+\end{DoxyCompactItemize}

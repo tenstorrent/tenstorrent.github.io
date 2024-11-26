@@ -11,6 +11,7 @@ Welcome to TT-NN documentation!
 
    ttnn/about
    ttnn/get_started
+   ttnn/installing
    ttnn/usage
    ttnn/tensor
    ttnn/api
@@ -21,7 +22,6 @@ Welcome to TT-NN documentation!
    ttnn/profiling_ttnn_operations
    ttnn/dependencies/index.rst
    ttnn/demos
-   ttnn_sweeps/index.rst
 
 .. toctree::
    :caption: Models

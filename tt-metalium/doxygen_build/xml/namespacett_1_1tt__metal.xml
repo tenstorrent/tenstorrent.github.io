@@ -2,29 +2,31 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
   <compounddef id="namespacett_1_1tt__metal" kind="namespace" language="C++">
     <compoundname>tt::tt_metal</compoundname>
+    <innernamespace refid="namespacett_1_1tt__metal_1_1v0" inline="yes">tt::tt_metal::v0</innernamespace>
+    <innernamespace refid="namespacett_1_1tt__metal_1_1v1">tt::tt_metal::v1</innernamespace>
       <sectiondef kind="typedef">
-      <memberdef kind="typedef" id="host__api_8hpp_1af559e38779cb26844ec9a6b0bb41f940" prot="public" static="no">
-        <type>std::vector&lt; std::variant&lt; <ref refid="classBuffer" kindref="compound">Buffer</ref> *, uint32_t &gt; &gt;</type>
-        <definition>using tt::tt_metal::RuntimeArgs = typedef std::vector&lt;std::variant&lt;Buffer*, uint32_t&gt; &gt;</definition>
+      <memberdef kind="typedef" id="namespacett_1_1tt__metal_1_1v0_1a5d1cfea010cb740e7307b18b4a7ec9e8" prot="public" static="no">
+        <type>std::vector&lt; std::variant&lt; Buffer *, uint32_t &gt; &gt;</type>
+        <definition>using tt::tt_metal::v0::RuntimeArgs = typedef std::vector&lt;std::variant&lt;Buffer *, uint32_t&gt; &gt;</definition>
         <argsstring></argsstring>
         <name>RuntimeArgs</name>
-        <qualifiedname>tt::tt_metal::RuntimeArgs</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::RuntimeArgs</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="261" column="1" bodyfile="tt_metal/host_api.hpp" bodystart="261" bodyend="-1"/>
+        <location file="tt_metal/host_api.hpp" line="381" column="1" bodyfile="tt_metal/host_api.hpp" bodystart="381" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
-      <memberdef kind="function" id="host__api_8hpp_1a06ba0ab5eeb2da5af625a8b7f95ca48e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a1e4322b747fd7823e878c3e2ae729e27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>size_t</type>
-        <definition>size_t tt::tt_metal::GetNumAvailableDevices</definition>
+        <definition>size_t tt::tt_metal::v0::GetNumAvailableDevices</definition>
         <argsstring>()</argsstring>
         <name>GetNumAvailableDevices</name>
-        <qualifiedname>tt::tt_metal::GetNumAvailableDevices</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::GetNumAvailableDevices</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -33,14 +35,30 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="49" column="8" declfile="tt_metal/host_api.hpp" declline="49" declcolumn="8"/>
+        <location file="tt_metal/host_api.hpp" line="54" column="8" declfile="tt_metal/host_api.hpp" declline="54" declcolumn="8"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1aa18761d248b0a8081c84440f3aeafcfc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a63ede0a0180762c7d1f091176738237c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool tt::tt_metal::v0::IsGalaxyCluster</definition>
+        <argsstring>()</argsstring>
+        <name>IsGalaxyCluster</name>
+        <qualifiedname>tt::tt_metal::v0::IsGalaxyCluster</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether Tenstorrent devices are in a Galaxy cluster</para>
+<para>Return value: bool </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/host_api.hpp" line="61" column="6" declfile="tt_metal/host_api.hpp" declline="61" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a4f05b332fd6f861bb3540dbe2af433be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>size_t</type>
-        <definition>size_t tt::tt_metal::GetNumPCIeDevices</definition>
+        <definition>size_t tt::tt_metal::v0::GetNumPCIeDevices</definition>
         <argsstring>()</argsstring>
         <name>GetNumPCIeDevices</name>
-        <qualifiedname>tt::tt_metal::GetNumPCIeDevices</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::GetNumPCIeDevices</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -49,14 +67,32 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="56" column="8" declfile="tt_metal/host_api.hpp" declline="56" declcolumn="8"/>
+        <location file="tt_metal/host_api.hpp" line="68" column="8" declfile="tt_metal/host_api.hpp" declline="68" declcolumn="8"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a8332bdd9a9ffe6e0cedf921e438fe7ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1af46d5827805ba92482cddb5591c69a45" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>chip_id_t</type>
+        <definition>chip_id_t tt::tt_metal::v0::GetPCIeDeviceID</definition>
+        <argsstring>(chip_id_t device_id)</argsstring>
+        <name>GetPCIeDeviceID</name>
+        <qualifiedname>tt::tt_metal::v0::GetPCIeDeviceID</qualifiedname>
+        <param>
+          <type>chip_id_t</type>
+          <declname>device_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/host_api.hpp" line="70" column="11" declfile="tt_metal/host_api.hpp" declline="70" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1abe3488f7ac4863b7b372f344f863bc84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Device *</type>
-        <definition>Device * tt::tt_metal::CreateDevice</definition>
-        <argsstring>(chip_id_t device_id, const uint8_t num_hw_cqs=1, const size_t l1_small_size=DEFAULT_L1_SMALL_SIZE, const size_t trace_region_size=DEFAULT_TRACE_REGION_SIZE, const std::vector&lt; uint32_t &gt; &amp;l1_bank_remap={})</argsstring>
+        <definition>Device * tt::tt_metal::v0::CreateDevice</definition>
+        <argsstring>(chip_id_t device_id, const uint8_t num_hw_cqs=1, const size_t l1_small_size=DEFAULT_L1_SMALL_SIZE, const size_t trace_region_size=DEFAULT_TRACE_REGION_SIZE, DispatchCoreType dispatch_core_type=DispatchCoreType::WORKER, const std::vector&lt; uint32_t &gt; &amp;l1_bank_remap={})</argsstring>
         <name>CreateDevice</name>
-        <qualifiedname>tt::tt_metal::CreateDevice</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::CreateDevice</qualifiedname>
         <param>
           <type>chip_id_t</type>
           <declname>device_id</declname>
@@ -75,6 +111,11 @@
           <type>const size_t</type>
           <declname>trace_region_size</declname>
           <defval>DEFAULT_TRACE_REGION_SIZE</defval>
+        </param>
+        <param>
+          <type>DispatchCoreType</type>
+          <declname>dispatch_core_type</declname>
+          <defval>DispatchCoreType::WORKER</defval>
         </param>
         <param>
           <type>const std::vector&lt; uint32_t &gt; &amp;</type>
@@ -105,17 +146,27 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="67" column="8" declfile="tt_metal/host_api.hpp" declline="67" declcolumn="8"/>
+        <location file="tt_metal/host_api.hpp" line="81" column="8" declfile="tt_metal/host_api.hpp" declline="81" declcolumn="8"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a07e0aaf41772593d1d017db950e3b7b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a1690575bfc5a81f0a7bc44b0a1f4780b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Device *</type>
-        <definition>Device * tt::tt_metal::CreateDeviceMinimal</definition>
-        <argsstring>(chip_id_t device_id)</argsstring>
+        <definition>Device * tt::tt_metal::v0::CreateDeviceMinimal</definition>
+        <argsstring>(chip_id_t device_id, const uint8_t num_hw_cqs=1, DispatchCoreType dispatch_core_type=DispatchCoreType::WORKER)</argsstring>
         <name>CreateDeviceMinimal</name>
-        <qualifiedname>tt::tt_metal::CreateDeviceMinimal</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::CreateDeviceMinimal</qualifiedname>
         <param>
           <type>chip_id_t</type>
           <declname>device_id</declname>
+        </param>
+        <param>
+          <type>const uint8_t</type>
+          <declname>num_hw_cqs</declname>
+          <defval>1</defval>
+        </param>
+        <param>
+          <type>DispatchCoreType</type>
+          <declname>dispatch_core_type</declname>
+          <defval>DispatchCoreType::WORKER</defval>
         </param>
         <briefdescription>
         </briefdescription>
@@ -141,14 +192,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="83" column="8" declfile="tt_metal/host_api.hpp" declline="83" declcolumn="8"/>
+        <location file="tt_metal/host_api.hpp" line="98" column="8" declfile="tt_metal/host_api.hpp" declline="98" declcolumn="8"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a25ae925200ca85a3274824f1b945ebc1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a26cb44c89e3231cade68dca1a6990bbb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
-        <definition>bool tt::tt_metal::CloseDevice</definition>
+        <definition>bool tt::tt_metal::v0::CloseDevice</definition>
         <argsstring>(Device *device)</argsstring>
         <name>CloseDevice</name>
-        <qualifiedname>tt::tt_metal::CloseDevice</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::CloseDevice</qualifiedname>
         <param>
           <type>Device *</type>
           <declname>device</declname>
@@ -177,14 +228,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="95" column="6" declfile="tt_metal/host_api.hpp" declline="95" declcolumn="6"/>
+        <location file="tt_metal/host_api.hpp" line="110" column="6" declfile="tt_metal/host_api.hpp" declline="110" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a48b1af1b20561d626ff34f39282f1dea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a826db8a9c40c91034bc2a5f0f6e9b75e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Program</type>
-        <definition>Program tt::tt_metal::CreateProgram</definition>
+        <definition>Program tt::tt_metal::v0::CreateProgram</definition>
         <argsstring>()</argsstring>
         <name>CreateProgram</name>
-        <qualifiedname>tt::tt_metal::CreateProgram</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::CreateProgram</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -193,14 +244,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="106" column="9" declfile="tt_metal/host_api.hpp" declline="106" declcolumn="9"/>
+        <location file="tt_metal/host_api.hpp" line="121" column="9" declfile="tt_metal/host_api.hpp" declline="121" declcolumn="9"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1ae7930dd08bf0ae0c83c8ee55f3f604b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a0e68e0e2cb813bf5814ddb02d82cd1d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>KernelHandle</type>
-        <definition>KernelHandle tt::tt_metal::CreateKernel</definition>
+        <definition>KernelHandle tt::tt_metal::v0::CreateKernel</definition>
         <argsstring>(Program &amp;program, const std::string &amp;file_name, const std::variant&lt; CoreCoord, CoreRange, CoreRangeSet &gt; &amp;core_spec, const std::variant&lt; DataMovementConfig, ComputeConfig, EthernetConfig &gt; &amp;config)</argsstring>
         <name>CreateKernel</name>
-        <qualifiedname>tt::tt_metal::CreateKernel</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::CreateKernel</qualifiedname>
         <param>
           <type>Program &amp;</type>
           <declname>program</declname>
@@ -238,7 +289,7 @@
 </entry></row>
 <row>
 <entry thead="no"><para>file_name   </para>
-</entry><entry thead="no"><para>Path to kernel src. Assumed to be absolute/relative to CWD, but will fall back to relative path from TT_METAL_HOME.   </para>
+</entry><entry thead="no"><para>Path to kernel src. Assumed to be absolute/relative to CWD, but will fall back to relative path from TT_METAL_HOME/TT_METAL_KERNEL_PATH.   </para>
 </entry><entry thead="no"><para>const std::string &amp;   </para>
 </entry><entry thead="no"><para></para>
 </entry><entry thead="no"><para>Yes    </para>
@@ -262,14 +313,83 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="120" column="14" declfile="tt_metal/host_api.hpp" declline="120" declcolumn="14"/>
+        <location file="tt_metal/host_api.hpp" line="135" column="14" declfile="tt_metal/host_api.hpp" declline="135" declcolumn="14"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a62b10a9d4d6ed91eacaba5d27c9761fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a63aefd0f3f82e3dd0d66ff2ca72453c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>KernelHandle</type>
+        <definition>KernelHandle tt::tt_metal::v0::CreateKernelFromString</definition>
+        <argsstring>(Program &amp;program, const std::string &amp;kernel_src_code, const std::variant&lt; CoreCoord, CoreRange, CoreRangeSet &gt; &amp;core_spec, const std::variant&lt; DataMovementConfig, ComputeConfig, EthernetConfig &gt; &amp;config)</argsstring>
+        <name>CreateKernelFromString</name>
+        <qualifiedname>tt::tt_metal::v0::CreateKernelFromString</qualifiedname>
+        <param>
+          <type>Program &amp;</type>
+          <declname>program</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>kernel_src_code</declname>
+        </param>
+        <param>
+          <type>const std::variant&lt; CoreCoord, CoreRange, CoreRangeSet &gt; &amp;</type>
+          <declname>core_spec</declname>
+        </param>
+        <param>
+          <type>const std::variant&lt; DataMovementConfig, ComputeConfig, EthernetConfig &gt; &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a compute or data movement kernel with the given compile time arguments and adds it to the program.</para>
+<para>Return value: Kernel ID (uintptr_t)</para>
+<para><table rows="5" cols="5"><row>
+<entry thead="yes"><para>Argument   </para>
+</entry><entry thead="yes"><para>Description   </para>
+</entry><entry thead="yes"><para>Type   </para>
+</entry><entry thead="yes"><para>Valid Range   </para>
+</entry><entry thead="yes"><para>Required    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>program   </para>
+</entry><entry thead="no"><para>The program to which this kernel will be added to   </para>
+</entry><entry thead="no"><para>Program &amp;   </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>Yes    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>kernel_src_code   </para>
+</entry><entry thead="no"><para>Source code for kernel   </para>
+</entry><entry thead="no"><para>const std::string &amp;   </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>Yes    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>core_spec   </para>
+</entry><entry thead="no"><para>Either a single logical core, a range of logical cores or a set of logical core ranges that indicate which cores kernel is placed on   </para>
+</entry><entry thead="no"><para>const std::variant&lt;CoreCoord, CoreRange, CoreRangeSet&gt; &amp;   </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>Yes    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>config   </para>
+</entry><entry thead="no"><para>Config for data movement or compute kernel   </para>
+</entry><entry thead="no"><para>const std::variant&lt;DataMovementConfig,ComputeConfig,EthernetConfig&gt; &amp;   </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>No   </para>
+</entry></row>
+</table>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/host_api.hpp" line="153" column="14" declfile="tt_metal/host_api.hpp" declline="153" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a4b1e837406fd39ad2b671b7836ce3e4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>CBHandle</type>
-        <definition>CBHandle tt::tt_metal::CreateCircularBuffer</definition>
+        <definition>CBHandle tt::tt_metal::v0::CreateCircularBuffer</definition>
         <argsstring>(Program &amp;program, const std::variant&lt; CoreCoord, CoreRange, CoreRangeSet &gt; &amp;core_spec, const CircularBufferConfig &amp;config)</argsstring>
         <name>CreateCircularBuffer</name>
-        <qualifiedname>tt::tt_metal::CreateCircularBuffer</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::CreateCircularBuffer</qualifiedname>
         <param>
           <type>Program &amp;</type>
           <declname>program</declname>
@@ -285,9 +405,9 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Creates a Circular <ref refid="classBuffer" kindref="compound">Buffer</ref> (CB) in L1 memory of all cores within core ranges (inclusive) and adds it to the program. There can be a total of NUM_CIRCULAR_BUFFERS (32) circular buffers per core. Circular buffers hold data and have an associated config which indicates usage of the address space. If the config is specified for multiple buffer indices, the circular buffer address space is shared and each buffer index can potentially have a unique view of the shared space.</para>
+<para>Creates a Circular Buffer (CB) in L1 memory of all cores within core ranges (inclusive) and adds it to the program. There can be a total of NUM_CIRCULAR_BUFFERS (32) circular buffers per core. Circular buffers hold data and have an associated config which indicates usage of the address space. If the config is specified for multiple buffer indices, the circular buffer address space is shared and each buffer index can potentially have a unique view of the shared space.</para>
 <para>Circular buffers can be dynamically allocated or program-local allocated. If the config is created with an L1 buffer or sets a globally allocated address it is dynamic and shares the same address space as the L1 buffer. Otherwise, the circular buffer address space is managed by the program. Address space for program-local circular buffers does not persist across programs.</para>
-<para>Return value: Circular <ref refid="classBuffer" kindref="compound">Buffer</ref> ID (uintptr_t)</para>
+<para>Return value: Circular Buffer ID (uintptr_t)</para>
 <para><table rows="4" cols="5"><row>
 <entry thead="yes"><para>Argument   </para>
 </entry><entry thead="yes"><para>Description   </para>
@@ -321,14 +441,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="145" column="10" declfile="tt_metal/host_api.hpp" declline="145" declcolumn="10"/>
+        <location file="tt_metal/host_api.hpp" line="178" column="10" declfile="tt_metal/host_api.hpp" declline="178" declcolumn="10"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a95bdaeb43136c4db864dd95481fa0a16" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1ac4b1a13298da52770f32ddeeabd2c65a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const CircularBufferConfig &amp;</type>
-        <definition>const CircularBufferConfig &amp; tt::tt_metal::GetCircularBufferConfig</definition>
+        <definition>const CircularBufferConfig &amp; tt::tt_metal::v0::GetCircularBufferConfig</definition>
         <argsstring>(Program &amp;program, CBHandle cb_handle)</argsstring>
         <name>GetCircularBufferConfig</name>
-        <qualifiedname>tt::tt_metal::GetCircularBufferConfig</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::GetCircularBufferConfig</qualifiedname>
         <param>
           <type>Program &amp;</type>
           <declname>program</declname>
@@ -368,14 +488,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="157" column="28" declfile="tt_metal/host_api.hpp" declline="157" declcolumn="28"/>
+        <location file="tt_metal/host_api.hpp" line="193" column="28" declfile="tt_metal/host_api.hpp" declline="193" declcolumn="28"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a39e124f62d4c172a44abc0c22fa3ee04" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a220dc8a16809c1c12a44348b9a76ab08" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void tt::tt_metal::UpdateCircularBufferTotalSize</definition>
+        <definition>void tt::tt_metal::v0::UpdateCircularBufferTotalSize</definition>
         <argsstring>(Program &amp;program, CBHandle cb_handle, uint32_t total_size)</argsstring>
         <name>UpdateCircularBufferTotalSize</name>
-        <qualifiedname>tt::tt_metal::UpdateCircularBufferTotalSize</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::UpdateCircularBufferTotalSize</qualifiedname>
         <param>
           <type>Program &amp;</type>
           <declname>program</declname>
@@ -412,14 +532,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="170" column="6" declfile="tt_metal/host_api.hpp" declline="170" declcolumn="6"/>
+        <location file="tt_metal/host_api.hpp" line="206" column="6" declfile="tt_metal/host_api.hpp" declline="206" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a92e93610eb6b826263eb803608c33889" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a3831e993c64a578637c9fc73b059412d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void tt::tt_metal::UpdateCircularBufferPageSize</definition>
+        <definition>void tt::tt_metal::v0::UpdateCircularBufferPageSize</definition>
         <argsstring>(Program &amp;program, CBHandle cb_handle, uint8_t buffer_index, uint32_t page_size)</argsstring>
         <name>UpdateCircularBufferPageSize</name>
-        <qualifiedname>tt::tt_metal::UpdateCircularBufferPageSize</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::UpdateCircularBufferPageSize</qualifiedname>
         <param>
           <type>Program &amp;</type>
           <declname>program</declname>
@@ -481,14 +601,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="184" column="6" declfile="tt_metal/host_api.hpp" declline="184" declcolumn="6"/>
+        <location file="tt_metal/host_api.hpp" line="220" column="6" declfile="tt_metal/host_api.hpp" declline="220" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1aac851bed71135fa02e28caf0c0ae58b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a0cf0d51e979e755908ee29c30401ee53" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void tt::tt_metal::UpdateDynamicCircularBufferAddress</definition>
+        <definition>void tt::tt_metal::v0::UpdateDynamicCircularBufferAddress</definition>
         <argsstring>(Program &amp;program, CBHandle cb_handle, const Buffer &amp;buffer)</argsstring>
         <name>UpdateDynamicCircularBufferAddress</name>
-        <qualifiedname>tt::tt_metal::UpdateDynamicCircularBufferAddress</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::UpdateDynamicCircularBufferAddress</qualifiedname>
         <param>
           <type>Program &amp;</type>
           <declname>program</declname>
@@ -498,7 +618,7 @@
           <declname>cb_handle</declname>
         </param>
         <param>
-          <type>const <ref refid="classBuffer" kindref="compound">Buffer</ref> &amp;</type>
+          <type>const Buffer &amp;</type>
           <declname>buffer</declname>
         </param>
         <briefdescription>
@@ -521,18 +641,18 @@
 </entry><entry thead="no"><para>Yes   </para>
 </entry></row>
 </table>
-| cb_handle | ID of the circular buffer, returned by <computeroutput>CreateCircularBuffers</computeroutput> | CBHandle (uintptr_t) | | Yes | | | buffer | Dynamically allocated L1 buffer that shares address space of circular buffer <computeroutput>cb_handle</computeroutput> | const <ref refid="classBuffer" kindref="compound">Buffer</ref> &amp; | L1 buffer | Yes | </para>
+| cb_handle | ID of the circular buffer, returned by <computeroutput>CreateCircularBuffers</computeroutput> | CBHandle (uintptr_t) | | Yes | | | buffer | Dynamically allocated L1 buffer that shares address space of circular buffer <computeroutput>cb_handle</computeroutput> | const Buffer &amp; | L1 buffer | Yes | </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="197" column="6" declfile="tt_metal/host_api.hpp" declline="197" declcolumn="6"/>
+        <location file="tt_metal/host_api.hpp" line="233" column="6" declfile="tt_metal/host_api.hpp" declline="233" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a8860cbc40324a9cc2e18badc55a77a68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1ad7ce765d28d851983f910495c44411cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>uint32_t</type>
-        <definition>uint32_t tt::tt_metal::CreateSemaphore</definition>
+        <definition>uint32_t tt::tt_metal::v0::CreateSemaphore</definition>
         <argsstring>(Program &amp;program, const std::variant&lt; CoreRange, CoreRangeSet &gt; &amp;core_spec, uint32_t initial_value, CoreType core_type=CoreType::WORKER)</argsstring>
         <name>CreateSemaphore</name>
-        <qualifiedname>tt::tt_metal::CreateSemaphore</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::CreateSemaphore</qualifiedname>
         <param>
           <type>Program &amp;</type>
           <declname>program</declname>
@@ -553,8 +673,8 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Initializes semaphore on all cores within core range (inclusive). Each core can have up to four 32B semaphores.</para>
-<para>Return value: Semaphore address (uint32_t)</para>
+<para>Initializes semaphore on all cores within core range (inclusive). Each core can have up to eight 4B semaphores aligned to L1_ALIGNMENT.</para>
+<para>Return value: Semaphore id (uint32_t). This can be used inside a kernel to extract the address using get_semaphore</para>
 <para><table rows="5" cols="5"><row>
 <entry thead="yes"><para>Argument   </para>
 </entry><entry thead="yes"><para>Description   </para>
@@ -588,21 +708,161 @@
 </entry><entry thead="no"><para>Tensix or Ethernet core to create semaphore on.   </para>
 </entry><entry thead="no"><para>CoreType   </para>
 </entry><entry thead="no"><para></para>
-</entry><entry thead="no"><para>Yes   </para>
+</entry><entry thead="no"><para>No   </para>
 </entry></row>
 </table>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="211" column="10" declfile="tt_metal/host_api.hpp" declline="211" declcolumn="10"/>
+        <location file="tt_metal/host_api.hpp" line="247" column="10" declfile="tt_metal/host_api.hpp" declline="247" declcolumn="10"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a44f12170a79821c7a1eb7dcad8e9014e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::shared_ptr&lt; <ref refid="classBuffer" kindref="compound">Buffer</ref> &gt;</type>
-        <definition>std::shared_ptr&lt; Buffer &gt; tt::tt_metal::CreateBuffer</definition>
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a087c394c5ec94274c150ee18ef88ef78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::unique_ptr&lt; GlobalSemaphore &gt;</type>
+        <definition>std::unique_ptr&lt; GlobalSemaphore &gt; tt::tt_metal::v0::CreateGlobalSemaphore</definition>
+        <argsstring>(Device *device, const CoreRangeSet &amp;cores, uint32_t initial_value, BufferType buffer_type=BufferType::L1)</argsstring>
+        <name>CreateGlobalSemaphore</name>
+        <qualifiedname>tt::tt_metal::v0::CreateGlobalSemaphore</qualifiedname>
+        <param>
+          <type>Device *</type>
+          <declname>device</declname>
+        </param>
+        <param>
+          <type>const CoreRangeSet &amp;</type>
+          <declname>cores</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>initial_value</declname>
+        </param>
+        <param>
+          <type>BufferType</type>
+          <declname>buffer_type</declname>
+          <defval>BufferType::L1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initializes a global semaphore on all cores within the specified CoreRangeSet. This only supports tensix cores, and can only use L1 buffer types like BufferType::L1 and BufferType::L1_SMALL.</para>
+<para>Return value: std::unique_ptr&lt;GlobalSemaphore&gt;.</para>
+<para><table rows="5" cols="5"><row>
+<entry thead="yes"><para>Argument   </para>
+</entry><entry thead="yes"><para>Description   </para>
+</entry><entry thead="yes"><para>Type   </para>
+</entry><entry thead="yes"><para>Valid Range   </para>
+</entry><entry thead="yes"><para>Required    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>device   </para>
+</entry><entry thead="no"><para>The device to create the semaphore on   </para>
+</entry><entry thead="no"><para>Device *   </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>Yes    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>cores   </para>
+</entry><entry thead="no"><para>Range of the Tensix co-ordinates using the semaphore   </para>
+</entry><entry thead="no"><para>const CoreRangeSet &amp;   </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>Yes    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>initial_value   </para>
+</entry><entry thead="no"><para>Initial value of the semaphore   </para>
+</entry><entry thead="no"><para>uint32_t   </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>Yes    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>buffer_type   </para>
+</entry><entry thead="no"><para>Buffer type to store the semaphore   </para>
+</entry><entry thead="no"><para>BufferType   </para>
+</entry><entry thead="no"><para>L1 types   </para>
+</entry><entry thead="no"><para>No   </para>
+</entry></row>
+</table>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/host_api.hpp" line="266" column="17" declfile="tt_metal/host_api.hpp" declline="266" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1acd4672dc795d11eeac8c1c45bfed6a87" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::unique_ptr&lt; GlobalSemaphore &gt;</type>
+        <definition>std::unique_ptr&lt; GlobalSemaphore &gt; tt::tt_metal::v0::CreateGlobalSemaphore</definition>
+        <argsstring>(Device *device, CoreRangeSet &amp;&amp;cores, uint32_t initial_value, BufferType buffer_type=BufferType::L1)</argsstring>
+        <name>CreateGlobalSemaphore</name>
+        <qualifiedname>tt::tt_metal::v0::CreateGlobalSemaphore</qualifiedname>
+        <param>
+          <type>Device *</type>
+          <declname>device</declname>
+        </param>
+        <param>
+          <type>CoreRangeSet &amp;&amp;</type>
+          <declname>cores</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>initial_value</declname>
+        </param>
+        <param>
+          <type>BufferType</type>
+          <declname>buffer_type</declname>
+          <defval>BufferType::L1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initializes a global semaphore on all cores within the specified CoreRangeSet. This only supports tensix cores, and can only use L1 buffer types like BufferType::L1 and BufferType::L1_SMALL.</para>
+<para>Return value: std::unique_ptr&lt;GlobalSemaphore&gt;.</para>
+<para><table rows="5" cols="5"><row>
+<entry thead="yes"><para>Argument   </para>
+</entry><entry thead="yes"><para>Description   </para>
+</entry><entry thead="yes"><para>Type   </para>
+</entry><entry thead="yes"><para>Valid Range   </para>
+</entry><entry thead="yes"><para>Required    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>device   </para>
+</entry><entry thead="no"><para>The device to create the semaphore on   </para>
+</entry><entry thead="no"><para>Device *   </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>Yes    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>cores   </para>
+</entry><entry thead="no"><para>Range of the Tensix co-ordinates using the semaphore   </para>
+</entry><entry thead="no"><para>CoreRangeSet &amp;&amp;   </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>Yes    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>initial_value   </para>
+</entry><entry thead="no"><para>Initial value of the semaphore   </para>
+</entry><entry thead="no"><para>uint32_t   </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>Yes    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>buffer_type   </para>
+</entry><entry thead="no"><para>Buffer type to store the semaphore   </para>
+</entry><entry thead="no"><para>BufferType   </para>
+</entry><entry thead="no"><para>L1 types   </para>
+</entry><entry thead="no"><para>No   </para>
+</entry></row>
+</table>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/host_api.hpp" line="282" column="17" declfile="tt_metal/host_api.hpp" declline="282" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1aec7794124ecb8f3b20ffe95a4c8b390d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; Buffer &gt;</type>
+        <definition>std::shared_ptr&lt; Buffer &gt; tt::tt_metal::v0::CreateBuffer</definition>
         <argsstring>(const InterleavedBufferConfig &amp;config)</argsstring>
         <name>CreateBuffer</name>
-        <qualifiedname>tt::tt_metal::CreateBuffer</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::CreateBuffer</qualifiedname>
         <param>
           <type>const InterleavedBufferConfig &amp;</type>
           <declname>config</declname>
@@ -610,7 +870,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Allocates an interleaved DRAM or L1 buffer on device</para>
+<para>Creates a pre-allocated interleaved DRAM or L1 buffer with the global allocator on device</para>
 <para>Return value: std::shared_ptr&lt;Buffer&gt;</para>
 <para><table rows="2" cols="5"><row>
 <entry thead="yes"><para>Argument   </para>
@@ -621,7 +881,7 @@
 </entry></row>
 <row>
 <entry thead="no"><para>config   </para>
-</entry><entry thead="no"><para>config for buffer   </para>
+</entry><entry thead="no"><para>Config for the buffer   </para>
 </entry><entry thead="no"><para>InterleavedBufferConfig   </para>
 </entry><entry thead="no"><para></para>
 </entry><entry thead="no"><para>Yes   </para>
@@ -631,14 +891,108 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="222" column="17" declfile="tt_metal/host_api.hpp" declline="222" declcolumn="17"/>
+        <location file="tt_metal/host_api.hpp" line="294" column="17" declfile="tt_metal/host_api.hpp" declline="294" declcolumn="17"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a8e5af0183154c8b303d43acec393ec29" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::shared_ptr&lt; <ref refid="classBuffer" kindref="compound">Buffer</ref> &gt;</type>
-        <definition>std::shared_ptr&lt; Buffer &gt; tt::tt_metal::CreateBuffer</definition>
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a74ad24acd85d50aebe09a2220fd1237c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; Buffer &gt;</type>
+        <definition>std::shared_ptr&lt; Buffer &gt; tt::tt_metal::v0::CreateBuffer</definition>
+        <argsstring>(const InterleavedBufferConfig &amp;config, DeviceAddr address)</argsstring>
+        <name>CreateBuffer</name>
+        <qualifiedname>tt::tt_metal::v0::CreateBuffer</qualifiedname>
+        <param>
+          <type>const InterleavedBufferConfig &amp;</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>DeviceAddr</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a pre-allocated interleaved DRAM or L1 buffer with the global allocator on device</para>
+<para>Return value: std::shared_ptr&lt;Buffer&gt;</para>
+<para><table rows="3" cols="5"><row>
+<entry thead="yes"><para>Argument   </para>
+</entry><entry thead="yes"><para>Description   </para>
+</entry><entry thead="yes"><para>Type   </para>
+</entry><entry thead="yes"><para>Valid Range   </para>
+</entry><entry thead="yes"><para>Required    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>config   </para>
+</entry><entry thead="no"><para>Config for the buffer   </para>
+</entry><entry thead="no"><para>InterleavedBufferConfig   </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>Yes    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>address   </para>
+</entry><entry thead="no"><para>Device address of the buffer   </para>
+</entry><entry thead="no"><para>DeviceAddr   </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>No   </para>
+</entry></row>
+</table>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/host_api.hpp" line="306" column="17" declfile="tt_metal/host_api.hpp" declline="306" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a88eb77e75d74b91bec6ad22064eb3b38" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; Buffer &gt;</type>
+        <definition>std::shared_ptr&lt; Buffer &gt; tt::tt_metal::v0::CreateBuffer</definition>
+        <argsstring>(const InterleavedBufferConfig &amp;config, SubDeviceId sub_device_id)</argsstring>
+        <name>CreateBuffer</name>
+        <qualifiedname>tt::tt_metal::v0::CreateBuffer</qualifiedname>
+        <param>
+          <type>const InterleavedBufferConfig &amp;</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>SubDeviceId</type>
+          <declname>sub_device_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a pre-allocated interleaved DRAM or L1 buffer on device</para>
+<para>Return value: std::shared_ptr&lt;Buffer&gt;</para>
+<para><table rows="3" cols="5"><row>
+<entry thead="yes"><para>Argument   </para>
+</entry><entry thead="yes"><para>Description   </para>
+</entry><entry thead="yes"><para>Type   </para>
+</entry><entry thead="yes"><para>Valid Range   </para>
+</entry><entry thead="yes"><para>Required    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>config   </para>
+</entry><entry thead="no"><para>Config for the buffer   </para>
+</entry><entry thead="no"><para>InterleavedBufferConfig   </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>Yes    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>sub_device_id   </para>
+</entry><entry thead="no"><para>The sub-device id to allocate on   </para>
+</entry><entry thead="no"><para>SubDeviceId   </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>No   </para>
+</entry></row>
+</table>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/host_api.hpp" line="318" column="17" declfile="tt_metal/host_api.hpp" declline="318" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a6c254d5b77d19539fd7999c73b7606ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; Buffer &gt;</type>
+        <definition>std::shared_ptr&lt; Buffer &gt; tt::tt_metal::v0::CreateBuffer</definition>
         <argsstring>(const ShardedBufferConfig &amp;config)</argsstring>
         <name>CreateBuffer</name>
-        <qualifiedname>tt::tt_metal::CreateBuffer</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::CreateBuffer</qualifiedname>
         <param>
           <type>const ShardedBufferConfig &amp;</type>
           <declname>config</declname>
@@ -646,7 +1000,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Allocates a sharded DRAM or L1 buffer on device</para>
+<para>Creates a pre-allocated sharded DRAM or L1 buffer with the global allocator on device</para>
 <para>Return value: std::shared_ptr&lt;Buffer&gt;</para>
 <para><table rows="2" cols="5"><row>
 <entry thead="yes"><para>Argument   </para>
@@ -657,7 +1011,7 @@
 </entry></row>
 <row>
 <entry thead="no"><para>config   </para>
-</entry><entry thead="no"><para>config for buffer   </para>
+</entry><entry thead="no"><para>Config for the buffer   </para>
 </entry><entry thead="no"><para>ShardedBufferConfig   </para>
 </entry><entry thead="no"><para></para>
 </entry><entry thead="no"><para>Yes   </para>
@@ -667,16 +1021,110 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="233" column="17" declfile="tt_metal/host_api.hpp" declline="233" declcolumn="17"/>
+        <location file="tt_metal/host_api.hpp" line="329" column="17" declfile="tt_metal/host_api.hpp" declline="329" declcolumn="17"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a6a064752ab55b4fac953ba8bde7daf52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1ac9703a61146ccd855bea828aade6a720" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; Buffer &gt;</type>
+        <definition>std::shared_ptr&lt; Buffer &gt; tt::tt_metal::v0::CreateBuffer</definition>
+        <argsstring>(const ShardedBufferConfig &amp;config, DeviceAddr address)</argsstring>
+        <name>CreateBuffer</name>
+        <qualifiedname>tt::tt_metal::v0::CreateBuffer</qualifiedname>
+        <param>
+          <type>const ShardedBufferConfig &amp;</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>DeviceAddr</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a pre-allocated sharded DRAM or L1 buffer with the global allocator on device</para>
+<para>Return value: std::shared_ptr&lt;Buffer&gt;</para>
+<para><table rows="3" cols="5"><row>
+<entry thead="yes"><para>Argument   </para>
+</entry><entry thead="yes"><para>Description   </para>
+</entry><entry thead="yes"><para>Type   </para>
+</entry><entry thead="yes"><para>Valid Range   </para>
+</entry><entry thead="yes"><para>Required    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>config   </para>
+</entry><entry thead="no"><para>Config for the buffer   </para>
+</entry><entry thead="no"><para>ShardedBufferConfig   </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>Yes    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>address   </para>
+</entry><entry thead="no"><para>Device address of the buffer   </para>
+</entry><entry thead="no"><para>DeviceAddr   </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>No   </para>
+</entry></row>
+</table>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/host_api.hpp" line="341" column="17" declfile="tt_metal/host_api.hpp" declline="341" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1ac9b0f4582de81688db0f46ab932f74f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; Buffer &gt;</type>
+        <definition>std::shared_ptr&lt; Buffer &gt; tt::tt_metal::v0::CreateBuffer</definition>
+        <argsstring>(const ShardedBufferConfig &amp;config, SubDeviceId sub_device_id)</argsstring>
+        <name>CreateBuffer</name>
+        <qualifiedname>tt::tt_metal::v0::CreateBuffer</qualifiedname>
+        <param>
+          <type>const ShardedBufferConfig &amp;</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>SubDeviceId</type>
+          <declname>sub_device_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a pre-allocated sharded DRAM or L1 buffer on device</para>
+<para>Return value: std::shared_ptr&lt;Buffer&gt;</para>
+<para><table rows="3" cols="5"><row>
+<entry thead="yes"><para>Argument   </para>
+</entry><entry thead="yes"><para>Description   </para>
+</entry><entry thead="yes"><para>Type   </para>
+</entry><entry thead="yes"><para>Valid Range   </para>
+</entry><entry thead="yes"><para>Required    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>config   </para>
+</entry><entry thead="no"><para>Config for the buffer   </para>
+</entry><entry thead="no"><para>ShardedBufferConfig   </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>Yes    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>sub_device_id   </para>
+</entry><entry thead="no"><para>The sub-device id to allocate on   </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>No   </para>
+</entry></row>
+</table>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/host_api.hpp" line="353" column="17" declfile="tt_metal/host_api.hpp" declline="353" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1abce385d98e86cf18acb680f183039cb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void tt::tt_metal::DeallocateBuffer</definition>
+        <definition>void tt::tt_metal::v0::DeallocateBuffer</definition>
         <argsstring>(Buffer &amp;buffer)</argsstring>
         <name>DeallocateBuffer</name>
-        <qualifiedname>tt::tt_metal::DeallocateBuffer</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::DeallocateBuffer</qualifiedname>
         <param>
-          <type><ref refid="classBuffer" kindref="compound">Buffer</ref> &amp;</type>
+          <type>Buffer &amp;</type>
           <declname>buffer</declname>
         </param>
         <briefdescription>
@@ -694,7 +1142,7 @@
 <row>
 <entry thead="no"><para>buffer   </para>
 </entry><entry thead="no"><para>The buffer to deallocate from device   </para>
-</entry><entry thead="no"><para><ref refid="classBuffer" kindref="compound">Buffer</ref> &amp;   </para>
+</entry><entry thead="no"><para>Buffer &amp;   </para>
 </entry><entry thead="no"><para></para>
 </entry><entry thead="no"><para>Yes   </para>
 </entry></row>
@@ -703,20 +1151,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="244" column="6" declfile="tt_metal/host_api.hpp" declline="244" declcolumn="6"/>
+        <location file="tt_metal/host_api.hpp" line="364" column="6" declfile="tt_metal/host_api.hpp" declline="364" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a4e29ca9df8b6f13424f2a392d8971483" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a1ebc34320ecacb398a25f67c206422d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void tt::tt_metal::AssignGlobalBufferToProgram</definition>
-        <argsstring>(std::shared_ptr&lt; Buffer &gt; buffer, std::variant&lt; std::reference_wrapper&lt; Program &gt;, std::shared_ptr&lt; Program &gt; &gt; program)</argsstring>
+        <definition>void tt::tt_metal::v0::AssignGlobalBufferToProgram</definition>
+        <argsstring>(std::shared_ptr&lt; Buffer &gt; buffer, Program &amp;program)</argsstring>
         <name>AssignGlobalBufferToProgram</name>
-        <qualifiedname>tt::tt_metal::AssignGlobalBufferToProgram</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::AssignGlobalBufferToProgram</qualifiedname>
         <param>
-          <type>std::shared_ptr&lt; <ref refid="classBuffer" kindref="compound">Buffer</ref> &gt;</type>
+          <type>std::shared_ptr&lt; Buffer &gt;</type>
           <declname>buffer</declname>
         </param>
         <param>
-          <type>std::variant&lt; std::reference_wrapper&lt; Program &gt;, std::shared_ptr&lt; Program &gt; &gt;</type>
+          <type>Program &amp;</type>
           <declname>program</declname>
         </param>
         <briefdescription>
@@ -741,7 +1189,7 @@
 <row>
 <entry thead="no"><para>program   </para>
 </entry><entry thead="no"><para>The program getting ownership of the buffer   </para>
-</entry><entry thead="no"><para>std::shared_ptr&lt;Buffer&gt; buffer   </para>
+</entry><entry thead="no"><para>Program &amp;   </para>
 </entry><entry thead="no"><para></para>
 </entry><entry thead="no"><para>Yes   </para>
 </entry></row>
@@ -750,14 +1198,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="256" column="6" declfile="tt_metal/host_api.hpp" declline="256" declcolumn="6"/>
+        <location file="tt_metal/host_api.hpp" line="376" column="6" declfile="tt_metal/host_api.hpp" declline="376" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a491996adcf69861c22eed34ce1ac68cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1afb2ca08d5f123ed98b99498324061ba4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void tt::tt_metal::SetRuntimeArgs</definition>
-        <argsstring>(const Program &amp;program, KernelHandle kernel, const std::variant&lt; CoreCoord, CoreRange, CoreRangeSet &gt; &amp;core_spec, const std::vector&lt; uint32_t &gt; &amp;runtime_args)</argsstring>
+        <definition>void tt::tt_metal::v0::SetRuntimeArgs</definition>
+        <argsstring>(const Program &amp;program, KernelHandle kernel, const std::variant&lt; CoreCoord, CoreRange, CoreRangeSet &gt; &amp;core_spec, stl::Span&lt; const uint32_t &gt; runtime_args)</argsstring>
         <name>SetRuntimeArgs</name>
-        <qualifiedname>tt::tt_metal::SetRuntimeArgs</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::SetRuntimeArgs</qualifiedname>
         <param>
           <type>const Program &amp;</type>
           <declname>program</declname>
@@ -771,7 +1219,7 @@
           <declname>core_spec</declname>
         </param>
         <param>
-          <type>const std::vector&lt; uint32_t &gt; &amp;</type>
+          <type>stl::Span&lt; const uint32_t &gt;</type>
           <declname>runtime_args</declname>
         </param>
         <briefdescription>
@@ -810,7 +1258,7 @@
 <row>
 <entry thead="no"><para>runtime_args   </para>
 </entry><entry thead="no"><para>The runtime args to be written   </para>
-</entry><entry thead="no"><para>const std::vector&lt;uint32_t&gt; &amp;   </para>
+</entry><entry thead="no"><para>stl::Span&lt;const uint32_t&gt;   </para>
 </entry><entry thead="no"><para></para>
 </entry><entry thead="no"><para>Yes   </para>
 </entry></row>
@@ -819,14 +1267,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="275" column="6" declfile="tt_metal/host_api.hpp" declline="275" declcolumn="6"/>
+        <location file="tt_metal/host_api.hpp" line="395" column="6" declfile="tt_metal/host_api.hpp" declline="395" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1af27c6b3f5c79fb792beb4ab2169683b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a74ca7c2b7c798d3c16af2dc931d68df0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void tt::tt_metal::SetRuntimeArgs</definition>
+        <definition>void tt::tt_metal::v0::SetRuntimeArgs</definition>
         <argsstring>(const Program &amp;program, KernelHandle kernel, const std::vector&lt; CoreCoord &gt; &amp;core_spec, const std::vector&lt; std::vector&lt; uint32_t &gt; &gt; &amp;runtime_args)</argsstring>
         <name>SetRuntimeArgs</name>
-        <qualifiedname>tt::tt_metal::SetRuntimeArgs</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::SetRuntimeArgs</qualifiedname>
         <param>
           <type>const Program &amp;</type>
           <declname>program</declname>
@@ -888,14 +1336,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="290" column="6" declfile="tt_metal/host_api.hpp" declline="290" declcolumn="6"/>
+        <location file="tt_metal/host_api.hpp" line="414" column="6" declfile="tt_metal/host_api.hpp" declline="414" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a7c10cd46327ef8693169b3aee8846a7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1afdb3df50326c491a4612d21ce45a518a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void tt::tt_metal::SetRuntimeArgs</definition>
+        <definition>void tt::tt_metal::v0::SetRuntimeArgs</definition>
         <argsstring>(Device *device, const std::shared_ptr&lt; Kernel &gt; kernel, const std::variant&lt; CoreCoord, CoreRange, CoreRangeSet &gt; &amp;core_spec, std::shared_ptr&lt; RuntimeArgs &gt; runtime_args)</argsstring>
         <name>SetRuntimeArgs</name>
-        <qualifiedname>tt::tt_metal::SetRuntimeArgs</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::SetRuntimeArgs</qualifiedname>
         <param>
           <type>Device *</type>
           <declname>device</declname>
@@ -909,7 +1357,7 @@
           <declname>core_spec</declname>
         </param>
         <param>
-          <type>std::shared_ptr&lt; RuntimeArgs &gt;</type>
+          <type>std::shared_ptr&lt; <ref refid="namespacett_1_1tt__metal_1_1v0_1a5d1cfea010cb740e7307b18b4a7ec9e8" kindref="member">RuntimeArgs</ref> &gt;</type>
           <declname>runtime_args</declname>
         </param>
         <briefdescription>
@@ -957,14 +1405,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="305" column="6" declfile="tt_metal/host_api.hpp" declline="305" declcolumn="6"/>
+        <location file="tt_metal/host_api.hpp" line="433" column="6" declfile="tt_metal/host_api.hpp" declline="433" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a5abdf19459659b61a4c2bbcf172f6f35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a774adf0f130e4a8f75007cca0a33fcb6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void tt::tt_metal::SetRuntimeArgs</definition>
+        <definition>void tt::tt_metal::v0::SetRuntimeArgs</definition>
         <argsstring>(Device *device, const std::shared_ptr&lt; Kernel &gt; kernel, const std::vector&lt; CoreCoord &gt; &amp;core_spec, const std::vector&lt; std::shared_ptr&lt; RuntimeArgs &gt; &gt; runtime_args)</argsstring>
         <name>SetRuntimeArgs</name>
-        <qualifiedname>tt::tt_metal::SetRuntimeArgs</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::SetRuntimeArgs</qualifiedname>
         <param>
           <type>Device *</type>
           <declname>device</declname>
@@ -978,7 +1426,7 @@
           <declname>core_spec</declname>
         </param>
         <param>
-          <type>const std::vector&lt; std::shared_ptr&lt; RuntimeArgs &gt; &gt;</type>
+          <type>const std::vector&lt; std::shared_ptr&lt; <ref refid="namespacett_1_1tt__metal_1_1v0_1a5d1cfea010cb740e7307b18b4a7ec9e8" kindref="member">RuntimeArgs</ref> &gt; &gt;</type>
           <declname>runtime_args</declname>
         </param>
         <briefdescription>
@@ -1025,14 +1473,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="319" column="6" declfile="tt_metal/host_api.hpp" declline="319" declcolumn="6"/>
+        <location file="tt_metal/host_api.hpp" line="451" column="6" declfile="tt_metal/host_api.hpp" declline="451" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a3b4cf7321eea21c21850b447312f02fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a8263eba8cd8279b6c1e6db233ec5f133" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void tt::tt_metal::SetCommonRuntimeArgs</definition>
-        <argsstring>(const Program &amp;program, KernelHandle kernel_id, const std::vector&lt; uint32_t &gt; &amp;runtime_args)</argsstring>
+        <definition>void tt::tt_metal::v0::SetCommonRuntimeArgs</definition>
+        <argsstring>(const Program &amp;program, KernelHandle kernel_id, stl::Span&lt; const uint32_t &gt; runtime_args)</argsstring>
         <name>SetCommonRuntimeArgs</name>
-        <qualifiedname>tt::tt_metal::SetCommonRuntimeArgs</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::SetCommonRuntimeArgs</qualifiedname>
         <param>
           <type>const Program &amp;</type>
           <declname>program</declname>
@@ -1042,7 +1490,7 @@
           <declname>kernel_id</declname>
         </param>
         <param>
-          <type>const std::vector&lt; uint32_t &gt; &amp;</type>
+          <type>stl::Span&lt; const uint32_t &gt;</type>
           <declname>runtime_args</declname>
         </param>
         <briefdescription>
@@ -1074,7 +1522,7 @@
 <row>
 <entry thead="no"><para>runtime_args   </para>
 </entry><entry thead="no"><para>The runtime args to be written   </para>
-</entry><entry thead="no"><para>const std::vector&lt;uint32_t&gt; &amp;   </para>
+</entry><entry thead="no"><para>stl::Span&lt;const uint32_t&gt;   </para>
 </entry><entry thead="no"><para></para>
 </entry><entry thead="no"><para>Yes   </para>
 </entry></row>
@@ -1083,14 +1531,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="334" column="6" declfile="tt_metal/host_api.hpp" declline="334" declcolumn="6"/>
+        <location file="tt_metal/host_api.hpp" line="469" column="6" declfile="tt_metal/host_api.hpp" declline="469" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a8dd2e6d874b20a87745ae83cc88afb51" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a609d42acfdab49842d577aae66de2e67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>RuntimeArgsData &amp;</type>
-        <definition>RuntimeArgsData &amp; tt::tt_metal::GetRuntimeArgs</definition>
+        <definition>RuntimeArgsData &amp; tt::tt_metal::v0::GetRuntimeArgs</definition>
         <argsstring>(const Program &amp;program, KernelHandle kernel_id, const CoreCoord &amp;logical_core)</argsstring>
         <name>GetRuntimeArgs</name>
-        <qualifiedname>tt::tt_metal::GetRuntimeArgs</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::GetRuntimeArgs</qualifiedname>
         <param>
           <type>const Program &amp;</type>
           <declname>program</declname>
@@ -1141,14 +1589,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="348" column="18" declfile="tt_metal/host_api.hpp" declline="348" declcolumn="18"/>
+        <location file="tt_metal/host_api.hpp" line="482" column="17" declfile="tt_metal/host_api.hpp" declline="482" declcolumn="17"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a1b62db611a9ad2d24c90c043dae989a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a65abc534c2bbbe36d118c3b844350a72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; std::vector&lt; RuntimeArgsData &gt; &gt; &amp;</type>
-        <definition>std::vector&lt; std::vector&lt; RuntimeArgsData &gt; &gt; &amp; tt::tt_metal::GetRuntimeArgs</definition>
+        <definition>std::vector&lt; std::vector&lt; RuntimeArgsData &gt; &gt; &amp; tt::tt_metal::v0::GetRuntimeArgs</definition>
         <argsstring>(const Program &amp;program, KernelHandle kernel_id)</argsstring>
         <name>GetRuntimeArgs</name>
-        <qualifiedname>tt::tt_metal::GetRuntimeArgs</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::GetRuntimeArgs</qualifiedname>
         <param>
           <type>const Program &amp;</type>
           <declname>program</declname>
@@ -1188,14 +1636,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="360" column="14" declfile="tt_metal/host_api.hpp" declline="360" declcolumn="14"/>
+        <location file="tt_metal/host_api.hpp" line="494" column="13" declfile="tt_metal/host_api.hpp" declline="494" declcolumn="13"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a2af22a7fb7c71050de7ec2fc9d487ab6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a9117d8f938e3b0c3e6b146f960eafa2f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>RuntimeArgsData &amp;</type>
-        <definition>RuntimeArgsData &amp; tt::tt_metal::GetCommonRuntimeArgs</definition>
+        <definition>RuntimeArgsData &amp; tt::tt_metal::v0::GetCommonRuntimeArgs</definition>
         <argsstring>(const Program &amp;program, KernelHandle kernel_id)</argsstring>
         <name>GetCommonRuntimeArgs</name>
-        <qualifiedname>tt::tt_metal::GetCommonRuntimeArgs</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::GetCommonRuntimeArgs</qualifiedname>
         <param>
           <type>const Program &amp;</type>
           <declname>program</declname>
@@ -1235,89 +1683,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="372" column="18" declfile="tt_metal/host_api.hpp" declline="372" declcolumn="18"/>
+        <location file="tt_metal/host_api.hpp" line="506" column="17" declfile="tt_metal/host_api.hpp" declline="506" declcolumn="17"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a72bce18ec81347c077fb802271a7c562" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a76bb833452d2265a33a294eef1140782" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void tt::tt_metal::EnqueueReadBuffer</definition>
-        <argsstring>(CommandQueue &amp;cq, std::variant&lt; std::reference_wrapper&lt; Buffer &gt;, std::shared_ptr&lt; Buffer &gt; &gt; buffer, std::vector&lt; uint32_t &gt; &amp;dst, bool blocking)</argsstring>
+        <definition>void tt::tt_metal::v0::EnqueueReadBuffer</definition>
+        <argsstring>(CommandQueue &amp;cq, std::variant&lt; std::reference_wrapper&lt; Buffer &gt;, std::shared_ptr&lt; Buffer &gt; &gt; buffer, void *dst, bool blocking, tt::stl::Span&lt; const SubDeviceId &gt; sub_device_ids={})</argsstring>
         <name>EnqueueReadBuffer</name>
-        <qualifiedname>tt::tt_metal::EnqueueReadBuffer</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::EnqueueReadBuffer</qualifiedname>
         <param>
           <type>CommandQueue &amp;</type>
           <declname>cq</declname>
         </param>
         <param>
-          <type>std::variant&lt; std::reference_wrapper&lt; <ref refid="classBuffer" kindref="compound">Buffer</ref> &gt;, std::shared_ptr&lt; <ref refid="classBuffer" kindref="compound">Buffer</ref> &gt; &gt;</type>
-          <declname>buffer</declname>
-        </param>
-        <param>
-          <type>std::vector&lt; uint32_t &gt; &amp;</type>
-          <declname>dst</declname>
-        </param>
-        <param>
-          <type>bool</type>
-          <declname>blocking</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Reads a buffer from the device</para>
-<para>Return value: void</para>
-<para><table rows="5" cols="5"><row>
-<entry thead="yes"><para>Argument   </para>
-</entry><entry thead="yes"><para>Description   </para>
-</entry><entry thead="yes"><para>Type   </para>
-</entry><entry thead="yes"><para>Valid Range   </para>
-</entry><entry thead="yes"><para>Required    </para>
-</entry></row>
-<row>
-<entry thead="no"><para>cq   </para>
-</entry><entry thead="no"><para>The command queue object which dispatches the command to the hardware   </para>
-</entry><entry thead="no"><para>CommandQueue &amp;   </para>
-</entry><entry thead="no"><para></para>
-</entry><entry thead="no"><para>Yes    </para>
-</entry></row>
-<row>
-<entry thead="no"><para>buffer   </para>
-</entry><entry thead="no"><para>The device buffer we are reading from   </para>
-</entry><entry thead="no"><para><ref refid="classBuffer" kindref="compound">Buffer</ref> &amp; or std::shared_ptr&lt;Buffer&gt;   </para>
-</entry><entry thead="no"><para></para>
-</entry><entry thead="no"><para>Yes    </para>
-</entry></row>
-<row>
-<entry thead="no"><para>dst   </para>
-</entry><entry thead="no"><para>The vector where the results that are read will be stored   </para>
-</entry><entry thead="no"><para>vector&lt;uint32_t&gt; &amp;   </para>
-</entry><entry thead="no"><para></para>
-</entry><entry thead="no"><para>Yes    </para>
-</entry></row>
-<row>
-<entry thead="no"><para>blocking   </para>
-</entry><entry thead="no"><para>Whether or not this is a blocking operation   </para>
-</entry><entry thead="no"><para>bool   </para>
-</entry><entry thead="no"><para>Only blocking mode supported currently   </para>
-</entry><entry thead="no"><para>Yes   </para>
-</entry></row>
-</table>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="386" column="6" declfile="tt_metal/host_api.hpp" declline="386" declcolumn="6"/>
-      </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a769957ca9a07e91d82cac6fd682a7fd1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void tt::tt_metal::EnqueueReadBuffer</definition>
-        <argsstring>(CommandQueue &amp;cq, std::variant&lt; std::reference_wrapper&lt; Buffer &gt;, std::shared_ptr&lt; Buffer &gt; &gt; buffer, void *dst, bool blocking)</argsstring>
-        <name>EnqueueReadBuffer</name>
-        <qualifiedname>tt::tt_metal::EnqueueReadBuffer</qualifiedname>
-        <param>
-          <type>CommandQueue &amp;</type>
-          <declname>cq</declname>
-        </param>
-        <param>
-          <type>std::variant&lt; std::reference_wrapper&lt; <ref refid="classBuffer" kindref="compound">Buffer</ref> &gt;, std::shared_ptr&lt; <ref refid="classBuffer" kindref="compound">Buffer</ref> &gt; &gt;</type>
+          <type>std::variant&lt; std::reference_wrapper&lt; Buffer &gt;, std::shared_ptr&lt; Buffer &gt; &gt;</type>
           <declname>buffer</declname>
         </param>
         <param>
@@ -1328,12 +1707,17 @@
           <type>bool</type>
           <declname>blocking</declname>
         </param>
+        <param>
+          <type>tt::stl::Span&lt; const SubDeviceId &gt;</type>
+          <declname>sub_device_ids</declname>
+          <defval>{}</defval>
+        </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
 <para>Reads a buffer from the device</para>
 <para>Return value: void</para>
-<para><table rows="5" cols="5"><row>
+<para><table rows="6" cols="5"><row>
 <entry thead="yes"><para>Argument   </para>
 </entry><entry thead="yes"><para>Description   </para>
 </entry><entry thead="yes"><para>Type   </para>
@@ -1350,7 +1734,7 @@
 <row>
 <entry thead="no"><para>buffer   </para>
 </entry><entry thead="no"><para>The device buffer we are reading from   </para>
-</entry><entry thead="no"><para><ref refid="classBuffer" kindref="compound">Buffer</ref> &amp; or std::shared_ptr&lt;Buffer&gt;   </para>
+</entry><entry thead="no"><para>Buffer &amp; or std::shared_ptr&lt;Buffer&gt;   </para>
 </entry><entry thead="no"><para></para>
 </entry><entry thead="no"><para>Yes    </para>
 </entry></row>
@@ -1366,43 +1750,186 @@
 </entry><entry thead="no"><para>Whether or not this is a blocking operation   </para>
 </entry><entry thead="no"><para>bool   </para>
 </entry><entry thead="no"><para>Only blocking mode supported currently   </para>
-</entry><entry thead="no"><para>Yes   </para>
+</entry><entry thead="no"><para>Yes    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>sub_device_ids   </para>
+</entry><entry thead="no"><para>The sub-device ids to wait for completion on. If empty, waits for all sub-devices   </para>
+</entry><entry thead="no"><para>tt::stl::Span&lt;const uint32_t&gt;   </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>No   </para>
 </entry></row>
 </table>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="400" column="6" declfile="tt_metal/host_api.hpp" declline="400" declcolumn="6"/>
+        <location file="tt_metal/host_api.hpp" line="521" column="6" declfile="tt_metal/host_api.hpp" declline="521" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a41f4ff2e9c7fca0b1287446f57d37e34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1aed6950194c0970fe3d6f35657524e44b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename DType</type>
+          </param>
+        </templateparamlist>
         <type>void</type>
-        <definition>void tt::tt_metal::EnqueueWriteBuffer</definition>
-        <argsstring>(CommandQueue &amp;cq, std::variant&lt; std::reference_wrapper&lt; Buffer &gt;, std::shared_ptr&lt; Buffer &gt; &gt; buffer, std::vector&lt; uint32_t &gt; &amp;src, bool blocking)</argsstring>
-        <name>EnqueueWriteBuffer</name>
-        <qualifiedname>tt::tt_metal::EnqueueWriteBuffer</qualifiedname>
+        <definition>void tt::tt_metal::v0::EnqueueReadBuffer</definition>
+        <argsstring>(CommandQueue &amp;cq, Buffer &amp;buffer, std::vector&lt; DType &gt; &amp;dst, bool blocking, tt::stl::Span&lt; const SubDeviceId &gt; sub_device_ids={})</argsstring>
+        <name>EnqueueReadBuffer</name>
+        <qualifiedname>tt::tt_metal::v0::EnqueueReadBuffer</qualifiedname>
         <param>
           <type>CommandQueue &amp;</type>
           <declname>cq</declname>
         </param>
         <param>
-          <type>std::variant&lt; std::reference_wrapper&lt; <ref refid="classBuffer" kindref="compound">Buffer</ref> &gt;, std::shared_ptr&lt; <ref refid="classBuffer" kindref="compound">Buffer</ref> &gt; &gt;</type>
+          <type>Buffer &amp;</type>
           <declname>buffer</declname>
         </param>
         <param>
-          <type>std::vector&lt; uint32_t &gt; &amp;</type>
+          <type>std::vector&lt; DType &gt; &amp;</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>blocking</declname>
+        </param>
+        <param>
+          <type>tt::stl::Span&lt; const SubDeviceId &gt;</type>
+          <declname>sub_device_ids</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads a buffer from the device</para>
+<para>Return value: void</para>
+<para><table rows="6" cols="5"><row>
+<entry thead="yes"><para>Argument   </para>
+</entry><entry thead="yes"><para>Description   </para>
+</entry><entry thead="yes"><para>Type   </para>
+</entry><entry thead="yes"><para>Valid Range   </para>
+</entry><entry thead="yes"><para>Required    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>cq   </para>
+</entry><entry thead="no"><para>The command queue object which dispatches the command to the hardware   </para>
+</entry><entry thead="no"><para>CommandQueue &amp;   </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>Yes    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>buffer   </para>
+</entry><entry thead="no"><para>The device buffer we are reading from   </para>
+</entry><entry thead="no"><para>Buffer &amp; or std::shared_ptr&lt;Buffer&gt;   </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>Yes    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>dst   </para>
+</entry><entry thead="no"><para>The vector where the results that are read will be stored   </para>
+</entry><entry thead="no"><para>vector&lt;DType&gt; &amp;   </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>Yes    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>blocking   </para>
+</entry><entry thead="no"><para>Whether or not this is a blocking operation   </para>
+</entry><entry thead="no"><para>bool   </para>
+</entry><entry thead="no"><para>Only blocking mode supported currently   </para>
+</entry><entry thead="no"><para>Yes    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>sub_device_ids   </para>
+</entry><entry thead="no"><para>The sub-device ids to wait for completion on. If empty, waits for all sub-devices   </para>
+</entry><entry thead="no"><para>tt::stl::Span&lt;const uint32_t&gt;   </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>No   </para>
+</entry></row>
+</table>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/host_api.hpp" line="542" column="6" bodyfile="tt_metal/host_api.hpp" bodystart="542" bodyend="550"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1adfbc3816d634690201a2864b0e6ea1d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename DType</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void tt::tt_metal::v0::EnqueueReadBuffer</definition>
+        <argsstring>(CommandQueue &amp;cq, std::shared_ptr&lt; Buffer &gt; buffer, std::vector&lt; DType &gt; &amp;dst, bool blocking, tt::stl::Span&lt; const SubDeviceId &gt; sub_device_ids={})</argsstring>
+        <name>EnqueueReadBuffer</name>
+        <qualifiedname>tt::tt_metal::v0::EnqueueReadBuffer</qualifiedname>
+        <param>
+          <type>CommandQueue &amp;</type>
+          <declname>cq</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; Buffer &gt;</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; DType &gt; &amp;</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>blocking</declname>
+        </param>
+        <param>
+          <type>tt::stl::Span&lt; const SubDeviceId &gt;</type>
+          <declname>sub_device_ids</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/host_api.hpp" line="552" column="6" bodyfile="tt_metal/host_api.hpp" bodystart="552" bodyend="559"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a7c3bea917e3563c642147c3f34911270" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename DType</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void tt::tt_metal::v0::EnqueueWriteBuffer</definition>
+        <argsstring>(CommandQueue &amp;cq, std::variant&lt; std::reference_wrapper&lt; Buffer &gt;, std::shared_ptr&lt; Buffer &gt; &gt; buffer, std::vector&lt; DType &gt; &amp;src, bool blocking, tt::stl::Span&lt; const SubDeviceId &gt; sub_device_ids={})</argsstring>
+        <name>EnqueueWriteBuffer</name>
+        <qualifiedname>tt::tt_metal::v0::EnqueueWriteBuffer</qualifiedname>
+        <param>
+          <type>CommandQueue &amp;</type>
+          <declname>cq</declname>
+        </param>
+        <param>
+          <type>std::variant&lt; std::reference_wrapper&lt; Buffer &gt;, std::shared_ptr&lt; Buffer &gt; &gt;</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; DType &gt; &amp;</type>
           <declname>src</declname>
         </param>
         <param>
           <type>bool</type>
           <declname>blocking</declname>
         </param>
+        <param>
+          <type>tt::stl::Span&lt; const SubDeviceId &gt;</type>
+          <declname>sub_device_ids</declname>
+          <defval>{}</defval>
+        </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
 <para>Writes a buffer to the device</para>
 <para>Return value: void</para>
-<para><table rows="5" cols="5"><row>
+<para><table rows="6" cols="5"><row>
 <entry thead="yes"><para>Argument   </para>
 </entry><entry thead="yes"><para>Description   </para>
 </entry><entry thead="yes"><para>Type   </para>
@@ -1419,14 +1946,14 @@
 <row>
 <entry thead="no"><para>buffer   </para>
 </entry><entry thead="no"><para>The device buffer we are writing to   </para>
-</entry><entry thead="no"><para><ref refid="classBuffer" kindref="compound">Buffer</ref> &amp; or std::shared_ptr&lt;Buffer&gt;   </para>
+</entry><entry thead="no"><para>Buffer &amp; or std::shared_ptr&lt;Buffer&gt;   </para>
 </entry><entry thead="no"><para></para>
 </entry><entry thead="no"><para>Yes    </para>
 </entry></row>
 <row>
 <entry thead="no"><para>src   </para>
 </entry><entry thead="no"><para>The vector we are writing to the device   </para>
-</entry><entry thead="no"><para>vector&lt;uint32_t&gt; &amp;   </para>
+</entry><entry thead="no"><para>vector&lt;DType&gt; &amp;   </para>
 </entry><entry thead="no"><para></para>
 </entry><entry thead="no"><para>Yes    </para>
 </entry></row>
@@ -1435,27 +1962,34 @@
 </entry><entry thead="no"><para>Whether or not this is a blocking operation   </para>
 </entry><entry thead="no"><para>bool   </para>
 </entry><entry thead="no"><para></para>
-</entry><entry thead="no"><para>Yes   </para>
+</entry><entry thead="no"><para>Yes    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>sub_device_ids   </para>
+</entry><entry thead="no"><para>The sub-device ids to wait for completion on. If empty, waits for all sub-devices   </para>
+</entry><entry thead="no"><para>tt::stl::Span&lt;const uint32_t&gt;   </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>No   </para>
 </entry></row>
 </table>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="414" column="6" declfile="tt_metal/host_api.hpp" declline="414" declcolumn="6"/>
+        <location file="tt_metal/host_api.hpp" line="576" column="6" bodyfile="tt_metal/host_api.hpp" bodystart="576" bodyend="583"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a474bb3622a9e2927298d2a2a70c90774" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a634370b608fd0b78795ab3d7b128c9f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void tt::tt_metal::EnqueueWriteBuffer</definition>
-        <argsstring>(CommandQueue &amp;cq, std::variant&lt; std::reference_wrapper&lt; Buffer &gt;, std::shared_ptr&lt; Buffer &gt; &gt; buffer, HostDataType src, bool blocking)</argsstring>
+        <definition>void tt::tt_metal::v0::EnqueueWriteBuffer</definition>
+        <argsstring>(CommandQueue &amp;cq, std::variant&lt; std::reference_wrapper&lt; Buffer &gt;, std::shared_ptr&lt; Buffer &gt; &gt; buffer, HostDataType src, bool blocking, tt::stl::Span&lt; const SubDeviceId &gt; sub_device_ids={})</argsstring>
         <name>EnqueueWriteBuffer</name>
-        <qualifiedname>tt::tt_metal::EnqueueWriteBuffer</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::EnqueueWriteBuffer</qualifiedname>
         <param>
           <type>CommandQueue &amp;</type>
           <declname>cq</declname>
         </param>
         <param>
-          <type>std::variant&lt; std::reference_wrapper&lt; <ref refid="classBuffer" kindref="compound">Buffer</ref> &gt;, std::shared_ptr&lt; <ref refid="classBuffer" kindref="compound">Buffer</ref> &gt; &gt;</type>
+          <type>std::variant&lt; std::reference_wrapper&lt; Buffer &gt;, std::shared_ptr&lt; Buffer &gt; &gt;</type>
           <declname>buffer</declname>
         </param>
         <param>
@@ -1466,12 +2000,17 @@
           <type>bool</type>
           <declname>blocking</declname>
         </param>
+        <param>
+          <type>tt::stl::Span&lt; const SubDeviceId &gt;</type>
+          <declname>sub_device_ids</declname>
+          <defval>{}</defval>
+        </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
 <para>Writes a buffer to the device</para>
 <para>Return value: void</para>
-<para><table rows="5" cols="5"><row>
+<para><table rows="6" cols="5"><row>
 <entry thead="yes"><para>Argument   </para>
 </entry><entry thead="yes"><para>Description   </para>
 </entry><entry thead="yes"><para>Type   </para>
@@ -1488,7 +2027,7 @@
 <row>
 <entry thead="no"><para>buffer   </para>
 </entry><entry thead="no"><para>The device buffer we are writing to   </para>
-</entry><entry thead="no"><para><ref refid="classBuffer" kindref="compound">Buffer</ref> &amp; or std::shared_ptr&lt;Buffer&gt;   </para>
+</entry><entry thead="no"><para>Buffer &amp; or std::shared_ptr&lt;Buffer&gt;   </para>
 </entry><entry thead="no"><para></para>
 </entry><entry thead="no"><para>Yes    </para>
 </entry></row>
@@ -1504,27 +2043,34 @@
 </entry><entry thead="no"><para>Whether or not this is a blocking operation   </para>
 </entry><entry thead="no"><para>bool   </para>
 </entry><entry thead="no"><para></para>
-</entry><entry thead="no"><para>Yes   </para>
+</entry><entry thead="no"><para>Yes    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>sub_device_ids   </para>
+</entry><entry thead="no"><para>The sub-device ids to wait for completion on. If empty, waits for all sub-devices   </para>
+</entry><entry thead="no"><para>tt::stl::Span&lt;const uint32_t&gt;   </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>No   </para>
 </entry></row>
 </table>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="428" column="6" declfile="tt_metal/host_api.hpp" declline="428" declcolumn="6"/>
+        <location file="tt_metal/host_api.hpp" line="598" column="6" declfile="tt_metal/host_api.hpp" declline="598" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a573978c2536748213de459b0a09477b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1ab74d31b79ae9a8fe25468bc95b13ee2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void tt::tt_metal::EnqueueProgram</definition>
-        <argsstring>(CommandQueue &amp;cq, std::variant&lt; std::reference_wrapper&lt; Program &gt;, std::shared_ptr&lt; Program &gt; &gt; program, bool blocking)</argsstring>
+        <definition>void tt::tt_metal::v0::EnqueueProgram</definition>
+        <argsstring>(CommandQueue &amp;cq, Program &amp;program, bool blocking)</argsstring>
         <name>EnqueueProgram</name>
-        <qualifiedname>tt::tt_metal::EnqueueProgram</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::EnqueueProgram</qualifiedname>
         <param>
           <type>CommandQueue &amp;</type>
           <declname>cq</declname>
         </param>
         <param>
-          <type>std::variant&lt; std::reference_wrapper&lt; Program &gt;, std::shared_ptr&lt; Program &gt; &gt;</type>
+          <type>Program &amp;</type>
           <declname>program</declname>
         </param>
         <param>
@@ -1569,24 +2115,29 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="441" column="6" declfile="tt_metal/host_api.hpp" declline="441" declcolumn="6"/>
+        <location file="tt_metal/host_api.hpp" line="616" column="6" declfile="tt_metal/host_api.hpp" declline="616" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1afc3cc77a54213457805a878231ca3643" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a41ad47ba118422cf5d162a24289f53cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void tt::tt_metal::Finish</definition>
-        <argsstring>(CommandQueue &amp;cq)</argsstring>
+        <definition>void tt::tt_metal::v0::Finish</definition>
+        <argsstring>(CommandQueue &amp;cq, tt::stl::Span&lt; const SubDeviceId &gt; sub_device_ids={})</argsstring>
         <name>Finish</name>
-        <qualifiedname>tt::tt_metal::Finish</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::Finish</qualifiedname>
         <param>
           <type>CommandQueue &amp;</type>
           <declname>cq</declname>
+        </param>
+        <param>
+          <type>tt::stl::Span&lt; const SubDeviceId &gt;</type>
+          <declname>sub_device_ids</declname>
+          <defval>{}</defval>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
 <para>Blocks until all previously dispatched commands on the device have completed</para>
 <para>Return value: void</para>
-<para><table rows="2" cols="5"><row>
+<para><table rows="3" cols="5"><row>
 <entry thead="yes"><para>Argument   </para>
 </entry><entry thead="yes"><para>Description   </para>
 </entry><entry thead="yes"><para>Type   </para>
@@ -1598,21 +2149,28 @@
 </entry><entry thead="no"><para>The command queue object which dispatches the command to the hardware   </para>
 </entry><entry thead="no"><para>CommandQueue &amp;   </para>
 </entry><entry thead="no"><para></para>
-</entry><entry thead="no"><para>Yes   </para>
+</entry><entry thead="no"><para>Yes    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>sub_device_ids   </para>
+</entry><entry thead="no"><para>The sub-device ids to wait for completion on. If empty, waits for all sub-devices   </para>
+</entry><entry thead="no"><para>tt::stl::Span&lt;const uint32_t&gt;   </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>No   </para>
 </entry></row>
 </table>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="452" column="6" declfile="tt_metal/host_api.hpp" declline="452" declcolumn="6"/>
+        <location file="tt_metal/host_api.hpp" line="628" column="6" declfile="tt_metal/host_api.hpp" declline="628" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a2bb0ca68f1afddfbefc78b497d21943c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a2ebe853244ec21092c0a4c24a76ac9d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>uint32_t</type>
-        <definition>uint32_t tt::tt_metal::BeginTraceCapture</definition>
+        <definition>uint32_t tt::tt_metal::v0::BeginTraceCapture</definition>
         <argsstring>(Device *device, const uint8_t cq_id)</argsstring>
         <name>BeginTraceCapture</name>
-        <qualifiedname>tt::tt_metal::BeginTraceCapture</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::BeginTraceCapture</qualifiedname>
         <param>
           <type>Device *</type>
           <declname>device</declname>
@@ -1652,14 +2210,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="466" column="10" declfile="tt_metal/host_api.hpp" declline="466" declcolumn="10"/>
+        <location file="tt_metal/host_api.hpp" line="642" column="10" declfile="tt_metal/host_api.hpp" declline="642" declcolumn="10"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a3eaf4c5845ee7d8153c6ca9cc250df30" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a868dff83af5a6f69735afddfb8123016" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void tt::tt_metal::EndTraceCapture</definition>
+        <definition>void tt::tt_metal::v0::EndTraceCapture</definition>
         <argsstring>(Device *device, const uint8_t cq_id, const uint32_t tid)</argsstring>
         <name>EndTraceCapture</name>
-        <qualifiedname>tt::tt_metal::EndTraceCapture</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::EndTraceCapture</qualifiedname>
         <param>
           <type>Device *</type>
           <declname>device</declname>
@@ -1710,14 +2268,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="482" column="6" declfile="tt_metal/host_api.hpp" declline="482" declcolumn="6"/>
+        <location file="tt_metal/host_api.hpp" line="658" column="6" declfile="tt_metal/host_api.hpp" declline="658" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a12e0b86cbb5a6ef9930562b684898d90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1aaf7e23130adb368821457f261e37cd9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void tt::tt_metal::ReplayTrace</definition>
+        <definition>void tt::tt_metal::v0::ReplayTrace</definition>
         <argsstring>(Device *device, const uint8_t cq_id, const uint32_t tid, const bool blocking)</argsstring>
         <name>ReplayTrace</name>
-        <qualifiedname>tt::tt_metal::ReplayTrace</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::ReplayTrace</qualifiedname>
         <param>
           <type>Device *</type>
           <declname>device</declname>
@@ -1779,14 +2337,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="496" column="6" declfile="tt_metal/host_api.hpp" declline="496" declcolumn="6"/>
+        <location file="tt_metal/host_api.hpp" line="672" column="6" declfile="tt_metal/host_api.hpp" declline="672" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a526ece1a413c039607e2973b97cdfa75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1ad8540d48e27a58a9519483782991eba0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void tt::tt_metal::ReleaseTrace</definition>
+        <definition>void tt::tt_metal::v0::ReleaseTrace</definition>
         <argsstring>(Device *device, const uint32_t tid)</argsstring>
         <name>ReleaseTrace</name>
-        <qualifiedname>tt::tt_metal::ReleaseTrace</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::ReleaseTrace</qualifiedname>
         <param>
           <type>Device *</type>
           <declname>device</declname>
@@ -1826,14 +2384,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="510" column="6" declfile="tt_metal/host_api.hpp" declline="510" declcolumn="6"/>
+        <location file="tt_metal/host_api.hpp" line="686" column="6" declfile="tt_metal/host_api.hpp" declline="686" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1ac56da2798d8d1a093846845ff06fd773" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a35c2d778c2f00844d1113c0e011522f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void tt::tt_metal::EnqueueTrace</definition>
+        <definition>void tt::tt_metal::v0::EnqueueTrace</definition>
         <argsstring>(CommandQueue &amp;cq, uint32_t trace_id, bool blocking)</argsstring>
         <name>EnqueueTrace</name>
-        <qualifiedname>tt::tt_metal::EnqueueTrace</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::EnqueueTrace</qualifiedname>
         <param>
           <type>CommandQueue &amp;</type>
           <declname>cq</declname>
@@ -1891,14 +2449,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="524" column="6" declfile="tt_metal/host_api.hpp" declline="524" declcolumn="6"/>
+        <location file="tt_metal/host_api.hpp" line="700" column="6" declfile="tt_metal/host_api.hpp" declline="700" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a5087c491b5788ee5878cf049066c355a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a617bb9ae1b430271808f81999a4ef53e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void tt::tt_metal::DumpDeviceProfileResults</definition>
+        <definition>void tt::tt_metal::v0::DumpDeviceProfileResults</definition>
         <argsstring>(Device *device, const Program &amp;program)</argsstring>
         <name>DumpDeviceProfileResults</name>
-        <qualifiedname>tt::tt_metal::DumpDeviceProfileResults</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::DumpDeviceProfileResults</qualifiedname>
         <param>
           <type>Device *</type>
           <declname>device</declname>
@@ -1939,26 +2497,31 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="538" column="6" declfile="tt_metal/host_api.hpp" declline="538" declcolumn="6"/>
+        <location file="tt_metal/host_api.hpp" line="714" column="6" declfile="tt_metal/host_api.hpp" declline="714" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a6c9d6bc143bf01946b145bb20c9a4ccd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a57cb44e976abef6030c7dbb73970d800" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void tt::tt_metal::EnqueueRecordEvent</definition>
-        <argsstring>(CommandQueue &amp;cq, std::shared_ptr&lt; Event &gt; event)</argsstring>
+        <definition>void tt::tt_metal::v0::EnqueueRecordEvent</definition>
+        <argsstring>(CommandQueue &amp;cq, const std::shared_ptr&lt; Event &gt; &amp;event, tt::stl::Span&lt; const SubDeviceId &gt; sub_device_ids={})</argsstring>
         <name>EnqueueRecordEvent</name>
-        <qualifiedname>tt::tt_metal::EnqueueRecordEvent</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::EnqueueRecordEvent</qualifiedname>
         <param>
           <type>CommandQueue &amp;</type>
           <declname>cq</declname>
         </param>
         <param>
-          <type>std::shared_ptr&lt; Event &gt;</type>
+          <type>const std::shared_ptr&lt; Event &gt; &amp;</type>
           <declname>event</declname>
+        </param>
+        <param>
+          <type>tt::stl::Span&lt; const SubDeviceId &gt;</type>
+          <declname>sub_device_ids</declname>
+          <defval>{}</defval>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Enqueues a command to record an Event on the device for a given CQ, and updates the Event object for the user. Return value: void <table rows="3" cols="5"><row>
+<para>Enqueues a command to record an Event on the device for a given CQ, and updates the Event object for the user. Return value: void <table rows="4" cols="5"><row>
 <entry thead="yes"><para>Argument   </para>
 </entry><entry thead="yes"><para>Description   </para>
 </entry><entry thead="yes"><para>Type   </para>
@@ -1977,27 +2540,34 @@
 </entry><entry thead="no"><para>An event that will be populated by this function, and inserted in CQ   </para>
 </entry><entry thead="no"><para>std::shared_ptr&lt;Event&gt;   </para>
 </entry><entry thead="no"><para></para>
-</entry><entry thead="no"><para>Yes   </para>
+</entry><entry thead="no"><para>Yes    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>sub_device_ids   </para>
+</entry><entry thead="no"><para>The sub-device ids to wait for completion on. If empty, waits for all sub-devices   </para>
+</entry><entry thead="no"><para>tt::stl::Span&lt;const uint32_t&gt;   </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>No   </para>
 </entry></row>
 </table>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="548" column="6" declfile="tt_metal/host_api.hpp" declline="548" declcolumn="6"/>
+        <location file="tt_metal/host_api.hpp" line="725" column="6" declfile="tt_metal/host_api.hpp" declline="725" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a2560cd6db65a03de3e9aad52ff381b6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a0348eff37a292f881b5b88193d8196f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void tt::tt_metal::EnqueueWaitForEvent</definition>
-        <argsstring>(CommandQueue &amp;cq, std::shared_ptr&lt; Event &gt; event)</argsstring>
+        <definition>void tt::tt_metal::v0::EnqueueWaitForEvent</definition>
+        <argsstring>(CommandQueue &amp;cq, const std::shared_ptr&lt; Event &gt; &amp;event)</argsstring>
         <name>EnqueueWaitForEvent</name>
-        <qualifiedname>tt::tt_metal::EnqueueWaitForEvent</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::EnqueueWaitForEvent</qualifiedname>
         <param>
           <type>CommandQueue &amp;</type>
           <declname>cq</declname>
         </param>
         <param>
-          <type>std::shared_ptr&lt; Event &gt;</type>
+          <type>const std::shared_ptr&lt; Event &gt; &amp;</type>
           <declname>event</declname>
         </param>
         <briefdescription>
@@ -2036,16 +2606,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="559" column="6" declfile="tt_metal/host_api.hpp" declline="559" declcolumn="6"/>
+        <location file="tt_metal/host_api.hpp" line="736" column="6" declfile="tt_metal/host_api.hpp" declline="736" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a503f5ffa5860947b42872b7fe326bac5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a7965734b9b4f42fd7b96da7cdcc45927" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void tt::tt_metal::EventSynchronize</definition>
-        <argsstring>(std::shared_ptr&lt; Event &gt; event)</argsstring>
+        <definition>void tt::tt_metal::v0::EventSynchronize</definition>
+        <argsstring>(const std::shared_ptr&lt; Event &gt; &amp;event)</argsstring>
         <name>EventSynchronize</name>
-        <qualifiedname>tt::tt_metal::EventSynchronize</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::EventSynchronize</qualifiedname>
         <param>
-          <type>std::shared_ptr&lt; Event &gt;</type>
+          <type>const std::shared_ptr&lt; Event &gt; &amp;</type>
           <declname>event</declname>
         </param>
         <briefdescription>
@@ -2070,16 +2640,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="568" column="6" declfile="tt_metal/host_api.hpp" declline="568" declcolumn="6"/>
+        <location file="tt_metal/host_api.hpp" line="745" column="6" declfile="tt_metal/host_api.hpp" declline="745" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="host__api_8hpp_1a017d64ee3fbb64880859d52a21f7f474" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1a51fd82461b3734afccb8f11427564181" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
-        <definition>bool tt::tt_metal::EventQuery</definition>
-        <argsstring>(std::shared_ptr&lt; Event &gt; event)</argsstring>
+        <definition>bool tt::tt_metal::v0::EventQuery</definition>
+        <argsstring>(const std::shared_ptr&lt; Event &gt; &amp;event)</argsstring>
         <name>EventQuery</name>
-        <qualifiedname>tt::tt_metal::EventQuery</qualifiedname>
+        <qualifiedname>tt::tt_metal::v0::EventQuery</qualifiedname>
         <param>
-          <type>std::shared_ptr&lt; Event &gt;</type>
+          <type>const std::shared_ptr&lt; Event &gt; &amp;</type>
           <declname>event</declname>
         </param>
         <briefdescription>
@@ -2104,13 +2674,73 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/host_api.hpp" line="577" column="6" declfile="tt_metal/host_api.hpp" declline="577" declcolumn="6"/>
+        <location file="tt_metal/host_api.hpp" line="754" column="6" declfile="tt_metal/host_api.hpp" declline="754" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v0_1abbef214f3ba879469488d367053046cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void tt::tt_metal::v0::Synchronize</definition>
+        <argsstring>(Device *device, const std::optional&lt; uint8_t &gt; cq_id=std::nullopt, tt::stl::Span&lt; const SubDeviceId &gt; sub_device_ids={})</argsstring>
+        <name>Synchronize</name>
+        <qualifiedname>tt::tt_metal::v0::Synchronize</qualifiedname>
+        <param>
+          <type>Device *</type>
+          <declname>device</declname>
+        </param>
+        <param>
+          <type>const std::optional&lt; uint8_t &gt;</type>
+          <declname>cq_id</declname>
+          <defval>std::nullopt</defval>
+        </param>
+        <param>
+          <type>tt::stl::Span&lt; const SubDeviceId &gt;</type>
+          <declname>sub_device_ids</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Synchronize the device with host by waiting for all operations to complete. If cq_id is provided then only the operations associated with that cq_id are waited for, otherwise operations for all command queues are waited on.</para>
+<para>Return value: void</para>
+<para><table rows="4" cols="5"><row>
+<entry thead="yes"><para>Argument   </para>
+</entry><entry thead="yes"><para>Description   </para>
+</entry><entry thead="yes"><para>Type   </para>
+</entry><entry thead="yes"><para>Valid Range   </para>
+</entry><entry thead="yes"><para>Required    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>device   </para>
+</entry><entry thead="no"><para>The device to synchronize.   </para>
+</entry><entry thead="no"><para>Device *   </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>Yes    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>cq_id   </para>
+</entry><entry thead="no"><para>The specific command queue id to synchronize .   </para>
+</entry><entry thead="no"><para>uint8_t   </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>No    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>sub_device_ids   </para>
+</entry><entry thead="no"><para>The sub-device ids to wait for completion on. If empty, waits for all sub-devices   </para>
+</entry><entry thead="no"><para>tt::stl::Span&lt;const uint32_t&gt;   </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>No   </para>
+</entry></row>
+</table>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/host_api.hpp" line="769" column="6" declfile="tt_metal/host_api.hpp" declline="769" declcolumn="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="tt_metal/host_api.hpp" line="31" column="1"/>
+    <location file="tt_metal/host_api.hpp" line="33" column="1"/>
   </compounddef>
 </doxygen>

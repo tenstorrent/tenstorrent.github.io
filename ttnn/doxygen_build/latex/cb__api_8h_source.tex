@@ -1,6 +1,6 @@
 \hypertarget{cb__api_8h_source}{}\doxysection{cb\+\_\+api.\+h}
 \label{cb__api_8h_source}\index{tt\_metal/include/compute\_kernel\_api/cb\_api.h@{tt\_metal/include/compute\_kernel\_api/cb\_api.h}}
-
+\mbox{\hyperlink{cb__api_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//\ SPDX-\/FileCopyrightText:\ ©\ 2023\ Tenstorrent\ Inc.}}
 \DoxyCodeLine{00002\ \textcolor{comment}{//}}
@@ -18,29 +18,42 @@
 \DoxyCodeLine{00014\ \textcolor{preprocessor}{\#endif}}
 \DoxyCodeLine{00015\ }
 \DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }ckernel\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceckernel}{ckernel}}\ \{}
 \DoxyCodeLine{00018\ }
-\DoxyCodeLine{00041\ ALWI\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{dataflow__api_8h_af6d8057bd05a650c3501c5208f7d9f8a}{cb\_wait\_front}}(uint32\_t\ cbid,\ uint32\_t\ ntiles)\ \{}
-\DoxyCodeLine{00042\ \ \ \ \ UNPACK((\ llk\_wait\_tiles(cbid,\ ntiles)\ \ ));}
+\DoxyCodeLine{00041\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a2d20635facce5ae4c7ee121028740b38}{cb\_wait\_front}}(uint32\_t\ cbid,\ uint32\_t\ ntiles)\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((\ llk\_wait\_tiles(cbid,\ ntiles)\ \ ));}
 \DoxyCodeLine{00043\ \}}
 \DoxyCodeLine{00044\ }
-\DoxyCodeLine{00073\ ALWI\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{dataflow__api_8h_aa3daf8e5e7299140cf2607be1a8656b0}{cb\_pop\_front}}(uint32\_t\ cbid,\ uint32\_t\ ntiles)\ \{}
-\DoxyCodeLine{00074\ \ \ \ \ UNPACK((\ llk\_pop\_tiles(cbid,\ ntiles)\ \ ));}
+\DoxyCodeLine{00073\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a09e8d82ba4b886f8e90eec038735d759}{cb\_pop\_front}}(uint32\_t\ cbid,\ uint32\_t\ ntiles)\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((\ llk\_pop\_tiles(cbid,\ ntiles)\ \ ));}
 \DoxyCodeLine{00075\ \}}
 \DoxyCodeLine{00076\ }
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00091\ ALWI\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{dataflow__api_8h_a29521dee07b0070674a988f66c01ffed}{cb\_reserve\_back}}(uint32\_t\ cbid,\ uint32\_t\ ntiles)}
-\DoxyCodeLine{00092\ \{}
-\DoxyCodeLine{00093\ \ \ \ \ PACK((\ llk\_wait\_for\_free\_tiles<false,false,false>(cbid,ntiles)\ \ ));}
-\DoxyCodeLine{00094\ \}}
-\DoxyCodeLine{00095\ }
-\DoxyCodeLine{00096\ }
-\DoxyCodeLine{00125\ ALWI\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{dataflow__api_8h_a81357224b88562601b42833eec676ffb}{cb\_push\_back}}(uint32\_t\ cbid,\ uint32\_t\ ntiles)}
-\DoxyCodeLine{00126\ \{}
-\DoxyCodeLine{00127\ \ \ \ \ PACK((\ llk\_push\_tiles<false,false>(cbid,\ ntiles)\ \ ));}
-\DoxyCodeLine{00128\ \}}
-\DoxyCodeLine{00129\ }
-\DoxyCodeLine{00130\ }
-\DoxyCodeLine{00131\ \}\ \textcolor{comment}{//\ namespace\ ckernel}}
+\DoxyCodeLine{00090\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_af917245b58bfd6176048dc6844a7b7fe}{cb\_reserve\_back}}(uint32\_t\ cbid,\ uint32\_t\ ntiles)}
+\DoxyCodeLine{00091\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a06e48c7c5c133a4905da88bd82bd6b91}{PACK}}((\ llk\_wait\_for\_free\_tiles<false,false,false>(cbid,ntiles)\ \ ));}
+\DoxyCodeLine{00093\ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00123\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_af6f81e4da52b94a5397f904d446808c9}{cb\_push\_back}}(uint32\_t\ cbid,\ uint32\_t\ ntiles)}
+\DoxyCodeLine{00124\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a06e48c7c5c133a4905da88bd82bd6b91}{PACK}}((\ llk\_push\_tiles<false,false>(cbid,\ ntiles)\ \ ));}
+\DoxyCodeLine{00126\ \}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00141\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a60c38a99abe8e5e072ae3bc9ea35cf23}{cb\_get\_tile}}(uint32\_t\ cb\_id,\ uint32\_t\ index,\ \textcolor{keyword}{volatile}\ \textcolor{keywordtype}{void}*\ p\_tile)\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}(llk\_unpack\_get\_tile(cb\_id,\ index,\ (uint32\_t*)p\_tile));}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}(llk\_math\_get\_tile(cb\_id,\ index,\ (uint32\_t*)p\_tile));}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a06e48c7c5c133a4905da88bd82bd6b91}{PACK}}(llk\_pack\_get\_tile(cb\_id,\ index,\ (uint32\_t*)p\_tile));}
+\DoxyCodeLine{00147\ \}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00159\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_ab833f2a940d6668f992dd77ca06ed03d}{cb\_release\_tile}}(uint32\_t\ cb\_id)\ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}(llk\_unpack\_release\_tile(cb\_id));}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}(llk\_math\_release\_tile(cb\_id));}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a06e48c7c5c133a4905da88bd82bd6b91}{PACK}}(llk\_pack\_release\_tile(cb\_id));}
+\DoxyCodeLine{00165\ \}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \}\ \textcolor{comment}{//\ namespace\ ckernel}}
 
 \end{DoxyCode}

@@ -1,0 +1,36 @@
+\hypertarget{trace_8hpp_source}{}\doxysection{trace.\+hpp}
+\label{trace_8hpp_source}\index{tt\_metal/include/tt\_metal/trace.hpp@{tt\_metal/include/tt\_metal/trace.hpp}}
+\mbox{\hyperlink{trace_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ SPDX-\/FileCopyrightText:\ ©\ 2024\ Tenstorrent\ Inc.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{types_8hpp}{types.hpp}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacett_1_1tt__metal}{tt::tt\_metal}}\{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }v1\ \{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{comment}{//==================================================}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TRACE\ OPERATIONS}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//==================================================}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00022\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{CommandQueueHandle}}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a104050cb8afe039d4b233e5fde691377}{GetCommandQueue}}(\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1TraceHandle}{TraceHandle}}\ trace);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00030\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1TraceHandle}{TraceHandle}}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a35c346d8491a7e2162a74e827633802c}{BeginTraceCapture}}(\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{CommandQueueHandle}}\ cq);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_af82f80c6f857daa6981e44e4c51c28c6}{EndTraceCapture}}(\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1TraceHandle}{TraceHandle}}\ trace);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00045\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a25a658a690031902c1a8ecd1f0810902}{ReplayTrace}}(\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1TraceHandle}{TraceHandle}}\ trace,\ \textcolor{keywordtype}{bool}\ blocking);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00052\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a8d79e634d906f2aa3a474224b60609fa}{ReleaseTrace}}(\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1TraceHandle}{TraceHandle}}\ trace);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00060\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a52db18e0d55921f7e31df14444bac2da}{EnqueueTrace}}(\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1TraceHandle}{TraceHandle}}\ trace,\ \textcolor{keywordtype}{bool}\ blocking);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \}\ \textcolor{comment}{//\ namespace\ v1}}
+\DoxyCodeLine{00064\ \}\ \textcolor{comment}{//\ namespace\ tt::tt\_metal}}
+
+\end{DoxyCode}

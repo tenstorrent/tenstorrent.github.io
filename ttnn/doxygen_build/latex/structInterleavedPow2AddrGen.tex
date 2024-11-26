@@ -1,20 +1,73 @@
 \hypertarget{structInterleavedPow2AddrGen}{}\doxysection{Interleaved\+Pow2\+Addr\+Gen\texorpdfstring{$<$}{<} DRAM \texorpdfstring{$>$}{>} Struct Template Reference}
 \label{structInterleavedPow2AddrGen}\index{InterleavedPow2AddrGen$<$ DRAM $>$@{InterleavedPow2AddrGen$<$ DRAM $>$}}
+
+
+{\ttfamily \#include $<$dataflow\+\_\+api.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{structInterleavedPow2AddrGen_ab393848b387b4013278bd8d66bac3ee2}\label{structInterleavedPow2AddrGen_ab393848b387b4013278bd8d66bac3ee2}} 
-std\+::uint64\+\_\+t {\bfseries get\+\_\+noc\+\_\+addr} (const uint32\+\_\+t id, const uint32\+\_\+t offset=0) const
+uint32\+\_\+t \mbox{\hyperlink{structInterleavedPow2AddrGen_adbfd08ae3ae989af1e447d97320a76fa}{get\+\_\+addr}} (const uint32\+\_\+t id, const uint32\+\_\+t bank\+\_\+offset\+\_\+index, const uint32\+\_\+t bank\+\_\+index, const uint32\+\_\+t offset=0) const
+\item 
+std\+::uint64\+\_\+t \mbox{\hyperlink{structInterleavedPow2AddrGen_adf3ff9132dc2355a43889bcbd36a3a15}{get\+\_\+noc\+\_\+addr}} (const uint32\+\_\+t id, const uint32\+\_\+t offset=0, uint8\+\_\+t noc=\mbox{\hyperlink{dataflow__api_8h_a58bc3a01e945dbd421fce21906e94441}{noc\+\_\+index}}) const
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{structInterleavedPow2AddrGen_a9966522b70ca72090ad65cbec56a3aa6}\label{structInterleavedPow2AddrGen_a9966522b70ca72090ad65cbec56a3aa6}} 
-const uint32\+\_\+t {\bfseries bank\+\_\+base\+\_\+address}
+const uint32\+\_\+t \mbox{\hyperlink{structInterleavedPow2AddrGen_a9966522b70ca72090ad65cbec56a3aa6}{bank\+\_\+base\+\_\+address}}
 \item 
-\mbox{\Hypertarget{structInterleavedPow2AddrGen_a1bdda07b2df9e236c3b18683de154d96}\label{structInterleavedPow2AddrGen_a1bdda07b2df9e236c3b18683de154d96}} 
-const uint32\+\_\+t {\bfseries log\+\_\+base\+\_\+2\+\_\+of\+\_\+page\+\_\+size}
+const uint32\+\_\+t \mbox{\hyperlink{structInterleavedPow2AddrGen_a1bdda07b2df9e236c3b18683de154d96}{log\+\_\+base\+\_\+2\+\_\+of\+\_\+page\+\_\+size}}
+\item 
+const uint32\+\_\+t \mbox{\hyperlink{structInterleavedPow2AddrGen_a4302cce27635310c3dc29c6ea2dc151e}{aligned\+\_\+log\+\_\+base\+\_\+2\+\_\+of\+\_\+page\+\_\+size}}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structInterleavedPow2AddrGen_adbfd08ae3ae989af1e447d97320a76fa}\label{structInterleavedPow2AddrGen_adbfd08ae3ae989af1e447d97320a76fa}} 
+\index{InterleavedPow2AddrGen$<$ DRAM $>$@{InterleavedPow2AddrGen$<$ DRAM $>$}!get\_addr@{get\_addr}}
+\index{get\_addr@{get\_addr}!InterleavedPow2AddrGen$<$ DRAM $>$@{InterleavedPow2AddrGen$<$ DRAM $>$}}
+\doxysubsubsection{\texorpdfstring{get\_addr()}{get\_addr()}}
+{\footnotesize\ttfamily template$<$bool DRAM$>$ \\
+uint32\+\_\+t \mbox{\hyperlink{structInterleavedPow2AddrGen}{Interleaved\+Pow2\+Addr\+Gen}}$<$ DRAM $>$\+::get\+\_\+addr (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{id,  }\item[{const uint32\+\_\+t}]{bank\+\_\+offset\+\_\+index,  }\item[{const uint32\+\_\+t}]{bank\+\_\+index,  }\item[{const uint32\+\_\+t}]{offset = {\ttfamily 0} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structInterleavedPow2AddrGen_adf3ff9132dc2355a43889bcbd36a3a15}\label{structInterleavedPow2AddrGen_adf3ff9132dc2355a43889bcbd36a3a15}} 
+\index{InterleavedPow2AddrGen$<$ DRAM $>$@{InterleavedPow2AddrGen$<$ DRAM $>$}!get\_noc\_addr@{get\_noc\_addr}}
+\index{get\_noc\_addr@{get\_noc\_addr}!InterleavedPow2AddrGen$<$ DRAM $>$@{InterleavedPow2AddrGen$<$ DRAM $>$}}
+\doxysubsubsection{\texorpdfstring{get\_noc\_addr()}{get\_noc\_addr()}}
+{\footnotesize\ttfamily template$<$bool DRAM$>$ \\
+std\+::uint64\+\_\+t \mbox{\hyperlink{structInterleavedPow2AddrGen}{Interleaved\+Pow2\+Addr\+Gen}}$<$ DRAM $>$\+::get\+\_\+noc\+\_\+addr (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{id,  }\item[{const uint32\+\_\+t}]{offset = {\ttfamily 0},  }\item[{uint8\+\_\+t}]{noc = {\ttfamily \mbox{\hyperlink{dataflow__api_8h_a58bc3a01e945dbd421fce21906e94441}{noc\+\_\+index}}} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structInterleavedPow2AddrGen_a4302cce27635310c3dc29c6ea2dc151e}\label{structInterleavedPow2AddrGen_a4302cce27635310c3dc29c6ea2dc151e}} 
+\index{InterleavedPow2AddrGen$<$ DRAM $>$@{InterleavedPow2AddrGen$<$ DRAM $>$}!aligned\_log\_base\_2\_of\_page\_size@{aligned\_log\_base\_2\_of\_page\_size}}
+\index{aligned\_log\_base\_2\_of\_page\_size@{aligned\_log\_base\_2\_of\_page\_size}!InterleavedPow2AddrGen$<$ DRAM $>$@{InterleavedPow2AddrGen$<$ DRAM $>$}}
+\doxysubsubsection{\texorpdfstring{aligned\_log\_base\_2\_of\_page\_size}{aligned\_log\_base\_2\_of\_page\_size}}
+{\footnotesize\ttfamily template$<$bool DRAM$>$ \\
+const uint32\+\_\+t \mbox{\hyperlink{structInterleavedPow2AddrGen}{Interleaved\+Pow2\+Addr\+Gen}}$<$ DRAM $>$\+::aligned\+\_\+log\+\_\+base\+\_\+2\+\_\+of\+\_\+page\+\_\+size}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ this-\/>\mbox{\hyperlink{structInterleavedPow2AddrGen_a1bdda07b2df9e236c3b18683de154d96}{log\_base\_2\_of\_page\_size}}\ >\ LOG\_BASE\_2\_OF\_ALLOCATOR\_ALIGNMENT}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ?\ this-\/>\mbox{\hyperlink{structInterleavedPow2AddrGen_a1bdda07b2df9e236c3b18683de154d96}{log\_base\_2\_of\_page\_size}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ LOG\_BASE\_2\_OF\_ALLOCATOR\_ALIGNMENT}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{structInterleavedPow2AddrGen_a9966522b70ca72090ad65cbec56a3aa6}\label{structInterleavedPow2AddrGen_a9966522b70ca72090ad65cbec56a3aa6}} 
+\index{InterleavedPow2AddrGen$<$ DRAM $>$@{InterleavedPow2AddrGen$<$ DRAM $>$}!bank\_base\_address@{bank\_base\_address}}
+\index{bank\_base\_address@{bank\_base\_address}!InterleavedPow2AddrGen$<$ DRAM $>$@{InterleavedPow2AddrGen$<$ DRAM $>$}}
+\doxysubsubsection{\texorpdfstring{bank\_base\_address}{bank\_base\_address}}
+{\footnotesize\ttfamily template$<$bool DRAM$>$ \\
+const uint32\+\_\+t \mbox{\hyperlink{structInterleavedPow2AddrGen}{Interleaved\+Pow2\+Addr\+Gen}}$<$ DRAM $>$\+::bank\+\_\+base\+\_\+address}
+
+\mbox{\Hypertarget{structInterleavedPow2AddrGen_a1bdda07b2df9e236c3b18683de154d96}\label{structInterleavedPow2AddrGen_a1bdda07b2df9e236c3b18683de154d96}} 
+\index{InterleavedPow2AddrGen$<$ DRAM $>$@{InterleavedPow2AddrGen$<$ DRAM $>$}!log\_base\_2\_of\_page\_size@{log\_base\_2\_of\_page\_size}}
+\index{log\_base\_2\_of\_page\_size@{log\_base\_2\_of\_page\_size}!InterleavedPow2AddrGen$<$ DRAM $>$@{InterleavedPow2AddrGen$<$ DRAM $>$}}
+\doxysubsubsection{\texorpdfstring{log\_base\_2\_of\_page\_size}{log\_base\_2\_of\_page\_size}}
+{\footnotesize\ttfamily template$<$bool DRAM$>$ \\
+const uint32\+\_\+t \mbox{\hyperlink{structInterleavedPow2AddrGen}{Interleaved\+Pow2\+Addr\+Gen}}$<$ DRAM $>$\+::log\+\_\+base\+\_\+2\+\_\+of\+\_\+page\+\_\+size}
+
 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
