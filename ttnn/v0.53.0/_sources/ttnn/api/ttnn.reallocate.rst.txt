@@ -1,0 +1,6 @@
+﻿ttnn.reallocate
+===============
+
+.. currentmodule:: ttnn
+
+.. autodata:: reallocate

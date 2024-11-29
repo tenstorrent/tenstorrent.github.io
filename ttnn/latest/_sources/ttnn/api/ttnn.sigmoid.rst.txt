@@ -1,0 +1,6 @@
+﻿ttnn.sigmoid
+============
+
+.. currentmodule:: ttnn
+
+.. autodata:: sigmoid

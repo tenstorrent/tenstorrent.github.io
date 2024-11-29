@@ -1,0 +1,6 @@
+﻿ttnn.gcd
+========
+
+.. currentmodule:: ttnn
+
+.. autodata:: gcd

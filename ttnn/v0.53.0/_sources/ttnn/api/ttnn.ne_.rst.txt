@@ -1,0 +1,6 @@
+﻿ttnn.ne\_
+=========
+
+.. currentmodule:: ttnn
+
+.. autodata:: ne_

@@ -1,0 +1,6 @@
+﻿ttnn.repeat
+===========
+
+.. currentmodule:: ttnn
+
+.. autodata:: repeat

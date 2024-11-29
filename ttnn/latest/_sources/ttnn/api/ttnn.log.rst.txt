@@ -1,0 +1,6 @@
+﻿ttnn.log
+========
+
+.. currentmodule:: ttnn
+
+.. autodata:: log

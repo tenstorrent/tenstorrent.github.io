@@ -1,0 +1,6 @@
+﻿ttnn.normalize\_global
+======================
+
+.. currentmodule:: ttnn
+
+.. autodata:: normalize_global

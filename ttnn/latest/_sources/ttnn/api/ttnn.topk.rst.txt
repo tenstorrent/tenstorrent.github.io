@@ -1,0 +1,6 @@
+﻿ttnn.topk
+=========
+
+.. currentmodule:: ttnn
+
+.. autodata:: topk

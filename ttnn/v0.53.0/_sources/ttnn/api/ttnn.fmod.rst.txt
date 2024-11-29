@@ -1,0 +1,6 @@
+﻿ttnn.fmod
+=========
+
+.. currentmodule:: ttnn
+
+.. autodata:: fmod

@@ -1,0 +1,6 @@
+﻿ttnn.fill\_zero\_bw
+===================
+
+.. currentmodule:: ttnn
+
+.. autodata:: fill_zero_bw

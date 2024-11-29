@@ -1,0 +1,6 @@
+﻿ttnn.deallocate
+===============
+
+.. currentmodule:: ttnn
+
+.. autodata:: deallocate

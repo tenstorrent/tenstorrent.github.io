@@ -1,0 +1,6 @@
+﻿ttnn.exp
+========
+
+.. currentmodule:: ttnn
+
+.. autodata:: exp

@@ -1,0 +1,6 @@
+﻿ttnn.isinf
+==========
+
+.. currentmodule:: ttnn
+
+.. autodata:: isinf

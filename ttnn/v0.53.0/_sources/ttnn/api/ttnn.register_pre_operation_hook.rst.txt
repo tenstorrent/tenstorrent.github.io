@@ -1,0 +1,6 @@
+﻿ttnn.register\_pre\_operation\_hook
+===================================
+
+.. currentmodule:: ttnn
+
+.. autofunction:: register_pre_operation_hook

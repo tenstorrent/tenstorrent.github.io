@@ -1,0 +1,6 @@
+﻿ttnn.matmul
+===========
+
+.. currentmodule:: ttnn
+
+.. autodata:: matmul

@@ -1,0 +1,6 @@
+﻿ttnn.untilize\_with\_unpadding
+==============================
+
+.. currentmodule:: ttnn
+
+.. autodata:: untilize_with_unpadding

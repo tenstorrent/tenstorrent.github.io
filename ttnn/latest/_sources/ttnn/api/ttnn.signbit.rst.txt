@@ -1,0 +1,6 @@
+﻿ttnn.signbit
+============
+
+.. currentmodule:: ttnn
+
+.. autodata:: signbit

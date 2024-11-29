@@ -1,0 +1,6 @@
+﻿ttnn.leaky\_relu\_bw
+====================
+
+.. currentmodule:: ttnn
+
+.. autodata:: leaky_relu_bw

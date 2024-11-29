@@ -1,0 +1,6 @@
+﻿ttnn.linear
+===========
+
+.. currentmodule:: ttnn
+
+.. autodata:: linear

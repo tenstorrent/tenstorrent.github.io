@@ -1,0 +1,6 @@
+﻿ttnn.register\_post\_operation\_hook
+====================================
+
+.. currentmodule:: ttnn
+
+.. autofunction:: register_post_operation_hook

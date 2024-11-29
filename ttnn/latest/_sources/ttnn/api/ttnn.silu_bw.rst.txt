@@ -1,0 +1,6 @@
+﻿ttnn.silu\_bw
+=============
+
+.. currentmodule:: ttnn
+
+.. autodata:: silu_bw

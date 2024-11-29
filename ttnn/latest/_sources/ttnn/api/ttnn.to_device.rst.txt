@@ -1,0 +1,6 @@
+﻿ttnn.to\_device
+===============
+
+.. currentmodule:: ttnn
+
+.. autodata:: to_device

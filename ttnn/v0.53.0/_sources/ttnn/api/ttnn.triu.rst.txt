@@ -1,0 +1,6 @@
+﻿ttnn.triu
+=========
+
+.. currentmodule:: ttnn
+
+.. autodata:: triu

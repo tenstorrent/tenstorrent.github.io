@@ -1,0 +1,6 @@
+﻿ttnn.nonzero
+============
+
+.. currentmodule:: ttnn
+
+.. autodata:: nonzero

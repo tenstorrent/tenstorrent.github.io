@@ -1,0 +1,6 @@
+﻿ttnn.ge\_
+=========
+
+.. currentmodule:: ttnn
+
+.. autodata:: ge_

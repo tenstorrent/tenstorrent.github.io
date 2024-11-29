@@ -1,0 +1,6 @@
+﻿ttnn.logaddexp
+==============
+
+.. currentmodule:: ttnn
+
+.. autodata:: logaddexp

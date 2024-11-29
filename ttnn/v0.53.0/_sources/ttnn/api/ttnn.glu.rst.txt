@@ -1,0 +1,6 @@
+﻿ttnn.glu
+========
+
+.. currentmodule:: ttnn
+
+.. autodata:: glu

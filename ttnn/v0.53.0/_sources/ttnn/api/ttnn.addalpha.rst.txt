@@ -1,0 +1,6 @@
+﻿ttnn.addalpha
+=============
+
+.. currentmodule:: ttnn
+
+.. autodata:: addalpha

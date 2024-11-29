@@ -1,0 +1,6 @@
+﻿ttnn.selu\_bw
+=============
+
+.. currentmodule:: ttnn
+
+.. autodata:: selu_bw

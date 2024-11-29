@@ -1,0 +1,6 @@
+﻿ttnn.log10\_bw
+==============
+
+.. currentmodule:: ttnn
+
+.. autodata:: log10_bw

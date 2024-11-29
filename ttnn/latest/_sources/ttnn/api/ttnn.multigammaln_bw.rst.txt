@@ -1,0 +1,6 @@
+﻿ttnn.multigammaln\_bw
+=====================
+
+.. currentmodule:: ttnn
+
+.. autodata:: multigammaln_bw

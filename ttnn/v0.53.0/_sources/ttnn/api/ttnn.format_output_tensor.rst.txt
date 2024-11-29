@@ -1,0 +1,6 @@
+﻿ttnn.format\_output\_tensor
+===========================
+
+.. currentmodule:: ttnn
+
+.. autofunction:: format_output_tensor

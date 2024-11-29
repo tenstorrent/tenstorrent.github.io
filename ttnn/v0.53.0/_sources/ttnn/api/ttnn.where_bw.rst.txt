@@ -1,0 +1,6 @@
+﻿ttnn.where\_bw
+==============
+
+.. currentmodule:: ttnn
+
+.. autodata:: where_bw

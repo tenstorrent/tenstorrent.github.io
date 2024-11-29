@@ -1,0 +1,6 @@
+﻿ttnn.hardswish
+==============
+
+.. currentmodule:: ttnn
+
+.. autodata:: hardswish

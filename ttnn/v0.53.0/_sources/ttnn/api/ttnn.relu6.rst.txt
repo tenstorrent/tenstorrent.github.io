@@ -1,0 +1,6 @@
+﻿ttnn.relu6
+==========
+
+.. currentmodule:: ttnn
+
+.. autodata:: relu6

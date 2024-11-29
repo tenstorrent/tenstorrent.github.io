@@ -1,0 +1,6 @@
+﻿ttnn.full
+=========
+
+.. currentmodule:: ttnn
+
+.. autodata:: full

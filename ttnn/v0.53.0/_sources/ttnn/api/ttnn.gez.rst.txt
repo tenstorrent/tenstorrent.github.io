@@ -1,0 +1,6 @@
+﻿ttnn.gez
+========
+
+.. currentmodule:: ttnn
+
+.. autodata:: gez

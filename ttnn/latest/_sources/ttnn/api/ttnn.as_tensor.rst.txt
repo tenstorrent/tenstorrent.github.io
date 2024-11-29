@@ -1,0 +1,6 @@
+﻿ttnn.as\_tensor
+===============
+
+.. currentmodule:: ttnn
+
+.. autodata:: as_tensor

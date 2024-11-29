@@ -1,0 +1,6 @@
+﻿ttnn.real\_bw
+=============
+
+.. currentmodule:: ttnn
+
+.. autodata:: real_bw

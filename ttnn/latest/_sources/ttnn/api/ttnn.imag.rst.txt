@@ -1,0 +1,6 @@
+﻿ttnn.imag
+=========
+
+.. currentmodule:: ttnn
+
+.. autodata:: imag

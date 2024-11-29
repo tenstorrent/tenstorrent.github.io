@@ -1,0 +1,6 @@
+﻿ttnn.isposinf
+=============
+
+.. currentmodule:: ttnn
+
+.. autodata:: isposinf

@@ -1,0 +1,6 @@
+﻿ttnn.conj\_bw
+=============
+
+.. currentmodule:: ttnn
+
+.. autodata:: conj_bw

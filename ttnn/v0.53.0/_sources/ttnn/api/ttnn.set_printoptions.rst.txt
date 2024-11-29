@@ -1,0 +1,6 @@
+﻿ttnn.set\_printoptions
+======================
+
+.. currentmodule:: ttnn
+
+.. autofunction:: set_printoptions

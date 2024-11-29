@@ -1,0 +1,6 @@
+﻿ttnn.round\_bw
+==============
+
+.. currentmodule:: ttnn
+
+.. autodata:: round_bw

@@ -1,0 +1,6 @@
+﻿ttnn.relu\_min
+==============
+
+.. currentmodule:: ttnn
+
+.. autodata:: relu_min

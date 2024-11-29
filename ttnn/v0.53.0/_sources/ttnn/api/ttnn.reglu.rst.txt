@@ -1,0 +1,6 @@
+﻿ttnn.reglu
+==========
+
+.. currentmodule:: ttnn
+
+.. autodata:: reglu

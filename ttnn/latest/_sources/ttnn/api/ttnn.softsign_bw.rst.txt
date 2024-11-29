@@ -1,0 +1,6 @@
+﻿ttnn.softsign\_bw
+=================
+
+.. currentmodule:: ttnn
+
+.. autodata:: softsign_bw

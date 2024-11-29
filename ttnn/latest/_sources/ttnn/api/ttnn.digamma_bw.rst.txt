@@ -1,0 +1,6 @@
+﻿ttnn.digamma\_bw
+================
+
+.. currentmodule:: ttnn
+
+.. autodata:: digamma_bw

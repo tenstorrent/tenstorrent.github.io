@@ -1,0 +1,6 @@
+﻿ttnn.acosh\_bw
+==============
+
+.. currentmodule:: ttnn
+
+.. autodata:: acosh_bw

@@ -1,0 +1,6 @@
+﻿ttnn.min
+========
+
+.. currentmodule:: ttnn
+
+.. autodata:: min

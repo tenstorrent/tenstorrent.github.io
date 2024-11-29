@@ -1,0 +1,6 @@
+﻿ttnn.to\_memory\_config
+=======================
+
+.. currentmodule:: ttnn
+
+.. autodata:: to_memory_config
