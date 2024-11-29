@@ -1,5 +1,6 @@
 import yaml
 import os
+from pathlib import Path
 # from ..conf import *
 
 project = 'Software and Utilities'
@@ -8,7 +9,22 @@ author = 'Tenstorrent'
 root_doc = "index"
 templates_path = ['../shared/_templates']
 exclude_patterns = []
-extensions = ['myst_parser']
+extensions = [
+    'myst_parser',
+    'sphinx_substitution_extensions',
+]
+myst_enable_extensions = [
+    'substitution'
+]
+
+ver_kmd = Path('kmd.version').read_text().rstrip()
+ver_fw  = Path('firmware.version').read_text().rstrip()
+
+myst_substitutions = {
+    'ver_fw': ver_fw,
+    'ver_kmd': ver_kmd,
+}
+
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output

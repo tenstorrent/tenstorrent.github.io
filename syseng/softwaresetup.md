@@ -20,16 +20,15 @@ You must have DKMS (Dynamic Kernel Module Support) installed. In the terminal, e
 
 Install the driver (**[TT-KMD](https://github.com/tenstorrent/tt-kmd)**) by entering this series of commands in the terminal:
 
-```
+```{code-block} bash
+:substitutions:
 git clone https://github.com/tenstorrent/tt-kmd.git
 cd tt-kmd
-git checkout -b ttkmd-1.29 ttkmd-1.29
+git checkout -b ttkmd-{{ver_kmd}} ttkmd-{{ver_kmd}}
 sudo dkms add .
-sudo dkms install tenstorrent/1.29
+sudo dkms install tenstorrent/{{ver_kmd}}
 sudo modprobe tenstorrent
 ```
-
-
 
 ## Install TT-Flash
 
@@ -45,17 +44,20 @@ pip install git+https://github.com/tenstorrent/tt-flash.git
 
 To update the firmware for your Tenstorrent card, enter this series of commands in the terminal:
 
-```
-wget https://github.com/tenstorrent/tt-firmware/raw/main/fw_pack-80.10.0.0.fwbundle
-tt-flash --fw-tar fw_pack-80.10.0.0.fwbundle
+{{ instructions_fwbundle }}
+```{code-block} bash
+:substitutions:
+wget https://github.com/tenstorrent/tt-firmware/raw/main/fw_pack-{{ver_fw}}.fwbundle
+tt-flash flash --fw-tar fw_pack-{{ver_fw}}.fwbundle
 ```
 
 If this process worked, reboot the system and go to the next section. 
 
 If running this last command results in an error that says the firmware is too old, enter the following command:
 
-```
-tt-flash --fw-tar fw_pack-80.10.0.0.fwbundle --force
+```{code-block} bash
+:substitutions:
+tt-flash flash --fw-tar fw_pack-{{ver_fw}}.fwbundle --force
 ```
 
 Then reboot the system.
