@@ -1,6 +1,9 @@
 Tenstorrent
 ==============================
 
+.. raw:: html
+   :file: _templates/home.html
+   
 .. include:: quickstart.md
    :parser: myst_parser.sphinx_
 
