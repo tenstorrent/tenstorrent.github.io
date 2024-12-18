@@ -1,0 +1,6 @@
+﻿ttnn.hardswish\_bw
+==================
+
+.. currentmodule:: ttnn
+
+.. autodata:: hardswish_bw

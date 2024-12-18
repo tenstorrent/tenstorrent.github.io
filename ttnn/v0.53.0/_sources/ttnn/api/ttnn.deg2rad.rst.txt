@@ -1,0 +1,6 @@
+﻿ttnn.deg2rad
+============
+
+.. currentmodule:: ttnn
+
+.. autodata:: deg2rad

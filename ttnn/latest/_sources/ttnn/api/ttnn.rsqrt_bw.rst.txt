@@ -1,0 +1,6 @@
+﻿ttnn.rsqrt\_bw
+==============
+
+.. currentmodule:: ttnn
+
+.. autodata:: rsqrt_bw

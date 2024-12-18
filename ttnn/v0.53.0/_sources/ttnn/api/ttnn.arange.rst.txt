@@ -1,0 +1,6 @@
+﻿ttnn.arange
+===========
+
+.. currentmodule:: ttnn
+
+.. autodata:: arange

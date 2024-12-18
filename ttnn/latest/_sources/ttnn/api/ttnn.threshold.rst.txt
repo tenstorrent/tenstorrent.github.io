@@ -1,0 +1,6 @@
+﻿ttnn.threshold
+==============
+
+.. currentmodule:: ttnn
+
+.. autodata:: threshold

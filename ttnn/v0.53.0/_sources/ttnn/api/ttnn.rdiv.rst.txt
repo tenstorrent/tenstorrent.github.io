@@ -1,0 +1,6 @@
+﻿ttnn.rdiv
+=========
+
+.. currentmodule:: ttnn
+
+.. autodata:: rdiv

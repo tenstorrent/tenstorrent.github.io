@@ -1,0 +1,6 @@
+﻿ttnn.concat
+===========
+
+.. currentmodule:: ttnn
+
+.. autodata:: concat

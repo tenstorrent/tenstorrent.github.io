@@ -1,0 +1,6 @@
+﻿ttnn.load\_tensor
+=================
+
+.. currentmodule:: ttnn
+
+.. autodata:: load_tensor

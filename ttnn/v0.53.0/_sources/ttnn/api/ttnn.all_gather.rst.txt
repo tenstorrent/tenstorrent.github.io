@@ -1,0 +1,6 @@
+﻿ttnn.all\_gather
+================
+
+.. currentmodule:: ttnn
+
+.. autodata:: all_gather

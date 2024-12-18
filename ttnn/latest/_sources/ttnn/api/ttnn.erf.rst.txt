@@ -1,0 +1,6 @@
+﻿ttnn.erf
+========
+
+.. currentmodule:: ttnn
+
+.. autodata:: erf

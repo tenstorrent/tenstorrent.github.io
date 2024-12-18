@@ -1,0 +1,6 @@
+﻿ttnn.full\_like
+===============
+
+.. currentmodule:: ttnn
+
+.. autodata:: full_like

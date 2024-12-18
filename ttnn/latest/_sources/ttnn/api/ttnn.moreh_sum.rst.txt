@@ -1,0 +1,6 @@
+﻿ttnn.moreh\_sum
+===============
+
+.. currentmodule:: ttnn
+
+.. autodata:: moreh_sum

@@ -1,0 +1,6 @@
+﻿ttnn.isnan
+==========
+
+.. currentmodule:: ttnn
+
+.. autodata:: isnan

@@ -1,0 +1,6 @@
+﻿ttnn.logical\_or
+================
+
+.. currentmodule:: ttnn
+
+.. autodata:: logical_or

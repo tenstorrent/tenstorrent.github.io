@@ -1,0 +1,6 @@
+﻿ttnn.logical\_and\_
+===================
+
+.. currentmodule:: ttnn
+
+.. autodata:: logical_and_

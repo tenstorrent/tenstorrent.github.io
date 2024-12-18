@@ -1,0 +1,6 @@
+﻿ttnn.add
+========
+
+.. currentmodule:: ttnn
+
+.. autodata:: add

@@ -1,0 +1,6 @@
+﻿ttnn.round
+==========
+
+.. currentmodule:: ttnn
+
+.. autodata:: round

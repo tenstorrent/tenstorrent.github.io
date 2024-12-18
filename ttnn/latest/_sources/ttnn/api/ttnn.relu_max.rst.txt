@@ -1,0 +1,6 @@
+﻿ttnn.relu\_max
+==============
+
+.. currentmodule:: ttnn
+
+.. autodata:: relu_max

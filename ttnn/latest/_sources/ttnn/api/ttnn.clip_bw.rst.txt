@@ -1,0 +1,6 @@
+﻿ttnn.clip\_bw
+=============
+
+.. currentmodule:: ttnn
+
+.. autodata:: clip_bw

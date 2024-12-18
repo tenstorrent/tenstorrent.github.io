@@ -1,0 +1,6 @@
+﻿ttnn.isclose
+============
+
+.. currentmodule:: ttnn
+
+.. autodata:: isclose

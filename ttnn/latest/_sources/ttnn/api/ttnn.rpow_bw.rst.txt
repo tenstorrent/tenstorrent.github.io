@@ -1,0 +1,6 @@
+﻿ttnn.rpow\_bw
+=============
+
+.. currentmodule:: ttnn
+
+.. autodata:: rpow_bw

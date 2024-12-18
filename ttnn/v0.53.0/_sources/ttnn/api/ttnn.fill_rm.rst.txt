@@ -1,0 +1,6 @@
+﻿ttnn.fill\_rm
+=============
+
+.. currentmodule:: ttnn
+
+.. autodata:: fill_rm

@@ -1,0 +1,6 @@
+﻿ttnn.remainder\_bw
+==================
+
+.. currentmodule:: ttnn
+
+.. autodata:: remainder_bw

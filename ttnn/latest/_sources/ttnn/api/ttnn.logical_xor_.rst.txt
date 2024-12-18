@@ -1,0 +1,6 @@
+﻿ttnn.logical\_xor\_
+===================
+
+.. currentmodule:: ttnn
+
+.. autodata:: logical_xor_

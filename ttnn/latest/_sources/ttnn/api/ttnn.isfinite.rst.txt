@@ -1,0 +1,6 @@
+﻿ttnn.isfinite
+=============
+
+.. currentmodule:: ttnn
+
+.. autodata:: isfinite

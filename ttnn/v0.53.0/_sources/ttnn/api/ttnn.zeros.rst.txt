@@ -1,0 +1,6 @@
+﻿ttnn.zeros
+==========
+
+.. currentmodule:: ttnn
+
+.. autodata:: zeros

@@ -1,0 +1,6 @@
+﻿ttnn.addcdiv\_bw
+================
+
+.. currentmodule:: ttnn
+
+.. autodata:: addcdiv_bw

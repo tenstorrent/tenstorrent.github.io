@@ -1,0 +1,6 @@
+﻿ttnn.tan
+========
+
+.. currentmodule:: ttnn
+
+.. autodata:: tan

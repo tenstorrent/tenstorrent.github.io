@@ -1,0 +1,6 @@
+﻿ttnn.softshrink
+===============
+
+.. currentmodule:: ttnn
+
+.. autodata:: softshrink

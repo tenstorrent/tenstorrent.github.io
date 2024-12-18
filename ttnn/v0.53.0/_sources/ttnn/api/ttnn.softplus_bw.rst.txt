@@ -1,0 +1,6 @@
+﻿ttnn.softplus\_bw
+=================
+
+.. currentmodule:: ttnn
+
+.. autodata:: softplus_bw

@@ -1,0 +1,6 @@
+﻿ttnn.softplus
+=============
+
+.. currentmodule:: ttnn
+
+.. autodata:: softplus

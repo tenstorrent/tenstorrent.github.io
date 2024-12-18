@@ -1,0 +1,6 @@
+﻿ttnn.atan\_bw
+=============
+
+.. currentmodule:: ttnn
+
+.. autodata:: atan_bw

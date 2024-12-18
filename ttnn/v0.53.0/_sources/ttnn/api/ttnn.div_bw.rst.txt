@@ -1,0 +1,6 @@
+﻿ttnn.div\_bw
+============
+
+.. currentmodule:: ttnn
+
+.. autodata:: div_bw

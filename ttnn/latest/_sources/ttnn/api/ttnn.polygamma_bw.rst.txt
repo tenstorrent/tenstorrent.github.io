@@ -1,0 +1,6 @@
+﻿ttnn.polygamma\_bw
+==================
+
+.. currentmodule:: ttnn
+
+.. autodata:: polygamma_bw

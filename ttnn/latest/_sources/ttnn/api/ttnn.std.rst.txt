@@ -1,0 +1,6 @@
+﻿ttnn.std
+========
+
+.. currentmodule:: ttnn
+
+.. autodata:: std

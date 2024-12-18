@@ -1,0 +1,6 @@
+﻿ttnn.isneginf
+=============
+
+.. currentmodule:: ttnn
+
+.. autodata:: isneginf

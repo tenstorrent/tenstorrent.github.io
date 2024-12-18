@@ -1,0 +1,6 @@
+﻿ttnn.empty\_like
+================
+
+.. currentmodule:: ttnn
+
+.. autodata:: empty_like

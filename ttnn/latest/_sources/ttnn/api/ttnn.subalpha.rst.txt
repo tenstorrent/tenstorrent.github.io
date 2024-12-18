@@ -1,0 +1,6 @@
+﻿ttnn.subalpha
+=============
+
+.. currentmodule:: ttnn
+
+.. autodata:: subalpha

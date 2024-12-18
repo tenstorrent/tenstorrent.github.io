@@ -1,0 +1,6 @@
+﻿ttnn.layer\_norm
+================
+
+.. currentmodule:: ttnn
+
+.. autodata:: layer_norm

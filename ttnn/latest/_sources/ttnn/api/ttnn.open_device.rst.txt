@@ -1,0 +1,6 @@
+﻿ttnn.open\_device
+=================
+
+.. currentmodule:: ttnn
+
+.. autofunction:: open_device

@@ -1,0 +1,6 @@
+﻿ttnn.where
+==========
+
+.. currentmodule:: ttnn
+
+.. autodata:: where

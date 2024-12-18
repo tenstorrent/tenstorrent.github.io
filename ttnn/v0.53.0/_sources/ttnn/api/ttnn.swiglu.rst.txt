@@ -1,0 +1,6 @@
+﻿ttnn.swiglu
+===========
+
+.. currentmodule:: ttnn
+
+.. autodata:: swiglu

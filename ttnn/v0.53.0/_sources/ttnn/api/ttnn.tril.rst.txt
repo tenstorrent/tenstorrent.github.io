@@ -1,0 +1,6 @@
+﻿ttnn.tril
+=========
+
+.. currentmodule:: ttnn
+
+.. autodata:: tril

@@ -1,0 +1,6 @@
+﻿ttnn.neg\_bw
+============
+
+.. currentmodule:: ttnn
+
+.. autodata:: neg_bw

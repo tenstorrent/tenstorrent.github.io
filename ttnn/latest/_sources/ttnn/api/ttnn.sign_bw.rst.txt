@@ -1,0 +1,6 @@
+﻿ttnn.sign\_bw
+=============
+
+.. currentmodule:: ttnn
+
+.. autodata:: sign_bw

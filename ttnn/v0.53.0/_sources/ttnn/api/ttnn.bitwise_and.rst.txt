@@ -1,0 +1,6 @@
+﻿ttnn.bitwise\_and
+=================
+
+.. currentmodule:: ttnn
+
+.. autodata:: bitwise_and

@@ -1,0 +1,6 @@
+﻿ttnn.transformer.scaled\_dot\_product\_attention
+================================================
+
+.. currentmodule:: ttnn.transformer
+
+.. autodata:: scaled_dot_product_attention

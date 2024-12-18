@@ -1,0 +1,6 @@
+﻿ttnn.reciprocal
+===============
+
+.. currentmodule:: ttnn
+
+.. autodata:: reciprocal

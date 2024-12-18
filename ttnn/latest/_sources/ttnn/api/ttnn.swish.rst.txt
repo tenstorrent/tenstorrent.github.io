@@ -1,0 +1,6 @@
+﻿ttnn.swish
+==========
+
+.. currentmodule:: ttnn
+
+.. autodata:: swish

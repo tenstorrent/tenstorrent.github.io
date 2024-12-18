@@ -1,0 +1,6 @@
+﻿ttnn.argmax
+===========
+
+.. currentmodule:: ttnn
+
+.. autodata:: argmax

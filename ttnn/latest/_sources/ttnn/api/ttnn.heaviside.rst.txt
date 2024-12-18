@@ -1,0 +1,6 @@
+﻿ttnn.heaviside
+==============
+
+.. currentmodule:: ttnn
+
+.. autodata:: heaviside

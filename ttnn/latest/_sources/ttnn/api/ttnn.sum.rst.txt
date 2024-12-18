@@ -1,0 +1,6 @@
+﻿ttnn.sum
+========
+
+.. currentmodule:: ttnn
+
+.. autodata:: sum

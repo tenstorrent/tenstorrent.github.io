@@ -1,0 +1,6 @@
+﻿ttnn.mul\_bw
+============
+
+.. currentmodule:: ttnn
+
+.. autodata:: mul_bw

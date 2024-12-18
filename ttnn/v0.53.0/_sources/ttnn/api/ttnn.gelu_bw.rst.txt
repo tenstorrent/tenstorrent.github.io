@@ -1,0 +1,6 @@
+﻿ttnn.gelu\_bw
+=============
+
+.. currentmodule:: ttnn
+
+.. autodata:: gelu_bw

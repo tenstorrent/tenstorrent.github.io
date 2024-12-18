@@ -1,0 +1,6 @@
+﻿ttnn.reduce\_scatter
+====================
+
+.. currentmodule:: ttnn
+
+.. autodata:: reduce_scatter

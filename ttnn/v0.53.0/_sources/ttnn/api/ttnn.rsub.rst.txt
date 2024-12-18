@@ -1,0 +1,6 @@
+﻿ttnn.rsub
+=========
+
+.. currentmodule:: ttnn
+
+.. autodata:: rsub
