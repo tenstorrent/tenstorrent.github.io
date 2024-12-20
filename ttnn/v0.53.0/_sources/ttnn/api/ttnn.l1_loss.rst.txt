@@ -1,0 +1,6 @@
+﻿ttnn.l1\_loss
+=============
+
+.. currentmodule:: ttnn
+
+.. autodata:: l1_loss

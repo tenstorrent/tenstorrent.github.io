@@ -1,0 +1,6 @@
+﻿ttnn.upsample
+=============
+
+.. currentmodule:: ttnn
+
+.. autodata:: upsample

@@ -1,0 +1,6 @@
+﻿ttnn.bitwise\_xor
+=================
+
+.. currentmodule:: ttnn
+
+.. autodata:: bitwise_xor

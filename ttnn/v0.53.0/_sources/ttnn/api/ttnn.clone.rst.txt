@@ -1,0 +1,6 @@
+﻿ttnn.clone
+==========
+
+.. currentmodule:: ttnn
+
+.. autodata:: clone

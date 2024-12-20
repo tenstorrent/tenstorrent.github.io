@@ -1,0 +1,6 @@
+﻿ttnn.cbrt
+=========
+
+.. currentmodule:: ttnn
+
+.. autodata:: cbrt

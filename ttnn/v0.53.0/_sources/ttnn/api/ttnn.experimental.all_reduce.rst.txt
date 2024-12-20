@@ -1,0 +1,6 @@
+﻿ttnn.experimental.all\_reduce
+=============================
+
+.. currentmodule:: ttnn.experimental
+
+.. autodata:: all_reduce

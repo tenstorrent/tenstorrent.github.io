@@ -1,0 +1,6 @@
+﻿ttnn.squared\_difference
+========================
+
+.. currentmodule:: ttnn
+
+.. autodata:: squared_difference

@@ -1,0 +1,6 @@
+﻿ttnn.kv\_cache.fill\_cache\_for\_user\_
+=======================================
+
+.. currentmodule:: ttnn.kv_cache
+
+.. autodata:: fill_cache_for_user_

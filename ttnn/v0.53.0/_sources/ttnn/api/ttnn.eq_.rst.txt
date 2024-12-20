@@ -1,0 +1,6 @@
+﻿ttnn.eq\_
+=========
+
+.. currentmodule:: ttnn
+
+.. autodata:: eq_

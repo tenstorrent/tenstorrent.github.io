@@ -1,0 +1,6 @@
+﻿ttnn.bitwise\_not
+=================
+
+.. currentmodule:: ttnn
+
+.. autodata:: bitwise_not

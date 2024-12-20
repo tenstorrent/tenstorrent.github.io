@@ -1,0 +1,6 @@
+﻿ttnn.permute
+============
+
+.. currentmodule:: ttnn
+
+.. autodata:: permute

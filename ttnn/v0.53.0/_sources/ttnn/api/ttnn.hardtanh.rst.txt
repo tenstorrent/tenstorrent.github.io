@@ -1,0 +1,6 @@
+﻿ttnn.hardtanh
+=============
+
+.. currentmodule:: ttnn
+
+.. autodata:: hardtanh

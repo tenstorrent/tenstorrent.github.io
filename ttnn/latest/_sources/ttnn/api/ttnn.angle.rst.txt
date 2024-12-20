@@ -1,0 +1,6 @@
+﻿ttnn.angle
+==========
+
+.. currentmodule:: ttnn
+
+.. autodata:: angle

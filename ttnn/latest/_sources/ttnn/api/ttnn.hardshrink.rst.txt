@@ -1,0 +1,6 @@
+﻿ttnn.hardshrink
+===============
+
+.. currentmodule:: ttnn
+
+.. autodata:: hardshrink

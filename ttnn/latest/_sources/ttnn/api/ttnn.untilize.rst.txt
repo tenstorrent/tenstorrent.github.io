@@ -1,0 +1,6 @@
+﻿ttnn.untilize
+=============
+
+.. currentmodule:: ttnn
+
+.. autodata:: untilize

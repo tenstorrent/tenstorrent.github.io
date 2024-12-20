@@ -1,0 +1,6 @@
+﻿ttnn.digamma
+============
+
+.. currentmodule:: ttnn
+
+.. autodata:: digamma

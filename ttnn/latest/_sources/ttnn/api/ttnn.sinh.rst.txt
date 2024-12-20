@@ -1,0 +1,6 @@
+﻿ttnn.sinh
+=========
+
+.. currentmodule:: ttnn
+
+.. autodata:: sinh

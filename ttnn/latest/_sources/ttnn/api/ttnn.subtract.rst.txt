@@ -1,0 +1,6 @@
+﻿ttnn.subtract
+=============
+
+.. currentmodule:: ttnn
+
+.. autodata:: subtract

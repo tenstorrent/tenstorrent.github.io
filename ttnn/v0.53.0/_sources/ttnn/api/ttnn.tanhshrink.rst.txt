@@ -1,0 +1,6 @@
+﻿ttnn.tanhshrink
+===============
+
+.. currentmodule:: ttnn
+
+.. autodata:: tanhshrink

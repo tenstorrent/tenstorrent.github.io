@@ -1,0 +1,6 @@
+﻿ttnn.erfc\_bw
+=============
+
+.. currentmodule:: ttnn
+
+.. autodata:: erfc_bw

@@ -1,0 +1,6 @@
+﻿ttnn.is\_real
+=============
+
+.. currentmodule:: ttnn
+
+.. autodata:: is_real

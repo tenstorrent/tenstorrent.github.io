@@ -1,0 +1,6 @@
+﻿ttnn.tan\_bw
+============
+
+.. currentmodule:: ttnn
+
+.. autodata:: tan_bw

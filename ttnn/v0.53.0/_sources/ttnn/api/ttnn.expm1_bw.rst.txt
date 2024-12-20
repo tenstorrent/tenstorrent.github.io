@@ -1,0 +1,6 @@
+﻿ttnn.expm1\_bw
+==============
+
+.. currentmodule:: ttnn
+
+.. autodata:: expm1_bw

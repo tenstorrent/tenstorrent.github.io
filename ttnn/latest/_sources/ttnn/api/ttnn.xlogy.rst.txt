@@ -1,0 +1,6 @@
+﻿ttnn.xlogy
+==========
+
+.. currentmodule:: ttnn
+
+.. autodata:: xlogy

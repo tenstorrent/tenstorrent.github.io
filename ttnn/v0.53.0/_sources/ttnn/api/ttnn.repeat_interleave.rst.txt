@@ -1,0 +1,6 @@
+﻿ttnn.repeat\_interleave
+=======================
+
+.. currentmodule:: ttnn
+
+.. autodata:: repeat_interleave

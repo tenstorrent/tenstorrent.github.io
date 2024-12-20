@@ -1,0 +1,6 @@
+﻿ttnn.hypot
+==========
+
+.. currentmodule:: ttnn
+
+.. autodata:: hypot

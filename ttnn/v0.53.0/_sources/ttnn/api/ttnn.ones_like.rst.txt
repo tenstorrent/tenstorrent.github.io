@@ -1,0 +1,6 @@
+﻿ttnn.ones\_like
+===============
+
+.. currentmodule:: ttnn
+
+.. autodata:: ones_like

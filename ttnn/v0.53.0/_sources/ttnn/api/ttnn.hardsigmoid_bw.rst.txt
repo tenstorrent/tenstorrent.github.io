@@ -1,0 +1,6 @@
+﻿ttnn.hardsigmoid\_bw
+====================
+
+.. currentmodule:: ttnn
+
+.. autodata:: hardsigmoid_bw

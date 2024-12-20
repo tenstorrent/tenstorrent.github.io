@@ -1,0 +1,6 @@
+﻿ttnn.sqrt
+=========
+
+.. currentmodule:: ttnn
+
+.. autodata:: sqrt

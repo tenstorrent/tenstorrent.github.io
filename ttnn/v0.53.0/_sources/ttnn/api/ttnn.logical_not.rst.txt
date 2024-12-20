@@ -1,0 +1,6 @@
+﻿ttnn.logical\_not
+=================
+
+.. currentmodule:: ttnn
+
+.. autodata:: logical_not

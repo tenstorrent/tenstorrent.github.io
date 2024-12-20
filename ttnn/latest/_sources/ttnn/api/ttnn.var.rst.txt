@@ -1,0 +1,6 @@
+﻿ttnn.var
+========
+
+.. currentmodule:: ttnn
+
+.. autodata:: var

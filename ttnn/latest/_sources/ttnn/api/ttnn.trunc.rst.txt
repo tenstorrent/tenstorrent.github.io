@@ -1,0 +1,6 @@
+﻿ttnn.trunc
+==========
+
+.. currentmodule:: ttnn
+
+.. autodata:: trunc

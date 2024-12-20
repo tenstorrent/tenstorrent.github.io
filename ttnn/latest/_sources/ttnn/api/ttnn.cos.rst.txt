@@ -1,0 +1,6 @@
+﻿ttnn.cos
+========
+
+.. currentmodule:: ttnn
+
+.. autodata:: cos

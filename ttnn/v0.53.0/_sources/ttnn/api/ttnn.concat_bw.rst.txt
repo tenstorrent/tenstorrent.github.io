@@ -1,0 +1,6 @@
+﻿ttnn.concat\_bw
+===============
+
+.. currentmodule:: ttnn
+
+.. autodata:: concat_bw

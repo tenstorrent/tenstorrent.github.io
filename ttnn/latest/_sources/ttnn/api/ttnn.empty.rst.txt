@@ -1,0 +1,6 @@
+﻿ttnn.empty
+==========
+
+.. currentmodule:: ttnn
+
+.. autodata:: empty

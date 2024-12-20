@@ -1,0 +1,6 @@
+﻿ttnn.outer
+==========
+
+.. currentmodule:: ttnn
+
+.. autodata:: outer

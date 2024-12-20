@@ -1,0 +1,6 @@
+﻿ttnn.assign\_bw
+===============
+
+.. currentmodule:: ttnn
+
+.. autodata:: assign_bw

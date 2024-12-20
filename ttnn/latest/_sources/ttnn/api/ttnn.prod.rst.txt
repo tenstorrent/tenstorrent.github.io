@@ -1,0 +1,6 @@
+﻿ttnn.prod
+=========
+
+.. currentmodule:: ttnn
+
+.. autodata:: prod

@@ -1,0 +1,6 @@
+﻿ttnn.prelu
+==========
+
+.. currentmodule:: ttnn
+
+.. autodata:: prelu

@@ -1,0 +1,6 @@
+﻿ttnn.bias\_gelu\_bw
+===================
+
+.. currentmodule:: ttnn
+
+.. autodata:: bias_gelu_bw

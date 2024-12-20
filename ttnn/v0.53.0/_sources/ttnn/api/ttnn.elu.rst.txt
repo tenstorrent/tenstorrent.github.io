@@ -1,0 +1,6 @@
+﻿ttnn.elu
+========
+
+.. currentmodule:: ttnn
+
+.. autodata:: elu

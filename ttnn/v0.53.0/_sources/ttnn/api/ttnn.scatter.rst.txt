@@ -1,0 +1,6 @@
+﻿ttnn.scatter
+============
+
+.. currentmodule:: ttnn
+
+.. autodata:: scatter

@@ -1,0 +1,6 @@
+﻿ttnn.dump\_tensor
+=================
+
+.. currentmodule:: ttnn
+
+.. autodata:: dump_tensor

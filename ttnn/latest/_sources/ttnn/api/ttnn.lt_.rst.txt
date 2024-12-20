@@ -1,0 +1,6 @@
+﻿ttnn.lt\_
+=========
+
+.. currentmodule:: ttnn
+
+.. autodata:: lt_

@@ -1,0 +1,6 @@
+﻿ttnn.zeros\_like
+================
+
+.. currentmodule:: ttnn
+
+.. autodata:: zeros_like

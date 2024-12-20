@@ -1,0 +1,6 @@
+﻿ttnn.gt
+=======
+
+.. currentmodule:: ttnn
+
+.. autodata:: gt
