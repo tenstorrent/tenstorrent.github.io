@@ -49,6 +49,8 @@ Install git, wget, pip, and DKMS (Dynamic Kernel Module Support) by running the 
 | Fedora                 | `sudo dnf check-update && sudo dnf install -y wget git python3-pip dkms`                  |
 | Enterprise Linux based | `sudo dnf install -y epel-release && sudo dnf check-update && sudo dnf install -y wget git python3-pip dkms` |
 
+***NOTE**: Installation on non-Ubuntu distributions should be considered experimental at this time.*
+
 ### Step 2: Install the Kernel-Mode Driver (TT-KMD)
 Install the driver (**[TT-KMD](https://github.com/tenstorrent/tt-kmd)**) by running these commands in the terminal:
 
