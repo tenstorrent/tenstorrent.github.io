@@ -5,4 +5,3 @@ sphinx-rtd-theme
 nbsphinx
 breathe
 sphinxcontrib.email
-Sphinx_Substitution_Extensions

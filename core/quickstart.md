@@ -59,7 +59,7 @@ Install the driver (**[TT-KMD](https://github.com/tenstorrent/tt-kmd)**) by runn
 git clone https://github.com/tenstorrent/tt-kmd.git
 cd tt-kmd
 sudo dkms add .
-sudo dkms install tenstorrent/{{ver_kmd}}
+sudo dkms install tenstorrent/1.31
 sudo modprobe tenstorrent
 ```
 
@@ -81,8 +81,8 @@ To update Tenstorrent device firmware using TT-Flash, run these commands in the 
 
 ```{code-block} bash
 :substitutions:
-wget https://github.com/tenstorrent/tt-firmware/raw/main/fw_pack-{{ver_fw}}.fwbundle
-tt-flash --fw-tar fw_pack-{{ver_fw}}.fwbundle
+wget https://github.com/tenstorrent/tt-firmware/raw/main/fw_pack-80.13.2.0.fwbundle
+tt-flash --fw-tar fw_pack-80.13.2.0.fwbundle
 ```
 
 If this process worked, reboot the system and go to the next section.
@@ -91,7 +91,7 @@ If running that command results in an error that says the firmware is too old, e
 
 ```{code-block} bash
 :substitutions:
-tt-flash --fw-tar fw_pack-{{ver_fw}}.fwbundle --force
+tt-flash --fw-tar fw_pack-80.13.2.0.fwbundle --force
 ```
 
 Then reboot the system.
@@ -103,8 +103,8 @@ HugePages lets your system allocate dedicated memory to accelerate communication
 ```{code-block} bash
 :substitutions:
 # Install `.deb`
-wget https://github.com/tenstorrent/tt-system-tools/releases/download/upstream%2F1.1/tenstorrent-tools_{{ver_sys_tools}_all.deb
-sudo dpkg -i tenstorrent-tools_{{ver_sys_tools}}_all.deb
+wget https://github.com/tenstorrent/tt-system-tools/releases/download/upstream%2F1.1/tenstorrent-tools_1.1-5_all.deb
+sudo dpkg -i tenstorrent-tools_1.1-5_all.deb
 
 # Start Services
 sudo systemctl enable --now tenstorrent-hugepages.service

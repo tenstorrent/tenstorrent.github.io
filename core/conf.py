@@ -18,6 +18,10 @@ release = '1.0'
 
 templates_path = ['../shared/_templates']
 exclude_patterns = []
+extensions = ['myst_parser']
+
+# TODO: Fix templating issues so we can reenable this.
+"""
 extensions = ['myst_parser',
               'sphinx_substitution_extensions',]
 
@@ -34,6 +38,7 @@ myst_substitutions = {
     'ver_kmd': ver_kmd,
     'ver_sys_tools': ver_sys_tools,
 }
+"""
 
 
 # -- Options for HTML output -------------------------------------------------
