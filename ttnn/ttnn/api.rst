@@ -93,15 +93,11 @@ Pointwise Unary
 
    ttnn.abs
    ttnn.acos
-   ttnn.logical_not_
    ttnn.acosh
    ttnn.asin
    ttnn.asinh
    ttnn.atan
    ttnn.atanh
-   ttnn.bitwise_and
-   ttnn.bitwise_or
-   ttnn.bitwise_xor
    ttnn.bitwise_not
    ttnn.bitwise_left_shift
    ttnn.bitwise_right_shift
@@ -115,6 +111,7 @@ Pointwise Unary
    ttnn.cosh
    ttnn.deg2rad
    ttnn.digamma
+   ttnn.experimental.dropout
    ttnn.elu
    ttnn.eqz
    ttnn.erf
@@ -152,6 +149,7 @@ Pointwise Unary
    ttnn.log2
    ttnn.log_sigmoid
    ttnn.logical_not
+   ttnn.logical_not_
    ttnn.logit
    ttnn.ltz
    ttnn.mish
@@ -173,7 +171,6 @@ Pointwise Unary
    ttnn.remainder
    ttnn.round
    ttnn.rsqrt
-   ttnn.rsub
    ttnn.selu
    ttnn.sigmoid
    ttnn.sigmoid_accurate
@@ -197,6 +194,7 @@ Pointwise Unary
    ttnn.tril
    ttnn.triu
    ttnn.trunc
+   ttnn.unary_chain
    ttnn.clamp_bw
    ttnn.clip_bw
    ttnn.hardtanh_bw
@@ -305,12 +303,15 @@ Pointwise Binary
    ttnn.logical_and_
    ttnn.logical_or_
    ttnn.logical_xor_
-   ttnn.pow
    ttnn.rpow
+   ttnn.rsub
    ttnn.ldexp
    ttnn.logical_and
    ttnn.logical_or
    ttnn.logical_xor
+   ttnn.bitwise_and
+   ttnn.bitwise_or
+   ttnn.bitwise_xor
    ttnn.logaddexp
    ttnn.logaddexp2
    ttnn.hypot
@@ -333,6 +334,7 @@ Pointwise Binary
    ttnn.maximum
    ttnn.minimum
    ttnn.outer
+   ttnn.pow
    ttnn.polyval
    ttnn.scatter
    ttnn.atan2

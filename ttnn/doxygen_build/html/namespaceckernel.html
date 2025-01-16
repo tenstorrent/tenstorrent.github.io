@@ -556,12 +556,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Performs element-wise computation of absolute value on each element of a tile in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | idst | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -600,12 +595,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Performs element-wise computation of arccossine on each element of a tile in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | idst | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -782,20 +772,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Performs element-wise addition C=A+B of tiles in two CBs at given indices and writes the result to the DST register at index dst_tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">in0_cb_id   </td><td class="markdownTableBodyNone">The identifier of the circular buffer (CB) containing A   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">in1_cb_id   </td><td class="markdownTableBodyNone">The identifier of the circular buffer (CB) containing B   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">in0_tile_index   </td><td class="markdownTableBodyNone">The index of tile A within the first CB   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the CB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">in1_tile_index   </td><td class="markdownTableBodyNone">The index of tile B within the second CB   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the CB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">dst_tile_index   </td><td class="markdownTableBodyNone">The index of the tile in DST REG for the result C   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the acquired size of DST REG   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|-------------------------------------------------------&mdash;|-------&mdash;|---------------------------------------------&mdash;|-------&mdash;| | in0_cb_id | The identifier of the circular buffer (CB) containing A | uint32_t | 0 to 31 | True | | in1_cb_id | The identifier of the circular buffer (CB) containing B | uint32_t | 0 to 31 | True | | in0_tile_index | The index of tile A within the first CB | uint32_t | Must be less than the size of the CB | True | | in1_tile_index | The index of tile B within the second CB | uint32_t | Must be less than the size of the CB | True | | dst_tile_index | The index of the tile in DST REG for the result C | uint32_t | Must be less than the acquired size of DST REG | True | </p>
 
 </div>
 </div>
@@ -853,22 +830,7 @@ template&lt;BroadcastType tBcastDim&gt; </div>
 <p>For <em>dim==Dim::RC</em>, the input in <em>B</em> is expected to be a single tile with a filled single value at location [0,0], and zeros elsewhere. The result is <em>C[h, w] = A[h,w] + B[0,0]</em></p>
 <p>Return value: None</p>
 <p>DOX-TODO(AP): verify that the bcast tile is actually required to be filled with zeros.</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">tBcastDim   </td><td class="markdownTableBodyNone">Broadcast dimension   </td><td class="markdownTableBodyNone">BroadcastType   </td><td class="markdownTableBodyNone">One of Dim::R, Dim::C, Dim::RC.   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">in0_cb_id   </td><td class="markdownTableBodyNone">The identifier of the circular buffer (CB) containing A   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">in1_cb_id   </td><td class="markdownTableBodyNone">The indentifier of the circular buffer (CB) containing B   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">in0_tile_index   </td><td class="markdownTableBodyNone">The index of tile A within the first CB   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the CB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">in1_tile_index   </td><td class="markdownTableBodyNone">The index of tile B within the second CB   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the CB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">dst_tile_index   </td><td class="markdownTableBodyNone">The index of the tile in DST REG for the result C   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the acquired size of DST REG   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|-------------------------------------------------------&mdash;|------------&mdash;|---------------------------------------------&mdash;|-------&mdash;| | tBcastDim | Broadcast dimension | BroadcastType | One of Dim::R, Dim::C, Dim::RC. | True | | in0_cb_id | The identifier of the circular buffer (CB) containing A | uint32_t | 0 to 31 | True | | in1_cb_id | The indentifier of the circular buffer (CB) containing B | uint32_t | 0 to 31 | True | | in0_tile_index | The index of tile A within the first CB | uint32_t | Must be less than the size of the CB | True | | in1_tile_index | The index of tile B within the second CB | uint32_t | Must be less than the size of the CB | True | | dst_tile_index | The index of the tile in DST REG for the result C | uint32_t | Must be less than the acquired size of DST REG | True | </p>
 
 </div>
 </div>
@@ -1044,16 +1006,7 @@ template&lt;BroadcastType tBcastDim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Short init function </p><table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">icb0   </td><td class="markdownTableBodyNone">The identifier of the circular buffer (CB) containing A   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">icb1   </td><td class="markdownTableBodyNone">The identifier of the circular buffer (CB) containing B   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">acc_to_dest   </td><td class="markdownTableBodyNone">If true, operation = A + B + dst_tile_idx of add_tiles   </td><td class="markdownTableBodyNone">bool   </td><td class="markdownTableBodyNone">0,1   </td><td class="markdownTableBodyNone">False   </td></tr>
-</table>
+<p>Short init function | Argument | Description | Type | Valid Range | Required | |-------------&mdash;|------------------------------------------------------------&mdash;|-------&mdash;|---------------------------------------------&mdash;|-------&mdash;| | icb0 | The identifier of the circular buffer (CB) containing A | uint32_t | 0 to 31 | True | | icb1 | The identifier of the circular buffer (CB) containing B | uint32_t | 0 to 31 | True | | acc_to_dest | If true, operation = A + B + dst_tile_idx of add_tiles | bool | 0,1 | False | </p>
 
 </div>
 </div>
@@ -1140,12 +1093,7 @@ template&lt;EltwiseBinaryType tBcastOp, BroadcastType tBcastDim&gt; </div>
 </div><div class="memdoc">
 <p>Performs element-wise computation of arcsine on each element of a tile in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | idst | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -1184,12 +1132,7 @@ template&lt;EltwiseBinaryType tBcastOp, BroadcastType tBcastDim&gt; </div>
 </div><div class="memdoc">
 <p>Performs element-wise computation of arctan on each element of a tile in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | idst | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -1248,16 +1191,7 @@ template&lt;EltwiseBinaryType eltwise_binary_type = ELWADD, EltwiseBinaryReuseDe
 <p>EltwiseBinaryReuseDestType::DST_TO_SRCA and EltwiseBinaryReuseDestType::DST_TO_SRCB assume that another operation has populated the dest register, otherwise dest will contain zeroes.</p>
 <p>The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">in_cb_id   </td><td class="markdownTableBodyNone">The identifier of the circular buffer (CB) containing A   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">in_tile_index   </td><td class="markdownTableBodyNone">The index of tile A within the first CB   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the CB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">dst_tile_index   </td><td class="markdownTableBodyNone">The index of tile B that will be moved to Src reg, and the index of the tile in DST REG for the result C   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the acquired size of DST REG   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|--------------------------------------------------------------------------------------------------------&mdash;|-------&mdash;|---------------------------------------------&mdash;|-------&mdash;| | in_cb_id | The identifier of the circular buffer (CB) containing A | uint32_t | 0 to 31 | True | | in_tile_index | The index of tile A within the first CB | uint32_t | Must be less than the size of the CB | True | | dst_tile_index | The index of tile B that will be moved to Src reg, and the index of the tile in DST REG for the result C | uint32_t | Must be less than the acquired size of DST REG | True | </p>
 
 </div>
 </div>
@@ -1313,16 +1247,7 @@ template&lt;EltwiseBinaryType eltwise_binary_type = ELWADD, EltwiseBinaryReuseDe
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Init function for all binary ops Followed by the specific init required with an opcode (binrary_op_specific_init) </p><table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">icb0   </td><td class="markdownTableBodyNone">The identifier of the circular buffer (CB) containing A   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">icb1   </td><td class="markdownTableBodyNone">The identifier of the circular buffer (CB) containing B   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">ocb   </td><td class="markdownTableBodyNone">The identifier of the circular buffer (CB) containing output   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31, defaults to CB 16   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>Init function for all binary ops Followed by the specific init required with an opcode (binrary_op_specific_init) | Argument | Description | Type | Valid Range | Required | |-------------&mdash;|------------------------------------------------------------&mdash;|-------&mdash;|---------------------------------------------&mdash;|-------&mdash;| | icb0 | The identifier of the circular buffer (CB) containing A | uint32_t | 0 to 31 | True | | icb1 | The identifier of the circular buffer (CB) containing B | uint32_t | 0 to 31 | True | | ocb | The identifier of the circular buffer (CB) containing output | uint32_t | 0 to 31, defaults to CB 16 | True | </p>
 
 </div>
 </div>
@@ -1379,16 +1304,7 @@ template&lt;bool full_init = false, EltwiseBinaryType eltwise_binary_op_type = E
 </div><div class="memdoc">
 <p>Sends the pointer to the given tile index of the specified CB from the UNPACK thread to the MATH and PACK threads, using mailbox writes. Also posts UNPACK_OPERAND_SYNC semaphore for each of these threads.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">cb_id   </td><td class="markdownTableBodyNone">The index of the cirular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">index   </td><td class="markdownTableBodyNone">The tile index within the CB   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">It must be less or equal than the size of the CB (the total number of tiles that fit into the CB)   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">p_tile   </td><td class="markdownTableBodyNone">The pointer that will be populated   </td><td class="markdownTableBodyNone">void*   </td><td class="markdownTableBodyNone">N/A   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------&mdash;|-----------------------------------&mdash;|-------&mdash;|------------------------------------------------------------------------------------------------&mdash;|-------&mdash;| | cb_id | The index of the cirular buffer (CB) | uint32_t | 0 to 31 | True | | index | The tile index within the CB | uint32_t | It must be less or equal than the size of the CB (the total number of tiles that fit into the CB) | True | | p_tile | The pointer that will be populated | void* | N/A | True | </p>
 
 </div>
 </div>
@@ -1422,14 +1338,7 @@ template&lt;bool full_init = false, EltwiseBinaryType eltwise_binary_op_type = E
 <p>Note that the act of reading of the tile data from the CB does not free up the space in the CB. Waiting on available tiles and popping them is separated in order to allow the consumer to: 1) read the tile data from the CB via multiple reads of sub-tiles 2) access the tiles (or their sub-tiles) that are visible to the consumer by random access of the valid section of the CB</p>
 <p>Important note: This operation updates the read pointer of the CB, the CB pointer can only be updated from one thread at a time. Example: if compute kernel has cb_pop_front(input_id, 1) and writer kernel also has cb_pop_front(input_id, 1), these calls will produce non-deterministic behavior because cb pointers are not synchronized across threads. Per circular buffer index, only have one thread pop tiles to update the read pointer</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">cb_id   </td><td class="markdownTableBodyNone">The index of the cirular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">ntiles   </td><td class="markdownTableBodyNone">The number of tiles to be popped   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">It must be less or equal than the size of the CB (the total number of tiles that fit into the CB)   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------&mdash;|-----------------------------------&mdash;|-------&mdash;|------------------------------------------------------------------------------------------------&mdash;|-------&mdash;| | cb_id | The index of the cirular buffer (CB) | uint32_t | 0 to 31 | True | | ntiles | The number of tiles to be popped | uint32_t | It must be less or equal than the size of the CB (the total number of tiles that fit into the CB) | True | </p>
 
 </div>
 </div>
@@ -1463,14 +1372,7 @@ template&lt;bool full_init = false, EltwiseBinaryType eltwise_binary_op_type = E
 <p>Note that the act of writing the tile data into the CB does not make the tiles visible to the consumer. Writing of the tiles and pushing is separated to allow the producer to: 1) write the tile data to the CB via multiple writes of sub-tiles 2) modify tiles (or sub-tiles) by random access of the valid section of the CB</p>
 <p>Important note: This operation updates the write pointer of the CB, the CB pointer can only be updated from one thread at a time. Example: if compute kernel has cb_push_back(output_id, 1) and reader kernel also has cb_push_back(output_id, 1), these calls will produce non-deterministic behavior because cb pointers are not synchronized across threads. Per circular buffer index, only have one thread push tiles to update the write pointer</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">cb_id   </td><td class="markdownTableBodyNone">The index of the cirular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">ntiles   </td><td class="markdownTableBodyNone">The number of tiles to be pushed   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">It must be less or equal than the size of the CB (the total number of tiles that fit into the CB)   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------&mdash;|-----------------------------------&mdash;|-------&mdash;|------------------------------------------------------------------------------------------------&mdash;|-------&mdash;| | cb_id | The index of the cirular buffer (CB) | uint32_t | 0 to 31 | True | | ntiles | The number of tiles to be pushed | uint32_t | It must be less or equal than the size of the CB (the total number of tiles that fit into the CB) | True | </p>
 
 </div>
 </div>
@@ -1528,14 +1430,7 @@ template&lt;bool full_init = false, EltwiseBinaryType eltwise_binary_op_type = E
 <p>A blocking call that waits for the specified number of tiles to be free in the specified circular buffer. This call is used by the producer to wait for the consumer to consume (ie. free up) the specified number of tiles.</p>
 <p>CB total size must be an even multiple of the argument passed to this call.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">cb_id   </td><td class="markdownTableBodyNone">The index of the cirular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">ntiles   </td><td class="markdownTableBodyNone">The number of free tiles to wait for   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">It must be less or equal than the size of the CB (the total number of tiles that fit into the CB)   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------&mdash;|-----------------------------------&mdash;|-------&mdash;|------------------------------------------------------------------------------------------------&mdash;|-------&mdash;| | cb_id | The index of the cirular buffer (CB) | uint32_t | 0 to 31 | True | | ntiles | The number of free tiles to wait for | uint32_t | It must be less or equal than the size of the CB (the total number of tiles that fit into the CB) | True | </p>
 
 </div>
 </div>
@@ -1568,14 +1463,7 @@ template&lt;bool full_init = false, EltwiseBinaryType eltwise_binary_op_type = E
 <p>Important note: number of tiles used in all cb_* calls must evenly divide the cb size and must be the same number in all cb_wait_front calls in the same kernel. Example 1: cb_wait_front(32), cb_wait_front(40), cb_pop_front(32+8) tiles on a CB of size 64 would produce incorrect behavior. Example 2: cb_wait_front(3) on a cb of size 32 would also produce incorrect behavior. These limitations are due to performance optimizations in the CB implementation.</p>
 <p>Important note: CB total size must be an even multiple of the argument passed to this call.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">cb_id   </td><td class="markdownTableBodyNone">The index of the cirular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">ntiles   </td><td class="markdownTableBodyNone">The number of tiles to wait for   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">It must be less or equal than the size of the CB (the total number of tiles that fit into the CB)   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------&mdash;|-----------------------------------&mdash;|-------&mdash;|------------------------------------------------------------------------------------------------&mdash;|-------&mdash;| | cb_id | The index of the cirular buffer (CB) | uint32_t | 0 to 31 | True | | ntiles | The number of tiles to wait for | uint32_t | It must be less or equal than the size of the CB (the total number of tiles that fit into the CB) | True | </p>
 
 </div>
 </div>
@@ -1669,16 +1557,7 @@ template&lt;bool full_init = false, EltwiseBinaryType eltwise_binary_op_type = E
 </div><div class="memdoc">
 <p>Copies a single tile from the specified input CB and writes the result to DST at a specified index. The function will employ unpacker to first unpack into SRC registers and then perform move into DST registers, at a specified index. For the in_tile_index to be valid for this call, cb_wait_front(n) had to be previously called to ensure that at least some number n&gt;0 of tiles are available in the input CB. The CB index 0 then references the first tile in the received section of the CB, up to index n-1 (in a FIFO order). The DST register buffer must be in acquired state via acquire_dst call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Data type   </th><th class="markdownTableHeadNone">Valid range   </th><th class="markdownTableHeadNone">required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">in_cb_id   </td><td class="markdownTableBodyNone">The identifier of the source circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">Yes    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">in_tile_index   </td><td class="markdownTableBodyNone">The index of the tile to copy from the input CB   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the CB   </td><td class="markdownTableBodyNone">Yes    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">dst_tile_index   </td><td class="markdownTableBodyNone">The index of the tile in the DST register   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register (16)   </td><td class="markdownTableBodyNone">Yes   </td></tr>
-</table>
+<p>| Argument | Description | Data type | Valid range | required | |-------------&mdash;|------------------------------------------------&mdash;|--------&mdash;|--------------------------------------------------&mdash;|-------&mdash;| | in_cb_id | The identifier of the source circular buffer (CB) | uint32_t | 0 to 31 | Yes | | in_tile_index | The index of the tile to copy from the input CB | uint32_t | Must be less than the size of the CB | Yes | | dst_tile_index | The index of the tile in the DST register | uint32_t | Must be less than the size of the DST register (16) | Yes | </p>
 
 </div>
 </div>
@@ -1726,14 +1605,7 @@ template&lt;bool full_init = false, EltwiseBinaryType eltwise_binary_op_type = E
       </table>
 </div><div class="memdoc">
 <p>Perform the init short for copy tile. This does not reconfigure the unpacker data types. Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">cbid   </td><td class="markdownTableBodyNone">The identifier of the input circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">False    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">transpose   </td><td class="markdownTableBodyNone">Flag to perform transpose on SrcA   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Any positive value will indicate tranpose is set   </td><td class="markdownTableBodyNone">False   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|------------------------------------------------&mdash;|-------&mdash;|--------------------------------------------------&mdash;|-------&mdash;| | cbid | The identifier of the input circular buffer (CB) | uint32_t | 0 to 31 | False | | transpose | Flag to perform transpose on SrcA | uint32_t | Any positive value will indicate tranpose is set | False | </p>
 
 </div>
 </div>
@@ -1769,16 +1641,7 @@ template&lt;bool full_init = false, EltwiseBinaryType eltwise_binary_op_type = E
       </table>
 </div><div class="memdoc">
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">old_cbid   </td><td class="markdownTableBodyNone">The identifier of the previous input circular buffer (CB) to SrcA   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">new_cbid   </td><td class="markdownTableBodyNone">The identifier of the new input circular buffer (CB) to SrcA   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">transpose   </td><td class="markdownTableBodyNone">Flag to perform transpose on SrcA   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Any positive value will indicate tranpose is set   </td><td class="markdownTableBodyNone">False   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|----------------------------------------------------------------&mdash;|-------&mdash;|--------------------------------------------------&mdash;|-------&mdash;| | old_cbid | The identifier of the previous input circular buffer (CB) to SrcA | uint32_t | 0 to 31 | True | | new_cbid | The identifier of the new input circular buffer (CB) to SrcA | uint32_t | 0 to 31 | True | | transpose | Flag to perform transpose on SrcA | uint32_t | Any positive value will indicate tranpose is set | False | </p>
 
 </div>
 </div>
@@ -1799,12 +1662,7 @@ template&lt;bool full_init = false, EltwiseBinaryType eltwise_binary_op_type = E
 </div><div class="memdoc">
 <p>Performs element-wise computation of the trigonometric cosine operation on each element of a tile in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">tile_index   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | tile_index | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -1871,14 +1729,7 @@ template&lt;bool full_init = false, EltwiseBinaryType eltwise_binary_op_type = E
       </table>
 </div><div class="memdoc">
 <p>Reads the contents of the specified row of the destination register. It reads 8 dwords at a time.</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">row_addr   </td><td class="markdownTableBodyNone">The row address in the destination register to read   </td><td class="markdownTableBodyNone">int   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">rd_data   </td><td class="markdownTableBodyNone">The array of 8 dwords to store the data   </td><td class="markdownTableBodyNone">uint32_t*   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------&mdash;|-------------------------------------------------------------------------&mdash;|--------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | row_addr | The row address in the destination register to read | int | | True | | rd_data | The array of 8 dwords to store the data | uint32_t* | | True |</p>
 <p>Return value: None </p>
 
 </div>
@@ -1929,14 +1780,7 @@ template&lt;bool full_init = false, EltwiseBinaryType eltwise_binary_op_type = E
 </div><div class="memdoc">
 <p>Performs element-wise computation of elu (relu(x) + slope*(exp(x) - 1)*(x &lt;= 0 )) on each element of a tile in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">tile_index   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">slope   </td><td class="markdownTableBodyNone">slope used in elu calculation   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Greater than 0   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | tile_index | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | | slope | slope used in elu calculation | uint32_t | Greater than 0 | True | </p>
 
 </div>
 </div>
@@ -1975,12 +1819,7 @@ template&lt;bool full_init = false, EltwiseBinaryType eltwise_binary_op_type = E
 </div><div class="memdoc">
 <p>Will store in the output of the compute core True if each element of a equal to zero. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | idst | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -2021,12 +1860,7 @@ template&lt;bool fast_and_approx = true&gt; </div>
 </div><div class="memdoc">
 <p>Performs element-wise computation of error function on each element of a tile in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">tile_index   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | tile_index | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -2069,12 +1903,7 @@ template&lt;bool fast_and_approx = true&gt; </div>
 </div><div class="memdoc">
 <p>Performs element-wise computation of complimentary error function on each element of a tile in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">tile_index   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | tile_index | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -2115,12 +1944,7 @@ template&lt;bool fast_and_approx = true&gt; </div>
 </div><div class="memdoc">
 <p>Performs element-wise computation of the inverse of the error function on each element of a tile in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">tile_index   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | tile_index | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -2159,12 +1983,7 @@ template&lt;bool fast_and_approx = true&gt; </div>
 </div><div class="memdoc">
 <p>Performs element-wise computation of 2^x value where x is each element of a tile in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | idst | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -2205,14 +2024,7 @@ template&lt;bool fast_and_approx = false&gt; </div>
 </div><div class="memdoc">
 <p>Performs element-wise computation of exponential on each element of a tile in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">tile_index   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">fast_and_approx   </td><td class="markdownTableBodyNone">Computation to be done faster and approximate   </td><td class="markdownTableBodyNone">bool   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">False   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | tile_index | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | | fast_and_approx | Computation to be done faster and approximate | bool | | False | </p>
 
 </div>
 </div>
@@ -2253,12 +2065,7 @@ template&lt;bool fast_and_approx = false&gt; </div>
 </div><div class="memdoc">
 <p>Performs element-wise computation of exp(x) - 1, v where x is each element of a tile in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | idst | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -2299,14 +2106,7 @@ template&lt;bool fast_and_approx = true&gt; </div>
 </div><div class="memdoc">
 <p>Performs element-wise computation of gelu on each element of a tile in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">tile_index   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">fast_and_approx   </td><td class="markdownTableBodyNone">Computation to be done faster and approximate   </td><td class="markdownTableBodyNone">bool   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">False   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |---------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | tile_index | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | | fast_and_approx | Computation to be done faster and approximate | bool | | False | </p>
 
 </div>
 </div>
@@ -2400,12 +2200,7 @@ template&lt;bool fast_and_approx = true&gt; </div>
 </div><div class="memdoc">
 <p>Will store in the output of the compute core True if each element is greater than or equal to zero. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | idst | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -2444,12 +2239,7 @@ template&lt;bool fast_and_approx = true&gt; </div>
 </div><div class="memdoc">
 <p>Will store in the output of the compute core True if each element is greater than zero. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | idst | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -2498,14 +2288,7 @@ template&lt;bool fast_and_approx = true&gt; </div>
 </div><div class="memdoc">
 <p>Performs element-wise computation of: y = 0 if x &lt; 0 , 1 if x &gt; 0 , y= value where x is each element of a tile in DST register at index tile_index. The value is provided as const param0 The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">param0   </td><td class="markdownTableBodyNone">The value the output is if the input is greater than 0   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | idst | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | | param0 | The value the output is if the input is greater than 0 | uint32_t | | True | </p>
 
 </div>
 </div>
@@ -2544,12 +2327,7 @@ template&lt;bool fast_and_approx = true&gt; </div>
 </div><div class="memdoc">
 <p>Performs element-wise computation of the zeroth order modified Bessel function of the first kind on each element of a tile in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">tile_index   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | tile_index | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -2606,16 +2384,7 @@ template&lt;EltwiseBinaryType tBcastOp, BroadcastType tBcastDim&gt; </div>
 </div><div class="memdoc">
 <p>Associated init function that must be called before calling a bcast op.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">icb0   </td><td class="markdownTableBodyNone">The identifier of the circular buffer (CB) containing A   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">icb1   </td><td class="markdownTableBodyNone">The indentifier of the circular buffer (CB) containing B   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">ocb   </td><td class="markdownTableBodyNone">The indentifier of the circular buffer (CB) containing output   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">False   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|------------------------------------------------------------&mdash;|------------&mdash;|---------------------------------------------&mdash;|-------&mdash;| | icb0 | The identifier of the circular buffer (CB) containing A | uint32_t | 0 to 31 | True | | icb1 | The indentifier of the circular buffer (CB) containing B | uint32_t | 0 to 31 | True | | ocb | The indentifier of the circular buffer (CB) containing output | uint32_t | 0 to 31 | False | </p>
 
 </div>
 </div>
@@ -2636,12 +2405,7 @@ template&lt;EltwiseBinaryType tBcastOp, BroadcastType tBcastDim&gt; </div>
 </div><div class="memdoc">
 <p>Will store in the output of the compute core True if the input tile is finite The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">tile_index   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | tile_index | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -2680,12 +2444,7 @@ template&lt;EltwiseBinaryType tBcastOp, BroadcastType tBcastDim&gt; </div>
 </div><div class="memdoc">
 <p>Will store in the output of the compute core True if the input tile is infinity. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">tile_index   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | tile_index | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -2724,12 +2483,7 @@ template&lt;EltwiseBinaryType tBcastOp, BroadcastType tBcastDim&gt; </div>
 </div><div class="memdoc">
 <p>Will store in the output of the compute core True if the input tile is nan. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">tile_index   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | tile_index | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -2768,12 +2522,7 @@ template&lt;EltwiseBinaryType tBcastOp, BroadcastType tBcastDim&gt; </div>
 </div><div class="memdoc">
 <p>Will store in the output of the compute core True if the input tile is negative infinity. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">tile_index   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | tile_index | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -2812,12 +2561,7 @@ template&lt;EltwiseBinaryType tBcastOp, BroadcastType tBcastDim&gt; </div>
 </div><div class="memdoc">
 <p>Will store in the output of the compute core True if the input tile is positive infinity. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">tile_index   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | tile_index | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -2866,14 +2610,7 @@ template&lt;EltwiseBinaryType tBcastOp, BroadcastType tBcastDim&gt; </div>
 </div><div class="memdoc">
 <p>Performs element-wise computation of leaky relu (relu(x) + slope*-relu(-x)) on each element of a tile in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">tile_index   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">slope   </td><td class="markdownTableBodyNone">slope used in leaky relu - will reinterpret unsigned int to float   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Greater than 0   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | tile_index | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | | slope | slope used in leaky relu - will reinterpret unsigned int to float | uint32_t | Greater than 0 | True | </p>
 
 </div>
 </div>
@@ -2912,12 +2649,7 @@ template&lt;EltwiseBinaryType tBcastOp, BroadcastType tBcastDim&gt; </div>
 </div><div class="memdoc">
 <p>Will store in the output of the compute core True if each element is less than or equal to zero. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | idst | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -2956,12 +2688,7 @@ template&lt;EltwiseBinaryType tBcastOp, BroadcastType tBcastDim&gt; </div>
 </div><div class="memdoc">
 <p>Performs element-wise computation of logarithm on each element of a tile in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | idst | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -3010,14 +2737,7 @@ template&lt;EltwiseBinaryType tBcastOp, BroadcastType tBcastDim&gt; </div>
 </div><div class="memdoc">
 <p>Performs element-wise computation of logarithm with a specified base on each element of a tile in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">base_scale   </td><td class="markdownTableBodyNone">The log base   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Postive integers   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | idst | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | | base_scale | The log base | uint32_t | Postive integers | True | </p>
 
 </div>
 </div>
@@ -3056,12 +2776,7 @@ template&lt;EltwiseBinaryType tBcastOp, BroadcastType tBcastDim&gt; </div>
 </div><div class="memdoc">
 <p>Performs element-wise computation of the logical not unary operation on each element of a tile in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">tile_index   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | tile_index | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -3100,12 +2815,7 @@ template&lt;EltwiseBinaryType tBcastOp, BroadcastType tBcastDim&gt; </div>
 </div><div class="memdoc">
 <p>Will store in the output of the compute core True if each element of a tile is less than zero. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | idst | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -3196,28 +2906,7 @@ template&lt;EltwiseBinaryType tBcastOp, BroadcastType tBcastDim&gt; </div>
 </div><div class="memdoc">
 <p>Performs block-sized matrix multiplication <em>C=A*B</em> between the blocks in two different input CBs and writes the result to DST. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">in0_cb_id   </td><td class="markdownTableBodyNone">The identifier of the first input circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">in1_cb_id   </td><td class="markdownTableBodyNone">The identifier of the second input circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">in0_tile_index   </td><td class="markdownTableBodyNone">The index of the tile in block A from the first input CB   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the CB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">in1_tile_index   </td><td class="markdownTableBodyNone">The index of the tile in block B from the second input CB   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the CB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST REG to which the result C will be written.   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the acquired size of DST REG   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">transpose   </td><td class="markdownTableBodyNone">The transpose flag for performing transpose operation on tiles in B.   </td><td class="markdownTableBodyNone">bool   </td><td class="markdownTableBodyNone">Must be true or false   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">ct_dim   </td><td class="markdownTableBodyNone">The coloumn dimension for the output block.   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be equal to block B column dimension   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">rt_dim   </td><td class="markdownTableBodyNone">The row dimension for the output block.   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be equal to block A row dimension   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">kt_dim   </td><td class="markdownTableBodyNone">The inner dimension.   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be equal to block A column dimension   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|----------------------------------------------------------------------&mdash;|-------&mdash;|---------------------------------------------&mdash;|-------&mdash;| | in0_cb_id | The identifier of the first input circular buffer (CB) | uint32_t | 0 to 31 | True | | in1_cb_id | The identifier of the second input circular buffer (CB) | uint32_t | 0 to 31 | True | | in0_tile_index | The index of the tile in block A from the first input CB | uint32_t | Must be less than the size of the CB | True | | in1_tile_index | The index of the tile in block B from the second input CB | uint32_t | Must be less than the size of the CB | True | | idst | The index of the tile in DST REG to which the result C will be written. | uint32_t | Must be less than the acquired size of DST REG | True | | transpose | The transpose flag for performing transpose operation on tiles in B. | bool | Must be true or false | True | | ct_dim | The coloumn dimension for the output block. | uint32_t | Must be equal to block B column dimension | True | | rt_dim | The row dimension for the output block. | uint32_t | Must be equal to block A row dimension | True | | kt_dim | The inner dimension. | uint32_t | Must be equal to block A column dimension | True | </p>
 
 </div>
 </div>
@@ -3257,16 +2946,7 @@ template&lt;EltwiseBinaryType tBcastOp, BroadcastType tBcastDim&gt; </div>
 <p>Operates in tandem with functions cb_reserve_back and cb_push_back.</p>
 <p>A typical use case is first the producer ensures that there is a number of tiles available in the buffer via cb_reserve_back, then the producer uses the matmul_pack_tile call to copy a block of tiles from the DST slots to the slots in reserved space and finally cb_push_back is called to announce visibility of the reserved section of the circular buffer to the consumer.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">ifrom_dst   </td><td class="markdownTableBodyNone">The index of the tile in the DST register   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register (16)   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">icb   </td><td class="markdownTableBodyNone">The identifier of the output circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">ntiles   </td><td class="markdownTableBodyNone">The number of tiles to copy from DST to CB   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the CB   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|------------------------------------------------&mdash;|-------&mdash;|--------------------------------------------------&mdash;|-------&mdash;| | ifrom_dst | The index of the tile in the DST register | uint32_t | Must be less than the size of the DST register (16) | True | | icb | The identifier of the output circular buffer (CB) | uint32_t | 0 to 31 | True | | ntiles | The number of tiles to copy from DST to CB | uint32_t | Must be less than the size of the CB | True | </p>
 
 </div>
 </div>
@@ -3321,20 +3001,7 @@ template&lt;EltwiseBinaryType tBcastOp, BroadcastType tBcastDim&gt; </div>
 </div><div class="memdoc">
 <p>Performs tile-sized matrix multiplication <em>C=A*B</em> between the tiles in two specified input CBs and writes the result to DST. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">in0_cb_id   </td><td class="markdownTableBodyNone">The identifier of the first input circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">in1_cb_id   </td><td class="markdownTableBodyNone">The identifier of the second input circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">in0_tile_index   </td><td class="markdownTableBodyNone">The index of the tile A from the first input CB   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the CB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">in1_tile_index   </td><td class="markdownTableBodyNone">The index of the tile B from the second input CB   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the CB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">dst_tile_index   </td><td class="markdownTableBodyNone">The index of the tile in DST REG to which the result C will be written.   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the acquired size of DST REG   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|----------------------------------------------------------------------&mdash;|-------&mdash;|---------------------------------------------&mdash;|-------&mdash;| | in0_cb_id | The identifier of the first input circular buffer (CB) | uint32_t | 0 to 31 | True | | in1_cb_id | The identifier of the second input circular buffer (CB) | uint32_t | 0 to 31 | True | | in0_tile_index | The index of the tile A from the first input CB | uint32_t | Must be less than the size of the CB | True | | in1_tile_index | The index of the tile B from the second input CB | uint32_t | Must be less than the size of the CB | True | | dst_tile_index | The index of the tile in DST REG to which the result C will be written. | uint32_t | Must be less than the acquired size of DST REG | True | </p>
 
 </div>
 </div>
@@ -3357,12 +3024,7 @@ template&lt;uint32_t num_faces = 4&gt; </div>
 </div><div class="memdoc">
 <p>Performs tile-sized matrix multiplication <em>C=A*B</em> between the tiles located in SRCA and SRCB and writes the result to DST. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST REG to which the result C will be written.   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the acquired size of DST REG   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|----------------------------------------------------------------------&mdash;|-------&mdash;|---------------------------------------------&mdash;|-------&mdash;| | idst | The index of the tile in DST REG to which the result C will be written. | uint32_t | Must be less than the acquired size of DST REG | True | </p>
 
 </div>
 </div>
@@ -3394,14 +3056,7 @@ template&lt;uint32_t num_faces = 4&gt; </div>
 <p>Performs element-wise computation of max value on each element of a tile in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>TODO: fix idst1. currently idst1 is not used and (idst0 + 1) is used for max. because don't know how to use 2 dst register with sfpu.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst0   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">idst1   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | idst0 | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | | idst1 | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -3480,22 +3135,7 @@ template&lt;uint32_t num_faces = 4&gt; </div>
 </div><div class="memdoc">
 <p>Initialization for matmul_block operation. Must be called before matmul_block.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">in0_cb_id   </td><td class="markdownTableBodyNone">The identifier of the first input circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">False    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">in1_cb_id   </td><td class="markdownTableBodyNone">The identifier of the second input circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">False    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">out_cb_id   </td><td class="markdownTableBodyNone">The identifier of the output circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">False    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">ct_dim   </td><td class="markdownTableBodyNone">the number of columns of the output matrix in tiles   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">1 to 8 in half-sync mode, 1 to 16 in full-sync mode   </td><td class="markdownTableBodyNone">False    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">rt_dim   </td><td class="markdownTableBodyNone">the number of rows of the output matrix in tiles   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">1 to 8 in half-sync mode, 1 to 16 in full-sync mode   </td><td class="markdownTableBodyNone">False    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">kt_dim   </td><td class="markdownTableBodyNone">the inner dim of the input matrices in tiles   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">1 to 2^32-1   </td><td class="markdownTableBodyNone">False   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|------------------------------------------------------------&mdash;|-------&mdash;|--------------------------------------------------&mdash;|-------&mdash;| | in0_cb_id | The identifier of the first input circular buffer (CB) | uint32_t | 0 to 31 | False | | in1_cb_id | The identifier of the second input circular buffer (CB) | uint32_t | 0 to 31 | False | | out_cb_id | The identifier of the output circular buffer (CB) | uint32_t | 0 to 31 | False | | ct_dim | the number of columns of the output matrix in tiles | uint32_t | 1 to 8 in half-sync mode, 1 to 16 in full-sync mode | False | | rt_dim | the number of rows of the output matrix in tiles | uint32_t | 1 to 8 in half-sync mode, 1 to 16 in full-sync mode | False | | kt_dim | the inner dim of the input matrices in tiles | uint32_t | 1 to 2^32-1 | False | </p>
 
 </div>
 </div>
@@ -3550,22 +3190,7 @@ template&lt;uint32_t num_faces = 4&gt; </div>
 </div><div class="memdoc">
 <p>A short version of matmul_block initialization. Configure the unpacker and math engine to matmul mode.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">in0_cb_id   </td><td class="markdownTableBodyNone">The identifier of the first input circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">False    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">in1_cb_id   </td><td class="markdownTableBodyNone">The identifier of the second input circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">False    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">transpose   </td><td class="markdownTableBodyNone">The transpose flag for performing transpose operation on B   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Any positive value will indicate tranpose is set   </td><td class="markdownTableBodyNone">False    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">ct_dim   </td><td class="markdownTableBodyNone">The coloumn dimension for the output block.   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be equal to block B column dimension   </td><td class="markdownTableBodyNone">False    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">rt_dim   </td><td class="markdownTableBodyNone">The row dimension for the output block.   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be equal to block A row dimension   </td><td class="markdownTableBodyNone">False    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">kt_dim   </td><td class="markdownTableBodyNone">The inner dimension.   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be equal to block A column dimension   </td><td class="markdownTableBodyNone">False   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|------------------------------------------------------------&mdash;|-------&mdash;|--------------------------------------------------&mdash;|-------&mdash;| | in0_cb_id | The identifier of the first input circular buffer (CB) | uint32_t | 0 to 31 | False | | in1_cb_id | The identifier of the second input circular buffer (CB) | uint32_t | 0 to 31 | False | | transpose | The transpose flag for performing transpose operation on B | uint32_t | Any positive value will indicate tranpose is set | False | | ct_dim | The coloumn dimension for the output block. | uint32_t | Must be equal to block B column dimension | False | | rt_dim | The row dimension for the output block. | uint32_t | Must be equal to block A row dimension | False | | kt_dim | The inner dimension. | uint32_t | Must be equal to block A column dimension | False | </p>
 
 </div>
 </div>
@@ -3626,22 +3251,7 @@ template&lt;uint32_t num_faces = 4&gt; </div>
 </div><div class="memdoc">
 <p>A short version of matmul_block initialization. It is used to reconfigure srcA of the compute engine back to matmul mode.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">in0_cb_id   </td><td class="markdownTableBodyNone">The identifier of the first input circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">False    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">in1_cb_id   </td><td class="markdownTableBodyNone">The identifier of the second input circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">False    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">old_in1_cb_id   </td><td class="markdownTableBodyNone">The identifier of the old in1_cb_id circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">False    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">ct_dim   </td><td class="markdownTableBodyNone">The coloumn dimension for the output block.   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be equal to block B column dimension   </td><td class="markdownTableBodyNone">False    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">rt_dim   </td><td class="markdownTableBodyNone">The row dimension for the output block.   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be equal to block A row dimension   </td><td class="markdownTableBodyNone">False    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">kt_dim   </td><td class="markdownTableBodyNone">The inner dimension.   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be equal to block A column dimension   </td><td class="markdownTableBodyNone">False   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|------------------------------------------------------------&mdash;|-------&mdash;|--------------------------------------------------&mdash;|-------&mdash;| | in0_cb_id | The identifier of the first input circular buffer (CB) | uint32_t | 0 to 31 | False | | in1_cb_id | The identifier of the second input circular buffer (CB) | uint32_t | 0 to 31 | False | | old_in1_cb_id | The identifier of the old in1_cb_id circular buffer (CB) | uint32_t | 0 to 31 | False | | ct_dim | The coloumn dimension for the output block. | uint32_t | Must be equal to block B column dimension | False | | rt_dim | The row dimension for the output block. | uint32_t | Must be equal to block A row dimension | False | | kt_dim | The inner dimension. | uint32_t | Must be equal to block A column dimension | False | </p>
 
 </div>
 </div>
@@ -3684,18 +3294,7 @@ template&lt;uint32_t num_faces = 4&gt; </div>
 </div><div class="memdoc">
 <p>Initialization for matmul_tiles operation. Must be called before matmul_tiles.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">in0_cb_id   </td><td class="markdownTableBodyNone">The identifier of the first input circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">False    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">in1_cb_id   </td><td class="markdownTableBodyNone">The identifier of the second input circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">False    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">out_cb_id   </td><td class="markdownTableBodyNone">The identifier of the output circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">False    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">transpose   </td><td class="markdownTableBodyNone">The transpose flag for performing transpose operation on B   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Any positive value will indicate tranpose is set   </td><td class="markdownTableBodyNone">False   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|------------------------------------------------------------&mdash;|-------&mdash;|--------------------------------------------------&mdash;|-------&mdash;| | in0_cb_id | The identifier of the first input circular buffer (CB) | uint32_t | 0 to 31 | False | | in1_cb_id | The identifier of the second input circular buffer (CB) | uint32_t | 0 to 31 | False | | out_cb_id | The identifier of the output circular buffer (CB) | uint32_t | 0 to 31 | False | | transpose | The transpose flag for performing transpose operation on B | uint32_t | Any positive value will indicate tranpose is set | False | </p>
 
 </div>
 </div>
@@ -3732,16 +3331,7 @@ template&lt;uint32_t num_faces = 4&gt; </div>
 </div><div class="memdoc">
 <p>A short version of matmul_tiles initialization. Configure the unpacker and math engine to matmul mode.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">in0_cb_id   </td><td class="markdownTableBodyNone">The identifier of the first input circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">False    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">in1_cb_id   </td><td class="markdownTableBodyNone">The identifier of the second input circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">False    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">transpose   </td><td class="markdownTableBodyNone">The transpose flag for performing transpose operation on B   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Any positive value will indicate tranpose is set   </td><td class="markdownTableBodyNone">False   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|------------------------------------------------------------&mdash;|-------&mdash;|--------------------------------------------------&mdash;|-------&mdash;| | in0_cb_id | The identifier of the first input circular buffer (CB) | uint32_t | 0 to 31 | False | | in1_cb_id | The identifier of the second input circular buffer (CB) | uint32_t | 0 to 31 | False | | transpose | The transpose flag for performing transpose operation on B | uint32_t | Any positive value will indicate tranpose is set | False | </p>
 
 </div>
 </div>
@@ -3784,18 +3374,7 @@ template&lt;uint32_t num_faces = 4&gt; </div>
 </div><div class="memdoc">
 <p>A short version of matmul_tiles initialization. It is used to reconfigure srcA of the compute engine back to matmul mode.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">in0_cb_id   </td><td class="markdownTableBodyNone">The identifier of the first input circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">False    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">in1_cb_id   </td><td class="markdownTableBodyNone">The identifier of the second input circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">False    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">c_in_old_srca   </td><td class="markdownTableBodyNone">The identifier of the old input to src A circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">False    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">transpose   </td><td class="markdownTableBodyNone">The transpose flag for performing transpose operation on B   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Any positive value will indicate tranpose is set   </td><td class="markdownTableBodyNone">False   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|------------------------------------------------------------&mdash;|-------&mdash;|--------------------------------------------------&mdash;|-------&mdash;| | in0_cb_id | The identifier of the first input circular buffer (CB) | uint32_t | 0 to 31 | False | | in1_cb_id | The identifier of the second input circular buffer (CB) | uint32_t | 0 to 31 | False | | c_in_old_srca | The identifier of the old input to src A circular buffer (CB) | uint32_t | 0 to 31 | False | | transpose | The transpose flag for performing transpose operation on B | uint32_t | Any positive value will indicate tranpose is set | False | </p>
 
 </div>
 </div>
@@ -3902,20 +3481,7 @@ template&lt;uint32_t num_faces = 4&gt; </div>
 </div><div class="memdoc">
 <p>Performs element-wise multiplication C=A*B of tiles in two CBs at given indices and writes the result to the DST register at index dst_tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">in0_cb_id   </td><td class="markdownTableBodyNone">The identifier of the circular buffer (CB) containing A   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">in1_cb_id   </td><td class="markdownTableBodyNone">The identifier of the circular buffer (CB) containing B   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">in0_tile_index   </td><td class="markdownTableBodyNone">The index of tile A within the first CB   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the CB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">in1_tile_index   </td><td class="markdownTableBodyNone">The index of tile B within the second CB   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the CB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">dst_tile_index   </td><td class="markdownTableBodyNone">The index of the tile in DST REG for the result C   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the acquired size of DST REG   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|-------------------------------------------------------&mdash;|-------&mdash;|---------------------------------------------&mdash;|-------&mdash;| | in0_cb_id | The identifier of the circular buffer (CB) containing A | uint32_t | 0 to 31 | True | | in1_cb_id | The identifier of the circular buffer (CB) containing B | uint32_t | 0 to 31 | True | | in0_tile_index | The index of tile A within the first CB | uint32_t | Must be less than the size of the CB | True | | in1_tile_index | The index of tile B within the second CB | uint32_t | Must be less than the size of the CB | True | | dst_tile_index | The index of the tile in DST REG for the result C | uint32_t | Must be less than the acquired size of DST REG | True | </p>
 
 </div>
 </div>
@@ -4202,12 +3768,7 @@ template&lt;BroadcastType tBcastDim&gt; </div>
 </div><div class="memdoc">
 <p>Will store in the output of the compute core True if each element is not equal to zero. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | idst | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -4334,16 +3895,7 @@ template&lt;bool out_of_order_output = false&gt; </div>
 <p>Operates in tandem with functions cb_reserve_back and cb_push_back.</p>
 <p>A typical use case is first the producer ensures that there is a number of tiles available in the buffer via cb_reserve_back, then the producer uses the pack_tile call to copy a tile from one of DST slots to a slot in reserved space and finally cb_push_back is called to announce visibility of the reserved section of the circular buffer to the consumer.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">ifrom_dst   </td><td class="markdownTableBodyNone">The index of the tile in the DST register   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register (16)   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">icb   </td><td class="markdownTableBodyNone">The identifier of the output circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">icb_tile   </td><td class="markdownTableBodyNone">The index of the tile in the output CB to copy to   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the CB   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|------------------------------------------------&mdash;|-------&mdash;|--------------------------------------------------&mdash;|-------&mdash;| | ifrom_dst | The index of the tile in the DST register | uint32_t | Must be less than the size of the DST register (16) | True | | icb | The identifier of the output circular buffer (CB) | uint32_t | 0 to 31 | True | | icb_tile | The index of the tile in the output CB to copy to | uint32_t | Must be less than the size of the CB | True | </p>
 
 </div>
 </div>
@@ -4374,14 +3926,7 @@ template&lt;bool out_of_order_output = false&gt; </div>
 </div><div class="memdoc">
 <p>Performs element-wise computation of power operation (x ^(const param0)) value on each element of a tile in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">param0   </td><td class="markdownTableBodyNone">The value of the exponent in the power operation   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | idst | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | | param0 | The value of the exponent in the power operation | uint32_t | | True | </p>
 
 </div>
 </div>
@@ -4420,12 +3965,7 @@ template&lt;bool out_of_order_output = false&gt; </div>
 </div><div class="memdoc">
 <p>Performs element-wise computation of the reciprocal on each element of a tile in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine. Only works for Float32, Float16_b, Bfp8_b data formats for full accuracy.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | idst | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -4851,20 +4391,7 @@ template&lt;PoolType reduce_type = REDUCE_OP, ReduceDim reduce_dim = REDUCE_DIM&
 <p>The templates takes reduce_type which can be ReduceFunc::Sum, ReduceFunc::Max and reduce_dim which can be Reduce::R, Reduce::C, Reduce::RC. They can also be specified by defines REDUCE_OP and REDUCE_DIM.</p>
 <p>This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">icb0   </td><td class="markdownTableBodyNone">The identifier of the circular buffer (CB) containing A   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">icb1   </td><td class="markdownTableBodyNone">CB for Scaling factor applied to each element of the result.   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">itile0   </td><td class="markdownTableBodyNone">The index of the tile within the first CB   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the CB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">itile1   </td><td class="markdownTableBodyNone">The index of the tile within the scaling factor CB   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the CB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST REG for the result   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the acquired size of DST REG   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|--------------------------------------------------------------&mdash;|-------&mdash;|---------------------------------------------&mdash;|-------&mdash;| | icb0 | The identifier of the circular buffer (CB) containing A | uint32_t | 0 to 31 | True | | icb1 | CB for Scaling factor applied to each element of the result. | uint32_t | 0 to 31 | True | | itile0 | The index of the tile within the first CB | uint32_t | Must be less than the size of the CB | True | | itile1 | The index of the tile within the scaling factor CB | uint32_t | Must be less than the size of the CB | True | | idst | The index of the tile in DST REG for the result | uint32_t | Must be less than the acquired size of DST REG | True | </p>
 
 </div>
 </div>
@@ -4946,14 +4473,7 @@ template&lt;PoolType reduce_type = REDUCE_OP, ReduceDim reduce_dim = REDUCE_DIM&
 </div><div class="memdoc">
 <p>Performs element-wise computation of relu max (relu(max(x, upper_limit))) on each element of a tile in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">tile_index   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">upper_limit   </td><td class="markdownTableBodyNone">Upper limit of relu_min   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Greater than 0   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | tile_index | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | | upper_limit | Upper limit of relu_min | uint32_t | Greater than 0 | True | </p>
 
 </div>
 </div>
@@ -5002,14 +4522,7 @@ template&lt;PoolType reduce_type = REDUCE_OP, ReduceDim reduce_dim = REDUCE_DIM&
 </div><div class="memdoc">
 <p>Performs element-wise computation of relu min (relu(min(x, lower_limit))) on each element of a tile in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">tile_index   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">lower_limit   </td><td class="markdownTableBodyNone">Upper limit of relu_min   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Greater than 0   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | tile_index | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | | lower_limit | Upper limit of relu_min | uint32_t | Greater than 0 | True | </p>
 
 </div>
 </div>
@@ -5048,12 +4561,7 @@ template&lt;PoolType reduce_type = REDUCE_OP, ReduceDim reduce_dim = REDUCE_DIM&
 </div><div class="memdoc">
 <p>Performs element-wise computation of relu (0 if negative else 1) on each element of a tile in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">tile_index   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | tile_index | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -5094,14 +4602,7 @@ template&lt;bool fast_and_approx = true&gt; </div>
 </div><div class="memdoc">
 <p>Performs element-wise computation of reciprocal sqrt on each element of a tile in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">fast_and_approx   </td><td class="markdownTableBodyNone">Computation to be done faster and approximate   </td><td class="markdownTableBodyNone">bool   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">False   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | idst | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | | fast_and_approx | Computation to be done faster and approximate | bool | | False | </p>
 
 </div>
 </div>
@@ -5152,14 +4653,7 @@ template&lt;bool fast_and_approx = true&gt; </div>
 </div><div class="memdoc">
 <p>Performs element-wise computation of rsub ( rsub(x,y) = y -x) on each element of a tile and y is a constant param in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">param0   </td><td class="markdownTableBodyNone">Constant value that is being subtracted from   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | idst | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | | param0 | Constant value that is being subtracted from | uint32_t | | True | </p>
 
 </div>
 </div>
@@ -5198,12 +4692,7 @@ template&lt;bool fast_and_approx = true&gt; </div>
 </div><div class="memdoc">
 <p>Performs element-wise computation of sigmoid on each element of a tile in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | idst | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -5242,12 +4731,7 @@ template&lt;bool fast_and_approx = true&gt; </div>
 </div><div class="memdoc">
 <p>Will store in the output of the compute core the signum of the tile. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | idst | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -5286,12 +4770,7 @@ template&lt;bool fast_and_approx = true&gt; </div>
 </div><div class="memdoc">
 <p>Sets the sign bit of each element of a tile in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to modify the sign bit of   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | idst | The index of the tile in DST register buffer to modify the sign bit of | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -5365,12 +4844,7 @@ template&lt;bool fast_and_approx = true&gt; </div>
 </div><div class="memdoc">
 <p>Performs element-wise computation of the trigonometric sine operation on each element of a tile in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">tile_index   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | tile_index | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -5409,12 +4883,7 @@ template&lt;bool fast_and_approx = true&gt; </div>
 </div><div class="memdoc">
 <p>Performs element-wise computation of the square root on each element of a tile in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">tile_index   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | tile_index | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -5453,12 +4922,7 @@ template&lt;bool fast_and_approx = true&gt; </div>
 </div><div class="memdoc">
 <p>Performs element-wise computation of square value on each element of a tile in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | idst | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -5572,20 +5036,7 @@ template&lt;bool fast_and_approx = true&gt; </div>
 </div><div class="memdoc">
 <p>Performs element-wise subtraction C=A-B of tiles in two CBs at given indices and writes the result to the DST register at index dst_tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">in0_cb_id   </td><td class="markdownTableBodyNone">The identifier of the circular buffer (CB) containing A   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">in1_cb_id   </td><td class="markdownTableBodyNone">The identifier of the circular buffer (CB) containing B   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">in0_tile_index   </td><td class="markdownTableBodyNone">The index of tile A within the first CB   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the CB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">in1_tile_index   </td><td class="markdownTableBodyNone">The index of tile B within the second CB   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the CB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">dst_tile_index   </td><td class="markdownTableBodyNone">The index of the tile in DST REG for the result C   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the acquired size of DST REG   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|-------------------------------------------------------&mdash;|-------&mdash;|---------------------------------------------&mdash;|-------&mdash;| | in0_cb_id | The identifier of the circular buffer (CB) containing A | uint32_t | 0 to 31 | True | | in1_cb_id | The identifier of the circular buffer (CB) containing B | uint32_t | 0 to 31 | True | | in0_tile_index | The index of tile A within the first CB | uint32_t | Must be less than the size of the CB | True | | in1_tile_index | The index of tile B within the second CB | uint32_t | Must be less than the size of the CB | True | | dst_tile_index | The index of the tile in DST REG for the result C | uint32_t | Must be less than the acquired size of DST REG | True | </p>
 
 </div>
 </div>
@@ -5792,16 +5243,7 @@ template&lt;BroadcastType tBcastDim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Short init function </p><table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">icb0   </td><td class="markdownTableBodyNone">The identifier of the circular buffer (CB) containing A   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">icb1   </td><td class="markdownTableBodyNone">The identifier of the circular buffer (CB) containing B   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">acc_to_dest   </td><td class="markdownTableBodyNone">If true, operation = A - B + dst_tile_idx of sub_tiles   </td><td class="markdownTableBodyNone">bool   </td><td class="markdownTableBodyNone">0,1   </td><td class="markdownTableBodyNone">False   </td></tr>
-</table>
+<p>Short init function | Argument | Description | Type | Valid Range | Required | |-------------&mdash;|------------------------------------------------------------&mdash;|-------&mdash;|---------------------------------------------&mdash;|-------&mdash;| | icb0 | The identifier of the circular buffer (CB) containing A | uint32_t | 0 to 31 | True | | icb1 | The identifier of the circular buffer (CB) containing B | uint32_t | 0 to 31 | True | | acc_to_dest | If true, operation = A - B + dst_tile_idx of sub_tiles | bool | 0,1 | False | </p>
 
 </div>
 </div>
@@ -5840,12 +5282,7 @@ template&lt;BroadcastType tBcastDim&gt; </div>
 </div><div class="memdoc">
 <p>Performs element-wise computation of the trigonometric tan operation on each element of a tile in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">tile_index   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | tile_index | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -5884,12 +5321,7 @@ template&lt;BroadcastType tBcastDim&gt; </div>
 </div><div class="memdoc">
 <p>Performs element-wise computation of tanh on each element of a tile in DST register at index tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | idst | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -6000,12 +5432,7 @@ template&lt;BroadcastType tBcastDim&gt; </div>
 </div><div class="memdoc">
 <p>Performs element-wise multiplication on each row of a tile. The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | idst | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | </p>
 
 </div>
 </div>
@@ -6316,22 +5743,7 @@ template&lt;BroadcastType tBcastDim&gt; </div>
 </div><div class="memdoc">
 <p>Initialize unpack_tilizeA_B and matmul for the dot product operation. To be called once at beginning of a kernel.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Data type   </th><th class="markdownTableHeadNone">Valid range   </th><th class="markdownTableHeadNone">required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">icb0   </td><td class="markdownTableBodyNone">The identifier of the source A circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">Yes    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">icb1   </td><td class="markdownTableBodyNone">The identifier of the source B circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">Yes    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">block   </td><td class="markdownTableBodyNone">Size of tile block to work on for source A   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">&gt; 0   </td><td class="markdownTableBodyNone">Yes    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">ocb   </td><td class="markdownTableBodyNone">The identifier of the output circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">Yes    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">num_faces   </td><td class="markdownTableBodyNone">The number of faces to in each tile being unpacked   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">1 to 4   </td><td class="markdownTableBodyNone">Yes    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">face_r_dim   </td><td class="markdownTableBodyNone">The number of rows in each face   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">1 to 16   </td><td class="markdownTableBodyNone">Yes   </td></tr>
-</table>
+<p>| Argument | Description | Data type | Valid range | required | |-------------&mdash;|-------------------------------------------------------&mdash;|--------&mdash;|--------------------------------------------------&mdash;|-------&mdash;| | icb0 | The identifier of the source A circular buffer (CB) | uint32_t | 0 to 31 | Yes | | icb1 | The identifier of the source B circular buffer (CB) | uint32_t | 0 to 31 | Yes | | block | Size of tile block to work on for source A | uint32_t | &gt; 0 | Yes | | ocb | The identifier of the output circular buffer (CB) | uint32_t | 0 to 31 | Yes | | num_faces | The number of faces to in each tile being unpacked | uint32_t | 1 to 4 | Yes | | face_r_dim | The number of rows in each face | uint32_t | 1 to 16 | Yes | </p>
 
 </div>
 </div>
@@ -6446,22 +5858,7 @@ template&lt;bool neginf_srcA = true, bool zero_srcA_reduce = false&gt; </div>
 <p>Note that local sort is done across columns on 64 values spanning across 2 tiles.</p>
 <p>Note: idist should be set to 0</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">idir   </td><td class="markdownTableBodyNone">The sorting direction of the local sort (0 == decreasing, 1 == increasing)   </td><td class="markdownTableBodyNone">int32   </td><td class="markdownTableBodyNone">0 to 1   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">i_end_phase   </td><td class="markdownTableBodyNone">The end phase of the local sort (should be set to log(K)-1)   </td><td class="markdownTableBodyNone">int32   </td><td class="markdownTableBodyNone">1 to 5   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">i_start_phase   </td><td class="markdownTableBodyNone">The start phase of the local sort (should be set to 0)   </td><td class="markdownTableBodyNone">int32   </td><td class="markdownTableBodyNone">0 to 5   </td><td class="markdownTableBodyNone">False    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">i_end_step   </td><td class="markdownTableBodyNone">The end step to perform if i_start_phase == i_end_phase   </td><td class="markdownTableBodyNone">int32   </td><td class="markdownTableBodyNone">4 to 6   </td><td class="markdownTableBodyNone">False    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">i_start_step   </td><td class="markdownTableBodyNone">The start step to perform if i_start_phase == i_end_phase   </td><td class="markdownTableBodyNone">int32   </td><td class="markdownTableBodyNone">4 to 6   </td><td class="markdownTableBodyNone">False   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | idst | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | | idir | The sorting direction of the local sort (0 == decreasing, 1 == increasing) | int32 | 0 to 1 | True | | i_end_phase | The end phase of the local sort (should be set to log(K)-1) | int32 | 1 to 5 | True | | i_start_phase | The start phase of the local sort (should be set to 0) | int32 | 0 to 5 | False | | i_end_step | The end step to perform if i_start_phase == i_end_phase | int32 | 4 to 6 | False | | i_start_step | The start step to perform if i_start_phase == i_end_phase | int32 | 4 to 6 | False | </p>
 
 </div>
 </div>
@@ -6502,16 +5899,7 @@ template&lt;bool neginf_srcA = true, bool zero_srcA_reduce = false&gt; </div>
 <p>Note that merge is done across columns on values spanning across 2 tiles.</p>
 <p>Note: idist should be set to 0</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">m_iter   </td><td class="markdownTableBodyNone">The index of the merge &amp; rebuild iteration of the algorithm   </td><td class="markdownTableBodyNone">int32   </td><td class="markdownTableBodyNone">0 to 9   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">k   </td><td class="markdownTableBodyNone">The number of sorted values to return   </td><td class="markdownTableBodyNone">int32   </td><td class="markdownTableBodyNone">{4, 8, 16, 32, 64}   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | idst | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | | m_iter | The index of the merge &amp; rebuild iteration of the algorithm | int32 | 0 to 9 | True | | k | The number of sorted values to return | int32 | {4, 8, 16, 32, 64} | True | </p>
 
 </div>
 </div>
@@ -6570,22 +5958,7 @@ template&lt;bool neginf_srcA = true, bool zero_srcA_reduce = false&gt; </div>
 <p>Note that rebuild is done across columns on values spanning across 2 tiles.</p>
 <p>Note: idist should be set to 0</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">idir   </td><td class="markdownTableBodyNone">The sorting direction of the local sort (0 == decreasing, 1 == increasing)   </td><td class="markdownTableBodyNone">bool   </td><td class="markdownTableBodyNone">0 to 1   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">m_iter   </td><td class="markdownTableBodyNone">The index of the merge &amp; rebuild iteration of the algorithm   </td><td class="markdownTableBodyNone">int32   </td><td class="markdownTableBodyNone">0 to 9   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">k   </td><td class="markdownTableBodyNone">The number of sorted values to return   </td><td class="markdownTableBodyNone">int32   </td><td class="markdownTableBodyNone">{4, 8, 16, 32, 64}   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">logk   </td><td class="markdownTableBodyNone">The log of K   </td><td class="markdownTableBodyNone">int32   </td><td class="markdownTableBodyNone">2 to 6   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">skip_second   </td><td class="markdownTableBodyNone">Whether or not to skip second tile   </td><td class="markdownTableBodyNone">int32   </td><td class="markdownTableBodyNone">0 to 1   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | idst | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | | idir | The sorting direction of the local sort (0 == decreasing, 1 == increasing) | bool | 0 to 1 | True | | m_iter | The index of the merge &amp; rebuild iteration of the algorithm | int32 | 0 to 9 | True | | k | The number of sorted values to return | int32 | {4, 8, 16, 32, 64} | True | | logk | The log of K | int32 | 2 to 6 | True | | skip_second | Whether or not to skip second tile | int32 | 0 to 1 | True | </p>
 
 </div>
 </div>
@@ -6695,16 +6068,7 @@ template&lt;bool neginf_srcA = true, bool zero_srcA_reduce = false&gt; </div>
 <p>Performs a 32x32 transpose operation <em>B[w,h] = A[h,w]</em> on a tile in the CB at a given index and writes the result to the DST register at index dst_tile_index. The DST register buffer must be in acquired state via <em>acquire_dst</em> call.</p>
 <p>This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">in_cb_id   </td><td class="markdownTableBodyNone">The identifier of the circular buffer (CB) containing A   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">in_tile_index   </td><td class="markdownTableBodyNone">The index of tile A within the first CB   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the CB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">dst_tile_index   </td><td class="markdownTableBodyNone">The index of the tile in DST REG for the result B   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the acquired size of DST REG   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------&mdash;|------------------------------------------------------&mdash;|-------&mdash;|---------------------------------------------&mdash;|-------&mdash;| | in_cb_id | The identifier of the circular buffer (CB) containing A | uint32_t | 0 to 31 | True | | in_tile_index | The index of tile A within the first CB | uint32_t | Must be less than the size of the CB | True | | dst_tile_index | The index of the tile in DST REG for the result B | uint32_t | Must be less than the acquired size of DST REG | True | </p>
 
 </div>
 </div>
@@ -6735,14 +6099,7 @@ template&lt;bool neginf_srcA = true, bool zero_srcA_reduce = false&gt; </div>
 </div><div class="memdoc">
 <p>Performs element-wise computation of: result = 1 if x &gt; value , where x is each element of a tile in DST register at index tile_index. The value is provided as const param0 The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">param0   </td><td class="markdownTableBodyNone">The value to be compared with the input tensor   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | idst | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | | param0 | The value to be compared with the input tensor | uint32_t | | True | </p>
 
 </div>
 </div>
@@ -6791,14 +6148,7 @@ template&lt;bool neginf_srcA = true, bool zero_srcA_reduce = false&gt; </div>
 </div><div class="memdoc">
 <p>Performs element-wise computation of: result = 1 if x &lt; value , where x is each element of a tile in DST register at index tile_index. The value is provided as const param0 The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">param0   </td><td class="markdownTableBodyNone">The value to be compared with the input tensor   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | idst | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | | param0 | The value to be compared with the input tensor | uint32_t | | True | </p>
 
 </div>
 </div>
@@ -6847,14 +6197,7 @@ template&lt;bool neginf_srcA = true, bool zero_srcA_reduce = false&gt; </div>
 </div><div class="memdoc">
 <p>Performs element-wise computation of: result = 1 if x!=value , where x is each element of a tile in DST register at index tile_index. The value is provided as const param0 The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">idst   </td><td class="markdownTableBodyNone">The index of the tile in DST register buffer to perform the computation on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the DST register buffer   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">param0   </td><td class="markdownTableBodyNone">The value to be compared with the input tensor   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------&mdash;|-------------------------------------------------------------------------&mdash;|-------&mdash;|----------------------------------------------------&mdash;|-------&mdash;| | idst | The index of the tile in DST register buffer to perform the computation on | uint32_t | Must be less than the size of the DST register buffer | True | | param0 | The value to be compared with the input tensor | uint32_t | | True | </p>
 
 </div>
 </div>
@@ -7001,20 +6344,7 @@ template&lt;bool neginf_srcA = true, bool zero_srcA_reduce = false&gt; </div>
 </div><div class="memdoc">
 <p>Loads a single tile from the specified input CBs into SRCA and SRCB. The function will employ one unpacker to unpack and tilize data from the first input CB into SRCA, and the second unpacker to unpack from the second input CB into SRCB. For the tile_idx_b and block to be valid for this call, cb_wait_front(n) had to be previously called on each input CB to ensure that at least some number n&gt;0 of tiles are available in the input CBs. The CB index 0 then references the first tile in the received section of the CB, up to index n-1 (in a FIFO order). The DST register buffer must be in acquired state via <em>acquire_dst</em> call. This call is blocking and is only available on the compute engine.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Data type   </th><th class="markdownTableHeadNone">Valid range   </th><th class="markdownTableHeadNone">required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">icb0   </td><td class="markdownTableBodyNone">The identifier of the source A circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">Yes    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">icb1   </td><td class="markdownTableBodyNone">The identifier of the source B circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">Yes    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">block   </td><td class="markdownTableBodyNone">Size of tile block to work on for source A   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">&gt; 0   </td><td class="markdownTableBodyNone">Yes    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">tile_idx_b   </td><td class="markdownTableBodyNone">The index of the tile to copy from the source B input CB   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Must be less than the size of the CB   </td><td class="markdownTableBodyNone">Yes    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">num_faces   </td><td class="markdownTableBodyNone">The number of faces to in each tile being unpacked   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">1 to 4   </td><td class="markdownTableBodyNone">Yes   </td></tr>
-</table>
+<p>| Argument | Description | Data type | Valid range | required | |-------------&mdash;|-------------------------------------------------------&mdash;|--------&mdash;|--------------------------------------------------&mdash;|-------&mdash;| | icb0 | The identifier of the source A circular buffer (CB) | uint32_t | 0 to 31 | Yes | | icb1 | The identifier of the source B circular buffer (CB) | uint32_t | 0 to 31 | Yes | | block | Size of tile block to work on for source A | uint32_t | &gt; 0 | Yes | | tile_idx_b | The index of the tile to copy from the source B input CB | uint32_t | Must be less than the size of the CB | Yes | | num_faces | The number of faces to in each tile being unpacked | uint32_t | 1 to 4 | Yes | </p>
 
 </div>
 </div>

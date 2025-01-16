@@ -31,7 +31,7 @@
 \DoxyCodeLine{00049\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions_ab0589d708073ae872a5d8633d30c17a0}{num\_hw\_cqs}}\ =\ 1;}
 \DoxyCodeLine{00053\ \ \ \ \ std::size\_t\ \mbox{\hyperlink{structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions_a92a4d40077ada8708a9d992f577fdd34}{l1\_small\_size}}\ =\ DEFAULT\_L1\_SMALL\_SIZE;}
 \DoxyCodeLine{00057\ \ \ \ \ std::size\_t\ \mbox{\hyperlink{structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions_ae3ae33ccd4bad0cf7d09c0a8b3b85cea}{trace\_region\_size}}\ =\ DEFAULT\_TRACE\_REGION\_SIZE;}
-\DoxyCodeLine{00061\ \ \ \ \ DispatchCoreType\ \mbox{\hyperlink{structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions_a7faf35fea5c38d43f089059fc99f02cf}{dispatch\_core\_type}}\ =\ DispatchCoreType::WORKER;}
+\DoxyCodeLine{00061\ \ \ \ \ DispatchCoreConfig\ \mbox{\hyperlink{structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions_a7306ef0444d3e1ef7b3f4d2107e4c994}{dispatch\_core\_config}}\ =\ DispatchCoreConfig\{\};}
 \DoxyCodeLine{00065\ \ \ \ \ stl::Span<const\ std::uint32\_t>\ \mbox{\hyperlink{structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions_ae51eaece3f174b6cd9847f6e5230b44c}{l1\_bank\_remap}}\ =\ \{\};}
 \DoxyCodeLine{00066\ \};}
 \DoxyCodeLine{00067\ }
@@ -41,11 +41,11 @@
 \DoxyCodeLine{00083\ }
 \DoxyCodeLine{00087\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a7d62fcb4cb9f38f4bb66ac7ec545dd1d}{DeallocateBuffers}}(DeviceHandle\ device);}
 \DoxyCodeLine{00088\ }
-\DoxyCodeLine{00096\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a6af2edef85ff9e04ef2a45eda2148f16}{DumpDeviceProfileResults}}(DeviceHandle\ device,\ \textcolor{keyword}{const}\ CoreRangeSet\ \&worker\_cores,\ \textcolor{keywordtype}{bool}\ last\_dump\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00096\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a6af2edef85ff9e04ef2a45eda2148f16}{DumpDeviceProfileResults}}(DeviceHandle\ device,\ \textcolor{keyword}{const}\ CoreRangeSet\&\ worker\_cores,\ \textcolor{keywordtype}{bool}\ last\_dump\ =\ \textcolor{keyword}{false});}
 \DoxyCodeLine{00097\ }
 \DoxyCodeLine{00104\ ARCH\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_acd0244ed7bf2507b8299a555c2bbe3a0}{GetArch}}(DeviceHandle\ device);}
 \DoxyCodeLine{00105\ }
-\DoxyCodeLine{00112\ chip\_id\_t\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a8f206a4436d4dd2b00feb80e362759a6}{GetId}}(DeviceHandle\ device);}
+\DoxyCodeLine{00112\ chip\_id\_t\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a46a3b9a01f68eaca345c9f96288a171f}{GetId}}(DeviceHandle\ device);}
 \DoxyCodeLine{00113\ }
 \DoxyCodeLine{00120\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a6f8191bd3eecb0dde06682e0beee93e2}{GetNumDramChannels}}(DeviceHandle\ device);}
 \DoxyCodeLine{00121\ }

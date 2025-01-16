@@ -18,7 +18,7 @@
 \DoxyCodeLine{00014\ \textcolor{keyword}{class\ }DeviceHandle;}
 \DoxyCodeLine{00015\ }
 \DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{CommandQueueHandle}}\ \{}
-\DoxyCodeLine{00017\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \textcolor{keyword}{private}:}
 \DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{explicit}\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{CommandQueueHandle}}(DeviceHandle\ device,\ std::uint8\_t\ \textcolor{keywordtype}{id}\ =\ 0)\ :\ device\{device\},\ \textcolor{keywordtype}{id}\{\textcolor{keywordtype}{id}\}\ \{\}}
 \DoxyCodeLine{00019\ }
 \DoxyCodeLine{00020\ \ \ \ \ DeviceHandle\ device;}
@@ -30,10 +30,10 @@
 \DoxyCodeLine{00026\ \};}
 \DoxyCodeLine{00027\ }
 \DoxyCodeLine{00028\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1TraceHandle}{TraceHandle}}\ \{}
-\DoxyCodeLine{00029\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{explicit}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{operator}\ std::uint32\_t()\ const\ noexcept\ \{\ \textcolor{keywordflow}{return}\ id;\ \}}
 \DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00032\ \textcolor{keyword}{private}:}
 \DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{explicit}\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1TraceHandle}{TraceHandle}}(\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{CommandQueueHandle}}\ cq,\ std::uint32\_t\ \textcolor{keywordtype}{id})\ noexcept\ :\ cq\{cq\},\ \textcolor{keywordtype}{id}\{\textcolor{keywordtype}{id}\}\ \{\}}
 \DoxyCodeLine{00034\ }
 \DoxyCodeLine{00035\ \ \ \ \ CommandQueueHandle\ cq;}
@@ -44,53 +44,53 @@
 \DoxyCodeLine{00040\ \};}
 \DoxyCodeLine{00041\ }
 \DoxyCodeLine{00042\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1KernelHandle}{KernelHandle}}\ \{}
-\DoxyCodeLine{00043\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00043\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{explicit}\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1KernelHandle_a661384877cb93b37bbf630c31131e981}{KernelHandle}}(tt\_metal::KernelHandle\ \textcolor{keywordtype}{id})\ noexcept\ :\ \textcolor{keywordtype}{id}\{\textcolor{keywordtype}{id}\}\ \{\}}
 \DoxyCodeLine{00045\ }
 \DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{explicit}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{operator}\ tt\_metal::KernelHandle()\ const\ noexcept\ \{\ \textcolor{keywordflow}{return}\ id;\ \}}
 \DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00048\ \textcolor{keyword}{private}:}
 \DoxyCodeLine{00049\ \ \ \ \ tt\_metal::KernelHandle\ id;}
 \DoxyCodeLine{00050\ \};}
 \DoxyCodeLine{00051\ }
 \DoxyCodeLine{00052\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CircularBufferHandle}{CircularBufferHandle}}\ \{}
-\DoxyCodeLine{00053\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00053\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{explicit}\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CircularBufferHandle_a26b8d94a1e19c016888070fa8305dff8}{CircularBufferHandle}}(v0::CBHandle\ cb\_id)\ noexcept\ :\ cb\_id\{cb\_id\}\ \{\}}
 \DoxyCodeLine{00055\ }
 \DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{explicit}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{operator}\ v0::CBHandle()\ const\ noexcept\ \{\ \textcolor{keywordflow}{return}\ cb\_id;\ \}}
 \DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00058\ \textcolor{keyword}{private}:}
 \DoxyCodeLine{00059\ \ \ \ \ v0::CBHandle\ cb\_id;}
 \DoxyCodeLine{00060\ \};}
 \DoxyCodeLine{00061\ }
 \DoxyCodeLine{00062\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{BufferHandle}}\ \{}
-\DoxyCodeLine{00063\ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle_aaa219b9d194b5347cd3e1751db0812bb}{BufferHandle}}(\textcolor{keyword}{const}\ std::shared\_ptr<v0::Buffer>\ \&buffer\_ptr)\ noexcept\ :\ buffer\_ptr\{buffer\_ptr\}\ \{\}}
-\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle_aeea975ed418d10ab49b39895594d208e}{BufferHandle}}(std::shared\_ptr<v0::Buffer>\ \&\&buffer\_ptr)\ noexcept\ :}
-\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ buffer\_ptr\{\textcolor{keyword}{static\_cast<}std::shared\_ptr<v0::Buffer>\ \&\&\textcolor{keyword}{>}(buffer\_ptr)\}\ \{\}}
+\DoxyCodeLine{00063\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle_aaa219b9d194b5347cd3e1751db0812bb}{BufferHandle}}(\textcolor{keyword}{const}\ std::shared\_ptr<v0::Buffer>\&\ buffer\_ptr)\ noexcept\ :\ buffer\_ptr\{buffer\_ptr\}\ \{\}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle_aeea975ed418d10ab49b39895594d208e}{BufferHandle}}(std::shared\_ptr<v0::Buffer>\&\&\ buffer\_ptr)\ noexcept\ :}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ buffer\_ptr\{\textcolor{keyword}{static\_cast<}std::shared\_ptr<v0::Buffer>\&\&\textcolor{keyword}{>}(buffer\_ptr)\}\ \{\}}
 \DoxyCodeLine{00067\ }
-\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{explicit}\ \textcolor{keyword}{operator}\ \textcolor{keyword}{const}\ std::shared\_ptr<v0::Buffer>\ \&()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ buffer\_ptr;\ \}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{explicit}\ \textcolor{keyword}{operator}\ \textcolor{keyword}{const}\ std::shared\_ptr<v0::Buffer>\&()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ buffer\_ptr;\ \}}
 \DoxyCodeLine{00069\ }
-\DoxyCodeLine{00070\ \ \ \ \ v0::Buffer\ \&\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle_a7c90aa98728f3f74c225713f8fe8d040}{operator*}}()\ const\ noexcept\ \{\ \textcolor{keywordflow}{return}\ *buffer\_ptr.get();\ \}}
-\DoxyCodeLine{00071\ \ \ \ \ v0::Buffer\ *\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle_ac1883f3f5cf6494121fe2dc550a3dc84}{operator-\/>}}()\ const\ noexcept\ \{\ \textcolor{keywordflow}{return}\ buffer\_ptr.get();\ \}}
+\DoxyCodeLine{00070\ \ \ \ \ v0::Buffer\&\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle_a7c90aa98728f3f74c225713f8fe8d040}{operator*}}()\ const\ noexcept\ \{\ \textcolor{keywordflow}{return}\ *buffer\_ptr.get();\ \}}
+\DoxyCodeLine{00071\ \ \ \ \ v0::Buffer*\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle_ac1883f3f5cf6494121fe2dc550a3dc84}{operator-\/>}}()\ const\ noexcept\ \{\ \textcolor{keywordflow}{return}\ buffer\_ptr.get();\ \}}
 \DoxyCodeLine{00072\ }
-\DoxyCodeLine{00073\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00073\ \textcolor{keyword}{private}:}
 \DoxyCodeLine{00074\ \ \ \ \ std::shared\_ptr<v0::Buffer>\ buffer\_ptr;}
 \DoxyCodeLine{00075\ \};}
 \DoxyCodeLine{00076\ }
 \DoxyCodeLine{00077\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1EventHandle}{EventHandle}}\ \{}
-\DoxyCodeLine{00078\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00078\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1EventHandle_ab29359689b0f6afdfb6951feb0c677c3}{EventHandle}}();}
-\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1EventHandle_a2b6c639bd0942e17d27049fc506804c5}{EventHandle}}(\textcolor{keyword}{const}\ std::shared\_ptr<v0::Event>\ \&event\_ptr)\ noexcept\ :\ event\_ptr\{event\_ptr\}\ \{\}}
-\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1EventHandle_a6d473515fbd1a10aaa34bfe7f6d32461}{EventHandle}}(std::shared\_ptr<v0::Event>\ \&\&event\_ptr)\ noexcept\ :}
-\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ event\_ptr\{\textcolor{keyword}{static\_cast<}std::shared\_ptr<v0::Event>\ \&\&\textcolor{keyword}{>}(event\_ptr)\}\ \{\}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1EventHandle_a2b6c639bd0942e17d27049fc506804c5}{EventHandle}}(\textcolor{keyword}{const}\ std::shared\_ptr<v0::Event>\&\ event\_ptr)\ noexcept\ :\ event\_ptr\{event\_ptr\}\ \{\}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1EventHandle_a6d473515fbd1a10aaa34bfe7f6d32461}{EventHandle}}(std::shared\_ptr<v0::Event>\&\&\ event\_ptr)\ noexcept\ :}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ event\_ptr\{\textcolor{keyword}{static\_cast<}std::shared\_ptr<v0::Event>\&\&\textcolor{keyword}{>}(event\_ptr)\}\ \{\}}
 \DoxyCodeLine{00083\ }
-\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{explicit}\ \textcolor{keyword}{operator}\ \textcolor{keyword}{const}\ std::shared\_ptr<v0::Event>\ \&()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ event\_ptr;\ \}}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{explicit}\ \textcolor{keyword}{operator}\ \textcolor{keyword}{const}\ std::shared\_ptr<v0::Event>\&()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ event\_ptr;\ \}}
 \DoxyCodeLine{00085\ }
-\DoxyCodeLine{00086\ \ \ \ \ v0::Event\ \&\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1EventHandle_a7deae344ab08631d25b36b4ae222f6df}{operator*}}()\ const\ noexcept\ \{\ \textcolor{keywordflow}{return}\ *event\_ptr.get();\ \}}
-\DoxyCodeLine{00087\ \ \ \ \ v0::Event\ *\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1EventHandle_aef34aec71cd59b975c4a6f7c1413e31b}{operator-\/>}}()\ const\ noexcept\ \{\ \textcolor{keywordflow}{return}\ event\_ptr.get();\ \}}
+\DoxyCodeLine{00086\ \ \ \ \ v0::Event\&\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1EventHandle_a7deae344ab08631d25b36b4ae222f6df}{operator*}}()\ const\ noexcept\ \{\ \textcolor{keywordflow}{return}\ *event\_ptr.get();\ \}}
+\DoxyCodeLine{00087\ \ \ \ \ v0::Event*\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1EventHandle_aef34aec71cd59b975c4a6f7c1413e31b}{operator-\/>}}()\ const\ noexcept\ \{\ \textcolor{keywordflow}{return}\ event\_ptr.get();\ \}}
 \DoxyCodeLine{00088\ }
-\DoxyCodeLine{00089\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00089\ \textcolor{keyword}{private}:}
 \DoxyCodeLine{00090\ \ \ \ \ std::shared\_ptr<v0::Event>\ event\_ptr;}
 \DoxyCodeLine{00091\ \};}
 \DoxyCodeLine{00092\ }

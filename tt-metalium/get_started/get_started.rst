@@ -8,6 +8,9 @@ TT-Metalium is designed with the needs for non-ML and ML use cases.
 The GitHub page for the project is located here:
 https://github.com/tenstorrent/tt-metal
 
+Installation and environment setup instructions are in the GitHub repository
+front-page README: https://github.com/tenstorrent/tt-metal/blob/main/INSTALLING.md
+
 Quick Start Guide
 -----------------
 
@@ -23,7 +26,7 @@ hardware.
 
 Install and build the project by following the instructions in the
 `installation guide
-<https://github.com/tenstorrent/tt-metal/blob/main/INSTALLING.md>`_.
+<../installing.html>`_.
 
 2. Beginner Metalium Usage: DRAM Loopback
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

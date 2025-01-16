@@ -3,7 +3,7 @@ var searchData=
   ['nez_5ftile_0',['nez_tile',['../namespaceckernel.html#a114da0de25df24111f54d4ae54daf716',1,'ckernel']]],
   ['nez_5ftile_5finit_1',['nez_tile_init',['../namespaceckernel.html#a724bcc13c2cecd7e12e2efbd31207b8f',1,'ckernel']]],
   ['noc_5fasync_5fatomic_5fbarrier_2',['noc_async_atomic_barrier',['../dataflow__api_8h.html#a13a74d46d62931d19a406414db103c4b',1,'dataflow_api.h']]],
-  ['noc_5fasync_5fread_3',['noc_async_read',['../dataflow__api_8h.html#a0fa390aaa2b1facb57041e9a2c48cfbf',1,'dataflow_api.h']]],
+  ['noc_5fasync_5fread_3',['noc_async_read',['../dataflow__api_8h.html#af81638126b7666b792269be373577241',1,'dataflow_api.h']]],
   ['noc_5fasync_5fread_5fbarrier_4',['noc_async_read_barrier',['../dataflow__api_8h.html#a2326e9e29ea607bc865e50b614f197dd',1,'dataflow_api.h']]],
   ['noc_5fasync_5fread_5fbarrier_5fwith_5ftrid_5',['noc_async_read_barrier_with_trid',['../dataflow__api_8h.html#a98abddb8e88027a5299d2124b3953d19',1,'dataflow_api.h']]],
   ['noc_5fasync_5fread_5finc_5fnum_5fissued_6',['noc_async_read_inc_num_issued',['../dataflow__api_8h.html#a8894085f35db86f5dd1b884d5168c166',1,'dataflow_api.h']]],

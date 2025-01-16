@@ -98,18 +98,21 @@ Functions</h2></td></tr>
 <tr class="memitem:a4ff4aaaef152608a56467ac85d05a8d9"><td class="memItemLeft" align="right" valign="top">BufferHandle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#a4ff4aaaef152608a56467ac85d05a8d9">tt::tt_metal::v1::CreateBuffer</a> (InterleavedBufferConfig config)</td></tr>
 <tr class="memdesc:a4ff4aaaef152608a56467ac85d05a8d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates an interleaved DRAM or L1 buffer on the device.  <br /></td></tr>
 <tr class="separator:a4ff4aaaef152608a56467ac85d05a8d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8878e4e772b19708f2ffb47aef88b46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#ab8878e4e772b19708f2ffb47aef88b46">tt::tt_metal::v1::DeallocateBuffer</a> (BufferHandle buffer)</td></tr>
-<tr class="memdesc:ab8878e4e772b19708f2ffb47aef88b46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates a buffer from the device.  <br /></td></tr>
-<tr class="separator:ab8878e4e772b19708f2ffb47aef88b46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9fdc03261b0164072b9e30fad9e36099"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#a9fdc03261b0164072b9e30fad9e36099">tt::tt_metal::v1::WriteToBuffer</a> (BufferHandle buffer, stl::Span&lt; const std::byte &gt; host_buffer)</td></tr>
-<tr class="memdesc:a9fdc03261b0164072b9e30fad9e36099"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies data from a host buffer into the specified device buffer.  <br /></td></tr>
-<tr class="separator:a9fdc03261b0164072b9e30fad9e36099"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a549dc0b0bd173491b5b67ec9efa599b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#a549dc0b0bd173491b5b67ec9efa599b5">tt::tt_metal::v1::ReadFromBuffer</a> (BufferHandle buffer, stl::Span&lt; std::byte &gt; host_buffer, bool shard_order=false)</td></tr>
-<tr class="memdesc:a549dc0b0bd173491b5b67ec9efa599b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies data from a device buffer into a host buffer.  <br /></td></tr>
-<tr class="separator:a549dc0b0bd173491b5b67ec9efa599b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44af81fe6c86b0d4f2e3c5cd414cf836"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#a44af81fe6c86b0d4f2e3c5cd414cf836">tt::tt_metal::v1::ReadFromShard</a> (BufferHandle buffer, stl::Span&lt; std::byte &gt; host_buffer, std::uint32_t core_id)</td></tr>
-<tr class="memdesc:a44af81fe6c86b0d4f2e3c5cd414cf836"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies data from a specific shard of a device buffer into a host buffer.  <br /></td></tr>
-<tr class="separator:a44af81fe6c86b0d4f2e3c5cd414cf836"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a122afcd9ed39f4e841a1db47aaf946ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#a122afcd9ed39f4e841a1db47aaf946ab">tt::tt_metal::v1::DeallocateBuffer</a> (const BufferHandle &amp;buffer)</td></tr>
+<tr class="memdesc:a122afcd9ed39f4e841a1db47aaf946ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates a buffer from the device.  <br /></td></tr>
+<tr class="separator:a122afcd9ed39f4e841a1db47aaf946ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46a3b9a01f68eaca345c9f96288a171f"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#a46a3b9a01f68eaca345c9f96288a171f">tt::tt_metal::v1::GetId</a> (const BufferHandle &amp;buffer)</td></tr>
+<tr class="memdesc:a46a3b9a01f68eaca345c9f96288a171f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the ID of the specified buffer.  <br /></td></tr>
+<tr class="separator:a46a3b9a01f68eaca345c9f96288a171f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a067e476096326c10308653ba2b87bb8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#a067e476096326c10308653ba2b87bb8f">tt::tt_metal::v1::WriteToBuffer</a> (const BufferHandle &amp;buffer, stl::Span&lt; const std::byte &gt; host_buffer)</td></tr>
+<tr class="memdesc:a067e476096326c10308653ba2b87bb8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies data from a host buffer into the specified device buffer.  <br /></td></tr>
+<tr class="separator:a067e476096326c10308653ba2b87bb8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a71f4c7ce74435cd0d20449a5facadb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#a3a71f4c7ce74435cd0d20449a5facadb">tt::tt_metal::v1::ReadFromBuffer</a> (const BufferHandle &amp;buffer, stl::Span&lt; std::byte &gt; host_buffer, bool shard_order=false)</td></tr>
+<tr class="memdesc:a3a71f4c7ce74435cd0d20449a5facadb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies data from a device buffer into a host buffer.  <br /></td></tr>
+<tr class="separator:a3a71f4c7ce74435cd0d20449a5facadb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add45c5b5ad30c274d3ef11b6c7c8b571"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#add45c5b5ad30c274d3ef11b6c7c8b571">tt::tt_metal::v1::ReadFromShard</a> (const BufferHandle &amp;buffer, stl::Span&lt; std::byte &gt; host_buffer, std::uint32_t core_id)</td></tr>
+<tr class="memdesc:add45c5b5ad30c274d3ef11b6c7c8b571"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies data from a specific shard of a device buffer into a host buffer.  <br /></td></tr>
+<tr class="separator:add45c5b5ad30c274d3ef11b6c7c8b571"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

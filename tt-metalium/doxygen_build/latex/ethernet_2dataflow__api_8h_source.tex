@@ -20,341 +20,304 @@
 \DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}../dataflow\_api.h"{}}}
 \DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}tunneling.h"{}}}
 \DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00026\ FORCE\_INLINE\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a9d454f81bcb8875f528a900fa9326bc6}{eth\_txq\_is\_busy}}()\ \{}
-\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordflow}{return}\ internal\_::eth\_txq\_is\_busy(0);}
-\DoxyCodeLine{00028\ \}}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00039\ FORCE\_INLINE\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a651e015fbc27db86a39aeab1eea57958}{wait\_for\_eth\_txq\_cmd\_space}}(\ uint32\_t\ wait\_min\ =\ 0)\ \{}
-\DoxyCodeLine{00040\ \ \ \ \ uint32\_t\ count\ =\ 0;}
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{while}(\mbox{\hyperlink{ethernet_2dataflow__api_8h_a9d454f81bcb8875f528a900fa9326bc6}{eth\_txq\_is\_busy}}())}
-\DoxyCodeLine{00042\ \ \ \ \ \{}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (count\ ==\ wait\_min)}
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ run\_routing();}
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ count\ =\ 0;}
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ count\ ++;}
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00052\ \ \ \ \ \}}
-\DoxyCodeLine{00053\ \}}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00069\ FORCE\_INLINE}
-\DoxyCodeLine{00070\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_afe0921cad600041ff9a1eff295697d3b}{eth\_noc\_semaphore\_wait}}(\textcolor{keyword}{volatile}\ tt\_l1\_ptr\ uint32\_t*\ sem\_addr,\ uint32\_t\ val,\ uint32\_t\ wait\_min=0)\ \{}
-\DoxyCodeLine{00071\ \ \ \ \ uint32\_t\ count\ =\ 0;}
-\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{while}\ ((*sem\_addr)\ !=\ val)\ \{}
-\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (count\ ==\ wait\_min)}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ run\_routing();}
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ count\ =\ 0;}
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ count\ ++;}
-\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00082\ \ \ \ \ \}}
-\DoxyCodeLine{00083\ \}}
-\DoxyCodeLine{00098\ FORCE\_INLINE}
-\DoxyCodeLine{00099\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a743b107f28868db5a3af175957fd2fa2}{eth\_noc\_semaphore\_wait\_min}}(\textcolor{keyword}{volatile}\ tt\_l1\_ptr\ uint32\_t*\ sem\_addr,\ uint32\_t\ val,\ uint32\_t\ wait\_min\ =\ 0)\ \{}
-\DoxyCodeLine{00100\ \ \ \ \ uint32\_t\ count\ =\ 0;}
-\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordflow}{while}\ ((*sem\_addr)\ <\ val)\ \{}
-\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (count\ ==\ wait\_min)}
-\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ run\_routing();}
-\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ count\ =\ 0;}
-\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ count\ ++;}
-\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00111\ \ \ \ \ \}}
-\DoxyCodeLine{00112\ \}}
-\DoxyCodeLine{00121\ FORCE\_INLINE}
-\DoxyCodeLine{00122\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_ae23f90aed9456576bb85b298a1ce877b}{eth\_noc\_async\_read\_barrier}}()\ \{}
-\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordflow}{while}\ (!ncrisc\_noc\_reads\_flushed(\mbox{\hyperlink{dataflow__api_8h_a58bc3a01e945dbd421fce21906e94441}{noc\_index}}))\ \{}
-\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ run\_routing();}
-\DoxyCodeLine{00125\ \ \ \ \ \}}
-\DoxyCodeLine{00126\ \}}
-\DoxyCodeLine{00127\ }
-\DoxyCodeLine{00136\ FORCE\_INLINE}
-\DoxyCodeLine{00137\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a9d47f0940202285a7f23982692e20f59}{eth\_noc\_async\_write\_barrier}}()\ \{}
-\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordflow}{while}\ (!ncrisc\_noc\_nonposted\_writes\_flushed(\mbox{\hyperlink{dataflow__api_8h_a58bc3a01e945dbd421fce21906e94441}{noc\_index}}))\ \{}
-\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ run\_routing();}
-\DoxyCodeLine{00140\ \ \ \ \ \}}
-\DoxyCodeLine{00141\ \}}
-\DoxyCodeLine{00142\ }
-\DoxyCodeLine{00155\ FORCE\_INLINE}
-\DoxyCodeLine{00156\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a5b57f8d14c6a15d3680d7284582a786c}{eth\_send\_bytes}}(}
-\DoxyCodeLine{00157\ \ \ \ \ uint32\_t\ src\_addr,}
-\DoxyCodeLine{00158\ \ \ \ \ uint32\_t\ dst\_addr,}
-\DoxyCodeLine{00159\ \ \ \ \ uint32\_t\ num\_bytes,}
-\DoxyCodeLine{00160\ \ \ \ \ uint32\_t\ num\_bytes\_per\_send\ =\ 16,}
-\DoxyCodeLine{00161\ \ \ \ \ uint32\_t\ num\_bytes\_per\_send\_word\_size\ =\ 1)\ \{}
-\DoxyCodeLine{00162\ \ \ \ \ uint32\_t\ num\_bytes\_sent\ =\ 0;}
-\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordflow}{while}\ (num\_bytes\_sent\ <\ num\_bytes)\ \{}
-\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ internal\_::eth\_send\_packet(}
-\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ ((num\_bytes\_sent\ +\ src\_addr)\ >>\ 4),\ ((num\_bytes\_sent\ +\ dst\_addr)\ >>\ 4),\ num\_bytes\_per\_send\_word\_size);}
-\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ num\_bytes\_sent\ +=\ num\_bytes\_per\_send;}
-\DoxyCodeLine{00167\ \ \ \ \ \}}
-\DoxyCodeLine{00168\ \ \ \ \ erisc\_info-\/>channels[0].bytes\_sent\ +=\ num\_bytes;}
-\DoxyCodeLine{00169\ \}}
-\DoxyCodeLine{00170\ }
-\DoxyCodeLine{00190\ FORCE\_INLINE}
-\DoxyCodeLine{00191\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a5cb3e75736223670aaf5dcbc23d91471}{eth\_send\_bytes\_over\_channel\_payload\_only}}(}
-\DoxyCodeLine{00192\ \ \ \ \ uint32\_t\ src\_addr,}
-\DoxyCodeLine{00193\ \ \ \ \ uint32\_t\ dst\_addr,}
-\DoxyCodeLine{00194\ \ \ \ \ uint32\_t\ num\_bytes,}
-\DoxyCodeLine{00195\ \ \ \ \ uint32\_t\ num\_bytes\_per\_send\ =\ 16,}
-\DoxyCodeLine{00196\ \ \ \ \ uint32\_t\ num\_bytes\_per\_send\_word\_size\ =\ 1)\ \{}
-\DoxyCodeLine{00197\ \ \ \ \ \textcolor{comment}{//\ assert(channel\ <\ 4);}}
-\DoxyCodeLine{00198\ \ \ \ \ uint32\_t\ num\_bytes\_sent\ =\ 0;}
-\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordflow}{while}\ (num\_bytes\_sent\ <\ num\_bytes)\ \{}
-\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ internal\_::eth\_send\_packet(}
-\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ ((num\_bytes\_sent\ +\ src\_addr)\ >>\ 4),\ ((num\_bytes\_sent\ +\ dst\_addr)\ >>\ 4),\ num\_bytes\_per\_send\_word\_size);}
-\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ num\_bytes\_sent\ +=\ num\_bytes\_per\_send;}
-\DoxyCodeLine{00203\ \ \ \ \ \}}
-\DoxyCodeLine{00204\ \}}
-\DoxyCodeLine{00205\ }
-\DoxyCodeLine{00206\ \textcolor{comment}{//\ Calls\ the\ unsafe\ variant\ of\ eth\_send\_packet\ under\ the\ hood\ which\ is\ guaranteed\ not\ to\ context\ switch}}
-\DoxyCodeLine{00207\ \textcolor{comment}{//\ We\ want\ this\ for\ code\ size\ reasons}}
-\DoxyCodeLine{00208\ FORCE\_INLINE}
-\DoxyCodeLine{00209\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a912b2c36c968ad797b313fa3468666f9}{eth\_send\_bytes\_over\_channel\_payload\_only\_unsafe}}(}
-\DoxyCodeLine{00210\ \ \ \ \ uint32\_t\ src\_addr,}
-\DoxyCodeLine{00211\ \ \ \ \ uint32\_t\ dst\_addr,}
-\DoxyCodeLine{00212\ \ \ \ \ uint32\_t\ num\_bytes,}
-\DoxyCodeLine{00213\ \ \ \ \ uint32\_t\ num\_bytes\_per\_send\ =\ 16,}
-\DoxyCodeLine{00214\ \ \ \ \ uint32\_t\ num\_bytes\_per\_send\_word\_size\ =\ 1)\ \{}
-\DoxyCodeLine{00215\ \ \ \ \ uint32\_t\ num\_bytes\_sent\ =\ 0;}
-\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keywordflow}{while}\ (num\_bytes\_sent\ <\ num\_bytes)\ \{}
-\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ internal\_::eth\_send\_packet\_unsafe(}
-\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ ((num\_bytes\_sent\ +\ src\_addr)\ >>\ 4),\ ((num\_bytes\_sent\ +\ dst\_addr)\ >>\ 4),\ num\_bytes\_per\_send\_word\_size);}
-\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ num\_bytes\_sent\ +=\ num\_bytes\_per\_send;}
-\DoxyCodeLine{00220\ \ \ \ \ \}}
-\DoxyCodeLine{00221\ \}}
-\DoxyCodeLine{00222\ }
-\DoxyCodeLine{00223\ \textcolor{comment}{/*}}
-\DoxyCodeLine{00224\ \textcolor{comment}{\ *\ Sends\ the\ write\ completion\ signal\ to\ the\ receiver\ ethernet\ core,\ for\ transfers\ where\ the\ payload\ was\ already\ sent.}}
-\DoxyCodeLine{00225\ \textcolor{comment}{\ *\ The\ second\ half\ of\ a\ full\ ethernet\ send.}}
-\DoxyCodeLine{00226\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{00227\ FORCE\_INLINE}
-\DoxyCodeLine{00228\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a781562a3dd147fc9d9430ce037a1e3da}{eth\_send\_payload\_complete\_signal\_over\_channel}}(uint32\_t\ channel,\ uint32\_t\ num\_bytes)\ \{}
-\DoxyCodeLine{00229\ \ \ \ \ erisc\_info-\/>channels[channel].bytes\_sent\ =\ num\_bytes;}
-\DoxyCodeLine{00230\ \ \ \ \ erisc\_info-\/>channels[channel].receiver\_ack\ =\ 0;}
-\DoxyCodeLine{00231\ \ \ \ \ uint32\_t\ addr\ =\ ((uint32\_t)(\&(erisc\_info-\/>channels[channel].bytes\_sent)))\ >>\ 4;}
-\DoxyCodeLine{00232\ \ \ \ \ internal\_::eth\_send\_packet(}
-\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ 0,}
-\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ addr,}
-\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ addr,}
-\DoxyCodeLine{00236\ \ \ \ \ 1);}
-\DoxyCodeLine{00237\ \}}
-\DoxyCodeLine{00238\ }
-\DoxyCodeLine{00239\ FORCE\_INLINE}
-\DoxyCodeLine{00240\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_af8a3f69ac60c29d201771f16f6498cda}{eth\_send\_bytes\_over\_channel}}(}
-\DoxyCodeLine{00241\ \ \ \ \ uint32\_t\ src\_addr,}
-\DoxyCodeLine{00242\ \ \ \ \ uint32\_t\ dst\_addr,}
-\DoxyCodeLine{00243\ \ \ \ \ uint32\_t\ num\_bytes,}
-\DoxyCodeLine{00244\ \ \ \ \ uint32\_t\ channel,}
-\DoxyCodeLine{00245\ \ \ \ \ uint32\_t\ num\_bytes\_per\_send\ =\ 16,}
-\DoxyCodeLine{00246\ \ \ \ \ uint32\_t\ num\_bytes\_per\_send\_word\_size\ =\ 1)\ \{}
-\DoxyCodeLine{00247\ \ \ \ \ \textcolor{comment}{//\ assert(channel\ <\ 4);}}
-\DoxyCodeLine{00248\ \ \ \ \ uint32\_t\ num\_bytes\_sent\ =\ 0;}
-\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keywordflow}{while}\ (num\_bytes\_sent\ <\ num\_bytes)\ \{}
-\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ internal\_::eth\_send\_packet(}
-\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ ((num\_bytes\_sent\ +\ src\_addr)\ >>\ 4),\ ((num\_bytes\_sent\ +\ dst\_addr)\ >>\ 4),\ num\_bytes\_per\_send\_word\_size);}
-\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ num\_bytes\_sent\ +=\ num\_bytes\_per\_send;}
-\DoxyCodeLine{00253\ \ \ \ \ \}}
-\DoxyCodeLine{00254\ \ \ \ \ erisc\_info-\/>channels[channel].bytes\_sent\ =\ num\_bytes;}
-\DoxyCodeLine{00255\ \ \ \ \ erisc\_info-\/>channels[channel].receiver\_ack\ =\ 0;}
-\DoxyCodeLine{00256\ \ \ \ \ uint32\_t\ addr\ =\ ((uint32\_t)(\&(erisc\_info-\/>channels[channel].bytes\_sent)))\ >>\ 4;}
-\DoxyCodeLine{00257\ \ \ \ \ internal\_::eth\_send\_packet(}
-\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ 0,}
-\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ addr,}
-\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ addr,}
-\DoxyCodeLine{00261\ \ \ \ \ 1);}
-\DoxyCodeLine{00262\ \}}
-\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00025\ FORCE\_INLINE\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a9d454f81bcb8875f528a900fa9326bc6}{eth\_txq\_is\_busy}}()\ \{\ \textcolor{keywordflow}{return}\ internal\_::eth\_txq\_is\_busy(0);\ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00038\ FORCE\_INLINE\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a651e015fbc27db86a39aeab1eea57958}{wait\_for\_eth\_txq\_cmd\_space}}(uint32\_t\ wait\_min\ =\ 0)\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ uint32\_t\ count\ =\ 0;}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{ethernet_2dataflow__api_8h_a9d454f81bcb8875f528a900fa9326bc6}{eth\_txq\_is\_busy}}())\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (count\ ==\ wait\_min)\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ run\_routing();}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ count\ =\ 0;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ count++;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00047\ \ \ \ \ \}}
+\DoxyCodeLine{00048\ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00066\ FORCE\_INLINE}
+\DoxyCodeLine{00067\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_afe0921cad600041ff9a1eff295697d3b}{eth\_noc\_semaphore\_wait}}(\textcolor{keyword}{volatile}\ tt\_l1\_ptr\ uint32\_t*\ sem\_addr,\ uint32\_t\ val,\ uint32\_t\ wait\_min\ =\ 0)\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ uint32\_t\ count\ =\ 0;}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordflow}{while}\ ((*sem\_addr)\ !=\ val)\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (count\ ==\ wait\_min)\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ run\_routing();}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ count\ =\ 0;}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ count++;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \ \ \ \ \}}
+\DoxyCodeLine{00077\ \}}
+\DoxyCodeLine{00094\ FORCE\_INLINE}
+\DoxyCodeLine{00095\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a743b107f28868db5a3af175957fd2fa2}{eth\_noc\_semaphore\_wait\_min}}(\textcolor{keyword}{volatile}\ tt\_l1\_ptr\ uint32\_t*\ sem\_addr,\ uint32\_t\ val,\ uint32\_t\ wait\_min\ =\ 0)\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ uint32\_t\ count\ =\ 0;}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordflow}{while}\ ((*sem\_addr)\ <\ val)\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (count\ ==\ wait\_min)\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ run\_routing();}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ count\ =\ 0;}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ count++;}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00104\ \ \ \ \ \}}
+\DoxyCodeLine{00105\ \}}
+\DoxyCodeLine{00114\ FORCE\_INLINE}
+\DoxyCodeLine{00115\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_ae23f90aed9456576bb85b298a1ce877b}{eth\_noc\_async\_read\_barrier}}()\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordflow}{while}\ (!ncrisc\_noc\_reads\_flushed(\mbox{\hyperlink{dataflow__api_8h_a58bc3a01e945dbd421fce21906e94441}{noc\_index}}))\ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ run\_routing();}
+\DoxyCodeLine{00118\ \ \ \ \ \}}
+\DoxyCodeLine{00119\ \}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00129\ FORCE\_INLINE}
+\DoxyCodeLine{00130\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a9d47f0940202285a7f23982692e20f59}{eth\_noc\_async\_write\_barrier}}()\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordflow}{while}\ (!ncrisc\_noc\_nonposted\_writes\_flushed(\mbox{\hyperlink{dataflow__api_8h_a58bc3a01e945dbd421fce21906e94441}{noc\_index}}))\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ run\_routing();}
+\DoxyCodeLine{00133\ \ \ \ \ \}}
+\DoxyCodeLine{00134\ \}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00148\ FORCE\_INLINE}
+\DoxyCodeLine{00149\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a5b57f8d14c6a15d3680d7284582a786c}{eth\_send\_bytes}}(}
+\DoxyCodeLine{00150\ \ \ \ \ uint32\_t\ src\_addr,}
+\DoxyCodeLine{00151\ \ \ \ \ uint32\_t\ dst\_addr,}
+\DoxyCodeLine{00152\ \ \ \ \ uint32\_t\ num\_bytes,}
+\DoxyCodeLine{00153\ \ \ \ \ uint32\_t\ num\_bytes\_per\_send\ =\ 16,}
+\DoxyCodeLine{00154\ \ \ \ \ uint32\_t\ num\_bytes\_per\_send\_word\_size\ =\ 1)\ \{}
+\DoxyCodeLine{00155\ \ \ \ \ uint32\_t\ num\_bytes\_sent\ =\ 0;}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordflow}{while}\ (num\_bytes\_sent\ <\ num\_bytes)\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ internal\_::eth\_send\_packet(}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ ((num\_bytes\_sent\ +\ src\_addr)\ >>\ 4),\ ((num\_bytes\_sent\ +\ dst\_addr)\ >>\ 4),\ num\_bytes\_per\_send\_word\_size);}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ num\_bytes\_sent\ +=\ num\_bytes\_per\_send;}
+\DoxyCodeLine{00160\ \ \ \ \ \}}
+\DoxyCodeLine{00161\ \ \ \ \ erisc\_info-\/>channels[0].bytes\_sent\ +=\ num\_bytes;}
+\DoxyCodeLine{00162\ \}}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00185\ FORCE\_INLINE}
+\DoxyCodeLine{00186\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a5cb3e75736223670aaf5dcbc23d91471}{eth\_send\_bytes\_over\_channel\_payload\_only}}(}
+\DoxyCodeLine{00187\ \ \ \ \ uint32\_t\ src\_addr,}
+\DoxyCodeLine{00188\ \ \ \ \ uint32\_t\ dst\_addr,}
+\DoxyCodeLine{00189\ \ \ \ \ uint32\_t\ num\_bytes,}
+\DoxyCodeLine{00190\ \ \ \ \ uint32\_t\ num\_bytes\_per\_send\ =\ 16,}
+\DoxyCodeLine{00191\ \ \ \ \ uint32\_t\ num\_bytes\_per\_send\_word\_size\ =\ 1)\ \{}
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{comment}{//\ assert(channel\ <\ 4);}}
+\DoxyCodeLine{00193\ \ \ \ \ uint32\_t\ num\_bytes\_sent\ =\ 0;}
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordflow}{while}\ (num\_bytes\_sent\ <\ num\_bytes)\ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ internal\_::eth\_send\_packet(}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ ((num\_bytes\_sent\ +\ src\_addr)\ >>\ 4),\ ((num\_bytes\_sent\ +\ dst\_addr)\ >>\ 4),\ num\_bytes\_per\_send\_word\_size);}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ num\_bytes\_sent\ +=\ num\_bytes\_per\_send;}
+\DoxyCodeLine{00198\ \ \ \ \ \}}
+\DoxyCodeLine{00199\ \}}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \textcolor{comment}{//\ Calls\ the\ unsafe\ variant\ of\ eth\_send\_packet\ under\ the\ hood\ which\ is\ guaranteed\ not\ to\ context\ switch}}
+\DoxyCodeLine{00202\ \textcolor{comment}{//\ We\ want\ this\ for\ code\ size\ reasons}}
+\DoxyCodeLine{00203\ FORCE\_INLINE}
+\DoxyCodeLine{00204\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a912b2c36c968ad797b313fa3468666f9}{eth\_send\_bytes\_over\_channel\_payload\_only\_unsafe}}(}
+\DoxyCodeLine{00205\ \ \ \ \ uint32\_t\ src\_addr,}
+\DoxyCodeLine{00206\ \ \ \ \ uint32\_t\ dst\_addr,}
+\DoxyCodeLine{00207\ \ \ \ \ uint32\_t\ num\_bytes,}
+\DoxyCodeLine{00208\ \ \ \ \ uint32\_t\ num\_bytes\_per\_send\ =\ 16,}
+\DoxyCodeLine{00209\ \ \ \ \ uint32\_t\ num\_bytes\_per\_send\_word\_size\ =\ 1)\ \{}
+\DoxyCodeLine{00210\ \ \ \ \ uint32\_t\ num\_bytes\_sent\ =\ 0;}
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keywordflow}{while}\ (num\_bytes\_sent\ <\ num\_bytes)\ \{}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ internal\_::eth\_send\_packet\_unsafe(}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ ((num\_bytes\_sent\ +\ src\_addr)\ >>\ 4),\ ((num\_bytes\_sent\ +\ dst\_addr)\ >>\ 4),\ num\_bytes\_per\_send\_word\_size);}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ num\_bytes\_sent\ +=\ num\_bytes\_per\_send;}
+\DoxyCodeLine{00215\ \ \ \ \ \}}
+\DoxyCodeLine{00216\ \}}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00219\ \textcolor{comment}{\ *\ Sends\ the\ write\ completion\ signal\ to\ the\ receiver\ ethernet\ core,\ for\ transfers\ where\ the\ payload\ was\ already\ sent.}}
+\DoxyCodeLine{00220\ \textcolor{comment}{\ *\ The\ second\ half\ of\ a\ full\ ethernet\ send.}}
+\DoxyCodeLine{00221\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00222\ FORCE\_INLINE}
+\DoxyCodeLine{00223\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a781562a3dd147fc9d9430ce037a1e3da}{eth\_send\_payload\_complete\_signal\_over\_channel}}(uint32\_t\ channel,\ uint32\_t\ num\_bytes)\ \{}
+\DoxyCodeLine{00224\ \ \ \ \ erisc\_info-\/>channels[channel].bytes\_sent\ =\ num\_bytes;}
+\DoxyCodeLine{00225\ \ \ \ \ erisc\_info-\/>channels[channel].receiver\_ack\ =\ 0;}
+\DoxyCodeLine{00226\ \ \ \ \ uint32\_t\ addr\ =\ ((uint32\_t)(\&(erisc\_info-\/>channels[channel].bytes\_sent)))\ >>\ 4;}
+\DoxyCodeLine{00227\ \ \ \ \ internal\_::eth\_send\_packet(0,\ addr,\ addr,\ 1);}
+\DoxyCodeLine{00228\ \}}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ FORCE\_INLINE}
+\DoxyCodeLine{00231\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_af8a3f69ac60c29d201771f16f6498cda}{eth\_send\_bytes\_over\_channel}}(}
+\DoxyCodeLine{00232\ \ \ \ \ uint32\_t\ src\_addr,}
+\DoxyCodeLine{00233\ \ \ \ \ uint32\_t\ dst\_addr,}
+\DoxyCodeLine{00234\ \ \ \ \ uint32\_t\ num\_bytes,}
+\DoxyCodeLine{00235\ \ \ \ \ uint32\_t\ channel,}
+\DoxyCodeLine{00236\ \ \ \ \ uint32\_t\ num\_bytes\_per\_send\ =\ 16,}
+\DoxyCodeLine{00237\ \ \ \ \ uint32\_t\ num\_bytes\_per\_send\_word\_size\ =\ 1)\ \{}
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{comment}{//\ assert(channel\ <\ 4);}}
+\DoxyCodeLine{00239\ \ \ \ \ uint32\_t\ num\_bytes\_sent\ =\ 0;}
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keywordflow}{while}\ (num\_bytes\_sent\ <\ num\_bytes)\ \{}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ internal\_::eth\_send\_packet(}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ ((num\_bytes\_sent\ +\ src\_addr)\ >>\ 4),\ ((num\_bytes\_sent\ +\ dst\_addr)\ >>\ 4),\ num\_bytes\_per\_send\_word\_size);}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ num\_bytes\_sent\ +=\ num\_bytes\_per\_send;}
+\DoxyCodeLine{00244\ \ \ \ \ \}}
+\DoxyCodeLine{00245\ \ \ \ \ erisc\_info-\/>channels[channel].bytes\_sent\ =\ num\_bytes;}
+\DoxyCodeLine{00246\ \ \ \ \ erisc\_info-\/>channels[channel].receiver\_ack\ =\ 0;}
+\DoxyCodeLine{00247\ \ \ \ \ uint32\_t\ addr\ =\ ((uint32\_t)(\&(erisc\_info-\/>channels[channel].bytes\_sent)))\ >>\ 4;}
+\DoxyCodeLine{00248\ \ \ \ \ internal\_::eth\_send\_packet(0,\ addr,\ addr,\ 1);}
+\DoxyCodeLine{00249\ \}}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00262\ FORCE\_INLINE}
+\DoxyCodeLine{00263\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_aae485db00b351232851e5e43f5cbd0f8}{eth\_write\_remote\_reg}}(uint32\_t\ reg\_addr,\ uint32\_t\ value)\ \{\ internal\_::eth\_write\_remote\_reg(0,\ reg\_addr,\ value);\ \}}
 \DoxyCodeLine{00264\ }
-\DoxyCodeLine{00276\ FORCE\_INLINE}
-\DoxyCodeLine{00277\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_aae485db00b351232851e5e43f5cbd0f8}{eth\_write\_remote\_reg}}(uint32\_t\ reg\_addr,\ uint32\_t\ value)\ \{}
-\DoxyCodeLine{00278\ \ \ \ \ internal\_::eth\_write\_remote\_reg(0,\ reg\_addr,\ value);}
-\DoxyCodeLine{00279\ \}}
-\DoxyCodeLine{00280\ }
-\DoxyCodeLine{00291\ FORCE\_INLINE}
-\DoxyCodeLine{00292\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a48d73eaaa1ed9d986a96a7bef2c9531f}{eth\_wait\_for\_receiver\_done}}(uint32\_t\ wait\_min\ =\ 0)\ \{}
-\DoxyCodeLine{00293\ \ \ \ \ internal\_::eth\_send\_packet(}
-\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ 0,}
+\DoxyCodeLine{00277\ FORCE\_INLINE}
+\DoxyCodeLine{00278\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a48d73eaaa1ed9d986a96a7bef2c9531f}{eth\_wait\_for\_receiver\_done}}(uint32\_t\ wait\_min\ =\ 0)\ \{}
+\DoxyCodeLine{00279\ \ \ \ \ internal\_::eth\_send\_packet(}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ 0,}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ ((uint32\_t)(\&(erisc\_info-\/>channels[0].bytes\_sent)))\ >>\ 4,}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ ((uint32\_t)(\&(erisc\_info-\/>channels[0].bytes\_sent)))\ >>\ 4,}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ 1);}
+\DoxyCodeLine{00285\ \ \ \ \ uint32\_t\ count\ =\ 0;}
+\DoxyCodeLine{00286\ \ \ \ \ \textcolor{keywordflow}{while}\ (erisc\_info-\/>channels[0].bytes\_sent\ !=\ 0)\ \{}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (count\ ==\ wait\_min)\ \{}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ count\ =\ 0;}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ run\_routing();}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ count++;}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00293\ \ \ \ \ \}}
+\DoxyCodeLine{00294\ \}}
 \DoxyCodeLine{00295\ }
-\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ ((uint32\_t)(\&(erisc\_info-\/>channels[0].bytes\_sent)))\ >>\ 4,}
-\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ ((uint32\_t)(\&(erisc\_info-\/>channels[0].bytes\_sent)))\ >>\ 4,}
-\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ 1);}
-\DoxyCodeLine{00299\ \ \ \ \ uint32\_t\ count\ =\ 0;}
-\DoxyCodeLine{00300\ \ \ \ \ \textcolor{keywordflow}{while}\ (erisc\_info-\/>channels[0].bytes\_sent\ !=\ 0)\ \{}
-\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (count\ ==\ wait\_min)\ \{}
-\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ count\ =\ 0;}
-\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \ \ \ \ run\_routing();}
-\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \ \ \ \ count++;}
-\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00307\ \ \ \ \ \}}
-\DoxyCodeLine{00308\ \}}
-\DoxyCodeLine{00309\ }
-\DoxyCodeLine{00323\ FORCE\_INLINE}
-\DoxyCodeLine{00324\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a02966d06f690ca2d85533b5e6ce80809}{eth\_is\_receiver\_channel\_send\_acked}}(uint32\_t\ channel)\ \{}
-\DoxyCodeLine{00325\ \ \ \ \ \textcolor{keywordflow}{return}\ erisc\_info-\/>channels[channel].receiver\_ack\ !=\ 0;}
-\DoxyCodeLine{00326\ \}}
-\DoxyCodeLine{00327\ }
-\DoxyCodeLine{00341\ FORCE\_INLINE}
-\DoxyCodeLine{00342\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a1a37dd512972c4e57bbe6e0b198a3941}{eth\_is\_receiver\_channel\_send\_done}}(uint32\_t\ channel)\ \{}
-\DoxyCodeLine{00343\ \ \ \ \ \textcolor{keywordflow}{return}\ erisc\_info-\/>channels[channel].bytes\_sent\ ==\ 0;}
-\DoxyCodeLine{00344\ \}}
-\DoxyCodeLine{00345\ }
-\DoxyCodeLine{00357\ FORCE\_INLINE}
-\DoxyCodeLine{00358\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a3ff986b2dd8f65e01aca7867bb166e96}{eth\_wait\_for\_receiver\_channel\_done}}(uint32\_t\ channel)\ \{}
-\DoxyCodeLine{00359\ \ \ \ \ uint32\_t\ count\ =\ 0;}
-\DoxyCodeLine{00360\ \ \ \ \ uint32\_t\ max\ =\ 100000;}
-\DoxyCodeLine{00361\ }
-\DoxyCodeLine{00362\ \ \ \ \ \textcolor{keywordflow}{while}\ (!\mbox{\hyperlink{ethernet_2dataflow__api_8h_a1a37dd512972c4e57bbe6e0b198a3941}{eth\_is\_receiver\_channel\_send\_done}}(channel))\ \{}
-\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ count++;}
-\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (count\ >\ max)\ \{}
-\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \ \ \ \ count\ =\ 0;}
-\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \ \ \ \ run\_routing();}
-\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00368\ \ \ \ \ \}}
-\DoxyCodeLine{00369\ \}}
-\DoxyCodeLine{00370\ }
-\DoxyCodeLine{00383\ FORCE\_INLINE}
-\DoxyCodeLine{00384\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a18b56aac8ce0c479e1e5e1009908f7a2}{eth\_wait\_receiver\_done}}(uint32\_t\ wait\_min\ =\ 0)\ \{}
-\DoxyCodeLine{00385\ \ \ \ \ uint32\_t\ count\ =\ 0;}
-\DoxyCodeLine{00386\ \ \ \ \ \textcolor{keywordflow}{while}\ (erisc\_info-\/>channels[0].bytes\_sent\ !=\ 0)\ \{}
-\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (count\ ==\ wait\_min)\ \{}
-\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \ \ \ \ count\ =\ 0;}
-\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \ \ \ \ run\_routing();}
-\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \ \ \ \ count++;}
-\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00393\ \ \ \ \ \}}
-\DoxyCodeLine{00394\ \}}
-\DoxyCodeLine{00395\ }
-\DoxyCodeLine{00409\ FORCE\_INLINE}
-\DoxyCodeLine{00410\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a5544279ed9fdd9fe6ce2f4d2315e0072}{eth\_wait\_for\_bytes}}(uint32\_t\ num\_bytes,\ uint32\_t\ wait\_min\ =\ 0)\ \{}
-\DoxyCodeLine{00411\ \ \ \ \ uint32\_t\ count\ =\ 0;}
-\DoxyCodeLine{00412\ \ \ \ \ \textcolor{keywordflow}{while}\ (erisc\_info-\/>channels[0].bytes\_sent\ !=\ num\_bytes)\ \{}
-\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (count\ ==\ wait\_min)\ \{}
-\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \ \ \ \ count\ =\ 0;}
-\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ \ \ \ \ run\_routing();}
-\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \ \ \ \ count++;}
-\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00419\ \ \ \ \ \}}
-\DoxyCodeLine{00420\ \}}
-\DoxyCodeLine{00421\ }
-\DoxyCodeLine{00434\ FORCE\_INLINE}
-\DoxyCodeLine{00435\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_af738caa9901266b6b58f0fa0b5ee779f}{eth\_bytes\_are\_available\_on\_channel}}(uint8\_t\ channel)\ \{}
-\DoxyCodeLine{00436\ \ \ \ \ \textcolor{keywordflow}{return}\ erisc\_info-\/>channels[channel].bytes\_sent\ !=\ 0;}
-\DoxyCodeLine{00437\ \}}
-\DoxyCodeLine{00438\ }
-\DoxyCodeLine{00452\ FORCE\_INLINE}
-\DoxyCodeLine{00453\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_adedc3100f41c4d1fca3f2ef234985bda}{eth\_wait\_for\_bytes\_on\_channel\_sync\_addr}}(uint32\_t\ num\_bytes,\ \textcolor{keyword}{volatile}\ eth\_channel\_sync\_t*\ eth\_channel\_syncs,\ uint32\_t\ wait\_min\ =\ 1000000)\ \{}
-\DoxyCodeLine{00454\ \ \ \ \ \textcolor{comment}{//\ assert(channel\ <\ 4);}}
-\DoxyCodeLine{00455\ \ \ \ \ uint32\_t\ count\ =\ 0;}
-\DoxyCodeLine{00456\ \ \ \ \ uint32\_t\ num\_bytes\_sent\ =\ eth\_channel\_syncs-\/>bytes\_sent;}
-\DoxyCodeLine{00457\ \ \ \ \ \textcolor{keywordflow}{while}\ (num\_bytes\_sent\ !=\ num\_bytes)\ \{}
-\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ uint32\_t\ received\_this\_iter\ =\ eth\_channel\_syncs-\/>bytes\_sent;}
-\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (received\_this\_iter\ !=\ num\_bytes\_sent)\ \{}
-\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ are\ currently\ in\ the\ process\ of\ receiving\ data\ on\ this\ channel,\ so\ we\ just\ just\ wait\ a}}
-\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ bit\ longer\ instead\ of\ initiating\ a\ context\ switch}}
-\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ \ \ \ \ num\_bytes\_sent\ =\ received\_this\_iter;}
-\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (count\ ==\ wait\_min)\ \{}
-\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ \ \ \ \ count\ =\ 0;}
-\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ \ \ \ \ run\_routing();}
-\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \ \ \ \ count++;}
-\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00469\ \ \ \ \ \}}
-\DoxyCodeLine{00470\ \}}
-\DoxyCodeLine{00471\ }
-\DoxyCodeLine{00472\ FORCE\_INLINE}
-\DoxyCodeLine{00473\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_aa0026b0696cbbada2f46119c30c850af}{eth\_wait\_for\_bytes\_on\_channel}}(uint32\_t\ num\_bytes,\ uint8\_t\ channel,\ uint32\_t\ wait\_min\ =\ 1000000)\ \{}
-\DoxyCodeLine{00474\ \ \ \ \ \textcolor{comment}{//\ assert(channel\ <\ 4);}}
-\DoxyCodeLine{00475\ \ \ \ \ \mbox{\hyperlink{ethernet_2dataflow__api_8h_adedc3100f41c4d1fca3f2ef234985bda}{eth\_wait\_for\_bytes\_on\_channel\_sync\_addr}}(num\_bytes,\ \&(erisc\_info-\/>channels[channel]),wait\_min);}
-\DoxyCodeLine{00476\ \}}
-\DoxyCodeLine{00477\ }
-\DoxyCodeLine{00487\ FORCE\_INLINE}
-\DoxyCodeLine{00488\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_af27bb42b34afb388a0994da0f2b73c54}{eth\_receiver\_done}}()\ \{}
-\DoxyCodeLine{00489\ \ \ \ \ erisc\_info-\/>channels[0].bytes\_sent\ =\ 0;}
-\DoxyCodeLine{00490\ \ \ \ \ internal\_::eth\_send\_packet(}
-\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ 0,}
-\DoxyCodeLine{00492\ \ \ \ \ \ \ \ \ ((uint32\_t)(\&(erisc\_info-\/>channels[0].bytes\_sent)))\ >>\ 4,}
-\DoxyCodeLine{00493\ \ \ \ \ \ \ \ \ ((uint32\_t)(\&(erisc\_info-\/>channels[0].bytes\_sent)))\ >>\ 4,}
-\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ 1);}
-\DoxyCodeLine{00495\ \}}
-\DoxyCodeLine{00496\ }
-\DoxyCodeLine{00510\ FORCE\_INLINE}
-\DoxyCodeLine{00511\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_ae1583ac42a8f9f11794a096506d954a6}{send\_eth\_receiver\_channel\_done}}(\textcolor{keyword}{volatile}\ eth\_channel\_sync\_t\ *channel\_sync)\ \{}
-\DoxyCodeLine{00512\ \ \ \ \ channel\_sync-\/>bytes\_sent\ =\ 0;}
-\DoxyCodeLine{00513\ \ \ \ \ channel\_sync-\/>receiver\_ack\ =\ 0;}
-\DoxyCodeLine{00514\ \ \ \ \ internal\_::eth\_send\_packet(}
-\DoxyCodeLine{00515\ \ \ \ \ \ \ \ \ 0,}
-\DoxyCodeLine{00516\ \ \ \ \ \ \ \ \ ((uint32\_t)(\&(channel\_sync-\/>bytes\_sent)))\ >>\ 4,}
-\DoxyCodeLine{00517\ \ \ \ \ \ \ \ \ ((uint32\_t)(\&(channel\_sync-\/>bytes\_sent)))\ >>\ 4,}
-\DoxyCodeLine{00518\ \ \ \ \ \ \ \ \ 1);}
-\DoxyCodeLine{00519\ \}}
-\DoxyCodeLine{00520\ }
-\DoxyCodeLine{00521\ FORCE\_INLINE}
-\DoxyCodeLine{00522\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_acd35fe4c1c09f60fc53d21a4bccbb71e}{eth\_receiver\_channel\_done}}(uint32\_t\ channel)\ \{}
-\DoxyCodeLine{00523\ \ \ \ \ \textcolor{comment}{//\ assert(channel\ <\ 4);}}
-\DoxyCodeLine{00524\ \ \ \ \ \mbox{\hyperlink{ethernet_2dataflow__api_8h_ae1583ac42a8f9f11794a096506d954a6}{send\_eth\_receiver\_channel\_done}}(\&(erisc\_info-\/>channels[channel]));}
-\DoxyCodeLine{00525\ \}}
-\DoxyCodeLine{00526\ }
-\DoxyCodeLine{00539\ FORCE\_INLINE}
-\DoxyCodeLine{00540\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a32a1ef34f66d78ba3934c321595ff40d}{eth\_clear\_sender\_channel\_ack}}(uint32\_t\ channel)\ \{}
-\DoxyCodeLine{00541\ \ \ \ \ \textcolor{comment}{//\ assert(channel\ <\ 4);}}
-\DoxyCodeLine{00542\ \ \ \ \ erisc\_info-\/>channels[channel].receiver\_ack\ =\ 0;}
-\DoxyCodeLine{00543\ \}}
-\DoxyCodeLine{00544\ }
-\DoxyCodeLine{00560\ FORCE\_INLINE}
-\DoxyCodeLine{00561\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a4ff4de9ce3be69c64f017b1b1facc090}{eth\_receiver\_channel\_ack}}(uint32\_t\ channel,\ uint32\_t\ eth\_transaction\_ack\_word\_addr)\ \{}
-\DoxyCodeLine{00562\ \ \ \ \ \textcolor{comment}{//\ assert(channel\ <\ 4);}}
-\DoxyCodeLine{00563\ \ \ \ \ erisc\_info-\/>channels[channel].receiver\_ack\ =\ 1;}
-\DoxyCodeLine{00564\ \ \ \ \ ASSERT(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{volatile\ }uint32\_t*\textcolor{keyword}{>}(eth\_transaction\_ack\_word\_addr)[0]\ ==\ 1);}
-\DoxyCodeLine{00565\ \ \ \ \ \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{volatile\ }uint32\_t*\textcolor{keyword}{>}(eth\_transaction\_ack\_word\_addr)[1]\ =\ 1;}
-\DoxyCodeLine{00566\ \ \ \ \ \textcolor{comment}{//\ Make\ sure\ we\ don't\ alias\ the\ erisc\_info\ eth\_channel\_sync\_t}}
-\DoxyCodeLine{00567\ \ \ \ \ ASSERT(eth\_transaction\_ack\_word\_addr\ !=\ ((uint32\_t)(\&(erisc\_info-\/>channels[channel].receiver\_ack)))\ >>\ 4);}
-\DoxyCodeLine{00568\ \ \ \ \ internal\_::eth\_send\_packet(}
-\DoxyCodeLine{00569\ \ \ \ \ \ \ \ \ 0,}
-\DoxyCodeLine{00570\ \ \ \ \ \ \ \ \ eth\_transaction\_ack\_word\_addr\ >>\ 4,}
-\DoxyCodeLine{00571\ \ \ \ \ \ \ \ \ ((uint32\_t)(\&(erisc\_info-\/>channels[channel].receiver\_ack)))\ >>\ 4,}
-\DoxyCodeLine{00572\ \ \ \ \ \ \ \ \ 1);}
-\DoxyCodeLine{00573\ \}}
-\DoxyCodeLine{00574\ }
-\DoxyCodeLine{00575\ }
-\DoxyCodeLine{00576\ }
-\DoxyCodeLine{00577\ \textcolor{comment}{/*}}
-\DoxyCodeLine{00578\ \textcolor{comment}{\ *\ Initiates\ an\ asynchronous\ call\ from\ receiver\ ethernet\ core\ to\ tell\ remote\ sender\ ethernet\ core\ that\ data\ sent}}
-\DoxyCodeLine{00579\ \textcolor{comment}{\ *\ via\ eth\_send\_bytes\ has\ been\ received.\ Also,\ see\ \(\backslash\)a\ eth\_wait\_for\_receiver\_done}}
-\DoxyCodeLine{00580\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{00581\ \textcolor{comment}{\ *\ Return\ value:\ None}}
-\DoxyCodeLine{00582\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{00583\ \textcolor{comment}{\ *\ |\ Argument\ \ \ \ \ \ \ \ \ \ |\ Description\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ Type\ \ \ \ \ |\ Valid\ Range\ |\ Required\ |}}
-\DoxyCodeLine{00584\ \textcolor{comment}{\ *\ |-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|}}
-\DoxyCodeLine{00585\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{00586\ FORCE\_INLINE}
-\DoxyCodeLine{00587\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a5d550f7bf6d486b386ddea8c81ad0a82}{eth\_receiver\_acknowledge}}(uint8\_t\ channel\ =\ 0)\ \{}
-\DoxyCodeLine{00588\ \ \ \ \ erisc\_info-\/>channels[channel].bytes\_sent\ =\ 1;}
-\DoxyCodeLine{00589\ \ \ \ \ internal\_::eth\_send\_packet(}
-\DoxyCodeLine{00590\ \ \ \ \ \ \ \ \ 0,}
-\DoxyCodeLine{00591\ \ \ \ \ \ \ \ \ ((uint32\_t)(\&(erisc\_info-\/>channels[channel].bytes\_sent)))\ >>\ 4,}
-\DoxyCodeLine{00592\ \ \ \ \ \ \ \ \ ((uint32\_t)(\&(erisc\_info-\/>channels[channel].bytes\_sent)))\ >>\ 4,}
-\DoxyCodeLine{00593\ \ \ \ \ \ \ \ \ 1);}
-\DoxyCodeLine{00594\ \}}
-\DoxyCodeLine{00595\ }
-\DoxyCodeLine{00596\ FORCE\_INLINE}
-\DoxyCodeLine{00597\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a4f1763214451d751d920191f201b2e1f}{eth\_wait\_receiver\_acknowledge}}(uint8\_t\ channel\ =\ 0)\ \{}
-\DoxyCodeLine{00598\ \ \ \ \ \textcolor{keywordflow}{while}\ (erisc\_info-\/>channels[channel].bytes\_sent\ !=\ 1)\ \{}
-\DoxyCodeLine{00599\ \ \ \ \ \ \ \ \ run\_routing();}
-\DoxyCodeLine{00600\ \ \ \ \ \}}
-\DoxyCodeLine{00601\ \}}
+\DoxyCodeLine{00310\ FORCE\_INLINE}
+\DoxyCodeLine{00311\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a02966d06f690ca2d85533b5e6ce80809}{eth\_is\_receiver\_channel\_send\_acked}}(uint32\_t\ channel)\ \{\ \textcolor{keywordflow}{return}\ erisc\_info-\/>channels[channel].receiver\_ack\ !=\ 0;\ \}}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00327\ FORCE\_INLINE}
+\DoxyCodeLine{00328\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a1a37dd512972c4e57bbe6e0b198a3941}{eth\_is\_receiver\_channel\_send\_done}}(uint32\_t\ channel)\ \{\ \textcolor{keywordflow}{return}\ erisc\_info-\/>channels[channel].bytes\_sent\ ==\ 0;\ \}}
+\DoxyCodeLine{00329\ }
+\DoxyCodeLine{00343\ FORCE\_INLINE}
+\DoxyCodeLine{00344\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a3ff986b2dd8f65e01aca7867bb166e96}{eth\_wait\_for\_receiver\_channel\_done}}(uint32\_t\ channel)\ \{}
+\DoxyCodeLine{00345\ \ \ \ \ uint32\_t\ count\ =\ 0;}
+\DoxyCodeLine{00346\ \ \ \ \ uint32\_t\ max\ =\ 100000;}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00348\ \ \ \ \ \textcolor{keywordflow}{while}\ (!\mbox{\hyperlink{ethernet_2dataflow__api_8h_a1a37dd512972c4e57bbe6e0b198a3941}{eth\_is\_receiver\_channel\_send\_done}}(channel))\ \{}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ count++;}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (count\ >\ max)\ \{}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \ \ \ \ count\ =\ 0;}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \ \ \ \ run\_routing();}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00354\ \ \ \ \ \}}
+\DoxyCodeLine{00355\ \}}
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00371\ FORCE\_INLINE}
+\DoxyCodeLine{00372\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a18b56aac8ce0c479e1e5e1009908f7a2}{eth\_wait\_receiver\_done}}(uint32\_t\ wait\_min\ =\ 0)\ \{}
+\DoxyCodeLine{00373\ \ \ \ \ uint32\_t\ count\ =\ 0;}
+\DoxyCodeLine{00374\ \ \ \ \ \textcolor{keywordflow}{while}\ (erisc\_info-\/>channels[0].bytes\_sent\ !=\ 0)\ \{}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (count\ ==\ wait\_min)\ \{}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \ count\ =\ 0;}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \ \ \ \ run\_routing();}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \ \ \ \ count++;}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00381\ \ \ \ \ \}}
+\DoxyCodeLine{00382\ \}}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00399\ FORCE\_INLINE}
+\DoxyCodeLine{00400\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a5544279ed9fdd9fe6ce2f4d2315e0072}{eth\_wait\_for\_bytes}}(uint32\_t\ num\_bytes,\ uint32\_t\ wait\_min\ =\ 0)\ \{}
+\DoxyCodeLine{00401\ \ \ \ \ uint32\_t\ count\ =\ 0;}
+\DoxyCodeLine{00402\ \ \ \ \ \textcolor{keywordflow}{while}\ (erisc\_info-\/>channels[0].bytes\_sent\ !=\ num\_bytes)\ \{}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (count\ ==\ wait\_min)\ \{}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \ \ \ \ count\ =\ 0;}
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \ \ \ \ run\_routing();}
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ \ \ \ \ count++;}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00409\ \ \ \ \ \}}
+\DoxyCodeLine{00410\ \}}
+\DoxyCodeLine{00411\ }
+\DoxyCodeLine{00426\ FORCE\_INLINE}
+\DoxyCodeLine{00427\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_af738caa9901266b6b58f0fa0b5ee779f}{eth\_bytes\_are\_available\_on\_channel}}(uint8\_t\ channel)\ \{\ \textcolor{keywordflow}{return}\ erisc\_info-\/>channels[channel].bytes\_sent\ !=\ 0;\ \}}
+\DoxyCodeLine{00428\ }
+\DoxyCodeLine{00444\ FORCE\_INLINE}
+\DoxyCodeLine{00445\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_adedc3100f41c4d1fca3f2ef234985bda}{eth\_wait\_for\_bytes\_on\_channel\_sync\_addr}}(}
+\DoxyCodeLine{00446\ \ \ \ \ uint32\_t\ num\_bytes,\ \textcolor{keyword}{volatile}\ eth\_channel\_sync\_t*\ eth\_channel\_syncs,\ uint32\_t\ wait\_min\ =\ 1000000)\ \{}
+\DoxyCodeLine{00447\ \ \ \ \ \textcolor{comment}{//\ assert(channel\ <\ 4);}}
+\DoxyCodeLine{00448\ \ \ \ \ uint32\_t\ count\ =\ 0;}
+\DoxyCodeLine{00449\ \ \ \ \ uint32\_t\ num\_bytes\_sent\ =\ eth\_channel\_syncs-\/>bytes\_sent;}
+\DoxyCodeLine{00450\ \ \ \ \ \textcolor{keywordflow}{while}\ (num\_bytes\_sent\ !=\ num\_bytes)\ \{}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ uint32\_t\ received\_this\_iter\ =\ eth\_channel\_syncs-\/>bytes\_sent;}
+\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (received\_this\_iter\ !=\ num\_bytes\_sent)\ \{}
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ are\ currently\ in\ the\ process\ of\ receiving\ data\ on\ this\ channel,\ so\ we\ just\ just\ wait\ a}}
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ bit\ longer\ instead\ of\ initiating\ a\ context\ switch}}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \ \ \ \ num\_bytes\_sent\ =\ received\_this\_iter;}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (count\ ==\ wait\_min)\ \{}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \ \ \ \ count\ =\ 0;}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \ \ \ \ run\_routing();}
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ \ \ \ \ count++;}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00462\ \ \ \ \ \}}
+\DoxyCodeLine{00463\ \}}
+\DoxyCodeLine{00464\ }
+\DoxyCodeLine{00465\ FORCE\_INLINE}
+\DoxyCodeLine{00466\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_aa0026b0696cbbada2f46119c30c850af}{eth\_wait\_for\_bytes\_on\_channel}}(uint32\_t\ num\_bytes,\ uint8\_t\ channel,\ uint32\_t\ wait\_min\ =\ 1000000)\ \{}
+\DoxyCodeLine{00467\ \ \ \ \ \textcolor{comment}{//\ assert(channel\ <\ 4);}}
+\DoxyCodeLine{00468\ \ \ \ \ \mbox{\hyperlink{ethernet_2dataflow__api_8h_adedc3100f41c4d1fca3f2ef234985bda}{eth\_wait\_for\_bytes\_on\_channel\_sync\_addr}}(num\_bytes,\ \&(erisc\_info-\/>channels[channel]),\ wait\_min);}
+\DoxyCodeLine{00469\ \}}
+\DoxyCodeLine{00470\ }
+\DoxyCodeLine{00481\ FORCE\_INLINE}
+\DoxyCodeLine{00482\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_af27bb42b34afb388a0994da0f2b73c54}{eth\_receiver\_done}}()\ \{}
+\DoxyCodeLine{00483\ \ \ \ \ erisc\_info-\/>channels[0].bytes\_sent\ =\ 0;}
+\DoxyCodeLine{00484\ \ \ \ \ internal\_::eth\_send\_packet(}
+\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ 0,}
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ ((uint32\_t)(\&(erisc\_info-\/>channels[0].bytes\_sent)))\ >>\ 4,}
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ ((uint32\_t)(\&(erisc\_info-\/>channels[0].bytes\_sent)))\ >>\ 4,}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ 1);}
+\DoxyCodeLine{00489\ \}}
+\DoxyCodeLine{00490\ }
+\DoxyCodeLine{00506\ FORCE\_INLINE}
+\DoxyCodeLine{00507\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_ae1583ac42a8f9f11794a096506d954a6}{send\_eth\_receiver\_channel\_done}}(\textcolor{keyword}{volatile}\ eth\_channel\_sync\_t*\ channel\_sync)\ \{}
+\DoxyCodeLine{00508\ \ \ \ \ channel\_sync-\/>bytes\_sent\ =\ 0;}
+\DoxyCodeLine{00509\ \ \ \ \ channel\_sync-\/>receiver\_ack\ =\ 0;}
+\DoxyCodeLine{00510\ \ \ \ \ internal\_::eth\_send\_packet(}
+\DoxyCodeLine{00511\ \ \ \ \ \ \ \ \ 0,\ ((uint32\_t)(\&(channel\_sync-\/>bytes\_sent)))\ >>\ 4,\ ((uint32\_t)(\&(channel\_sync-\/>bytes\_sent)))\ >>\ 4,\ 1);}
+\DoxyCodeLine{00512\ \}}
+\DoxyCodeLine{00513\ }
+\DoxyCodeLine{00514\ FORCE\_INLINE}
+\DoxyCodeLine{00515\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_acd35fe4c1c09f60fc53d21a4bccbb71e}{eth\_receiver\_channel\_done}}(uint32\_t\ channel)\ \{}
+\DoxyCodeLine{00516\ \ \ \ \ \textcolor{comment}{//\ assert(channel\ <\ 4);}}
+\DoxyCodeLine{00517\ \ \ \ \ \mbox{\hyperlink{ethernet_2dataflow__api_8h_ae1583ac42a8f9f11794a096506d954a6}{send\_eth\_receiver\_channel\_done}}(\&(erisc\_info-\/>channels[channel]));}
+\DoxyCodeLine{00518\ \}}
+\DoxyCodeLine{00519\ }
+\DoxyCodeLine{00534\ FORCE\_INLINE}
+\DoxyCodeLine{00535\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a32a1ef34f66d78ba3934c321595ff40d}{eth\_clear\_sender\_channel\_ack}}(uint32\_t\ channel)\ \{}
+\DoxyCodeLine{00536\ \ \ \ \ \textcolor{comment}{//\ assert(channel\ <\ 4);}}
+\DoxyCodeLine{00537\ \ \ \ \ erisc\_info-\/>channels[channel].receiver\_ack\ =\ 0;}
+\DoxyCodeLine{00538\ \}}
+\DoxyCodeLine{00539\ }
+\DoxyCodeLine{00557\ FORCE\_INLINE}
+\DoxyCodeLine{00558\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a4ff4de9ce3be69c64f017b1b1facc090}{eth\_receiver\_channel\_ack}}(uint32\_t\ channel,\ uint32\_t\ eth\_transaction\_ack\_word\_addr)\ \{}
+\DoxyCodeLine{00559\ \ \ \ \ \textcolor{comment}{//\ assert(channel\ <\ 4);}}
+\DoxyCodeLine{00560\ \ \ \ \ erisc\_info-\/>channels[channel].receiver\_ack\ =\ 1;}
+\DoxyCodeLine{00561\ \ \ \ \ ASSERT(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{volatile\ }uint32\_t*\textcolor{keyword}{>}(eth\_transaction\_ack\_word\_addr)[0]\ ==\ 1);}
+\DoxyCodeLine{00562\ \ \ \ \ \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{volatile\ }uint32\_t*\textcolor{keyword}{>}(eth\_transaction\_ack\_word\_addr)[1]\ =\ 1;}
+\DoxyCodeLine{00563\ \ \ \ \ \textcolor{comment}{//\ Make\ sure\ we\ don't\ alias\ the\ erisc\_info\ eth\_channel\_sync\_t}}
+\DoxyCodeLine{00564\ \ \ \ \ ASSERT(eth\_transaction\_ack\_word\_addr\ !=\ ((uint32\_t)(\&(erisc\_info-\/>channels[channel].receiver\_ack)))\ >>\ 4);}
+\DoxyCodeLine{00565\ \ \ \ \ internal\_::eth\_send\_packet(}
+\DoxyCodeLine{00566\ \ \ \ \ \ \ \ \ 0,\ eth\_transaction\_ack\_word\_addr\ >>\ 4,\ ((uint32\_t)(\&(erisc\_info-\/>channels[channel].receiver\_ack)))\ >>\ 4,\ 1);}
+\DoxyCodeLine{00567\ \}}
+\DoxyCodeLine{00568\ }
+\DoxyCodeLine{00569\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00570\ \textcolor{comment}{\ *\ Initiates\ an\ asynchronous\ call\ from\ receiver\ ethernet\ core\ to\ tell\ remote\ sender\ ethernet\ core\ that\ data\ sent}}
+\DoxyCodeLine{00571\ \textcolor{comment}{\ *\ via\ eth\_send\_bytes\ has\ been\ received.\ Also,\ see\ \(\backslash\)a\ eth\_wait\_for\_receiver\_done}}
+\DoxyCodeLine{00572\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00573\ \textcolor{comment}{\ *\ Return\ value:\ None}}
+\DoxyCodeLine{00574\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00575\ \textcolor{comment}{\ *\ |\ Argument\ \ \ \ \ \ \ \ \ \ |\ Description\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ Type\ \ \ \ \ |\ Valid\ Range\ |\ Required\ |}}
+\DoxyCodeLine{00576\ \textcolor{comment}{\ *\ |-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|}}
+\DoxyCodeLine{00577\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00578\ FORCE\_INLINE}
+\DoxyCodeLine{00579\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a5d550f7bf6d486b386ddea8c81ad0a82}{eth\_receiver\_acknowledge}}(uint8\_t\ channel\ =\ 0)\ \{}
+\DoxyCodeLine{00580\ \ \ \ \ erisc\_info-\/>channels[channel].bytes\_sent\ =\ 1;}
+\DoxyCodeLine{00581\ \ \ \ \ internal\_::eth\_send\_packet(}
+\DoxyCodeLine{00582\ \ \ \ \ \ \ \ \ 0,}
+\DoxyCodeLine{00583\ \ \ \ \ \ \ \ \ ((uint32\_t)(\&(erisc\_info-\/>channels[channel].bytes\_sent)))\ >>\ 4,}
+\DoxyCodeLine{00584\ \ \ \ \ \ \ \ \ ((uint32\_t)(\&(erisc\_info-\/>channels[channel].bytes\_sent)))\ >>\ 4,}
+\DoxyCodeLine{00585\ \ \ \ \ \ \ \ \ 1);}
+\DoxyCodeLine{00586\ \}}
+\DoxyCodeLine{00587\ }
+\DoxyCodeLine{00588\ FORCE\_INLINE}
+\DoxyCodeLine{00589\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ethernet_2dataflow__api_8h_a4f1763214451d751d920191f201b2e1f}{eth\_wait\_receiver\_acknowledge}}(uint8\_t\ channel\ =\ 0)\ \{}
+\DoxyCodeLine{00590\ \ \ \ \ \textcolor{keywordflow}{while}\ (erisc\_info-\/>channels[channel].bytes\_sent\ !=\ 1)\ \{}
+\DoxyCodeLine{00591\ \ \ \ \ \ \ \ \ run\_routing();}
+\DoxyCodeLine{00592\ \ \ \ \ \}}
+\DoxyCodeLine{00593\ \}}
 
 \end{DoxyCode}

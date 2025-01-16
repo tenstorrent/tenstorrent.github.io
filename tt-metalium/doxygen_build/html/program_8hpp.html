@@ -95,6 +95,8 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacett_1_1tt__metal_1_1v1"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html">tt::tt_metal::v1</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacett_1_1tt__metal_1_1v1_1_1experimental"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1_1_1experimental.html">tt::tt_metal::v1::experimental</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -132,9 +134,15 @@ Functions</h2></td></tr>
 <tr class="memitem:af94866d5212ee53e90bbf8108e481011"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#af94866d5212ee53e90bbf8108e481011">tt::tt_metal::v1::UpdateCircularBufferTotalSize</a> (ProgramHandle &amp;program, CircularBufferHandle cb_handle, std::uint32_t total_size)</td></tr>
 <tr class="memdesc:af94866d5212ee53e90bbf8108e481011"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the total size of a circular buffer.  <br /></td></tr>
 <tr class="separator:af94866d5212ee53e90bbf8108e481011"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa514298587d69bf5490a52ed4ca04d77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#aa514298587d69bf5490a52ed4ca04d77">tt::tt_metal::v1::UpdateDynamicCircularBufferAddress</a> (ProgramHandle &amp;program, CircularBufferHandle cb_handle, BufferHandle buffer)</td></tr>
-<tr class="memdesc:aa514298587d69bf5490a52ed4ca04d77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the address of a dynamic circular buffer.  <br /></td></tr>
-<tr class="separator:aa514298587d69bf5490a52ed4ca04d77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d5dc9d37986c4de04865c16983f5109"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#a9d5dc9d37986c4de04865c16983f5109">tt::tt_metal::v1::UpdateDynamicCircularBufferAddress</a> (ProgramHandle &amp;program, CircularBufferHandle cb_handle, const BufferHandle &amp;buffer)</td></tr>
+<tr class="memdesc:a9d5dc9d37986c4de04865c16983f5109"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the address of a dynamic circular buffer.  <br /></td></tr>
+<tr class="separator:a9d5dc9d37986c4de04865c16983f5109"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d7954f1210e05c98c5cdccf9d42c4e6"><td class="memItemLeft" align="right" valign="top">CBHandle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1_1_1experimental.html#a2d7954f1210e05c98c5cdccf9d42c4e6">tt::tt_metal::v1::experimental::CreateCircularBuffer</a> (Program &amp;program, const std::variant&lt; CoreCoord, CoreRange, CoreRangeSet &gt; &amp;core_spec, const CircularBufferConfig &amp;config, const GlobalCircularBuffer &amp;global_circular_buffer)</td></tr>
+<tr class="memdesc:a2d7954f1210e05c98c5cdccf9d42c4e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a Circular Buffer in L1 memory of specified cores using the address space of the global circular bufferand adds it to the program.  <br /></td></tr>
+<tr class="separator:a2d7954f1210e05c98c5cdccf9d42c4e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84bd5ec5b834a149b2cc3c82f1e67039"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1_1_1experimental.html#a84bd5ec5b834a149b2cc3c82f1e67039">tt::tt_metal::v1::experimental::UpdateDynamicCircularBufferAddress</a> (Program &amp;program, CBHandle cb_handle, const GlobalCircularBuffer &amp;global_circular_buffer)</td></tr>
+<tr class="memdesc:a84bd5ec5b834a149b2cc3c82f1e67039"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the address of a dynamic global circular buffer.  <br /></td></tr>
+<tr class="separator:a84bd5ec5b834a149b2cc3c82f1e67039"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

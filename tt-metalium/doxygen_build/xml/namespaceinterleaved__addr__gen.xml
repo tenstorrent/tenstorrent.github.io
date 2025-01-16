@@ -26,7 +26,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="92" column="10" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="92" bodyend="106"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="78" column="11" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="78" bodyend="92"/>
       </memberdef>
       <memberdef kind="function" id="namespaceinterleaved__addr__gen_1a63194c761e19c2a9d096f91c9e9be63c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -55,7 +55,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="110" column="10" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="110" bodyend="116"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="95" column="11" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="95" bodyend="101"/>
       </memberdef>
       <memberdef kind="function" id="namespaceinterleaved__addr__gen_1a5a9ecce3a6a35846d19425e4b193d37e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -85,7 +85,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="120" column="10" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="120" bodyend="127"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="104" column="11" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="104" bodyend="110"/>
       </memberdef>
       <memberdef kind="function" id="namespaceinterleaved__addr__gen_1a593eecf4e9f53608d0c5c82e54b36b03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -110,13 +110,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="131" column="10" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="131" bodyend="138"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="113" column="11" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="113" bodyend="119"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="tt_metal/hw/inc/dataflow_api.h" line="88" column="1"/>
+    <location file="tt_metal/hw/inc/dataflow_api.h" line="75" column="1"/>
   </compounddef>
 </doxygen>

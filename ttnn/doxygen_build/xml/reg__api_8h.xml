@@ -30,41 +30,33 @@
 <codeline lineno="8"><highlight class="normal"></highlight></codeline>
 <codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceckernel" kindref="compound">ckernel</ref><sp/>{</highlight></codeline>
 <codeline lineno="10"><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal">[[deprecated(</highlight><highlight class="stringliteral">&quot;Use<sp/>tile_regs_acquire()<sp/>instead&quot;</highlight><highlight class="normal">)]]</highlight></codeline>
-<codeline lineno="28" refid="namespaceckernel_1ab3e5c0b33fb9768ebd6a7649dca13d56" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1ab3e5c0b33fb9768ebd6a7649dca13d56" kindref="member">acquire_dst</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="erf__erfc_8h_1a5f8a5b21f170f78a59c6aca4376e757d" kindref="member">MATH</ref>((<sp/>llk_math_wait_for_dest_available()<sp/><sp/>));</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="compute__kernel__api_8h_1a06e48c7c5c133a4905da88bd82bd6b91" kindref="member">PACK</ref>((<sp/>llk_packer_wait_for_math_done()<sp/><sp/>));</highlight></codeline>
-<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">//<sp/>new<sp/>APIs,<sp/>TODO:<sp/>migrate<sp/>all<sp/>kernels<sp/>to<sp/>these</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight></codeline>
-<codeline lineno="41" refid="namespaceckernel_1a34467f46da4221ff3a2820ff1baec122" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1a34467f46da4221ff3a2820ff1baec122" kindref="member">tile_regs_acquire</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="erf__erfc_8h_1a5f8a5b21f170f78a59c6aca4376e757d" kindref="member">MATH</ref>((<sp/>llk_math_wait_for_dest_available()<sp/><sp/>));</highlight></codeline>
-<codeline lineno="43"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"></highlight></codeline>
-<codeline lineno="50" refid="namespaceckernel_1acc5591aaa5084f829a43b6282da1dec0" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1acc5591aaa5084f829a43b6282da1dec0" kindref="member">tile_regs_wait</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="compute__kernel__api_8h_1a06e48c7c5c133a4905da88bd82bd6b91" kindref="member">PACK</ref>((<sp/>llk_packer_wait_for_math_done()<sp/><sp/>));</highlight></codeline>
-<codeline lineno="52"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"></highlight></codeline>
-<codeline lineno="66"><highlight class="normal">[[deprecated(</highlight><highlight class="stringliteral">&quot;Use<sp/>tile_regs_release()<sp/>instead&quot;</highlight><highlight class="normal">)]]</highlight></codeline>
-<codeline lineno="67" refid="namespaceckernel_1aca8a1c47b441f374e4ad21ed8d2f8a4e" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1aca8a1c47b441f374e4ad21ed8d2f8a4e" kindref="member">release_dst</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="erf__erfc_8h_1a5f8a5b21f170f78a59c6aca4376e757d" kindref="member">MATH</ref>((<sp/>llk_math_dest_section_done()<sp/><sp/>));</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"></highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="compute__kernel__api_8h_1a06e48c7c5c133a4905da88bd82bd6b91" kindref="member">PACK</ref>((<sp/>llk_pack_dest_section_done()<sp/><sp/>));</highlight></codeline>
-<codeline lineno="71"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">[[deprecated(</highlight><highlight class="stringliteral">&quot;Use<sp/>tile_regs_acquire()<sp/>instead&quot;</highlight><highlight class="normal">)]]</highlight></codeline>
+<codeline lineno="29" refid="namespaceckernel_1ab3e5c0b33fb9768ebd6a7649dca13d56" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1ab3e5c0b33fb9768ebd6a7649dca13d56" kindref="member">acquire_dst</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="erf__erfc_8h_1a5f8a5b21f170f78a59c6aca4376e757d" kindref="member">MATH</ref>((llk_math_wait_for_dest_available()));</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="compute__kernel__api_8h_1a06e48c7c5c133a4905da88bd82bd6b91" kindref="member">PACK</ref>((llk_packer_wait_for_math_done()));</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">//<sp/>new<sp/>APIs,<sp/>TODO:<sp/>migrate<sp/>all<sp/>kernels<sp/>to<sp/>these</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="namespaceckernel_1a34467f46da4221ff3a2820ff1baec122" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1a34467f46da4221ff3a2820ff1baec122" kindref="member">tile_regs_acquire</ref>()<sp/>{<sp/><ref refid="erf__erfc_8h_1a5f8a5b21f170f78a59c6aca4376e757d" kindref="member">MATH</ref>((llk_math_wait_for_dest_available()));<sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="namespaceckernel_1acc5591aaa5084f829a43b6282da1dec0" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1acc5591aaa5084f829a43b6282da1dec0" kindref="member">tile_regs_wait</ref>()<sp/>{<sp/><ref refid="compute__kernel__api_8h_1a06e48c7c5c133a4905da88bd82bd6b91" kindref="member">PACK</ref>((llk_packer_wait_for_math_done()));<sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal">[[deprecated(</highlight><highlight class="stringliteral">&quot;Use<sp/>tile_regs_release()<sp/>instead&quot;</highlight><highlight class="normal">)]]</highlight></codeline>
+<codeline lineno="65" refid="namespaceckernel_1aca8a1c47b441f374e4ad21ed8d2f8a4e" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1aca8a1c47b441f374e4ad21ed8d2f8a4e" kindref="member">release_dst</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="erf__erfc_8h_1a5f8a5b21f170f78a59c6aca4376e757d" kindref="member">MATH</ref>((llk_math_dest_section_done()));</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="compute__kernel__api_8h_1a06e48c7c5c133a4905da88bd82bd6b91" kindref="member">PACK</ref>((llk_pack_dest_section_done()));</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="comment">//<sp/>new<sp/>APIs,<sp/>TODO:<sp/>migrate<sp/>all<sp/>kernels<sp/>to<sp/>these</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="72"><highlight class="normal"></highlight></codeline>
-<codeline lineno="73"><highlight class="normal"></highlight><highlight class="comment">//<sp/>new<sp/>APIs,<sp/>TODO:<sp/>migrate<sp/>all<sp/>kernels<sp/>to<sp/>these</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="74"><highlight class="normal"></highlight></codeline>
-<codeline lineno="78" refid="namespaceckernel_1adaf34bbf977944a7913f979f709214c6" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1adaf34bbf977944a7913f979f709214c6" kindref="member">tile_regs_commit</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="erf__erfc_8h_1a5f8a5b21f170f78a59c6aca4376e757d" kindref="member">MATH</ref>((<sp/>llk_math_dest_section_done()<sp/><sp/>));</highlight></codeline>
-<codeline lineno="80"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"></highlight></codeline>
-<codeline lineno="85" refid="namespaceckernel_1addd3679665da343bd51f76ced7154c4a" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1addd3679665da343bd51f76ced7154c4a" kindref="member">tile_regs_release</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="compute__kernel__api_8h_1a06e48c7c5c133a4905da88bd82bd6b91" kindref="member">PACK</ref>((<sp/>llk_pack_dest_section_done()<sp/><sp/>));</highlight></codeline>
-<codeline lineno="87"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"></highlight></codeline>
-<codeline lineno="89"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>ckernel</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="namespaceckernel_1adaf34bbf977944a7913f979f709214c6" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1adaf34bbf977944a7913f979f709214c6" kindref="member">tile_regs_commit</ref>()<sp/>{<sp/><ref refid="erf__erfc_8h_1a5f8a5b21f170f78a59c6aca4376e757d" kindref="member">MATH</ref>((llk_math_dest_section_done()));<sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="namespaceckernel_1addd3679665da343bd51f76ced7154c4a" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1addd3679665da343bd51f76ced7154c4a" kindref="member">tile_regs_release</ref>()<sp/>{<sp/><ref refid="compute__kernel__api_8h_1a06e48c7c5c133a4905da88bd82bd6b91" kindref="member">PACK</ref>((llk_pack_dest_section_done()));<sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>ckernel</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="tt_metal/include/compute_kernel_api/reg_api.h"/>
   </compounddef>

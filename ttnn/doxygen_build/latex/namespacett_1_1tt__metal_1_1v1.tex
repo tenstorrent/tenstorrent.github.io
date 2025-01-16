@@ -1,5 +1,10 @@
 \hypertarget{namespacett_1_1tt__metal_1_1v1}{}\doxysection{tt\+::tt\+\_\+metal\+::v1 Namespace Reference}
 \label{namespacett_1_1tt__metal_1_1v1}\index{tt::tt\_metal::v1@{tt::tt\_metal::v1}}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_1_1experimental}{experimental}}
+\end{DoxyCompactItemize}
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -29,21 +34,23 @@ using \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a41efe832ede2a68be6a45168f
 \item 
 \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{Buffer\+Handle}} \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a4ff4aaaef152608a56467ac85d05a8d9}{Create\+Buffer}} (Interleaved\+Buffer\+Config config)
 \begin{DoxyCompactList}\small\item\em Allocates an interleaved DRAM or L1 buffer on the device. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_ab8878e4e772b19708f2ffb47aef88b46}{Deallocate\+Buffer}} (\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{Buffer\+Handle}} buffer)
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a122afcd9ed39f4e841a1db47aaf946ab}{Deallocate\+Buffer}} (const \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{Buffer\+Handle}} \&buffer)
 \begin{DoxyCompactList}\small\item\em Deallocates a buffer from the device. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a9fdc03261b0164072b9e30fad9e36099}{Write\+To\+Buffer}} (\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{Buffer\+Handle}} buffer, stl\+::\+Span$<$ const std\+::byte $>$ host\+\_\+buffer)
+std\+::size\+\_\+t \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a46a3b9a01f68eaca345c9f96288a171f}{Get\+Id}} (const \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{Buffer\+Handle}} \&buffer)
+\begin{DoxyCompactList}\small\item\em Retrieves the ID of the specified buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a067e476096326c10308653ba2b87bb8f}{Write\+To\+Buffer}} (const \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{Buffer\+Handle}} \&buffer, stl\+::\+Span$<$ const std\+::byte $>$ host\+\_\+buffer)
 \begin{DoxyCompactList}\small\item\em Copies data from a host buffer into the specified device buffer. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a549dc0b0bd173491b5b67ec9efa599b5}{Read\+From\+Buffer}} (\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{Buffer\+Handle}} buffer, stl\+::\+Span$<$ std\+::byte $>$ host\+\_\+buffer, bool shard\+\_\+order=false)
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a3a71f4c7ce74435cd0d20449a5facadb}{Read\+From\+Buffer}} (const \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{Buffer\+Handle}} \&buffer, stl\+::\+Span$<$ std\+::byte $>$ host\+\_\+buffer, bool shard\+\_\+order=false)
 \begin{DoxyCompactList}\small\item\em Copies data from a device buffer into a host buffer. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a44af81fe6c86b0d4f2e3c5cd414cf836}{Read\+From\+Shard}} (\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{Buffer\+Handle}} buffer, stl\+::\+Span$<$ std\+::byte $>$ host\+\_\+buffer, std\+::uint32\+\_\+t core\+\_\+id)
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_add45c5b5ad30c274d3ef11b6c7c8b571}{Read\+From\+Shard}} (const \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{Buffer\+Handle}} \&buffer, stl\+::\+Span$<$ std\+::byte $>$ host\+\_\+buffer, std\+::uint32\+\_\+t core\+\_\+id)
 \begin{DoxyCompactList}\small\item\em Copies data from a specific shard of a device buffer into a host buffer. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{Command\+Queue\+Handle}} \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a104050cb8afe039d4b233e5fde691377}{Get\+Command\+Queue}} (Device\+Handle device, std\+::uint8\+\_\+t cq\+\_\+id)
 \begin{DoxyCompactList}\small\item\em Retrieves a command queue from the device for a given queue ID. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{Command\+Queue\+Handle}} \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a1d776f4c482bfa8ff8d5ce8950a02f82}{Get\+Default\+Command\+Queue}} (Device\+Handle device)
 \begin{DoxyCompactList}\small\item\em Retrieves the default command queue for the given device. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a3de050e4a431b4dbcbd8e29f2ccd0fa6}{Enqueue\+Read\+Buffer}} (\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{Command\+Queue\+Handle}} cq, \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{Buffer\+Handle}} buffer, std\+::byte $\ast$dst, bool blocking)
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a9404dba1284f0bd7c765742a1fc11af7}{Enqueue\+Read\+Buffer}} (\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{Command\+Queue\+Handle}} cq, const \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{Buffer\+Handle}} \&buffer, std\+::byte $\ast$dst, bool blocking)
 \begin{DoxyCompactList}\small\item\em Reads a buffer from the device. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a175d287310173ef03a2e6bd2b1b0cfa3}{Enqueue\+Write\+Buffer}} (\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{Command\+Queue\+Handle}} cq, \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{Buffer\+Handle}} buffer, const std\+::byte $\ast$src, bool blocking)
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_ae72a31481e2846f1e15bc0b42f336d7a}{Enqueue\+Write\+Buffer}} (\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{Command\+Queue\+Handle}} cq, const \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{Buffer\+Handle}} \&buffer, const std\+::byte $\ast$src, bool blocking)
 \begin{DoxyCompactList}\small\item\em Writes data to a buffer on the device. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a2e9787d7e5eaaeb6b838a9c6889c5626}{Enqueue\+Program}} (\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{Command\+Queue\+Handle}} cq, \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aeb98f79faee0fc2ac9492dd5d295d126}{Program\+Handle}} \&program, bool blocking)
 \begin{DoxyCompactList}\small\item\em Writes a program to the device and launches it. \end{DoxyCompactList}\item 
@@ -109,11 +116,11 @@ std\+::size\+\_\+t \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aff8fd1c28971
 \begin{DoxyCompactList}\small\item\em Retrieves the number of entries in the program cache on the device. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1EventHandle}{Event\+Handle}} \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_ac509df53069bbfb2423544bc4c1bda1b}{Enqueue\+Record\+Event}} (\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{Command\+Queue\+Handle}} cq)
 \begin{DoxyCompactList}\small\item\em Enqueues a command to record an event on the device. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a75cf4017da0353e17f493d15b43292e8}{Enqueue\+Wait\+For\+Event}} (\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{Command\+Queue\+Handle}} cq, \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1EventHandle}{Event\+Handle}} event)
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a8cd86b9c3adcdd8b5bf68baa642994f3}{Enqueue\+Wait\+For\+Event}} (\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{Command\+Queue\+Handle}} cq, const \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1EventHandle}{Event\+Handle}} \&event)
 \begin{DoxyCompactList}\small\item\em Enqueues a command to wait for an event to complete on the device. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a5f0339728931f881b0642a8656e636f4}{Event\+Synchronize}} (\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1EventHandle}{Event\+Handle}} event)
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aae5d361f2a151b3d4476c547c2765467}{Event\+Synchronize}} (const \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1EventHandle}{Event\+Handle}} \&event)
 \begin{DoxyCompactList}\small\item\em Blocks the host until the specified event has completed on the device. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a0931a52a892ca8bb955ce8084425536a}{Event\+Query}} (\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1EventHandle}{Event\+Handle}} event)
+bool \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a29d25288ad038ae69a389cab390e44b1}{Event\+Query}} (const \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1EventHandle}{Event\+Handle}} \&event)
 \begin{DoxyCompactList}\small\item\em Queries the completion status of an event on the device. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a88371fc86019f3020c265456c559929b}{Device\+Synchronize}} (Device\+Handle device)
 \begin{DoxyCompactList}\small\item\em Synchronizes the device with the host by waiting for all operations to complete. \end{DoxyCompactList}\item 
@@ -149,7 +156,7 @@ Circular\+Buffer\+Range \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a5a552de
 \begin{DoxyCompactList}\small\item\em Retrieves the circular buffers associated with the program on a specific core range. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_af94866d5212ee53e90bbf8108e481011}{Update\+Circular\+Buffer\+Total\+Size}} (\mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aeb98f79faee0fc2ac9492dd5d295d126}{Program\+Handle}} \&program, \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CircularBufferHandle}{Circular\+Buffer\+Handle}} cb\+\_\+handle, std\+::uint32\+\_\+t total\+\_\+size)
 \begin{DoxyCompactList}\small\item\em Updates the total size of a circular buffer. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aa514298587d69bf5490a52ed4ca04d77}{Update\+Dynamic\+Circular\+Buffer\+Address}} (\mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aeb98f79faee0fc2ac9492dd5d295d126}{Program\+Handle}} \&program, \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CircularBufferHandle}{Circular\+Buffer\+Handle}} cb\+\_\+handle, \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{Buffer\+Handle}} buffer)
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a9d5dc9d37986c4de04865c16983f5109}{Update\+Dynamic\+Circular\+Buffer\+Address}} (\mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aeb98f79faee0fc2ac9492dd5d295d126}{Program\+Handle}} \&program, \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CircularBufferHandle}{Circular\+Buffer\+Handle}} cb\+\_\+handle, const \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{Buffer\+Handle}} \&buffer)
 \begin{DoxyCompactList}\small\item\em Updates the address of a dynamic circular buffer. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{Command\+Queue\+Handle}} \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a19dbe074ea7eb58ae2debf7d51fa0234}{Get\+Command\+Queue}} (\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1TraceHandle}{Trace\+Handle}} trace)
 \begin{DoxyCompactList}\small\item\em Obtains the associated command queue from a given trace handle. \end{DoxyCompactList}\item 
@@ -421,11 +428,11 @@ Initializes a semaphore on specified cores.
 \begin{DoxyReturn}{Returns}
 Semaphore address as a uint32\+\_\+t. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v1_ab8878e4e772b19708f2ffb47aef88b46}\label{namespacett_1_1tt__metal_1_1v1_ab8878e4e772b19708f2ffb47aef88b46}} 
+\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v1_a122afcd9ed39f4e841a1db47aaf946ab}\label{namespacett_1_1tt__metal_1_1v1_a122afcd9ed39f4e841a1db47aaf946ab}} 
 \index{tt::tt\_metal::v1@{tt::tt\_metal::v1}!DeallocateBuffer@{DeallocateBuffer}}
 \index{DeallocateBuffer@{DeallocateBuffer}!tt::tt\_metal::v1@{tt::tt\_metal::v1}}
 \doxysubsubsection{\texorpdfstring{DeallocateBuffer()}{DeallocateBuffer()}}
-{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::v1\+::\+Deallocate\+Buffer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{Buffer\+Handle}}}]{buffer }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::v1\+::\+Deallocate\+Buffer (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{Buffer\+Handle}} \&}]{buffer }\end{DoxyParamCaption})}
 
 
 
@@ -544,11 +551,11 @@ Writes a program to the device and launches it.
 {\em blocking} & Indicates whether the operation is blocking. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v1_a3de050e4a431b4dbcbd8e29f2ccd0fa6}\label{namespacett_1_1tt__metal_1_1v1_a3de050e4a431b4dbcbd8e29f2ccd0fa6}} 
+\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v1_a9404dba1284f0bd7c765742a1fc11af7}\label{namespacett_1_1tt__metal_1_1v1_a9404dba1284f0bd7c765742a1fc11af7}} 
 \index{tt::tt\_metal::v1@{tt::tt\_metal::v1}!EnqueueReadBuffer@{EnqueueReadBuffer}}
 \index{EnqueueReadBuffer@{EnqueueReadBuffer}!tt::tt\_metal::v1@{tt::tt\_metal::v1}}
 \doxysubsubsection{\texorpdfstring{EnqueueReadBuffer()}{EnqueueReadBuffer()}}
-{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::v1\+::\+Enqueue\+Read\+Buffer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{Command\+Queue\+Handle}}}]{cq,  }\item[{\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{Buffer\+Handle}}}]{buffer,  }\item[{std\+::byte $\ast$}]{dst,  }\item[{bool}]{blocking }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::v1\+::\+Enqueue\+Read\+Buffer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{Command\+Queue\+Handle}}}]{cq,  }\item[{const \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{Buffer\+Handle}} \&}]{buffer,  }\item[{std\+::byte $\ast$}]{dst,  }\item[{bool}]{blocking }\end{DoxyParamCaption})}
 
 
 
@@ -600,11 +607,11 @@ Enqueues a trace for execution on the device.
 {\em blocking} & Indicates whether the operation is blocking. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v1_a75cf4017da0353e17f493d15b43292e8}\label{namespacett_1_1tt__metal_1_1v1_a75cf4017da0353e17f493d15b43292e8}} 
+\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v1_a8cd86b9c3adcdd8b5bf68baa642994f3}\label{namespacett_1_1tt__metal_1_1v1_a8cd86b9c3adcdd8b5bf68baa642994f3}} 
 \index{tt::tt\_metal::v1@{tt::tt\_metal::v1}!EnqueueWaitForEvent@{EnqueueWaitForEvent}}
 \index{EnqueueWaitForEvent@{EnqueueWaitForEvent}!tt::tt\_metal::v1@{tt::tt\_metal::v1}}
 \doxysubsubsection{\texorpdfstring{EnqueueWaitForEvent()}{EnqueueWaitForEvent()}}
-{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::v1\+::\+Enqueue\+Wait\+For\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{Command\+Queue\+Handle}}}]{cq,  }\item[{\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1EventHandle}{Event\+Handle}}}]{event }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::v1\+::\+Enqueue\+Wait\+For\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{Command\+Queue\+Handle}}}]{cq,  }\item[{const \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1EventHandle}{Event\+Handle}} \&}]{event }\end{DoxyParamCaption})}
 
 
 
@@ -617,11 +624,11 @@ Enqueues a command to wait for an event to complete on the device.
 {\em event} & Handle to the Event object to wait on. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v1_a175d287310173ef03a2e6bd2b1b0cfa3}\label{namespacett_1_1tt__metal_1_1v1_a175d287310173ef03a2e6bd2b1b0cfa3}} 
+\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v1_ae72a31481e2846f1e15bc0b42f336d7a}\label{namespacett_1_1tt__metal_1_1v1_ae72a31481e2846f1e15bc0b42f336d7a}} 
 \index{tt::tt\_metal::v1@{tt::tt\_metal::v1}!EnqueueWriteBuffer@{EnqueueWriteBuffer}}
 \index{EnqueueWriteBuffer@{EnqueueWriteBuffer}!tt::tt\_metal::v1@{tt::tt\_metal::v1}}
 \doxysubsubsection{\texorpdfstring{EnqueueWriteBuffer()}{EnqueueWriteBuffer()}}
-{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::v1\+::\+Enqueue\+Write\+Buffer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{Command\+Queue\+Handle}}}]{cq,  }\item[{\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{Buffer\+Handle}}}]{buffer,  }\item[{const std\+::byte $\ast$}]{src,  }\item[{bool}]{blocking }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::v1\+::\+Enqueue\+Write\+Buffer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{Command\+Queue\+Handle}}}]{cq,  }\item[{const \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{Buffer\+Handle}} \&}]{buffer,  }\item[{const std\+::byte $\ast$}]{src,  }\item[{bool}]{blocking }\end{DoxyParamCaption})}
 
 
 
@@ -638,11 +645,11 @@ Writes data to a buffer on the device.
 {\em blocking} & Indicates whether the operation is blocking. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v1_a0931a52a892ca8bb955ce8084425536a}\label{namespacett_1_1tt__metal_1_1v1_a0931a52a892ca8bb955ce8084425536a}} 
+\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v1_a29d25288ad038ae69a389cab390e44b1}\label{namespacett_1_1tt__metal_1_1v1_a29d25288ad038ae69a389cab390e44b1}} 
 \index{tt::tt\_metal::v1@{tt::tt\_metal::v1}!EventQuery@{EventQuery}}
 \index{EventQuery@{EventQuery}!tt::tt\_metal::v1@{tt::tt\_metal::v1}}
 \doxysubsubsection{\texorpdfstring{EventQuery()}{EventQuery()}}
-{\footnotesize\ttfamily bool tt\+::tt\+\_\+metal\+::v1\+::\+Event\+Query (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1EventHandle}{Event\+Handle}}}]{event }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool tt\+::tt\+\_\+metal\+::v1\+::\+Event\+Query (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1EventHandle}{Event\+Handle}} \&}]{event }\end{DoxyParamCaption})}
 
 
 
@@ -656,11 +663,11 @@ Queries the completion status of an event on the device.
 \begin{DoxyReturn}{Returns}
 True if the event is completed; otherwise, false. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v1_a5f0339728931f881b0642a8656e636f4}\label{namespacett_1_1tt__metal_1_1v1_a5f0339728931f881b0642a8656e636f4}} 
+\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v1_aae5d361f2a151b3d4476c547c2765467}\label{namespacett_1_1tt__metal_1_1v1_aae5d361f2a151b3d4476c547c2765467}} 
 \index{tt::tt\_metal::v1@{tt::tt\_metal::v1}!EventSynchronize@{EventSynchronize}}
 \index{EventSynchronize@{EventSynchronize}!tt::tt\_metal::v1@{tt::tt\_metal::v1}}
 \doxysubsubsection{\texorpdfstring{EventSynchronize()}{EventSynchronize()}}
-{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::v1\+::\+Event\+Synchronize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1EventHandle}{Event\+Handle}}}]{event }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::v1\+::\+Event\+Synchronize (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1EventHandle}{Event\+Handle}} \&}]{event }\end{DoxyParamCaption})}
 
 
 
@@ -919,7 +926,7 @@ Vector of Core\+Coord representing Ethernet socket coordinates.
 \mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v1_a8f206a4436d4dd2b00feb80e362759a6}\label{namespacett_1_1tt__metal_1_1v1_a8f206a4436d4dd2b00feb80e362759a6}} 
 \index{tt::tt\_metal::v1@{tt::tt\_metal::v1}!GetId@{GetId}}
 \index{GetId@{GetId}!tt::tt\_metal::v1@{tt::tt\_metal::v1}}
-\doxysubsubsection{\texorpdfstring{GetId()}{GetId()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{GetId()}{GetId()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily std\+::uint8\+\_\+t tt\+::tt\+\_\+metal\+::v1\+::\+Get\+Id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{Command\+Queue\+Handle}}}]{cq }\end{DoxyParamCaption})}
 
 
@@ -934,10 +941,28 @@ Retrieves the ID of the command queue.
 \begin{DoxyReturn}{Returns}
 ID of the command queue. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v1_a46a3b9a01f68eaca345c9f96288a171f}\label{namespacett_1_1tt__metal_1_1v1_a46a3b9a01f68eaca345c9f96288a171f}} 
+\index{tt::tt\_metal::v1@{tt::tt\_metal::v1}!GetId@{GetId}}
+\index{GetId@{GetId}!tt::tt\_metal::v1@{tt::tt\_metal::v1}}
+\doxysubsubsection{\texorpdfstring{GetId()}{GetId()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily std\+::size\+\_\+t tt\+::tt\+\_\+metal\+::v1\+::\+Get\+Id (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{Buffer\+Handle}} \&}]{buffer }\end{DoxyParamCaption})}
+
+
+
+Retrieves the ID of the specified buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & The buffer to get the ID from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The unique ID of the buffer. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v1_aecef2596d64d30b530d2013d69ee31c3}\label{namespacett_1_1tt__metal_1_1v1_aecef2596d64d30b530d2013d69ee31c3}} 
 \index{tt::tt\_metal::v1@{tt::tt\_metal::v1}!GetId@{GetId}}
 \index{GetId@{GetId}!tt::tt\_metal::v1@{tt::tt\_metal::v1}}
-\doxysubsubsection{\texorpdfstring{GetId()}{GetId()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{GetId()}{GetId()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily chip\+\_\+id\+\_\+t tt\+::tt\+\_\+metal\+::v1\+::\+Get\+Id (\begin{DoxyParamCaption}\item[{Device\+Handle}]{device }\end{DoxyParamCaption})}
 
 
@@ -1195,11 +1220,11 @@ Pushes a work function onto the device\textquotesingle{}s work queue.
 {\em blocking} & Indicates whether the operation should be blocking (default\+: false). \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v1_a549dc0b0bd173491b5b67ec9efa599b5}\label{namespacett_1_1tt__metal_1_1v1_a549dc0b0bd173491b5b67ec9efa599b5}} 
+\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v1_a3a71f4c7ce74435cd0d20449a5facadb}\label{namespacett_1_1tt__metal_1_1v1_a3a71f4c7ce74435cd0d20449a5facadb}} 
 \index{tt::tt\_metal::v1@{tt::tt\_metal::v1}!ReadFromBuffer@{ReadFromBuffer}}
 \index{ReadFromBuffer@{ReadFromBuffer}!tt::tt\_metal::v1@{tt::tt\_metal::v1}}
 \doxysubsubsection{\texorpdfstring{ReadFromBuffer()}{ReadFromBuffer()}}
-{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::v1\+::\+Read\+From\+Buffer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{Buffer\+Handle}}}]{buffer,  }\item[{stl\+::\+Span$<$ std\+::byte $>$}]{host\+\_\+buffer,  }\item[{bool}]{shard\+\_\+order = {\ttfamily false} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::v1\+::\+Read\+From\+Buffer (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{Buffer\+Handle}} \&}]{buffer,  }\item[{stl\+::\+Span$<$ std\+::byte $>$}]{host\+\_\+buffer,  }\item[{bool}]{shard\+\_\+order = {\ttfamily false} }\end{DoxyParamCaption})}
 
 
 
@@ -1214,11 +1239,11 @@ Copies data from a device buffer into a host buffer.
 {\em shard\+\_\+order} & If true, reads data in shard order. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v1_a44af81fe6c86b0d4f2e3c5cd414cf836}\label{namespacett_1_1tt__metal_1_1v1_a44af81fe6c86b0d4f2e3c5cd414cf836}} 
+\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v1_add45c5b5ad30c274d3ef11b6c7c8b571}\label{namespacett_1_1tt__metal_1_1v1_add45c5b5ad30c274d3ef11b6c7c8b571}} 
 \index{tt::tt\_metal::v1@{tt::tt\_metal::v1}!ReadFromShard@{ReadFromShard}}
 \index{ReadFromShard@{ReadFromShard}!tt::tt\_metal::v1@{tt::tt\_metal::v1}}
 \doxysubsubsection{\texorpdfstring{ReadFromShard()}{ReadFromShard()}}
-{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::v1\+::\+Read\+From\+Shard (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{Buffer\+Handle}}}]{buffer,  }\item[{stl\+::\+Span$<$ std\+::byte $>$}]{host\+\_\+buffer,  }\item[{std\+::uint32\+\_\+t}]{core\+\_\+id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::v1\+::\+Read\+From\+Shard (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{Buffer\+Handle}} \&}]{buffer,  }\item[{stl\+::\+Span$<$ std\+::byte $>$}]{host\+\_\+buffer,  }\item[{std\+::uint32\+\_\+t}]{core\+\_\+id }\end{DoxyParamCaption})}
 
 
 
@@ -1354,11 +1379,11 @@ Updates the total size of a circular buffer.
 {\em total\+\_\+size} & New total size of the circular buffer in bytes. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v1_aa514298587d69bf5490a52ed4ca04d77}\label{namespacett_1_1tt__metal_1_1v1_aa514298587d69bf5490a52ed4ca04d77}} 
+\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v1_a9d5dc9d37986c4de04865c16983f5109}\label{namespacett_1_1tt__metal_1_1v1_a9d5dc9d37986c4de04865c16983f5109}} 
 \index{tt::tt\_metal::v1@{tt::tt\_metal::v1}!UpdateDynamicCircularBufferAddress@{UpdateDynamicCircularBufferAddress}}
 \index{UpdateDynamicCircularBufferAddress@{UpdateDynamicCircularBufferAddress}!tt::tt\_metal::v1@{tt::tt\_metal::v1}}
 \doxysubsubsection{\texorpdfstring{UpdateDynamicCircularBufferAddress()}{UpdateDynamicCircularBufferAddress()}}
-{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::v1\+::\+Update\+Dynamic\+Circular\+Buffer\+Address (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aeb98f79faee0fc2ac9492dd5d295d126}{Program\+Handle}} \&}]{program,  }\item[{\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CircularBufferHandle}{Circular\+Buffer\+Handle}}}]{cb\+\_\+handle,  }\item[{\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{Buffer\+Handle}}}]{buffer }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::v1\+::\+Update\+Dynamic\+Circular\+Buffer\+Address (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aeb98f79faee0fc2ac9492dd5d295d126}{Program\+Handle}} \&}]{program,  }\item[{\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CircularBufferHandle}{Circular\+Buffer\+Handle}}}]{cb\+\_\+handle,  }\item[{const \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{Buffer\+Handle}} \&}]{buffer }\end{DoxyParamCaption})}
 
 
 
@@ -1373,11 +1398,11 @@ Updates the address of a dynamic circular buffer.
 {\em buffer} & Dynamically allocated L1 buffer that shares address space with the circular buffer. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v1_a9fdc03261b0164072b9e30fad9e36099}\label{namespacett_1_1tt__metal_1_1v1_a9fdc03261b0164072b9e30fad9e36099}} 
+\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v1_a067e476096326c10308653ba2b87bb8f}\label{namespacett_1_1tt__metal_1_1v1_a067e476096326c10308653ba2b87bb8f}} 
 \index{tt::tt\_metal::v1@{tt::tt\_metal::v1}!WriteToBuffer@{WriteToBuffer}}
 \index{WriteToBuffer@{WriteToBuffer}!tt::tt\_metal::v1@{tt::tt\_metal::v1}}
 \doxysubsubsection{\texorpdfstring{WriteToBuffer()}{WriteToBuffer()}}
-{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::v1\+::\+Write\+To\+Buffer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{Buffer\+Handle}}}]{buffer,  }\item[{stl\+::\+Span$<$ const std\+::byte $>$}]{host\+\_\+buffer }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::v1\+::\+Write\+To\+Buffer (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{Buffer\+Handle}} \&}]{buffer,  }\item[{stl\+::\+Span$<$ const std\+::byte $>$}]{host\+\_\+buffer }\end{DoxyParamCaption})}
 
 
 

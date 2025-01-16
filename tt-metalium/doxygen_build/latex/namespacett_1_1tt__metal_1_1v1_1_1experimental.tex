@@ -1,0 +1,83 @@
+\hypertarget{namespacett_1_1tt__metal_1_1v1_1_1experimental}{}\doxysection{tt\+::tt\+\_\+metal\+::v1\+::experimental Namespace Reference}
+\label{namespacett_1_1tt__metal_1_1v1_1_1experimental}\index{tt::tt\_metal::v1::experimental@{tt::tt\_metal::v1::experimental}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Global\+Circular\+Buffer \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_1_1experimental_a9452c881ef4952b161567d8c649f5089}{Create\+Global\+Circular\+Buffer}} (Device $\ast$device, const std\+::unordered\+\_\+map$<$ Core\+Coord, Core\+Range\+Set $>$ \&sender\+\_\+receiver\+\_\+core\+\_\+mapping, uint32\+\_\+t size, Buffer\+Type buffer\+\_\+type=Buffer\+Type\+::\+L1, tt\+::stl\+::\+Span$<$ const Sub\+Device\+Id $>$ sub\+\_\+device\+\_\+ids=\{\})
+\begin{DoxyCompactList}\small\item\em Allocates a global circular buffer in L1 on the device. \end{DoxyCompactList}\item 
+CBHandle \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_1_1experimental_a2d7954f1210e05c98c5cdccf9d42c4e6}{Create\+Circular\+Buffer}} (Program \&program, const std\+::variant$<$ Core\+Coord, Core\+Range, Core\+Range\+Set $>$ \&core\+\_\+spec, const Circular\+Buffer\+Config \&config, const Global\+Circular\+Buffer \&global\+\_\+circular\+\_\+buffer)
+\begin{DoxyCompactList}\small\item\em Creates a Circular Buffer in L1 memory of specified cores using the address space of the global circular bufferand adds it to the program. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_1_1experimental_a84bd5ec5b834a149b2cc3c82f1e67039}{Update\+Dynamic\+Circular\+Buffer\+Address}} (Program \&program, CBHandle cb\+\_\+handle, const Global\+Circular\+Buffer \&global\+\_\+circular\+\_\+buffer)
+\begin{DoxyCompactList}\small\item\em Updates the address of a dynamic global circular buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v1_1_1experimental_a2d7954f1210e05c98c5cdccf9d42c4e6}\label{namespacett_1_1tt__metal_1_1v1_1_1experimental_a2d7954f1210e05c98c5cdccf9d42c4e6}} 
+\index{tt::tt\_metal::v1::experimental@{tt::tt\_metal::v1::experimental}!CreateCircularBuffer@{CreateCircularBuffer}}
+\index{CreateCircularBuffer@{CreateCircularBuffer}!tt::tt\_metal::v1::experimental@{tt::tt\_metal::v1::experimental}}
+\doxysubsubsection{\texorpdfstring{CreateCircularBuffer()}{CreateCircularBuffer()}}
+{\footnotesize\ttfamily CBHandle tt\+::tt\+\_\+metal\+::v1\+::experimental\+::\+Create\+Circular\+Buffer (\begin{DoxyParamCaption}\item[{Program \&}]{program,  }\item[{const std\+::variant$<$ Core\+Coord, Core\+Range, Core\+Range\+Set $>$ \&}]{core\+\_\+spec,  }\item[{const Circular\+Buffer\+Config \&}]{config,  }\item[{const Global\+Circular\+Buffer \&}]{global\+\_\+circular\+\_\+buffer }\end{DoxyParamCaption})}
+
+
+
+Creates a Circular Buffer in L1 memory of specified cores using the address space of the global circular bufferand adds it to the program. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em program} & The program to which the buffer will be added. \\
+\hline
+{\em core\+\_\+spec} & Specifies the cores where the circular buffer will be configured. \\
+\hline
+{\em config} & Configuration for the circular buffer. \\
+\hline
+{\em global\+\_\+circular\+\_\+buffer} & Global circular buffer to use the address space and configuration of. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CBHandle representing the Circular Buffer ID. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v1_1_1experimental_a9452c881ef4952b161567d8c649f5089}\label{namespacett_1_1tt__metal_1_1v1_1_1experimental_a9452c881ef4952b161567d8c649f5089}} 
+\index{tt::tt\_metal::v1::experimental@{tt::tt\_metal::v1::experimental}!CreateGlobalCircularBuffer@{CreateGlobalCircularBuffer}}
+\index{CreateGlobalCircularBuffer@{CreateGlobalCircularBuffer}!tt::tt\_metal::v1::experimental@{tt::tt\_metal::v1::experimental}}
+\doxysubsubsection{\texorpdfstring{CreateGlobalCircularBuffer()}{CreateGlobalCircularBuffer()}}
+{\footnotesize\ttfamily Global\+Circular\+Buffer tt\+::tt\+\_\+metal\+::v1\+::experimental\+::\+Create\+Global\+Circular\+Buffer (\begin{DoxyParamCaption}\item[{Device $\ast$}]{device,  }\item[{const std\+::unordered\+\_\+map$<$ Core\+Coord, Core\+Range\+Set $>$ \&}]{sender\+\_\+receiver\+\_\+core\+\_\+mapping,  }\item[{uint32\+\_\+t}]{size,  }\item[{Buffer\+Type}]{buffer\+\_\+type = {\ttfamily BufferType\+:\+:L1},  }\item[{tt\+::stl\+::\+Span$<$ const Sub\+Device\+Id $>$}]{sub\+\_\+device\+\_\+ids = {\ttfamily \{\}} }\end{DoxyParamCaption})}
+
+
+
+Allocates a global circular buffer in L1 on the device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & The device to create the global circular buffer on. \\
+\hline
+{\em sender\+\_\+receiver\+\_\+core\+\_\+mapping} & The mapping of remote sender to remote receiver cores for the circular buffer. \\
+\hline
+{\em size} & Size of the global circular buffer per core in bytes. \\
+\hline
+{\em buffer\+\_\+type} & Buffer type to store the global circular buffer. Can only be an L1 buffer type. \\
+\hline
+{\em sub\+\_\+device\+\_\+ids} & Sub-\/device IDs to wait on before writing the global circular buffer config to device. Defaults to waiting on all sub-\/devices. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The allocated global circular buffer. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v1_1_1experimental_a84bd5ec5b834a149b2cc3c82f1e67039}\label{namespacett_1_1tt__metal_1_1v1_1_1experimental_a84bd5ec5b834a149b2cc3c82f1e67039}} 
+\index{tt::tt\_metal::v1::experimental@{tt::tt\_metal::v1::experimental}!UpdateDynamicCircularBufferAddress@{UpdateDynamicCircularBufferAddress}}
+\index{UpdateDynamicCircularBufferAddress@{UpdateDynamicCircularBufferAddress}!tt::tt\_metal::v1::experimental@{tt::tt\_metal::v1::experimental}}
+\doxysubsubsection{\texorpdfstring{UpdateDynamicCircularBufferAddress()}{UpdateDynamicCircularBufferAddress()}}
+{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::v1\+::experimental\+::\+Update\+Dynamic\+Circular\+Buffer\+Address (\begin{DoxyParamCaption}\item[{Program \&}]{program,  }\item[{CBHandle}]{cb\+\_\+handle,  }\item[{const Global\+Circular\+Buffer \&}]{global\+\_\+circular\+\_\+buffer }\end{DoxyParamCaption})}
+
+
+
+Updates the address of a dynamic global circular buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em program} & The program containing the circular buffer. \\
+\hline
+{\em cb\+\_\+handle} & Handle of the circular buffer. \\
+\hline
+{\em buffer} & Dynamically allocated global L1 buffer that shares address space with the circular buffer. \\
+\hline
+\end{DoxyParams}

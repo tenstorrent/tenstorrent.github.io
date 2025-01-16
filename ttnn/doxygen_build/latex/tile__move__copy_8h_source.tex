@@ -19,37 +19,37 @@
 \DoxyCodeLine{00015\ \textcolor{preprocessor}{\#endif}}
 \DoxyCodeLine{00016\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceckernel}{ckernel}}\ \{}
 \DoxyCodeLine{00017\ }
-\DoxyCodeLine{00027\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_aee656afd9be0e1341190c24a349fe54e}{copy\_tile\_to\_dst\_init\_short}}(uint32\_t\ cbid\ =\ 0,\ uint32\_t\ transpose\ =\ 0)}
-\DoxyCodeLine{00028\ \{}
-\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((\ llk\_unpack\_A\_init<BroadcastType::NONE,\ false,\ EltwiseBinaryReuseDestType::NONE,\ UnpackToDestEn>(transpose,\ \textcolor{keyword}{false}\ \textcolor{comment}{/*transpose\ within\ 16x16\ face*/},\ cbid)\ \ ));}
-\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((\ llk\_math\_eltwise\_unary\_datacopy\_init<A2D,\ BroadcastType::NONE,\ DST\_ACCUM\_MODE>(\textcolor{keyword}{false}\ \textcolor{comment}{/*transpose\ of\ faces*/},\ \textcolor{keyword}{false}\ \textcolor{comment}{/*transpose\ within\ 16x16\ face*/},\ cbid)\ \ ));}
-\DoxyCodeLine{00031\ \}}
-\DoxyCodeLine{00035\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_aea570483ca5371db26adbdb562bdc640}{copy\_tile\_init}}()}
-\DoxyCodeLine{00036\ \{}
-\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{namespaceckernel_aee656afd9be0e1341190c24a349fe54e}{copy\_tile\_to\_dst\_init\_short}}();}
-\DoxyCodeLine{00038\ \}}
+\DoxyCodeLine{00028\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_aee656afd9be0e1341190c24a349fe54e}{copy\_tile\_to\_dst\_init\_short}}(uint32\_t\ cbid\ =\ 0,\ uint32\_t\ transpose\ =\ 0)\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((llk\_unpack\_A\_init<BroadcastType::NONE,\ false,\ EltwiseBinaryReuseDestType::NONE,\ UnpackToDestEn>(}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ transpose,\ \textcolor{keyword}{false}\ \textcolor{comment}{/*transpose\ within\ 16x16\ face*/},\ cbid)));}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((llk\_math\_eltwise\_unary\_datacopy\_init<A2D,\ BroadcastType::NONE,\ DST\_ACCUM\_MODE>(}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{false}\ \textcolor{comment}{/*transpose\ of\ faces*/},\ \textcolor{keyword}{false}\ \textcolor{comment}{/*transpose\ within\ 16x16\ face*/},\ cbid)));}
+\DoxyCodeLine{00033\ \}}
+\DoxyCodeLine{00038\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_aea570483ca5371db26adbdb562bdc640}{copy\_tile\_init}}()\ \{\ \mbox{\hyperlink{namespaceckernel_aee656afd9be0e1341190c24a349fe54e}{copy\_tile\_to\_dst\_init\_short}}();\ \}}
 \DoxyCodeLine{00039\ }
-\DoxyCodeLine{00049\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a4de2f4f17e04dc5219e09945e754c6a9}{copy\_tile\_to\_dst\_init\_short\_with\_dt}}(uint32\_t\ old\_cbid,\ uint32\_t\ new\_cbid,\ uint32\_t\ transpose\ =\ 0)}
-\DoxyCodeLine{00050\ \{}
-\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{//\ This\ reconfig\ call\ checks\ if\ old\ operand\ has\ different\ data\ format\ to}}
-\DoxyCodeLine{00052\ \ \ \ \ \textcolor{comment}{//\ new\ operand\ idx,\ otherwise\ no\ reconfig\ call\ occurs}}
-\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((\ llk\_unpack\_reconfig\_data\_format\_srca(old\_cbid,\ new\_cbid)\ ));}
-\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((\ llk\_math\_reconfig\_data\_format\_srca(old\_cbid,\ new\_cbid)\ ));}
-\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{namespaceckernel_aee656afd9be0e1341190c24a349fe54e}{copy\_tile\_to\_dst\_init\_short}}(new\_cbid,\ transpose);}
-\DoxyCodeLine{00056\ \}}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00077\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a150166792eaa318a5837165e71e8b44c}{copy\_tile}}(uint32\_t\ in\_cb\_id,\ uint32\_t\ in\_tile\_index,\ uint32\_t\ dst\_tile\_index)}
-\DoxyCodeLine{00078\ \{}
-\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((\ llk\_unpack\_A<BroadcastType::NONE,\ false,\ EltwiseBinaryReuseDestType::NONE,\ UnpackToDestEn>(in\_cb\_id,\ in\_tile\_index)\ \ ));}
-\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((\ llk\_math\_eltwise\_unary\_datacopy<A2D,\ BroadcastType::NONE,\ DST\_ACCUM\_MODE,\ UnpackToDestEn>(dst\_tile\_index,\ in\_cb\_id)\ \ ));}
-\DoxyCodeLine{00081\ \}}
-\DoxyCodeLine{00082\ }
-\DoxyCodeLine{00083\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a567258ec8567e874535c0e9017e0ca64}{copy\_block\_matmul\_partials}}(uint32\_t\ in\_cb\_id,\ uint32\_t\ start\_in\_tile\_index,\ uint32\_t\ start\_dst\_tile\_index,\ uint32\_t\ ntiles)}
-\DoxyCodeLine{00084\ \{}
-\DoxyCodeLine{00085\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((\ llk\_unpack\_A\_block<BroadcastType::NONE,\ false,\ EltwiseBinaryReuseDestType::NONE,\ UnpackToDestEn>(in\_cb\_id,\ start\_in\_tile\_index,\ ntiles,\ \textcolor{keyword}{false})\ \ ));}
-\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((\ llk\_math\_eltwise\_unary\_datacopy\_block<A2D,\ BroadcastType::NONE,\ DST\_ACCUM\_MODE,\ UnpackToDestEn>(start\_dst\_tile\_index,\ ntiles,\ in\_cb\_id)\ \ ));}
-\DoxyCodeLine{00087\ \}}
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00089\ \}}
+\DoxyCodeLine{00051\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a4de2f4f17e04dc5219e09945e754c6a9}{copy\_tile\_to\_dst\_init\_short\_with\_dt}}(uint32\_t\ old\_cbid,\ uint32\_t\ new\_cbid,\ uint32\_t\ transpose\ =\ 0)\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{comment}{//\ This\ reconfig\ call\ checks\ if\ old\ operand\ has\ different\ data\ format\ to}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{comment}{//\ new\ operand\ idx,\ otherwise\ no\ reconfig\ call\ occurs}}
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((llk\_unpack\_reconfig\_data\_format\_srca(old\_cbid,\ new\_cbid)));}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((llk\_math\_reconfig\_data\_format\_srca(old\_cbid,\ new\_cbid)));}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{namespaceckernel_aee656afd9be0e1341190c24a349fe54e}{copy\_tile\_to\_dst\_init\_short}}(new\_cbid,\ transpose);}
+\DoxyCodeLine{00057\ \}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00079\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a150166792eaa318a5837165e71e8b44c}{copy\_tile}}(uint32\_t\ in\_cb\_id,\ uint32\_t\ in\_tile\_index,\ uint32\_t\ dst\_tile\_index)\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((llk\_unpack\_A<BroadcastType::NONE,\ false,\ EltwiseBinaryReuseDestType::NONE,\ UnpackToDestEn>(}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ in\_cb\_id,\ in\_tile\_index)));}
+\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((llk\_math\_eltwise\_unary\_datacopy<A2D,\ BroadcastType::NONE,\ DST\_ACCUM\_MODE,\ UnpackToDestEn>(}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ dst\_tile\_index,\ in\_cb\_id)));}
+\DoxyCodeLine{00084\ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \mbox{\hyperlink{compute__kernel__api_8h_a102b55d753f30b2569dd7976e1917038}{ALWI}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceckernel_a567258ec8567e874535c0e9017e0ca64}{copy\_block\_matmul\_partials}}(}
+\DoxyCodeLine{00087\ \ \ \ \ uint32\_t\ in\_cb\_id,\ uint32\_t\ start\_in\_tile\_index,\ uint32\_t\ start\_dst\_tile\_index,\ uint32\_t\ ntiles)\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{compute__kernel__api_8h_a5221b9dd336f28fd88546cf7afe5edaf}{UNPACK}}((llk\_unpack\_A\_block<BroadcastType::NONE,\ false,\ EltwiseBinaryReuseDestType::NONE,\ UnpackToDestEn>(}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ in\_cb\_id,\ start\_in\_tile\_index,\ ntiles,\ \textcolor{keyword}{false})));}
+\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{erf__erfc_8h_a5f8a5b21f170f78a59c6aca4376e757d}{MATH}}((llk\_math\_eltwise\_unary\_datacopy\_block<A2D,\ BroadcastType::NONE,\ DST\_ACCUM\_MODE,\ UnpackToDestEn>(}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ start\_dst\_tile\_index,\ ntiles,\ in\_cb\_id)));}
+\DoxyCodeLine{00092\ \}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \}\ \ \textcolor{comment}{//\ namespace\ ckernel}}
 
 \end{DoxyCode}

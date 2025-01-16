@@ -168,12 +168,7 @@ Functions</h2></td></tr>
 <p>Caller is expected to be receiver side. This call will tell the receiver whether or not there is payload data to in the local buffer</p>
 <p>Non-blocking</p>
 <p>Return value: bool: True if payload data was sent (and not yet cleared) on the channel</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">channel   </td><td class="markdownTableBodyNone">Which transaction channel to check   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..7   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------------------&mdash;|------------------------------------------------------&mdash;|-------&mdash;|----------&mdash;|-------&mdash;| | channel | Which transaction channel to check | uint32_t | 0..7 | True | </p>
 
 </div>
 </div>
@@ -195,12 +190,7 @@ Functions</h2></td></tr>
 <p>Caller is expected to be sender side. This clears the local first level ack field. Useful when resetting on sender side in preparation for next send</p>
 <p>Non-blocking</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">channel   </td><td class="markdownTableBodyNone">Which transaction channel to check   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..7   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------------------&mdash;|------------------------------------------------------&mdash;|-------&mdash;|----------&mdash;|-------&mdash;| | channel | Which transaction channel to check | uint32_t | 0..7 | True | </p>
 
 </div>
 </div>
@@ -222,14 +212,7 @@ Functions</h2></td></tr>
 <p>Caller is expected to be sender side. Indicates to caller that the receiver has received the last payload sent, and that the local sender buffer can be cleared safely</p>
 <p>Non-blocking</p>
 <p>Return value: bool: true if the receiver has acked</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">channel   </td><td class="markdownTableBodyNone">Which transaction channel to check. Corresponds to   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..7   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">channels in erisc_info_t   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------------------&mdash;|------------------------------------------------------&mdash;|-------&mdash;|----------&mdash;|-------&mdash;| | channel | Which transaction channel to check. Corresponds to | uint32_t | 0..7 | True | | | channels in erisc_info_t | | | | </p>
 
 </div>
 </div>
@@ -251,14 +234,7 @@ Functions</h2></td></tr>
 <p>Caller is expected to be sender side. Tells caller that the receiver has both received the last payload sent, and also that it has cleared it to its consumers. If true, indicates that caller (sender) send safely send more data.</p>
 <p>Non-blocking</p>
 <p>Return value: bool: true if the receiver has acked and forwarded the payload.</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">channel   </td><td class="markdownTableBodyNone">Which transaction channel to check. Corresponds to   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..7   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">channels in erisc_info_t   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------------------&mdash;|------------------------------------------------------&mdash;|-------&mdash;|----------&mdash;|-------&mdash;| | channel | Which transaction channel to check. Corresponds to | uint32_t | 0..7 | True | | | channels in erisc_info_t | | | | </p>
 
 </div>
 </div>
@@ -333,16 +309,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>A blocking call that waits until the value of a local L1 memory address on the Tensix core executing this function becomes equal to a target value. This L1 memory address is used as a semaphore of size 4 Bytes, as a synchronization mechanism. Also, see <em>noc_semaphore_set</em>.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">sem_addr   </td><td class="markdownTableBodyNone">Semaphore address in local L1 memory   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..1MB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">val   </td><td class="markdownTableBodyNone">The target value of the semaphore   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Any uint32_t value   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">wait_min   </td><td class="markdownTableBodyNone">The number of cycles to wait before performing run_routing()   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Any uint32_t value   </td><td class="markdownTableBodyNone">False   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------&mdash;|-------------------------------------------------------------&mdash;|-------&mdash;|-----------------&mdash;|-------&mdash;| | sem_addr | Semaphore address in local L1 memory | uint32_t | 0..1MB | True | | val | The target value of the semaphore | uint32_t | Any uint32_t value | True | | wait_min | The number of cycles to wait before performing run_routing() | uint32_t | Any uint32_t value | False | </p>
 
 </div>
 </div>
@@ -379,16 +346,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>A blocking call that waits until the value of a local L1 memory address on the Tensix core executing this function becomes equal to or greater than a target value. This L1 memory address is used as a semaphore of size 4 Bytes, as a synchronization mechanism. Also, see <em>noc_semaphore_set</em>.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">sem_addr   </td><td class="markdownTableBodyNone">Semaphore address in local L1 memory   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..1MB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">val   </td><td class="markdownTableBodyNone">The target value of the semaphore   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Any uint32_t value   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">wait_min   </td><td class="markdownTableBodyNone">The number of cycles to wait before performing run_routing()   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Any uint32_t value   </td><td class="markdownTableBodyNone">False   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------&mdash;|-------------------------------------------------------------&mdash;|-------&mdash;|-----------------&mdash;|-------&mdash;| | sem_addr | Semaphore address in local L1 memory | uint32_t | 0..1MB | True | | val | The target value of the semaphore | uint32_t | Any uint32_t value | True | | wait_min | The number of cycles to wait before performing run_routing() | uint32_t | Any uint32_t value | False | </p>
 
 </div>
 </div>
@@ -438,18 +396,7 @@ Functions</h2></td></tr>
 <p>Caller is expected to be receiver side. This sends the first level ack to sender, indicating that the last payload sent on the channel was received and that sender is free to clear its buffer</p>
 <p>Non-blocking</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">channel   </td><td class="markdownTableBodyNone">Which transaction channel to ack   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..7   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">eth_transaction_ack_word_addr   </td><td class="markdownTableBodyNone">Address of 16B memory (also 16B aligned) segment with   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">L1 address   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">to send the eth_channel_sync_t to sender for first level   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">L1 address   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">ack. Must <em>not</em> alias erisc_info-&gt;channels[channel]   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">L1 address   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |----------------------------&mdash;|------------------------------------------------------&mdash;|-------&mdash;|----------&mdash;|-------&mdash;| | channel | Which transaction channel to ack | uint32_t | 0..7 | True | | eth_transaction_ack_word_addr | Address of 16B memory (also 16B aligned) segment with | uint32_t | L1 address | True | | | to send the eth_channel_sync_t to sender for first level| uint32_t | L1 address | True | | | ack. Must <em>not</em> alias erisc_info-&gt;channels[channel] | uint32_t | L1 address | True | </p>
 
 </div>
 </div>
@@ -647,24 +594,7 @@ Functions</h2></td></tr>
 <p>Initiates an asynchronous write from a source address in L1 memory on the local ethernet core to L1 of the connected remote ethernet core. However, this is only the first half of the sender's part of then transaction. It does not include the sending of the write completion signature to the receiver.</p>
 <p>Non-blocking</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">src_addr   </td><td class="markdownTableBodyNone">Source address in local eth core L1 memory   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..256kB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">dst_addr   </td><td class="markdownTableBodyNone">Destination address in remote eth core L1 memory   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..256kB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">num_bytes   </td><td class="markdownTableBodyNone">Size of data transfer in bytes, must be multiple of 16   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..256kB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">channel   </td><td class="markdownTableBodyNone">Which transaction channel to use. Corresponds to   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..7   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">channels in erisc_info_t   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">num_bytes_per_send   </td><td class="markdownTableBodyNone">Number of bytes to send per packet   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">16..1MB   </td><td class="markdownTableBodyNone">False    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">num_bytes_per_send_word_size   </td><td class="markdownTableBodyNone">num_bytes_per_send shifted right 4   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">1..256kB   </td><td class="markdownTableBodyNone">False   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------------------&mdash;|------------------------------------------------------&mdash;|-------&mdash;|----------&mdash;|-------&mdash;| | src_addr | Source address in local eth core L1 memory | uint32_t | 0..256kB | True | | dst_addr | Destination address in remote eth core L1 memory | uint32_t | 0..256kB | True | | num_bytes | Size of data transfer in bytes, must be multiple of 16 | uint32_t | 0..256kB | True | | channel | Which transaction channel to use. Corresponds to | uint32_t | 0..7 | True | | | channels in erisc_info_t | | | | | num_bytes_per_send | Number of bytes to send per packet | uint32_t | 16..1MB | False | | num_bytes_per_send_word_size| num_bytes_per_send shifted right 4 | uint32_t | 1..256kB | False | </p>
 
 </div>
 </div>
@@ -788,14 +718,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>A blocking call that waits for num_bytes of data to be sent from the remote sender ethernet core using any number of eth_send_byte. User must ensure that num_bytes is equal to the total number of bytes sent. Example 1: eth_send_bytes(32), eth_wait_for_bytes(32). Example 2: eth_send_bytes(16), eth_send_bytes(32), eth_wait_for_bytes(48).</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">num_bytes   </td><td class="markdownTableBodyNone">Size of data transfer in bytes, must be multiple of 16   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..256kB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">wait_min   </td><td class="markdownTableBodyNone">The number of cycles to wait before performing run_routing()   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Any uint32_t value   </td><td class="markdownTableBodyNone">False   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |---------&mdash;|-------------------------------------------------------------&mdash;|-------&mdash;|-----------------&mdash;|-------&mdash;| | num_bytes | Size of data transfer in bytes, must be multiple of 16 | uint32_t | 0..256kB | True | | wait_min | The number of cycles to wait before performing run_routing() | uint32_t | Any uint32_t value | False | </p>
 
 </div>
 </div>
@@ -867,14 +790,7 @@ Functions</h2></td></tr>
 <p>Caller is expected to be receiver side. This call block until there is payload data in the local buffer associated with the channel</p>
 <p>Blocking</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">num_bytes   </td><td class="markdownTableBodyNone">Number of bytes to receive before returning to caller   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..1MB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">channel   </td><td class="markdownTableBodyNone">Which transaction channel to check   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..7   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------------------&mdash;|------------------------------------------------------&mdash;|-------&mdash;|----------&mdash;|-------&mdash;| | num_bytes | Number of bytes to receive before returning to caller | uint32_t | 0..1MB | True | | channel | Which transaction channel to check | uint32_t | 0..7 | True | </p>
 
 </div>
 </div>
@@ -896,12 +812,7 @@ Functions</h2></td></tr>
 <p>Caller is expected to be sender side. This call will block until receiver sends both levels of ack</p>
 <p>Blocking</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">channel   </td><td class="markdownTableBodyNone">Which transaction channel to block on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..7   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------------------&mdash;|------------------------------------------------------&mdash;|-------&mdash;|----------&mdash;|-------&mdash;| | channel | Which transaction channel to block on | uint32_t | 0..7 | True | </p>
 
 </div>
 </div>
@@ -922,12 +833,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>A blocking call that waits for receiver to acknowledge that all data sent with eth_send_bytes since the last reset_erisc_info call is no longer being used. Also, see <em><a class="el" href="ethernet_2dataflow__api_8h.html#af27bb42b34afb388a0994da0f2b73c54">eth_receiver_done()</a></em>.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">wait_min   </td><td class="markdownTableBodyNone">The number of cycles to wait before performing run_routing()   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Any uint32_t value   </td><td class="markdownTableBodyNone">False   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |---------&mdash;|-------------------------------------------------------------&mdash;|-------&mdash;|-----------------&mdash;|-------&mdash;| | wait_min | The number of cycles to wait before performing run_routing() | uint32_t | Any uint32_t value | False | </p>
 
 </div>
 </div>
@@ -967,14 +873,7 @@ Functions</h2></td></tr>
 <p>Caller is expected to be sender side. This call will block until receiver sends both levels of ack</p>
 <p>Blocking</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">channel   </td><td class="markdownTableBodyNone">Which transaction channel to block on   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..7   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">wait_min   </td><td class="markdownTableBodyNone">The number of cycles to wait before performing run_routing()   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Any uint32_t value   </td><td class="markdownTableBodyNone">False   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |-------------------&mdash;|-------------------------------------------------------------&mdash;|-------&mdash;|-----------------&mdash;|-------&mdash;| | channel | Which transaction channel to block on | uint32_t | 0..7 | True | | wait_min | The number of cycles to wait before performing run_routing() | uint32_t | Any uint32_t value | False | </p>
 
 </div>
 </div>
@@ -1034,12 +933,7 @@ Functions</h2></td></tr>
 <p>Caller is expected to be receiver side. This call sends the second (and first) level ack to sender, indicating that the receiver flushed its buffer and is able to accept more data</p>
 <p>Non-nlocking</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">channel   </td><td class="markdownTableBodyNone">Which transaction channel to ack   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..7   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------------------&mdash;|------------------------------------------------------&mdash;|-------&mdash;|----------&mdash;|-------&mdash;| | channel | Which transaction channel to ack | uint32_t | 0..7 | True | </p>
 
 </div>
 </div>
@@ -1060,12 +954,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Wait until the ethernet transaction queue is no longer busy ingesting a command</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">wait_min   </td><td class="markdownTableBodyNone">The number of cycles to wait before performing run_routing()   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Any uint32_t value   </td><td class="markdownTableBodyNone">False   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------&mdash;|-------------------------------------------------------------&mdash;|-------&mdash;|-----------------&mdash;|-------&mdash;| | wait_min | The number of cycles to wait before performing run_routing() | uint32_t | Any uint32_t value | False | </p>
 
 </div>
 </div>
