@@ -8,6 +8,7 @@
     <includedby refid="command__queue_8hpp" local="yes">tt_metal/include/tt_metal/command_queue.hpp</includedby>
     <includedby refid="device_8hpp" local="yes">tt_metal/include/tt_metal/device.hpp</includedby>
     <includedby refid="event_8hpp" local="yes">tt_metal/include/tt_metal/event.hpp</includedby>
+    <includedby refid="global__circular__buffer_8hpp" local="yes">tt_metal/include/tt_metal/global_circular_buffer.hpp</includedby>
     <includedby refid="kernel_8hpp" local="yes">tt_metal/include/tt_metal/kernel.hpp</includedby>
     <includedby refid="metal_8hpp" local="yes">tt_metal/include/tt_metal/metal.hpp</includedby>
     <includedby refid="program_8hpp" local="yes">tt_metal/include/tt_metal/program.hpp</includedby>
@@ -90,6 +91,12 @@
         </childnode>
       </node>
       <node id="7">
+        <label>tt_metal/include/tt_metal/global_circular_buffer.hpp</label>
+        <link refid="global__circular__buffer_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
         <label>tt_metal/include/tt_metal/kernel.hpp</label>
         <link refid="kernel_8hpp"/>
         <childnode refid="3" relation="include">
@@ -99,13 +106,13 @@
         <label>tt_metal/include/tt_metal/metal.hpp</label>
         <link refid="metal_8hpp"/>
       </node>
-      <node id="8">
+      <node id="9">
         <label>tt_metal/include/tt_metal/program.hpp</label>
         <link refid="program_8hpp"/>
         <childnode refid="3" relation="include">
         </childnode>
       </node>
-      <node id="9">
+      <node id="10">
         <label>tt_metal/include/tt_metal/trace.hpp</label>
         <link refid="trace_8hpp"/>
         <childnode refid="3" relation="include">
@@ -124,11 +131,13 @@
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
         <childnode refid="8" relation="include">
         </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
         <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -162,7 +171,7 @@
 <codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">DeviceHandle;</highlight></codeline>
 <codeline lineno="15"><highlight class="normal"></highlight></codeline>
 <codeline lineno="16" refid="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle" kindref="compound">CommandQueueHandle</ref><sp/>{</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/><ref refid="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle" kindref="compound">CommandQueueHandle</ref>(DeviceHandle<sp/>device,<sp/>std::uint8_t<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/>0)<sp/>:<sp/>device{device},<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">{</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">}<sp/>{}</highlight></codeline>
 <codeline lineno="19"><highlight class="normal"></highlight></codeline>
 <codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>DeviceHandle<sp/>device;</highlight></codeline>
@@ -174,10 +183,10 @@
 <codeline lineno="26"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="27"><highlight class="normal"></highlight></codeline>
 <codeline lineno="28" refid="classtt_1_1tt__metal_1_1v1_1_1TraceHandle" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classtt_1_1tt__metal_1_1v1_1_1TraceHandle" kindref="compound">TraceHandle</ref><sp/>{</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="30" refid="classtt_1_1tt__metal_1_1v1_1_1TraceHandle_1a1f2918a5a72aa155e7148433ab60cd99" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">operator</highlight><highlight class="normal"><sp/>std::uint32_t()<sp/>const<sp/>noexcept<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>id;<sp/>}</highlight></codeline>
 <codeline lineno="31"><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/><ref refid="classtt_1_1tt__metal_1_1v1_1_1TraceHandle" kindref="compound">TraceHandle</ref>(<ref refid="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle" kindref="compound">CommandQueueHandle</ref><sp/>cq,<sp/>std::uint32_t<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>noexcept<sp/>:<sp/>cq{cq},<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">{</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">}<sp/>{}</highlight></codeline>
 <codeline lineno="34"><highlight class="normal"></highlight></codeline>
 <codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>CommandQueueHandle<sp/>cq;</highlight></codeline>
@@ -188,53 +197,53 @@
 <codeline lineno="40"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="41"><highlight class="normal"></highlight></codeline>
 <codeline lineno="42" refid="classtt_1_1tt__metal_1_1v1_1_1KernelHandle" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classtt_1_1tt__metal_1_1v1_1_1KernelHandle" kindref="compound">KernelHandle</ref><sp/>{</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="44" refid="classtt_1_1tt__metal_1_1v1_1_1KernelHandle_1a661384877cb93b37bbf630c31131e981" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/><ref refid="classtt_1_1tt__metal_1_1v1_1_1KernelHandle_1a661384877cb93b37bbf630c31131e981" kindref="member">KernelHandle</ref>(tt_metal::KernelHandle<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>noexcept<sp/>:<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">{</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">}<sp/>{}</highlight></codeline>
 <codeline lineno="45"><highlight class="normal"></highlight></codeline>
 <codeline lineno="46" refid="classtt_1_1tt__metal_1_1v1_1_1KernelHandle_1aeda14edd5ec3fc85942dfa00c7ae6b79" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">operator</highlight><highlight class="normal"><sp/>tt_metal::KernelHandle()<sp/>const<sp/>noexcept<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>id;<sp/>}</highlight></codeline>
 <codeline lineno="47"><highlight class="normal"></highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>tt_metal::KernelHandle<sp/>id;</highlight></codeline>
 <codeline lineno="50"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="51"><highlight class="normal"></highlight></codeline>
 <codeline lineno="52" refid="classtt_1_1tt__metal_1_1v1_1_1CircularBufferHandle" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classtt_1_1tt__metal_1_1v1_1_1CircularBufferHandle" kindref="compound">CircularBufferHandle</ref><sp/>{</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="54" refid="classtt_1_1tt__metal_1_1v1_1_1CircularBufferHandle_1a26b8d94a1e19c016888070fa8305dff8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/><ref refid="classtt_1_1tt__metal_1_1v1_1_1CircularBufferHandle_1a26b8d94a1e19c016888070fa8305dff8" kindref="member">CircularBufferHandle</ref>(v0::CBHandle<sp/>cb_id)<sp/>noexcept<sp/>:<sp/>cb_id{cb_id}<sp/>{}</highlight></codeline>
 <codeline lineno="55"><highlight class="normal"></highlight></codeline>
 <codeline lineno="56" refid="classtt_1_1tt__metal_1_1v1_1_1CircularBufferHandle_1a3d1689afd997b3df36d371bc9d344d07" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">operator</highlight><highlight class="normal"><sp/>v0::CBHandle()<sp/>const<sp/>noexcept<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>cb_id;<sp/>}</highlight></codeline>
 <codeline lineno="57"><highlight class="normal"></highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>v0::CBHandle<sp/>cb_id;</highlight></codeline>
 <codeline lineno="60"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="61"><highlight class="normal"></highlight></codeline>
 <codeline lineno="62" refid="classtt_1_1tt__metal_1_1v1_1_1BufferHandle" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classtt_1_1tt__metal_1_1v1_1_1BufferHandle" kindref="compound">BufferHandle</ref><sp/>{</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="64" refid="classtt_1_1tt__metal_1_1v1_1_1BufferHandle_1aaa219b9d194b5347cd3e1751db0812bb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classtt_1_1tt__metal_1_1v1_1_1BufferHandle_1aaa219b9d194b5347cd3e1751db0812bb" kindref="member">BufferHandle</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;v0::Buffer&gt;<sp/>&amp;buffer_ptr)<sp/>noexcept<sp/>:<sp/>buffer_ptr{buffer_ptr}<sp/>{}</highlight></codeline>
-<codeline lineno="65" refid="classtt_1_1tt__metal_1_1v1_1_1BufferHandle_1aeea975ed418d10ab49b39895594d208e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classtt_1_1tt__metal_1_1v1_1_1BufferHandle_1aeea975ed418d10ab49b39895594d208e" kindref="member">BufferHandle</ref>(std::shared_ptr&lt;v0::Buffer&gt;<sp/>&amp;&amp;buffer_ptr)<sp/>noexcept<sp/>:</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buffer_ptr{</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">std::shared_ptr&lt;v0::Buffer&gt;<sp/>&amp;&amp;</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(buffer_ptr)}<sp/>{}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="64" refid="classtt_1_1tt__metal_1_1v1_1_1BufferHandle_1aaa219b9d194b5347cd3e1751db0812bb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classtt_1_1tt__metal_1_1v1_1_1BufferHandle_1aaa219b9d194b5347cd3e1751db0812bb" kindref="member">BufferHandle</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;v0::Buffer&gt;&amp;<sp/>buffer_ptr)<sp/>noexcept<sp/>:<sp/>buffer_ptr{buffer_ptr}<sp/>{}</highlight></codeline>
+<codeline lineno="65" refid="classtt_1_1tt__metal_1_1v1_1_1BufferHandle_1aeea975ed418d10ab49b39895594d208e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classtt_1_1tt__metal_1_1v1_1_1BufferHandle_1aeea975ed418d10ab49b39895594d208e" kindref="member">BufferHandle</ref>(std::shared_ptr&lt;v0::Buffer&gt;&amp;&amp;<sp/>buffer_ptr)<sp/>noexcept<sp/>:</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buffer_ptr{</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">std::shared_ptr&lt;v0::Buffer&gt;&amp;&amp;</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(buffer_ptr)}<sp/>{}</highlight></codeline>
 <codeline lineno="67"><highlight class="normal"></highlight></codeline>
-<codeline lineno="68" refid="classtt_1_1tt__metal_1_1v1_1_1BufferHandle_1a040c8d7a470f1caa91c8c1292e54adda" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">operator</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;v0::Buffer&gt;<sp/>&amp;()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal"><sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>buffer_ptr;<sp/>}</highlight></codeline>
+<codeline lineno="68" refid="classtt_1_1tt__metal_1_1v1_1_1BufferHandle_1a040c8d7a470f1caa91c8c1292e54adda" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">operator</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;v0::Buffer&gt;&amp;()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal"><sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>buffer_ptr;<sp/>}</highlight></codeline>
 <codeline lineno="69"><highlight class="normal"></highlight></codeline>
-<codeline lineno="70" refid="classtt_1_1tt__metal_1_1v1_1_1BufferHandle_1a7c90aa98728f3f74c225713f8fe8d040" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>v0::Buffer<sp/>&amp;<ref refid="classtt_1_1tt__metal_1_1v1_1_1BufferHandle_1a7c90aa98728f3f74c225713f8fe8d040" kindref="member">operator*</ref>()<sp/>const<sp/>noexcept<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*buffer_ptr.get();<sp/>}</highlight></codeline>
-<codeline lineno="71" refid="classtt_1_1tt__metal_1_1v1_1_1BufferHandle_1ac1883f3f5cf6494121fe2dc550a3dc84" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>v0::Buffer<sp/>*<ref refid="classtt_1_1tt__metal_1_1v1_1_1BufferHandle_1ac1883f3f5cf6494121fe2dc550a3dc84" kindref="member">operator-&gt;</ref>()<sp/>const<sp/>noexcept<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>buffer_ptr.get();<sp/>}</highlight></codeline>
+<codeline lineno="70" refid="classtt_1_1tt__metal_1_1v1_1_1BufferHandle_1a7c90aa98728f3f74c225713f8fe8d040" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>v0::Buffer&amp;<sp/><ref refid="classtt_1_1tt__metal_1_1v1_1_1BufferHandle_1a7c90aa98728f3f74c225713f8fe8d040" kindref="member">operator*</ref>()<sp/>const<sp/>noexcept<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*buffer_ptr.get();<sp/>}</highlight></codeline>
+<codeline lineno="71" refid="classtt_1_1tt__metal_1_1v1_1_1BufferHandle_1ac1883f3f5cf6494121fe2dc550a3dc84" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>v0::Buffer*<sp/><ref refid="classtt_1_1tt__metal_1_1v1_1_1BufferHandle_1ac1883f3f5cf6494121fe2dc550a3dc84" kindref="member">operator-&gt;</ref>()<sp/>const<sp/>noexcept<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>buffer_ptr.get();<sp/>}</highlight></codeline>
 <codeline lineno="72"><highlight class="normal"></highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>std::shared_ptr&lt;v0::Buffer&gt;<sp/>buffer_ptr;</highlight></codeline>
 <codeline lineno="75"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="76"><highlight class="normal"></highlight></codeline>
 <codeline lineno="77" refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle" kindref="compound">EventHandle</ref><sp/>{</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="79" refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1ab29359689b0f6afdfb6951feb0c677c3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1ab29359689b0f6afdfb6951feb0c677c3" kindref="member">EventHandle</ref>();</highlight></codeline>
-<codeline lineno="80" refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1a2b6c639bd0942e17d27049fc506804c5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1a2b6c639bd0942e17d27049fc506804c5" kindref="member">EventHandle</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;v0::Event&gt;<sp/>&amp;event_ptr)<sp/>noexcept<sp/>:<sp/>event_ptr{event_ptr}<sp/>{}</highlight></codeline>
-<codeline lineno="81" refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1a6d473515fbd1a10aaa34bfe7f6d32461" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1a6d473515fbd1a10aaa34bfe7f6d32461" kindref="member">EventHandle</ref>(std::shared_ptr&lt;v0::Event&gt;<sp/>&amp;&amp;event_ptr)<sp/>noexcept<sp/>:</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>event_ptr{</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">std::shared_ptr&lt;v0::Event&gt;<sp/>&amp;&amp;</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(event_ptr)}<sp/>{}</highlight></codeline>
+<codeline lineno="80" refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1a2b6c639bd0942e17d27049fc506804c5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1a2b6c639bd0942e17d27049fc506804c5" kindref="member">EventHandle</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;v0::Event&gt;&amp;<sp/>event_ptr)<sp/>noexcept<sp/>:<sp/>event_ptr{event_ptr}<sp/>{}</highlight></codeline>
+<codeline lineno="81" refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1a6d473515fbd1a10aaa34bfe7f6d32461" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1a6d473515fbd1a10aaa34bfe7f6d32461" kindref="member">EventHandle</ref>(std::shared_ptr&lt;v0::Event&gt;&amp;&amp;<sp/>event_ptr)<sp/>noexcept<sp/>:</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>event_ptr{</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">std::shared_ptr&lt;v0::Event&gt;&amp;&amp;</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(event_ptr)}<sp/>{}</highlight></codeline>
 <codeline lineno="83"><highlight class="normal"></highlight></codeline>
-<codeline lineno="84" refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1a0dcdd812c1b46a812399f8247691a0de" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">operator</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;v0::Event&gt;<sp/>&amp;()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal"><sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>event_ptr;<sp/>}</highlight></codeline>
+<codeline lineno="84" refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1a0dcdd812c1b46a812399f8247691a0de" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">operator</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;v0::Event&gt;&amp;()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal"><sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>event_ptr;<sp/>}</highlight></codeline>
 <codeline lineno="85"><highlight class="normal"></highlight></codeline>
-<codeline lineno="86" refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1a7deae344ab08631d25b36b4ae222f6df" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>v0::Event<sp/>&amp;<ref refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1a7deae344ab08631d25b36b4ae222f6df" kindref="member">operator*</ref>()<sp/>const<sp/>noexcept<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*event_ptr.get();<sp/>}</highlight></codeline>
-<codeline lineno="87" refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1aef34aec71cd59b975c4a6f7c1413e31b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>v0::Event<sp/>*<ref refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1aef34aec71cd59b975c4a6f7c1413e31b" kindref="member">operator-&gt;</ref>()<sp/>const<sp/>noexcept<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>event_ptr.get();<sp/>}</highlight></codeline>
+<codeline lineno="86" refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1a7deae344ab08631d25b36b4ae222f6df" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>v0::Event&amp;<sp/><ref refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1a7deae344ab08631d25b36b4ae222f6df" kindref="member">operator*</ref>()<sp/>const<sp/>noexcept<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*event_ptr.get();<sp/>}</highlight></codeline>
+<codeline lineno="87" refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1aef34aec71cd59b975c4a6f7c1413e31b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>v0::Event*<sp/><ref refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle_1aef34aec71cd59b975c4a6f7c1413e31b" kindref="member">operator-&gt;</ref>()<sp/>const<sp/>noexcept<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>event_ptr.get();<sp/>}</highlight></codeline>
 <codeline lineno="88"><highlight class="normal"></highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>std::shared_ptr&lt;v0::Event&gt;<sp/>event_ptr;</highlight></codeline>
 <codeline lineno="91"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="92"><highlight class="normal"></highlight></codeline>

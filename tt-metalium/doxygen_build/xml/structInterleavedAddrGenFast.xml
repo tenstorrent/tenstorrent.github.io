@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="1036" column="14" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1036" bodyend="-1"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1096" column="14" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1096" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structInterleavedAddrGenFast_1aa28ff99f21ae59113e530e7ada1e7db4" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -43,7 +43,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="1038" column="14" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1038" bodyend="-1"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1098" column="14" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1098" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structInterleavedAddrGenFast_1a99a3860f937c77a3443ef7f4f81c3868" prot="public" static="no" mutable="no">
         <type>DataFormat</type>
@@ -57,7 +57,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="1039" column="16" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1039" bodyend="-1"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1099" column="16" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1099" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -90,7 +90,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="1042" column="14" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1042" bodyend="1044"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1102" column="14" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1102" bodyend="1109"/>
       </memberdef>
       <memberdef kind="function" id="structInterleavedAddrGenFast_1a3093c8318703ed28c1de8ae69f81f066" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>std::uint64_t</type>
@@ -118,7 +118,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="1047" column="19" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1047" bodyend="1055"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1112" column="19" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1112" bodyend="1120"/>
       </memberdef>
       <memberdef kind="function" id="structInterleavedAddrGenFast_1a6b8754cfefa3b0a98de891459fcce786" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -150,7 +150,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="1058" column="10" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1058" bodyend="1075"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1123" column="10" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1123" bodyend="1141"/>
       </memberdef>
       <memberdef kind="function" id="structInterleavedAddrGenFast_1a03073c2fbb753af33ee13ca95deecab7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -177,14 +177,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/hw/inc/dataflow_api.h" line="1078" column="10" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1078" bodyend="1102"/>
+        <location file="tt_metal/hw/inc/dataflow_api.h" line="1144" column="10" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1144" bodyend="1174"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="tt_metal/hw/inc/dataflow_api.h" line="1035" column="1" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1035" bodyend="1103"/>
+    <location file="tt_metal/hw/inc/dataflow_api.h" line="1095" column="1" bodyfile="tt_metal/hw/inc/dataflow_api.h" bodystart="1095" bodyend="1175"/>
     <listofallmembers>
       <member refid="structInterleavedAddrGenFast_1a75f8e84dc2ed014494e27a9a66d08da0" prot="public" virt="non-virtual"><scope>InterleavedAddrGenFast</scope><name>bank_base_address</name></member>
       <member refid="structInterleavedAddrGenFast_1a99a3860f937c77a3443ef7f4f81c3868" prot="public" virt="non-virtual"><scope>InterleavedAddrGenFast</scope><name>data_format</name></member>

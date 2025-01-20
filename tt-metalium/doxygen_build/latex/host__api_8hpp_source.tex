@@ -46,190 +46,302 @@
 \DoxyCodeLine{00069\ }
 \DoxyCodeLine{00070\ chip\_id\_t\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_af46d5827805ba92482cddb5591c69a45}{GetPCIeDeviceID}}(chip\_id\_t\ device\_id);}
 \DoxyCodeLine{00071\ }
-\DoxyCodeLine{00081\ Device\ *\mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_abe3488f7ac4863b7b372f344f863bc84}{CreateDevice}}(}
-\DoxyCodeLine{00082\ \ \ \ \ chip\_id\_t\ device\_id,}
-\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ num\_hw\_cqs\ =\ 1,}
-\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ l1\_small\_size\ =\ DEFAULT\_L1\_SMALL\_SIZE,}
-\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ trace\_region\_size\ =\ DEFAULT\_TRACE\_REGION\_SIZE,}
-\DoxyCodeLine{00086\ \ \ \ \ DispatchCoreType\ dispatch\_core\_type\ =\ DispatchCoreType::WORKER,}
-\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<uint32\_t>\ \&l1\_bank\_remap\ =\ \{\});}
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00098\ Device\ *\mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a1690575bfc5a81f0a7bc44b0a1f4780b}{CreateDeviceMinimal}}(}
-\DoxyCodeLine{00099\ \ \ \ \ chip\_id\_t\ device\_id,\ \textcolor{keyword}{const}\ uint8\_t\ num\_hw\_cqs\ =\ 1,\ DispatchCoreType\ dispatch\_core\_type\ =\ DispatchCoreType::WORKER);}
-\DoxyCodeLine{00100\ }
-\DoxyCodeLine{00110\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a26cb44c89e3231cade68dca1a6990bbb}{CloseDevice}}(Device\ *device);}
-\DoxyCodeLine{00111\ }
-\DoxyCodeLine{00112\ \textcolor{comment}{//\ ==================================================}}
-\DoxyCodeLine{00113\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HOST\ API:\ program\ \&\ kernels}}
-\DoxyCodeLine{00114\ \textcolor{comment}{//\ ==================================================}}
-\DoxyCodeLine{00115\ }
-\DoxyCodeLine{00121\ Program\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a826db8a9c40c91034bc2a5f0f6e9b75e}{CreateProgram}}();}
-\DoxyCodeLine{00122\ }
-\DoxyCodeLine{00135\ KernelHandle\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a0e68e0e2cb813bf5814ddb02d82cd1d0}{CreateKernel}}(}
-\DoxyCodeLine{00136\ \ \ \ \ Program\ \&program,}
-\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&file\_name,}
-\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keyword}{const}\ std::variant<CoreCoord,\ CoreRange,\ CoreRangeSet>\ \&core\_spec,}
-\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keyword}{const}\ std::variant<DataMovementConfig,\ ComputeConfig,\ EthernetConfig>\ \&config);}
-\DoxyCodeLine{00140\ }
-\DoxyCodeLine{00153\ KernelHandle\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a63aefd0f3f82e3dd0d66ff2ca72453c8}{CreateKernelFromString}}(}
-\DoxyCodeLine{00154\ \ \ \ \ Program\ \&program,}
-\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&kernel\_src\_code,}
-\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keyword}{const}\ std::variant<CoreCoord,\ CoreRange,\ CoreRangeSet>\ \&core\_spec,}
-\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keyword}{const}\ std::variant<DataMovementConfig,\ ComputeConfig,\ EthernetConfig>\ \&config);}
-\DoxyCodeLine{00158\ }
-\DoxyCodeLine{00159\ \textcolor{comment}{//\ ==================================================}}
-\DoxyCodeLine{00160\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HOST\ API:\ buffers}}
-\DoxyCodeLine{00161\ \textcolor{comment}{//\ ==================================================}}
-\DoxyCodeLine{00178\ \textcolor{comment}{}CBHandle\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a4b1e837406fd39ad2b671b7836ce3e4c}{CreateCircularBuffer}}(}
-\DoxyCodeLine{00179\ \ \ \ \ Program\ \&program,}
-\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keyword}{const}\ std::variant<CoreCoord,\ CoreRange,\ CoreRangeSet>\ \&core\_spec,}
-\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keyword}{const}\ CircularBufferConfig\ \&config);}
-\DoxyCodeLine{00182\ }
-\DoxyCodeLine{00193\ \textcolor{keyword}{const}\ CircularBufferConfig\ \&\mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_ac4b1a13298da52770f32ddeeabd2c65a}{GetCircularBufferConfig}}(Program\ \&program,\ CBHandle\ cb\_handle);}
-\DoxyCodeLine{00194\ }
-\DoxyCodeLine{00206\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a220dc8a16809c1c12a44348b9a76ab08}{UpdateCircularBufferTotalSize}}(Program\ \&program,\ CBHandle\ cb\_handle,\ uint32\_t\ total\_size);}
-\DoxyCodeLine{00207\ }
-\DoxyCodeLine{00220\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a3831e993c64a578637c9fc73b059412d}{UpdateCircularBufferPageSize}}(Program\ \&program,\ CBHandle\ cb\_handle,\ uint8\_t\ buffer\_index,\ uint32\_t\ page\_size);}
-\DoxyCodeLine{00221\ }
-\DoxyCodeLine{00233\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a0cf0d51e979e755908ee29c30401ee53}{UpdateDynamicCircularBufferAddress}}(Program\ \&program,\ CBHandle\ cb\_handle,\ \textcolor{keyword}{const}\ Buffer\ \&buffer);}
-\DoxyCodeLine{00234\ }
-\DoxyCodeLine{00247\ uint32\_t\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_ad7ce765d28d851983f910495c44411cd}{CreateSemaphore}}(}
-\DoxyCodeLine{00248\ \ \ \ \ Program\ \&program,}
-\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keyword}{const}\ std::variant<CoreRange,\ CoreRangeSet>\ \&core\_spec,}
-\DoxyCodeLine{00250\ \ \ \ \ uint32\_t\ initial\_value,}
-\DoxyCodeLine{00251\ \ \ \ \ CoreType\ core\_type\ =\ CoreType::WORKER);}
-\DoxyCodeLine{00252\ }
-\DoxyCodeLine{00266\ std::unique\_ptr<GlobalSemaphore>\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a087c394c5ec94274c150ee18ef88ef78}{CreateGlobalSemaphore}}(}
-\DoxyCodeLine{00267\ \ \ \ \ Device\ *device,\ \textcolor{keyword}{const}\ CoreRangeSet\ \&cores,\ uint32\_t\ initial\_value,\ BufferType\ buffer\_type\ =\ BufferType::L1);}
-\DoxyCodeLine{00268\ }
-\DoxyCodeLine{00282\ std::unique\_ptr<GlobalSemaphore>\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a087c394c5ec94274c150ee18ef88ef78}{CreateGlobalSemaphore}}(}
-\DoxyCodeLine{00283\ \ \ \ \ Device\ *device,\ CoreRangeSet\ \&\&cores,\ uint32\_t\ initial\_value,\ BufferType\ buffer\_type\ =\ BufferType::L1);}
-\DoxyCodeLine{00284\ }
-\DoxyCodeLine{00294\ std::shared\_ptr<Buffer>\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_aec7794124ecb8f3b20ffe95a4c8b390d}{CreateBuffer}}(\textcolor{keyword}{const}\ InterleavedBufferConfig\ \&config);}
-\DoxyCodeLine{00295\ }
-\DoxyCodeLine{00306\ std::shared\_ptr<Buffer>\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_aec7794124ecb8f3b20ffe95a4c8b390d}{CreateBuffer}}(\textcolor{keyword}{const}\ InterleavedBufferConfig\ \&config,\ DeviceAddr\ address);}
-\DoxyCodeLine{00307\ }
-\DoxyCodeLine{00318\ std::shared\_ptr<Buffer>\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_aec7794124ecb8f3b20ffe95a4c8b390d}{CreateBuffer}}(\textcolor{keyword}{const}\ InterleavedBufferConfig\ \&config,\ SubDeviceId\ sub\_device\_id);}
-\DoxyCodeLine{00319\ }
-\DoxyCodeLine{00329\ std::shared\_ptr<Buffer>\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_aec7794124ecb8f3b20ffe95a4c8b390d}{CreateBuffer}}(\textcolor{keyword}{const}\ ShardedBufferConfig\ \&config);}
-\DoxyCodeLine{00330\ }
-\DoxyCodeLine{00341\ std::shared\_ptr<Buffer>\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_aec7794124ecb8f3b20ffe95a4c8b390d}{CreateBuffer}}(\textcolor{keyword}{const}\ ShardedBufferConfig\ \&config,\ DeviceAddr\ address);}
-\DoxyCodeLine{00342\ }
-\DoxyCodeLine{00353\ std::shared\_ptr<Buffer>\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_aec7794124ecb8f3b20ffe95a4c8b390d}{CreateBuffer}}(\textcolor{keyword}{const}\ ShardedBufferConfig\ \&config,\ SubDeviceId\ sub\_device\_id);}
-\DoxyCodeLine{00354\ }
-\DoxyCodeLine{00364\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_abce385d98e86cf18acb680f183039cb5}{DeallocateBuffer}}(Buffer\ \&buffer);}
-\DoxyCodeLine{00365\ }
-\DoxyCodeLine{00376\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a1ebc34320ecacb398a25f67c206422d5}{AssignGlobalBufferToProgram}}(std::shared\_ptr<Buffer>\ buffer,\ Program\&\ program);}
-\DoxyCodeLine{00377\ }
-\DoxyCodeLine{00378\ \textcolor{comment}{//\ ==================================================}}
-\DoxyCodeLine{00379\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ COMPILE\ \&\ EXECUTE\ KENRNELS}}
-\DoxyCodeLine{00380\ \textcolor{comment}{//\ ==================================================}}
-\DoxyCodeLine{00381\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a5d1cfea010cb740e7307b18b4a7ec9e8}{RuntimeArgs}}\ =\ std::vector<std::variant<Buffer\ *,\ uint32\_t>>;}
-\DoxyCodeLine{00395\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_afb2ca08d5f123ed98b99498324061ba4}{SetRuntimeArgs}}(}
-\DoxyCodeLine{00396\ \ \ \ \ \textcolor{keyword}{const}\ Program\ \&program,}
-\DoxyCodeLine{00397\ \ \ \ \ KernelHandle\ kernel,}
-\DoxyCodeLine{00398\ \ \ \ \ \textcolor{keyword}{const}\ std::variant<CoreCoord,\ CoreRange,\ CoreRangeSet>\ \&core\_spec,}
-\DoxyCodeLine{00399\ \ \ \ \ stl::Span<const\ uint32\_t>\ runtime\_args);}
-\DoxyCodeLine{00400\ }
-\DoxyCodeLine{00414\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_afb2ca08d5f123ed98b99498324061ba4}{SetRuntimeArgs}}(}
-\DoxyCodeLine{00415\ \ \ \ \ \textcolor{keyword}{const}\ Program\ \&program,}
-\DoxyCodeLine{00416\ \ \ \ \ KernelHandle\ kernel,}
-\DoxyCodeLine{00417\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<CoreCoord>\ \&core\_spec,}
-\DoxyCodeLine{00418\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::vector<uint32\_t>>\ \&runtime\_args);}
-\DoxyCodeLine{00419\ }
-\DoxyCodeLine{00433\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_afb2ca08d5f123ed98b99498324061ba4}{SetRuntimeArgs}}(}
-\DoxyCodeLine{00434\ \ \ \ \ Device\ *device,}
-\DoxyCodeLine{00435\ \ \ \ \ \textcolor{keyword}{const}\ std::shared\_ptr<Kernel>\ kernel,}
-\DoxyCodeLine{00436\ \ \ \ \ \textcolor{keyword}{const}\ std::variant<CoreCoord,\ CoreRange,\ CoreRangeSet>\ \&core\_spec,}
-\DoxyCodeLine{00437\ \ \ \ \ std::shared\_ptr<RuntimeArgs>\ runtime\_args);}
-\DoxyCodeLine{00438\ }
-\DoxyCodeLine{00451\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_afb2ca08d5f123ed98b99498324061ba4}{SetRuntimeArgs}}(}
-\DoxyCodeLine{00452\ \ \ \ \ Device\ *device,}
-\DoxyCodeLine{00453\ \ \ \ \ \textcolor{keyword}{const}\ std::shared\_ptr<Kernel>\ kernel,}
-\DoxyCodeLine{00454\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<CoreCoord>\ \&core\_spec,}
-\DoxyCodeLine{00455\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::shared\_ptr<RuntimeArgs>>\ runtime\_args);}
-\DoxyCodeLine{00456\ }
-\DoxyCodeLine{00469\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a8263eba8cd8279b6c1e6db233ec5f133}{SetCommonRuntimeArgs}}(\textcolor{keyword}{const}\ Program\ \&program,\ KernelHandle\ kernel\_id,\ stl::Span<const\ uint32\_t>\ runtime\_args);}
-\DoxyCodeLine{00470\ }
-\DoxyCodeLine{00482\ RuntimeArgsData\ \&\mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a609d42acfdab49842d577aae66de2e67}{GetRuntimeArgs}}(\textcolor{keyword}{const}\ Program\ \&program,\ KernelHandle\ kernel\_id,\ \textcolor{keyword}{const}\ CoreCoord\ \&logical\_core);}
-\DoxyCodeLine{00483\ }
-\DoxyCodeLine{00494\ std::vector<std::vector<RuntimeArgsData>>\ \&\mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a609d42acfdab49842d577aae66de2e67}{GetRuntimeArgs}}(\textcolor{keyword}{const}\ Program\ \&program,\ KernelHandle\ kernel\_id);}
-\DoxyCodeLine{00495\ }
-\DoxyCodeLine{00506\ RuntimeArgsData\ \&\mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a9117d8f938e3b0c3e6b146f960eafa2f}{GetCommonRuntimeArgs}}(\textcolor{keyword}{const}\ Program\ \&program,\ KernelHandle\ kernel\_id);}
-\DoxyCodeLine{00507\ }
-\DoxyCodeLine{00521\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a76bb833452d2265a33a294eef1140782}{EnqueueReadBuffer}}(}
-\DoxyCodeLine{00522\ \ \ \ \ CommandQueue\ \&cq,}
-\DoxyCodeLine{00523\ \ \ \ \ std::variant<std::reference\_wrapper<Buffer>,\ std::shared\_ptr<Buffer>>\ buffer,}
-\DoxyCodeLine{00524\ \ \ \ \ \textcolor{keywordtype}{void}\ *dst,}
-\DoxyCodeLine{00525\ \ \ \ \ \textcolor{keywordtype}{bool}\ blocking,}
-\DoxyCodeLine{00526\ \ \ \ \ tt::stl::Span<const\ SubDeviceId>\ sub\_device\_ids\ =\ \{\});}
-\DoxyCodeLine{00527\ }
-\DoxyCodeLine{00541\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ DType>}
-\DoxyCodeLine{00542\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a76bb833452d2265a33a294eef1140782}{EnqueueReadBuffer}}(}
-\DoxyCodeLine{00543\ \ \ \ \ CommandQueue\ \&cq,}
-\DoxyCodeLine{00544\ \ \ \ \ Buffer\&\ buffer,}
-\DoxyCodeLine{00545\ \ \ \ \ std::vector<DType>\ \&dst,}
-\DoxyCodeLine{00546\ \ \ \ \ \textcolor{keywordtype}{bool}\ blocking,}
-\DoxyCodeLine{00547\ \ \ \ \ tt::stl::Span<const\ SubDeviceId>\ sub\_device\_ids\ =\ \{\})\ \{}
-\DoxyCodeLine{00548\ \ \ \ \ dst.resize(buffer.page\_size()\ *\ buffer.num\_pages()\ /\ \textcolor{keyword}{sizeof}(DType));}
-\DoxyCodeLine{00549\ \ \ \ \ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a76bb833452d2265a33a294eef1140782}{EnqueueReadBuffer}}(cq,\ buffer,\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{void}*\textcolor{keyword}{>}(dst.data()),\ blocking,\ sub\_device\_ids);}
-\DoxyCodeLine{00550\ \}}
-\DoxyCodeLine{00551\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ DType>}
-\DoxyCodeLine{00552\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a76bb833452d2265a33a294eef1140782}{EnqueueReadBuffer}}(}
-\DoxyCodeLine{00553\ \ \ \ \ CommandQueue\ \&cq,}
-\DoxyCodeLine{00554\ \ \ \ \ std::shared\_ptr<Buffer>\ buffer,}
-\DoxyCodeLine{00555\ \ \ \ \ std::vector<DType>\ \&dst,}
-\DoxyCodeLine{00556\ \ \ \ \ \textcolor{keywordtype}{bool}\ blocking,}
-\DoxyCodeLine{00557\ \ \ \ \ tt::stl::Span<const\ SubDeviceId>\ sub\_device\_ids\ =\ \{\})\ \{}
-\DoxyCodeLine{00558\ \ \ \ \ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a76bb833452d2265a33a294eef1140782}{EnqueueReadBuffer}}(cq,\ *buffer,\ dst,\ blocking,\ sub\_device\_ids);}
-\DoxyCodeLine{00559\ \}}
-\DoxyCodeLine{00560\ }
-\DoxyCodeLine{00575\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ DType>}
-\DoxyCodeLine{00576\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a7c3bea917e3563c642147c3f34911270}{EnqueueWriteBuffer}}(}
-\DoxyCodeLine{00577\ \ \ \ \ CommandQueue\ \&cq,}
-\DoxyCodeLine{00578\ \ \ \ \ std::variant<std::reference\_wrapper<Buffer>,\ std::shared\_ptr<Buffer>>\ buffer,}
-\DoxyCodeLine{00579\ \ \ \ \ std::vector<DType>\ \&src,}
-\DoxyCodeLine{00580\ \ \ \ \ \textcolor{keywordtype}{bool}\ blocking,}
-\DoxyCodeLine{00581\ \ \ \ \ tt::stl::Span<const\ SubDeviceId>\ sub\_device\_ids\ =\ \{\})\ \{}
-\DoxyCodeLine{00582\ \ \ \ \ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a7c3bea917e3563c642147c3f34911270}{EnqueueWriteBuffer}}(cq,\ buffer,\ src.data(),\ blocking,\ sub\_device\_ids);}
-\DoxyCodeLine{00583\ \}}
-\DoxyCodeLine{00584\ }
-\DoxyCodeLine{00598\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a7c3bea917e3563c642147c3f34911270}{EnqueueWriteBuffer}}(}
-\DoxyCodeLine{00599\ \ \ \ \ CommandQueue\ \&cq,}
-\DoxyCodeLine{00600\ \ \ \ \ std::variant<std::reference\_wrapper<Buffer>,\ std::shared\_ptr<Buffer>>\ buffer,}
-\DoxyCodeLine{00601\ \ \ \ \ HostDataType\ src,}
-\DoxyCodeLine{00602\ \ \ \ \ \textcolor{keywordtype}{bool}\ blocking,}
-\DoxyCodeLine{00603\ \ \ \ \ tt::stl::Span<const\ SubDeviceId>\ sub\_device\_ids\ =\ \{\});}
-\DoxyCodeLine{00604\ }
-\DoxyCodeLine{00616\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_ab74d31b79ae9a8fe25468bc95b13ee2a}{EnqueueProgram}}(CommandQueue\&\ cq,\ Program\&\ program,\ \textcolor{keywordtype}{bool}\ blocking);}
-\DoxyCodeLine{00617\ }
-\DoxyCodeLine{00628\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a41ad47ba118422cf5d162a24289f53cb}{Finish}}(CommandQueue\ \&cq,\ tt::stl::Span<const\ SubDeviceId>\ sub\_device\_ids\ =\ \{\});}
-\DoxyCodeLine{00629\ }
-\DoxyCodeLine{00642\ uint32\_t\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a2ebe853244ec21092c0a4c24a76ac9d7}{BeginTraceCapture}}(Device\ *device,\ \textcolor{keyword}{const}\ uint8\_t\ cq\_id);}
-\DoxyCodeLine{00643\ }
-\DoxyCodeLine{00658\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a868dff83af5a6f69735afddfb8123016}{EndTraceCapture}}(Device\ *device,\ \textcolor{keyword}{const}\ uint8\_t\ cq\_id,\ \textcolor{keyword}{const}\ uint32\_t\ tid);}
-\DoxyCodeLine{00659\ }
-\DoxyCodeLine{00672\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_aaf7e23130adb368821457f261e37cd9b}{ReplayTrace}}(Device\ *device,\ \textcolor{keyword}{const}\ uint8\_t\ cq\_id,\ \textcolor{keyword}{const}\ uint32\_t\ tid,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ blocking);}
-\DoxyCodeLine{00673\ }
-\DoxyCodeLine{00686\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_ad8540d48e27a58a9519483782991eba0}{ReleaseTrace}}(Device\ *device,\ \textcolor{keyword}{const}\ uint32\_t\ tid);}
-\DoxyCodeLine{00687\ }
-\DoxyCodeLine{00700\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a35c2d778c2f00844d1113c0e011522f2}{EnqueueTrace}}(CommandQueue\ \&cq,\ uint32\_t\ trace\_id,\ \textcolor{keywordtype}{bool}\ blocking);}
-\DoxyCodeLine{00701\ }
-\DoxyCodeLine{00714\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a617bb9ae1b430271808f81999a4ef53e}{DumpDeviceProfileResults}}(Device\ *device,\ \textcolor{keyword}{const}\ Program\ \&program);}
-\DoxyCodeLine{00715\ }
-\DoxyCodeLine{00725\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a57cb44e976abef6030c7dbb73970d800}{EnqueueRecordEvent}}(CommandQueue\ \&cq,\ \textcolor{keyword}{const}\ std::shared\_ptr<Event>\ \&event,\ tt::stl::Span<const\ SubDeviceId>\ sub\_device\_ids\ =\ \{\});}
-\DoxyCodeLine{00726\ }
-\DoxyCodeLine{00736\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a0348eff37a292f881b5b88193d8196f6}{EnqueueWaitForEvent}}(CommandQueue\ \&cq,\ \textcolor{keyword}{const}\ std::shared\_ptr<Event>\ \&event);}
-\DoxyCodeLine{00737\ }
-\DoxyCodeLine{00745\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a7965734b9b4f42fd7b96da7cdcc45927}{EventSynchronize}}(\textcolor{keyword}{const}\ std::shared\_ptr<Event>\ \&event);}
-\DoxyCodeLine{00746\ }
-\DoxyCodeLine{00754\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a51fd82461b3734afccb8f11427564181}{EventQuery}}(\textcolor{keyword}{const}\ std::shared\_ptr<Event>\ \&event);}
-\DoxyCodeLine{00755\ }
-\DoxyCodeLine{00769\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_abbef214f3ba879469488d367053046cb}{Synchronize}}(Device\ *device,\ \textcolor{keyword}{const}\ std::optional<uint8\_t>\ cq\_id\ =\ std::nullopt,\ tt::stl::Span<const\ SubDeviceId>\ sub\_device\_ids\ =\ \{\});}
-\DoxyCodeLine{00770\ }
-\DoxyCodeLine{00771\ \}\ \ \textcolor{comment}{//\ namespace\ v0}}
-\DoxyCodeLine{00772\ \}\ \ \textcolor{comment}{//\ namespace\ tt\_metal}}
-\DoxyCodeLine{00773\ }
-\DoxyCodeLine{00774\ \}\ \ \textcolor{comment}{//\ namespace\ tt}}
+\DoxyCodeLine{00072\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00082\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00083\ Device*\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a8502cc6c6cdec4f09d468182e621325c}{CreateDevice}}(}
+\DoxyCodeLine{00084\ \ \ \ \ chip\_id\_t\ device\_id,}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ num\_hw\_cqs\ =\ 1,}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ l1\_small\_size\ =\ DEFAULT\_L1\_SMALL\_SIZE,}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ trace\_region\_size\ =\ DEFAULT\_TRACE\_REGION\_SIZE,}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{const}\ DispatchCoreConfig\&\ dispatch\_core\_config\ =\ DispatchCoreConfig\{\},}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<uint32\_t>\&\ l1\_bank\_remap\ =\ \{\});}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00101\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00102\ Device*\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a23165f9a0b1bdc1b4ef3e585e4d52ab0}{CreateDeviceMinimal}}(}
+\DoxyCodeLine{00103\ \ \ \ \ chip\_id\_t\ device\_id,}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ num\_hw\_cqs\ =\ 1,}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keyword}{const}\ DispatchCoreConfig\&\ dispatch\_core\_config\ =\ DispatchCoreConfig\{\});}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00117\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00118\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a26cb44c89e3231cade68dca1a6990bbb}{CloseDevice}}(Device*\ device);}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \textcolor{comment}{//\ ==================================================}}
+\DoxyCodeLine{00121\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HOST\ API:\ program\ \&\ kernels}}
+\DoxyCodeLine{00122\ \textcolor{comment}{//\ ==================================================}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00130\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00131\ Program\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a826db8a9c40c91034bc2a5f0f6e9b75e}{CreateProgram}}();}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00146\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00147\ KernelHandle\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a0e68e0e2cb813bf5814ddb02d82cd1d0}{CreateKernel}}(}
+\DoxyCodeLine{00148\ \ \ \ \ Program\&\ program,}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ file\_name,}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keyword}{const}\ std::variant<CoreCoord,\ CoreRange,\ CoreRangeSet>\&\ core\_spec,}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keyword}{const}\ std::variant<DataMovementConfig,\ ComputeConfig,\ EthernetConfig>\&\ config);}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00166\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00167\ KernelHandle\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a63aefd0f3f82e3dd0d66ff2ca72453c8}{CreateKernelFromString}}(}
+\DoxyCodeLine{00168\ \ \ \ \ Program\&\ program,}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ kernel\_src\_code,}
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keyword}{const}\ std::variant<CoreCoord,\ CoreRange,\ CoreRangeSet>\&\ core\_spec,}
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keyword}{const}\ std::variant<DataMovementConfig,\ ComputeConfig,\ EthernetConfig>\&\ config);}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00174\ \textcolor{comment}{//\ ==================================================}}
+\DoxyCodeLine{00175\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HOST\ API:\ buffers}}
+\DoxyCodeLine{00176\ \textcolor{comment}{//\ ==================================================}}
+\DoxyCodeLine{00193\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00194\ CBHandle\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a4b1e837406fd39ad2b671b7836ce3e4c}{CreateCircularBuffer}}(}
+\DoxyCodeLine{00195\ \ \ \ \ Program\&\ program,}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keyword}{const}\ std::variant<CoreCoord,\ CoreRange,\ CoreRangeSet>\&\ core\_spec,}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keyword}{const}\ CircularBufferConfig\&\ config);}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00210\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00211\ \textcolor{keyword}{const}\ CircularBufferConfig\&\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_ac4b1a13298da52770f32ddeeabd2c65a}{GetCircularBufferConfig}}(Program\&\ program,\ CBHandle\ cb\_handle);}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00226\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00227\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a220dc8a16809c1c12a44348b9a76ab08}{UpdateCircularBufferTotalSize}}(Program\&\ program,\ CBHandle\ cb\_handle,\ uint32\_t\ total\_size);}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00242\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00243\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a3831e993c64a578637c9fc73b059412d}{UpdateCircularBufferPageSize}}(Program\&\ program,\ CBHandle\ cb\_handle,\ uint8\_t\ buffer\_index,\ uint32\_t\ page\_size);}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00258\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00259\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a0cf0d51e979e755908ee29c30401ee53}{UpdateDynamicCircularBufferAddress}}(Program\&\ program,\ CBHandle\ cb\_handle,\ \textcolor{keyword}{const}\ Buffer\&\ buffer);}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00274\ \textcolor{comment}{}\textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a56aa79053d933dc45936e054942c9860}{UpdateDynamicCircularBufferAddressAndTotalSize}}(Program\&\ program,\ CBHandle\ cb\_handle,\ \textcolor{keyword}{const}\ Buffer\&\ buffer,\ uint32\_t\ total\_size);}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00288\ \textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00289\ uint32\_t\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_ad7ce765d28d851983f910495c44411cd}{CreateSemaphore}}(}
+\DoxyCodeLine{00290\ \ \ \ \ Program\&\ program,}
+\DoxyCodeLine{00291\ \ \ \ \ \textcolor{keyword}{const}\ std::variant<CoreRange,\ CoreRangeSet>\&\ core\_spec,}
+\DoxyCodeLine{00292\ \ \ \ \ uint32\_t\ initial\_value,}
+\DoxyCodeLine{00293\ \ \ \ \ CoreType\ core\_type\ =\ CoreType::WORKER);}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00295\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00310\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00311\ GlobalSemaphore\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_acc00b263f039c80403524431d432cb9c}{CreateGlobalSemaphore}}(}
+\DoxyCodeLine{00312\ \ \ \ \ Device*\ device,}
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{keyword}{const}\ CoreRangeSet\&\ cores,}
+\DoxyCodeLine{00314\ \ \ \ \ uint32\_t\ initial\_value,}
+\DoxyCodeLine{00315\ \ \ \ \ BufferType\ buffer\_type\ =\ BufferType::L1,}
+\DoxyCodeLine{00316\ \ \ \ \ tt::stl::Span<const\ SubDeviceId>\ sub\_device\_ids\ =\ \{\});}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00318\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00333\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00334\ GlobalSemaphore\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_acc00b263f039c80403524431d432cb9c}{CreateGlobalSemaphore}}(}
+\DoxyCodeLine{00335\ \ \ \ \ Device*\ device,}
+\DoxyCodeLine{00336\ \ \ \ \ CoreRangeSet\&\&\ cores,}
+\DoxyCodeLine{00337\ \ \ \ \ uint32\_t\ initial\_value,}
+\DoxyCodeLine{00338\ \ \ \ \ BufferType\ buffer\_type\ =\ BufferType::L1,}
+\DoxyCodeLine{00339\ \ \ \ \ tt::stl::Span<const\ SubDeviceId>\ sub\_device\_ids\ =\ \{\});}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00341\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00351\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00352\ std::shared\_ptr<Buffer>\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_aec7794124ecb8f3b20ffe95a4c8b390d}{CreateBuffer}}(\textcolor{keyword}{const}\ InterleavedBufferConfig\&\ config);}
+\DoxyCodeLine{00353\ }
+\DoxyCodeLine{00354\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00365\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00366\ std::shared\_ptr<Buffer>\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_aec7794124ecb8f3b20ffe95a4c8b390d}{CreateBuffer}}(\textcolor{keyword}{const}\ InterleavedBufferConfig\&\ config,\ DeviceAddr\ address);}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00368\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00379\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00380\ std::shared\_ptr<Buffer>\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_aec7794124ecb8f3b20ffe95a4c8b390d}{CreateBuffer}}(\textcolor{keyword}{const}\ InterleavedBufferConfig\&\ config,\ SubDeviceId\ sub\_device\_id);}
+\DoxyCodeLine{00381\ }
+\DoxyCodeLine{00382\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00392\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00393\ std::shared\_ptr<Buffer>\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_aec7794124ecb8f3b20ffe95a4c8b390d}{CreateBuffer}}(\textcolor{keyword}{const}\ ShardedBufferConfig\&\ config);}
+\DoxyCodeLine{00394\ }
+\DoxyCodeLine{00395\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00406\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00407\ std::shared\_ptr<Buffer>\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_aec7794124ecb8f3b20ffe95a4c8b390d}{CreateBuffer}}(\textcolor{keyword}{const}\ ShardedBufferConfig\&\ config,\ DeviceAddr\ address);}
+\DoxyCodeLine{00408\ }
+\DoxyCodeLine{00409\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00420\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00421\ std::shared\_ptr<Buffer>\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_aec7794124ecb8f3b20ffe95a4c8b390d}{CreateBuffer}}(\textcolor{keyword}{const}\ ShardedBufferConfig\&\ config,\ SubDeviceId\ sub\_device\_id);}
+\DoxyCodeLine{00422\ }
+\DoxyCodeLine{00423\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00433\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00434\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_abce385d98e86cf18acb680f183039cb5}{DeallocateBuffer}}(Buffer\&\ buffer);}
+\DoxyCodeLine{00435\ }
+\DoxyCodeLine{00436\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00447\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00448\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a1ebc34320ecacb398a25f67c206422d5}{AssignGlobalBufferToProgram}}(std::shared\_ptr<Buffer>\ buffer,\ Program\&\ program);}
+\DoxyCodeLine{00449\ }
+\DoxyCodeLine{00450\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00451\ \textcolor{comment}{//\ ==================================================}}
+\DoxyCodeLine{00452\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ COMPILE\ \&\ EXECUTE\ KENRNELS}}
+\DoxyCodeLine{00453\ \textcolor{comment}{//\ ==================================================}}
+\DoxyCodeLine{00454\ \textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00455\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a4d311514040f724ea391cb7f212a810b}{RuntimeArgs}}\ =\ std::vector<std::variant<Buffer*,\ uint32\_t>>;}
+\DoxyCodeLine{00456\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00470\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00471\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_afb2ca08d5f123ed98b99498324061ba4}{SetRuntimeArgs}}(}
+\DoxyCodeLine{00472\ \ \ \ \ \textcolor{keyword}{const}\ Program\&\ program,}
+\DoxyCodeLine{00473\ \ \ \ \ KernelHandle\ kernel,}
+\DoxyCodeLine{00474\ \ \ \ \ \textcolor{keyword}{const}\ std::variant<CoreCoord,\ CoreRange,\ CoreRangeSet>\&\ core\_spec,}
+\DoxyCodeLine{00475\ \ \ \ \ stl::Span<const\ uint32\_t>\ runtime\_args);}
+\DoxyCodeLine{00476\ }
+\DoxyCodeLine{00477\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00491\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00492\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_afb2ca08d5f123ed98b99498324061ba4}{SetRuntimeArgs}}(}
+\DoxyCodeLine{00493\ \ \ \ \ \textcolor{keyword}{const}\ Program\&\ program,}
+\DoxyCodeLine{00494\ \ \ \ \ KernelHandle\ kernel,}
+\DoxyCodeLine{00495\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<CoreCoord>\&\ core\_spec,}
+\DoxyCodeLine{00496\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::vector<uint32\_t>>\&\ runtime\_args);}
+\DoxyCodeLine{00497\ }
+\DoxyCodeLine{00498\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00512\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00513\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_afb2ca08d5f123ed98b99498324061ba4}{SetRuntimeArgs}}(}
+\DoxyCodeLine{00514\ \ \ \ \ Device*\ device,}
+\DoxyCodeLine{00515\ \ \ \ \ \textcolor{keyword}{const}\ std::shared\_ptr<Kernel>\&\ kernel,}
+\DoxyCodeLine{00516\ \ \ \ \ \textcolor{keyword}{const}\ std::variant<CoreCoord,\ CoreRange,\ CoreRangeSet>\&\ core\_spec,}
+\DoxyCodeLine{00517\ \ \ \ \ std::shared\_ptr<RuntimeArgs>\ runtime\_args);}
+\DoxyCodeLine{00518\ }
+\DoxyCodeLine{00519\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00532\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00533\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_afb2ca08d5f123ed98b99498324061ba4}{SetRuntimeArgs}}(}
+\DoxyCodeLine{00534\ \ \ \ \ Device*\ device,}
+\DoxyCodeLine{00535\ \ \ \ \ \textcolor{keyword}{const}\ std::shared\_ptr<Kernel>\&\ kernel,}
+\DoxyCodeLine{00536\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<CoreCoord>\&\ core\_spec,}
+\DoxyCodeLine{00537\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::shared\_ptr<RuntimeArgs>>\&\ runtime\_args);}
+\DoxyCodeLine{00538\ }
+\DoxyCodeLine{00539\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00552\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00553\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a8263eba8cd8279b6c1e6db233ec5f133}{SetCommonRuntimeArgs}}(\textcolor{keyword}{const}\ Program\&\ program,\ KernelHandle\ kernel\_id,\ stl::Span<const\ uint32\_t>\ runtime\_args);}
+\DoxyCodeLine{00554\ }
+\DoxyCodeLine{00555\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00567\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00568\ RuntimeArgsData\&\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a609d42acfdab49842d577aae66de2e67}{GetRuntimeArgs}}(\textcolor{keyword}{const}\ Program\&\ program,\ KernelHandle\ kernel\_id,\ \textcolor{keyword}{const}\ CoreCoord\&\ logical\_core);}
+\DoxyCodeLine{00569\ }
+\DoxyCodeLine{00570\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00581\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00582\ std::vector<std::vector<RuntimeArgsData>>\&\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a609d42acfdab49842d577aae66de2e67}{GetRuntimeArgs}}(\textcolor{keyword}{const}\ Program\&\ program,\ KernelHandle\ kernel\_id);}
+\DoxyCodeLine{00583\ }
+\DoxyCodeLine{00584\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00595\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00596\ RuntimeArgsData\&\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a9117d8f938e3b0c3e6b146f960eafa2f}{GetCommonRuntimeArgs}}(\textcolor{keyword}{const}\ Program\&\ program,\ KernelHandle\ kernel\_id);}
+\DoxyCodeLine{00597\ }
+\DoxyCodeLine{00598\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00612\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00613\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a76bb833452d2265a33a294eef1140782}{EnqueueReadBuffer}}(}
+\DoxyCodeLine{00614\ \ \ \ \ CommandQueue\&\ cq,}
+\DoxyCodeLine{00615\ \ \ \ \ std::variant<std::reference\_wrapper<Buffer>,\ std::shared\_ptr<Buffer>>\ buffer,}
+\DoxyCodeLine{00616\ \ \ \ \ \textcolor{keywordtype}{void}*\ dst,}
+\DoxyCodeLine{00617\ \ \ \ \ \textcolor{keywordtype}{bool}\ blocking,}
+\DoxyCodeLine{00618\ \ \ \ \ tt::stl::Span<const\ SubDeviceId>\ sub\_device\_ids\ =\ \{\});}
+\DoxyCodeLine{00619\ }
+\DoxyCodeLine{00620\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00634\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00635\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ DType>}
+\DoxyCodeLine{00636\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a76bb833452d2265a33a294eef1140782}{EnqueueReadBuffer}}(}
+\DoxyCodeLine{00637\ \ \ \ \ CommandQueue\&\ cq,}
+\DoxyCodeLine{00638\ \ \ \ \ Buffer\&\ buffer,}
+\DoxyCodeLine{00639\ \ \ \ \ std::vector<DType>\&\ dst,}
+\DoxyCodeLine{00640\ \ \ \ \ \textcolor{keywordtype}{bool}\ blocking,}
+\DoxyCodeLine{00641\ \ \ \ \ tt::stl::Span<const\ SubDeviceId>\ sub\_device\_ids\ =\ \{\})\ \{}
+\DoxyCodeLine{00642\ \ \ \ \ dst.resize(buffer.page\_size()\ *\ buffer.num\_pages()\ /\ \textcolor{keyword}{sizeof}(DType));}
+\DoxyCodeLine{00643\ \ \ \ \ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a76bb833452d2265a33a294eef1140782}{EnqueueReadBuffer}}(cq,\ buffer,\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{void}*\textcolor{keyword}{>}(dst.data()),\ blocking,\ sub\_device\_ids);}
+\DoxyCodeLine{00644\ \}}
+\DoxyCodeLine{00645\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ DType>}
+\DoxyCodeLine{00646\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a76bb833452d2265a33a294eef1140782}{EnqueueReadBuffer}}(}
+\DoxyCodeLine{00647\ \ \ \ \ CommandQueue\&\ cq,}
+\DoxyCodeLine{00648\ \ \ \ \ std::shared\_ptr<Buffer>\ buffer,}
+\DoxyCodeLine{00649\ \ \ \ \ std::vector<DType>\&\ dst,}
+\DoxyCodeLine{00650\ \ \ \ \ \textcolor{keywordtype}{bool}\ blocking,}
+\DoxyCodeLine{00651\ \ \ \ \ tt::stl::Span<const\ SubDeviceId>\ sub\_device\_ids\ =\ \{\})\ \{}
+\DoxyCodeLine{00652\ \ \ \ \ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a76bb833452d2265a33a294eef1140782}{EnqueueReadBuffer}}(cq,\ *buffer,\ dst,\ blocking,\ sub\_device\_ids);}
+\DoxyCodeLine{00653\ \}}
+\DoxyCodeLine{00654\ }
+\DoxyCodeLine{00655\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00670\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00671\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ DType>}
+\DoxyCodeLine{00672\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a7c3bea917e3563c642147c3f34911270}{EnqueueWriteBuffer}}(}
+\DoxyCodeLine{00673\ \ \ \ \ CommandQueue\&\ cq,}
+\DoxyCodeLine{00674\ \ \ \ \ std::variant<std::reference\_wrapper<Buffer>,\ std::shared\_ptr<Buffer>>\ buffer,}
+\DoxyCodeLine{00675\ \ \ \ \ std::vector<DType>\&\ src,}
+\DoxyCodeLine{00676\ \ \ \ \ \textcolor{keywordtype}{bool}\ blocking,}
+\DoxyCodeLine{00677\ \ \ \ \ tt::stl::Span<const\ SubDeviceId>\ sub\_device\_ids\ =\ \{\})\ \{}
+\DoxyCodeLine{00678\ \ \ \ \ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a7c3bea917e3563c642147c3f34911270}{EnqueueWriteBuffer}}(cq,\ buffer,\ src.data(),\ blocking,\ sub\_device\_ids);}
+\DoxyCodeLine{00679\ \}}
+\DoxyCodeLine{00680\ }
+\DoxyCodeLine{00681\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00695\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00696\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a7c3bea917e3563c642147c3f34911270}{EnqueueWriteBuffer}}(}
+\DoxyCodeLine{00697\ \ \ \ \ CommandQueue\&\ cq,}
+\DoxyCodeLine{00698\ \ \ \ \ std::variant<std::reference\_wrapper<Buffer>,\ std::shared\_ptr<Buffer>>\ buffer,}
+\DoxyCodeLine{00699\ \ \ \ \ HostDataType\ src,}
+\DoxyCodeLine{00700\ \ \ \ \ \textcolor{keywordtype}{bool}\ blocking,}
+\DoxyCodeLine{00701\ \ \ \ \ tt::stl::Span<const\ SubDeviceId>\ sub\_device\_ids\ =\ \{\});}
+\DoxyCodeLine{00702\ }
+\DoxyCodeLine{00703\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00715\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00716\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_ab74d31b79ae9a8fe25468bc95b13ee2a}{EnqueueProgram}}(CommandQueue\&\ cq,\ Program\&\ program,\ \textcolor{keywordtype}{bool}\ blocking);}
+\DoxyCodeLine{00717\ }
+\DoxyCodeLine{00718\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00729\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00730\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a41ad47ba118422cf5d162a24289f53cb}{Finish}}(CommandQueue\&\ cq,\ tt::stl::Span<const\ SubDeviceId>\ sub\_device\_ids\ =\ \{\});}
+\DoxyCodeLine{00731\ }
+\DoxyCodeLine{00732\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00745\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00746\ uint32\_t\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a2ebe853244ec21092c0a4c24a76ac9d7}{BeginTraceCapture}}(Device*\ device,\ \textcolor{keyword}{const}\ uint8\_t\ cq\_id);}
+\DoxyCodeLine{00747\ }
+\DoxyCodeLine{00748\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00763\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00764\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a868dff83af5a6f69735afddfb8123016}{EndTraceCapture}}(Device*\ device,\ \textcolor{keyword}{const}\ uint8\_t\ cq\_id,\ \textcolor{keyword}{const}\ uint32\_t\ tid);}
+\DoxyCodeLine{00765\ }
+\DoxyCodeLine{00766\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00779\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00780\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_aaf7e23130adb368821457f261e37cd9b}{ReplayTrace}}(Device*\ device,\ \textcolor{keyword}{const}\ uint8\_t\ cq\_id,\ \textcolor{keyword}{const}\ uint32\_t\ tid,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ blocking);}
+\DoxyCodeLine{00781\ }
+\DoxyCodeLine{00782\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00795\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00796\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_ad8540d48e27a58a9519483782991eba0}{ReleaseTrace}}(Device*\ device,\ \textcolor{keyword}{const}\ uint32\_t\ tid);}
+\DoxyCodeLine{00797\ }
+\DoxyCodeLine{00798\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00811\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00812\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a35c2d778c2f00844d1113c0e011522f2}{EnqueueTrace}}(CommandQueue\&\ cq,\ uint32\_t\ trace\_id,\ \textcolor{keywordtype}{bool}\ blocking);}
+\DoxyCodeLine{00813\ }
+\DoxyCodeLine{00814\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00827\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00828\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a617bb9ae1b430271808f81999a4ef53e}{DumpDeviceProfileResults}}(Device*\ device,\ \textcolor{keyword}{const}\ Program\&\ program);}
+\DoxyCodeLine{00829\ }
+\DoxyCodeLine{00830\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00840\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00841\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a57cb44e976abef6030c7dbb73970d800}{EnqueueRecordEvent}}(}
+\DoxyCodeLine{00842\ \ \ \ \ CommandQueue\&\ cq,\ \textcolor{keyword}{const}\ std::shared\_ptr<Event>\&\ event,\ tt::stl::Span<const\ SubDeviceId>\ sub\_device\_ids\ =\ \{\});}
+\DoxyCodeLine{00843\ }
+\DoxyCodeLine{00844\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00854\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00855\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a0348eff37a292f881b5b88193d8196f6}{EnqueueWaitForEvent}}(CommandQueue\&\ cq,\ \textcolor{keyword}{const}\ std::shared\_ptr<Event>\&\ event);}
+\DoxyCodeLine{00856\ }
+\DoxyCodeLine{00857\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00865\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00866\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a7965734b9b4f42fd7b96da7cdcc45927}{EventSynchronize}}(\textcolor{keyword}{const}\ std::shared\_ptr<Event>\&\ event);}
+\DoxyCodeLine{00867\ }
+\DoxyCodeLine{00868\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00876\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00877\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a51fd82461b3734afccb8f11427564181}{EventQuery}}(\textcolor{keyword}{const}\ std::shared\_ptr<Event>\&\ event);}
+\DoxyCodeLine{00878\ }
+\DoxyCodeLine{00879\ \textcolor{comment}{//\ clang-\/format\ off}}
+\DoxyCodeLine{00893\ \textcolor{comment}{}\textcolor{comment}{//\ clang-\/format\ on}}
+\DoxyCodeLine{00894\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_abbef214f3ba879469488d367053046cb}{Synchronize}}(}
+\DoxyCodeLine{00895\ \ \ \ \ Device*\ device,}
+\DoxyCodeLine{00896\ \ \ \ \ \textcolor{keyword}{const}\ std::optional<uint8\_t>\ cq\_id\ =\ std::nullopt,}
+\DoxyCodeLine{00897\ \ \ \ \ tt::stl::Span<const\ SubDeviceId>\ sub\_device\_ids\ =\ \{\});}
+\DoxyCodeLine{00898\ }
+\DoxyCodeLine{00899\ \}\ \ \textcolor{comment}{//\ namespace\ v0}}
+\DoxyCodeLine{00900\ \}\ \ \textcolor{comment}{//\ namespace\ tt\_metal}}
+\DoxyCodeLine{00901\ }
+\DoxyCodeLine{00902\ \}\ \ \textcolor{comment}{//\ namespace\ tt}}
 
 \end{DoxyCode}

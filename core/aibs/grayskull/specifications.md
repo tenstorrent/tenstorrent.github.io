@@ -21,9 +21,9 @@ The Grayskull™ e75 and e150 Tensix Processor add-in boards are built using the
 | Memory                               | 8GB LPDDR4                                  | 8GB LPDDR4                                     |
 | Memory Speed                         | 3.2 GT/sec                                  | 3.7 GT/sec                                     |
 | Memory Bandwidth                     | 102 GB/sec                                  | 118 GB/sec                                     |
-| TeraFLOPs (FP8)                      | 221                                         | 332                                            |
-| TeraFLOPs (FP16)                     | 55                                          | 83                                             |
-| TeraFLOPs (BFP8)                     | 55                                          | 83                                             |
+| TeraFLOPS (FP8)                      | 221                                         | 332                                            |
+| TeraFLOPS (FP16)                     | 55                                          | 83                                             |
+| TeraFLOPS (BLOCKFP8)                 | 55                                          | 83                                             |
 | TBP (Total Board Power)              | 75W                                         | 200W                                           |
 | External Power                       | 1x 6-pin PCIe *(required for powering fan)* | 1x 6+2-pin PCIe<br />1x 6-pin PCIe             |
 | System Interface                     | PCI Express 4.0 x16                         | PCI Express 4.0 x16                            |
@@ -39,11 +39,11 @@ The Grayskull™ e75 and e150 Tensix Processor add-in boards are built using the
 
 The e75/e150 support the following data precision formats:
 
-| Format               | Bit Depth        |
-| -------------------- | ---------------- |
-| Floating point       | FP8, FP16, BF16  |
-| Block floating point | BFP2, BFP4, BFP8 |
-| Vector               | VTF19            |
+| Format               | Bit Depth                    |
+| -------------------- | ---------------------------- |
+| Floating point       | FP8, FP16, BFLOAT16          |
+| Block floating point | BLOCKFP2, BLOCKFP4, BLOCKFP8 |
+| Vector               | VTF19                        |
 
 ## Minimum System Requirements
 

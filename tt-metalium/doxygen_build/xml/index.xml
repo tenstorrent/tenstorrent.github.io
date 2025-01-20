@@ -25,7 +25,7 @@
     <member refid="structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions_1ab0589d708073ae872a5d8633d30c17a0" kind="variable"><name>num_hw_cqs</name></member>
     <member refid="structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions_1a92a4d40077ada8708a9d992f577fdd34" kind="variable"><name>l1_small_size</name></member>
     <member refid="structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions_1ae3ae33ccd4bad0cf7d09c0a8b3b85cea" kind="variable"><name>trace_region_size</name></member>
-    <member refid="structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions_1a7faf35fea5c38d43f089059fc99f02cf" kind="variable"><name>dispatch_core_type</name></member>
+    <member refid="structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions_1a7306ef0444d3e1ef7b3f4d2107e4c994" kind="variable"><name>dispatch_core_config</name></member>
     <member refid="structtt_1_1tt__metal_1_1v1_1_1CreateDeviceOptions_1ae51eaece3f174b6cd9847f6e5230b44c" kind="variable"><name>l1_bank_remap</name></member>
   </compound>
   <compound refid="classtt_1_1tt__metal_1_1v1_1_1EventHandle" kind="class"><name>tt::tt_metal::v1::EventHandle</name>
@@ -307,13 +307,13 @@
   <compound refid="namespacett" kind="namespace"><name>tt</name>
   </compound>
   <compound refid="namespacett_1_1tt__metal" kind="namespace"><name>tt::tt_metal</name>
-    <member refid="namespacett_1_1tt__metal_1_1v0_1a5d1cfea010cb740e7307b18b4a7ec9e8" kind="typedef"><name>RuntimeArgs</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a4d311514040f724ea391cb7f212a810b" kind="typedef"><name>RuntimeArgs</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1a1e4322b747fd7823e878c3e2ae729e27" kind="function"><name>GetNumAvailableDevices</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1a63ede0a0180762c7d1f091176738237c" kind="function"><name>IsGalaxyCluster</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1a4f05b332fd6f861bb3540dbe2af433be" kind="function"><name>GetNumPCIeDevices</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1af46d5827805ba92482cddb5591c69a45" kind="function"><name>GetPCIeDeviceID</name></member>
-    <member refid="namespacett_1_1tt__metal_1_1v0_1abe3488f7ac4863b7b372f344f863bc84" kind="function"><name>CreateDevice</name></member>
-    <member refid="namespacett_1_1tt__metal_1_1v0_1a1690575bfc5a81f0a7bc44b0a1f4780b" kind="function"><name>CreateDeviceMinimal</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a8502cc6c6cdec4f09d468182e621325c" kind="function"><name>CreateDevice</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a23165f9a0b1bdc1b4ef3e585e4d52ab0" kind="function"><name>CreateDeviceMinimal</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1a26cb44c89e3231cade68dca1a6990bbb" kind="function"><name>CloseDevice</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1a826db8a9c40c91034bc2a5f0f6e9b75e" kind="function"><name>CreateProgram</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1a0e68e0e2cb813bf5814ddb02d82cd1d0" kind="function"><name>CreateKernel</name></member>
@@ -323,9 +323,10 @@
     <member refid="namespacett_1_1tt__metal_1_1v0_1a220dc8a16809c1c12a44348b9a76ab08" kind="function"><name>UpdateCircularBufferTotalSize</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1a3831e993c64a578637c9fc73b059412d" kind="function"><name>UpdateCircularBufferPageSize</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1a0cf0d51e979e755908ee29c30401ee53" kind="function"><name>UpdateDynamicCircularBufferAddress</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a56aa79053d933dc45936e054942c9860" kind="function"><name>UpdateDynamicCircularBufferAddressAndTotalSize</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1ad7ce765d28d851983f910495c44411cd" kind="function"><name>CreateSemaphore</name></member>
-    <member refid="namespacett_1_1tt__metal_1_1v0_1a087c394c5ec94274c150ee18ef88ef78" kind="function"><name>CreateGlobalSemaphore</name></member>
-    <member refid="namespacett_1_1tt__metal_1_1v0_1acd4672dc795d11eeac8c1c45bfed6a87" kind="function"><name>CreateGlobalSemaphore</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1acc00b263f039c80403524431d432cb9c" kind="function"><name>CreateGlobalSemaphore</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1aed86ed7ca1141d55ec8afaaa0adf8813" kind="function"><name>CreateGlobalSemaphore</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1aec7794124ecb8f3b20ffe95a4c8b390d" kind="function"><name>CreateBuffer</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1a74ad24acd85d50aebe09a2220fd1237c" kind="function"><name>CreateBuffer</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1a88eb77e75d74b91bec6ad22064eb3b38" kind="function"><name>CreateBuffer</name></member>
@@ -336,8 +337,8 @@
     <member refid="namespacett_1_1tt__metal_1_1v0_1a1ebc34320ecacb398a25f67c206422d5" kind="function"><name>AssignGlobalBufferToProgram</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1afb2ca08d5f123ed98b99498324061ba4" kind="function"><name>SetRuntimeArgs</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1a74ca7c2b7c798d3c16af2dc931d68df0" kind="function"><name>SetRuntimeArgs</name></member>
-    <member refid="namespacett_1_1tt__metal_1_1v0_1afdb3df50326c491a4612d21ce45a518a" kind="function"><name>SetRuntimeArgs</name></member>
-    <member refid="namespacett_1_1tt__metal_1_1v0_1a774adf0f130e4a8f75007cca0a33fcb6" kind="function"><name>SetRuntimeArgs</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a904971f5d8ecdb9d80f84a9ea9a54bd9" kind="function"><name>SetRuntimeArgs</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1abadad6cfd6751695fbc5bbd432536a91" kind="function"><name>SetRuntimeArgs</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1a8263eba8cd8279b6c1e6db233ec5f133" kind="function"><name>SetCommonRuntimeArgs</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1a609d42acfdab49842d577aae66de2e67" kind="function"><name>GetRuntimeArgs</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1a65abc534c2bbbe36d118c3b844350a72" kind="function"><name>GetRuntimeArgs</name></member>
@@ -362,13 +363,13 @@
     <member refid="namespacett_1_1tt__metal_1_1v0_1abbef214f3ba879469488d367053046cb" kind="function"><name>Synchronize</name></member>
   </compound>
   <compound refid="namespacett_1_1tt__metal_1_1v0" kind="namespace"><name>tt::tt_metal::v0</name>
-    <member refid="namespacett_1_1tt__metal_1_1v0_1a5d1cfea010cb740e7307b18b4a7ec9e8" kind="typedef"><name>RuntimeArgs</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a4d311514040f724ea391cb7f212a810b" kind="typedef"><name>RuntimeArgs</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1a1e4322b747fd7823e878c3e2ae729e27" kind="function"><name>GetNumAvailableDevices</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1a63ede0a0180762c7d1f091176738237c" kind="function"><name>IsGalaxyCluster</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1a4f05b332fd6f861bb3540dbe2af433be" kind="function"><name>GetNumPCIeDevices</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1af46d5827805ba92482cddb5591c69a45" kind="function"><name>GetPCIeDeviceID</name></member>
-    <member refid="namespacett_1_1tt__metal_1_1v0_1abe3488f7ac4863b7b372f344f863bc84" kind="function"><name>CreateDevice</name></member>
-    <member refid="namespacett_1_1tt__metal_1_1v0_1a1690575bfc5a81f0a7bc44b0a1f4780b" kind="function"><name>CreateDeviceMinimal</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a8502cc6c6cdec4f09d468182e621325c" kind="function"><name>CreateDevice</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a23165f9a0b1bdc1b4ef3e585e4d52ab0" kind="function"><name>CreateDeviceMinimal</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1a26cb44c89e3231cade68dca1a6990bbb" kind="function"><name>CloseDevice</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1a826db8a9c40c91034bc2a5f0f6e9b75e" kind="function"><name>CreateProgram</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1a0e68e0e2cb813bf5814ddb02d82cd1d0" kind="function"><name>CreateKernel</name></member>
@@ -378,9 +379,10 @@
     <member refid="namespacett_1_1tt__metal_1_1v0_1a220dc8a16809c1c12a44348b9a76ab08" kind="function"><name>UpdateCircularBufferTotalSize</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1a3831e993c64a578637c9fc73b059412d" kind="function"><name>UpdateCircularBufferPageSize</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1a0cf0d51e979e755908ee29c30401ee53" kind="function"><name>UpdateDynamicCircularBufferAddress</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a56aa79053d933dc45936e054942c9860" kind="function"><name>UpdateDynamicCircularBufferAddressAndTotalSize</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1ad7ce765d28d851983f910495c44411cd" kind="function"><name>CreateSemaphore</name></member>
-    <member refid="namespacett_1_1tt__metal_1_1v0_1a087c394c5ec94274c150ee18ef88ef78" kind="function"><name>CreateGlobalSemaphore</name></member>
-    <member refid="namespacett_1_1tt__metal_1_1v0_1acd4672dc795d11eeac8c1c45bfed6a87" kind="function"><name>CreateGlobalSemaphore</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1acc00b263f039c80403524431d432cb9c" kind="function"><name>CreateGlobalSemaphore</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1aed86ed7ca1141d55ec8afaaa0adf8813" kind="function"><name>CreateGlobalSemaphore</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1aec7794124ecb8f3b20ffe95a4c8b390d" kind="function"><name>CreateBuffer</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1a74ad24acd85d50aebe09a2220fd1237c" kind="function"><name>CreateBuffer</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1a88eb77e75d74b91bec6ad22064eb3b38" kind="function"><name>CreateBuffer</name></member>
@@ -391,8 +393,8 @@
     <member refid="namespacett_1_1tt__metal_1_1v0_1a1ebc34320ecacb398a25f67c206422d5" kind="function"><name>AssignGlobalBufferToProgram</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1afb2ca08d5f123ed98b99498324061ba4" kind="function"><name>SetRuntimeArgs</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1a74ca7c2b7c798d3c16af2dc931d68df0" kind="function"><name>SetRuntimeArgs</name></member>
-    <member refid="namespacett_1_1tt__metal_1_1v0_1afdb3df50326c491a4612d21ce45a518a" kind="function"><name>SetRuntimeArgs</name></member>
-    <member refid="namespacett_1_1tt__metal_1_1v0_1a774adf0f130e4a8f75007cca0a33fcb6" kind="function"><name>SetRuntimeArgs</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1a904971f5d8ecdb9d80f84a9ea9a54bd9" kind="function"><name>SetRuntimeArgs</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v0_1abadad6cfd6751695fbc5bbd432536a91" kind="function"><name>SetRuntimeArgs</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1a8263eba8cd8279b6c1e6db233ec5f133" kind="function"><name>SetCommonRuntimeArgs</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1a609d42acfdab49842d577aae66de2e67" kind="function"><name>GetRuntimeArgs</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v0_1a65abc534c2bbbe36d118c3b844350a72" kind="function"><name>GetRuntimeArgs</name></member>
@@ -420,14 +422,15 @@
     <member refid="namespacett_1_1tt__metal_1_1v1_1aeb98f79faee0fc2ac9492dd5d295d126" kind="typedef"><name>ProgramHandle</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v1_1a41efe832ede2a68be6a45168f51dd5ae" kind="typedef"><name>RuntimeArgs</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v1_1a4ff4aaaef152608a56467ac85d05a8d9" kind="function"><name>CreateBuffer</name></member>
-    <member refid="namespacett_1_1tt__metal_1_1v1_1ab8878e4e772b19708f2ffb47aef88b46" kind="function"><name>DeallocateBuffer</name></member>
-    <member refid="namespacett_1_1tt__metal_1_1v1_1a9fdc03261b0164072b9e30fad9e36099" kind="function"><name>WriteToBuffer</name></member>
-    <member refid="namespacett_1_1tt__metal_1_1v1_1a549dc0b0bd173491b5b67ec9efa599b5" kind="function"><name>ReadFromBuffer</name></member>
-    <member refid="namespacett_1_1tt__metal_1_1v1_1a44af81fe6c86b0d4f2e3c5cd414cf836" kind="function"><name>ReadFromShard</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a122afcd9ed39f4e841a1db47aaf946ab" kind="function"><name>DeallocateBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a46a3b9a01f68eaca345c9f96288a171f" kind="function"><name>GetId</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a067e476096326c10308653ba2b87bb8f" kind="function"><name>WriteToBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a3a71f4c7ce74435cd0d20449a5facadb" kind="function"><name>ReadFromBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1add45c5b5ad30c274d3ef11b6c7c8b571" kind="function"><name>ReadFromShard</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v1_1a104050cb8afe039d4b233e5fde691377" kind="function"><name>GetCommandQueue</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v1_1a1d776f4c482bfa8ff8d5ce8950a02f82" kind="function"><name>GetDefaultCommandQueue</name></member>
-    <member refid="namespacett_1_1tt__metal_1_1v1_1a3de050e4a431b4dbcbd8e29f2ccd0fa6" kind="function"><name>EnqueueReadBuffer</name></member>
-    <member refid="namespacett_1_1tt__metal_1_1v1_1a175d287310173ef03a2e6bd2b1b0cfa3" kind="function"><name>EnqueueWriteBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a9404dba1284f0bd7c765742a1fc11af7" kind="function"><name>EnqueueReadBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1ae72a31481e2846f1e15bc0b42f336d7a" kind="function"><name>EnqueueWriteBuffer</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v1_1a2e9787d7e5eaaeb6b838a9c6889c5626" kind="function"><name>EnqueueProgram</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v1_1a4749871772050bc38af4887d3543328b" kind="function"><name>Finish</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v1_1a6688cd88bb6474148452821a821e8730" kind="function"><name>SetLazyCommandQueueMode</name></member>
@@ -460,9 +463,9 @@
     <member refid="namespacett_1_1tt__metal_1_1v1_1a9cfd296d42fffa2b911d130116273cf0" kind="function"><name>GetWorkerMode</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v1_1aff8fd1c289715aad386c6ee40eda1638" kind="function"><name>GetNumProgramCacheEntries</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v1_1ac509df53069bbfb2423544bc4c1bda1b" kind="function"><name>EnqueueRecordEvent</name></member>
-    <member refid="namespacett_1_1tt__metal_1_1v1_1a75cf4017da0353e17f493d15b43292e8" kind="function"><name>EnqueueWaitForEvent</name></member>
-    <member refid="namespacett_1_1tt__metal_1_1v1_1a5f0339728931f881b0642a8656e636f4" kind="function"><name>EventSynchronize</name></member>
-    <member refid="namespacett_1_1tt__metal_1_1v1_1a0931a52a892ca8bb955ce8084425536a" kind="function"><name>EventQuery</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a8cd86b9c3adcdd8b5bf68baa642994f3" kind="function"><name>EnqueueWaitForEvent</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1aae5d361f2a151b3d4476c547c2765467" kind="function"><name>EventSynchronize</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a29d25288ad038ae69a389cab390e44b1" kind="function"><name>EventQuery</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v1_1a88371fc86019f3020c265456c559929b" kind="function"><name>DeviceSynchronize</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v1_1a7859c7b14b4045333f51dea3f6fae966" kind="function"><name>CommandQueueSynchronize</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v1_1a5ee7734e47e504191e9c6711b40c5a1f" kind="function"><name>SetRuntimeArgs</name></member>
@@ -480,13 +483,18 @@
     <member refid="namespacett_1_1tt__metal_1_1v1_1a063a64ba780bddf2bd64b16748ee602b" kind="function"><name>GetCircularBuffers</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v1_1a5a552dea5d7227a7805d72fb658f3d49" kind="function"><name>GetCircularBuffersOnCoreRange</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v1_1af94866d5212ee53e90bbf8108e481011" kind="function"><name>UpdateCircularBufferTotalSize</name></member>
-    <member refid="namespacett_1_1tt__metal_1_1v1_1aa514298587d69bf5490a52ed4ca04d77" kind="function"><name>UpdateDynamicCircularBufferAddress</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1a9d5dc9d37986c4de04865c16983f5109" kind="function"><name>UpdateDynamicCircularBufferAddress</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v1_1a19dbe074ea7eb58ae2debf7d51fa0234" kind="function"><name>GetCommandQueue</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v1_1a35c346d8491a7e2162a74e827633802c" kind="function"><name>BeginTraceCapture</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v1_1af82f80c6f857daa6981e44e4c51c28c6" kind="function"><name>EndTraceCapture</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v1_1a25a658a690031902c1a8ecd1f0810902" kind="function"><name>ReplayTrace</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v1_1a8d79e634d906f2aa3a474224b60609fa" kind="function"><name>ReleaseTrace</name></member>
     <member refid="namespacett_1_1tt__metal_1_1v1_1a52db18e0d55921f7e31df14444bac2da" kind="function"><name>EnqueueTrace</name></member>
+  </compound>
+  <compound refid="namespacett_1_1tt__metal_1_1v1_1_1experimental" kind="namespace"><name>tt::tt_metal::v1::experimental</name>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1_1experimental_1a9452c881ef4952b161567d8c649f5089" kind="function"><name>CreateGlobalCircularBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1_1experimental_1a2d7954f1210e05c98c5cdccf9d42c4e6" kind="function"><name>CreateCircularBuffer</name></member>
+    <member refid="namespacett_1_1tt__metal_1_1v1_1_1experimental_1a84bd5ec5b834a149b2cc3c82f1e67039" kind="function"><name>UpdateDynamicCircularBufferAddress</name></member>
   </compound>
   <compound refid="host__api_8hpp" kind="file"><name>host_api.hpp</name>
   </compound>
@@ -502,17 +510,16 @@
     <member refid="dataflow__api_8h_1a5fa0dd89473ba937f0a6f07ab69fe7dc" kind="define"><name>EXCLUDE_START_X_OFFSET</name></member>
     <member refid="dataflow__api_8h_1a25a0d59e125c87ff2f8fe0c9a394626c" kind="define"><name>DYNAMIC_NOC_DIRECTION</name></member>
     <member refid="dataflow__api_8h_1ab97f9dbfbb4150cb324f21520b8e6cfe" kind="define"><name>get_compile_time_arg_val</name></member>
+    <member refid="dataflow__api_8h_1acef291e41fb571dd8cdf11167e3aeeea" kind="variable"><name>proc_type</name></member>
     <member refid="dataflow__api_8h_1a58bc3a01e945dbd421fce21906e94441" kind="variable"><name>noc_index</name></member>
     <member refid="dataflow__api_8h_1abfbb1273e3f29964043f4660b5c5bc1d" kind="variable"><name>noc_mode</name></member>
+    <member refid="dataflow__api_8h_1aa8529255dbc378d289f61049834e1ba4" kind="variable"><name>dram_bank_to_noc_xy</name></member>
+    <member refid="dataflow__api_8h_1ab2a05116b7869524949b9a8bbf0997db" kind="variable"><name>bank_to_dram_offset</name></member>
+    <member refid="dataflow__api_8h_1ae219168622cfdbefddcbc5eb36eff549" kind="variable"><name>l1_bank_to_noc_xy</name></member>
+    <member refid="dataflow__api_8h_1a3d8a3a83201726ee0082488f787e1b89" kind="variable"><name>bank_to_l1_offset</name></member>
     <member refid="dataflow__api_8h_1a2366e9251332058fa1fa368903d1d760" kind="variable"><name>rta_l1_base</name></member>
     <member refid="dataflow__api_8h_1a74c5ca11f2fb15c25af4a74db732a5fc" kind="variable"><name>crta_l1_base</name></member>
     <member refid="dataflow__api_8h_1a237705982b987907cbfca699e32a9c64" kind="variable"><name>sem_l1_base</name></member>
-    <member refid="dataflow__api_8h_1afa5a15ba6d1a0359eb8270daa81f6e1a" kind="variable"><name>read_cmd_buf</name></member>
-    <member refid="dataflow__api_8h_1ae53f3d62ad6a9eeabe5f4604e3e9b13f" kind="variable"><name>write_cmd_buf</name></member>
-    <member refid="dataflow__api_8h_1a6c97896ab8cfddde7d4951cd6f947e0f" kind="variable"><name>write_reg_cmd_buf</name></member>
-    <member refid="dataflow__api_8h_1a27c097a6b6c3174e4b39fa61e1aed761" kind="variable"><name>write_at_cmd_buf</name></member>
-    <member refid="dataflow__api_8h_1a6738833d9844f57ccbb71859a4b8de05" kind="variable"><name>cb_interface</name></member>
-    <member refid="dataflow__api_8h_1ac4752c4d9a07974ce99aaa671a675fe2" kind="function"><name>align</name></member>
     <member refid="dataflow__api_8h_1a25d62dac426c2869489c6a658de97058" kind="function"><name>get_arg_addr</name></member>
     <member refid="dataflow__api_8h_1aca9717f94b44990fc7fca49678eda5a0" kind="function"><name>get_common_arg_addr</name></member>
     <member refid="dataflow__api_8h_1a6a5074e8cd2732fcecab57fced3ebd1f" kind="function"><name>get_arg_val</name></member>
@@ -540,8 +547,8 @@
     <member refid="dataflow__api_8h_1a31a2b40a6884c495ec14250c528a4dd7" kind="function"><name>get_l1_noc_addr</name></member>
     <member refid="dataflow__api_8h_1abe9291a1484765db08b61bb0be52135c" kind="function"><name>get_system_memory_noc_addr</name></member>
     <member refid="dataflow__api_8h_1a9e17f34cbfaaf63b2479e4f755aaa12c" kind="function"><name>get_noc_addr</name></member>
-    <member refid="dataflow__api_8h_1a0fa390aaa2b1facb57041e9a2c48cfbf" kind="function"><name>noc_async_read</name></member>
     <member refid="dataflow__api_8h_1a8aef5fd38ffe71fe3ec4a453aa39053b" kind="function"><name>noc_async_read_one_packet</name></member>
+    <member refid="dataflow__api_8h_1af81638126b7666b792269be373577241" kind="function"><name>noc_async_read</name></member>
     <member refid="dataflow__api_8h_1a3070e5dc8b9ed311b89d154643c4f8fd" kind="function"><name>noc_async_read_one_packet_set_state</name></member>
     <member refid="dataflow__api_8h_1a4031bdbfa690ceee630ad17f8ca99fdb" kind="function"><name>noc_async_read_one_packet_with_state</name></member>
     <member refid="dataflow__api_8h_1a60d8bc61e237ad566538149901b548ad" kind="function"><name>noc_async_read_set_state</name></member>
@@ -554,6 +561,7 @@
     <member refid="dataflow__api_8h_1ac41af911427b28e8d8e87869679f27c4" kind="function"><name>get_noc_addr</name></member>
     <member refid="dataflow__api_8h_1ae6c97b5ef900963ae9c3a5d87a7ef1ff" kind="function"><name>get_noc_addr</name></member>
     <member refid="dataflow__api_8h_1a6c2101cd8c2aec4bec53247d732a956c" kind="function"><name>get_noc_addr</name></member>
+    <member refid="dataflow__api_8h_1a8f9a8e66a0842dcf7ed45aff4231ad9e" kind="function"><name>get_noc_addr</name></member>
     <member refid="dataflow__api_8h_1a3a4948036d7191e294716b03d68b9d8a" kind="function"><name>noc_async_read_page</name></member>
     <member refid="dataflow__api_8h_1a94f6b951ebf9742b2bea80741ff47d27" kind="function"><name>noc_async_read_tile</name></member>
     <member refid="dataflow__api_8h_1a188eeb8f8c1f14b173ebe8c406133600" kind="function"><name>noc_async_write</name></member>
@@ -580,6 +588,8 @@
     <member refid="dataflow__api_8h_1a10ff412712df6c4f9f4e557ace59c1ec" kind="function"><name>noc_async_read_tile_dram_sharded_with_state_with_trid</name></member>
     <member refid="dataflow__api_8h_1a905d1234815d8abd8aa72460d34386ed" kind="function"><name>noc_async_read_tile_dram_sharded_set_trid</name></member>
     <member refid="dataflow__api_8h_1a98abddb8e88027a5299d2124b3953d19" kind="function"><name>noc_async_read_barrier_with_trid</name></member>
+    <member refid="dataflow__api_8h_1afc3f8b4dc67a0610cafdafd77d70ee69" kind="function"><name>get_noc_addr_from_bank_id</name></member>
+    <member refid="dataflow__api_8h_1a89bd02fcd6c82d77fa51b346b6a97d20" kind="function"><name>get_interleaved_addr_gen</name></member>
   </compound>
   <compound refid="ethernet_2dataflow__api_8h" kind="file"><name>dataflow_api.h</name>
     <member refid="ethernet_2dataflow__api_8h_1a9d454f81bcb8875f528a900fa9326bc6" kind="function"><name>eth_txq_is_busy</name></member>
@@ -687,6 +697,8 @@
   <compound refid="device_8hpp" kind="file"><name>device.hpp</name>
   </compound>
   <compound refid="event_8hpp" kind="file"><name>event.hpp</name>
+  </compound>
+  <compound refid="global__circular__buffer_8hpp" kind="file"><name>global_circular_buffer.hpp</name>
   </compound>
   <compound refid="kernel_8hpp" kind="file"><name>kernel.hpp</name>
   </compound>

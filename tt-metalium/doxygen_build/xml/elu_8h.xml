@@ -25,7 +25,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tt_metal/include/compute_kernel_api/eltwise_unary/elu.h" line="14" column="11" bodyfile="tt_metal/include/compute_kernel_api/eltwise_unary/elu.h" bodystart="14" bodyend="-1"/>
+        <location file="tt_metal/include/compute_kernel_api/eltwise_unary/elu.h" line="13" column="11" bodyfile="tt_metal/include/compute_kernel_api/eltwise_unary/elu.h" bodystart="13" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -39,29 +39,22 @@
 <codeline lineno="4"><highlight class="normal"></highlight></codeline>
 <codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="6"><highlight class="normal"></highlight></codeline>
-<codeline lineno="7"><highlight class="normal"></highlight></codeline>
-<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;compute_kernel_api/common_globals.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>TRISC_MATH</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;llk_math_eltwise_unary_sfpu_elu.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAIN<sp/>math_main()</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MATH(x)<sp/>x</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="14" refid="elu_8h_1a5f8a5b21f170f78a59c6aca4376e757d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MATH(x)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;compute_kernel_api/common_globals.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>TRISC_MATH</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;llk_math_eltwise_unary_sfpu_elu.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAIN<sp/>math_main()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MATH(x)<sp/>x</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="elu_8h_1a5f8a5b21f170f78a59c6aca4376e757d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MATH(x)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceckernel" kindref="compound">ckernel</ref><sp/>{</highlight></codeline>
 <codeline lineno="17"><highlight class="normal"></highlight></codeline>
-<codeline lineno="18"><highlight class="normal"></highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceckernel" kindref="compound">ckernel</ref><sp/>{</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"></highlight></codeline>
-<codeline lineno="34" refid="namespaceckernel_1a7be3d49aef6238fcf0fe4dc67868d3bd" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1a7be3d49aef6238fcf0fe4dc67868d3bd" kindref="member">elu_tile</ref>(uint32_t<sp/>idst,<sp/>uint32_t<sp/>param0)<sp/>{</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="erf__erfc_8h_1a5f8a5b21f170f78a59c6aca4376e757d" kindref="member">MATH</ref>((<sp/>llk_math_eltwise_unary_sfpu_elu&lt;APPROX&gt;(idst,<sp/>param0)<sp/>));</highlight></codeline>
-<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight></codeline>
-<codeline lineno="41" refid="namespaceckernel_1a53917e4947e7f3de1c5ef5d1a22aecbc" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1a53917e4947e7f3de1c5ef5d1a22aecbc" kindref="member">elu_tile_init</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="erf__erfc_8h_1a5f8a5b21f170f78a59c6aca4376e757d" kindref="member">MATH</ref>((<sp/>llk_math_eltwise_unary_sfpu_elu_init&lt;APPROX&gt;()<sp/>));</highlight></codeline>
-<codeline lineno="43"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"></highlight></codeline>
-<codeline lineno="45"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>ckernel</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="namespaceckernel_1a7be3d49aef6238fcf0fe4dc67868d3bd" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1a7be3d49aef6238fcf0fe4dc67868d3bd" kindref="member">elu_tile</ref>(uint32_t<sp/>idst,<sp/>uint32_t<sp/>param0)<sp/>{<sp/><ref refid="erf__erfc_8h_1a5f8a5b21f170f78a59c6aca4376e757d" kindref="member">MATH</ref>((llk_math_eltwise_unary_sfpu_elu&lt;APPROX&gt;(idst,<sp/>param0)));<sp/>}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="namespaceckernel_1a53917e4947e7f3de1c5ef5d1a22aecbc" refkind="member"><highlight class="normal"><ref refid="compute__kernel__api_8h_1a102b55d753f30b2569dd7976e1917038" kindref="member">ALWI</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceckernel_1a53917e4947e7f3de1c5ef5d1a22aecbc" kindref="member">elu_tile_init</ref>()<sp/>{<sp/><ref refid="erf__erfc_8h_1a5f8a5b21f170f78a59c6aca4376e757d" kindref="member">MATH</ref>((llk_math_eltwise_unary_sfpu_elu_init&lt;APPROX&gt;()));<sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>ckernel</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="tt_metal/include/compute_kernel_api/eltwise_unary/elu.h"/>
   </compounddef>

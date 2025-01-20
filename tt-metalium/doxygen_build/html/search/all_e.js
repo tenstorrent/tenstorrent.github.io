@@ -8,7 +8,8 @@ var searchData=
   ['page_5fsize_5',['page_size',['../structInterleavedAddrGen.html#ae87a663744676dd0bda03190f2258213',1,'InterleavedAddrGen::page_size()'],['../structInterleavedAddrGenFast.html#aa28ff99f21ae59113e530e7ada1e7db4',1,'InterleavedAddrGenFast::page_size()']]],
   ['power_5ftile_6',['power_tile',['../namespaceckernel.html#a61fe18515827e58bdfea82fa99daee38',1,'ckernel']]],
   ['power_5ftile_5finit_7',['power_tile_init',['../namespaceckernel.html#a7cd6f51f9220905884e315442843d2d2',1,'ckernel']]],
-  ['program_2ehpp_8',['program.hpp',['../program_8hpp.html',1,'']]],
-  ['programhandle_9',['ProgramHandle',['../namespacett_1_1tt__metal_1_1v1.html#aeb98f79faee0fc2ac9492dd5d295d126',1,'tt::tt_metal::v1']]],
-  ['pushwork_10',['PushWork',['../namespacett_1_1tt__metal_1_1v1.html#a0f9295aee290efd2c2330317353546c0',1,'tt::tt_metal::v1']]]
+  ['proc_5ftype_8',['proc_type',['../dataflow__api_8h.html#acef291e41fb571dd8cdf11167e3aeeea',1,'dataflow_api.h']]],
+  ['program_2ehpp_9',['program.hpp',['../program_8hpp.html',1,'']]],
+  ['programhandle_10',['ProgramHandle',['../namespacett_1_1tt__metal_1_1v1.html#aeb98f79faee0fc2ac9492dd5d295d126',1,'tt::tt_metal::v1']]],
+  ['pushwork_11',['PushWork',['../namespacett_1_1tt__metal_1_1v1.html#a0f9295aee290efd2c2330317353546c0',1,'tt::tt_metal::v1']]]
 ];

@@ -17,9 +17,9 @@ Command\+Queue\+Handle \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a104050cb
 \begin{DoxyCompactList}\small\item\em Retrieves a command queue from the device for a given queue ID. \end{DoxyCompactList}\item 
 Command\+Queue\+Handle \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a1d776f4c482bfa8ff8d5ce8950a02f82}{tt\+::tt\+\_\+metal\+::v1\+::\+Get\+Default\+Command\+Queue}} (Device\+Handle device)
 \begin{DoxyCompactList}\small\item\em Retrieves the default command queue for the given device. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a3de050e4a431b4dbcbd8e29f2ccd0fa6}{tt\+::tt\+\_\+metal\+::v1\+::\+Enqueue\+Read\+Buffer}} (Command\+Queue\+Handle cq, Buffer\+Handle buffer, std\+::byte $\ast$dst, bool blocking)
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a9404dba1284f0bd7c765742a1fc11af7}{tt\+::tt\+\_\+metal\+::v1\+::\+Enqueue\+Read\+Buffer}} (Command\+Queue\+Handle cq, const Buffer\+Handle \&buffer, std\+::byte $\ast$dst, bool blocking)
 \begin{DoxyCompactList}\small\item\em Reads a buffer from the device. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a175d287310173ef03a2e6bd2b1b0cfa3}{tt\+::tt\+\_\+metal\+::v1\+::\+Enqueue\+Write\+Buffer}} (Command\+Queue\+Handle cq, Buffer\+Handle buffer, const std\+::byte $\ast$src, bool blocking)
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_ae72a31481e2846f1e15bc0b42f336d7a}{tt\+::tt\+\_\+metal\+::v1\+::\+Enqueue\+Write\+Buffer}} (Command\+Queue\+Handle cq, const Buffer\+Handle \&buffer, const std\+::byte $\ast$src, bool blocking)
 \begin{DoxyCompactList}\small\item\em Writes data to a buffer on the device. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a2e9787d7e5eaaeb6b838a9c6889c5626}{tt\+::tt\+\_\+metal\+::v1\+::\+Enqueue\+Program}} (Command\+Queue\+Handle cq, Program\+Handle \&program, bool blocking)
 \begin{DoxyCompactList}\small\item\em Writes a program to the device and launches it. \end{DoxyCompactList}\item 

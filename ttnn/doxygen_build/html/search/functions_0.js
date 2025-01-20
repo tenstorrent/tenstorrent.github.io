@@ -15,11 +15,10 @@ var searchData=
   ['add_5ftiles_5fbcast_5fscalar_12',['add_tiles_bcast_scalar',['../namespaceckernel.html#ae0c56cbe89c2bf82e59321407a6397de',1,'ckernel']]],
   ['add_5ftiles_5finit_13',['add_tiles_init',['../namespaceckernel.html#ab15f8bb9e954453c9391caf073cbb2ee',1,'ckernel']]],
   ['add_5ftiles_5finit_5fnof_14',['add_tiles_init_nof',['../namespaceckernel.html#a38862808571447611983528275f91831',1,'ckernel']]],
-  ['align_15',['align',['../dataflow__api_8h.html#ac4752c4d9a07974ce99aaa671a675fe2',1,'dataflow_api.h']]],
-  ['any_5ftiles_5fbcast_16',['any_tiles_bcast',['../namespaceckernel.html#a6a7594ecae6f992d81148ab148486906',1,'ckernel']]],
-  ['asin_5ftile_17',['asin_tile',['../namespaceckernel.html#a7300e956259f09f938aaf30d266145b3',1,'ckernel']]],
-  ['asin_5ftile_5finit_18',['asin_tile_init',['../namespaceckernel.html#ae301e69cc106f101a05c17943f50a709',1,'ckernel']]],
-  ['assignglobalbuffertoprogram_19',['AssignGlobalBufferToProgram',['../namespacett_1_1tt__metal_1_1v0.html#a1ebc34320ecacb398a25f67c206422d5',1,'tt::tt_metal::AssignGlobalBufferToProgram()'],['../namespacett_1_1tt__metal_1_1v0.html#a1ebc34320ecacb398a25f67c206422d5',1,'tt::tt_metal::v0::AssignGlobalBufferToProgram()']]],
-  ['atan_5ftile_20',['atan_tile',['../namespaceckernel.html#ada371d824d49e63e32e718eea281959f',1,'ckernel']]],
-  ['atan_5ftile_5finit_21',['atan_tile_init',['../namespaceckernel.html#a74eef3940cc3f25fa0c5d99f4e1098ac',1,'ckernel']]]
+  ['any_5ftiles_5fbcast_15',['any_tiles_bcast',['../namespaceckernel.html#a6a7594ecae6f992d81148ab148486906',1,'ckernel']]],
+  ['asin_5ftile_16',['asin_tile',['../namespaceckernel.html#a7300e956259f09f938aaf30d266145b3',1,'ckernel']]],
+  ['asin_5ftile_5finit_17',['asin_tile_init',['../namespaceckernel.html#ae301e69cc106f101a05c17943f50a709',1,'ckernel']]],
+  ['assignglobalbuffertoprogram_18',['AssignGlobalBufferToProgram',['../namespacett_1_1tt__metal_1_1v0.html#a1ebc34320ecacb398a25f67c206422d5',1,'tt::tt_metal::AssignGlobalBufferToProgram()'],['../namespacett_1_1tt__metal_1_1v0.html#a1ebc34320ecacb398a25f67c206422d5',1,'tt::tt_metal::v0::AssignGlobalBufferToProgram()']]],
+  ['atan_5ftile_19',['atan_tile',['../namespaceckernel.html#ada371d824d49e63e32e718eea281959f',1,'ckernel']]],
+  ['atan_5ftile_5finit_20',['atan_tile_init',['../namespaceckernel.html#a74eef3940cc3f25fa0c5d99f4e1098ac',1,'ckernel']]]
 ];

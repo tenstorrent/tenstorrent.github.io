@@ -9,19 +9,23 @@ The Tenstorrent TT-QuietBox Liquid-Cooled Desktop Workstation system package inc
 - 2x QSFP-DD 400GbE Cable, 0.6m/2ft.
 - Remote Control for RGB Lighting
 
+**WARNING:** TT-QuietBox is shipped in a wooden crate weighing a total of 131 lbs. / 59.4 kg. The system itself weighs 96 lbs. / 43.5 kg. We strongly recommend at least two people for moving and uncrating the system.
+
 ## System Specifications
 
-| Specification         | TT-QuietBox (TW-04001)                                       |
-| --------------------- | ------------------------------------------------------------ |
-| **CPU**               | AMD EPYC™ 8124P<br />(16C/32T, up to 3GHz, 125W, [AMD](https://www.amd.com/en/products/cpu/amd-epyc-8124p)) |
-| **Motherboard**       | TYAN Tomcat HX S8040 MB ([S8040GM4NE-2T](https://www.tyan.com/Motherboards_S8040_S8040GM4NE-2T)) |
-| **Memory**            | 512GB (8x64GB)<br />DDR5-4800 ECC RDIMM<br />(0 Slots Free)  |
-| **Storage**           | 3.8TB U.2 NVMe PCIe 4.0 x4                                   |
-| **Tensix Processors** | 4x Tenstorrent Wormhole™ n300 Tensix Processor               |
-| **Cables**            | 4x [Warp 100 Bridge](../../aibs/warp100.md)<br />2x QSFP-DD 400GbE |
-| **Connectivity**      | 2x RJ45 10GBase-T via Intel® X710<br /><br />2x RJ45 1GBase-T via Intel® I210<br />4x USB 3.1 Gen 1 (5GBps) Type-A (2x Front, 2x Rear)<br />1x COM<br />1x VGA<br />1x IPMI |
-| **Power Supply**      | 1650W 80 PLUS Gold                                           |
-| **Operating System**  | None                                                         |
+| Specification                         | TT-QuietBox (TW-04001)                                       |
+| ------------------------------------- | ------------------------------------------------------------ |
+| **CPU**                               | AMD EPYC™ 8124P<br />(16C/32T, up to 3GHz, 125W, [AMD](https://www.amd.com/en/products/cpu/amd-epyc-8124p)) |
+| **Motherboard**                       | TYAN Tomcat HX S8040 MB ([S8040GM4NE-2T](https://www.tyan.com/Motherboards_S8040_S8040GM4NE-2T)) |
+| **Memory**                            | 512GB (8x64GB)<br />DDR5-4800 ECC RDIMM<br />(0 Slots Free)  |
+| **Storage**                           | 3.8TB U.2 NVMe PCIe 4.0 x4                                   |
+| **Tensix Processors**                 | 4x Tenstorrent Wormhole™ n300 Tensix Processor               |
+| **Cables**                            | 4x [Warp 100 Bridge](../../aibs/warp100.md)<br />2x QSFP-DD 400GbE |
+| **Connectivity**                      | 2x RJ45 10GBase-T via Intel® X710<br /><br />2x RJ45 1GBase-T via Intel® I210<br />4x USB 3.1 Gen 1 (5GBps) Type-A (2x Front, 2x Rear)<br />1x COM<br />1x VGA<br />1x IPMI |
+| **Power Supply**                      | 1650W 80 PLUS Gold                                           |
+| **Operating System**                  | None                                                         |
+| **Dimensions (System)<br />(WxDxH)**  | 10" x 21.5" x 20" (96 lbs.)<br />254mm x 546mm x 508mm (43.5 kg) |
+| **Dimensions (Shipped)<br />(WxDxH)** | 18" x 33" x 27" (131 lbs.)<br />453mm x 839mm x 686mm (59.4 kg) |
 
 ## Operating System Requirements
 

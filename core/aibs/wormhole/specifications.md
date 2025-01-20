@@ -22,9 +22,9 @@ The Wormhole™ n150s and n300s Tensix Processor add-in boards are built using t
 | Memory                               | 12GB GDDR6                                          | 24GB GDDR6                                          |
 | Memory Speed                         | 12 GT/sec                                           | 12 GT/sec                                           |
 | Memory Bandwidth                     | 288 GB/sec                                          | 576 GB/sec                                          |
-| TeraFLOPs (FP8)                      | 262                                                 | 466                                                 |
-| TeraFLOPs (FP16)                     | 74                                                  | 131                                                 |
-| TeraFLOPs (BFP8)                     | 148                                                 | 262                                                 |
+| TeraFLOPS (FP8)                      | 262                                                 | 466                                                 |
+| TeraFLOPS (FP16)                     | 74                                                  | 131                                                 |
+| TeraFLOPS (BLOCKFP8)                 | 148                                                 | 262                                                 |
 | TBP (Total Board Power)              | 160W                                                | 300W                                                |
 | External Power                       | 1x 4+4-pin EPS12V                                   | 1x 4+4-pin EPS12V                                   |
 | Connectivity                         | 2x Warp 100 Bridge<br />2x QSFP-DD 400GbE (Active)* | 2x Warp 100 Bridge<br />2x QSFP-DD 400GbE (Active)* |
@@ -54,14 +54,14 @@ The two QSFP-DD ports are active and support 400GbE connectivity between cards a
 
 The n150/n300 support the following data precision formats:
 
-| Format               | Bit Depth                               |
-| -------------------- | --------------------------------------- |
-| Floating point       | FP8, FP16, BF16<br />FP32 (Output Only) |
-| Block floating point | BFP2, BFP4, BFP8                        |
-| Integer              | INT8<br />INT32 (Output Only)           |
-| Unsigned Integer     | UINT8                                   |
-| TensorFloat          | TF32                                    |
-| Vector               | VTF19, VFP32                            |
+| Format               | Bit Depth                                   |
+| -------------------- | ------------------------------------------- |
+| Floating point       | FP8, FP16, BFLOAT16<br />FP32 (Output Only) |
+| Block floating point | BLOCKFP2, BLOCKFP4, BLOCKFP8                |
+| Integer              | INT8<br />INT32 (Output Only)               |
+| Unsigned Integer     | UINT8                                       |
+| TensorFloat          | TF32                                        |
+| Vector               | VTF19, VFP32                                |
 
 ## Minimum System Requirements
 

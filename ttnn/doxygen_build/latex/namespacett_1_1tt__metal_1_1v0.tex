@@ -3,7 +3,7 @@
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-using \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a5d1cfea010cb740e7307b18b4a7ec9e8}{Runtime\+Args}} = std\+::vector$<$ std\+::variant$<$ Buffer $\ast$, uint32\+\_\+t $>$ $>$
+using \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a4d311514040f724ea391cb7f212a810b}{Runtime\+Args}} = std\+::vector$<$ std\+::variant$<$ Buffer $\ast$, uint32\+\_\+t $>$ $>$
 \end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -16,9 +16,9 @@ size\+\_\+t \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a4f05b332fd6f861bb35
 \item 
 chip\+\_\+id\+\_\+t \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_af46d5827805ba92482cddb5591c69a45}{Get\+PCIe\+Device\+ID}} (chip\+\_\+id\+\_\+t device\+\_\+id)
 \item 
-Device $\ast$ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_abe3488f7ac4863b7b372f344f863bc84}{Create\+Device}} (chip\+\_\+id\+\_\+t device\+\_\+id, const uint8\+\_\+t num\+\_\+hw\+\_\+cqs=1, const size\+\_\+t l1\+\_\+small\+\_\+size=DEFAULT\+\_\+\+L1\+\_\+\+SMALL\+\_\+\+SIZE, const size\+\_\+t trace\+\_\+region\+\_\+size=DEFAULT\+\_\+\+TRACE\+\_\+\+REGION\+\_\+\+SIZE, Dispatch\+Core\+Type dispatch\+\_\+core\+\_\+type=Dispatch\+Core\+Type\+::\+WORKER, const std\+::vector$<$ uint32\+\_\+t $>$ \&l1\+\_\+bank\+\_\+remap=\{\})
+Device $\ast$ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a8502cc6c6cdec4f09d468182e621325c}{Create\+Device}} (chip\+\_\+id\+\_\+t device\+\_\+id, const uint8\+\_\+t num\+\_\+hw\+\_\+cqs=1, const size\+\_\+t l1\+\_\+small\+\_\+size=DEFAULT\+\_\+\+L1\+\_\+\+SMALL\+\_\+\+SIZE, const size\+\_\+t trace\+\_\+region\+\_\+size=DEFAULT\+\_\+\+TRACE\+\_\+\+REGION\+\_\+\+SIZE, const Dispatch\+Core\+Config \&dispatch\+\_\+core\+\_\+config=Dispatch\+Core\+Config\{\}, const std\+::vector$<$ uint32\+\_\+t $>$ \&l1\+\_\+bank\+\_\+remap=\{\})
 \item 
-Device $\ast$ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a1690575bfc5a81f0a7bc44b0a1f4780b}{Create\+Device\+Minimal}} (chip\+\_\+id\+\_\+t device\+\_\+id, const uint8\+\_\+t num\+\_\+hw\+\_\+cqs=1, Dispatch\+Core\+Type dispatch\+\_\+core\+\_\+type=Dispatch\+Core\+Type\+::\+WORKER)
+Device $\ast$ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a23165f9a0b1bdc1b4ef3e585e4d52ab0}{Create\+Device\+Minimal}} (chip\+\_\+id\+\_\+t device\+\_\+id, const uint8\+\_\+t num\+\_\+hw\+\_\+cqs=1, const Dispatch\+Core\+Config \&dispatch\+\_\+core\+\_\+config=Dispatch\+Core\+Config\{\})
 \item 
 bool \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a26cb44c89e3231cade68dca1a6990bbb}{Close\+Device}} (Device $\ast$device)
 \item 
@@ -38,11 +38,13 @@ void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a3831e993c64a578637c9fc73b0
 \item 
 void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a0cf0d51e979e755908ee29c30401ee53}{Update\+Dynamic\+Circular\+Buffer\+Address}} (Program \&program, CBHandle cb\+\_\+handle, const Buffer \&buffer)
 \item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a56aa79053d933dc45936e054942c9860}{Update\+Dynamic\+Circular\+Buffer\+Address\+And\+Total\+Size}} (Program \&program, CBHandle cb\+\_\+handle, const Buffer \&buffer, uint32\+\_\+t total\+\_\+size)
+\item 
 uint32\+\_\+t \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_ad7ce765d28d851983f910495c44411cd}{Create\+Semaphore}} (Program \&program, const std\+::variant$<$ Core\+Range, Core\+Range\+Set $>$ \&core\+\_\+spec, uint32\+\_\+t initial\+\_\+value, Core\+Type core\+\_\+type=Core\+Type\+::\+WORKER)
 \item 
-std\+::unique\+\_\+ptr$<$ Global\+Semaphore $>$ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a087c394c5ec94274c150ee18ef88ef78}{Create\+Global\+Semaphore}} (Device $\ast$device, const Core\+Range\+Set \&cores, uint32\+\_\+t initial\+\_\+value, Buffer\+Type buffer\+\_\+type=Buffer\+Type\+::\+L1)
+Global\+Semaphore \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_acc00b263f039c80403524431d432cb9c}{Create\+Global\+Semaphore}} (Device $\ast$device, const Core\+Range\+Set \&cores, uint32\+\_\+t initial\+\_\+value, Buffer\+Type buffer\+\_\+type=Buffer\+Type\+::\+L1, tt\+::stl\+::\+Span$<$ const Sub\+Device\+Id $>$ sub\+\_\+device\+\_\+ids=\{\})
 \item 
-std\+::unique\+\_\+ptr$<$ Global\+Semaphore $>$ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_acd4672dc795d11eeac8c1c45bfed6a87}{Create\+Global\+Semaphore}} (Device $\ast$device, Core\+Range\+Set \&\&cores, uint32\+\_\+t initial\+\_\+value, Buffer\+Type buffer\+\_\+type=Buffer\+Type\+::\+L1)
+Global\+Semaphore \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_aed86ed7ca1141d55ec8afaaa0adf8813}{Create\+Global\+Semaphore}} (Device $\ast$device, Core\+Range\+Set \&\&cores, uint32\+\_\+t initial\+\_\+value, Buffer\+Type buffer\+\_\+type=Buffer\+Type\+::\+L1, tt\+::stl\+::\+Span$<$ const Sub\+Device\+Id $>$ sub\+\_\+device\+\_\+ids=\{\})
 \item 
 std\+::shared\+\_\+ptr$<$ Buffer $>$ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_aec7794124ecb8f3b20ffe95a4c8b390d}{Create\+Buffer}} (const Interleaved\+Buffer\+Config \&config)
 \item 
@@ -64,9 +66,9 @@ void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_afb2ca08d5f123ed98b99498324
 \item 
 void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a74ca7c2b7c798d3c16af2dc931d68df0}{Set\+Runtime\+Args}} (const Program \&program, Kernel\+Handle kernel, const std\+::vector$<$ Core\+Coord $>$ \&core\+\_\+spec, const std\+::vector$<$ std\+::vector$<$ uint32\+\_\+t $>$ $>$ \&runtime\+\_\+args)
 \item 
-void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_afdb3df50326c491a4612d21ce45a518a}{Set\+Runtime\+Args}} (Device $\ast$device, const std\+::shared\+\_\+ptr$<$ Kernel $>$ kernel, const std\+::variant$<$ Core\+Coord, Core\+Range, Core\+Range\+Set $>$ \&core\+\_\+spec, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a5d1cfea010cb740e7307b18b4a7ec9e8}{Runtime\+Args}} $>$ runtime\+\_\+args)
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a904971f5d8ecdb9d80f84a9ea9a54bd9}{Set\+Runtime\+Args}} (Device $\ast$device, const std\+::shared\+\_\+ptr$<$ Kernel $>$ \&kernel, const std\+::variant$<$ Core\+Coord, Core\+Range, Core\+Range\+Set $>$ \&core\+\_\+spec, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a4d311514040f724ea391cb7f212a810b}{Runtime\+Args}} $>$ runtime\+\_\+args)
 \item 
-void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a774adf0f130e4a8f75007cca0a33fcb6}{Set\+Runtime\+Args}} (Device $\ast$device, const std\+::shared\+\_\+ptr$<$ Kernel $>$ kernel, const std\+::vector$<$ Core\+Coord $>$ \&core\+\_\+spec, const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a5d1cfea010cb740e7307b18b4a7ec9e8}{Runtime\+Args}} $>$ $>$ runtime\+\_\+args)
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_abadad6cfd6751695fbc5bbd432536a91}{Set\+Runtime\+Args}} (Device $\ast$device, const std\+::shared\+\_\+ptr$<$ Kernel $>$ \&kernel, const std\+::vector$<$ Core\+Coord $>$ \&core\+\_\+spec, const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a4d311514040f724ea391cb7f212a810b}{Runtime\+Args}} $>$ $>$ \&runtime\+\_\+args)
 \item 
 void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a8263eba8cd8279b6c1e6db233ec5f133}{Set\+Common\+Runtime\+Args}} (const Program \&program, Kernel\+Handle kernel\+\_\+id, stl\+::\+Span$<$ const uint32\+\_\+t $>$ runtime\+\_\+args)
 \item 
@@ -115,11 +117,11 @@ void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_abbef214f3ba879469488d36705
 
 
 \doxysubsection{Typedef Documentation}
-\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v0_a5d1cfea010cb740e7307b18b4a7ec9e8}\label{namespacett_1_1tt__metal_1_1v0_a5d1cfea010cb740e7307b18b4a7ec9e8}} 
+\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v0_a4d311514040f724ea391cb7f212a810b}\label{namespacett_1_1tt__metal_1_1v0_a4d311514040f724ea391cb7f212a810b}} 
 \index{tt::tt\_metal::v0@{tt::tt\_metal::v0}!RuntimeArgs@{RuntimeArgs}}
 \index{RuntimeArgs@{RuntimeArgs}!tt::tt\_metal::v0@{tt::tt\_metal::v0}}
 \doxysubsubsection{\texorpdfstring{RuntimeArgs}{RuntimeArgs}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a5d1cfea010cb740e7307b18b4a7ec9e8}{tt\+::tt\+\_\+metal\+::v0\+::\+Runtime\+Args}} = typedef std\+::vector$<$std\+::variant$<$Buffer $\ast$, uint32\+\_\+t$>$ $>$}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a4d311514040f724ea391cb7f212a810b}{tt\+::tt\+\_\+metal\+::v0\+::\+Runtime\+Args}} = typedef std\+::vector$<$std\+::variant$<$Buffer$\ast$, uint32\+\_\+t$>$ $>$}
 
 
 
@@ -354,11 +356,11 @@ program   &The program to which buffer will be added to   &Program \&   &&Yes   
 core\+\_\+spec   &Either a single logical core, a range of logical cores or a set of logical core ranges that indicate where the circular buffer will be configured   &const std\+::variant$<$\+Core\+Coord, Core\+Range, Core\+Range\+Set$>$ \&   &&Yes    \\\cline{1-5}
 config   &Config for circular buffer   &const Circular\+Buffer\+Config \&   &&Yes   \\\cline{1-5}
 \end{longtabu}
-\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v0_abe3488f7ac4863b7b372f344f863bc84}\label{namespacett_1_1tt__metal_1_1v0_abe3488f7ac4863b7b372f344f863bc84}} 
+\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v0_a8502cc6c6cdec4f09d468182e621325c}\label{namespacett_1_1tt__metal_1_1v0_a8502cc6c6cdec4f09d468182e621325c}} 
 \index{tt::tt\_metal::v0@{tt::tt\_metal::v0}!CreateDevice@{CreateDevice}}
 \index{CreateDevice@{CreateDevice}!tt::tt\_metal::v0@{tt::tt\_metal::v0}}
 \doxysubsubsection{\texorpdfstring{CreateDevice()}{CreateDevice()}}
-{\footnotesize\ttfamily Device $\ast$ tt\+::tt\+\_\+metal\+::v0\+::\+Create\+Device (\begin{DoxyParamCaption}\item[{chip\+\_\+id\+\_\+t}]{device\+\_\+id,  }\item[{const uint8\+\_\+t}]{num\+\_\+hw\+\_\+cqs = {\ttfamily 1},  }\item[{const size\+\_\+t}]{l1\+\_\+small\+\_\+size = {\ttfamily DEFAULT\+\_\+L1\+\_\+SMALL\+\_\+SIZE},  }\item[{const size\+\_\+t}]{trace\+\_\+region\+\_\+size = {\ttfamily DEFAULT\+\_\+TRACE\+\_\+REGION\+\_\+SIZE},  }\item[{Dispatch\+Core\+Type}]{dispatch\+\_\+core\+\_\+type = {\ttfamily DispatchCoreType\+:\+:WORKER},  }\item[{const std\+::vector$<$ uint32\+\_\+t $>$ \&}]{l1\+\_\+bank\+\_\+remap = {\ttfamily \{\}} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Device $\ast$ tt\+::tt\+\_\+metal\+::v0\+::\+Create\+Device (\begin{DoxyParamCaption}\item[{chip\+\_\+id\+\_\+t}]{device\+\_\+id,  }\item[{const uint8\+\_\+t}]{num\+\_\+hw\+\_\+cqs = {\ttfamily 1},  }\item[{const size\+\_\+t}]{l1\+\_\+small\+\_\+size = {\ttfamily DEFAULT\+\_\+L1\+\_\+SMALL\+\_\+SIZE},  }\item[{const size\+\_\+t}]{trace\+\_\+region\+\_\+size = {\ttfamily DEFAULT\+\_\+TRACE\+\_\+REGION\+\_\+SIZE},  }\item[{const Dispatch\+Core\+Config \&}]{dispatch\+\_\+core\+\_\+config = {\ttfamily DispatchCoreConfig\{\}},  }\item[{const std\+::vector$<$ uint32\+\_\+t $>$ \&}]{l1\+\_\+bank\+\_\+remap = {\ttfamily \{\}} }\end{DoxyParamCaption})}
 
 Instantiates a device object.
 
@@ -376,11 +378,11 @@ Return value\+: Device $\ast$
 \endhead
 device\+\_\+id   &ID of the device to target   &chip\+\_\+id\+\_\+t (int)   &0 to (Get\+Num\+Available\+Devices -\/ 1)   &Yes   \\\cline{1-5}
 \end{longtabu}
-\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v0_a1690575bfc5a81f0a7bc44b0a1f4780b}\label{namespacett_1_1tt__metal_1_1v0_a1690575bfc5a81f0a7bc44b0a1f4780b}} 
+\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v0_a23165f9a0b1bdc1b4ef3e585e4d52ab0}\label{namespacett_1_1tt__metal_1_1v0_a23165f9a0b1bdc1b4ef3e585e4d52ab0}} 
 \index{tt::tt\_metal::v0@{tt::tt\_metal::v0}!CreateDeviceMinimal@{CreateDeviceMinimal}}
 \index{CreateDeviceMinimal@{CreateDeviceMinimal}!tt::tt\_metal::v0@{tt::tt\_metal::v0}}
 \doxysubsubsection{\texorpdfstring{CreateDeviceMinimal()}{CreateDeviceMinimal()}}
-{\footnotesize\ttfamily Device $\ast$ tt\+::tt\+\_\+metal\+::v0\+::\+Create\+Device\+Minimal (\begin{DoxyParamCaption}\item[{chip\+\_\+id\+\_\+t}]{device\+\_\+id,  }\item[{const uint8\+\_\+t}]{num\+\_\+hw\+\_\+cqs = {\ttfamily 1},  }\item[{Dispatch\+Core\+Type}]{dispatch\+\_\+core\+\_\+type = {\ttfamily DispatchCoreType\+:\+:WORKER} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Device $\ast$ tt\+::tt\+\_\+metal\+::v0\+::\+Create\+Device\+Minimal (\begin{DoxyParamCaption}\item[{chip\+\_\+id\+\_\+t}]{device\+\_\+id,  }\item[{const uint8\+\_\+t}]{num\+\_\+hw\+\_\+cqs = {\ttfamily 1},  }\item[{const Dispatch\+Core\+Config \&}]{dispatch\+\_\+core\+\_\+config = {\ttfamily DispatchCoreConfig\{\}} }\end{DoxyParamCaption})}
 
 Instantiates a device with minimal setup, used to attach to a device in a bad state.
 
@@ -398,15 +400,15 @@ Return value\+: Device $\ast$
 \endhead
 device\+\_\+id   &ID of the device to target   &chip\+\_\+id\+\_\+t (int)   &0 to (Get\+Num\+Available\+Devices -\/ 1)   &Yes   \\\cline{1-5}
 \end{longtabu}
-\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v0_a087c394c5ec94274c150ee18ef88ef78}\label{namespacett_1_1tt__metal_1_1v0_a087c394c5ec94274c150ee18ef88ef78}} 
+\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v0_acc00b263f039c80403524431d432cb9c}\label{namespacett_1_1tt__metal_1_1v0_acc00b263f039c80403524431d432cb9c}} 
 \index{tt::tt\_metal::v0@{tt::tt\_metal::v0}!CreateGlobalSemaphore@{CreateGlobalSemaphore}}
 \index{CreateGlobalSemaphore@{CreateGlobalSemaphore}!tt::tt\_metal::v0@{tt::tt\_metal::v0}}
 \doxysubsubsection{\texorpdfstring{CreateGlobalSemaphore()}{CreateGlobalSemaphore()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ Global\+Semaphore $>$ tt\+::tt\+\_\+metal\+::v0\+::\+Create\+Global\+Semaphore (\begin{DoxyParamCaption}\item[{Device $\ast$}]{device,  }\item[{const Core\+Range\+Set \&}]{cores,  }\item[{uint32\+\_\+t}]{initial\+\_\+value,  }\item[{Buffer\+Type}]{buffer\+\_\+type = {\ttfamily BufferType\+:\+:L1} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Global\+Semaphore tt\+::tt\+\_\+metal\+::v0\+::\+Create\+Global\+Semaphore (\begin{DoxyParamCaption}\item[{Device $\ast$}]{device,  }\item[{const Core\+Range\+Set \&}]{cores,  }\item[{uint32\+\_\+t}]{initial\+\_\+value,  }\item[{Buffer\+Type}]{buffer\+\_\+type = {\ttfamily BufferType\+:\+:L1},  }\item[{tt\+::stl\+::\+Span$<$ const Sub\+Device\+Id $>$}]{sub\+\_\+device\+\_\+ids = {\ttfamily \{\}} }\end{DoxyParamCaption})}
 
 Initializes a global semaphore on all cores within the specified Core\+Range\+Set. This only supports tensix cores, and can only use L1 buffer types like Buffer\+Type\+::\+L1 and Buffer\+Type\+::\+L1\+\_\+\+SMALL.
 
-Return value\+: std\+::unique\+\_\+ptr$<$\+Global\+Semaphore$>$.
+Return value\+: Global\+Semaphore
 
 \tabulinesep=1mm
 \begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
@@ -421,17 +423,18 @@ Return value\+: std\+::unique\+\_\+ptr$<$\+Global\+Semaphore$>$.
 device   &The device to create the semaphore on   &Device $\ast$   &&Yes    \\\cline{1-5}
 cores   &Range of the Tensix co-\/ordinates using the semaphore   &const Core\+Range\+Set \&   &&Yes    \\\cline{1-5}
 initial\+\_\+value   &Initial value of the semaphore   &uint32\+\_\+t   &&Yes    \\\cline{1-5}
-buffer\+\_\+type   &Buffer type to store the semaphore   &Buffer\+Type   &L1 types   &No   \\\cline{1-5}
+buffer\+\_\+type   &Buffer type to store the semaphore   &Buffer\+Type   &L1 types   &No    \\\cline{1-5}
+sub\+\_\+device\+\_\+ids   &Sub-\/device ids to wait on before writing the semaphore   &tt\+::stl\+::\+Span$<$const Sub\+Device\+Id$>$   &&No   \\\cline{1-5}
 \end{longtabu}
-\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v0_acd4672dc795d11eeac8c1c45bfed6a87}\label{namespacett_1_1tt__metal_1_1v0_acd4672dc795d11eeac8c1c45bfed6a87}} 
+\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v0_aed86ed7ca1141d55ec8afaaa0adf8813}\label{namespacett_1_1tt__metal_1_1v0_aed86ed7ca1141d55ec8afaaa0adf8813}} 
 \index{tt::tt\_metal::v0@{tt::tt\_metal::v0}!CreateGlobalSemaphore@{CreateGlobalSemaphore}}
 \index{CreateGlobalSemaphore@{CreateGlobalSemaphore}!tt::tt\_metal::v0@{tt::tt\_metal::v0}}
 \doxysubsubsection{\texorpdfstring{CreateGlobalSemaphore()}{CreateGlobalSemaphore()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ Global\+Semaphore $>$ tt\+::tt\+\_\+metal\+::v0\+::\+Create\+Global\+Semaphore (\begin{DoxyParamCaption}\item[{Device $\ast$}]{device,  }\item[{Core\+Range\+Set \&\&}]{cores,  }\item[{uint32\+\_\+t}]{initial\+\_\+value,  }\item[{Buffer\+Type}]{buffer\+\_\+type = {\ttfamily BufferType\+:\+:L1} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Global\+Semaphore tt\+::tt\+\_\+metal\+::v0\+::\+Create\+Global\+Semaphore (\begin{DoxyParamCaption}\item[{Device $\ast$}]{device,  }\item[{Core\+Range\+Set \&\&}]{cores,  }\item[{uint32\+\_\+t}]{initial\+\_\+value,  }\item[{Buffer\+Type}]{buffer\+\_\+type = {\ttfamily BufferType\+:\+:L1},  }\item[{tt\+::stl\+::\+Span$<$ const Sub\+Device\+Id $>$}]{sub\+\_\+device\+\_\+ids = {\ttfamily \{\}} }\end{DoxyParamCaption})}
 
 Initializes a global semaphore on all cores within the specified Core\+Range\+Set. This only supports tensix cores, and can only use L1 buffer types like Buffer\+Type\+::\+L1 and Buffer\+Type\+::\+L1\+\_\+\+SMALL.
 
-Return value\+: std\+::unique\+\_\+ptr$<$\+Global\+Semaphore$>$.
+Return value\+: Global\+Semaphore
 
 \tabulinesep=1mm
 \begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
@@ -446,7 +449,8 @@ Return value\+: std\+::unique\+\_\+ptr$<$\+Global\+Semaphore$>$.
 device   &The device to create the semaphore on   &Device $\ast$   &&Yes    \\\cline{1-5}
 cores   &Range of the Tensix co-\/ordinates using the semaphore   &Core\+Range\+Set \&\&   &&Yes    \\\cline{1-5}
 initial\+\_\+value   &Initial value of the semaphore   &uint32\+\_\+t   &&Yes    \\\cline{1-5}
-buffer\+\_\+type   &Buffer type to store the semaphore   &Buffer\+Type   &L1 types   &No   \\\cline{1-5}
+buffer\+\_\+type   &Buffer type to store the semaphore   &Buffer\+Type   &L1 types   &No    \\\cline{1-5}
+sub\+\_\+device\+\_\+ids   &Sub-\/device ids to wait on before writing the semaphore   &tt\+::stl\+::\+Span$<$const Sub\+Device\+Id$>$   &&No   \\\cline{1-5}
 \end{longtabu}
 \mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v0_a0e68e0e2cb813bf5814ddb02d82cd1d0}\label{namespacett_1_1tt__metal_1_1v0_a0e68e0e2cb813bf5814ddb02d82cd1d0}} 
 \index{tt::tt\_metal::v0@{tt::tt\_metal::v0}!CreateKernel@{CreateKernel}}
@@ -1108,11 +1112,11 @@ kernel\+\_\+id   &ID of the kernel that will receive the runtime args   &Kernel\
 core\+\_\+spec   &Location of Tensix core(s) where the runtime args will be written   &const std\+::vector$<$\+Core\+Coord$>$ \&   &Any set of logical Tensix core coordinates on which the kernel is placed   &Yes    \\\cline{1-5}
 runtime\+\_\+args   &The runtime args to be written   &const std\+::vector\texorpdfstring{$<$}{<} vector$<$uint32\+\_\+t$>$ \texorpdfstring{$>$}{>} \&   &Outer vector size must be equal to size of core\+\_\+spec vector   &Yes   \\\cline{1-5}
 \end{longtabu}
-\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v0_afdb3df50326c491a4612d21ce45a518a}\label{namespacett_1_1tt__metal_1_1v0_afdb3df50326c491a4612d21ce45a518a}} 
+\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v0_a904971f5d8ecdb9d80f84a9ea9a54bd9}\label{namespacett_1_1tt__metal_1_1v0_a904971f5d8ecdb9d80f84a9ea9a54bd9}} 
 \index{tt::tt\_metal::v0@{tt::tt\_metal::v0}!SetRuntimeArgs@{SetRuntimeArgs}}
 \index{SetRuntimeArgs@{SetRuntimeArgs}!tt::tt\_metal::v0@{tt::tt\_metal::v0}}
 \doxysubsubsection{\texorpdfstring{SetRuntimeArgs()}{SetRuntimeArgs()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
-{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::v0\+::\+Set\+Runtime\+Args (\begin{DoxyParamCaption}\item[{Device $\ast$}]{device,  }\item[{const std\+::shared\+\_\+ptr$<$ Kernel $>$}]{kernel,  }\item[{const std\+::variant$<$ Core\+Coord, Core\+Range, Core\+Range\+Set $>$ \&}]{core\+\_\+spec,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a5d1cfea010cb740e7307b18b4a7ec9e8}{Runtime\+Args}} $>$}]{runtime\+\_\+args }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::v0\+::\+Set\+Runtime\+Args (\begin{DoxyParamCaption}\item[{Device $\ast$}]{device,  }\item[{const std\+::shared\+\_\+ptr$<$ Kernel $>$ \&}]{kernel,  }\item[{const std\+::variant$<$ Core\+Coord, Core\+Range, Core\+Range\+Set $>$ \&}]{core\+\_\+spec,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a4d311514040f724ea391cb7f212a810b}{Runtime\+Args}} $>$}]{runtime\+\_\+args }\end{DoxyParamCaption})}
 
 Set runtime args for a kernel that are sent to the specified cores using the command queue. This API must be used when Asynchronous Command Queue Mode is enabled. Maximum of 255 allowed runtime args per core (unique and common runtime args count toward same limit).
 
@@ -1133,11 +1137,11 @@ kernel   &The kernel that will recieve these runtime args.   &std\+::shared\+\_\
 core\+\_\+spec   &Location of Tensix core(s) where the runtime args will be written   &const std\+::variant$<$\+Core\+Coord,\+Core\+Range,\+Core\+Range\+Set$>$ \&   &Any set of logical Tensix core coordinates on which the kernel is placed   &Yes    \\\cline{1-5}
 runtime\+\_\+args   &The runtime args to be written   &std\+::shared\+\_\+ptr$<$\+Runtime\+Args$>$   &&Yes   \\\cline{1-5}
 \end{longtabu}
-\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v0_a774adf0f130e4a8f75007cca0a33fcb6}\label{namespacett_1_1tt__metal_1_1v0_a774adf0f130e4a8f75007cca0a33fcb6}} 
+\mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v0_abadad6cfd6751695fbc5bbd432536a91}\label{namespacett_1_1tt__metal_1_1v0_abadad6cfd6751695fbc5bbd432536a91}} 
 \index{tt::tt\_metal::v0@{tt::tt\_metal::v0}!SetRuntimeArgs@{SetRuntimeArgs}}
 \index{SetRuntimeArgs@{SetRuntimeArgs}!tt::tt\_metal::v0@{tt::tt\_metal::v0}}
 \doxysubsubsection{\texorpdfstring{SetRuntimeArgs()}{SetRuntimeArgs()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
-{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::v0\+::\+Set\+Runtime\+Args (\begin{DoxyParamCaption}\item[{Device $\ast$}]{device,  }\item[{const std\+::shared\+\_\+ptr$<$ Kernel $>$}]{kernel,  }\item[{const std\+::vector$<$ Core\+Coord $>$ \&}]{core\+\_\+spec,  }\item[{const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a5d1cfea010cb740e7307b18b4a7ec9e8}{Runtime\+Args}} $>$ $>$}]{runtime\+\_\+args }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::v0\+::\+Set\+Runtime\+Args (\begin{DoxyParamCaption}\item[{Device $\ast$}]{device,  }\item[{const std\+::shared\+\_\+ptr$<$ Kernel $>$ \&}]{kernel,  }\item[{const std\+::vector$<$ Core\+Coord $>$ \&}]{core\+\_\+spec,  }\item[{const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v0_a4d311514040f724ea391cb7f212a810b}{Runtime\+Args}} $>$ $>$ \&}]{runtime\+\_\+args }\end{DoxyParamCaption})}
 
 Set multiple runtime arguments of a kernel using the command queue. Each core can have distinct arguments. This API must be used when Asynchronous Command Queue Mode is enabled. Maximum of 255 allowed runtime args per core (unique and common runtime args count toward same limit).
 
@@ -1211,7 +1215,7 @@ page\+\_\+size   &Updated page size in bytes   &uint32\+\_\+t   &&Yes   \\\cline
 \doxysubsubsection{\texorpdfstring{UpdateCircularBufferTotalSize()}{UpdateCircularBufferTotalSize()}}
 {\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::v0\+::\+Update\+Circular\+Buffer\+Total\+Size (\begin{DoxyParamCaption}\item[{Program \&}]{program,  }\item[{CBHandle}]{cb\+\_\+handle,  }\item[{uint32\+\_\+t}]{total\+\_\+size }\end{DoxyParamCaption})}
 
-Update the total size of the circular buffer at the given circular buffer handle. Updating a program-\/local circular buffer requires all circular buffers in the program to be reallocated.
+Update the total size of the circular buffer at the given circular buffer handle. Updating a program-\/local circular buffer requires all circular buffers in the program to be reallocated. If it is required to update the address and total size of a dynamic circular buffer, use {\ttfamily Update\+Dynamic\+Circular\+Buffer\+Address\+And\+Total\+Size}.
 
 Return value\+: void
 
@@ -1233,7 +1237,7 @@ $\vert$ cb\+\_\+handle $\vert$ ID of the circular buffer, returned by {\ttfamily
 \doxysubsubsection{\texorpdfstring{UpdateDynamicCircularBufferAddress()}{UpdateDynamicCircularBufferAddress()}}
 {\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::v0\+::\+Update\+Dynamic\+Circular\+Buffer\+Address (\begin{DoxyParamCaption}\item[{Program \&}]{program,  }\item[{CBHandle}]{cb\+\_\+handle,  }\item[{const Buffer \&}]{buffer }\end{DoxyParamCaption})}
 
-Update the address of a dynamic circular buffer. Dynamic circular buffers share the same address space as L1 buffers.
+Update the address of a dynamic circular buffer. Dynamic circular buffers share the same address space as L1 buffers. If it is required to update the address and total size of a dynamic circular buffer, use {\ttfamily Update\+Dynamic\+Circular\+Buffer\+Address\+And\+Total\+Size}.
 
 Return value\+: void
 
@@ -1249,4 +1253,26 @@ Return value\+: void
 \endhead
 program   &The program containing the circular buffer   &Program \&   &&Yes   \\\cline{1-5}
 \end{longtabu}
-$\vert$ cb\+\_\+handle $\vert$ ID of the circular buffer, returned by {\ttfamily Create\+Circular\+Buffers} $\vert$ CBHandle (uintptr\+\_\+t) $\vert$ $\vert$ Yes $\vert$ $\vert$ $\vert$ buffer $\vert$ Dynamically allocated L1 buffer that shares address space of circular buffer {\ttfamily cb\+\_\+handle} $\vert$ const Buffer \& $\vert$ L1 buffer $\vert$ Yes $\vert$ 
+$\vert$ cb\+\_\+handle $\vert$ ID of the circular buffer, returned by {\ttfamily Create\+Circular\+Buffers} $\vert$ CBHandle (uintptr\+\_\+t) $\vert$ $\vert$ Yes $\vert$ $\vert$ $\vert$ buffer $\vert$ Dynamically allocated L1 buffer that shares address space of circular buffer {\ttfamily cb\+\_\+handle} $\vert$ const Buffer \& $\vert$ L1 buffer $\vert$ Yes $\vert$ \mbox{\Hypertarget{namespacett_1_1tt__metal_1_1v0_a56aa79053d933dc45936e054942c9860}\label{namespacett_1_1tt__metal_1_1v0_a56aa79053d933dc45936e054942c9860}} 
+\index{tt::tt\_metal::v0@{tt::tt\_metal::v0}!UpdateDynamicCircularBufferAddressAndTotalSize@{UpdateDynamicCircularBufferAddressAndTotalSize}}
+\index{UpdateDynamicCircularBufferAddressAndTotalSize@{UpdateDynamicCircularBufferAddressAndTotalSize}!tt::tt\_metal::v0@{tt::tt\_metal::v0}}
+\doxysubsubsection{\texorpdfstring{UpdateDynamicCircularBufferAddressAndTotalSize()}{UpdateDynamicCircularBufferAddressAndTotalSize()}}
+{\footnotesize\ttfamily void tt\+::tt\+\_\+metal\+::v0\+::\+Update\+Dynamic\+Circular\+Buffer\+Address\+And\+Total\+Size (\begin{DoxyParamCaption}\item[{Program \&}]{program,  }\item[{CBHandle}]{cb\+\_\+handle,  }\item[{const Buffer \&}]{buffer,  }\item[{uint32\+\_\+t}]{total\+\_\+size }\end{DoxyParamCaption})}
+
+Update the address and total size of a dynamic circular buffer. Dynamic circular buffers share the same address space as L1 buffers.
+
+Return value\+: void
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Argument   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Required    }\\\cline{1-5}
+\endhead
+program   &The program containing the circular buffer   &Program \&   &&Yes   \\\cline{1-5}
+\end{longtabu}
+$\vert$ cb\+\_\+handle $\vert$ ID of the circular buffer, returned by {\ttfamily Create\+Circular\+Buffers} $\vert$ CBHandle (uintptr\+\_\+t) $\vert$ $\vert$ Yes $\vert$ $\vert$ $\vert$ buffer $\vert$ Dynamically allocated L1 buffer that shares address space of circular buffer {\ttfamily cb\+\_\+handle} $\vert$ const Buffer \& $\vert$ L1 buffer $\vert$ Yes $\vert$ $\vert$ total\+\_\+size $\vert$ New size of the circular buffer in bytes $\vert$ uint32\+\_\+t $\vert$ $\vert$ Yes $\vert$ 

@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['readfrombuffer_0',['ReadFromBuffer',['../namespacett_1_1tt__metal_1_1v1.html#a549dc0b0bd173491b5b67ec9efa599b5',1,'tt::tt_metal::v1']]],
-  ['readfromshard_1',['ReadFromShard',['../namespacett_1_1tt__metal_1_1v1.html#a44af81fe6c86b0d4f2e3c5cd414cf836',1,'tt::tt_metal::v1']]],
+  ['readfrombuffer_0',['ReadFromBuffer',['../namespacett_1_1tt__metal_1_1v1.html#a3a71f4c7ce74435cd0d20449a5facadb',1,'tt::tt_metal::v1']]],
+  ['readfromshard_1',['ReadFromShard',['../namespacett_1_1tt__metal_1_1v1.html#add45c5b5ad30c274d3ef11b6c7c8b571',1,'tt::tt_metal::v1']]],
   ['recip_5ftile_2',['recip_tile',['../namespaceckernel.html#a31441a86e04985c013f03fca3c59f55d',1,'ckernel']]],
   ['recip_5ftile_5finit_3',['recip_tile_init',['../namespaceckernel.html#a506824a7a457435e622ba1fffc8d8678',1,'ckernel']]],
   ['reconfig_5fdata_5fformat_4',['reconfig_data_format',['../namespaceckernel.html#a9a5800c870a89695e8de483bfdec9d8c',1,'ckernel::reconfig_data_format(const uint32_t srca_new_operand, const uint32_t srcb_new_operand)'],['../namespaceckernel.html#a94bb6b25a9a51fd1949d929fecd4e1a8',1,'ckernel::reconfig_data_format(const uint32_t srca_old_operand, const uint32_t srca_new_operand, const uint32_t srcb_old_operand, const uint32_t srcb_new_operand)']]],

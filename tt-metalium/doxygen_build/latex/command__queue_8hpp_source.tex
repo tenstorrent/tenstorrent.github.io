@@ -14,40 +14,28 @@
 \DoxyCodeLine{00010\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ COMMAND\ QUEUE\ OPERATIONS}}
 \DoxyCodeLine{00011\ \textcolor{comment}{//==================================================}}
 \DoxyCodeLine{00012\ }
-\DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacett_1_1tt__metal}{tt::tt\_metal}}\{}
-\DoxyCodeLine{00015\ \textcolor{keyword}{namespace\ }v1\ \{}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00024\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{CommandQueueHandle}}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a104050cb8afe039d4b233e5fde691377}{GetCommandQueue}}(DeviceHandle\ device,\ std::uint8\_t\ cq\_id);}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00032\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{CommandQueueHandle}}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a1d776f4c482bfa8ff8d5ce8950a02f82}{GetDefaultCommandQueue}}(DeviceHandle\ device);}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00042\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a3de050e4a431b4dbcbd8e29f2ccd0fa6}{EnqueueReadBuffer}}(}
-\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{CommandQueueHandle}}\ cq,}
-\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{BufferHandle}}\ buffer,}
-\DoxyCodeLine{00045\ \ \ \ \ std::byte\ *dst,}
-\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{bool}\ blocking);}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00056\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a175d287310173ef03a2e6bd2b1b0cfa3}{EnqueueWriteBuffer}}(}
-\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{CommandQueueHandle}}\ cq,}
-\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{BufferHandle}}\ buffer,}
-\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{const}\ std::byte\ *src,}
-\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{bool}\ blocking);}
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacett_1_1tt__metal}{tt::tt\_metal}}\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }v1\ \{}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00023\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{CommandQueueHandle}}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a104050cb8afe039d4b233e5fde691377}{GetCommandQueue}}(DeviceHandle\ device,\ std::uint8\_t\ cq\_id);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00031\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{CommandQueueHandle}}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a1d776f4c482bfa8ff8d5ce8950a02f82}{GetDefaultCommandQueue}}(DeviceHandle\ device);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a9404dba1284f0bd7c765742a1fc11af7}{EnqueueReadBuffer}}(\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{CommandQueueHandle}}\ cq,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{BufferHandle}}\&\ buffer,\ std::byte*\ dst,\ \textcolor{keywordtype}{bool}\ blocking);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00051\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_ae72a31481e2846f1e15bc0b42f336d7a}{EnqueueWriteBuffer}}(\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{CommandQueueHandle}}\ cq,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{BufferHandle}}\&\ buffer,\ \textcolor{keyword}{const}\ std::byte*\ src,\ \textcolor{keywordtype}{bool}\ blocking);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00060\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a2e9787d7e5eaaeb6b838a9c6889c5626}{EnqueueProgram}}(\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{CommandQueueHandle}}\ cq,\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aeb98f79faee0fc2ac9492dd5d295d126}{ProgramHandle}}\&\ program,\ \textcolor{keywordtype}{bool}\ blocking);}
 \DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00070\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a2e9787d7e5eaaeb6b838a9c6889c5626}{EnqueueProgram}}(\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{CommandQueueHandle}}\ cq,\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aeb98f79faee0fc2ac9492dd5d295d126}{ProgramHandle}}\ \&program,\ \textcolor{keywordtype}{bool}\ blocking);}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00078\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a4749871772050bc38af4887d3543328b}{Finish}}(\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{CommandQueueHandle}}\ cq,\ tt::stl::Span<const\ SubDeviceId>\ sub\_device\_ids\ =\ \{\});}
-\DoxyCodeLine{00079\ }
-\DoxyCodeLine{00080\ }
-\DoxyCodeLine{00086\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a6688cd88bb6474148452821a821e8730}{SetLazyCommandQueueMode}}(\textcolor{keywordtype}{bool}\ lazy);}
-\DoxyCodeLine{00087\ }
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00095\ DeviceHandle\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aec81775023e516ef4b34eb5e973da3c0}{GetDevice}}(\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{CommandQueueHandle}}\ cq);}
-\DoxyCodeLine{00096\ }
-\DoxyCodeLine{00103\ std::uint8\_t\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a8f206a4436d4dd2b00feb80e362759a6}{GetId}}(\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{CommandQueueHandle}}\ cq);}
-\DoxyCodeLine{00104\ }
-\DoxyCodeLine{00105\ \}\ \textcolor{comment}{//\ namespace\ v1}}
-\DoxyCodeLine{00106\ \}\ \textcolor{comment}{//\ namespace\ tt::tt\_metal}}
+\DoxyCodeLine{00068\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a4749871772050bc38af4887d3543328b}{Finish}}(\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{CommandQueueHandle}}\ cq,\ tt::stl::Span<const\ SubDeviceId>\ sub\_device\_ids\ =\ \{\});}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00075\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a6688cd88bb6474148452821a821e8730}{SetLazyCommandQueueMode}}(\textcolor{keywordtype}{bool}\ lazy);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00083\ DeviceHandle\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aec81775023e516ef4b34eb5e973da3c0}{GetDevice}}(\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{CommandQueueHandle}}\ cq);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00091\ std::uint8\_t\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a46a3b9a01f68eaca345c9f96288a171f}{GetId}}(\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle}{CommandQueueHandle}}\ cq);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \}\ \ \textcolor{comment}{//\ namespace\ v1}}
+\DoxyCodeLine{00094\ \}\ \ \textcolor{comment}{//\ namespace\ tt::tt\_metal}}
 
 \end{DoxyCode}

@@ -19,15 +19,17 @@
 \DoxyCodeLine{00015\ }
 \DoxyCodeLine{00022\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{BufferHandle}}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a4ff4aaaef152608a56467ac85d05a8d9}{CreateBuffer}}(InterleavedBufferConfig\ config);}
 \DoxyCodeLine{00023\ }
-\DoxyCodeLine{00029\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_ab8878e4e772b19708f2ffb47aef88b46}{DeallocateBuffer}}(\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{BufferHandle}}\ buffer);}
+\DoxyCodeLine{00029\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a122afcd9ed39f4e841a1db47aaf946ab}{DeallocateBuffer}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{BufferHandle}}\&\ buffer);}
 \DoxyCodeLine{00030\ }
-\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a9fdc03261b0164072b9e30fad9e36099}{WriteToBuffer}}(\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{BufferHandle}}\ buffer,\ stl::Span<const\ std::byte>\ host\_buffer);}
+\DoxyCodeLine{00037\ std::size\_t\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a46a3b9a01f68eaca345c9f96288a171f}{GetId}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{BufferHandle}}\&\ buffer);}
 \DoxyCodeLine{00038\ }
-\DoxyCodeLine{00046\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a549dc0b0bd173491b5b67ec9efa599b5}{ReadFromBuffer}}(\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{BufferHandle}}\ buffer,\ stl::Span<std::byte>\ host\_buffer,\ \textcolor{keywordtype}{bool}\ shard\_order\ =\ \textcolor{keyword}{false});}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a44af81fe6c86b0d4f2e3c5cd414cf836}{ReadFromShard}}(\mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{BufferHandle}}\ buffer,\ stl::Span<std::byte>\ host\_buffer,\ std::uint32\_t\ core\_id);}
-\DoxyCodeLine{00056\ }
-\DoxyCodeLine{00057\ \}\ \ \textcolor{comment}{//\ namespace\ v1}}
-\DoxyCodeLine{00058\ \}\ \ \textcolor{comment}{//\ namespace\ tt::tt\_metal}}
+\DoxyCodeLine{00045\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a067e476096326c10308653ba2b87bb8f}{WriteToBuffer}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{BufferHandle}}\&\ buffer,\ stl::Span<const\ std::byte>\ host\_buffer);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a3a71f4c7ce74435cd0d20449a5facadb}{ReadFromBuffer}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{BufferHandle}}\&\ buffer,\ stl::Span<std::byte>\ host\_buffer,\ \textcolor{keywordtype}{bool}\ shard\_order\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00063\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_add45c5b5ad30c274d3ef11b6c7c8b571}{ReadFromShard}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{BufferHandle}}\&\ buffer,\ stl::Span<std::byte>\ host\_buffer,\ std::uint32\_t\ core\_id);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \}\ \ \textcolor{comment}{//\ namespace\ v1}}
+\DoxyCodeLine{00066\ \}\ \ \textcolor{comment}{//\ namespace\ tt::tt\_metal}}
 
 \end{DoxyCode}

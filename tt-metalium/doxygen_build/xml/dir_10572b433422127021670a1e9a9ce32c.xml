@@ -6,6 +6,7 @@
     <innerfile refid="command__queue_8hpp">command_queue.hpp</innerfile>
     <innerfile refid="device_8hpp">device.hpp</innerfile>
     <innerfile refid="event_8hpp">event.hpp</innerfile>
+    <innerfile refid="global__circular__buffer_8hpp">global_circular_buffer.hpp</innerfile>
     <innerfile refid="kernel_8hpp">kernel.hpp</innerfile>
     <innerfile refid="metal_8hpp">metal.hpp</innerfile>
     <innerfile refid="program_8hpp">program.hpp</innerfile>

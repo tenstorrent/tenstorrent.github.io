@@ -74,6 +74,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
@@ -81,6 +82,11 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacett_1_1tt__metal_1_1v1_1_1experimental"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1_1_1experimental.html">experimental</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtt_1_1tt__metal_1_1v1_1_1BufferHandle.html">BufferHandle</a></td></tr>
@@ -110,30 +116,33 @@ Functions</h2></td></tr>
 <tr class="memitem:a4ff4aaaef152608a56467ac85d05a8d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtt_1_1tt__metal_1_1v1_1_1BufferHandle.html">BufferHandle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#a4ff4aaaef152608a56467ac85d05a8d9">CreateBuffer</a> (InterleavedBufferConfig config)</td></tr>
 <tr class="memdesc:a4ff4aaaef152608a56467ac85d05a8d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates an interleaved DRAM or L1 buffer on the device.  <br /></td></tr>
 <tr class="separator:a4ff4aaaef152608a56467ac85d05a8d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8878e4e772b19708f2ffb47aef88b46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#ab8878e4e772b19708f2ffb47aef88b46">DeallocateBuffer</a> (<a class="el" href="classtt_1_1tt__metal_1_1v1_1_1BufferHandle.html">BufferHandle</a> buffer)</td></tr>
-<tr class="memdesc:ab8878e4e772b19708f2ffb47aef88b46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates a buffer from the device.  <br /></td></tr>
-<tr class="separator:ab8878e4e772b19708f2ffb47aef88b46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9fdc03261b0164072b9e30fad9e36099"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#a9fdc03261b0164072b9e30fad9e36099">WriteToBuffer</a> (<a class="el" href="classtt_1_1tt__metal_1_1v1_1_1BufferHandle.html">BufferHandle</a> buffer, stl::Span&lt; const std::byte &gt; host_buffer)</td></tr>
-<tr class="memdesc:a9fdc03261b0164072b9e30fad9e36099"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies data from a host buffer into the specified device buffer.  <br /></td></tr>
-<tr class="separator:a9fdc03261b0164072b9e30fad9e36099"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a549dc0b0bd173491b5b67ec9efa599b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#a549dc0b0bd173491b5b67ec9efa599b5">ReadFromBuffer</a> (<a class="el" href="classtt_1_1tt__metal_1_1v1_1_1BufferHandle.html">BufferHandle</a> buffer, stl::Span&lt; std::byte &gt; host_buffer, bool shard_order=false)</td></tr>
-<tr class="memdesc:a549dc0b0bd173491b5b67ec9efa599b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies data from a device buffer into a host buffer.  <br /></td></tr>
-<tr class="separator:a549dc0b0bd173491b5b67ec9efa599b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44af81fe6c86b0d4f2e3c5cd414cf836"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#a44af81fe6c86b0d4f2e3c5cd414cf836">ReadFromShard</a> (<a class="el" href="classtt_1_1tt__metal_1_1v1_1_1BufferHandle.html">BufferHandle</a> buffer, stl::Span&lt; std::byte &gt; host_buffer, std::uint32_t core_id)</td></tr>
-<tr class="memdesc:a44af81fe6c86b0d4f2e3c5cd414cf836"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies data from a specific shard of a device buffer into a host buffer.  <br /></td></tr>
-<tr class="separator:a44af81fe6c86b0d4f2e3c5cd414cf836"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a122afcd9ed39f4e841a1db47aaf946ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#a122afcd9ed39f4e841a1db47aaf946ab">DeallocateBuffer</a> (const <a class="el" href="classtt_1_1tt__metal_1_1v1_1_1BufferHandle.html">BufferHandle</a> &amp;buffer)</td></tr>
+<tr class="memdesc:a122afcd9ed39f4e841a1db47aaf946ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates a buffer from the device.  <br /></td></tr>
+<tr class="separator:a122afcd9ed39f4e841a1db47aaf946ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46a3b9a01f68eaca345c9f96288a171f"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#a46a3b9a01f68eaca345c9f96288a171f">GetId</a> (const <a class="el" href="classtt_1_1tt__metal_1_1v1_1_1BufferHandle.html">BufferHandle</a> &amp;buffer)</td></tr>
+<tr class="memdesc:a46a3b9a01f68eaca345c9f96288a171f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the ID of the specified buffer.  <br /></td></tr>
+<tr class="separator:a46a3b9a01f68eaca345c9f96288a171f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a067e476096326c10308653ba2b87bb8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#a067e476096326c10308653ba2b87bb8f">WriteToBuffer</a> (const <a class="el" href="classtt_1_1tt__metal_1_1v1_1_1BufferHandle.html">BufferHandle</a> &amp;buffer, stl::Span&lt; const std::byte &gt; host_buffer)</td></tr>
+<tr class="memdesc:a067e476096326c10308653ba2b87bb8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies data from a host buffer into the specified device buffer.  <br /></td></tr>
+<tr class="separator:a067e476096326c10308653ba2b87bb8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a71f4c7ce74435cd0d20449a5facadb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#a3a71f4c7ce74435cd0d20449a5facadb">ReadFromBuffer</a> (const <a class="el" href="classtt_1_1tt__metal_1_1v1_1_1BufferHandle.html">BufferHandle</a> &amp;buffer, stl::Span&lt; std::byte &gt; host_buffer, bool shard_order=false)</td></tr>
+<tr class="memdesc:a3a71f4c7ce74435cd0d20449a5facadb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies data from a device buffer into a host buffer.  <br /></td></tr>
+<tr class="separator:a3a71f4c7ce74435cd0d20449a5facadb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add45c5b5ad30c274d3ef11b6c7c8b571"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#add45c5b5ad30c274d3ef11b6c7c8b571">ReadFromShard</a> (const <a class="el" href="classtt_1_1tt__metal_1_1v1_1_1BufferHandle.html">BufferHandle</a> &amp;buffer, stl::Span&lt; std::byte &gt; host_buffer, std::uint32_t core_id)</td></tr>
+<tr class="memdesc:add45c5b5ad30c274d3ef11b6c7c8b571"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies data from a specific shard of a device buffer into a host buffer.  <br /></td></tr>
+<tr class="separator:add45c5b5ad30c274d3ef11b6c7c8b571"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a104050cb8afe039d4b233e5fde691377"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle.html">CommandQueueHandle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#a104050cb8afe039d4b233e5fde691377">GetCommandQueue</a> (DeviceHandle device, std::uint8_t cq_id)</td></tr>
 <tr class="memdesc:a104050cb8afe039d4b233e5fde691377"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a command queue from the device for a given queue ID.  <br /></td></tr>
 <tr class="separator:a104050cb8afe039d4b233e5fde691377"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d776f4c482bfa8ff8d5ce8950a02f82"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle.html">CommandQueueHandle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#a1d776f4c482bfa8ff8d5ce8950a02f82">GetDefaultCommandQueue</a> (DeviceHandle device)</td></tr>
 <tr class="memdesc:a1d776f4c482bfa8ff8d5ce8950a02f82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the default command queue for the given device.  <br /></td></tr>
 <tr class="separator:a1d776f4c482bfa8ff8d5ce8950a02f82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3de050e4a431b4dbcbd8e29f2ccd0fa6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#a3de050e4a431b4dbcbd8e29f2ccd0fa6">EnqueueReadBuffer</a> (<a class="el" href="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle.html">CommandQueueHandle</a> cq, <a class="el" href="classtt_1_1tt__metal_1_1v1_1_1BufferHandle.html">BufferHandle</a> buffer, std::byte *dst, bool blocking)</td></tr>
-<tr class="memdesc:a3de050e4a431b4dbcbd8e29f2ccd0fa6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a buffer from the device.  <br /></td></tr>
-<tr class="separator:a3de050e4a431b4dbcbd8e29f2ccd0fa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a175d287310173ef03a2e6bd2b1b0cfa3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#a175d287310173ef03a2e6bd2b1b0cfa3">EnqueueWriteBuffer</a> (<a class="el" href="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle.html">CommandQueueHandle</a> cq, <a class="el" href="classtt_1_1tt__metal_1_1v1_1_1BufferHandle.html">BufferHandle</a> buffer, const std::byte *src, bool blocking)</td></tr>
-<tr class="memdesc:a175d287310173ef03a2e6bd2b1b0cfa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes data to a buffer on the device.  <br /></td></tr>
-<tr class="separator:a175d287310173ef03a2e6bd2b1b0cfa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9404dba1284f0bd7c765742a1fc11af7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#a9404dba1284f0bd7c765742a1fc11af7">EnqueueReadBuffer</a> (<a class="el" href="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle.html">CommandQueueHandle</a> cq, const <a class="el" href="classtt_1_1tt__metal_1_1v1_1_1BufferHandle.html">BufferHandle</a> &amp;buffer, std::byte *dst, bool blocking)</td></tr>
+<tr class="memdesc:a9404dba1284f0bd7c765742a1fc11af7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a buffer from the device.  <br /></td></tr>
+<tr class="separator:a9404dba1284f0bd7c765742a1fc11af7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae72a31481e2846f1e15bc0b42f336d7a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#ae72a31481e2846f1e15bc0b42f336d7a">EnqueueWriteBuffer</a> (<a class="el" href="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle.html">CommandQueueHandle</a> cq, const <a class="el" href="classtt_1_1tt__metal_1_1v1_1_1BufferHandle.html">BufferHandle</a> &amp;buffer, const std::byte *src, bool blocking)</td></tr>
+<tr class="memdesc:ae72a31481e2846f1e15bc0b42f336d7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes data to a buffer on the device.  <br /></td></tr>
+<tr class="separator:ae72a31481e2846f1e15bc0b42f336d7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e9787d7e5eaaeb6b838a9c6889c5626"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#a2e9787d7e5eaaeb6b838a9c6889c5626">EnqueueProgram</a> (<a class="el" href="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle.html">CommandQueueHandle</a> cq, <a class="el" href="namespacett_1_1tt__metal_1_1v1.html#aeb98f79faee0fc2ac9492dd5d295d126">ProgramHandle</a> &amp;program, bool blocking)</td></tr>
 <tr class="memdesc:a2e9787d7e5eaaeb6b838a9c6889c5626"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a program to the device and launches it.  <br /></td></tr>
 <tr class="separator:a2e9787d7e5eaaeb6b838a9c6889c5626"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -230,15 +239,15 @@ Functions</h2></td></tr>
 <tr class="memitem:ac509df53069bbfb2423544bc4c1bda1b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtt_1_1tt__metal_1_1v1_1_1EventHandle.html">EventHandle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#ac509df53069bbfb2423544bc4c1bda1b">EnqueueRecordEvent</a> (<a class="el" href="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle.html">CommandQueueHandle</a> cq)</td></tr>
 <tr class="memdesc:ac509df53069bbfb2423544bc4c1bda1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enqueues a command to record an event on the device.  <br /></td></tr>
 <tr class="separator:ac509df53069bbfb2423544bc4c1bda1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75cf4017da0353e17f493d15b43292e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#a75cf4017da0353e17f493d15b43292e8">EnqueueWaitForEvent</a> (<a class="el" href="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle.html">CommandQueueHandle</a> cq, <a class="el" href="classtt_1_1tt__metal_1_1v1_1_1EventHandle.html">EventHandle</a> event)</td></tr>
-<tr class="memdesc:a75cf4017da0353e17f493d15b43292e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enqueues a command to wait for an event to complete on the device.  <br /></td></tr>
-<tr class="separator:a75cf4017da0353e17f493d15b43292e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f0339728931f881b0642a8656e636f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#a5f0339728931f881b0642a8656e636f4">EventSynchronize</a> (<a class="el" href="classtt_1_1tt__metal_1_1v1_1_1EventHandle.html">EventHandle</a> event)</td></tr>
-<tr class="memdesc:a5f0339728931f881b0642a8656e636f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the host until the specified event has completed on the device.  <br /></td></tr>
-<tr class="separator:a5f0339728931f881b0642a8656e636f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0931a52a892ca8bb955ce8084425536a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#a0931a52a892ca8bb955ce8084425536a">EventQuery</a> (<a class="el" href="classtt_1_1tt__metal_1_1v1_1_1EventHandle.html">EventHandle</a> event)</td></tr>
-<tr class="memdesc:a0931a52a892ca8bb955ce8084425536a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries the completion status of an event on the device.  <br /></td></tr>
-<tr class="separator:a0931a52a892ca8bb955ce8084425536a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cd86b9c3adcdd8b5bf68baa642994f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#a8cd86b9c3adcdd8b5bf68baa642994f3">EnqueueWaitForEvent</a> (<a class="el" href="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle.html">CommandQueueHandle</a> cq, const <a class="el" href="classtt_1_1tt__metal_1_1v1_1_1EventHandle.html">EventHandle</a> &amp;event)</td></tr>
+<tr class="memdesc:a8cd86b9c3adcdd8b5bf68baa642994f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enqueues a command to wait for an event to complete on the device.  <br /></td></tr>
+<tr class="separator:a8cd86b9c3adcdd8b5bf68baa642994f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae5d361f2a151b3d4476c547c2765467"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#aae5d361f2a151b3d4476c547c2765467">EventSynchronize</a> (const <a class="el" href="classtt_1_1tt__metal_1_1v1_1_1EventHandle.html">EventHandle</a> &amp;event)</td></tr>
+<tr class="memdesc:aae5d361f2a151b3d4476c547c2765467"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the host until the specified event has completed on the device.  <br /></td></tr>
+<tr class="separator:aae5d361f2a151b3d4476c547c2765467"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29d25288ad038ae69a389cab390e44b1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#a29d25288ad038ae69a389cab390e44b1">EventQuery</a> (const <a class="el" href="classtt_1_1tt__metal_1_1v1_1_1EventHandle.html">EventHandle</a> &amp;event)</td></tr>
+<tr class="memdesc:a29d25288ad038ae69a389cab390e44b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries the completion status of an event on the device.  <br /></td></tr>
+<tr class="separator:a29d25288ad038ae69a389cab390e44b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88371fc86019f3020c265456c559929b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#a88371fc86019f3020c265456c559929b">DeviceSynchronize</a> (DeviceHandle device)</td></tr>
 <tr class="memdesc:a88371fc86019f3020c265456c559929b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Synchronizes the device with the host by waiting for all operations to complete.  <br /></td></tr>
 <tr class="separator:a88371fc86019f3020c265456c559929b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -288,9 +297,9 @@ Functions</h2></td></tr>
 <tr class="memitem:af94866d5212ee53e90bbf8108e481011"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#af94866d5212ee53e90bbf8108e481011">UpdateCircularBufferTotalSize</a> (<a class="el" href="namespacett_1_1tt__metal_1_1v1.html#aeb98f79faee0fc2ac9492dd5d295d126">ProgramHandle</a> &amp;program, <a class="el" href="classtt_1_1tt__metal_1_1v1_1_1CircularBufferHandle.html">CircularBufferHandle</a> cb_handle, std::uint32_t total_size)</td></tr>
 <tr class="memdesc:af94866d5212ee53e90bbf8108e481011"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the total size of a circular buffer.  <br /></td></tr>
 <tr class="separator:af94866d5212ee53e90bbf8108e481011"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa514298587d69bf5490a52ed4ca04d77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#aa514298587d69bf5490a52ed4ca04d77">UpdateDynamicCircularBufferAddress</a> (<a class="el" href="namespacett_1_1tt__metal_1_1v1.html#aeb98f79faee0fc2ac9492dd5d295d126">ProgramHandle</a> &amp;program, <a class="el" href="classtt_1_1tt__metal_1_1v1_1_1CircularBufferHandle.html">CircularBufferHandle</a> cb_handle, <a class="el" href="classtt_1_1tt__metal_1_1v1_1_1BufferHandle.html">BufferHandle</a> buffer)</td></tr>
-<tr class="memdesc:aa514298587d69bf5490a52ed4ca04d77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the address of a dynamic circular buffer.  <br /></td></tr>
-<tr class="separator:aa514298587d69bf5490a52ed4ca04d77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d5dc9d37986c4de04865c16983f5109"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#a9d5dc9d37986c4de04865c16983f5109">UpdateDynamicCircularBufferAddress</a> (<a class="el" href="namespacett_1_1tt__metal_1_1v1.html#aeb98f79faee0fc2ac9492dd5d295d126">ProgramHandle</a> &amp;program, <a class="el" href="classtt_1_1tt__metal_1_1v1_1_1CircularBufferHandle.html">CircularBufferHandle</a> cb_handle, const <a class="el" href="classtt_1_1tt__metal_1_1v1_1_1BufferHandle.html">BufferHandle</a> &amp;buffer)</td></tr>
+<tr class="memdesc:a9d5dc9d37986c4de04865c16983f5109"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the address of a dynamic circular buffer.  <br /></td></tr>
+<tr class="separator:a9d5dc9d37986c4de04865c16983f5109"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19dbe074ea7eb58ae2debf7d51fa0234"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtt_1_1tt__metal_1_1v1_1_1CommandQueueHandle.html">CommandQueueHandle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacett_1_1tt__metal_1_1v1.html#a19dbe074ea7eb58ae2debf7d51fa0234">GetCommandQueue</a> (<a class="el" href="classtt_1_1tt__metal_1_1v1_1_1TraceHandle.html">TraceHandle</a> trace)</td></tr>
 <tr class="memdesc:a19dbe074ea7eb58ae2debf7d51fa0234"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtains the associated command queue from a given trace handle.  <br /></td></tr>
 <tr class="separator:a19dbe074ea7eb58ae2debf7d51fa0234"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -802,8 +811,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab8878e4e772b19708f2ffb47aef88b46" name="ab8878e4e772b19708f2ffb47aef88b46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab8878e4e772b19708f2ffb47aef88b46">&#9670;&#160;</a></span>DeallocateBuffer()</h2>
+<a id="a122afcd9ed39f4e841a1db47aaf946ab" name="a122afcd9ed39f4e841a1db47aaf946ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a122afcd9ed39f4e841a1db47aaf946ab">&#9670;&#160;</a></span>DeallocateBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -811,7 +820,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void tt::tt_metal::v1::DeallocateBuffer </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classtt_1_1tt__metal_1_1v1_1_1BufferHandle.html">BufferHandle</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="classtt_1_1tt__metal_1_1v1_1_1BufferHandle.html">BufferHandle</a> &amp;&#160;</td>
           <td class="paramname"><em>buffer</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1040,8 +1049,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a3de050e4a431b4dbcbd8e29f2ccd0fa6" name="a3de050e4a431b4dbcbd8e29f2ccd0fa6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3de050e4a431b4dbcbd8e29f2ccd0fa6">&#9670;&#160;</a></span>EnqueueReadBuffer()</h2>
+<a id="a9404dba1284f0bd7c765742a1fc11af7" name="a9404dba1284f0bd7c765742a1fc11af7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9404dba1284f0bd7c765742a1fc11af7">&#9670;&#160;</a></span>EnqueueReadBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1055,7 +1064,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classtt_1_1tt__metal_1_1v1_1_1BufferHandle.html">BufferHandle</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="classtt_1_1tt__metal_1_1v1_1_1BufferHandle.html">BufferHandle</a> &amp;&#160;</td>
           <td class="paramname"><em>buffer</em>, </td>
         </tr>
         <tr>
@@ -1155,8 +1164,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a75cf4017da0353e17f493d15b43292e8" name="a75cf4017da0353e17f493d15b43292e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a75cf4017da0353e17f493d15b43292e8">&#9670;&#160;</a></span>EnqueueWaitForEvent()</h2>
+<a id="a8cd86b9c3adcdd8b5bf68baa642994f3" name="a8cd86b9c3adcdd8b5bf68baa642994f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cd86b9c3adcdd8b5bf68baa642994f3">&#9670;&#160;</a></span>EnqueueWaitForEvent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1170,7 +1179,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classtt_1_1tt__metal_1_1v1_1_1EventHandle.html">EventHandle</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="classtt_1_1tt__metal_1_1v1_1_1EventHandle.html">EventHandle</a> &amp;&#160;</td>
           <td class="paramname"><em>event</em>&#160;</td>
         </tr>
         <tr>
@@ -1192,8 +1201,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a175d287310173ef03a2e6bd2b1b0cfa3" name="a175d287310173ef03a2e6bd2b1b0cfa3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a175d287310173ef03a2e6bd2b1b0cfa3">&#9670;&#160;</a></span>EnqueueWriteBuffer()</h2>
+<a id="ae72a31481e2846f1e15bc0b42f336d7a" name="ae72a31481e2846f1e15bc0b42f336d7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae72a31481e2846f1e15bc0b42f336d7a">&#9670;&#160;</a></span>EnqueueWriteBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1207,7 +1216,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classtt_1_1tt__metal_1_1v1_1_1BufferHandle.html">BufferHandle</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="classtt_1_1tt__metal_1_1v1_1_1BufferHandle.html">BufferHandle</a> &amp;&#160;</td>
           <td class="paramname"><em>buffer</em>, </td>
         </tr>
         <tr>
@@ -1243,8 +1252,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a0931a52a892ca8bb955ce8084425536a" name="a0931a52a892ca8bb955ce8084425536a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0931a52a892ca8bb955ce8084425536a">&#9670;&#160;</a></span>EventQuery()</h2>
+<a id="a29d25288ad038ae69a389cab390e44b1" name="a29d25288ad038ae69a389cab390e44b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29d25288ad038ae69a389cab390e44b1">&#9670;&#160;</a></span>EventQuery()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1252,7 +1261,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">bool tt::tt_metal::v1::EventQuery </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classtt_1_1tt__metal_1_1v1_1_1EventHandle.html">EventHandle</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="classtt_1_1tt__metal_1_1v1_1_1EventHandle.html">EventHandle</a> &amp;&#160;</td>
           <td class="paramname"><em>event</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1270,8 +1279,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a5f0339728931f881b0642a8656e636f4" name="a5f0339728931f881b0642a8656e636f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f0339728931f881b0642a8656e636f4">&#9670;&#160;</a></span>EventSynchronize()</h2>
+<a id="aae5d361f2a151b3d4476c547c2765467" name="aae5d361f2a151b3d4476c547c2765467"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae5d361f2a151b3d4476c547c2765467">&#9670;&#160;</a></span>EventSynchronize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1279,7 +1288,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void tt::tt_metal::v1::EventSynchronize </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classtt_1_1tt__metal_1_1v1_1_1EventHandle.html">EventHandle</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="classtt_1_1tt__metal_1_1v1_1_1EventHandle.html">EventHandle</a> &amp;&#160;</td>
           <td class="paramname"><em>event</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1720,7 +1729,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="a8f206a4436d4dd2b00feb80e362759a6" name="a8f206a4436d4dd2b00feb80e362759a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f206a4436d4dd2b00feb80e362759a6">&#9670;&#160;</a></span>GetId() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f206a4436d4dd2b00feb80e362759a6">&#9670;&#160;</a></span>GetId() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1746,8 +1755,35 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a46a3b9a01f68eaca345c9f96288a171f" name="a46a3b9a01f68eaca345c9f96288a171f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46a3b9a01f68eaca345c9f96288a171f">&#9670;&#160;</a></span>GetId() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t tt::tt_metal::v1::GetId </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtt_1_1tt__metal_1_1v1_1_1BufferHandle.html">BufferHandle</a> &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieves the ID of the specified buffer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>The buffer to get the ID from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The unique ID of the buffer. </dd></dl>
+
+</div>
+</div>
 <a id="aecef2596d64d30b530d2013d69ee31c3" name="aecef2596d64d30b530d2013d69ee31c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aecef2596d64d30b530d2013d69ee31c3">&#9670;&#160;</a></span>GetId() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aecef2596d64d30b530d2013d69ee31c3">&#9670;&#160;</a></span>GetId() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2212,8 +2248,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a549dc0b0bd173491b5b67ec9efa599b5" name="a549dc0b0bd173491b5b67ec9efa599b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a549dc0b0bd173491b5b67ec9efa599b5">&#9670;&#160;</a></span>ReadFromBuffer()</h2>
+<a id="a3a71f4c7ce74435cd0d20449a5facadb" name="a3a71f4c7ce74435cd0d20449a5facadb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a71f4c7ce74435cd0d20449a5facadb">&#9670;&#160;</a></span>ReadFromBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2221,7 +2257,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void tt::tt_metal::v1::ReadFromBuffer </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classtt_1_1tt__metal_1_1v1_1_1BufferHandle.html">BufferHandle</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="classtt_1_1tt__metal_1_1v1_1_1BufferHandle.html">BufferHandle</a> &amp;&#160;</td>
           <td class="paramname"><em>buffer</em>, </td>
         </tr>
         <tr>
@@ -2256,8 +2292,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a44af81fe6c86b0d4f2e3c5cd414cf836" name="a44af81fe6c86b0d4f2e3c5cd414cf836"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44af81fe6c86b0d4f2e3c5cd414cf836">&#9670;&#160;</a></span>ReadFromShard()</h2>
+<a id="add45c5b5ad30c274d3ef11b6c7c8b571" name="add45c5b5ad30c274d3ef11b6c7c8b571"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add45c5b5ad30c274d3ef11b6c7c8b571">&#9670;&#160;</a></span>ReadFromShard()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2265,7 +2301,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void tt::tt_metal::v1::ReadFromShard </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classtt_1_1tt__metal_1_1v1_1_1BufferHandle.html">BufferHandle</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="classtt_1_1tt__metal_1_1v1_1_1BufferHandle.html">BufferHandle</a> &amp;&#160;</td>
           <td class="paramname"><em>buffer</em>, </td>
         </tr>
         <tr>
@@ -2554,8 +2590,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aa514298587d69bf5490a52ed4ca04d77" name="aa514298587d69bf5490a52ed4ca04d77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa514298587d69bf5490a52ed4ca04d77">&#9670;&#160;</a></span>UpdateDynamicCircularBufferAddress()</h2>
+<a id="a9d5dc9d37986c4de04865c16983f5109" name="a9d5dc9d37986c4de04865c16983f5109"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d5dc9d37986c4de04865c16983f5109">&#9670;&#160;</a></span>UpdateDynamicCircularBufferAddress()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2575,7 +2611,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classtt_1_1tt__metal_1_1v1_1_1BufferHandle.html">BufferHandle</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="classtt_1_1tt__metal_1_1v1_1_1BufferHandle.html">BufferHandle</a> &amp;&#160;</td>
           <td class="paramname"><em>buffer</em>&#160;</td>
         </tr>
         <tr>
@@ -2598,8 +2634,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a9fdc03261b0164072b9e30fad9e36099" name="a9fdc03261b0164072b9e30fad9e36099"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9fdc03261b0164072b9e30fad9e36099">&#9670;&#160;</a></span>WriteToBuffer()</h2>
+<a id="a067e476096326c10308653ba2b87bb8f" name="a067e476096326c10308653ba2b87bb8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a067e476096326c10308653ba2b87bb8f">&#9670;&#160;</a></span>WriteToBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2607,7 +2643,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void tt::tt_metal::v1::WriteToBuffer </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classtt_1_1tt__metal_1_1v1_1_1BufferHandle.html">BufferHandle</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="classtt_1_1tt__metal_1_1v1_1_1BufferHandle.html">BufferHandle</a> &amp;&#160;</td>
           <td class="paramname"><em>buffer</em>, </td>
         </tr>
         <tr>

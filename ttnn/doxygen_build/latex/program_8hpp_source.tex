@@ -19,64 +19,66 @@
 \DoxyCodeLine{00015\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PROGRAM\ MANAGEMENT}}
 \DoxyCodeLine{00016\ \textcolor{comment}{//==================================================}}
 \DoxyCodeLine{00017\ }
-\DoxyCodeLine{00018\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacett_1_1tt__metal}{tt::tt\_metal}}\{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacett_1_1tt__metal}{tt::tt\_metal}}\ \{}
 \DoxyCodeLine{00019\ \textcolor{keyword}{namespace\ }v1\ \{}
 \DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a2909dc9be2ba6a1dc6011632e3444452}{MAKE\_ANY\_RANGE}}(SizedCircularBufferRange,\ stl::AnySizedInputRange<CircularBufferHandle,\ stl::default\_any\_range\_capacity,\ 24>);}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a2909dc9be2ba6a1dc6011632e3444452}{MAKE\_ANY\_RANGE}}(CircularBufferRange,\ stl::AnyInputRange<CircularBufferHandle,\ 96,\ 32>);}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00030\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aeb98f79faee0fc2ac9492dd5d295d126}{ProgramHandle}}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a00a5e549383bc80541272724fd1cf7e1}{CreateProgram}}();}
-\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00021\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a2909dc9be2ba6a1dc6011632e3444452}{MAKE\_ANY\_RANGE}}(}
+\DoxyCodeLine{00022\ \ \ \ \ SizedCircularBufferRange,\ stl::AnySizedInputRange<CircularBufferHandle,\ stl::default\_any\_range\_capacity,\ 24>);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a2909dc9be2ba6a1dc6011632e3444452}{MAKE\_ANY\_RANGE}}(CircularBufferRange,\ stl::AnyInputRange<CircularBufferHandle,\ 96,\ 32>);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00031\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aeb98f79faee0fc2ac9492dd5d295d126}{ProgramHandle}}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a00a5e549383bc80541272724fd1cf7e1}{CreateProgram}}();}
 \DoxyCodeLine{00032\ }
 \DoxyCodeLine{00042\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1KernelHandle}{KernelHandle}}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a14b6ebd539e126b2795faaf14ecf0728}{CreateKernel}}(}
-\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aeb98f79faee0fc2ac9492dd5d295d126}{ProgramHandle}}\ \&program,}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aeb98f79faee0fc2ac9492dd5d295d126}{ProgramHandle}}\&\ program,}
 \DoxyCodeLine{00044\ \ \ \ \ std::string\_view\ file\_name,}
-\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{const}\ CoreRangeSet\ \&core\_spec,}
-\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{const}\ DataMovementConfig\ \&config);}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{const}\ CoreRangeSet\&\ core\_spec,}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{const}\ DataMovementConfig\&\ config);}
 \DoxyCodeLine{00047\ }
 \DoxyCodeLine{00057\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1KernelHandle}{KernelHandle}}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a14b6ebd539e126b2795faaf14ecf0728}{CreateKernel}}(}
-\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aeb98f79faee0fc2ac9492dd5d295d126}{ProgramHandle}}\ \&program,}
-\DoxyCodeLine{00059\ \ \ \ \ std::string\_view\ file\_name,}
-\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{const}\ CoreRangeSet\ \&core\_spec,}
-\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{const}\ ComputeConfig\ \&config);}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00072\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1KernelHandle}{KernelHandle}}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a14b6ebd539e126b2795faaf14ecf0728}{CreateKernel}}(}
-\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aeb98f79faee0fc2ac9492dd5d295d126}{ProgramHandle}}\ \&program,}
-\DoxyCodeLine{00074\ \ \ \ \ std::string\_view\ file\_name,}
-\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{const}\ CoreRangeSet\ \&core\_spec,}
-\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{const}\ EthernetConfig\ \&config);}
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00078\ }
-\DoxyCodeLine{00088\ uint32\_t\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_ad5e43c40425409e8e18798ca4de93b71}{CreateSemaphore}}(}
-\DoxyCodeLine{00089\ \ \ \ \ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aeb98f79faee0fc2ac9492dd5d295d126}{ProgramHandle}}\ \&program,}
-\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{const}\ CoreRangeSet\ \&core\_spec,}
-\DoxyCodeLine{00091\ \ \ \ \ std::uint32\_t\ initial\_value,}
-\DoxyCodeLine{00092\ \ \ \ \ CoreType\ core\_type\ =\ CoreType::WORKER);}
-\DoxyCodeLine{00093\ }
-\DoxyCodeLine{00094\ }
-\DoxyCodeLine{00103\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CircularBufferHandle}{CircularBufferHandle}}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a3beb08329677f6e2f130a0381f5646b6}{CreateCircularBuffer}}(}
-\DoxyCodeLine{00104\ \ \ \ \ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aeb98f79faee0fc2ac9492dd5d295d126}{ProgramHandle}}\ \&program,}
-\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keyword}{const}\ CoreRangeSet\ \&core\_spec,}
-\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keyword}{const}\ CircularBufferConfig\ \&config);}
-\DoxyCodeLine{00107\ }
-\DoxyCodeLine{00115\ \textcolor{keyword}{const}\ CircularBufferConfig\ \&\mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a6ac21dc897d96d19e4aad97d1efcb239}{GetCircularBufferConfig}}(\mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aeb98f79faee0fc2ac9492dd5d295d126}{ProgramHandle}}\ \&program,\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CircularBufferHandle}{CircularBufferHandle}}\ cb\_handle);}
-\DoxyCodeLine{00116\ }
-\DoxyCodeLine{00123\ SizedCircularBufferRange\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a063a64ba780bddf2bd64b16748ee602b}{GetCircularBuffers}}(\mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aeb98f79faee0fc2ac9492dd5d295d126}{ProgramHandle}}\ \&program);}
-\DoxyCodeLine{00124\ }
-\DoxyCodeLine{00132\ CircularBufferRange\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a5a552dea5d7227a7805d72fb658f3d49}{GetCircularBuffersOnCoreRange}}(\mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aeb98f79faee0fc2ac9492dd5d295d126}{ProgramHandle}}\ \&program,\ CoreRange\ cr);}
-\DoxyCodeLine{00133\ }
-\DoxyCodeLine{00134\ }
-\DoxyCodeLine{00135\ \textcolor{comment}{//==================================================}}
-\DoxyCodeLine{00136\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PROGRAM\ FUNCTIONS}}
-\DoxyCodeLine{00137\ \textcolor{comment}{//==================================================}}
-\DoxyCodeLine{00138\ }
-\DoxyCodeLine{00146\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_af94866d5212ee53e90bbf8108e481011}{UpdateCircularBufferTotalSize}}(\mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aeb98f79faee0fc2ac9492dd5d295d126}{ProgramHandle}}\ \&program,\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CircularBufferHandle}{CircularBufferHandle}}\ cb\_handle,\ std::uint32\_t\ total\_size);}
-\DoxyCodeLine{00147\ }
-\DoxyCodeLine{00155\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aa514298587d69bf5490a52ed4ca04d77}{UpdateDynamicCircularBufferAddress}}(\mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aeb98f79faee0fc2ac9492dd5d295d126}{ProgramHandle}}\ \&program,\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CircularBufferHandle}{CircularBufferHandle}}\ cb\_handle,\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{BufferHandle}}\ buffer);}
-\DoxyCodeLine{00156\ }
-\DoxyCodeLine{00157\ }
-\DoxyCodeLine{00158\ \}\ \textcolor{comment}{//\ namespace\ v1}}
-\DoxyCodeLine{00159\ \}\ \textcolor{comment}{//\ namespace\ tt::tt\_metal}}
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aeb98f79faee0fc2ac9492dd5d295d126}{ProgramHandle}}\&\ program,\ std::string\_view\ file\_name,\ \textcolor{keyword}{const}\ CoreRangeSet\&\ core\_spec,\ \textcolor{keyword}{const}\ ComputeConfig\&\ config);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00069\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1KernelHandle}{KernelHandle}}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a14b6ebd539e126b2795faaf14ecf0728}{CreateKernel}}(}
+\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aeb98f79faee0fc2ac9492dd5d295d126}{ProgramHandle}}\&\ program,\ std::string\_view\ file\_name,\ \textcolor{keyword}{const}\ CoreRangeSet\&\ core\_spec,\ \textcolor{keyword}{const}\ EthernetConfig\&\ config);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00081\ uint32\_t\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_ad5e43c40425409e8e18798ca4de93b71}{CreateSemaphore}}(}
+\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aeb98f79faee0fc2ac9492dd5d295d126}{ProgramHandle}}\&\ program,}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{const}\ CoreRangeSet\&\ core\_spec,}
+\DoxyCodeLine{00084\ \ \ \ \ std::uint32\_t\ initial\_value,}
+\DoxyCodeLine{00085\ \ \ \ \ CoreType\ core\_type\ =\ CoreType::WORKER);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00095\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CircularBufferHandle}{CircularBufferHandle}}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a3beb08329677f6e2f130a0381f5646b6}{CreateCircularBuffer}}(}
+\DoxyCodeLine{00096\ \ \ \ \ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aeb98f79faee0fc2ac9492dd5d295d126}{ProgramHandle}}\&\ program,\ \textcolor{keyword}{const}\ CoreRangeSet\&\ core\_spec,\ \textcolor{keyword}{const}\ CircularBufferConfig\&\ config);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00105\ \textcolor{keyword}{const}\ CircularBufferConfig\&\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a6ac21dc897d96d19e4aad97d1efcb239}{GetCircularBufferConfig}}(\mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aeb98f79faee0fc2ac9492dd5d295d126}{ProgramHandle}}\&\ program,\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CircularBufferHandle}{CircularBufferHandle}}\ cb\_handle);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00113\ SizedCircularBufferRange\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a063a64ba780bddf2bd64b16748ee602b}{GetCircularBuffers}}(\mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aeb98f79faee0fc2ac9492dd5d295d126}{ProgramHandle}}\&\ program);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00122\ CircularBufferRange\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a5a552dea5d7227a7805d72fb658f3d49}{GetCircularBuffersOnCoreRange}}(\mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aeb98f79faee0fc2ac9492dd5d295d126}{ProgramHandle}}\&\ program,\ CoreRange\ cr);}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{comment}{//==================================================}}
+\DoxyCodeLine{00125\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PROGRAM\ FUNCTIONS}}
+\DoxyCodeLine{00126\ \textcolor{comment}{//==================================================}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00135\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_af94866d5212ee53e90bbf8108e481011}{UpdateCircularBufferTotalSize}}(\mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aeb98f79faee0fc2ac9492dd5d295d126}{ProgramHandle}}\&\ program,\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CircularBufferHandle}{CircularBufferHandle}}\ cb\_handle,\ std::uint32\_t\ total\_size);}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00144\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a9d5dc9d37986c4de04865c16983f5109}{UpdateDynamicCircularBufferAddress}}(}
+\DoxyCodeLine{00145\ \ \ \ \ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aeb98f79faee0fc2ac9492dd5d295d126}{ProgramHandle}}\&\ program,\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1CircularBufferHandle}{CircularBufferHandle}}\ cb\_handle,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classtt_1_1tt__metal_1_1v1_1_1BufferHandle}{BufferHandle}}\&\ buffer);}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \textcolor{keyword}{namespace\ }experimental\ \{}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00159\ CBHandle\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_1_1experimental_a2d7954f1210e05c98c5cdccf9d42c4e6}{CreateCircularBuffer}}(}
+\DoxyCodeLine{00160\ \ \ \ \ Program\&\ program,}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keyword}{const}\ std::variant<CoreCoord,\ CoreRange,\ CoreRangeSet>\&\ core\_spec,}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keyword}{const}\ CircularBufferConfig\&\ config,}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keyword}{const}\ GlobalCircularBuffer\&\ global\_circular\_buffer);}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00172\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_1_1experimental_a84bd5ec5b834a149b2cc3c82f1e67039}{UpdateDynamicCircularBufferAddress}}(}
+\DoxyCodeLine{00173\ \ \ \ \ Program\&\ program,\ CBHandle\ cb\_handle,\ \textcolor{keyword}{const}\ GlobalCircularBuffer\&\ global\_circular\_buffer);}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \}\ \ \textcolor{comment}{//\ namespace\ experimental}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \}\ \ \textcolor{comment}{//\ namespace\ v1}}
+\DoxyCodeLine{00178\ \}\ \ \textcolor{comment}{//\ namespace\ tt::tt\_metal}}
 
 \end{DoxyCode}

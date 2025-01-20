@@ -13,6 +13,8 @@ namespace \mbox{\hyperlink{namespacett}{tt}}
 namespace \mbox{\hyperlink{namespacett_1_1tt__metal}{tt\+::tt\+\_\+metal}}
 \item 
 namespace \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1}{tt\+::tt\+\_\+metal\+::v1}}
+\item 
+namespace \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_1_1experimental}{tt\+::tt\+\_\+metal\+::v1\+::experimental}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -41,5 +43,9 @@ Circular\+Buffer\+Range \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a5a552de
 \begin{DoxyCompactList}\small\item\em Retrieves the circular buffers associated with the program on a specific core range. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_af94866d5212ee53e90bbf8108e481011}{tt\+::tt\+\_\+metal\+::v1\+::\+Update\+Circular\+Buffer\+Total\+Size}} (Program\+Handle \&program, Circular\+Buffer\+Handle cb\+\_\+handle, std\+::uint32\+\_\+t total\+\_\+size)
 \begin{DoxyCompactList}\small\item\em Updates the total size of a circular buffer. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aa514298587d69bf5490a52ed4ca04d77}{tt\+::tt\+\_\+metal\+::v1\+::\+Update\+Dynamic\+Circular\+Buffer\+Address}} (Program\+Handle \&program, Circular\+Buffer\+Handle cb\+\_\+handle, Buffer\+Handle buffer)
-\begin{DoxyCompactList}\small\item\em Updates the address of a dynamic circular buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a9d5dc9d37986c4de04865c16983f5109}{tt\+::tt\+\_\+metal\+::v1\+::\+Update\+Dynamic\+Circular\+Buffer\+Address}} (Program\+Handle \&program, Circular\+Buffer\+Handle cb\+\_\+handle, const Buffer\+Handle \&buffer)
+\begin{DoxyCompactList}\small\item\em Updates the address of a dynamic circular buffer. \end{DoxyCompactList}\item 
+CBHandle \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_1_1experimental_a2d7954f1210e05c98c5cdccf9d42c4e6}{tt\+::tt\+\_\+metal\+::v1\+::experimental\+::\+Create\+Circular\+Buffer}} (Program \&program, const std\+::variant$<$ Core\+Coord, Core\+Range, Core\+Range\+Set $>$ \&core\+\_\+spec, const Circular\+Buffer\+Config \&config, const Global\+Circular\+Buffer \&global\+\_\+circular\+\_\+buffer)
+\begin{DoxyCompactList}\small\item\em Creates a Circular Buffer in L1 memory of specified cores using the address space of the global circular bufferand adds it to the program. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_1_1experimental_a84bd5ec5b834a149b2cc3c82f1e67039}{tt\+::tt\+\_\+metal\+::v1\+::experimental\+::\+Update\+Dynamic\+Circular\+Buffer\+Address}} (Program \&program, CBHandle cb\+\_\+handle, const Global\+Circular\+Buffer \&global\+\_\+circular\+\_\+buffer)
+\begin{DoxyCompactList}\small\item\em Updates the address of a dynamic global circular buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}

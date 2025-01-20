@@ -82,15 +82,18 @@ $(function() {
   <div class="headertitle"><div class="title">dataflow_api.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;noc/noc_parameters.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &quot;core_config.h&quot;</code><br />
 <code>#include &quot;circular_buffer.h&quot;</code><br />
+<code>#include &quot;dataflow_cmd_bufs.h&quot;</code><br />
 <code>#include &quot;debug/sanitize_noc.h&quot;</code><br />
 <code>#include &quot;debug/waypoint.h&quot;</code><br />
 <code>#include &quot;eth_l1_address_map.h&quot;</code><br />
 <code>#include &quot;hostdevcommon/common_values.hpp&quot;</code><br />
 <code>#include &quot;risc_attribs.h&quot;</code><br />
-<code>#include &quot;third_party/umd/device/tt_silicon_driver_common.hpp&quot;</code><br />
+<code>#include &quot;umd/device/tt_silicon_driver_common.hpp&quot;</code><br />
+<code>#include &quot;utils/utils.h&quot;</code><br />
 <code>#include &quot;debug/assert.h&quot;</code><br />
 <code>#include &quot;dev_msgs.h&quot;</code><br />
 </div>
@@ -139,8 +142,6 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac4752c4d9a07974ce99aaa671a675fe2"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#ac4752c4d9a07974ce99aaa671a675fe2">align</a> (uint32_t addr, uint32_t alignment)</td></tr>
-<tr class="separator:ac4752c4d9a07974ce99aaa671a675fe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4018be9d6302207fdc0dac085663e184"><td class="memTemplParams" colspan="2">template&lt;bool DRAM&gt; </td></tr>
 <tr class="memitem:a4018be9d6302207fdc0dac085663e184"><td class="memTemplItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceinterleaved__addr__gen.html#a4018be9d6302207fdc0dac085663e184">interleaved_addr_gen::get_bank_offset_index</a> (uint32_t id)</td></tr>
 <tr class="separator:a4018be9d6302207fdc0dac085663e184"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -201,10 +202,11 @@ Functions</h2></td></tr>
 <tr class="separator:abe9291a1484765db08b61bb0be52135c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e17f34cbfaaf63b2479e4f755aaa12c"><td class="memItemLeft" align="right" valign="top">std::uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#a9e17f34cbfaaf63b2479e4f755aaa12c">get_noc_addr</a> (std::uint32_t addr, uint8_t noc=<a class="el" href="dataflow__api_8h.html#a58bc3a01e945dbd421fce21906e94441">noc_index</a>)</td></tr>
 <tr class="separator:a9e17f34cbfaaf63b2479e4f755aaa12c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0fa390aaa2b1facb57041e9a2c48cfbf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#a0fa390aaa2b1facb57041e9a2c48cfbf">noc_async_read</a> (std::uint64_t src_noc_addr, std::uint32_t dst_local_l1_addr, std::uint32_t size, uint8_t noc=<a class="el" href="dataflow__api_8h.html#a58bc3a01e945dbd421fce21906e94441">noc_index</a>)</td></tr>
-<tr class="separator:a0fa390aaa2b1facb57041e9a2c48cfbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8aef5fd38ffe71fe3ec4a453aa39053b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#a8aef5fd38ffe71fe3ec4a453aa39053b">noc_async_read_one_packet</a> (std::uint64_t src_noc_addr, std::uint32_t dst_local_l1_addr, std::uint32_t size, uint8_t noc=<a class="el" href="dataflow__api_8h.html#a58bc3a01e945dbd421fce21906e94441">noc_index</a>)</td></tr>
 <tr class="separator:a8aef5fd38ffe71fe3ec4a453aa39053b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af81638126b7666b792269be373577241"><td class="memTemplParams" colspan="2">template&lt;uint32_t max_page_size = NOC_MAX_BURST_SIZE + 1&gt; </td></tr>
+<tr class="memitem:af81638126b7666b792269be373577241"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#af81638126b7666b792269be373577241">noc_async_read</a> (std::uint64_t src_noc_addr, std::uint32_t dst_local_l1_addr, std::uint32_t size, uint8_t noc=<a class="el" href="dataflow__api_8h.html#a58bc3a01e945dbd421fce21906e94441">noc_index</a>)</td></tr>
+<tr class="separator:af81638126b7666b792269be373577241"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3070e5dc8b9ed311b89d154643c4f8fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#a3070e5dc8b9ed311b89d154643c4f8fd">noc_async_read_one_packet_set_state</a> (std::uint64_t src_noc_addr, std::uint32_t size, uint8_t noc=<a class="el" href="dataflow__api_8h.html#a58bc3a01e945dbd421fce21906e94441">noc_index</a>)</td></tr>
 <tr class="separator:a3070e5dc8b9ed311b89d154643c4f8fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4031bdbfa690ceee630ad17f8ca99fdb"><td class="memTemplParams" colspan="2">template&lt;bool inc_num_issued = true&gt; </td></tr>
@@ -236,6 +238,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a6c2101cd8c2aec4bec53247d732a956c"><td class="memTemplParams" colspan="2">template&lt;bool DRAM, uint32_t tile_hw&gt; </td></tr>
 <tr class="memitem:a6c2101cd8c2aec4bec53247d732a956c"><td class="memTemplItemLeft" align="right" valign="top">std::uint64_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#a6c2101cd8c2aec4bec53247d732a956c">get_noc_addr</a> (const uint32_t id, const <a class="el" href="structInterleavedAddrGenFast.html">InterleavedAddrGenFast</a>&lt; DRAM, tile_hw &gt; &amp;s, uint32_t offset=0, uint8_t noc=<a class="el" href="dataflow__api_8h.html#a58bc3a01e945dbd421fce21906e94441">noc_index</a>)</td></tr>
 <tr class="separator:a6c2101cd8c2aec4bec53247d732a956c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f9a8e66a0842dcf7ed45aff4231ad9e"><td class="memTemplParams" colspan="2">template&lt;bool DRAM&gt; </td></tr>
+<tr class="memitem:a8f9a8e66a0842dcf7ed45aff4231ad9e"><td class="memTemplItemLeft" align="right" valign="top">std::uint64_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#a8f9a8e66a0842dcf7ed45aff4231ad9e">get_noc_addr</a> (const uint32_t id, const <a class="el" href="structInterleavedPow2AddrGenFast.html">InterleavedPow2AddrGenFast</a>&lt; DRAM &gt; &amp;s, uint32_t offset=0, uint8_t noc=<a class="el" href="dataflow__api_8h.html#a58bc3a01e945dbd421fce21906e94441">noc_index</a>)</td></tr>
+<tr class="separator:a8f9a8e66a0842dcf7ed45aff4231ad9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a4948036d7191e294716b03d68b9d8a"><td class="memTemplParams" colspan="2">template&lt;bool DRAM&gt; </td></tr>
 <tr class="memitem:a3a4948036d7191e294716b03d68b9d8a"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#a3a4948036d7191e294716b03d68b9d8a">noc_async_read_page</a> (const uint32_t id, const <a class="el" href="structInterleavedAddrGen.html">InterleavedAddrGen</a>&lt; DRAM &gt; &amp;s, std::uint32_t dst_local_l1_addr, uint32_t offset=0, uint8_t noc=<a class="el" href="dataflow__api_8h.html#a58bc3a01e945dbd421fce21906e94441">noc_index</a>)</td></tr>
 <tr class="separator:a3a4948036d7191e294716b03d68b9d8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -295,27 +300,35 @@ Functions</h2></td></tr>
 <tr class="separator:a905d1234815d8abd8aa72460d34386ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98abddb8e88027a5299d2124b3953d19"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#a98abddb8e88027a5299d2124b3953d19">noc_async_read_barrier_with_trid</a> (uint32_t trid, uint8_t noc=<a class="el" href="dataflow__api_8h.html#a58bc3a01e945dbd421fce21906e94441">noc_index</a>)</td></tr>
 <tr class="separator:a98abddb8e88027a5299d2124b3953d19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc3f8b4dc67a0610cafdafd77d70ee69"><td class="memTemplParams" colspan="2">template&lt;bool DRAM&gt; </td></tr>
+<tr class="memitem:afc3f8b4dc67a0610cafdafd77d70ee69"><td class="memTemplItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#afc3f8b4dc67a0610cafdafd77d70ee69">get_noc_addr_from_bank_id</a> (uint32_t bank_id, uint32_t bank_address_offset, uint8_t noc=<a class="el" href="dataflow__api_8h.html#a58bc3a01e945dbd421fce21906e94441">noc_index</a>)</td></tr>
+<tr class="separator:afc3f8b4dc67a0610cafdafd77d70ee69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89bd02fcd6c82d77fa51b346b6a97d20"><td class="memTemplParams" colspan="2">template&lt;bool DRAM, uint32_t page_size&gt; </td></tr>
+<tr class="memitem:a89bd02fcd6c82d77fa51b346b6a97d20"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#a89bd02fcd6c82d77fa51b346b6a97d20">get_interleaved_addr_gen</a> (uint32_t base_addr)</td></tr>
+<tr class="separator:a89bd02fcd6c82d77fa51b346b6a97d20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:acef291e41fb571dd8cdf11167e3aeeea"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#acef291e41fb571dd8cdf11167e3aeeea">proc_type</a> = static_cast&lt;std::underlying_type_t&lt;TensixProcessorTypes&gt;&gt;(TensixProcessorTypes::DM1)</td></tr>
+<tr class="separator:acef291e41fb571dd8cdf11167e3aeeea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58bc3a01e945dbd421fce21906e94441"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#a58bc3a01e945dbd421fce21906e94441">noc_index</a></td></tr>
 <tr class="separator:a58bc3a01e945dbd421fce21906e94441"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abfbb1273e3f29964043f4660b5c5bc1d"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#abfbb1273e3f29964043f4660b5c5bc1d">noc_mode</a> = DM_DEDICATED_NOC</td></tr>
 <tr class="separator:abfbb1273e3f29964043f4660b5c5bc1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8529255dbc378d289f61049834e1ba4"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#aa8529255dbc378d289f61049834e1ba4">dram_bank_to_noc_xy</a> [NUM_NOCS][NUM_DRAM_BANKS]</td></tr>
+<tr class="separator:aa8529255dbc378d289f61049834e1ba4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2a05116b7869524949b9a8bbf0997db"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#ab2a05116b7869524949b9a8bbf0997db">bank_to_dram_offset</a> [NUM_DRAM_BANKS]</td></tr>
+<tr class="separator:ab2a05116b7869524949b9a8bbf0997db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae219168622cfdbefddcbc5eb36eff549"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#ae219168622cfdbefddcbc5eb36eff549">l1_bank_to_noc_xy</a> [NUM_NOCS][NUM_L1_BANKS]</td></tr>
+<tr class="separator:ae219168622cfdbefddcbc5eb36eff549"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d8a3a83201726ee0082488f787e1b89"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#a3d8a3a83201726ee0082488f787e1b89">bank_to_l1_offset</a> [NUM_L1_BANKS]</td></tr>
+<tr class="separator:a3d8a3a83201726ee0082488f787e1b89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2366e9251332058fa1fa368903d1d760"><td class="memItemLeft" align="right" valign="top">uint32_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#a2366e9251332058fa1fa368903d1d760">rta_l1_base</a></td></tr>
 <tr class="separator:a2366e9251332058fa1fa368903d1d760"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74c5ca11f2fb15c25af4a74db732a5fc"><td class="memItemLeft" align="right" valign="top">uint32_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#a74c5ca11f2fb15c25af4a74db732a5fc">crta_l1_base</a></td></tr>
 <tr class="separator:a74c5ca11f2fb15c25af4a74db732a5fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a237705982b987907cbfca699e32a9c64"><td class="memItemLeft" align="right" valign="top">uint32_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#a237705982b987907cbfca699e32a9c64">sem_l1_base</a> []</td></tr>
 <tr class="separator:a237705982b987907cbfca699e32a9c64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa5a15ba6d1a0359eb8270daa81f6e1a"><td class="memItemLeft" align="right" valign="top">constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#afa5a15ba6d1a0359eb8270daa81f6e1a">read_cmd_buf</a> = NCRISC_RD_CMD_BUF</td></tr>
-<tr class="separator:afa5a15ba6d1a0359eb8270daa81f6e1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae53f3d62ad6a9eeabe5f4604e3e9b13f"><td class="memItemLeft" align="right" valign="top">constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#ae53f3d62ad6a9eeabe5f4604e3e9b13f">write_cmd_buf</a> = NCRISC_WR_CMD_BUF</td></tr>
-<tr class="separator:ae53f3d62ad6a9eeabe5f4604e3e9b13f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c97896ab8cfddde7d4951cd6f947e0f"><td class="memItemLeft" align="right" valign="top">constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#a6c97896ab8cfddde7d4951cd6f947e0f">write_reg_cmd_buf</a> = NCRISC_WR_REG_CMD_BUF</td></tr>
-<tr class="separator:a6c97896ab8cfddde7d4951cd6f947e0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27c097a6b6c3174e4b39fa61e1aed761"><td class="memItemLeft" align="right" valign="top">constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflow__api_8h.html#a27c097a6b6c3174e4b39fa61e1aed761">write_at_cmd_buf</a> = NCRISC_AT_CMD_BUF</td></tr>
-<tr class="separator:a27c097a6b6c3174e4b39fa61e1aed761"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a25a0d59e125c87ff2f8fe0c9a394626c" name="a25a0d59e125c87ff2f8fe0c9a394626c"></a>
@@ -499,34 +512,6 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ac4752c4d9a07974ce99aaa671a675fe2" name="ac4752c4d9a07974ce99aaa671a675fe2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4752c4d9a07974ce99aaa671a675fe2">&#9670;&#160;</a></span>align()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t align </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>addr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>alignment</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a579e354d124dd292ebf624551fb6f6cf" name="a579e354d124dd292ebf624551fb6f6cf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a579e354d124dd292ebf624551fb6f6cf">&#9670;&#160;</a></span>cb_pages_available_at_front()</h2>
 
@@ -560,10 +545,9 @@ Variables</h2></td></tr>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">cb_id   </td><td class="markdownTableBodyNone">The index of the circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">num_tiles   </td><td class="markdownTableBodyNone">The number of tiles to check for   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">It must be less or equal than the size of the CB (the total number of tiles that fit into the CB)   </td><td class="markdownTableBodyNone"></td></tr>
+<td class="markdownTableBodyNone">cb_id   </td><td class="markdownTableBodyNone">The index of the circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True   </td></tr>
 </table>
+<p>| num_tiles | The number of tiles to check for | uint32_t | It must be less or equal than the size of the CB (the total number of tiles that fit into the CB) | | </p>
 
 </div>
 </div>
@@ -599,10 +583,9 @@ Variables</h2></td></tr>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">cb_id   </td><td class="markdownTableBodyNone">The index of the circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">num_tiles   </td><td class="markdownTableBodyNone">The number of free tiles to wait for   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">It must be less or equal than the size of the CB (the total number of tiles that fit into the CB)   </td><td class="markdownTableBodyNone">True   </td></tr>
+<td class="markdownTableBodyNone">cb_id   </td><td class="markdownTableBodyNone">The index of the circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True   </td></tr>
 </table>
+<p>| num_tiles | The number of free tiles to wait for | uint32_t | It must be less or equal than the size of the CB (the total number of tiles that fit into the CB) | True | </p>
 
 </div>
 </div>
@@ -639,10 +622,9 @@ Variables</h2></td></tr>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">cb_id   </td><td class="markdownTableBodyNone">The index of the circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">num_tiles   </td><td class="markdownTableBodyNone">The number of tiles to be popped   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">It must be less or equal than the size of the CB (the total number of tiles that fit into the CB)   </td><td class="markdownTableBodyNone">True   </td></tr>
+<td class="markdownTableBodyNone">cb_id   </td><td class="markdownTableBodyNone">The index of the circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True   </td></tr>
 </table>
+<p>| num_tiles | The number of tiles to be popped | uint32_t | It must be less or equal than the size of the CB (the total number of tiles that fit into the CB) | True | </p>
 
 </div>
 </div>
@@ -679,10 +661,9 @@ Variables</h2></td></tr>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">cb_id   </td><td class="markdownTableBodyNone">The index of the circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">num_tiles   </td><td class="markdownTableBodyNone">The number of tiles to be pushed   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">It must be less or equal than the size of the CB (the total number of tiles that fit into the CB)   </td><td class="markdownTableBodyNone">True   </td></tr>
+<td class="markdownTableBodyNone">cb_id   </td><td class="markdownTableBodyNone">The index of the circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True   </td></tr>
 </table>
+<p>| num_tiles | The number of tiles to be pushed | uint32_t | It must be less or equal than the size of the CB (the total number of tiles that fit into the CB) | True | </p>
 
 </div>
 </div>
@@ -718,10 +699,9 @@ Variables</h2></td></tr>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">cb_id   </td><td class="markdownTableBodyNone">The index of the circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">num_tiles   </td><td class="markdownTableBodyNone">The number of free tiles to wait for   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">It must be less or equal than the size of the CB (the total number of tiles that fit into the CB)   </td><td class="markdownTableBodyNone">True   </td></tr>
+<td class="markdownTableBodyNone">cb_id   </td><td class="markdownTableBodyNone">The index of the circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True   </td></tr>
 </table>
+<p>| num_tiles | The number of free tiles to wait for | uint32_t | It must be less or equal than the size of the CB (the total number of tiles that fit into the CB) | True | </p>
 
 </div>
 </div>
@@ -758,10 +738,9 @@ Variables</h2></td></tr>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">cb_id   </td><td class="markdownTableBodyNone">The index of the circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">num_tiles   </td><td class="markdownTableBodyNone">The number of tiles to wait for   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">It must be less or equal than the size of the CB (the total number of tiles that fit into the CB)   </td><td class="markdownTableBodyNone"></td></tr>
+<td class="markdownTableBodyNone">cb_id   </td><td class="markdownTableBodyNone">The index of the circular buffer (CB)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 31   </td><td class="markdownTableBodyNone">True   </td></tr>
 </table>
+<p>| num_tiles | The number of tiles to wait for | uint32_t | It must be less or equal than the size of the CB (the total number of tiles that fit into the CB) | | </p>
 
 </div>
 </div>
@@ -784,14 +763,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <p>Returns the value at a given runtime argument index for unique (per-core) runtime arguments set via SetRuntimeArgs() API.</p>
 <p>Return value: The value associated with the unique runtime argument index</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">arg_idx   </td><td class="markdownTableBodyNone">Unique Runtime argument index   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 255   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">T (template argument)   </td><td class="markdownTableBodyNone">Data type of the returned argument   </td><td class="markdownTableBodyNone">Any 4-byte sized type   </td><td class="markdownTableBodyNone">N/A   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------------&mdash;|---------------------------------------------&mdash;|--------------------&mdash;|------------------------&mdash;|-------&mdash;| | arg_idx | Unique Runtime argument index | uint32_t | 0 to 255 | True | | T (template argument) | Data type of the returned argument | Any 4-byte sized type | N/A | True | </p>
 
 </div>
 </div>
@@ -814,14 +786,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <p>Returns the value at a given runtime argument index for common (all cores) runtime arguments set via SetCommonRuntimeArgs() API.</p>
 <p>Return value: The value associated with the common runtime argument index</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">arg_idx   </td><td class="markdownTableBodyNone">Common Runtime argument index   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0 to 255   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">T (template argument)   </td><td class="markdownTableBodyNone">Data type of the returned argument   </td><td class="markdownTableBodyNone">Any 4-byte sized type   </td><td class="markdownTableBodyNone">N/A   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------------------&mdash;|---------------------------------------------&mdash;|--------------------&mdash;|------------------------&mdash;|-------&mdash;| | arg_idx | Common Runtime argument index | uint32_t | 0 to 255 | True | | T (template argument) | Data type of the returned argument | Any 4-byte sized type | N/A | True | </p>
 
 </div>
 </div>
@@ -897,6 +862,26 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a89bd02fcd6c82d77fa51b346b6a97d20" name="a89bd02fcd6c82d77fa51b346b6a97d20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89bd02fcd6c82d77fa51b346b6a97d20">&#9670;&#160;</a></span>get_interleaved_addr_gen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool DRAM, uint32_t page_size&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto get_interleaved_addr_gen </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>base_addr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a31a2b40a6884c495ec14250c528a4dd7" name="a31a2b40a6884c495ec14250c528a4dd7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a31a2b40a6884c495ec14250c528a4dd7">&#9670;&#160;</a></span>get_l1_noc_addr()</h2>
 
@@ -944,7 +929,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="ac41af911427b28e8d8e87869679f27c4" name="ac41af911427b28e8d8e87869679f27c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac41af911427b28e8d8e87869679f27c4">&#9670;&#160;</a></span>get_noc_addr() <span class="overload">[1/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac41af911427b28e8d8e87869679f27c4">&#9670;&#160;</a></span>get_noc_addr() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -986,7 +971,7 @@ template&lt;bool DRAM&gt; </div>
 </div>
 </div>
 <a id="a6c2101cd8c2aec4bec53247d732a956c" name="a6c2101cd8c2aec4bec53247d732a956c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c2101cd8c2aec4bec53247d732a956c">&#9670;&#160;</a></span>get_noc_addr() <span class="overload">[2/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c2101cd8c2aec4bec53247d732a956c">&#9670;&#160;</a></span>get_noc_addr() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1028,7 +1013,7 @@ template&lt;bool DRAM, uint32_t tile_hw&gt; </div>
 </div>
 </div>
 <a id="ae6c97b5ef900963ae9c3a5d87a7ef1ff" name="ae6c97b5ef900963ae9c3a5d87a7ef1ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae6c97b5ef900963ae9c3a5d87a7ef1ff">&#9670;&#160;</a></span>get_noc_addr() <span class="overload">[3/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6c97b5ef900963ae9c3a5d87a7ef1ff">&#9670;&#160;</a></span>get_noc_addr() <span class="overload">[3/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1069,8 +1054,50 @@ template&lt;bool DRAM&gt; </div>
 
 </div>
 </div>
+<a id="a8f9a8e66a0842dcf7ed45aff4231ad9e" name="a8f9a8e66a0842dcf7ed45aff4231ad9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f9a8e66a0842dcf7ed45aff4231ad9e">&#9670;&#160;</a></span>get_noc_addr() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool DRAM&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::uint64_t get_noc_addr </td>
+          <td>(</td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structInterleavedPow2AddrGenFast.html">InterleavedPow2AddrGenFast</a>&lt; DRAM &gt; &amp;&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>offset</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>noc</em> = <code><a class="el" href="dataflow__api_8h.html#a58bc3a01e945dbd421fce21906e94441">noc_index</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a9e17f34cbfaaf63b2479e4f755aaa12c" name="a9e17f34cbfaaf63b2479e4f755aaa12c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e17f34cbfaaf63b2479e4f755aaa12c">&#9670;&#160;</a></span>get_noc_addr() <span class="overload">[4/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e17f34cbfaaf63b2479e4f755aaa12c">&#9670;&#160;</a></span>get_noc_addr() <span class="overload">[5/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1098,7 +1125,7 @@ template&lt;bool DRAM&gt; </div>
 </div>
 </div>
 <a id="aeec74feed8e1fce53c5561c28021eb63" name="aeec74feed8e1fce53c5561c28021eb63"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeec74feed8e1fce53c5561c28021eb63">&#9670;&#160;</a></span>get_noc_addr() <span class="overload">[5/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aeec74feed8e1fce53c5561c28021eb63">&#9670;&#160;</a></span>get_noc_addr() <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1120,6 +1147,42 @@ template&lt;bool DRAM&gt; </div>
           <td></td>
           <td class="paramtype">std::uint32_t&#160;</td>
           <td class="paramname"><em>addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>noc</em> = <code><a class="el" href="dataflow__api_8h.html#a58bc3a01e945dbd421fce21906e94441">noc_index</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afc3f8b4dc67a0610cafdafd77d70ee69" name="afc3f8b4dc67a0610cafdafd77d70ee69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc3f8b4dc67a0610cafdafd77d70ee69">&#9670;&#160;</a></span>get_noc_addr_from_bank_id()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool DRAM&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t get_noc_addr_from_bank_id </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>bank_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>bank_address_offset</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1508,11 +1571,13 @@ template&lt;ProgrammableCoreType type = ProgrammableCoreType::TENSIX&gt; </div>
 
 </div>
 </div>
-<a id="a0fa390aaa2b1facb57041e9a2c48cfbf" name="a0fa390aaa2b1facb57041e9a2c48cfbf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0fa390aaa2b1facb57041e9a2c48cfbf">&#9670;&#160;</a></span>noc_async_read()</h2>
+<a id="af81638126b7666b792269be373577241" name="af81638126b7666b792269be373577241"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af81638126b7666b792269be373577241">&#9670;&#160;</a></span>noc_async_read()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;uint32_t max_page_size = NOC_MAX_BURST_SIZE + 1&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1556,16 +1621,7 @@ template&lt;ProgrammableCoreType type = ProgrammableCoreType::TENSIX&gt; </div>
 <p>Initiates an asynchronous read from a specified source node located at NOC coordinates (x,y) at a local address (encoded as a uint64_t using <em>get_noc_addr</em> function). The destination is in L1 memory on the Tensix core executing this function call. Also, see <em>noc_async_read_barrier</em>.</p>
 <p>The source node can be either a DRAM bank, a Tensix core or a PCIe controller.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Data type   </th><th class="markdownTableHeadNone">Valid range   </th><th class="markdownTableHeadNone">required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">src_noc_addr   </td><td class="markdownTableBodyNone">Encoding of the source NOC location (x,y)+address   </td><td class="markdownTableBodyNone">uint64_t   </td><td class="markdownTableBodyNone">DOX-TODO(ref to explain valid coords)   </td><td class="markdownTableBodyNone">Yes    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">dst_local_l1_addr   </td><td class="markdownTableBodyNone">Address in local L1 memory   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..1MB   </td><td class="markdownTableBodyNone">Yes    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">size   </td><td class="markdownTableBodyNone">Size of data transfer in bytes   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..1MB   </td><td class="markdownTableBodyNone">Yes   </td></tr>
-</table>
+<p>| Argument | Description | Data type | Valid range | required | |----------------&mdash;|-------------------------------------------------&mdash;|--------&mdash;|---------------------------------------&mdash;|-------&mdash;| | src_noc_addr | Encoding of the source NOC location (x,y)+address | uint64_t | DOX-TODO(ref to explain valid coords) | Yes | | dst_local_l1_addr | Address in local L1 memory | uint32_t | 0..1MB | Yes | | size | Size of data transfer in bytes | uint32_t | 0..1MB | Yes | </p>
 
 </div>
 </div>
@@ -1590,21 +1646,7 @@ template&lt;ProgrammableCoreType type = ProgrammableCoreType::TENSIX&gt; </div>
 <p>Note: The number of destinations needs to be non-zero. Besides that, there is no restriction on the number of destinations, i.e. the multicast destinations can span the full chip. However, as mentioned previously, the multicast source cannot be part of the destinations. So, the maximum number of destinations is number of cores - 1.</p>
 <p>Return value: None</p>
 <p>NOTE: only supported on Blackhole</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">src_local_l1_addr   </td><td class="markdownTableBodyNone">Source address in local L1 memory   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..1MB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">dst_noc_addr_multicast   </td><td class="markdownTableBodyNone">Encoding of the destinations nodes (x_start,y_start,x_end,y_end)+address   </td><td class="markdownTableBodyNone">uint64_t   </td><td class="markdownTableBodyNone">DOX-TODO(insert a reference to what constitutes valid coords)   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">size   </td><td class="markdownTableBodyNone">Size of data transfer in bytes   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..1MB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">num_dests   </td><td class="markdownTableBodyNone">Number of destinations that the multicast source is targetting   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..(number of cores - 1)   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">exclude_region   </td><td class="markdownTableBodyNone">Encoding of the excluded regin (x_start,y_start,x_direction,y_direction)   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">DOX-TODO(insert a reference to what constitutes valid coords)   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
-<p>This blocking call waits for all the outstanding enqueued <em>noc_async_read</em> calls issued on the current Tensix core to complete. After returning from this call the <em>noc_async_read</em> queue will be empty for the current Tensix core.</p>
+<p>| Argument | Description | Type | Valid Range | Required | |---------------------&mdash;|-----------------------------------------------------------------------&mdash;|-------&mdash;|------------------------------------------------------------&mdash;|-------&mdash;| | src_local_l1_addr | Source address in local L1 memory | uint32_t | 0..1MB | True | | dst_noc_addr_multicast | Encoding of the destinations nodes (x_start,y_start,x_end,y_end)+address | uint64_t | DOX-TODO(insert a reference to what constitutes valid coords) | True | | size | Size of data transfer in bytes | uint32_t | 0..1MB | True | | num_dests | Number of destinations that the multicast source is targetting | uint32_t | 0..(number of cores - 1) | True | | exclude_region | Encoding of the excluded regin (x_start,y_start,x_direction,y_direction) | uint32_t | DOX-TODO(insert a reference to what constitutes valid coords) | True | This blocking call waits for all the outstanding enqueued <em>noc_async_read</em> calls issued on the current Tensix core to complete. After returning from this call the <em>noc_async_read</em> queue will be empty for the current Tensix core.</p>
 <p>Return value: None </p>
 
 </div>
@@ -2159,16 +2201,7 @@ template&lt;uint32_t max_page_size = NOC_MAX_BURST_SIZE + 1&gt; </div>
 <p>Initiates an asynchronous write from a source address in L1 memory on the Tensix core executing this function call. The destination is specified using a uint64_t encoding referencing an on-chip node located at NOC coordinates (x,y) and a local address created using get_noc_addr function. Also, see <em>noc_async_write_barrier</em>.</p>
 <p>The destination node can be either a DRAM bank, Tensix core+L1 memory address or a PCIe controller.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">src_local_l1_addr   </td><td class="markdownTableBodyNone">Source address in local L1 memory   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..1MB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">dst_noc_addr   </td><td class="markdownTableBodyNone">Encoding of the destination NOC location (x,y)+address   </td><td class="markdownTableBodyNone">uint64_t   </td><td class="markdownTableBodyNone">DOX-TODO(insert a reference to what constitutes valid coords)   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">size   </td><td class="markdownTableBodyNone">Size of data transfer in bytes   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..1MB   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |----------------&mdash;|------------------------------------------------------&mdash;|-------&mdash;|-------------------------------------------------------------&mdash;|-------&mdash;| | src_local_l1_addr | Source address in local L1 memory | uint32_t | 0..1MB | True | | dst_noc_addr | Encoding of the destination NOC location (x,y)+address | uint64_t | DOX-TODO(insert a reference to what constitutes valid coords) | True | | size | Size of data transfer in bytes | uint32_t | 0..1MB | True | </p>
 
 </div>
 </div>
@@ -2262,18 +2295,7 @@ template&lt;uint32_t max_page_size = NOC_MAX_BURST_SIZE + 1&gt; </div>
 <p>With this API, the multicast sender cannot be part of the multicast destinations. If the multicast sender has to be in the multicast destinations (i.e. must perform a local L1 write), the other API variant <em>noc_async_write_multicast_loopback_src</em> can be used.</p>
 <p>Note: The number of destinations needs to be non-zero. Besides that, there is no restriction on the number of destinations, i.e. the multicast destinations can span the full chip. However, as mentioned previously, the multicast source cannot be part of the destinations. So, the maximum number of destinations is number of cores - 1.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">src_local_l1_addr   </td><td class="markdownTableBodyNone">Source address in local L1 memory   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..1MB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">dst_noc_addr_multicast   </td><td class="markdownTableBodyNone">Encoding of the destinations nodes (x_start,y_start,x_end,y_end)+address   </td><td class="markdownTableBodyNone">uint64_t   </td><td class="markdownTableBodyNone">DOX-TODO(insert a reference to what constitutes valid coords)   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">size   </td><td class="markdownTableBodyNone">Size of data transfer in bytes   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..1MB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">num_dests   </td><td class="markdownTableBodyNone">Number of destinations that the multicast source is targetting   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..(number of cores -1)   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |---------------------&mdash;|-----------------------------------------------------------------------&mdash;|-------&mdash;|------------------------------------------------------------&mdash;|-------&mdash;| | src_local_l1_addr | Source address in local L1 memory | uint32_t | 0..1MB | True | | dst_noc_addr_multicast | Encoding of the destinations nodes (x_start,y_start,x_end,y_end)+address | uint64_t | DOX-TODO(insert a reference to what constitutes valid coords) | True | | size | Size of data transfer in bytes | uint32_t | 0..1MB | True | | num_dests | Number of destinations that the multicast source is targetting | uint32_t | 0..(number of cores -1) | True | </p>
 
 </div>
 </div>
@@ -2620,16 +2642,7 @@ template&lt;bool DRAM, uint32_t tile_hw&gt; </div>
 <p>Initiates an asynchronous write of a 32-bit value to a NOC destination. Typically used for writing registers, but can be used for memory locations as well. The destination is specified as a 64-bit NOC address (see <em>noc_async_write</em>). The advantage over using <em>noc_async_write</em> is that we don't a Tensix L1 memory source location; the write value is written directly into a register. Unlike using <em>noc_async_write</em>, there are also no address alignment concerns. Also, see <em>noc_async_write_barrier</em>.</p>
 <p>The destination node can be either a DRAM bank, Tensix core+L1 memory address or a PCIe controller.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">addr   </td><td class="markdownTableBodyNone">Encoding of the destination location (x,y)+address   </td><td class="markdownTableBodyNone">uint64_t   </td><td class="markdownTableBodyNone">DOX-TODO(insert a reference to what constitutes valid coords)   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">val   </td><td class="markdownTableBodyNone">The value to be written   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Any uint32_t value   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">be   </td><td class="markdownTableBodyNone">Byte-enable   </td><td class="markdownTableBodyNone">uint8_t   </td><td class="markdownTableBodyNone">0x1-0xF   </td><td class="markdownTableBodyNone">False   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------&mdash;|-------------------------------------------------------------&mdash;|-------&mdash;|------------------------------------------------------------&mdash;|-------&mdash;| | addr | Encoding of the destination location (x,y)+address | uint64_t | DOX-TODO(insert a reference to what constitutes valid coords) | True | | val | The value to be written | uint32_t | Any uint32_t value | True | | be | Byte-enable | uint8_t | 0x1-0xF | False | </p>
 
 </div>
 </div>
@@ -2666,14 +2679,7 @@ template&lt;bool DRAM, uint32_t tile_hw&gt; </div>
 </div><div class="memdoc">
 <p>The Tensix core executing this function call initiates an atomic increment (with 32-bit wrap) of a remote Tensix core L1 memory address. This L1 memory address is used as a semaphore of size 4 Bytes, as a synchronization mechanism.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">addr   </td><td class="markdownTableBodyNone">Encoding of the destination location (x,y)+address   </td><td class="markdownTableBodyNone">uint64_t   </td><td class="markdownTableBodyNone">DOX-TODO(insert a reference to what constitutes valid coords)   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">incr   </td><td class="markdownTableBodyNone">The value to increment by   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Any uint32_t value   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------&mdash;|-------------------------------------------------------------&mdash;|-------&mdash;|------------------------------------------------------------&mdash;|-------&mdash;| | addr | Encoding of the destination location (x,y)+address | uint64_t | DOX-TODO(insert a reference to what constitutes valid coords) | True | | incr | The value to increment by | uint32_t | Any uint32_t value | True | </p>
 
 </div>
 </div>
@@ -2704,14 +2710,7 @@ template&lt;bool DRAM, uint32_t tile_hw&gt; </div>
 </div><div class="memdoc">
 <p>Sets the value of a local L1 memory address on the Tensix core executing this function to a specific value. This L1 memory address is used as a semaphore of size 4 Bytes, as a synchronization mechanism. Also, see <em>noc_semaphore_wait</em>.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">sem_addr   </td><td class="markdownTableBodyNone">Semaphore address in local L1 memory   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..1MB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">val   </td><td class="markdownTableBodyNone">Value to set the semaphore to   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Any uint32_t value   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------&mdash;|-------------------------------------------------------------&mdash;|-------&mdash;|-----------------&mdash;|-------&mdash;| | sem_addr | Semaphore address in local L1 memory | uint32_t | 0..1MB | True | | val | Value to set the semaphore to | uint32_t | Any uint32_t value | True | </p>
 
 </div>
 </div>
@@ -2775,16 +2774,7 @@ template&lt;bool DRAM, uint32_t tile_hw&gt; </div>
 <p>Initiates an asynchronous write from a source address in L1 memory on the Tensix core executing this function call to a rectangular destination grid. The destinations are specified using a uint64_t encoding referencing an on-chip grid of nodes located at NOC coordinate range (x_start,y_start,x_end,y_end) and a local address created using <em>get_noc_multicast_addr</em> function. The size of data that is sent is 4 Bytes. This is usually used to set a semaphore value at the destination nodes, as a way of a synchronization mechanism. The same as <em>noc_async_write_multicast</em> with preset size of 4 Bytes.</p>
 <p>With this API, the multicast sender cannot be part of the multicast destinations. If the multicast sender has to be in the multicast destinations (i.e. must perform a local L1 write), the other API variant <em>noc_semaphore_set_multicast_loopback_src</em> can be used.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">src_local_l1_addr   </td><td class="markdownTableBodyNone">Source address in local L1 memory   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..1MB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">dst_noc_addr_multicast   </td><td class="markdownTableBodyNone">Encoding of the destinations nodes (x_start,y_start,x_end,y_end)+address   </td><td class="markdownTableBodyNone">uint64_t   </td><td class="markdownTableBodyNone">DOX-TODO(insert a reference to what constitutes valid coords)   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">num_dests   </td><td class="markdownTableBodyNone">Number of destinations that the multicast source is targetting   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..(number of cores - 1)   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |---------------------&mdash;|-----------------------------------------------------------------------&mdash;|-------&mdash;|--------------------------------------------------------&mdash;|-------&mdash;| | src_local_l1_addr | Source address in local L1 memory | uint32_t | 0..1MB | True | | dst_noc_addr_multicast | Encoding of the destinations nodes (x_start,y_start,x_end,y_end)+address | uint64_t | DOX-TODO(insert a reference to what constitutes valid coords) | True | | num_dests | Number of destinations that the multicast source is targetting | uint32_t | 0..(number of cores - 1) | True | </p>
 
 </div>
 </div>
@@ -2848,16 +2838,7 @@ template&lt;bool DRAM, uint32_t tile_hw&gt; </div>
 <p>Initiates an asynchronous write from a source address in L1 memory on the Tensix core executing this function call to a rectangular destination grid. The destinations are specified using a uint64_t encoding referencing an on-chip grid of nodes located at NOC coordinate range (x_start,y_start,x_end,y_end) and a local address created using <em>get_noc_multicast_addr</em> function. The size of data that is sent is 4 Bytes. This is usually used to set a semaphore value at the destination nodes, as a way of a synchronization mechanism. The same as <em>noc_async_write_multicast</em> with preset size of 4 Bytes.</p>
 <p>Note: With this API, sending data only to the source node (when num_dests is 1) may result in unexpected behaviour. For some parameters, hangs have been observed. For some other parameters, nothing may happen. Consider using regular non multicast operations such as <em>noc_async_write</em> in this case.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">src_local_l1_addr   </td><td class="markdownTableBodyNone">Source address in local L1 memory   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..1MB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">dst_noc_addr_multicast   </td><td class="markdownTableBodyNone">Encoding of the destinations nodes (x_start,y_start,x_end,y_end)+address   </td><td class="markdownTableBodyNone">uint64_t   </td><td class="markdownTableBodyNone">DOX-TODO(insert a reference to what constitutes valid coords)   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">num_dests   </td><td class="markdownTableBodyNone">Number of destinations that the multicast source is targetting   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..(number of cores)   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |---------------------&mdash;|-----------------------------------------------------------------------&mdash;|-------&mdash;|--------------------------------------------------------&mdash;|-------&mdash;| | src_local_l1_addr | Source address in local L1 memory | uint32_t | 0..1MB | True | | dst_noc_addr_multicast | Encoding of the destinations nodes (x_start,y_start,x_end,y_end)+address | uint64_t | DOX-TODO(insert a reference to what constitutes valid coords) | True | | num_dests | Number of destinations that the multicast source is targetting | uint32_t | 0..(number of cores) | True | </p>
 
 </div>
 </div>
@@ -2930,14 +2911,7 @@ template&lt;bool DRAM, uint32_t tile_hw&gt; </div>
 </div><div class="memdoc">
 <p>A blocking call that waits until the value of a local L1 memory address on the Tensix core executing this function becomes equal to a target value. This L1 memory address is used as a semaphore of size 4 Bytes, as a synchronization mechanism. Also, see <em>noc_semaphore_set</em>.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">sem_addr   </td><td class="markdownTableBodyNone">Semaphore address in local L1 memory   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..1MB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">val   </td><td class="markdownTableBodyNone">The target value of the semaphore   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Any uint32_t value   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------&mdash;|-------------------------------------------------------------&mdash;|-------&mdash;|-----------------&mdash;|-------&mdash;| | sem_addr | Semaphore address in local L1 memory | uint32_t | 0..1MB | True | | val | The target value of the semaphore | uint32_t | Any uint32_t value | True | </p>
 
 </div>
 </div>
@@ -2968,14 +2942,7 @@ template&lt;bool DRAM, uint32_t tile_hw&gt; </div>
 </div><div class="memdoc">
 <p>A blocking call that waits until the value of a local L1 memory address on the Tensix core executing this function becomes equal or greater than a target value. This L1 memory address is used as a semaphore of size 4 Bytes, as a synchronization mechanism. Also, see <em>noc_semaphore_set</em>.</p>
 <p>Return value: None</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Argument   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Valid Range   </th><th class="markdownTableHeadNone">Required    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">sem_addr   </td><td class="markdownTableBodyNone">Semaphore address in local L1 memory   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">0..1MB   </td><td class="markdownTableBodyNone">True    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">val   </td><td class="markdownTableBodyNone">The target value of the semaphore   </td><td class="markdownTableBodyNone">uint32_t   </td><td class="markdownTableBodyNone">Any uint32_t value   </td><td class="markdownTableBodyNone">True   </td></tr>
-</table>
+<p>| Argument | Description | Type | Valid Range | Required | |--------&mdash;|-------------------------------------------------------------&mdash;|-------&mdash;|-----------------&mdash;|-------&mdash;| | sem_addr | Semaphore address in local L1 memory | uint32_t | 0..1MB | True | | val | The target value of the semaphore | uint32_t | Any uint32_t value | True | </p>
 
 </div>
 </div>
@@ -3042,6 +3009,50 @@ template&lt;bool DRAM, uint32_t tile_hw&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
+<a id="ab2a05116b7869524949b9a8bbf0997db" name="ab2a05116b7869524949b9a8bbf0997db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2a05116b7869524949b9a8bbf0997db">&#9670;&#160;</a></span>bank_to_dram_offset</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t bank_to_dram_offset[NUM_DRAM_BANKS]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3d8a3a83201726ee0082488f787e1b89" name="a3d8a3a83201726ee0082488f787e1b89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d8a3a83201726ee0082488f787e1b89">&#9670;&#160;</a></span>bank_to_l1_offset</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t bank_to_l1_offset[NUM_L1_BANKS]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a74c5ca11f2fb15c25af4a74db732a5fc" name="a74c5ca11f2fb15c25af4a74db732a5fc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a74c5ca11f2fb15c25af4a74db732a5fc">&#9670;&#160;</a></span>crta_l1_base</h2>
 
@@ -3053,6 +3064,50 @@ template&lt;bool DRAM, uint32_t tile_hw&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">uint32_t* crta_l1_base</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa8529255dbc378d289f61049834e1ba4" name="aa8529255dbc378d289f61049834e1ba4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8529255dbc378d289f61049834e1ba4">&#9670;&#160;</a></span>dram_bank_to_noc_xy</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t dram_bank_to_noc_xy[NUM_NOCS][NUM_DRAM_BANKS]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae219168622cfdbefddcbc5eb36eff549" name="ae219168622cfdbefddcbc5eb36eff549"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae219168622cfdbefddcbc5eb36eff549">&#9670;&#160;</a></span>l1_bank_to_noc_xy</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t l1_bank_to_noc_xy[NUM_NOCS][NUM_L1_BANKS]</td>
         </tr>
       </table>
   </td>
@@ -3108,8 +3163,8 @@ template&lt;bool DRAM, uint32_t tile_hw&gt; </div>
 
 </div>
 </div>
-<a id="afa5a15ba6d1a0359eb8270daa81f6e1a" name="afa5a15ba6d1a0359eb8270daa81f6e1a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa5a15ba6d1a0359eb8270daa81f6e1a">&#9670;&#160;</a></span>read_cmd_buf</h2>
+<a id="acef291e41fb571dd8cdf11167e3aeeea" name="acef291e41fb571dd8cdf11167e3aeeea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acef291e41fb571dd8cdf11167e3aeeea">&#9670;&#160;</a></span>proc_type</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3118,7 +3173,7 @@ template&lt;bool DRAM, uint32_t tile_hw&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr uint32_t read_cmd_buf = NCRISC_RD_CMD_BUF</td>
+          <td class="memname">constexpr uint8_t proc_type = static_cast&lt;std::underlying_type_t&lt;TensixProcessorTypes&gt;&gt;(TensixProcessorTypes::DM1)</td>
         </tr>
       </table>
   </td>
@@ -3168,72 +3223,6 @@ template&lt;bool DRAM, uint32_t tile_hw&gt; </div>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">extern</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a27c097a6b6c3174e4b39fa61e1aed761" name="a27c097a6b6c3174e4b39fa61e1aed761"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a27c097a6b6c3174e4b39fa61e1aed761">&#9670;&#160;</a></span>write_at_cmd_buf</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint32_t write_at_cmd_buf = NCRISC_AT_CMD_BUF</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae53f3d62ad6a9eeabe5f4604e3e9b13f" name="ae53f3d62ad6a9eeabe5f4604e3e9b13f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae53f3d62ad6a9eeabe5f4604e3e9b13f">&#9670;&#160;</a></span>write_cmd_buf</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint32_t write_cmd_buf = NCRISC_WR_CMD_BUF</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6c97896ab8cfddde7d4951cd6f947e0f" name="a6c97896ab8cfddde7d4951cd6f947e0f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c97896ab8cfddde7d4951cd6f947e0f">&#9670;&#160;</a></span>write_reg_cmd_buf</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint32_t write_reg_cmd_buf = NCRISC_WR_REG_CMD_BUF</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

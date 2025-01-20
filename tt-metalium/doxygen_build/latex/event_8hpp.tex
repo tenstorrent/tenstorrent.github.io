@@ -15,11 +15,11 @@ namespace \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1}{tt\+::tt\+\_\+metal\+
 \item 
 Event\+Handle \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_ac509df53069bbfb2423544bc4c1bda1b}{tt\+::tt\+\_\+metal\+::v1\+::\+Enqueue\+Record\+Event}} (Command\+Queue\+Handle cq)
 \begin{DoxyCompactList}\small\item\em Enqueues a command to record an event on the device. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a75cf4017da0353e17f493d15b43292e8}{tt\+::tt\+\_\+metal\+::v1\+::\+Enqueue\+Wait\+For\+Event}} (Command\+Queue\+Handle cq, Event\+Handle event)
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a8cd86b9c3adcdd8b5bf68baa642994f3}{tt\+::tt\+\_\+metal\+::v1\+::\+Enqueue\+Wait\+For\+Event}} (Command\+Queue\+Handle cq, const Event\+Handle \&event)
 \begin{DoxyCompactList}\small\item\em Enqueues a command to wait for an event to complete on the device. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a5f0339728931f881b0642a8656e636f4}{tt\+::tt\+\_\+metal\+::v1\+::\+Event\+Synchronize}} (Event\+Handle event)
+void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_aae5d361f2a151b3d4476c547c2765467}{tt\+::tt\+\_\+metal\+::v1\+::\+Event\+Synchronize}} (const Event\+Handle \&event)
 \begin{DoxyCompactList}\small\item\em Blocks the host until the specified event has completed on the device. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a0931a52a892ca8bb955ce8084425536a}{tt\+::tt\+\_\+metal\+::v1\+::\+Event\+Query}} (Event\+Handle event)
+bool \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a29d25288ad038ae69a389cab390e44b1}{tt\+::tt\+\_\+metal\+::v1\+::\+Event\+Query}} (const Event\+Handle \&event)
 \begin{DoxyCompactList}\small\item\em Queries the completion status of an event on the device. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{namespacett_1_1tt__metal_1_1v1_a88371fc86019f3020c265456c559929b}{tt\+::tt\+\_\+metal\+::v1\+::\+Device\+Synchronize}} (Device\+Handle device)
 \begin{DoxyCompactList}\small\item\em Synchronizes the device with the host by waiting for all operations to complete. \end{DoxyCompactList}\item 

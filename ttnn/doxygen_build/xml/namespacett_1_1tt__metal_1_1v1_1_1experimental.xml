@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="namespacett_1_1tt__metal_1_1v1_1_1experimental" kind="namespace" language="C++">
+    <compoundname>tt::tt_metal::v1::experimental</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v1_1_1experimental_1a9452c881ef4952b161567d8c649f5089" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GlobalCircularBuffer</type>
+        <definition>GlobalCircularBuffer tt::tt_metal::v1::experimental::CreateGlobalCircularBuffer</definition>
+        <argsstring>(Device *device, const std::unordered_map&lt; CoreCoord, CoreRangeSet &gt; &amp;sender_receiver_core_mapping, uint32_t size, BufferType buffer_type=BufferType::L1, tt::stl::Span&lt; const SubDeviceId &gt; sub_device_ids={})</argsstring>
+        <name>CreateGlobalCircularBuffer</name>
+        <qualifiedname>tt::tt_metal::v1::experimental::CreateGlobalCircularBuffer</qualifiedname>
+        <param>
+          <type>Device *</type>
+          <declname>device</declname>
+        </param>
+        <param>
+          <type>const std::unordered_map&lt; CoreCoord, CoreRangeSet &gt; &amp;</type>
+          <declname>sender_receiver_core_mapping</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>BufferType</type>
+          <declname>buffer_type</declname>
+          <defval>BufferType::L1</defval>
+        </param>
+        <param>
+          <type>tt::stl::Span&lt; const SubDeviceId &gt;</type>
+          <declname>sub_device_ids</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Allocates a global circular buffer in L1 on the device. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>device</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The device to create the global circular buffer on. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sender_receiver_core_mapping</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The mapping of remote sender to remote receiver cores for the circular buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the global circular buffer per core in bytes. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buffer_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Buffer type to store the global circular buffer. Can only be an L1 buffer type. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sub_device_ids</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sub-device IDs to wait on before writing the global circular buffer config to device. Defaults to waiting on all sub-devices. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The allocated global circular buffer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/include/tt_metal/global_circular_buffer.hpp" line="29" column="22" declfile="tt_metal/include/tt_metal/global_circular_buffer.hpp" declline="29" declcolumn="22"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v1_1_1experimental_1a2d7954f1210e05c98c5cdccf9d42c4e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>CBHandle</type>
+        <definition>CBHandle tt::tt_metal::v1::experimental::CreateCircularBuffer</definition>
+        <argsstring>(Program &amp;program, const std::variant&lt; CoreCoord, CoreRange, CoreRangeSet &gt; &amp;core_spec, const CircularBufferConfig &amp;config, const GlobalCircularBuffer &amp;global_circular_buffer)</argsstring>
+        <name>CreateCircularBuffer</name>
+        <qualifiedname>tt::tt_metal::v1::experimental::CreateCircularBuffer</qualifiedname>
+        <param>
+          <type>Program &amp;</type>
+          <declname>program</declname>
+        </param>
+        <param>
+          <type>const std::variant&lt; CoreCoord, CoreRange, CoreRangeSet &gt; &amp;</type>
+          <declname>core_spec</declname>
+        </param>
+        <param>
+          <type>const CircularBufferConfig &amp;</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>const GlobalCircularBuffer &amp;</type>
+          <declname>global_circular_buffer</declname>
+        </param>
+        <briefdescription>
+<para>Creates a Circular Buffer in L1 memory of specified cores using the address space of the global circular bufferand adds it to the program. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>program</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The program to which the buffer will be added. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>core_spec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies the cores where the circular buffer will be configured. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Configuration for the circular buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>global_circular_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Global circular buffer to use the address space and configuration of. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>CBHandle representing the Circular Buffer ID. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/include/tt_metal/program.hpp" line="159" column="10" declfile="tt_metal/include/tt_metal/program.hpp" declline="159" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacett_1_1tt__metal_1_1v1_1_1experimental_1a84bd5ec5b834a149b2cc3c82f1e67039" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void tt::tt_metal::v1::experimental::UpdateDynamicCircularBufferAddress</definition>
+        <argsstring>(Program &amp;program, CBHandle cb_handle, const GlobalCircularBuffer &amp;global_circular_buffer)</argsstring>
+        <name>UpdateDynamicCircularBufferAddress</name>
+        <qualifiedname>tt::tt_metal::v1::experimental::UpdateDynamicCircularBufferAddress</qualifiedname>
+        <param>
+          <type>Program &amp;</type>
+          <declname>program</declname>
+        </param>
+        <param>
+          <type>CBHandle</type>
+          <declname>cb_handle</declname>
+        </param>
+        <param>
+          <type>const GlobalCircularBuffer &amp;</type>
+          <declname>global_circular_buffer</declname>
+        </param>
+        <briefdescription>
+<para>Updates the address of a dynamic global circular buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>program</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The program containing the circular buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cb_handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Handle of the circular buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Dynamically allocated global L1 buffer that shares address space with the circular buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tt_metal/include/tt_metal/program.hpp" line="172" column="6" declfile="tt_metal/include/tt_metal/program.hpp" declline="172" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="tt_metal/include/tt_metal/global_circular_buffer.hpp" line="16" column="1"/>
+  </compounddef>
+</doxygen>
