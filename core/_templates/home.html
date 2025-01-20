@@ -75,12 +75,14 @@
 
     .card * {
       color: #202020 !important;
+      overflow: hidden;
     }
 
     .small-card {
       width: calc(50% - 10px);
       padding: 12px;
       gap: 8px;
+      overflow: hidden;
     }
 
     .card img {
@@ -141,6 +143,15 @@
       .hx {
         font-size: 144px;
       }
+    }
+
+    /* Override tt-theme.css */
+    .document * h1, .document * h2, .document * h3, .document * h4 {
+      /*
+        Remove horizontal overflow (so scrollbars don't appear on every header
+        element for users with "Show scroll bars" set to "Always" on macOS)
+      */
+      overflow: hidden;
     }
   </style>
 </head>
