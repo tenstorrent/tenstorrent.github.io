@@ -8,7 +8,7 @@
 import os
 
 project = 'Home'
-copyright = '2024, Tenstorrent'
+copyright = '2025, Tenstorrent'
 author = 'Tenstorrent'
 release = '1.0'
 
