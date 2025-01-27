@@ -21,7 +21,7 @@ jobs:
         run: |
           sudo apt-get update -y
           sudo apt-get install -y pandoc
-          sudo apt install software-properties-common=0.99.9.12 build-essential=12.8ubuntu1.1 python3.12-venv libhwloc-dev graphviz
+          sudo apt install software-properties-common build-essential python3.12-venv libhwloc-dev graphviz
       - name: Install Clang-17
         shell: bash
         run: |
