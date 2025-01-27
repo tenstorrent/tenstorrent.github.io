@@ -43,11 +43,11 @@ This Starting Guide will reference each software utility where the latest versio
 
 Install git, wget, pip, and DKMS (Dynamic Kernel Module Support) by running the following command in your terminal according to your Linux distribution:
 
-| Linux Distro           | Installation Command                                                                                         |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------ |
-| Debian, Ubuntu         | `sudo apt update && sudo apt install -y wget git python3-pip dkms`                                           |
-| Fedora                 | `sudo dnf check-update && sudo dnf install -y wget git python3-pip dkms`                                     |
-| Enterprise Linux based | `sudo dnf install -y epel-release && sudo dnf check-update && sudo dnf install -y wget git python3-pip dkms` |
+| Linux Distro           | Installation Command                                                                      |
+|------------------------|-------------------------------------------------------------------------------------------|
+| Debian, Ubuntu         | `sudo apt update && sudo apt install -y wget git python3-pip dkms rust cargo`                        |
+| Fedora                 | `sudo dnf check-update && sudo dnf install -y wget git python3-pip dkms rust cargo`                  |
+| Enterprise Linux based | `sudo dnf install -y epel-release && sudo dnf check-update && sudo dnf install -y wget git python3-pip rust cargo dkms` |
 
 **\*NOTE**: Installation on non-Ubuntu distributions should be considered experimental at this time.\*
 
