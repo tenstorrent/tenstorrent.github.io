@@ -3,15 +3,12 @@ Tenstorrent
 
 .. raw:: html
    :file: _templates/home.html
-   
-.. include:: quickstart.md
-   :parser: myst_parser.sphinx_
 
 .. toctree::
    :hidden:
    :caption: Getting Started
 
-   quickstart
+   getting-started/README
 
 .. toctree::
    :hidden:
