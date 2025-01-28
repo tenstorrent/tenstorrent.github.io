@@ -23,8 +23,8 @@ Tenstorrent
    :maxdepth: 2
 
    TT-Buda <https://tenstorrent.github.io/pybuda/latest/index.html>
-   TT-Metalium <https://tenstorrent.github.io/tt-metalium/latest/index.html>
-   TT-NN <https://tenstorrent.github.io/ttnn/latest/index.html>
+   TT-Metalium <https://tenstorrent.github.io/tt-metal/latest/tt-metalium/index.html>
+   TT-NN <https://tenstorrent.github.io/tt-metal/latest/ttnn/index.html>
    TT-MLIR <https://docs.tenstorrent.com/tt-mlir/>
 
 .. toctree::

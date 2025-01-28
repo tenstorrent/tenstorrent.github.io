@@ -84,8 +84,8 @@ To update Tenstorrent device firmware using TT-Flash, run these commands in the 
 
 ```{code-block} bash
 :substitutions:
-wget https://github.com/tenstorrent/tt-firmware/raw/main/fw_pack-80.13.2.0.fwbundle
-tt-flash --fw-tar fw_pack-80.13.2.0.fwbundle
+wget https://github.com/tenstorrent/tt-firmware/raw/main/fw_pack-80.14.0.0.fwbundle
+tt-flash --fw-tar fw_pack-80.14.0.0.fwbundle
 ```
 
 If this process worked, reboot the system and go to the next section.
