@@ -119,15 +119,22 @@ sudo reboot
 
 **\*NOTE:** This is a temporary solution for configuring hugepages. If the above fails, please check the latest available release from [TT-System-Tools](https://github.com/tenstorrent/tt-system-tools.git).\*
 
-### Step 5: Install the System Management Interface (TT-SMI)
+### Step 5: (Optional) Multi-card Configuration (TT-Topology)
+If you are running on a multi-card Wormhole system such as TT-LoudBox or TT-QuietBox, install the Tenstorrent Topology utility (TT-Topology) and configure a mesh topology by running these commands in the terminal:
 
+```
+pip install git+https://github.com/tenstorrent/tt-topology
+tt-topology -l mesh
+```
+
+### Step 6: Install the System Management Interface (TT-SMI)
 Install the Tenstorrent Software Management Interface (**[TT-SMI](https://github.com/tenstorrent/tt-smi)**) by entering this command in the terminal:
 
 ```
 pip install git+https://github.com/tenstorrent/tt-smi
 ```
 
-### Step 6: Verify System Configuration and Test TT-SMI
+### Step 7: Verify System Configuration and Test TT-SMI
 
 Once the hardware and system software are installed, verify that your system has been configured properly.
 
