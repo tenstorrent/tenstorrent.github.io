@@ -4,3 +4,49 @@ core:
 pybuda:
   versions:
     latest: null
+tt-metalium:
+  versions:
+    latest:
+      additional_cmd: 'pip uninstall -y ttnn metal_libs
+        
+        wget https://github.com/tenstorrent/tt-metal/releases/download/v0.54.0/ttnn-0.54.0+wormhole.b0-cp38-cp38-linux_x86_64.whl
+
+        pip install --extra-index-url https://download.pytorch.org/whl/cpu ttnn-0.54.0+wormhole.b0-cp38-cp38-linux_x86_64.whl
+        --force-reinstall'
+    v0.54.0:
+      additional_cmd: 'pip uninstall -y ttnn metal_libs
+        
+        wget https://github.com/tenstorrent/tt-metal/releases/download/v0.54.0/ttnn-0.54.0+wormhole.b0-cp38-cp38-linux_x86_64.whl
+
+        pip install --extra-index-url https://download.pytorch.org/whl/cpu ttnn-0.54.0+wormhole.b0-cp38-cp38-linux_x86_64.whl
+        --force-reinstall'
+    v0.53.0:
+      additional_cmd: 'pip uninstall -y ttnn metal_libs
+
+        wget https://github.com/tenstorrent/tt-metal/releases/download/v0.53.0/metal_libs-0.53.0+wormhole.b0-cp38-cp38-linux_x86_64.whl
+
+        pip install --extra-index-url https://download.pytorch.org/whl/cpu metal_libs-0.53.0+wormhole.b0-cp38-cp38-linux_x86_64.whl
+        --force-reinstall '
+ttnn:
+  versions:
+    latest:
+      additional_cmd: 'pip uninstall -y ttnn metal_libs
+        
+        wget https://github.com/tenstorrent/tt-metal/releases/download/v0.54.0/ttnn-0.54.0+wormhole.b0-cp38-cp38-linux_x86_64.whl
+
+        pip install --extra-index-url https://download.pytorch.org/whl/cpu ttnn-0.54.0+wormhole.b0-cp38-cp38-linux_x86_64.whl
+        --force-reinstall'
+    v0.54.0:
+      additional_cmd: 'pip uninstall -y ttnn metal_libs
+        
+        wget https://github.com/tenstorrent/tt-metal/releases/download/v0.54.0/ttnn-0.54.0+wormhole.b0-cp38-cp38-linux_x86_64.whl
+
+        pip install --extra-index-url https://download.pytorch.org/whl/cpu ttnn-0.54.0+wormhole.b0-cp38-cp38-linux_x86_64.whl
+        --force-reinstall'
+    v0.53.0:
+      additional_cmd: 'pip uninstall -y ttnn metal_libs
+        
+        wget https://github.com/tenstorrent/tt-metal/releases/download/v0.53.0/metal_libs-0.53.0+wormhole.b0-cp38-cp38-linux_x86_64.whl
+
+        pip install --extra-index-url https://download.pytorch.org/whl/cpu metal_libs-0.53.0+wormhole.b0-cp38-cp38-linux_x86_64.whl
+        --force-reinstall '

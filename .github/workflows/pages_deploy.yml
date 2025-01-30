@@ -7,7 +7,7 @@ on:
       - main
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-20.04
 
     steps:
       - name: Checkout repository
@@ -16,12 +16,12 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: '3.8'
       - name: Install the wheel
         run: |
           sudo apt-get update -y
           sudo apt-get install -y pandoc
-          sudo apt install software-properties-common build-essential python3.12-venv libhwloc-dev graphviz
+          sudo apt install software-properties-common=0.99.9.12 build-essential=12.8ubuntu1.1 python3.8-venv libhwloc-dev graphviz
       - name: Install Clang-17
         shell: bash
         run: |
