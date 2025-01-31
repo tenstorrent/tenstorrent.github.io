@@ -125,15 +125,13 @@ pip install git+https://github.com/tenstorrent/tt-smi
 
 ### Step 6: Verify System Configuration and Test TT-SMI
 
-Once the hardware and system software are installed, verify that your system has been configured properly.
+Once your hardware and system software are installed, verify that your system has been configured properly by running the `tt-smi` utility.
 
-Run the `tt-smi` utility.
-
-This should bring up a display that looks as below.
+You should see an interface like this one:
 
 ![tt-smi](./images/tt_smi.png)
 
-This is the default mode where the user can see device information, telemetry, and firmware. If TT-smi runs without errors, congratulations! You're ready to use your Tenstorrent device.
+Within TT-SMI, you can see device information, telemetry, and firmware. If TT-SMI runs without errors, congratulations! You're ready to use your Tenstorrent device. Take note of any host compatibility warnings.
 
 ## Installation
 
