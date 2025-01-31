@@ -6,6 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 import os
+from pathlib import Path
 
 project = 'Home'
 copyright = '2024, Tenstorrent'
@@ -17,7 +18,23 @@ release = '1.0'
 
 templates_path = ['../shared/_templates']
 exclude_patterns = []
-extensions = ['myst_parser']
+extensions = ['myst_parser',
+              'sphinx_substitution_extensions',]
+
+myst_enable_extensions = [
+    'substitution'
+]
+
+ver_kmd        = Path('../syseng/kmd.version').read_text().rstrip()
+ver_fw         = Path('../syseng/firmware.version').read_text().rstrip()
+ver_sys_tools  = Path('../syseng/sys_tools.version').read_text().rstrip()
+
+myst_substitutions = {
+    'ver_fw': ver_fw,
+    'ver_kmd': ver_kmd,
+    'ver_sys_tools': ver_sys_tools,
+}
+
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
