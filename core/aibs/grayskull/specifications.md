@@ -10,7 +10,7 @@ The Grayskull™ e75 and e150 Tensix Processor add-in boards are built using the
 
 ## e75/e150 Comparison Table
 
-**NOTE:** The **e150 add-in card** comes with a heatsink for passive cooling in systems which can provide sufficient forced airflow to the card. If your system does not (for example, a desktop workstation), installing the [Active Cooling Kit](../ack.md) is **required**. If the card isn’t sufficiently cooled, performance will be substantially reduced to stay in a safe operating temperature range and you risk damage to the card.
+**NOTE:** The **e150 add-in card** comes with a heatsink for passive cooling which can provide sufficient forced airflow to the card. For systems which do not have passive cooling  (e.g., a desktop workstation), installing the [Active Cooling Kit](../ack.md) is **required**. If the card isn’t sufficiently cooled, performance will be substantially reduced and you risk damaging to the card.
 
 | Specification                        | e75                                         | e150                                           |
 | ------------------------------------ | ------------------------------------------- | ---------------------------------------------- |
@@ -61,7 +61,7 @@ The e75/e150 support the following data precision formats:
 
 ** CPU core count and number of sockets will depend on the amount of host preprocessing and post-processing required before and after the accelerator processing.*
 
-***To check your version, type* `cat /etc/os-release`.
+*** To check your version, type* `cat /etc/os-release`.
 
 ## Environment Specifications
 
