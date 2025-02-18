@@ -1,0 +1,6 @@
+﻿ttnn.celu\_bw
+=============
+
+.. currentmodule:: ttnn
+
+.. autodata:: celu_bw

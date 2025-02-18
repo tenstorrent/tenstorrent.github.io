@@ -1,0 +1,6 @@
+﻿ttnn.rms\_norm
+==============
+
+.. currentmodule:: ttnn
+
+.. autodata:: rms_norm

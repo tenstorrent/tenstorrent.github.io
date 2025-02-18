@@ -1,0 +1,6 @@
+﻿ttnn.sub\_bw
+============
+
+.. currentmodule:: ttnn
+
+.. autodata:: sub_bw

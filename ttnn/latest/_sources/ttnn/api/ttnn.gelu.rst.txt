@@ -1,0 +1,6 @@
+﻿ttnn.gelu
+=========
+
+.. currentmodule:: ttnn
+
+.. autodata:: gelu

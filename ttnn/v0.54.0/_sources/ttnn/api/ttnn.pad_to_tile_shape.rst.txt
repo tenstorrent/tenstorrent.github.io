@@ -1,0 +1,6 @@
+﻿ttnn.pad\_to\_tile\_shape
+=========================
+
+.. currentmodule:: ttnn
+
+.. autofunction:: pad_to_tile_shape

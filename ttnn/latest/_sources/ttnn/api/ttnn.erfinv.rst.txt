@@ -1,0 +1,6 @@
+﻿ttnn.erfinv
+===========
+
+.. currentmodule:: ttnn
+
+.. autodata:: erfinv

@@ -1,0 +1,6 @@
+﻿ttnn.embedding
+==============
+
+.. currentmodule:: ttnn
+
+.. autodata:: embedding

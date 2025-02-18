@@ -1,0 +1,6 @@
+﻿ttnn.relu\_bw
+=============
+
+.. currentmodule:: ttnn
+
+.. autodata:: relu_bw

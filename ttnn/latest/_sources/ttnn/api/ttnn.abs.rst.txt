@@ -1,0 +1,6 @@
+﻿ttnn.abs
+========
+
+.. currentmodule:: ttnn
+
+.. autodata:: abs

@@ -1,0 +1,6 @@
+﻿ttnn.sigmoid\_accurate
+======================
+
+.. currentmodule:: ttnn
+
+.. autodata:: sigmoid_accurate

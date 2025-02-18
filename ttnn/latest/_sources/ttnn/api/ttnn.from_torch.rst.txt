@@ -1,0 +1,6 @@
+﻿ttnn.from\_torch
+================
+
+.. currentmodule:: ttnn
+
+.. autodata:: from_torch

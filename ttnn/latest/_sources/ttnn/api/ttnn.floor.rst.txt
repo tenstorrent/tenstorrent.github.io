@@ -1,0 +1,6 @@
+﻿ttnn.floor
+==========
+
+.. currentmodule:: ttnn
+
+.. autodata:: floor

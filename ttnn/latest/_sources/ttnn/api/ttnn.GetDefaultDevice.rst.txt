@@ -1,0 +1,6 @@
+﻿ttnn.GetDefaultDevice
+=====================
+
+.. currentmodule:: ttnn
+
+.. autofunction:: GetDefaultDevice

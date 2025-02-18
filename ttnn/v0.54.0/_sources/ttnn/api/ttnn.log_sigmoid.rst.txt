@@ -1,0 +1,6 @@
+﻿ttnn.log\_sigmoid
+=================
+
+.. currentmodule:: ttnn
+
+.. autodata:: log_sigmoid

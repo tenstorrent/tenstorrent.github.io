@@ -1,0 +1,6 @@
+﻿ttnn.mse\_loss
+==============
+
+.. currentmodule:: ttnn
+
+.. autodata:: mse_loss

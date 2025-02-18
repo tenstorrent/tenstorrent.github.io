@@ -1,0 +1,6 @@
+﻿ttnn.identity
+=============
+
+.. currentmodule:: ttnn
+
+.. autodata:: identity

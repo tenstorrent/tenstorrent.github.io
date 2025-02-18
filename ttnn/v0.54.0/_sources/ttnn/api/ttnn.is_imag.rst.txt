@@ -1,0 +1,6 @@
+﻿ttnn.is\_imag
+=============
+
+.. currentmodule:: ttnn
+
+.. autodata:: is_imag

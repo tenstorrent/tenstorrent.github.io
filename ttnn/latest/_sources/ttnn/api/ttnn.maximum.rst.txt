@@ -1,0 +1,6 @@
+﻿ttnn.maximum
+============
+
+.. currentmodule:: ttnn
+
+.. autodata:: maximum

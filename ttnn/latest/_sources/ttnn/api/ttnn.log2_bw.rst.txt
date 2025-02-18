@@ -1,0 +1,6 @@
+﻿ttnn.log2\_bw
+=============
+
+.. currentmodule:: ttnn
+
+.. autodata:: log2_bw

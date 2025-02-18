@@ -1,0 +1,6 @@
+﻿ttnn.embedding\_bw
+==================
+
+.. currentmodule:: ttnn
+
+.. autodata:: embedding_bw

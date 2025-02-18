@@ -1,0 +1,6 @@
+﻿ttnn.create\_sharded\_memory\_config
+====================================
+
+.. currentmodule:: ttnn
+
+.. autofunction:: create_sharded_memory_config

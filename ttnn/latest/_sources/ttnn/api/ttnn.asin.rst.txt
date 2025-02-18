@@ -1,0 +1,6 @@
+﻿ttnn.asin
+=========
+
+.. currentmodule:: ttnn
+
+.. autodata:: asin

@@ -1,0 +1,6 @@
+﻿ttnn.clamp\_bw
+==============
+
+.. currentmodule:: ttnn
+
+.. autodata:: clamp_bw

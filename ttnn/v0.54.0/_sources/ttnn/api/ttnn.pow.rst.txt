@@ -1,0 +1,6 @@
+﻿ttnn.pow
+========
+
+.. currentmodule:: ttnn
+
+.. autodata:: pow

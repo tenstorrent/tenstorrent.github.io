@@ -1,0 +1,6 @@
+﻿ttnn.mish
+=========
+
+.. currentmodule:: ttnn
+
+.. autodata:: mish

@@ -1,0 +1,6 @@
+﻿ttnn.indexed\_fill
+==================
+
+.. currentmodule:: ttnn
+
+.. autodata:: indexed_fill

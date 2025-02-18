@@ -1,0 +1,6 @@
+﻿ttnn.sign
+=========
+
+.. currentmodule:: ttnn
+
+.. autodata:: sign

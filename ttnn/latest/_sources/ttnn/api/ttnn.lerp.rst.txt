@@ -1,0 +1,6 @@
+﻿ttnn.lerp
+=========
+
+.. currentmodule:: ttnn
+
+.. autodata:: lerp

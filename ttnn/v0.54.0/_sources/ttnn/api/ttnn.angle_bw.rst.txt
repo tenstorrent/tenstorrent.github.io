@@ -1,0 +1,6 @@
+﻿ttnn.angle\_bw
+==============
+
+.. currentmodule:: ttnn
+
+.. autodata:: angle_bw

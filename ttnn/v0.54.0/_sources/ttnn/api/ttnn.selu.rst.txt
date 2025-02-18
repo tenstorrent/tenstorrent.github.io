@@ -1,0 +1,6 @@
+﻿ttnn.selu
+=========
+
+.. currentmodule:: ttnn
+
+.. autodata:: selu

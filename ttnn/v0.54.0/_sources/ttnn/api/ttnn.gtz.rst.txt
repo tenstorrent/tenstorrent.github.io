@@ -1,0 +1,6 @@
+﻿ttnn.gtz
+========
+
+.. currentmodule:: ttnn
+
+.. autodata:: gtz

@@ -1,0 +1,6 @@
+﻿ttnn.global\_avg\_pool2d
+========================
+
+.. currentmodule:: ttnn
+
+.. autodata:: global_avg_pool2d

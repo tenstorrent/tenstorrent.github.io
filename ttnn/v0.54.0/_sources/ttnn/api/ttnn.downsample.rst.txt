@@ -1,0 +1,6 @@
+﻿ttnn.downsample
+===============
+
+.. currentmodule:: ttnn
+
+.. autodata:: downsample

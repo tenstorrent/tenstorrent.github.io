@@ -1,0 +1,6 @@
+﻿ttnn.lgamma\_bw
+===============
+
+.. currentmodule:: ttnn
+
+.. autodata:: lgamma_bw

@@ -1,0 +1,6 @@
+﻿ttnn.experimental.dropout
+=========================
+
+.. currentmodule:: ttnn.experimental
+
+.. autodata:: dropout

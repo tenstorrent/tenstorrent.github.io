@@ -1,0 +1,6 @@
+﻿ttnn.ltz
+========
+
+.. currentmodule:: ttnn
+
+.. autodata:: ltz

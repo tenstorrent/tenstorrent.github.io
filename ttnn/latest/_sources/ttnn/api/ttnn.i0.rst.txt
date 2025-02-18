@@ -1,0 +1,6 @@
+﻿ttnn.i0
+=======
+
+.. currentmodule:: ttnn
+
+.. autodata:: i0

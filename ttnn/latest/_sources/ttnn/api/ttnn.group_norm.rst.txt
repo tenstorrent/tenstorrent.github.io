@@ -1,0 +1,6 @@
+﻿ttnn.group\_norm
+================
+
+.. currentmodule:: ttnn
+
+.. autodata:: group_norm

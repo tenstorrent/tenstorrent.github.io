@@ -1,0 +1,6 @@
+﻿ttnn.experimental.rotary\_embedding
+===================================
+
+.. currentmodule:: ttnn.experimental
+
+.. autodata:: rotary_embedding

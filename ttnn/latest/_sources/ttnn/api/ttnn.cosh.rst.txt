@@ -1,0 +1,6 @@
+﻿ttnn.cosh
+=========
+
+.. currentmodule:: ttnn
+
+.. autodata:: cosh

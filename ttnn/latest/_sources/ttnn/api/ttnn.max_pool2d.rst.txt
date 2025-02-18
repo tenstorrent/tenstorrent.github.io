@@ -1,0 +1,6 @@
+﻿ttnn.max\_pool2d
+================
+
+.. currentmodule:: ttnn
+
+.. autodata:: max_pool2d

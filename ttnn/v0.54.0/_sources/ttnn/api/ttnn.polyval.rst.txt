@@ -1,0 +1,6 @@
+﻿ttnn.polyval
+============
+
+.. currentmodule:: ttnn
+
+.. autodata:: polyval

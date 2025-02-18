@@ -1,0 +1,6 @@
+﻿ttnn.square\_bw
+===============
+
+.. currentmodule:: ttnn
+
+.. autodata:: square_bw

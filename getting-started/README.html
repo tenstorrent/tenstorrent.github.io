@@ -1,0 +1,328 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Starting Guide &mdash; Home 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/tt_theme.css?v=0bbfeaf8" />
+      <link rel="stylesheet" type="text/css" href="../_static/home.css?v=c560917e" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=359c27e9"></script>
+      <script src="../_static/doctools.js?v=888ff710"></script>
+      <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Add-In Boards / Cards" href="../aibs/index.html" />
+    <link rel="prev" title="Tenstorrent" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+<a href="https://tenstorrent.github.io/">
+    <img src="../_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+
+<a href="../index.html">
+    Home
+</a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Starting Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">1. Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unboxing-and-hardware-setup">2. Unboxing and Hardware Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#software-installation">3. Software Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#step-1-install-software-dependencies">Step 1: Install Software Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-2-install-the-kernel-mode-driver-tt-kmd">Step 2: Install the Kernel-Mode Driver (TT-KMD)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-3-device-firmware-update-tt-flash-tt-firmware">Step 3: Device Firmware Update (TT-Flash / TT-Firmware)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#install-tt-flash">Install TT-Flash</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#update-device-firmware">Update Device Firmware</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#step-4-set-up-hugepages">Step 4: Set Up HugePages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-5-optional-multi-card-configuration-tt-topology">Step 5: (Optional) Multi-Card Configuration (TT-Topology)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-6-install-the-system-management-interface-tt-smi">Step 6: Install the System Management Interface (TT-SMI)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-7-verify-system-configuration-and-test-tt-smi">Step 7: Verify System Configuration and Test TT-SMI</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#support-faq">Support &amp; FAQ</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Hardware</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aibs/index.html">Add-In Boards / Cards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../systems/index.html">Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/pybuda/latest/index.html">TT-Buda</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/index.html">TT-Metalium</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/index.html">TT-NN</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-mlir/">TT-MLIR</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/README.html">Support &amp; FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Home</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Starting Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/getting-started/README.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="starting-guide">
+<h1>Starting Guide<a class="headerlink" href="#starting-guide" title="Permalink to this heading"></a></h1>
+<p>Welcome to Tenstorrent! This guide will walk you through setting up your Tensix Processor(s) and installing necessary software.</p>
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#prerequisites"><span class="xref myst">Prerequisites</span></a></p></li>
+<li><p><a class="reference internal" href="#unboxing-and-hardware-setup"><span class="xref myst">Unboxing and Hardware Setup</span></a></p></li>
+<li><p><a class="reference internal" href="#software-installation"><span class="xref myst">Software Installation</span></a></p></li>
+<li><p><a class="reference internal" href="#support-faq"><span class="xref myst">Support &amp; FAQ</span></a></p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="prerequisites">
+<h2>1. Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading"></a></h2>
+<p>Before you begin, ensure you have the following:</p>
+<ul class="simple">
+<li><p>A <strong>compatible host machine</strong> with minimum hardware and OS requirements as specified by each product’s minimum system requirements:</p>
+<ul>
+<li><p><a class="reference external" href="https://docs.tenstorrent.com/aibs/index.html">Add-In Boards / Cards</a></p></li>
+<li><p><a class="reference external" href="https://docs.tenstorrent.com/systems/index.html">Systems</a></p></li>
+</ul>
+</li>
+<li><p><strong>Network access</strong> to download software packages.</p></li>
+<li><p><strong>Administrator privileges</strong> on the host machine.</p></li>
+</ul>
+<p><strong>NOTE</strong>: The recommended OS for all Tenstorrent software is <strong>Ubuntu 20.04 LTS (Focal Fossa)</strong>. Each SDK may support newer distributions of Ubuntu; however, compatibility should be considered experimental at this time.</p>
+<p><em><strong>NOTE:</strong> Software support for Grayskull has been discontinued. The last supported versions of Tenstorrent’s software for Grayskull are as follows:</em></p>
+<ul class="simple">
+<li><p><em><strong>TT-Firmware:</strong> <code class="docutils literal notranslate"><span class="pre">fw_pack-80.14.0.0.fwbundle</span></code></em></p></li>
+<li><p><em><strong>TT-KMD:</strong> <code class="docutils literal notranslate"><span class="pre">ttkmd_1.31</span></code></em></p></li>
+<li><p><em><strong>TT-Buda:</strong> <code class="docutils literal notranslate"><span class="pre">v0.19.3</span></code></em></p></li>
+<li><p><em><strong>TT-Metalium:</strong> <code class="docutils literal notranslate"><span class="pre">v0.55</span></code></em></p></li>
+</ul>
+</section>
+<section id="unboxing-and-hardware-setup">
+<h2>2. Unboxing and Hardware Setup<a class="headerlink" href="#unboxing-and-hardware-setup" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Unpack the hardware</strong> and check all components against the provided list.</p></li>
+<li><p><strong>Install the hardware</strong> following the hardware installation manual and safety guidelines by product:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.tenstorrent.com/aibs/index.html">Add-In Boards / Cards</a></p></li>
+<li><p><a class="reference external" href="https://docs.tenstorrent.com/systems/index.html">Systems</a></p></li>
+</ul>
+</li>
+<li><p><strong>Secure the hardware</strong> in place, ensuring it is firmly seated and all connections are stable.</p></li>
+</ol>
+</section>
+<section id="software-installation">
+<h2>3. Software Installation<a class="headerlink" href="#software-installation" title="Permalink to this heading"></a></h2>
+<p>To interact with the Tensix Processor(s), you’ll need to install the system-level dependencies on your host machine.</p>
+<p><strong>Important!</strong></p>
+<p>This Starting Guide will reference each software utility where the latest version is available. However, each SDK will have its own compatibility matrix associated with each release. It is strongly recommended to consult each SDK’s release compatibility matrix to ensure you are installing the correct versions of the system software packages.</p>
+<section id="step-1-install-software-dependencies">
+<h3>Step 1: Install Software Dependencies<a class="headerlink" href="#step-1-install-software-dependencies" title="Permalink to this heading"></a></h3>
+<p>Install git, wget, pip, and DKMS (Dynamic Kernel Module Support) by running the following command in your terminal according to your Linux distribution:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Linux Distro</p></th>
+<th class="head"><p>Installation Command</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Debian, Ubuntu</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">update</span> <span class="pre">&amp;&amp;</span> <span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">-y</span> <span class="pre">wget</span> <span class="pre">git</span> <span class="pre">python3-pip</span> <span class="pre">dkms</span> <span class="pre">cargo</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Fedora</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">dnf</span> <span class="pre">check-update</span> <span class="pre">&amp;&amp;</span> <span class="pre">sudo</span> <span class="pre">dnf</span> <span class="pre">install</span> <span class="pre">-y</span> <span class="pre">wget</span> <span class="pre">git</span> <span class="pre">python3-pip</span> <span class="pre">dkms</span> <span class="pre">cargo</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Enterprise Linux based</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">dnf</span> <span class="pre">install</span> <span class="pre">-y</span> <span class="pre">epel-release</span> <span class="pre">&amp;&amp;</span> <span class="pre">sudo</span> <span class="pre">dnf</span> <span class="pre">check-update</span> <span class="pre">&amp;&amp;</span> <span class="pre">sudo</span> <span class="pre">dnf</span> <span class="pre">install</span> <span class="pre">-y</span> <span class="pre">wget</span> <span class="pre">git</span> <span class="pre">python3-pip</span> <span class="pre">dkms</span> <span class="pre">cargo</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>*NOTE</strong>: Installation on non-Ubuntu distributions should be considered experimental at this time.*</p>
+</section>
+<section id="step-2-install-the-kernel-mode-driver-tt-kmd">
+<h3>Step 2: Install the Kernel-Mode Driver (TT-KMD)<a class="headerlink" href="#step-2-install-the-kernel-mode-driver-tt-kmd" title="Permalink to this heading"></a></h3>
+<p>Install the driver (<strong><a class="reference external" href="https://github.com/tenstorrent/tt-kmd">TT-KMD</a></strong>) by running these commands in the terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/tenstorrent/tt-kmd.git
+<span class="nb">cd</span><span class="w"> </span>tt-kmd
+sudo<span class="w"> </span>dkms<span class="w"> </span>add<span class="w"> </span>.
+sudo<span class="w"> </span>dkms<span class="w"> </span>install<span class="w"> </span>tenstorrent/1.31
+sudo<span class="w"> </span>modprobe<span class="w"> </span>tenstorrent
+</pre></div>
+</div>
+</section>
+<section id="step-3-device-firmware-update-tt-flash-tt-firmware">
+<h3>Step 3: Device Firmware Update (TT-Flash / TT-Firmware)<a class="headerlink" href="#step-3-device-firmware-update-tt-flash-tt-firmware" title="Permalink to this heading"></a></h3>
+<p>The <a class="reference external" href="https://github.com/tenstorrent/tt-firmware"><strong>TT-Firmware</strong></a> file needs to be installed using the <a class="reference external" href="https://github.com/tenstorrent/tt-flash">TT-Flash</a> utility.</p>
+<section id="install-tt-flash">
+<h4>Install TT-Flash<a class="headerlink" href="#install-tt-flash" title="Permalink to this heading"></a></h4>
+<p>To install <strong><a class="reference external" href="https://github.com/tenstorrent/tt-flash">TT-Flash</a></strong>, run this command in the terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/tenstorrent/tt-flash.git
+</pre></div>
+</div>
+<p><strong>*NOTE:</strong> If you are not using a Python virtual environment (venv), you may see an error <code class="docutils literal notranslate"><span class="pre">externally-managed-environment</span></code> when installing via <code class="docutils literal notranslate"><span class="pre">pip</span></code>. To resolve this, <a class="reference external" href="https://docs.python.org/3/tutorial/venv.html">create and/or activate a venv</a> or use a tool like pipx.*</p>
+</section>
+<section id="update-device-firmware">
+<h4>Update Device Firmware<a class="headerlink" href="#update-device-firmware" title="Permalink to this heading"></a></h4>
+<p>To update Tenstorrent device firmware using TT-Flash, run these commands in the terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>https://github.com/tenstorrent/tt-firmware/raw/main/fw_pack-80.14.0.0.fwbundle
+tt-flash<span class="w"> </span>--fw-tar<span class="w"> </span>fw_pack-80.14.0.0.fwbundle
+</pre></div>
+</div>
+<p>If this process worked, reboot the system and go to the next section.</p>
+<p>If running that command results in an error that says the firmware is too old, enter the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tt-flash<span class="w"> </span>--fw-tar<span class="w"> </span>fw_pack-80.14.0.0.fwbundle<span class="w"> </span>--force
+</pre></div>
+</div>
+<p>Then reboot the system.</p>
+</section>
+</section>
+<section id="step-4-set-up-hugepages">
+<h3>Step 4: Set Up HugePages<a class="headerlink" href="#step-4-set-up-hugepages" title="Permalink to this heading"></a></h3>
+<p>HugePages lets your system allocate dedicated memory to accelerate communication with Tenstorrent devices. Set up HugePages by running these commands in the terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install `.deb`</span>
+wget<span class="w"> </span>https://github.com/tenstorrent/tt-system-tools/releases/download/upstream%2F1.1/tenstorrent-tools_1.1-5_all.deb
+sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>tenstorrent-tools_1.1-5_all.deb
+
+<span class="c1"># Start Services</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>tenstorrent-hugepages.service
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span><span class="s1">&#39;dev-hugepages\x2d1G.mount&#39;</span>
+
+<span class="c1"># System Reboot</span>
+sudo<span class="w"> </span>reboot
+</pre></div>
+</div>
+<p><strong>*NOTE:</strong> This is a temporary solution for configuring hugepages. If the above fails, please check the latest available release from <a class="reference external" href="https://github.com/tenstorrent/tt-system-tools.git">TT-System-Tools</a>.*</p>
+</section>
+<section id="step-5-optional-multi-card-configuration-tt-topology">
+<h3>Step 5: (Optional) Multi-Card Configuration (TT-Topology)<a class="headerlink" href="#step-5-optional-multi-card-configuration-tt-topology" title="Permalink to this heading"></a></h3>
+<p><strong>NOTE:</strong> TT-LoudBox and TT-QuietBox ship with their topology already configured. Use this application <em>only if you have modified or are trying to modify the topology of your Wormhole-based TT-LoudBox or TT-QuietBox</em>. If you are not doing so, <em>skip this step</em>. TT-Topology is provided as-is.</p>
+<p>If you are running on a multi-card Wormhole system such as TT-LoudBox or TT-QuietBox, install the Tenstorrent Topology utility (**<a class="reference external" href="https://github.com/tenstorrent/tt-topology">TT-Topology**</a>) and configure a mesh topology by running these commands in the terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">tenstorrent</span><span class="o">/</span><span class="n">tt</span><span class="o">-</span><span class="n">topology</span>
+<span class="n">tt</span><span class="o">-</span><span class="n">topology</span> <span class="o">-</span><span class="n">l</span> <span class="n">mesh</span>
+</pre></div>
+</div>
+</section>
+<section id="step-6-install-the-system-management-interface-tt-smi">
+<h3>Step 6: Install the System Management Interface (TT-SMI)<a class="headerlink" href="#step-6-install-the-system-management-interface-tt-smi" title="Permalink to this heading"></a></h3>
+<p>Install the Tenstorrent Software Management Interface (<strong><a class="reference external" href="https://github.com/tenstorrent/tt-smi">TT-SMI</a></strong>) by entering this command in the terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">tenstorrent</span><span class="o">/</span><span class="n">tt</span><span class="o">-</span><span class="n">smi</span>
+</pre></div>
+</div>
+</section>
+<section id="step-7-verify-system-configuration-and-test-tt-smi">
+<h3>Step 7: Verify System Configuration and Test TT-SMI<a class="headerlink" href="#step-7-verify-system-configuration-and-test-tt-smi" title="Permalink to this heading"></a></h3>
+<p>Once the hardware and system software are installed, verify that your system has been configured properly.</p>
+<p>Run the <code class="docutils literal notranslate"><span class="pre">tt-smi</span></code> utility.</p>
+<p>This should bring up a display that looks as below.</p>
+<p><img alt="tt-smi" src="../_images/tt_smi.png" /></p>
+<p>This is the default mode where the user can see device information, telemetry, and firmware. If TT-SMI runs without errors, congratulations! You’re ready to use your Tenstorrent device.</p>
+</section>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<p>Tenstorrent provides three open-source SDKs for developing on Tensix Processors:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/tenstorrent/tt-buda">TT-Buda</a> to run existing models</p></li>
+<li><p><a class="reference external" href="https://github.com/tenstorrent/tt-metal">TT-Metalium/TT-NN</a> to build your own kernels and models</p></li>
+<li><p><a class="reference external" href="https://github.com/tenstorrent/tt-forge-fe">TT-Forge/TT-MLIR</a> to create, compile, and optimize graph operations</p></li>
+</ul>
+<p>Each SDK will have its own system dependency requirements and installation process.</p>
+<p>To help you get started, check out these <em>First 5 Things</em> guides - which include installation steps - for TT-Buda and TT-Metalium.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/tenstorrent/tt-buda-demos/tree/main/first_5_steps">First 5 Things</a> for <strong>TT-Buda</strong></p></li>
+<li><p><a class="reference external" href="https://docs.tenstorrent.com/ttnn/latest/ttnn/get_started.html">First 5 Things</a> for <strong>TT-Metalium/TT-NN</strong></p></li>
+</ul>
+</section>
+<section id="support-faq">
+<h2>Support &amp; FAQ<a class="headerlink" href="#support-faq" title="Permalink to this heading"></a></h2>
+<p>For support, forums, and community, visit Tenstorrent’s <a class="reference external" href="https://discord.gg/tvhGzHQwaj">Discord channel</a>.</p>
+<p>For additional support, file any issues through our <a class="reference external" href="https://tenstorrent.atlassian.net/servicedesk/customer/portal/1">Customer Success Platform</a> or you can contact us directly at <a class="reference external" href="mailto:support&#37;&#52;&#48;tenstorrent&#46;com">support<span>&#64;</span>tenstorrent<span>&#46;</span>com</a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="Tenstorrent" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../aibs/index.html" class="btn btn-neutral float-right" title="Add-In Boards / Cards" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tenstorrent.
+      <span class="lastupdated">Last updated on Feb 18, 2025.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

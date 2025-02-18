@@ -1,0 +1,6 @@
+﻿ttnn.logiteps\_bw
+=================
+
+.. currentmodule:: ttnn
+
+.. autodata:: logiteps_bw

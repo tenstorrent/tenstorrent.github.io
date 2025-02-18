@@ -1,0 +1,6 @@
+﻿ttnn.ceil\_bw
+=============
+
+.. currentmodule:: ttnn
+
+.. autodata:: ceil_bw

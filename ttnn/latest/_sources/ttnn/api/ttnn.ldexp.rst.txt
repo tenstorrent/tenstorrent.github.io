@@ -1,0 +1,6 @@
+﻿ttnn.ldexp
+==========
+
+.. currentmodule:: ttnn
+
+.. autodata:: ldexp

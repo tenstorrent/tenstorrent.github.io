@@ -1,0 +1,6 @@
+﻿ttnn.remainder
+==============
+
+.. currentmodule:: ttnn
+
+.. autodata:: remainder

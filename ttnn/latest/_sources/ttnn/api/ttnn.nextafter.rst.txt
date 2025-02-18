@@ -1,0 +1,6 @@
+﻿ttnn.nextafter
+==============
+
+.. currentmodule:: ttnn
+
+.. autodata:: nextafter

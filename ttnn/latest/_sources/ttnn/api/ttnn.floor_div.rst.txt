@@ -1,0 +1,6 @@
+﻿ttnn.floor\_div
+===============
+
+.. currentmodule:: ttnn
+
+.. autodata:: floor_div

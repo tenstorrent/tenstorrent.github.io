@@ -1,0 +1,6 @@
+﻿ttnn.reshape
+============
+
+.. currentmodule:: ttnn
+
+.. autodata:: reshape

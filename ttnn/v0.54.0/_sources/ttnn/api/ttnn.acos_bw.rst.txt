@@ -1,0 +1,6 @@
+﻿ttnn.acos\_bw
+=============
+
+.. currentmodule:: ttnn
+
+.. autodata:: acos_bw

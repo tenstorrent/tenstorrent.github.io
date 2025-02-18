@@ -1,0 +1,6 @@
+﻿ttnn.unary\_chain
+=================
+
+.. currentmodule:: ttnn
+
+.. autodata:: unary_chain

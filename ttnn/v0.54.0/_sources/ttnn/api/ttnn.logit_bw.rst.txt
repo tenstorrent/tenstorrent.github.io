@@ -1,0 +1,6 @@
+﻿ttnn.logit\_bw
+==============
+
+.. currentmodule:: ttnn
+
+.. autodata:: logit_bw

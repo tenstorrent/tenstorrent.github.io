@@ -1,0 +1,6 @@
+﻿ttnn.addcmul\_bw
+================
+
+.. currentmodule:: ttnn
+
+.. autodata:: addcmul_bw

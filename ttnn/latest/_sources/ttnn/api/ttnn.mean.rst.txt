@@ -1,0 +1,6 @@
+﻿ttnn.mean
+=========
+
+.. currentmodule:: ttnn
+
+.. autodata:: mean

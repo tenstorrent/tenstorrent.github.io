@@ -1,0 +1,6 @@
+﻿ttnn.ones
+=========
+
+.. currentmodule:: ttnn
+
+.. autodata:: ones

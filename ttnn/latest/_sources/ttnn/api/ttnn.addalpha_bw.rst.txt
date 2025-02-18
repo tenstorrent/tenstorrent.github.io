@@ -1,0 +1,6 @@
+﻿ttnn.addalpha\_bw
+=================
+
+.. currentmodule:: ttnn
+
+.. autodata:: addalpha_bw

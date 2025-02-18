@@ -1,0 +1,6 @@
+﻿ttnn.kv\_cache.update\_cache\_for\_token\_
+==========================================
+
+.. currentmodule:: ttnn.kv_cache
+
+.. autodata:: update_cache_for_token_

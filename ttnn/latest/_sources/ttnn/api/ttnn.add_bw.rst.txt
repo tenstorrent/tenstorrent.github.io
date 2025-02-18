@@ -1,0 +1,6 @@
+﻿ttnn.add\_bw
+============
+
+.. currentmodule:: ttnn
+
+.. autodata:: add_bw

@@ -1,0 +1,6 @@
+﻿ttnn.polar\_bw
+==============
+
+.. currentmodule:: ttnn
+
+.. autodata:: polar_bw
