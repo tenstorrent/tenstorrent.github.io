@@ -5,3 +5,4 @@ sphinx-rtd-theme
 nbsphinx
 breathe
 sphinxcontrib.email
+sphinx-reredirects

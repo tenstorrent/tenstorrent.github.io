@@ -43,6 +43,7 @@ extensions = [
     "sphinxcontrib.email",
     "sphinx.ext.mathjax",
     "breathe",
+    "sphinx_reredirects",
 ]
 
 # Napoleon settings
@@ -104,3 +105,7 @@ def setup(app):
 # Breathe configs
 breathe_projects = {"ttmetaldoxygen": "doxygen_build/xml/"}
 breathe_default_project = "ttmetaldoxygen"
+
+redirects = {
+     "index": "https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/",
+}
