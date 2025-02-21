@@ -6,29 +6,3 @@
 Welcome to TT-Metalium documentation!
 =====================================
 
-.. toctree::
-   :caption: Get Started
-
-   get_started/get_started
-   installing
-
-.. toctree::
-   :caption: TT-Metalium
-
-   tt_metal/programming_model/index.rst
-   tt_metal/apis/index
-   tt_metal/examples/index
-   tools/index
-
-.. toctree::
-   :caption: Resources
-
-   resources/support
-   resources/contributing
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
