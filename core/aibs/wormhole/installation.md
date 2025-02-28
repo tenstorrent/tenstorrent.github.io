@@ -1,6 +1,6 @@
 # Hardware Installation
 
-Follow these instructions to install your Tenstorrent Wormhole™ n150s/n300s add-in board.
+Follow these instructions to install your Tenstorrent Wormhole™ n150d/n150s/n300d/n300s add-in board.
 
 1. [Pre-Installation](#pre-installation)
 2. System Installation
@@ -13,13 +13,16 @@ Follow these instructions to install your Tenstorrent Wormhole™ n150s/n300s ad
 
 1. **Disconnect power** to the host computer prior to installation.
 2. Verify that the system provides the following:
-   1. **PCI Express 4.0 x16 slot** *(For optimal performance, the card requires a x16 configuration without bifurcation. The n150 and n300 are dual-width cards and require the adjacent expansion slot to be vacant.)*
+   1. **PCI Express 4.0 x16 slot** 
+      1. For optimal performance, the card requires a x16 configuration without bifurcation.
+      2. The n150s and n300s are dual-slot width cards and will require the adjacent expansion slot to be vacant if you're using the Active Cooling Kit.
+      3. The n150d and n300d are 2.5-slot width cards with axial fan coolers. Please ensure your chassis has sufficient airflow to exhaust the heat from these cards.
    2. One (1) **EPS12V 4+4-pin power connector**
 3. Discharge your body's static electricity by wearing an **ESD wrist strap** *(recommended)* or touching a grounded surface before touching system components or the add-in card.
 
 ## Desktop Workstation Installation
 
-*(NOTE: Images shown may not be fully representative of your system.)*
+*(NOTE: Images shown may not be fully representative of your system. n150s/n300s cards pictured; n150d/n300d will look different.)*
 
 ### Physical Installation
 
@@ -51,4 +54,4 @@ Connect an **4+4-pin EPS12V power cable** to the **8-pin plug**. *(NOTE: Do **no
 
 ## Software Setup
 
-Instructions on how to set up software on your n150s/n300s are available [here](https://docs.tenstorrent.com/quickstart.html).
+Instructions on how to set up software on your n150d/n150s/n300d/n300s are available [here](https://docs.tenstorrent.com/getting-started/README.html).

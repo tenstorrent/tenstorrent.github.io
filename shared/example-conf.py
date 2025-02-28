@@ -8,7 +8,7 @@
 import os
 
 project = 'Tenstorrent'
-copyright = '2024, Tenstorrent'
+copyright = '2025, Tenstorrent'
 author = 'Tenstorrent'
 
 templates_path = ['shared/_templates']

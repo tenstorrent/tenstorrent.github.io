@@ -1,0 +1,325 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tenstorrent Documentation</title>
+  <style>
+    @font-face {
+      font-family: "Degular";
+      src: url("./fonts/DegularText-Medium.woff") format("woff"),
+        url("./fonts/DegularText-Medium.woff2") format("woff2");
+    }
+    @font-face {
+      font-family: "DegularDisplay";
+      src: url("./fonts/DegularDisplay-Light.woff") format("woff"),
+        url("./fonts/DegularDisplay-Light.woff2") format("woff2");
+    }
+
+    body {
+      font-family: "Degular", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hx {
+      font-size: 48px;
+      line-height: 90%;
+      font-family: "DegularDisplay", sans-serif;
+    }
+
+    .section {
+      display: flex;
+      flex-direction: column;
+      border-bottom: 1px solid #ccc;
+      gap: 24px;
+      padding: 36px 0 24px;
+    }
+
+    .section:last-child {
+      margin-bottom: 36px;
+    }
+
+    .section h2 {
+      margin: 0 !important;
+      margin-bottom: 0 !important;
+      line-height: 90%;
+    }
+
+    .intro {
+      width: 100%;
+    }
+
+    .link-button {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .link-button > svg {
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+      stroke: var(--color-accent);
+    }
+
+    .link-button:visited > svg {
+      stroke: var(--color-dark-purple);
+    }
+
+    @media (min-width: 1024px) {
+      .intro {
+        width: 70%;
+      }
+    }
+
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      background-color: #edeff9;
+      border-radius: 10px;
+      overflow: hidden;
+      width: 100%;
+      gap: 16px;
+      padding: 18px;
+      transition: background-color 100ms ease-in;
+    }
+
+    .card:hover {
+      background-color: #d7dbeb;
+    }
+
+    .card * {
+      color: #202020 !important;
+    }
+
+    .small-card {
+      width: calc(50% - 10px);
+      padding: 12px;
+      gap: 8px;
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .card h3 {
+      font-family: "Degular", sans-serif;
+      margin: 0;
+      margin-bottom: 1rem;
+    }
+
+    .small-card h4 {
+      font-weight: normal;
+      font-size: 16px;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (min-width: 769px) {
+      .hx {
+        font-size: 56px;
+      }
+
+      .card {
+        width: calc(50% - 9px);
+      }
+
+      .small-card {
+        width: calc(33% - 10.2px);
+        gap: 16px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hx {
+        font-size: 96px;
+      }
+    }
+
+    @media (min-width: 1280px) {
+      .card h3 {
+        font-size: 32px;
+      }
+
+      .small-card h4 {
+        font-size: 22px;
+      }
+    }
+
+    @media (min-width: 1536px) {
+      .hx {
+        font-size: 108px;
+      }
+    }
+
+    @media (min-width: 1920) {
+      .hx {
+        font-size: 144px;
+      }
+    }
+
+    /* Override tt-theme.css */
+    .document * h1,
+    .document * h2,
+    .document * h3,
+    .document * h4 {
+      /*
+        Remove horizontal overflow (so scrollbars don't appear on every header
+        element for users with "Show scroll bars" set to "Always" on macOS)
+      */
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="hx">Tenstorrent<br />Documentation</h1>
+
+    <div class="section">
+      <h2>Getting Started</h2>
+      <div class="intro">
+        Welcome to Tenstorrent! This guide will walk you through setting up your
+        Tensix Processor, installing necessary software, and running your first
+        “Hello World” program.
+      </div>
+      <a class="link-button" href="getting-started/README.html">
+        <span>Getting Started</span>
+        <svg
+          width="17"
+          height="16"
+          viewbox="0 0 17 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class=""
+          role="none"
+        >
+          <path d="M1 14.5L15.2929 1.79289" stroke-width="2" />
+          <path d="M5 1.5H15.5V12" stroke-width="2" />
+        </svg>
+      </a>
+    </div>
+
+    <div class="section">
+      <h2>Add-in Boards</h2>
+      <div class="grid">
+        <a href="aibs/grayskull" class="card">
+          <img src="_static/home/grayskull.png" alt="Grayskull™" />
+          <h3>Grayskull™</h3>
+        </a>
+        <a href="aibs/wormhole" class="card">
+          <img src="_static/home/wormhole.png" alt="Wormhole™" />
+          <h3>Wormhole™</h3>
+        </a>
+        <a href="aibs/warp100" class="card small-card">
+          <img src="_static/home/warp-100-bridge.png" alt="Warp 100 Bridge" />
+          <h4>Warp 100 Bridge</h4>
+        </a>
+        <a href="aibs/ack" class="card small-card">
+          <img
+            src="_static/home/active-cooling-kit.png"
+            alt="Active Cooling Kit"
+          />
+          <h4>Active Cooling Kit</h4>
+        </a>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Systems</h2>
+      <div class="grid">
+        <a href="systems/quietbox" class="card">
+          <img src="_static/home/tt-quietbox.png" alt="TT-QuietBox" />
+          <h3>TT-QuietBox</h3>
+        </a>
+        <a href="systems/t3000" class="card">
+          <img src="_static/home/tt-loudbox.png" alt="TT-LoudBox" />
+          <h3>TT-LoudBox</h3>
+        </a>
+        <a href="systems/t7000" class="card small-card">
+          <img src="_static/home/t7000.png" alt="T7000" />
+          <h4>T7000</h4>
+        </a>
+        <a href="systems/t1000" class="card small-card">
+          <img src="_static/home/t1000.png" alt="T1000" />
+          <h4>T1000</h4>
+        </a>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Software</h2>
+      <div class="grid">
+        <a
+          target="_blank"
+          href="https://tenstorrent.github.io/ttnn/latest/index.html"
+          class="card small-card"
+        >
+          <img src="_static/home/tt-nn.png" alt="TT-NN" />
+          <h4>TT-NN</h4>
+        </a>
+        <a
+          target="_blank"
+          href="https://tenstorrent.github.io/pybuda/latest/index.html"
+          class="card small-card"
+        >
+          <img src="_static/home/tt-buda.png" alt="TT-Buda™" />
+          <h4>TT-Buda™</h4>
+        </a>
+        <a
+          target="_blank"
+          href="https://tenstorrent.github.io/tt-metalium/latest/index.html"
+          class="card small-card"
+        >
+          <img src="_static/home/tt-metalium.png" alt="TT-Metalium™" />
+          <h4>TT-Metalium™</h4>
+        </a>
+        <a
+          target="_blank"
+          href="https://docs.tenstorrent.com/tt-mlir/"
+          class="card small-card"
+        >
+          <img src="_static/home/tt-mlir.png" alt="TT-MLIR" />
+          <h4>TT-MLIR</h4>
+        </a>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Support</h2>
+      <div class="grid">
+        <a
+          target="_blank"
+          href="https://tenstorrent.com/faq"
+          class="card small-card"
+        >
+          <img src="_static/home/faq.png" alt="FAQ" />
+          <h4>FAQ</h4>
+        </a>
+        <a href="support/README.html" class="card small-card">
+          <img src="_static/home/compliance.png" alt="Compliance" />
+          <h4>Support</h4>
+        </a>
+        <a
+          target="_blank"
+          href="https://tenstorrent.com/contact"
+          class="card small-card"
+        >
+          <img src="_static/home/contact-us.png" alt="Contact Us" />
+          <h4>Contact Us</h4>
+        </a>
+      </div>
+    </div>
+  </div>
+</body>

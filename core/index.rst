@@ -1,14 +1,14 @@
 Tenstorrent
 ==============================
 
-.. include:: quickstart.md
-   :parser: myst_parser.sphinx_
+.. raw:: html
+   :file: _templates/home.html
 
 .. toctree::
    :hidden:
    :caption: Getting Started
 
-   quickstart
+   getting-started/README
 
 .. toctree::
    :hidden:
@@ -22,9 +22,9 @@ Tenstorrent
    :caption: Software
    :maxdepth: 2
 
-   TT-Buda <https://tenstorrent.github.io/pybuda/latest/index.html>
-   TT-Metalium <https://tenstorrent.github.io/tt-metal/latest/tt-metalium/index.html>
-   TT-NN <https://tenstorrent.github.io/tt-metal/latest/ttnn/index.html>
+   TT-Buda <https://docs.tenstorrent.com/pybuda/latest/index.html>
+   TT-Metalium <https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/index.html>
+   TT-NN <https://docs.tenstorrent.com/tt-metal/latest/ttnn/index.html>
    TT-MLIR <https://docs.tenstorrent.com/tt-mlir/>
 
 .. toctree::

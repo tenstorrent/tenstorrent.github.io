@@ -4,10 +4,14 @@
 
 The Warp 100 Bridge (TX-01002) is compatible with the following AI Graph Processor cards:
 
+- Wormhole™ n150d with Active Cooler (TC-02002)
 - Wormhole™ n150s with Passive Cooler (TC-02001)
+- Wormhole™ n300d with Active Cooler (TC-02004)
 - Wormhole™ n300s with Passive Cooler (TC-02003)
 
 Each card supports up to two Warp 100 Bridges.
+
+**NOTE:** n300d and n300s cards feature 2.5-slot coolers and will only be able to use the triple-slot Warp 100 Bridge.
 
 ## Installation
 

@@ -12,6 +12,13 @@ The Grayskull™ e75 and e150 Tensix Processor add-in boards are built using the
 
 **NOTE:** The **e150 add-in card** comes with a heatsink for passive cooling in systems which can provide sufficient forced airflow to the card. If your system does not (for example, a desktop workstation), installing the [Active Cooling Kit](../ack.md) is **required**. If the card isn’t sufficiently cooled, performance will be substantially reduced to stay in a safe operating temperature range and you risk damage to the card.
 
+**NOTE:** Software support for Grayskull has been discontinued. The last supported versions of Tenstorrent's software for Grayskull are as follows:
+
+- **TT-Firmware:** `fw_pack-80.14.0.0.fwbundle`
+- **TT-KMD:** `ttkmd_1.31`
+- **TT-Buda:** `v0.19.3`
+- **TT-Metalium:** `v0.55`
+
 | Specification                        | e75                                         | e150                                           |
 | ------------------------------------ | ------------------------------------------- | ---------------------------------------------- |
 | Part Number                          | TC-01001                                    | TC-01002                                       |

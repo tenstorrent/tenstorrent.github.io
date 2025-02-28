@@ -1,7 +1,9 @@
-sphinx
+sphinx==8.1.3
 myst-parser
 sphinx-autobuild
 sphinx-rtd-theme
 nbsphinx
 breathe
 sphinxcontrib.email
+sphinx-reredirects
+Sphinx_Substitution_Extensions

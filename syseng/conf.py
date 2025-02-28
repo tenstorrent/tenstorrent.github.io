@@ -3,7 +3,7 @@ import os
 # from ..conf import *
 
 project = 'Software and Utilities'
-copyright = '2024, Tenstorrent'
+copyright = '2025, Tenstorrent'
 author = 'Tenstorrent'
 root_doc = "index"
 templates_path = ['../shared/_templates']

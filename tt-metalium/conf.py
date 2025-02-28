@@ -43,6 +43,7 @@ extensions = [
     "sphinxcontrib.email",
     "sphinx.ext.mathjax",
     "breathe",
+    "sphinx_reredirects",
 ]
 
 # Napoleon settings
@@ -83,6 +84,7 @@ html_favicon = "../shared/images/favicon.png"
 html_static_path = ['../shared/_static']
 templates_path = ["../shared/_templates"]
 html_last_updated_fmt = "%b %d, %Y"
+html_baseurl = "https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/"
 
 import yaml
 with open("../versions.yml", "r") as yaml_file:
@@ -104,3 +106,8 @@ def setup(app):
 # Breathe configs
 breathe_projects = {"ttmetaldoxygen": "doxygen_build/xml/"}
 breathe_default_project = "ttmetaldoxygen"
+
+redirects = {
+     "index": "https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/",
+     "get_started/get_started.html": "https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/get_started/get_started.html"
+}

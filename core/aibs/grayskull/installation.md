@@ -1,4 +1,4 @@
-# Installation
+# Hardware Installation
 
 Follow these instructions to install your Tenstorrent Grayskull™ e75/e150 Tensix Processor add-in board.
 
@@ -66,4 +66,4 @@ Connect a **6+2pin PCIe power cable** to the **8-pin plug** on the **e150 card**
 
 ## Software Setup
 
-Instructions on how to set up software on your e75/e150 are available [here](https://docs.tenstorrent.com/quickstart.html).
+Instructions on how to set up software on your e75/e150 are available [here](https://docs.tenstorrent.com/getting-started/README.html).

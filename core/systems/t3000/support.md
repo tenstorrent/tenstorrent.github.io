@@ -12,7 +12,7 @@ The MAC address and password for the BMC (baseboard management controller) can b
 
 ## Software Setup Support
 
-For software setup, visit our [software setup](https://docs.tenstorrent.com/syseng/latest/softwaresetup.html) page.
+For software setup, visit our [software setup](https://docs.tenstorrent.com/getting-started/README.html) page.
 
 
 
