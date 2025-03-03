@@ -33,3 +33,10 @@ Tenstorrent
    :maxdepth: 2
 
    support/README
+
+.. toctree::
+   :hidden:
+   :caption: Legal
+   :maxdepth: 2
+
+   Bounty Program Terms <https://docs.tenstorrent.com/bounty_terms.html>
