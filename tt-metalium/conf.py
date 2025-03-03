@@ -50,6 +50,8 @@ extensions = [
 sitemap_locales = [None]
 sitemap_url_scheme = "{link}"
 
+redirect_html_template_file = "../shared/_templates/redirect_template.html"
+
 # Napoleon settings
 napoleon_google_docstring = False
 napoleon_numpy_docstring = True
