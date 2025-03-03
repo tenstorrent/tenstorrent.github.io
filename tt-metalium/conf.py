@@ -44,7 +44,11 @@ extensions = [
     "sphinx.ext.mathjax",
     "breathe",
     "sphinx_reredirects",
+    "sphinx_sitemap",
 ]
+
+sitemap_locales = [None]
+sitemap_url_scheme = "{link}"
 
 # Napoleon settings
 napoleon_google_docstring = False

@@ -46,7 +46,11 @@ extensions = [
     "sphinx.ext.mathjax",
     "breathe",
     "sphinx_reredirects",
+    "sphinx_sitemap",
 ]
+
+sitemap_locales = [None]
+sitemap_url_scheme = "{link}"
 
 source_suffix = ['.rst', '.md']
 
@@ -87,6 +91,9 @@ html_favicon = "../shared/images/favicon.png"
 html_static_path = ['../shared/_static']
 templates_path = ['../shared/_templates']
 html_last_updated_fmt = "%b %d, %Y"
+
+redirect_html_template_file = "../shared/_templates/redirect_template.html"
+
 
 html_baseurl = "https://docs.tenstorrent.com/tt-metal/latest/ttnn/"
 
