@@ -118,5 +118,9 @@ breathe_default_project = "ttmetaldoxygen"
 redirects = {
      "index": "https://docs.tenstorrent.com/tt-metal/latest/ttnn/",
      "ttnn/about.html": "https://docs.tenstorrent.com/tt-metal/latest/ttnn/ttnn/about.html",
-
+     "ttnn/tensor.html": "https://docs.tenstorrent.com/tt-metal/latest/ttnn/ttnn/tensor.html",
+     "ttnn/get_started.html": "https://docs.tenstorrent.com/tt-metal/latest/ttnn/ttnn/get_started.html",
+     "ttnn/profiling_ttnn_operations.html": "https://docs.tenstorrent.com/tt-metal/latest/ttnn/ttnn/profiling_ttnn_operations.html",
+     "ttnn/tutorials.html": "https://docs.tenstorrent.com/tt-metal/latest/ttnn/ttnn/tutorials.html",
+     "ttnn/api/ttnn.synchronize_device.html": "https://docs.tenstorrent.com/tt-metal/latest/ttnn/ttnn/api/ttnn.synchronize_device.html",
 }
