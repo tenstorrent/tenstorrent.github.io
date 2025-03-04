@@ -41,7 +41,7 @@ The Bounty will be applicable for Accepted Contributions in the following Tensto
 * [tt-flash](https://github.com/tenstorrent/tt-flash)
 * [tt-kmd](https://github.com/tenstorrent/tt-kmd)
 
-An **"Accepted Contribution"** refers to merged pull requests, to the aboe listed Tenstorrent repositories, that address an open GitHub issue which is tagged with both (1) “bounty” and (2) one of the categories listed in Exhibit A.
+An **"Accepted Contribution"** refers to merged pull requests, to the above listed Tenstorrent repositories, that address an open GitHub issue which is tagged with both (1) “bounty” and (2) one of the categories listed in Exhibit A.
 
 ---
 
