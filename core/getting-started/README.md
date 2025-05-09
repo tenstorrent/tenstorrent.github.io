@@ -136,8 +136,8 @@ HugePages lets your system allocate dedicated memory to accelerate communication
 ```{code-block} bash
 :substitutions:
 # Install `.deb`
-wget https://github.com/tenstorrent/tt-system-tools/releases/download/upstream%2F1.1/tenstorrent-tools_{{ver_sys_tools}}.deb
-sudo dpkg -i tenstorrent-tools_{{ver_sys_tools}}.deb
+wget https://github.com/tenstorrent/tt-system-tools/releases/download/v{{ver_sys_tools}}/tenstorrent-tools_{{ver_sys_tools}}_all.deb
+sudo dpkg -i tenstorrent-tools_{{ver_sys_tools}}_all.deb
 
 # Start Services
 sudo systemctl enable --now tenstorrent-hugepages.service
