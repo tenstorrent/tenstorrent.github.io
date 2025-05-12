@@ -42,6 +42,10 @@ The Bounty will be applicable for Accepted Contributions in the following Tensto
 * [tt-kmd](https://github.com/tenstorrent/tt-kmd)
 * [tt-llk](https://github.com/tenstorrent/tt-llk)
 * [tt-installer](https://github.com/tenstorrent/tt-installer)
+* [tt-forge-fe](https://github.com/tenstorrent/tt-forge-fe)
+* [tt-blacksmith](https://github.com/tenstorrent/tt-blacksmith)
+* [model-explorer](https://github.com/tenstorrent/model-explorer)
+* [tt-xla](https://github.com/tenstorrent/tt-xla)
 
 An **"Accepted Contribution"** refers to merged pull requests, to the above listed Tenstorrent repositories, that address an open GitHub issue which is tagged with both (1) “bounty” and (2) one of the categories listed in Exhibit A.
 
