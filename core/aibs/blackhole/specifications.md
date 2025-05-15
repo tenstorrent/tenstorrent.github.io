@@ -23,9 +23,9 @@ The Blackhole™ p100a, p150a, and p150b Tensix Processor add-in boards are buil
 | Memory                    | 28 GB GDDR6                 | 32 GB GDDR6                 | 32 GB GDDR6                 |
 | Memory Speed              | 16 GT/sec                   | 16 GT/sec                   | 16 GT/sec                   |
 | Memory Bandwidth          | 448 GB/sec                  | 512 GB/sec                  | 512 GB/sec                  |
-| TeraFLOPS (BLOCKFP8)      | 332                         | 387                         | 387                         |
 | TeraFLOPS (FP8)           | 664                         | 774                         | 774                         |
 | TeraFLOPS (FP16)          | 166                         | 194                         | 194                         |
+| TeraFLOPS (BLOCKFP8)      | 332                         | 387                         | 387                         |
 | TBP (Total Board Power)   | 300W                        | 300W                        | 300W                        |
 | External Power            | 1x 12+4-pin 12V-2x6         | 1x 12+4-pin 12V-2x6         | 1x 12+4-pin 12V-2x6         |
 | Power Supply Requirements | ATX 3.1 Certified or better | ATX 3.1 Certified or better | ATX 3.1 Certified or better |
