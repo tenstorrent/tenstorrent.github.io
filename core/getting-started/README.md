@@ -109,6 +109,7 @@ pip install git+https://github.com/tenstorrent/tt-flash.git
 **\*NOTE:** If you are not using a Python virtual environment (venv), you may see an error `externally-managed-environment` when installing via `pip`. To resolve this, [create and/or activate a venv](https://docs.python.org/3/tutorial/venv.html) or use a tool like pipx.\*
 
 ##### Update Device Firmware
+⚠️ Blackhole devices require FW version >= {{ver_fw}}
 
 To update Tenstorrent device firmware using TT-Flash, run these commands in the terminal:
 
