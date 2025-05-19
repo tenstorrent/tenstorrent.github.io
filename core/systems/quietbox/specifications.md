@@ -6,7 +6,7 @@ The Tenstorrent TT-QuietBox Liquid-Cooled Desktop Workstation system package inc
 
 | TT-QuietBox Wormhole (TW-04001)                              | TT-QuietBox Blackhole (TW-04002)                             |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Tenstorrent TT-QuietBox Wormhole System<br />C13 Power Cable, 1.8m/6ft.<br />2x QSFP-DD 400GbE Cable, 0.6m/2ft.<br />Remote Control for RGB Lighting | Tenstorrent TT-QuietBox Blackhole System<br />C13 Power Cable, 1.8m/6ft.<br />Remote Control for RGB Lighting<br />*Networking Cables TBD* |
+| Tenstorrent TT-QuietBox Wormhole System<br />C13 Power Cable, 1.8m/6ft.<br />2x QSFP-DD 400GbE Cable, 0.6m/2ft.<br />VGA-to-HDMI Adapter | Tenstorrent TT-QuietBox Blackhole System<br />C13 Power Cable, 1.8m/6ft.<br />8x QSFP-DD 800GbE Cable, 0.6m/2ft.<br />VGA-to-HDMI Adapter |
 
 **WARNING:** TT-QuietBox is shipped in a wooden crate weighing a total of 131 lbs. / 59.4 kg. The system itself weighs 96 lbs. / 43.5 kg. We strongly recommend at least two people for moving and uncrating the system.
 
@@ -41,7 +41,9 @@ The TT-QuietBox system ships without an operating system installed. We recommend
 
 The Tenstorrent TT-QuietBox Blackhole (TW-04002) includes four Blackhole™ p150c Tensix Processors and external QSFP-DD cables that enable the Tensix Processor mesh.
 
-This specification is still being finalized and will be added at a later date.
+Customers will need to manually connect the eight QSFP-DD cables included. These diagrams display the system topology and where the included QSFP-DD cables need to be connected. 
+
+![](qb_bh_topology.png)
 
 ### Wormhole™ n300 Version (TW-04001)
 
@@ -60,10 +62,6 @@ One QSFP-DD cable will need to be connected to **Port 2** on the cards in **Slot
 ## Environment Specifications
 
 The TT-QuietBox Liquid-Cooled Desktop Workstation is designed to operate at up to 35°C/95°F external ambient temperatures.
-
-## Lighting Control
-
-The TT-QuietBox uses a Bitspower RF Remote Controller Hub to control the lighting and the remote is included with the system. For details on how to operate it, please review the Bitspower documentation [here](BPTA-RFCHUB_IG_V3.pdf).
 
 ## Software Setup
 
