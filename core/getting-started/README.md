@@ -96,17 +96,26 @@ sudo modprobe tenstorrent
 
 #### Step 3: Device Firmware Update (TT-Flash / TT-Firmware)
 
-The [**TT-Firmware**](https://github.com/tenstorrent/tt-firmware) file needs to be installed using the [TT-Flash](https://github.com/tenstorrent/tt-flash) utility.
+The [**TT-Firmware**](https://github.com/tenstorrent/tt-firmware) file needs to be installed using the [TT-Flash](https://github.com/tenstorrent/tt-flash) utility. Follow these instructions to install TT-Flash, download the firmware, and flash the firmware onto the Tenstorrent devices.
 
 ##### Install TT-Flash
+**NOTE:** It is recommended to install TT-Flash inside a Python virtual environment (venv), [create and/or activate a venv](https://docs.python.org/3/tutorial/venv.html) or use a tool like pipx.
 
-To install **[TT-Flash](https://github.com/tenstorrent/tt-flash)**, run this command in the terminal:
+First, we will:
+* create a Python virtual environment called "tt-venv" in the current directory
+  * remember where you create this virtual environment as it will contain important installations of system software tools!
+* activate the newly-created "tt-venv" virtual environment
 
+This can be done by executing the following commands in the terminal:
+```{code-block} bash
+python3 -m venv tt-venv
+source tt-venv/bin/activate
+```
+
+Next, install **[TT-Flash](https://github.com/tenstorrent/tt-flash)** into the virtual environment by executing this command in the terminal:
 ```{code-block} bash
 pip install git+https://github.com/tenstorrent/tt-flash.git
 ```
-
-**\*NOTE:** If you are not using a Python virtual environment (venv), you may see an error `externally-managed-environment` when installing via `pip`. To resolve this, [create and/or activate a venv](https://docs.python.org/3/tutorial/venv.html) or use a tool like pipx.\*
 
 ##### Update Device Firmware
 ⚠️ NOTE: Blackhole devices require firmware version 18.3.0 or newer.
@@ -153,16 +162,28 @@ sudo reboot
 #### Step 5: (Optional) Multi-Card Configuration (TT-Topology)
 **NOTE:** TT-LoudBox and TT-QuietBox ship with their topology already configured. Use this application *only if you have modified or are trying to modify the topology of your Wormhole-based TT-LoudBox or TT-QuietBox*. If you are not doing so, *skip this step*. TT-Topology is provided as-is.
 
-If you are running on a multi-card Wormhole system such as TT-LoudBox or TT-QuietBox, install the Tenstorrent Topology utility (**[TT-Topology**](https://github.com/tenstorrent/tt-topology)) and configure a mesh topology by running these commands in the terminal:
+If you are running on a multi-card Wormhole system such as TT-LoudBox or TT-QuietBox, follow these instructions to install the Tenstorrent Topology utility ([**TT-Topology**](https://github.com/tenstorrent/tt-topology)) and configure a mesh topology.
 
+If not already active, activate the "tt-venv" virtual environment created in [Step 3](#step-3-device-firmware-update-tt-flash--tt-firmware) by executing this command in the terminal:
+```{code-block} bash
+source tt-venv/bin/activate
+```
+
+Then, execute these commands to install TT-Topology into the virtual environment and configure the Tenstorrent devices into a mesh topology:
 ```
 pip install git+https://github.com/tenstorrent/tt-topology
 tt-topology -l mesh
 ```
 
 #### Step 6: Install the System Management Interface (TT-SMI)
-Install the Tenstorrent Software Management Interface (**[TT-SMI](https://github.com/tenstorrent/tt-smi)**) by entering this command in the terminal:
+Install the Tenstorrent Software Management Interface (**[TT-SMI](https://github.com/tenstorrent/tt-smi)**) by following these instructions.
 
+If not already active, activate the "tt-venv" virtual environment created in [Step 3](#step-3-device-firmware-update-tt-flash--tt-firmware) by executing this command in the terminal:
+```{code-block} bash
+source tt-venv/bin/activate
+```
+
+Then, execute this command to install TT-SMI into the virtual environment:
 ```
 pip install git+https://github.com/tenstorrent/tt-smi
 ```
