@@ -46,6 +46,7 @@ The Bounty will be applicable for Accepted Contributions in the following Tensto
 * [tt-blacksmith](https://github.com/tenstorrent/tt-blacksmith)
 * [model-explorer](https://github.com/tenstorrent/model-explorer)
 * [tt-xla](https://github.com/tenstorrent/tt-xla)
+* [pytorch2.0_ttnn](https://github.com/tenstorrent/pytorch2.0_ttnn)
 
 An **"Accepted Contribution"** refers to merged pull requests, to the above listed Tenstorrent repositories, that address an open GitHub issue which is tagged with both (1) “bounty” and (2) one of the categories listed in Exhibit A.
 
