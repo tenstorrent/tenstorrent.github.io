@@ -25,8 +25,7 @@ Tenstorrent
    TT-Buda <https://docs.tenstorrent.com/pybuda/latest/index.html>
    TT-Metalium <https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/index.html>
    TT-NN <https://docs.tenstorrent.com/tt-metal/latest/ttnn/index.html>
-   TT-MLIR <https://docs.tenstorrent.com/tt-mlir/>
-
+   forge/index
 .. toctree::
    :hidden:
    :caption: Support
