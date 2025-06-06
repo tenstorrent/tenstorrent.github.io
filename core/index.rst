@@ -22,7 +22,7 @@ Tenstorrent
    :caption: Software
    :maxdepth: 2
 
-   TT-Buda <https://docs.tenstorrent.com/pybuda/latest/index.html>
+   TT-Buda (Deprecated) <https://docs.tenstorrent.com/pybuda/latest/index.html>
    TT-Metalium <https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/index.html>
    TT-NN <https://docs.tenstorrent.com/tt-metal/latest/ttnn/index.html>
    forge/index
