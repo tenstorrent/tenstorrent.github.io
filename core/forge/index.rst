@@ -1,6 +1,9 @@
 TT-Forge
 =======================================
-[Describe the TT-Forge section]
+tt-forge is the name of Tenstorrent's end-to-end compiler stack. It consists of: 
+* Front ends - tt-torch, tt-xla, tt-forge-fe
+* Middle/backend compiler - tt-mlir 
+* Automation for loading, running, checking results, benchmarking - tt-blacksmith
 
 .. toctree::
    :caption: TT-Forge
