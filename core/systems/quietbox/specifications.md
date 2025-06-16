@@ -24,7 +24,7 @@ If you have any issues with your TT-QuietBox, please visit the TT-QuietBox [supp
 | **Cables**                            | 4x [Warp 100 Bridge](../../aibs/warp100.md)<br />2x QSFP-DD 400GbE Cable | TBD                                                          |
 | **Host System<br />Connectivity**     | 2x RJ45 10GBase-T via Intel® X710<br />2x RJ45 1GBase-T via Intel® I210<br />4x USB 3.1 Gen 1 (5 Gbps) Type-A (2x Front, 2x Rear)<br />1x VGA<br />1x IPMI | 2x RJ45 10GBase-T via Intel® X710<br />2x RJ45 1GBase-T via Intel® I210<br />4x USB 3.1 Gen 1 (5 Gbps) Type-A (2x Front, 2x Rear)<br />1x VGA<br />1x IPMI |
 | **Tensix Processor Connectivity**     | 8x QSFP-DD Active 200G (2 per card)                          | 16x QSFP-DD Passive 800G (4 per card)                        |
-| **Power Supply**                      | 1650W 80 PLUS Gold                                           | TBD                                                          |
+| **Power Supply**                      | 1650W 80 PLUS Gold                                           | 1650W 80 PLUS Platinum                                       |
 | **Operating System**                  | None                                                         | None                                                         |
 | **Dimensions (System)<br />(WxDxH)**  | 10" x 21.5" x 20" (96 lbs.)<br />254mm x 546mm x 508mm (43.5 kg) | 10" x 21.5" x 20" (96 lbs.)<br />254mm x 546mm x 508mm (43.5 kg) |
 | **Dimensions (Shipped)<br />(WxDxH)** | 18" x 33" x 27" (131 lbs.)<br />453mm x 839mm x 686mm (59.4 kg) | 18" x 33" x 27" (131 lbs.)<br />453mm x 839mm x 686mm (59.4 kg) |
