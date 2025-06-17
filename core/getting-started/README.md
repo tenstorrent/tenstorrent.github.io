@@ -16,7 +16,7 @@ Welcome to Tenstorrent! This guide will walk you through setting up your Tensix 
 Before you begin, ensure you have the following:
 
 - A **compatible host machine** with minimum hardware and OS requirements as specified by each product's minimum system requirements:
-  - [Add-In Boards / Cards](https://docs.tenstorrent.com/aibs/index.html){:target="_blank"}
+  - [Add-In Boards / Cards](https://docs.tenstorrent.com/aibs/index.html)
   - [Systems](https://docs.tenstorrent.com/systems/index.html)
 - **Network access** to download software packages.
 - **Administrator privileges** on the host machine.
