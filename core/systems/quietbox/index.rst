@@ -7,4 +7,5 @@ TT-QuietBox
    README
    softwaresetup
    specifications
+   setup
    support

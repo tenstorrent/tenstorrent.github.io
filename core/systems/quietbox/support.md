@@ -20,7 +20,11 @@ For support with the Tenstorrent n300 Tensix Processors and related Tenstorrent 
 
 
 
-## Troubleshooting
+## FAQs and Troubleshooting
+
+### Liquid coolant maintenance
+
+TT-QuietBox ships with sufficient liquid coolant in the system; there is no need to purchase and/or top up liquid coolant.
 
 ### Stability/reboot issues (BIOS reset)
 

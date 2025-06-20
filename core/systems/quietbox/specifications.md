@@ -1,14 +1,14 @@
-# Specifications, Requirements, and Setup
+# Specifications and Requirements
 
 ## Package Contents
 
-The Tenstorrent TT-QuietBox Liquid-Cooled Desktop Workstation system package includes:
+The Tenstorrent TT-QuietBox™ Liquid-Cooled Desktop Workstation system package includes:
 
-| TT-QuietBox Wormhole (TW-04001)                              | TT-QuietBox Blackhole (TW-04002)                             |
+| TT-QuietBox™ Wormhole (TW-04001)                             | TT-QuietBox™ Blackhole (TW-04002)                            |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Tenstorrent TT-QuietBox Wormhole System<br />C13 Power Cable, 1.8m/6ft.<br />2x QSFP-DD 400GbE Cable, 0.6m/2ft.<br />VGA-to-HDMI Adapter | Tenstorrent TT-QuietBox Blackhole System<br />C13 Power Cable, 1.8m/6ft.<br />8x QSFP-DD 800GbE Cable, 0.6m/2ft.<br />VGA-to-HDMI Adapter |
 
-**WARNING:** TT-QuietBox is shipped in a wooden crate weighing a total of 131 lbs. / 59.4 kg. The system itself weighs 96 lbs. / 43.5 kg. We strongly recommend at least two people for moving and uncrating the system.
+**WARNING:** TT-QuietBox is shipped in a wooden crate weighing a total of approximately 134 lbs. / 61 kg. The system itself weighs approximately 80 lbs. / 36 kg. We strongly recommend at least two people for moving and uncrating the system. **Instructions to unbox and set up your TT-QuietBox** are available [here](./setup.md).
 
 If you have any issues with your TT-QuietBox, please visit the TT-QuietBox [support](./support.md) page.
 
@@ -21,7 +21,7 @@ If you have any issues with your TT-QuietBox, please visit the TT-QuietBox [supp
 | **Memory**                            | 512 GB (8x64 GB)<br />DDR5-4800 ECC RDIMM<br />(0 Slots Free) | 256 GB (8x32 GB)<br />DDR5-4800 ECC RDIMM<br />(0 Slots Free) |
 | **Storage**                           | 4 TB NVMe PCIe 4.0 x4                                        | 4 TB NVMe PCIe 4.0 x4                                        |
 | **Tensix Processors**                 | 4x Tenstorrent Wormhole™ n300 Tensix Processor               | 4x Tenstorrent Blackhole™ p150c Tensix Processor             |
-| **Cables**                            | 4x [Warp 100 Bridge](../../aibs/warp100.md)<br />2x QSFP-DD 400GbE Cable | TBD                                                          |
+| **Cables**                            | 4x [Warp 100 Bridge](../../aibs/warp100.md)<br />2x QSFP-DD 400GbE Cable | 8x QSFP-DD 800GbE Cable                                      |
 | **Host System<br />Connectivity**     | 2x RJ45 10GBase-T via Intel® X710<br />2x RJ45 1GBase-T via Intel® I210<br />4x USB 3.1 Gen 1 (5 Gbps) Type-A (2x Front, 2x Rear)<br />1x VGA<br />1x IPMI | 2x RJ45 10GBase-T via Intel® X710<br />2x RJ45 1GBase-T via Intel® I210<br />4x USB 3.1 Gen 1 (5 Gbps) Type-A (2x Front, 2x Rear)<br />1x VGA<br />1x IPMI |
 | **Tensix Processor Connectivity**     | 8x QSFP-DD Active 200G (2 per card)                          | 16x QSFP-DD Passive 800G (4 per card)                        |
 | **Power Supply**                      | 1650W 80 PLUS Gold                                           | 1650W 80 PLUS Platinum                                       |
@@ -35,34 +35,6 @@ If you have any issues with your TT-QuietBox, please visit the TT-QuietBox [supp
 
 The TT-QuietBox system ships without an operating system installed. We recommend installing Ubuntu 22.04 (Jammy Jellyfish) to properly use the Tenstorrent Tensix Processors.
 
-## QSFP-DD Connections and System Topology
-
-### Blackhole™ p150c Version (TW-04002)
-
-The Tenstorrent TT-QuietBox Blackhole (TW-04002) includes four Blackhole™ p150c Tensix Processors and external QSFP-DD cables that enable the Tensix Processor mesh.
-
-Customers will need to manually connect the eight QSFP-DD cables included. These diagrams display the system topology and where the included QSFP-DD cables need to be connected. 
-
-![](qb_bh_topology.png)
-
-### Wormhole™ n300 Version (TW-04001)
-
-The Tenstorrent TT-QuietBox Wormhole (TW-04001) includes four Wormhole™ n300 Tensix Processors and internal Warp 100 bridges and external QSFP-DD cables that enable the Tensix Processor mesh.
-
-![](../../aibs/wormhole/images/wh_portspec.png)
-
-The TT-QuietBox ships with the Warp 100 bridges connected, but the two QSFP-DD cables will need to be connected by the customer. This diagram displays the system topology and how the cards are enumerated, along with where the Warp 100 bridges are connected and where the included QSFP-DD cables need to be connected. 
-
-![](qb_topology.png)
-
-One QSFP-DD cable will need to be connected to **Port 1** on the cards in **Slots 1 and 4**.
-
-One QSFP-DD cable will need to be connected to **Port 2** on the cards in **Slots 3 and 2**.
-
 ## Environment Specifications
 
 The TT-QuietBox Liquid-Cooled Desktop Workstation is designed to operate at up to 35°C/95°F external ambient temperatures.
-
-## Software Setup
-
-Instructions on how to set up software on TT-QuietBox are available [here](https://docs.tenstorrent.com/getting-started/README.html).
