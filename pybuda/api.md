@@ -1,9 +1,9 @@
 # API Reference
 
 ## Python Runtime API
-
-| [`run_inference`](#pybuda.run_inference)([module, inputs, input_count, ...])           | Main "run" function for inference.                                                                                  |
+|                                                                                        |                                                                                                                     |
 |----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| [`run_inference`](#pybuda.run_inference)([module, inputs, input_count, ...])           | Main "run" function for inference.                                                                                  |
 | [`run_training`](#pybuda.run_training)([epochs, steps, ...])                           | Main "run" function for training.                                                                                   |
 | [`initialize_pipeline`](#pybuda.initialize_pipeline)(training[, ...])                  | Initialize the pipeline to run inference and training through manual run_forward, run_backward, run_optimizer, etc. |
 | [`run_forward`](#pybuda.run_forward)([input_count, \_sequential])                      | Run forward passes on the pre-compiled and initialized pipeline of devices.                                         |
