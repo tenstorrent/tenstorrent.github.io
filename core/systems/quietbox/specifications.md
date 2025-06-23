@@ -26,8 +26,8 @@ If you have any issues with your TT-QuietBox, please visit the TT-QuietBox [supp
 | **Tensix Processor Connectivity**     | 8x QSFP-DD Active 200G (2 per card)                          | 16x QSFP-DD Passive 800G (4 per card)                        |
 | **Power Supply**                      | 1650W 80 PLUS Gold                                           | 1650W 80 PLUS Platinum                                       |
 | **Operating System**                  | None                                                         | None                                                         |
-| **Dimensions (System)<br />(WxDxH)**  | 10" x 21.5" x 20" (96 lbs.)<br />254mm x 546mm x 508mm (43.5 kg) | 10" x 21.5" x 20" (96 lbs.)<br />254mm x 546mm x 508mm (43.5 kg) |
-| **Dimensions (Shipped)<br />(WxDxH)** | 18" x 33" x 27" (131 lbs.)<br />453mm x 839mm x 686mm (59.4 kg) | 18" x 33" x 27" (131 lbs.)<br />453mm x 839mm x 686mm (59.4 kg) |
+| **Dimensions (System)<br />(WxDxH)**  | 10" x 21.5" x 20" (79.7 lbs.)<br />254mm x 546mm x 508mm (36.2 kg) | 10" x 21.5" x 20" (79.2 lbs.)<br />254mm x 546mm x 508mm (35.9 kg) |
+| **Dimensions (Shipped)<br />(WxDxH)** | 18" x 33" x 27" (132.7 lbs.)<br />453mm x 839mm x 686mm (60.2 kg) | 18" x 33" x 27" (133.7 lbs.)<br />453mm x 839mm x 686mm (60.6 kg) |
 
 **Early prototypes employed the TYAN Tomcat HX S8040 MB ([S8040GM4NE-2T](https://www.tyan.com/Motherboards_S8040_S8040GM4NE-2T)).*
 
