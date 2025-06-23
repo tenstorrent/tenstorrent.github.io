@@ -75,17 +75,17 @@ The Tenstorrent TT-QuietBox Blackhole (TW-04002) includes four Blackhole™ p150
 
 Customers will need to manually connect the QSFP-DD cables included. These diagrams display the system topology and where the included QSFP-DD cables need to be connected. 
 
-![](C:/GitHub/tenstorrent.github.io/core/systems/quietbox/qb_bh_topology.png)
+![](qb_bh_topology.png)
 
 #### Wormhole™ n300 Version (TW-04001)
 
 The Tenstorrent TT-QuietBox Wormhole (TW-04001) includes four Wormhole™ n300 Tensix Processors, internal Warp 100 bridges, and two (2) external QSFP-DD cables that enable the Tensix Processor mesh.
 
-![](C:/GitHub/tenstorrent.github.io/core/aibs/wormhole/images/wh_portspec.png)
+![](..\..\aibs\wormhole\images\wh_portspec.png)
 
 The TT-QuietBox ships with the Warp 100 bridges connected, but the QSFP-DD cables will need to be connected by the customer. This diagram displays the system topology and how the cards are enumerated, along with where the Warp 100 bridges are connected and where the included QSFP-DD cables need to be connected. 
 
-![](C:/GitHub/tenstorrent.github.io/core/systems/quietbox/qb_topology.png)
+![](qb_topology.png)
 
 One QSFP-DD cable will need to be connected to **Port 1** on the cards in **Slots 1 and 4**.
 
