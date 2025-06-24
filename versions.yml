@@ -1,12 +1,2 @@
 core:
-  versions:
-    latest: null
 pybuda:
-  versions:
-    latest: null
-tt-metalium:
-  versions:
-    latest:
-ttnn:
-  versions:
-    latest:
