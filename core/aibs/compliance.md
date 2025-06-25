@@ -1,6 +1,6 @@
 # Compliance
 
-The e75, e150, n150d, n150s, n300d, and n300s comply with requirements of:
+The e75, e150, n150d, n150s, n300d, n300s, p100a, p150b, and p150c comply with requirements of:
 
 \-       USA CFR Title 47, FCC Part 15, Subpart B, Class B
 
@@ -40,7 +40,7 @@ FCC Warning: The FCC requires that you be notified that any changes or modificat
 
 ### English
 
-The e75, e150, n150d, n150s, n300d, and n300s have been tested to comply with the Interference Causing Equipment Standard, ICES-003 Issue 7, CAN ICES-003(B)/NMB-003(B)
+The e75, e150, n150d, n150s, n300d, n300s, p100a, p150b, and p150c have been tested to comply with the Interference Causing Equipment Standard, ICES-003 Issue 7, CAN ICES-003(B)/NMB-003(B)
 
 This device complies with Innovation, Science and Economic Development Canada (ISED) license-exempt RSS Standard(s). Operation is subject to the following two conditions: (1) this device may not cause interference, and (2) this device must accept any interference, including interference that may cause undesired operation of the device.
 
@@ -52,7 +52,7 @@ Le présent appareil est conforme aux CNR D’Innovation, Sciences et Développe
 
 ## United Kingdom
 
-The e75, e150, n150d, n150s, n300d, and n300s comply with the following UK Regulations.
+The e75, e150, n150d, n150s, n300d, n300s, p100a, p150a, and p150b comply with the following UK Regulations.
 
 Electromagnetic Compatibility Regulations 2016 (S.I, 2016/1091)
 
@@ -62,7 +62,7 @@ Restrictions of the Use of Certain Hazardous Substances in Electrical and Electr
 
 ## Europe - CE Marking
 
-The e75, e150, n150d, n150s, n300d, and n300s bear the CE mark in compliance with the following EU Directives.
+The e75, e150, n150d, n150s, n300d, n300s, p100a, p150a, and p150b bear the CE mark in compliance with the following EU Directives.
 
 EMC Directive 2014/30/EU
 
