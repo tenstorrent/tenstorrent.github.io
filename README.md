@@ -36,29 +36,20 @@ When making changes locally, you can run `make watch` in the directory of the pr
 
 The repo is structured with a folder for each documentation project. the `Core` folder contains the core documentation, and links to the other projects. All other projects link back to Core.
 
-The repo also contains scripts for building and versioning documentation.
-The `build_docs.py` script builds the documentation of all project folders for all versions specified in `versions.yml`
-The `update_tags.py` script updates the tracked version tags for each project.
+The repo also contains scripts for building documentation.
+The `build_docs.py` script builds the documentation for core documentation folder.
 
-## Versioning Documentation
-
-Documentation versions are tracked with git tags and the `versions.yml` file. When a new documentation version is commited, the commit should be tagged with the version and the version should be added to `versions.yml`. This file is used by `build_docs.py` to determine which versions to build.
-
-Using pybuda as an example, releasing a new version of the documentation might look something like this:
-
-1. Build documentation in the pybuda repo
-2. Copy the built documentation to the `pybuda` folder in this repo
-3. Run `update_tags.py` to add the new version to versions.yml: `python update_tags.py pybuda <version_number>`
-4. Commit and tag the changes: `git commit -m 'update pybuda docs to version <version_number>' && git tag <version_number>`
-5. Push the changes and tags `git push && git push --tags`
-
-These steps can be run in CI to automate the process of releasing documentation
-
-If a version should no longer be built, it can be removed from `versions.yml`
+The documentation for the other projects in Tenstorrent ecosystem are linked in `index.rst` (see TT-NN, TT-Metalium, or TT-Forge). These projects build their own documentation 
+in their own repos through Github Pages. Github's organization account is then used to link these together under the same domain as follows:
+Domain: docs.tenstorrent.com is pointing to the pages local to this repo
+`docs.tenstorrent.com/{github repo name}` points project-specific documentation. For example: [docs.tenstorrent.com/tt-blacksmith ](https://docs.tenstorrent.com/tt-blacksmith/)
+is build in repo [tt-blacksmith](https://github.com/tenstorrent/tt-blacksmith)
 
 ## Deployments
 
 The docs site is hosted on github pages. When pushing new changes to main github actions will build the documentation with `build_docs.py` and deploy the `output` directory to github pages.
+
+The URL location will be `docs.tenstorrent.com/`
 
 ## Style and Structure
 
@@ -80,9 +71,8 @@ To add a new project to the repo:
 
 1. Create a folder with the project name eg `pybuda`
 2. Create a conf.py file in that folder (you can use the example-conf.py in shared as a starting point)
-3. Add your project to the versions.yml file with `latest` as the existing tag
+3. Add your project to the versions.yml file
 4. You're all set to add markdown or rst files containing documentation to the project!
-5. For versioning and updating the docs, see Versioning Documentation above
 
 ## Useful Links
 
