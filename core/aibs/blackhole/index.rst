@@ -7,4 +7,5 @@ Blackhole™ p100a/p150a/p150b Tensix Processor
    README
    specifications
    installation
+   support
    ../compliance
