@@ -35,19 +35,19 @@ We plan to offer internally validated QSFP cables for sale in the future, but in
 
 It is normal to see Tenstorrent Blackhole™ cards idle at power consumption around 120W. You may see a higher draw if you measure power at the wall, as some loss is expected when your power supply converts AC current from the wall to DC current in your system.
 
-We are exploring ways to further optimize idle power in a firmware update.
+We are exploring ways to further optimize idle power in firmware and future products.
 
 ### The temperatures reported by my Tenstorrent Blackhole™ card seem high.
 
 The temperature of the ASIC may be alarming, but Blackhole™ is designed to safely, continuously operate at temperatures up to 95°C. The existing cooling solutions are designed to keep the Blackhole chip, power circuitry, and memory ICs operating within a safe specification, and the card will automatically reduce clock speeds as necessary to prevent overheating.
 
-We are exploring ways to futher optimize default operation in a firmware update.
+We are exploring ways to further optimize default operation in firmware and future products.
 
 ### The fan noise of my Tenstorrent Blackhole™ p100a/p150a card is too quiet/too loud.
 
 We have received feedback in both directions: some users are concerned about the noise level of their p100a/p150a, while others would rather sacrifice noise to lower idle and operating temperatures.
 
-We are evaluating adding end user fan controls to a firmware update and the TT-SMI utility alongside the aforementioned idle power and temperature optimizations.
+We are evaluating adding end user fan controls in a future update.
 
 ### What do I do if my Tenstorrent Blackhole™ card is not enumerating?
 
