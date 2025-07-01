@@ -185,16 +185,22 @@ And change the setting to **OS First**.
 
 ## Installation
 
-Tenstorrent provides open-source software stacks for developing on Tensix Processors:
+Tenstorrent provides open source software stacks for developing on Tensix Processors:
 
 - [TT-Metalium/TT-NN](https://github.com/tenstorrent/tt-metal) to build your own kernels and models
 - [TT-Forge/TT-MLIR](https://github.com/tenstorrent/tt-forge-fe) to create, compile, and optimize graph operations
 
 Each SDK will have its own system dependency requirements and installation process.
 
-To help you get started, check out the [First 5 Things](https://docs.tenstorrent.com/ttnn/latest/ttnn/get_started.html) guide - which includes installation steps - for TT-Metalium.
+### First 5 Things to Do with TT-Metalium
 
-#### TT-Buda (Deprecated)
+1. **Install and Build:** Install and build the project by following the instructions in the [installation guide](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/installing.html).
+2. **Beginner TT-Metalium Usage | DRAM Loopback:** Try creating a [basic kernel example](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/tt_metal/examples/dram_loopback.html#dram-loopback-example) that uses the L1 and DRAM memory structures of the Tenstorrent device.
+3. **Beginner TT-Metalium Usage | Eltwise Binary Kernel:** Augment your loopback example with an [additional kernel](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/tt_metal/examples/eltwise_binary.html#eltwise-binary-example) that will use the compute engine of the Tensix core to add values in two buffers.
+4. **Beginner TT-Metalium Usage | Single-Core Matrix Multiplication Kernel:** Use TT-Metalium to define your own matrix multiplication kernels. Refer to our simpler [single-core](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/tt_metal/examples/matmul_single_core.html#matmul-single-core-example) example as a starting point.
+5. **Advanced Metalium Usage | Multi-core Matrix Multiplication Kernel:** Explore expert-level usage by building on the previous example to create a [multi-core](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/tt_metal/examples/matmul_multi_core.html#matmul-multi-core-example) implementation.
+
+### TT-Buda (Deprecated)
 
 Tenstorrent has discontinued development and support for the TT-Buda stack; these links are provided for reference and for developers still using Grayskull® cards.
 
