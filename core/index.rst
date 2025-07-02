@@ -26,6 +26,7 @@ Tenstorrent
    TT-Metalium <https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/index.html>
    TT-NN <https://docs.tenstorrent.com/tt-metal/latest/ttnn/index.html>
    forge/index
+   Manual Software Installation <getting-started/manual-software-install>
 .. toctree::
    :hidden:
    :caption: Support
