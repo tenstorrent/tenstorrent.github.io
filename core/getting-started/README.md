@@ -50,8 +50,6 @@ If for whatever reason the BIOS needs to be updated or is reset, this setting mu
 
 To interact with the Tensix Processor(s), you’ll need to install the system-level dependencies on your host machine.
 
-### TT-Installer
-
 Tenstorrent provides a bash script, [tt-installer](https://github.com/tenstorrent/tt-installer/), for fast and easy setup of our software stack. The installer supports Ubuntu, Fedora, and Debian. To use it, paste the following into your terminal:
 
 ```{code-block} bash
@@ -61,7 +59,7 @@ Tenstorrent provides a bash script, [tt-installer](https://github.com/tenstorren
 tt-installer configures necessary packages on your system and installs system-level tools as well as our development framework, TT-Metalium. By default, TT-Metalium is installed as a container using Podman. This containerized environment is appropriate for most users as explained [here](https://github.com/tenstorrent/tt-installer/wiki/Using-the-tt%E2%80%90metalium-container), but advanced users and developers may wish to install Metalium natively on the host system or use Docker instead of Podman. See [TT-NN / TT-Metalium Installation](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/installing.html#tt-nn-tt-metalium-installation) for manual installation instructions.
 
 For more information about tt-installer, please see the [repository](https://github.com/tenstorrent/tt-installer).
-If you would prefer to install the software stack manually, proceed to [Manual Installation](#manual-installation).
+If you would prefer to install the software stack manually, see [Manual Installation](https://docs.tenstorrent.com/getting-started/manual-software-install.html).
 
 ### Next Steps
 After tt-installer finishes successfully and you have restarted your system, you can proceed to next steps. You may want to:
