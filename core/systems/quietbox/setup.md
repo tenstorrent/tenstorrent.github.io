@@ -27,35 +27,41 @@ The TT-QuietBox system ships without an operating system installed. Tenstorrent 
 
 Ensure the crate is correctly positioned in your prepared unboxing area with ample maneuvering space for two people.
 
-### 2. Open the Crate
+### 2. Remove Plastic Wrap
+
+Remove the plastic wrap and cut the two lifting straps looped around the crate.
+
+### 3. Open the Crate
 
 Remove six (6) screws from the top of the crate using a Phillips head screwdriver. Once the screws have been removed, lift the top off of the crate.
 
-### 3. Remove Boxed System from Crate
+### 4. Remove Boxed System from Crate
 
 Remove the protective Styrofoam from the crate. 
 
 Using the two lifting straps looped around the cardboard box, lift the cardboard box vertically out of the wooden crate. **Do not tilt the cardboard box sideways during this process.**
 
-### 4. Open the Cardboard Box
+### 5. Open the Cardboard Box
 
 Cut the two lifting straps off of the cardboard box.
 
 Open the top flaps of the cardboard box.
 
-### 5. Remove the TT-QuietBox from the Cardboard Box
+### 6. Unpack Accessories
+
+Remove documentation and the accessory bag from the box and set them aside.
+
+### 7. Remove the TT-QuietBox from the Cardboard Box
 
 Lift the TT-QuietBox out together by reaching into the short sides of the box, securing your hands just underneath the supportive Styrofoam, and lifting the system out of the box.
 
 Set the TT-QuietBox down in your workspace.
 
-### 6. Remove Accessories and Additional Packing Material
-
-Remove the Getting Started guide and the accessory bag from the box and set them aside for later use. 
+### 8. Remove Additional Packing Material
 
 Remove any additional packaging from outside of the TT-QuietBox.
 
-### 7. Inspect System
+### 9. Inspect System
 
 Inspect the TT-QuietBox to ensure everything is properly mounted and secured. Note that the system ships with sufficient liquid coolant for long term operation. There is no need to purchase and/or top up liquid coolant.
 
