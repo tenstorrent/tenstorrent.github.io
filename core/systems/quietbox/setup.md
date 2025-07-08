@@ -27,13 +27,19 @@ The TT-QuietBox system ships without an operating system installed. Tenstorrent 
 
 Ensure the crate is correctly positioned in your prepared unboxing area with ample maneuvering space for two people.
 
+![](qb_setup_1.jpg)
+
 ### 2. Remove Plastic Wrap
 
 Remove the plastic wrap and cut the two lifting straps looped around the crate.
 
+![](qb_setup_2.jpg)
+
 ### 3. Open the Crate
 
 Remove six (6) screws from the top of the crate using a Phillips head screwdriver. Once the screws have been removed, lift the top off of the crate.
+
+![](qb_setup_3.jpg)
 
 ### 4. Remove Boxed System from Crate
 
@@ -41,15 +47,21 @@ Remove the protective Styrofoam from the crate.
 
 Using the two lifting straps looped around the cardboard box, lift the cardboard box vertically out of the wooden crate. **Do not tilt the cardboard box sideways during this process.**
 
+![](qb_setup_4.jpg)
+
 ### 5. Open the Cardboard Box
 
 Cut the two lifting straps off of the cardboard box.
 
 Open the top flaps of the cardboard box.
 
+![](qb_setup_5.jpg)
+
 ### 6. Unpack Accessories
 
 Remove documentation and the accessory bag from the box and set them aside.
+
+![](qb_setup_6.jpg)
 
 ### 7. Remove the TT-QuietBox from the Cardboard Box
 
@@ -57,9 +69,13 @@ Lift the TT-QuietBox out together by reaching into the short sides of the box, s
 
 Set the TT-QuietBox down in your workspace.
 
+![](qb_setup_7.jpg)
+
 ### 8. Remove Additional Packing Material
 
 Remove any additional packaging from outside of the TT-QuietBox.
+
+![](qb_setup_8.jpg)
 
 ### 9. Inspect System
 
@@ -70,6 +86,8 @@ Inspect the TT-QuietBox to ensure everything is properly mounted and secured. No
 ### 1. Connect Power Cables
 
 Connect the provided C13 power cable to the TT-QuietBox and then to a dedicated outlet.
+
+![](qb_setup_power.jpg)
 
 ### 2. Connect QSFP-DD Cables
 
