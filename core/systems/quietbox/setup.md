@@ -83,7 +83,7 @@ Inspect the TT-QuietBox to ensure everything is properly mounted and secured. No
 
 ## Setting Up Hardware
 
-### 1. Connect Power Cables
+### 1. Connect Power Cable
 
 Connect the provided C13 power cable to the TT-QuietBox and then to a dedicated outlet.
 
@@ -117,7 +117,9 @@ One QSFP-DD cable will need to be connected to **Port 2** on the cards in **Slot
 
 ### 3. Connect to Network
 
-For host system internet/network access, connect a standard Ethernet cable (Cat 6 or better, user-provided) to the primary RJ45 LAN port on the rear panel, labeled LAN3. Connect the other end to  your network switch, router, or wall jack.
+For host system internet/network access, connect a standard Ethernet cable (Cat 6 or better, user-provided) to an RJ45 LAN port on the rear panel; LAN3 and LAN4 are 1G, while LAN1 and LAN2 are 10G. Connect the other end to  your network switch, router, or wall jack.
+
+![](qb_lan.png)
 
 ### 4. Connect Other Accessories
 
