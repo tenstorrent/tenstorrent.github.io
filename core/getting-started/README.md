@@ -72,11 +72,13 @@ After tt-installer finishes successfully and you have restarted your system, you
 1. **Install and Build:** If you're a developer, install and build the project by following the instructions in the [installation guide](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/installing.html).
 2. **Beginner TT-Metalium Usage | DRAM Loopback:** Try creating a [basic kernel example](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/tt_metal/examples/dram_loopback.html#dram-loopback-example) that uses the L1 and DRAM memory structures of the Tenstorrent device.
 3. **Beginner TT-Metalium Usage | Eltwise Binary Kernel:** Augment your loopback example with an [additional kernel](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/tt_metal/examples/eltwise_binary.html#eltwise-binary-example) that will use the compute engine of the Tensix
-core to add values in two buffers.
-4. **Beginner TT-Metalium Usage | Single-Core Matrix Multiplication Kernel:** Use TT-Metalium to define your own matrix multiplication kernels. Refer to our simpler [single-core](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/tt_metal/examples/matmul_single_core.html#matmu
-l-single-core-example) example as a starting point.
-5. **Advanced Metalium Usage | Multi-core Matrix Multiplication Kernel:** Explore expert-level usage by building on the previous example to create a [multi-core](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/tt_metal/examples/matmul_multi_core.html#matmul-multi-core-examp
-le) implementation.
+  core to add values in two buffers.
+4. **Beginner TT-Metalium Usage | Single-Core Matrix Multiplication Kernel:** Use TT-Metalium to define your own matrix multiplication kernels. Refer to our simpler [single-core](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/tt_metal/examples/matmul_single_core.html#matmul-single-core-example) example as a starting point.
+5. **Advanced Metalium Usage | Multi-core Matrix Multiplication Kernel:** Explore expert-level usage by building on the previous example to create a [multi-core](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/tt_metal/examples/matmul_multi_core.html#matmul-multi-core-example) implementation.
+
+#### Starting with TT-NN
+
+To get started with TT-NN, visit [this page](https://docs.tenstorrent.com/tt-metal/latest/ttnn/ttnn/get_started.html).
 
 ### TT-Buda (Deprecated)
 
