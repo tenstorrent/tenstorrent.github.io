@@ -38,7 +38,9 @@ And change the setting to **OS First**.
 
 ### Boot issues or cards not appearing in software (unseated cards)
 
-If you're having issues with delayed boot times or booting at all, or cards aren't appearing in TT-SMI or other software, it's possible that in shipment, one or more n300 cards in TT-QuietBox become unseated.
+***NOTE:** Extended boot times on first boot or after a kernel panic are **normal**. System memory training will occur at first boot or after a kernel panic and can take as long as **20 minutes***.
+
+If you're having issues with the system not booting, or cards aren't appearing in TT-SMI or other software, it's possible one or more cards in TT-QuietBox become unseated during shipment.
 
 Note that some technical expertise and caution will be required to avoid damaging the system components.
 
