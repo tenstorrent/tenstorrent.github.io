@@ -1,0 +1,258 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Starting Guide &mdash; Home 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/tt_theme.css?v=0bbfeaf8" />
+      <link rel="stylesheet" type="text/css" href="../_static/home.css?v=c560917e" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Add-In Boards / Cards" href="../aibs/index.html" />
+    <link rel="prev" title="Tenstorrent" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+<a href="https://tenstorrent.github.io/">
+    <img src="../_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+
+<a href="../index.html">
+    Home
+</a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Starting Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">1. Prerequisites</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tt-quietbox-bios-requirement">TT-QuietBox BIOS Requirement</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#unboxing-and-hardware-setup">2. Unboxing and Hardware Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#software-installation">3. Software Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#next-steps">Next Steps</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#first-5-things-to-do-with-tt-metalium">First 5 Things To Do With TT-Metalium</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#starting-with-tt-nn">Starting with TT-NN</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tt-buda-deprecated">TT-Buda (Deprecated)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#support-faq">Support &amp; FAQ</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Hardware</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aibs/index.html">Add-In Boards / Cards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../systems/index.html">Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/pybuda/latest/index.html">TT-Buda (Deprecated)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/index.html">TT-Metalium</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/index.html">TT-NN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../forge/index.html">TT-Forge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual-software-install.html">Manual Software Installation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/README.html">Support &amp; FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Legal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/bounty_terms.html">Bounty Program Terms</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Home</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Starting Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/getting-started/README.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="starting-guide">
+<h1>Starting Guide<a class="headerlink" href="#starting-guide" title="Link to this heading"></a></h1>
+<p>Welcome to Tenstorrent! This guide will walk you through setting up your Tensix Processor(s) and installing necessary software.</p>
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#prerequisites"><span class="xref myst">Prerequisites</span></a></p></li>
+<li><p><a class="reference internal" href="#unboxing-and-hardware-setup"><span class="xref myst">Unboxing and Hardware Setup</span></a></p></li>
+<li><p><a class="reference internal" href="#software-installation"><span class="xref myst">Software Installation</span></a></p></li>
+<li><p><a class="reference internal" href="#support-faq"><span class="xref myst">Support &amp; FAQ</span></a></p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="prerequisites">
+<h2>1. Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
+<p>Before you begin, ensure you have the following:</p>
+<ul class="simple">
+<li><p>A <strong>compatible host machine</strong> with minimum hardware and OS requirements as specified by each product’s minimum system requirements:</p>
+<ul>
+<li><p><a class="reference external" href="https://docs.tenstorrent.com/aibs/index.html">Add-In Boards / Cards</a></p></li>
+<li><p><a class="reference external" href="https://docs.tenstorrent.com/systems/index.html">Systems</a></p></li>
+</ul>
+</li>
+<li><p><strong>Network access</strong> to download software packages.</p></li>
+<li><p><strong>Administrator privileges</strong> on the host machine.</p></li>
+</ul>
+<p><strong>NOTE</strong>: The recommended OS for all Tenstorrent software is <strong>Ubuntu 22.04 LTS (Jammy Jellyfish)</strong>. Each SDK may support newer distributions of Ubuntu; however, compatibility should be considered experimental at this time.</p>
+<p><em><strong>NOTE:</strong> Software support for Grayskull has been discontinued. The last supported versions of Tenstorrent’s software for Grayskull are as follows:</em></p>
+<ul class="simple">
+<li><p><em><strong>TT-Firmware:</strong> <code class="docutils literal notranslate"><span class="pre">fw_pack-80.15.0.0.fwbundle</span></code></em></p></li>
+<li><p><em><strong>TT-KMD:</strong> <code class="docutils literal notranslate"><span class="pre">ttkmd_1.31</span></code></em></p></li>
+<li><p><em><strong>TT-Buda:</strong> <code class="docutils literal notranslate"><span class="pre">v0.19.3</span></code></em></p></li>
+<li><p><em><strong>TT-Metalium:</strong> <code class="docutils literal notranslate"><span class="pre">v0.55</span></code></em></p></li>
+</ul>
+<section id="tt-quietbox-bios-requirement">
+<h3>TT-QuietBox BIOS Requirement<a class="headerlink" href="#tt-quietbox-bios-requirement" title="Link to this heading"></a></h3>
+<p>The BIOS for the host motherboard is configured at the factory with the setting for <strong>PCIe AER Reporting Mechanism</strong> set to <strong>OS First</strong>. Tenstorrent’s TT-SMI software will fail if this setting is not configured properly. <em>You should not have to change this setting when first setting up your TT-QuietBox.</em></p>
+<p>If for whatever reason the BIOS needs to be updated or is reset, this setting must be configured again to ensure TT-SMI is able to function. It is located in the BIOS here:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Chipset</span> <span class="pre">-&gt;</span> <span class="pre">AMD</span> <span class="pre">CBS</span> <span class="pre">-&gt;</span> <span class="pre">NBIO</span> <span class="pre">Common</span> <span class="pre">Options</span> <span class="pre">-&gt;</span> <span class="pre">NBIO</span> <span class="pre">RAS</span> <span class="pre">Common</span> <span class="pre">Options</span> <span class="pre">-&gt;</span> <span class="pre">PCIe</span> <span class="pre">AER</span> <span class="pre">Reporting</span> <span class="pre">Mechanism</span></code></p>
+</section>
+</section>
+<section id="unboxing-and-hardware-setup">
+<h2>2. Unboxing and Hardware Setup<a class="headerlink" href="#unboxing-and-hardware-setup" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Unpack the hardware</strong> and check all components against the provided list.</p></li>
+<li><p><strong>Install the hardware</strong> following the hardware installation manual and safety guidelines by product:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.tenstorrent.com/aibs/index.html">Add-In Boards / Cards</a></p></li>
+<li><p><a class="reference external" href="https://docs.tenstorrent.com/systems/index.html">Systems</a></p></li>
+</ul>
+</li>
+<li><p><strong>Secure the hardware</strong> in place, ensuring it is firmly seated and all connections are stable.</p></li>
+</ol>
+</section>
+<section id="software-installation">
+<h2>3. Software Installation<a class="headerlink" href="#software-installation" title="Link to this heading"></a></h2>
+<p>To interact with the Tensix Processor(s), you’ll need to install the system-level dependencies on your host machine.</p>
+<p>Tenstorrent provides a bash script, <a class="reference external" href="https://github.com/tenstorrent/tt-installer/">tt-installer</a>, for fast and easy setup of our software stack. The installer supports Ubuntu, Fedora, and Debian. To use it, paste the following into your terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/bin/bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://github.com/tenstorrent/tt-installer/releases/latest/download/install.sh<span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p>tt-installer configures necessary packages on your system and installs system-level tools as well as our development framework, TT-Metalium. By default, TT-Metalium is installed as a container using Podman. This containerized environment is appropriate for most users as explained <a class="reference external" href="https://github.com/tenstorrent/tt-installer/wiki/Using-the-tt%E2%80%90metalium-container">here</a>, but advanced users and developers may wish to install Metalium natively on the host system or use Docker instead of Podman. See <a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/installing.html#tt-nn-tt-metalium-installation">TT-NN / TT-Metalium Installation</a> for manual installation instructions.</p>
+<p>For more information about tt-installer, please see the <a class="reference external" href="https://github.com/tenstorrent/tt-installer">repository</a>.
+If you would prefer to install the software stack manually, see <a class="reference external" href="https://docs.tenstorrent.com/getting-started/manual-software-install.html">Manual Installation</a>.</p>
+<section id="next-steps">
+<h3>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h3>
+<p>After tt-installer finishes successfully and you have restarted your system, you can proceed to next steps. You may want to:</p>
+<ul class="simple">
+<li><p>Run existing models like Llama and DeepSeek: Use <a class="reference external" href="https://github.com/tenstorrent/tt-metal/tree/main/models/tt_transformers">TT-Transformers</a>.</p></li>
+<li><p>Use a high-level interface to build your own models or migrate from Torch: Use <a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/ttnn/usage.html#basic-examples">TT-NN</a>.</p></li>
+<li><p>Install TT-Metalium and write high-performance C++ kernels: Read <a class="reference external" href="https://docs.tenstorrent.com/getting-started/README.html#first-5-things-to-do-with-tt-metalium">First 5 Things</a> below.</p></li>
+<li><p>Learn more about our unique architecture: Start by <a class="reference external" href="https://github.com/tenstorrent/tt-metal/blob/main/METALIUM_GUIDE.md">reading this guide</a>.</p></li>
+</ul>
+<section id="first-5-things-to-do-with-tt-metalium">
+<h4>First 5 Things To Do With TT-Metalium<a class="headerlink" href="#first-5-things-to-do-with-tt-metalium" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p><strong>Install and Build:</strong> If you’re a developer, install and build the project by following the instructions in the <a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/installing.html">installation guide</a>.</p></li>
+<li><p><strong>Beginner TT-Metalium Usage | DRAM Loopback:</strong> Try creating a <a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/tt_metal/examples/dram_loopback.html#dram-loopback-example">basic kernel example</a> that uses the L1 and DRAM memory structures of the Tenstorrent device.</p></li>
+<li><p><strong>Beginner TT-Metalium Usage | Eltwise Binary Kernel:</strong> Augment your loopback example with an <a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/tt_metal/examples/eltwise_binary.html#eltwise-binary-example">additional kernel</a> that will use the compute engine of the Tensix
+core to add values in two buffers.</p></li>
+<li><p><strong>Beginner TT-Metalium Usage | Single-Core Matrix Multiplication Kernel:</strong> Use TT-Metalium to define your own matrix multiplication kernels. Refer to our simpler <a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/tt_metal/examples/matmul_single_core.html#matmul-single-core-example">single-core</a> example as a starting point.</p></li>
+<li><p><strong>Advanced Metalium Usage | Multi-core Matrix Multiplication Kernel:</strong> Explore expert-level usage by building on the previous example to create a <a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/tt_metal/examples/matmul_multi_core.html#matmul-multi-core-example">multi-core</a> implementation.</p></li>
+</ol>
+</section>
+<section id="starting-with-tt-nn">
+<h4>Starting with TT-NN<a class="headerlink" href="#starting-with-tt-nn" title="Link to this heading"></a></h4>
+<p>To get started with TT-NN, visit <a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/ttnn/get_started.html">this page</a>.</p>
+</section>
+</section>
+<section id="tt-buda-deprecated">
+<h3>TT-Buda (Deprecated)<a class="headerlink" href="#tt-buda-deprecated" title="Link to this heading"></a></h3>
+<p>Tenstorrent has discontinued development and support for the TT-Buda stack; these links are provided for reference and for developers still using Grayskull® cards.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/tenstorrent/tt-buda">TT-Buda GitHub Repo</a></p></li>
+<li><p><a class="reference external" href="https://github.com/tenstorrent/tt-buda-demos/tree/main/first_5_steps">First 5 Things</a> for <strong>TT-Buda</strong></p></li>
+</ul>
+</section>
+</section>
+<section id="support-faq">
+<h2>Support &amp; FAQ<a class="headerlink" href="#support-faq" title="Link to this heading"></a></h2>
+<p>For support, forums, and community, visit Tenstorrent’s <a class="reference external" href="https://discord.gg/tvhGzHQwaj">Discord channel</a>.</p>
+<p>For additional support, file any issues through our <a class="reference external" href="https://tenstorrent.atlassian.net/servicedesk/customer/portal/1">Customer Success Platform</a> or you can contact us directly at <a class="reference external" href="mailto:support&#37;&#52;&#48;tenstorrent&#46;com">support<span>&#64;</span>tenstorrent<span>&#46;</span>com</a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="Tenstorrent" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../aibs/index.html" class="btn btn-neutral float-right" title="Add-In Boards / Cards" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tenstorrent.
+      <span class="lastupdated">Last updated on Jul 18, 2025.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
