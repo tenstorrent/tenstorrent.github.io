@@ -77,7 +77,7 @@ After tt-installer finishes successfully and you have restarted your system, you
 
 This path is for users who want to deploy and interact with [vLLM](https://docs.vllm.ai/en/latest/) servers. This is the recommended path users should take to run LLMs.
 
-#### Cloning tt-inference-server & checking out branch
+#### Cloning tt-inference-server & checking out release branch
 
 ```bash
 git clone https://github.com/tenstorrent/tt-inference-server.git
@@ -87,25 +87,25 @@ git checkout bh-llama-70b
 
 #### Starting vLLM server with `run.py` script
 
-**You will need at least 360GB of free disk space in the root partition (where your user's home dir is mounted)**
+> ⚠️ Disk Space Warning
+> 
+> You will need at least **360GB** of free disk space in your root partition (typically where your home directory is mounted).
 
 Set the `JWT_SECRET` environment variable. This is a regular string and is used to seed the generation of your vLLM server's API key.
 
 ```bash
-export JWT_SECRET=testing
+export JWT_SECRET="testing"
 ```
 
 When executing the following command, you'll be prompted to set a `HF_TOKEN` variable. This must be set to the value of your Hugging Face API key. To generate one, follow these instructions: [https://huggingface.co/docs/hub/en/security-tokens](https://huggingface.co/docs/hub/en/security-tokens).
-
-After, you'll be prompted for an answer on how you want to provide the model's weights. **Accept the default: (Download from Hugging Face)**.
-
-Finally, you'll be prompted to set a Hugging Face cache location on the host. **Accept the default: (/home/\<your-user\>/.cache/huggingface)**.
+  * After, you'll be prompted for an answer on how you want to provide the model's weights. **Accept the default: (Download from Hugging Face)**.
+  * Finally, you'll be prompted to set a Hugging Face cache location on the host. **Accept the default: (/home/\<your-user\>/.cache/huggingface)**.
 
 ```bash
 python3 run.py --model Llama-3.1-70B-Instruct --device p150x4 --workflow server --docker-server --dev-mode
 ```
 
-After the above command runs to completion, a Docker container will start and begin initializing the vLLM server. This process can take up to 30 minutes the first time you start the vLLM server.
+After the above command runs to completion, a Docker container will start and begin initializing the vLLM server. ***This process can take up to 30 minutes the first time you start the vLLM server***.
 
 #### Make example request to vLLM server
 
@@ -119,12 +119,12 @@ pip install pyjwt==2.7.0
 export OPENAI_API_KEY=$(python3 -c 'import os; import json; import jwt; json_payload = json.loads("{\"team_id\": \"tenstorrent\", \"token_id\": \"debug-test\"}"); encoded_jwt = jwt.encode(json_payload, os.environ["JWT_SECRET"], algorithm="HS256"); print(encoded_jwt)')
 ```
 
-**The first request to the server is used to perform warmup. It will be significantly slow** 🐢
+**The first request to the server is used to perform warmup. It will be significantly slow**
 
 vLLM exposes an OpenAI-compatible HTTP API. Here is an example `curl` command to make the first request to the server:
 
 ```bash
-curl -N "http://localhost:8000/v1/completions" \
+curl "http://localhost:8000/v1/completions" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $OPENAI_API_KEY" \
   -d '{
@@ -134,7 +134,7 @@ curl -N "http://localhost:8000/v1/completions" \
   }'
 ```
 
-Now that the server is warmed up, make the request again to see the server run at full speed\! 🚀
+Now that the server is warmed up, make the request again to see the server run at full speed
 
 ```bash
 curl "http://localhost:8000/v1/completions" \
