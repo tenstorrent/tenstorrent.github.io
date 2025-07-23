@@ -141,11 +141,11 @@ vLLM exposes an [OpenAI-compatible HTTP API](https://platform.openai.com/docs/ap
 curl "http://localhost:8000/v1/completions" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $VLLM_API_KEY" \
-  -d '{
-    "model": "meta-llama/$MODEL",
-    "prompt": "San Francisco is a",
-    "max_tokens": 50
-  }'
+  -d "{
+    \"model\": \"meta-llama/$MODEL\",
+    \"prompt\": \"San Francisco is a\",
+    \"max_tokens\": 50
+  }"
 ```
 
 Now that the server is warmed up, make the request again to see the server run at full speed
@@ -154,11 +154,11 @@ Now that the server is warmed up, make the request again to see the server run a
 curl "http://localhost:8000/v1/completions" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $VLLM_API_KEY" \
-  -d '{
-    "model": "meta-llama/$MODEL",
-    "prompt": "San Francisco is a",
-    "max_tokens": 50
-  }'
+    -d "{
+    \"model\": \"meta-llama/$MODEL\",
+    \"prompt\": \"San Francisco is a\",
+    \"max_tokens\": 50
+  }"
 ```
 
 ### TT-Buda (Deprecated)
