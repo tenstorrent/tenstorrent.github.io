@@ -77,6 +77,18 @@ After tt-installer finishes successfully and you have restarted your system, you
 
 This path is for users who want to deploy and interact with [vLLM](https://docs.vllm.ai/en/latest/) servers. This is the recommended path users should take to run LLMs.
 
+If this is your first experience with Tenstorrent, these are the recommended models to deploy for each product:
+* TT-QuietBox (Wormhole), TT-QuietBox (Blackhole), TT-LoudBox
+  * `meta-llama/Llama-3.3-70B-Instruct`
+* n150s, n150d, n300s, n300d, p100a, p150a, p150b
+  * `meta-llama/Llama-3.1-8B-Instruct`
+
+#### Specify target hardware and deployment model
+Execute this script to specify which hardware product you are using. The script will automatically choose the recommended model to deploy as per the previous section **(be sure to copy+paste the entire script)**:
+```bash
+select_device_and_model(){ echo -e "\nSelect a Tenstorrent system from the list below:"; PS3=$'\n#? '; options=("TT-QuietBox (Wormhole)" "TT-QuietBox (Blackhole)" "TT-LoudBox" "n150s" "n150d" "n300s" "n300d" "p100a" "p150a" "p150b" "Quit"); select opt in "${options[@]}"; do case "$opt" in "TT-QuietBox (Wormhole)") DEVICE="T3K"; MODEL="Llama-3.3-70B-Instruct";; "TT-QuietBox (Blackhole)") DEVICE="p150x4"; MODEL="Llama-3.3-70B-Instruct";; "TT-LoudBox") DEVICE="T3K"; MODEL="Llama-3.3-70B-Instruct";; "n150s"|"n150d") DEVICE="n150"; MODEL="Llama-3.1-8B-Instruct";; "n300s"|"n300d") DEVICE="n300"; MODEL="Llama-3.1-8B-Instruct";; "p100a") DEVICE="p100"; MODEL="Llama-3.1-8B-Instruct";; "p150a"|"p150b") DEVICE="p150"; MODEL="Llama-3.1-8B-Instruct";; "Quit") echo "❌ Exiting without setting DEVICE or MODEL."; return;; *) echo "❌ Invalid option. Try again."; continue;; esac; export DEVICE MODEL; echo -e "\n✅ DEVICE set to '$DEVICE'"; echo "✅ MODEL set to '$MODEL'"; break; done; }; select_device_and_model
+```
+
 #### Cloning tt-inference-server & checking out release branch
 
 ```bash
@@ -97,38 +109,40 @@ Set the `JWT_SECRET` environment variable. This is a regular string and is used 
 export JWT_SECRET="testing"
 ```
 
-When executing the following command, you'll be prompted to set a `HF_TOKEN` variable. This must be set to the value of your Hugging Face API key. To generate one, follow these instructions: [https://huggingface.co/docs/hub/en/security-tokens](https://huggingface.co/docs/hub/en/security-tokens).
+When executing the following command, you'll be prompted to set a `HF_TOKEN` variable. This must be set to the value of your Hugging Face API key. To generate one, follow these instructions: [https://huggingface.co/docs/hub/en/security-tokens](https://huggingface.co/docs/hub/en/security-tokens). This API key is required to download the model's weights from Hugging Face.
   * After, you'll be prompted for an answer on how you want to provide the model's weights. **Accept the default: (Download from Hugging Face)**.
   * Finally, you'll be prompted to set a Hugging Face cache location on the host. **Accept the default: (/home/\<your-user\>/.cache/huggingface)**.
 
 ```bash
-python3 run.py --model Llama-3.1-70B-Instruct --device p150x4 --workflow server --docker-server --dev-mode
+python3 run.py --model $MODEL --device $DEVICE --workflow server --docker-server --dev-mode
 ```
 
 After the above command runs to completion, a Docker container will start and begin initializing the vLLM server. ***This process can take up to 30 minutes the first time you start the vLLM server***.
 
 #### Make example request to vLLM server
 
-Set your OpenAI API Key using the previously set `JWT_SECRET`.
+Set your vLLM server's API key using the previously set `JWT_SECRET`.
+
+`VLLM_API_KEY` will be the environment variable which holds the API key.
 
 ```bash
 python3 -m venv request-venv
 source request-venv/bin/activate
 pip3 install --upgrade pip
 pip install pyjwt==2.7.0
-export OPENAI_API_KEY=$(python3 -c 'import os; import json; import jwt; json_payload = json.loads("{\"team_id\": \"tenstorrent\", \"token_id\": \"debug-test\"}"); encoded_jwt = jwt.encode(json_payload, os.environ["JWT_SECRET"], algorithm="HS256"); print(encoded_jwt)')
+export VLLM_API_KEY=$(python3 -c 'import os; import json; import jwt; json_payload = json.loads("{\"team_id\": \"tenstorrent\", \"token_id\": \"debug-test\"}"); encoded_jwt = jwt.encode(json_payload, os.environ["JWT_SECRET"], algorithm="HS256"); print(encoded_jwt)')
 ```
 
 **The first request to the server is used to perform warmup. It will be significantly slow**
 
-vLLM exposes an OpenAI-compatible HTTP API. Here is an example `curl` command to make the first request to the server:
+vLLM exposes an [OpenAI-compatible HTTP API](https://platform.openai.com/docs/api-reference/introduction). Here is an example `curl` command to make the first request to the server:
 
 ```bash
 curl "http://localhost:8000/v1/completions" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $OPENAI_API_KEY" \
+  -H "Authorization: Bearer $VLLM_API_KEY" \
   -d '{
-    "model": "meta-llama/Llama-3.1-70B-Instruct",
+    "model": "meta-llama/$MODEL",
     "prompt": "San Francisco is a",
     "max_tokens": 50
   }'
@@ -139,9 +153,9 @@ Now that the server is warmed up, make the request again to see the server run a
 ```bash
 curl "http://localhost:8000/v1/completions" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $OPENAI_API_KEY" \
+  -H "Authorization: Bearer $VLLM_API_KEY" \
   -d '{
-    "model": "meta-llama/Llama-3.1-70B-Instruct",
+    "model": "meta-llama/$MODEL",
     "prompt": "San Francisco is a",
     "max_tokens": 50
   }'
