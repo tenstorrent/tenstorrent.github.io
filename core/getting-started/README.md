@@ -138,27 +138,27 @@ export VLLM_API_KEY=$(python3 -c 'import os; import json; import jwt; json_paylo
 vLLM exposes an [OpenAI-compatible HTTP API](https://platform.openai.com/docs/api-reference/introduction). Here is an example `curl` command to make the first request to the server:
 
 ```bash
-curl "http://localhost:8000/v1/completions" \
+curl -s "http://localhost:8000/v1/completions" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $VLLM_API_KEY" \
   -d "{
     \"model\": \"meta-llama/$MODEL\",
     \"prompt\": \"San Francisco is a\",
     \"max_tokens\": 50
-  }"
+  }" | jq
 ```
 
 Now that the server is warmed up, make the request again to see the server run at full speed
 
 ```bash
-curl "http://localhost:8000/v1/completions" \
+curl -s "http://localhost:8000/v1/completions" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $VLLM_API_KEY" \
     -d "{
     \"model\": \"meta-llama/$MODEL\",
     \"prompt\": \"San Francisco is a\",
     \"max_tokens\": 50
-  }"
+  }" | jq
 ```
 
 ### TT-Buda (Deprecated)
