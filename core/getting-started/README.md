@@ -63,9 +63,9 @@ If you would prefer to install the software stack manually, see [Manual Installa
 ## First 5 things To Do
 After tt-installer finishes successfully and you have restarted your system, you can proceed how you like. You may want to:
 
-* Deploy vLLM servers: Use [tt-inference-server](http://127.0.0.1:3000/getting-started/README.html#deploy-vllm-servers-using-tt-inference-server)
+* Deploy vLLM servers: Use [tt-inference-server](https://docs.tenstorrent.com/getting-started/README.html#deploy-vllm-servers-using-tt-inference-server)
   * This is the recommended path users should take to deploy LLMs.
-* Run existing model demos like Llama, Whisper, Stable Diffusion and Resnet: Use [tt-installer](TO LINK)
+* Run existing model demos like Llama, Whisper, Stable Diffusion and Resnet: Use [tt-installer](TO LINK TO RAYMOND'S TT-INSTALLER WORKFLOW)
   * Explore pre-built demonstrations of popular models. This is a great way to see Tenstorrent's software in action without deep dives into model architecture.
 * Use a high-level interface to build your own models or migrate from Torch: [Use TT-NN](https://docs.tenstorrent.com/tt-metal/latest/ttnn/ttnn/usage.html#basic-examples).
 * Install TT-Metalium and write high-performance C++ kernels: Read the [installation guide](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/get_started/get_started.html#installation).
