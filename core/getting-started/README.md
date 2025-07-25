@@ -60,108 +60,6 @@ tt-installer configures necessary packages on your system and installs system-le
 For more information about tt-installer, please see the [repository](https://github.com/tenstorrent/tt-installer).
 If you would prefer to install the software stack manually, see [Manual Installation](https://docs.tenstorrent.com/getting-started/manual-software-install.html).
 
-<<<<<<< Updated upstream
-## First 5 things To Do
-After tt-installer finishes successfully and you have restarted your system, you can proceed how you like. You may want to:
-
-* Deploy vLLM servers: Use [tt-inference-server](https://docs.tenstorrent.com/getting-started/README.html#deploy-vllm-servers-using-tt-inference-server)
-  * This is the recommended path users should take to deploy LLMs.
-* Run existing model demos like Llama, Whisper, Stable Diffusion and Resnet: Use [tt-installer](TO LINK TO RAYMOND'S TT-INSTALLER WORKFLOW)
-  * Explore pre-built demonstrations of popular models. This is a great way to see Tenstorrent's software in action without deep dives into model architecture.
-* Use a high-level interface to build your own models or migrate from Torch: [Use TT-NN](https://docs.tenstorrent.com/tt-metal/latest/ttnn/ttnn/usage.html#basic-examples).
-* Install TT-Metalium and write high-performance C++ kernels: Read the [installation guide](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/get_started/get_started.html#installation).
-* Learn more about our unique architecture: Start by [reading this guide](https://github.com/tenstorrent/tt-metal/blob/main/METALIUM_GUIDE.md).
-
------
-
-### Deploy vLLM servers using [tt-inference-server](https://github.com/tenstorrent/tt-inference-server)
-
-This path is for users who want to deploy and interact with [vLLM](https://docs.vllm.ai/en/latest/) servers. This is the recommended path users should take to run LLMs.
-
-If this is your first experience with Tenstorrent, these are the recommended models to deploy for each product:
-* TT-QuietBox (Wormhole), TT-QuietBox (Blackhole), TT-LoudBox
-  * `meta-llama/Llama-3.3-70B-Instruct`
-* n150s, n150d, n300s, n300d, p100a, p150a, p150b
-  * `meta-llama/Llama-3.1-8B-Instruct`
-
-#### Specify target hardware and deployment model
-Execute this script to specify which hardware product you are using. The script will set the correct environment variables for your hardware product and automatically choose the recommended model to deploy as per the previous section **(be sure to copy+paste the entire script)**:
-```bash
-select_device_and_model(){ echo -e "\nSelect a Tenstorrent system from the list below:"; PS3=$'\n#? '; options=("TT-QuietBox (Wormhole)" "TT-QuietBox (Blackhole)" "TT-LoudBox" "n150s" "n150d" "n300s" "n300d" "p100a" "p150a" "p150b" "Quit"); select opt in "${options[@]}"; do case "$opt" in "TT-QuietBox (Wormhole)") DEVICE="T3K"; MODEL="Llama-3.3-70B-Instruct";; "TT-QuietBox (Blackhole)") DEVICE="p150x4"; MODEL="Llama-3.3-70B-Instruct";; "TT-LoudBox") DEVICE="T3K"; MODEL="Llama-3.3-70B-Instruct";; "n150s"|"n150d") DEVICE="n150"; MODEL="Llama-3.1-8B-Instruct";; "n300s"|"n300d") DEVICE="n300"; MODEL="Llama-3.1-8B-Instruct";; "p100a") DEVICE="p100"; MODEL="Llama-3.1-8B-Instruct";; "p150a"|"p150b") DEVICE="p150"; MODEL="Llama-3.1-8B-Instruct";; "Quit") echo "❌ Exiting without setting DEVICE or MODEL."; return;; *) echo "❌ Invalid option. Try again."; continue;; esac; export DEVICE MODEL; echo -e "\n✅ DEVICE set to '$DEVICE'"; echo "✅ MODEL set to '$MODEL'"; break; done; }; select_device_and_model
-```
-
-#### Cloning tt-inference-server & checking out release branch
-
-```bash
-git clone https://github.com/tenstorrent/tt-inference-server.git
-cd tt-inference-server
-git checkout bh-llama-70b
-```
-
-#### Starting vLLM server with `run.py` script
-
-> ⚠️ Disk Space Warning
-> 
-> You will need at least **360GB** of free disk space in your root partition (typically where your home directory is mounted).
-
-Set the `JWT_SECRET` environment variable. This is a regular string and is used to seed the generation of your vLLM server's API key.
-
-```bash
-export JWT_SECRET="testing"
-```
-
-When executing the following command, you'll be prompted to set a `HF_TOKEN` variable. This must be set to the value of your Hugging Face API key. To generate one, follow these instructions: [https://huggingface.co/docs/hub/en/security-tokens](https://huggingface.co/docs/hub/en/security-tokens). This API key is required to download the model's weights from Hugging Face.
-  * After, you'll be prompted for an answer on how you want to provide the model's weights. **Accept the default: (Download from Hugging Face)**.
-  * Finally, you'll be prompted to set a Hugging Face cache location on the host. **Accept the default: (/home/\<your-user\>/.cache/huggingface)**.
-
-```bash
-python3 run.py --model $MODEL --device $DEVICE --workflow server --docker-server --dev-mode
-```
-
-After the above command runs to completion, a Docker container will start and begin initializing the vLLM server. ***This process can take up to 30 minutes the first time you start the vLLM server***.
-
-#### Make example request to vLLM server
-
-Set your vLLM server's API key using the previously set `JWT_SECRET`.
-
-`VLLM_API_KEY` will be the environment variable which holds the API key.
-
-```bash
-python3 -m venv request-venv
-source request-venv/bin/activate
-pip3 install --upgrade pip
-pip install pyjwt==2.7.0
-export VLLM_API_KEY=$(python3 -c 'import os; import json; import jwt; json_payload = json.loads("{\"team_id\": \"tenstorrent\", \"token_id\": \"debug-test\"}"); encoded_jwt = jwt.encode(json_payload, os.environ["JWT_SECRET"], algorithm="HS256"); print(encoded_jwt)')
-```
-
-**The first request to the server is used to perform warmup. It will be significantly slow**
-
-vLLM exposes an [OpenAI-compatible HTTP API](https://platform.openai.com/docs/api-reference/introduction). Here is an example `curl` command to make the first request to the server:
-
-```bash
-curl -s "http://localhost:8000/v1/completions" \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $VLLM_API_KEY" \
-  -d "{
-    \"model\": \"meta-llama/$MODEL\",
-    \"prompt\": \"San Francisco is a\",
-    \"max_tokens\": 50
-  }" | jq
-```
-
-Now that the server is warmed up, make the request again to see the server run at full speed
-
-```bash
-curl -s "http://localhost:8000/v1/completions" \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $VLLM_API_KEY" \
-    -d "{
-    \"model\": \"meta-llama/$MODEL\",
-    \"prompt\": \"San Francisco is a\",
-    \"max_tokens\": 50
-  }" | jq
-```
-=======
 ---
 
 ## First 5 things To Do
@@ -175,7 +73,6 @@ After tt-installer finishes successfully and you have restarted your system, you
 * Use a high-level interface to build your own models or migrate from Torch: [Use TT-NN](https://docs.tenstorrent.com/tt-metal/latest/ttnn/ttnn/usage.html#basic-examples).
 * Install TT-Metalium and write high-performance C++ kernels: Read the [installation guide](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/get_started/get_started.html#installation).
 * Learn more about our unique architecture: Start by [reading this guide](https://github.com/tenstorrent/tt-metal/blob/main/METALIUM_GUIDE.md).
->>>>>>> Stashed changes
 
 ### TT-Buda (Deprecated)
 
