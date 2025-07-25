@@ -67,7 +67,7 @@ After tt-installer finishes successfully and you have restarted your system, you
 
 * [Deploy LLMs](https://docs.tenstorrent.com/getting-started/vLLM-servers.html)
   * This is the recommended path users should take to deploy LLMs.
-* [Run model demos](https://docs.tenstorrent.com/getting-started/model-demos.html): Use [tt-installer](TO LINK TO RAYMOND'S TT-INSTALLER WORKFLOW)
+* [Run model demos using tt-installer](https://docs.tenstorrent.com/getting-started/model-demos.html)
   * Explore pre-built demonstrations of popular models like Llama, Whisper, Stable Diffusion and ResNet.
   * This is a great way to see Tenstorrent's software in action without deep dives into model architecture.
 * Use a high-level interface to build your own models or migrate from Torch: [Use TT-NN](https://docs.tenstorrent.com/tt-metal/latest/ttnn/ttnn/usage.html#basic-examples).
