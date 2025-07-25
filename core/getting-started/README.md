@@ -60,6 +60,7 @@ tt-installer configures necessary packages on your system and installs system-le
 For more information about tt-installer, please see the [repository](https://github.com/tenstorrent/tt-installer).
 If you would prefer to install the software stack manually, see [Manual Installation](https://docs.tenstorrent.com/getting-started/manual-software-install.html).
 
+<<<<<<< Updated upstream
 ## First 5 things To Do
 After tt-installer finishes successfully and you have restarted your system, you can proceed how you like. You may want to:
 
@@ -160,6 +161,21 @@ curl -s "http://localhost:8000/v1/completions" \
     \"max_tokens\": 50
   }" | jq
 ```
+=======
+---
+
+## First 5 things To Do
+After tt-installer finishes successfully and you have restarted your system, you can proceed how you like. You may want to:
+
+* [Deploy LLMs](https://docs.tenstorrent.com/getting-started/vLLM-servers.html)
+  * This is the recommended path users should take to deploy LLMs.
+* [Run model demos](https://docs.tenstorrent.com/getting-started/model-demos.html): Use [tt-installer](TO LINK TO RAYMOND'S TT-INSTALLER WORKFLOW)
+  * Explore pre-built demonstrations of popular models like Llama, Whisper, Stable Diffusion and ResNet.
+  * This is a great way to see Tenstorrent's software in action without deep dives into model architecture.
+* Use a high-level interface to build your own models or migrate from Torch: [Use TT-NN](https://docs.tenstorrent.com/tt-metal/latest/ttnn/ttnn/usage.html#basic-examples).
+* Install TT-Metalium and write high-performance C++ kernels: Read the [installation guide](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/get_started/get_started.html#installation).
+* Learn more about our unique architecture: Start by [reading this guide](https://github.com/tenstorrent/tt-metal/blob/main/METALIUM_GUIDE.md).
+>>>>>>> Stashed changes
 
 ### TT-Buda (Deprecated)
 
@@ -167,6 +183,8 @@ Tenstorrent has discontinued development and support for the TT-Buda stack; thes
 
 - [TT-Buda GitHub Repo](https://github.com/tenstorrent/tt-buda)
 - [First 5 Things](https://github.com/tenstorrent/tt-buda-demos/tree/main/first_5_steps) for **TT-Buda**
+
+---
 
 ## Support & FAQ
 
