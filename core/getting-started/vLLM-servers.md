@@ -24,7 +24,7 @@ Downloading the recommended models requires access via Hugging Face. You will ne
 
 Once you have been granted access, you will need to create a Hugging Face access token. To generate one, follow these instructions: [https://huggingface.co/docs/hub/en/security-tokens](https://huggingface.co/docs/hub/en/security-tokens). This token is required to download the model's weights from Hugging Face.
 
-Now, using the system you will be deploying the vLLM server on, export the HF_TOKEN environment variable and set the value to your Hugging Face Access Token:
+Now, using the system you will be deploying the vLLM server on, export the `HF_TOKEN` environment variable and set the value to your Hugging Face Access Token:
 ```bash
 export HF_TOKEN=<your-hugging-face-access-token>
 ```
