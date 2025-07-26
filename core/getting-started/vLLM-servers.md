@@ -37,15 +37,19 @@ check_hf_access() { [ -z "$1" ] && { printf "✖ Error: Please provide a Hugging
 ### Specify target hardware and deployment model
 Execute this script to specify which hardware product you are using. The script will set the correct environment variables for your hardware product and automatically choose the recommended model to deploy as per the previous section **(be sure to copy+paste the entire script)**:
 ```bash
-select_device_and_model(){ echo -e "\nSelect a Tenstorrent system from the list below:"; PS3=$'\n#? '; options=("TT-QuietBox (Wormhole)" "TT-QuietBox (Blackhole)" "TT-LoudBox" "n150s" "n150d" "n300s" "n300d" "p100a" "p150a" "p150b" "Quit"); select opt in "${options[@]}"; do case "$opt" in "TT-QuietBox (Wormhole)") DEVICE="t3k"; MODEL="Llama-3.3-70B-Instruct";; "TT-QuietBox (Blackhole)") DEVICE="p150x4"; MODEL="Llama-3.3-70B-Instruct";; "TT-LoudBox") DEVICE="t3k"; MODEL="Llama-3.3-70B-Instruct";; "n150s"|"n150d") DEVICE="n150"; MODEL="Llama-3.1-8B-Instruct";; "n300s"|"n300d") DEVICE="n300"; MODEL="Llama-3.1-8B-Instruct";; "p100a") DEVICE="p100"; MODEL="Llama-3.1-8B-Instruct";; "p150a"|"p150b") DEVICE="p150"; MODEL="Llama-3.1-8B-Instruct";; "Quit") echo "❌ Exiting without setting DEVICE or MODEL."; return;; *) echo "❌ Invalid option. Try again."; continue;; esac; export DEVICE MODEL; echo -e "\n✅ DEVICE set to '$DEVICE'"; echo "✅ MODEL set to '$MODEL'"; break; done; }; select_device_and_model
+select_device_and_model(){ echo -e "\nSelect a Tenstorrent system from the list below:"; PS3=$'\n#? '; options=("TT-QuietBox (Wormhole)" "TT-QuietBox (Blackhole)" "TT-LoudBox" "n150s" "n150d" "n300s" "n300d" "p100a" "p150a" "p150b" "Quit"); select opt in "${options[@]}"; do IS_BLACKHOLE=""; case "$opt" in "TT-QuietBox (Wormhole)") DEVICE="t3k"; MODEL="Llama-3.3-70B-Instruct";; "TT-QuietBox (Blackhole)") DEVICE="p150x4"; MODEL="Llama-3.3-70B-Instruct"; IS_BLACKHOLE="--dev-mode";; "TT-LoudBox") DEVICE="t3k"; MODEL="Llama-3.3-70B-Instruct";; "n150s"|"n150d") DEVICE="n150"; MODEL="Llama-3.1-8B-Instruct";; "n300s"|"n300d") DEVICE="n300"; MODEL="Llama-3.1-8B-Instruct";; "p100a") DEVICE="p100"; MODEL="Llama-3.1-8B-Instruct"; IS_BLACKHOLE="--dev-mode";; "p150a"|"p150b") DEVICE="p150"; MODEL="Llama-3.1-8B-Instruct"; IS_BLACKHOLE="--dev-mode";; "Quit") echo "❌ Exiting without setting any environment variables."; return;; *) echo "❌ Invalid option. Try again."; continue;; esac; export DEVICE MODEL IS_BLACKHOLE; echo -e "\n✅ DEVICE set to '$DEVICE'"; echo "✅ MODEL set to '$MODEL'"; [ -n "$IS_BLACKHOLE" ] && echo "✅ IS_BLACKHOLE set to '$IS_BLACKHOLE'"; break; done; }; select_device_and_model
 ```
 
-### Cloning tt-inference-server & checking out getting started branch
+### Cloning tt-inference-server
 
 ```bash
 git clone https://github.com/tenstorrent/tt-inference-server.git
 cd tt-inference-server
-git checkout getting-started
+```
+
+⚠️ If you are using a TT-QuietBox (Blackhole), p100a, p150a, or p150b, you must checkout the `bh-getting-started` branch. Blackhole software optimization is still under active development and requires a development version of tt-inference-server.
+```bash
+git checkout bh-getting-started
 ```
 
 ### Starting vLLM server with `run.py` script
@@ -60,15 +64,18 @@ Set the `JWT_SECRET` environment variable. This is a regular string and is used 
 export JWT_SECRET="testing"
 ```
 
-When executing the following command, you will be prompted to answer two questions:
+When executing the following command, you will be prompted to answer three questions:
+  * Where do you want the persistent volume root to be created. **Accept the default: (\<path-to-tt-inference-server\>/persistent_volume)**
   * How do you want to provide the model's weights. **Accept the default: (Download from Hugging Face)**.
-  * Next, you'll be prompted to set a Hugging Face cache location on the host. **Accept the default: (\<path-to-your-home-dir\>/.cache/huggingface)**.
+  * Select the Hugging Face cache location on the host. **Accept the default: (\<path-to-your-home-dir\>/.cache/huggingface)**.
+
+⚠️ If you are using a TT-QuietBox (Blackhole), p100a, p150a, or p150b, you will only by prompted with the second and third questions.
 
 ```bash
-python3 run.py --model $MODEL --device $DEVICE --workflow server --docker-server --dev-mode
+python3 run.py --model $MODEL --device $DEVICE --workflow server --docker-server $IS_BLACKHOLE
 ```
 
-The first time you execute this command it will download the model's weights from Hugging Face. Weight download can take up to 30 minutes depending on the speed of your internet connection. After the above command runs to completion, a Docker container will start and begin initializing the vLLM server. ***This process will take around 30 minutes the first time you start the vLLM server***.
+The first time you execute this command it will download the model's weights from Hugging Face. Weight download can take up to 30 minutes depending on the speed of your internet connection. After the above command runs to completion, a Docker container will start and begin initializing the vLLM server. ***This initialization process will take up to 40 minutes the first time you start the vLLM server for the Llama-3.3-70B-Instruct model***.
 
 ## Make an example request to the vLLM server
 
