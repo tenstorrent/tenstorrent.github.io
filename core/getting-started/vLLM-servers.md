@@ -3,7 +3,7 @@
 This page demonstrates how to deploy LLMs using the [tt-inference-server](https://github.com/tenstorrent/tt-inference-server) project. We use [vLLM](https://docs.vllm.ai/en/latest/) to serve LLMs for production applications. It is also a convenient entry-point into Tenstorrent's software ecosystem.
 
 
-## Deploy a vLLM server using [tt-inference-server](https://github.com/tenstorrent/tt-inference-server)
+## Deploy a vLLM server using tt-inference-server
 
 If this is your first experience with Tenstorrent, these are the recommended models to try with each product:
 * TT-QuietBox (Wormhole), TT-QuietBox (Blackhole), TT-LoudBox
@@ -108,7 +108,8 @@ curl -s "http://localhost:8000/v1/completions" \
   -d "{
     \"model\": \"meta-llama/$MODEL\",
     \"prompt\": \"San Francisco is a\",
-    \"max_tokens\": 50
+    \"max_tokens\": 50,
+    \"temperature\": 0
   }" | jq
 ```
 
@@ -121,6 +122,7 @@ curl -s "http://localhost:8000/v1/completions" \
     -d "{
     \"model\": \"meta-llama/$MODEL\",
     \"prompt\": \"San Francisco is a\",
-    \"max_tokens\": 50
+    \"max_tokens\": 50,
+    \"temperature\": 0
   }" | jq
 ```
