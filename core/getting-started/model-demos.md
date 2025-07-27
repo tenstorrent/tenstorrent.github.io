@@ -6,8 +6,7 @@ This page demonstrates how to run the tt-metalium model demos using the [tt-inst
 ## Downloading and installing the tt-metalium models container
 Execute the following command to download and install the tt-metalium models container:
 ```bash
-# NOTE MAKE SURE NEW RELEASE IS CUT AND DELETE THIS COMMENT
-/bin/bash -c "$(curl -fsSL https://github.com/tenstorrent/tt-installer/releases/latest/download/install.sh)" --no-install-kmd --no-install-hugepages --no-install-metalium-container --install-metalium-models-container --no-install-tt-flash --no-install-tt-topology --update-firmware="off" --reboot-option="never"
+/bin/bash -c "$(curl -fsSL https://github.com/tenstorrent/tt-installer/releases/latest/download/install.sh)" --no-install-kmd --no-install-hugepages --no-install-metalium-container --install-metalium-models-container --no-install-tt-flash --no-install-tt-topology --update-firmware="off" --reboot-option="never" --mode-non-interactive
 ```
 
 ## Starting the container and running a simple program
