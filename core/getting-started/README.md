@@ -7,7 +7,8 @@ Welcome to Tenstorrent! This guide will walk you through setting up your Tensix 
 1. [Prerequisites](#prerequisites)
 2. [Unboxing and Hardware Setup](#unboxing-and-hardware-setup)
 3. [Software Installation](#software-installation)
-4. [Support & FAQ](#support-faq)
+4. [First 5 Things To Do](#first-5-things-to-do)
+5. [Support & FAQ](#support-faq)
 
 ---
 
@@ -62,24 +63,17 @@ If you would prefer to install the software stack manually, see [Manual Installa
 
 ---
 
-## First 5 things To Do
+## First 5 Things To Do
 After tt-installer finishes successfully and you have restarted your system, you can proceed how you like. You may want to:
 
-* [Deploy LLMs](../getting-started/vLLM-servers.md)
-  * This is the recommended path users should take to deploy LLMs.
 * [Run model demos](../getting-started/model-demos.md)
   * Explore pre-built demonstrations of popular models like Llama, Whisper, Stable Diffusion and ResNet.
   * This is a great way to see Tenstorrent's software in action without deep dives into model architecture.
+* [Deploy LLMs](../getting-started/vLLM-servers.md)
+  * This is the recommended path users should take to deploy LLMs.
 * Use a high-level interface to build your own models or migrate from Torch: [Use TT-NN](https://docs.tenstorrent.com/tt-metal/latest/ttnn/ttnn/usage.html#basic-examples).
 * Install TT-Metalium and write high-performance C++ kernels: Read the [installation guide](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/get_started/get_started.html#installation).
 * Learn more about our unique architecture: Start by [reading this guide](https://github.com/tenstorrent/tt-metal/blob/main/METALIUM_GUIDE.md).
-
-### TT-Buda (Deprecated)
-
-Tenstorrent has discontinued development and support for the TT-Buda stack; these links are provided for reference and for developers still using Grayskull® cards.
-
-- [TT-Buda GitHub Repo](https://github.com/tenstorrent/tt-buda)
-- [First 5 Things](https://github.com/tenstorrent/tt-buda-demos/tree/main/first_5_steps) for **TT-Buda**
 
 ---
 
