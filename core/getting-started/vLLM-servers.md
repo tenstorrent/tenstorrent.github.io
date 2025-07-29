@@ -109,7 +109,7 @@ export VLLM_API_KEY=$(python3 -c 'import os; import json; import jwt; json_paylo
 vLLM exposes an [OpenAI-compatible HTTP API](https://platform.openai.com/docs/api-reference/introduction). Here is an example `curl` command to make the first request to the server:
 
 ```bash
-curl -s "http://localhost:8000/v1/completions" \
+curl -sS "http://localhost:8000/v1/completions" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $VLLM_API_KEY" \
   -d "{
@@ -123,7 +123,7 @@ curl -s "http://localhost:8000/v1/completions" \
 Now that the server is warmed up, make the request again to see the server run at full speed
 
 ```bash
-curl -s "http://localhost:8000/v1/completions" \
+curl -sS "http://localhost:8000/v1/completions" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $VLLM_API_KEY" \
     -d "{
