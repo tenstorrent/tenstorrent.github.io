@@ -65,9 +65,9 @@ If you would prefer to install the software stack manually, see [Manual Installa
 ## First 5 things To Do
 After tt-installer finishes successfully and you have restarted your system, you can proceed how you like. You may want to:
 
-* [Deploy LLMs](https://docs.tenstorrent.com/getting-started/vLLM-servers.html)
+* [Deploy LLMs](../getting-started/vLLM-servers.md)
   * This is the recommended path users should take to deploy LLMs.
-* [Run model demos](https://docs.tenstorrent.com/getting-started/model-demos.html)
+* [Run model demos](../getting-started/model-demos.md)
   * Explore pre-built demonstrations of popular models like Llama, Whisper, Stable Diffusion and ResNet.
   * This is a great way to see Tenstorrent's software in action without deep dives into model architecture.
 * Use a high-level interface to build your own models or migrate from Torch: [Use TT-NN](https://docs.tenstorrent.com/tt-metal/latest/ttnn/ttnn/usage.html#basic-examples).
