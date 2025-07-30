@@ -13,7 +13,7 @@ set -e  # Exit on any error
 
 # Error handler
 error_handler() {
-  echo "!!! ERROR: Failed to flash firmware version v18.5.0"
+  echo -e "\033[0;31m!!! ERROR: Failed to flash firmware version v18.5.0\033[0m"
 }
 trap error_handler ERR
 
@@ -81,7 +81,7 @@ set -e  # Exit on any error
 
 # Error handler
 error_handler() {
-  echo "!!! ERROR: Failed to configure mesh topology"
+  echo -e "\033[0;31m!!! ERROR: Failed to configure mesh topology\033[0m"
 }
 trap error_handler ERR
 
