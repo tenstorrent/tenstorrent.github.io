@@ -7,34 +7,67 @@ This page demonstrates how to deploy LLMs using the [tt-inference-server](https:
 - **this page assumes you have already used tt-installer to install the system dependencies as shown in the [starting guide](https://docs.tenstorrent.com/getting-started/README.html)**
 - **if you are using *any* Wormhole-based product, you will need to use firmware version <= v18.5.0, execute the following commands to install v18.5.0:**
 ```bash
+cat > tt_flash_firmware.sh << 'EOF'
 #!/bin/bash
 set -e  # Exit on any error
+
+# Error handler
+error_handler() {
+  echo "!!! ERROR: Failed to flash firmware version v18.5.0"
+}
+trap error_handler ERR
 
 # Create a temporary directory and ensure it's cleaned up on exit
 TMP_DIR=$(mktemp -d)
 cleanup() {
-    rm -rf "$TMP_DIR"
+  echo "---"
+  echo "Cleaning up..."
+  # Deactivate virtual environment if 'deactivate' command exists
+  if type deactivate &>/dev/null; then
+    deactivate
+  fi
+  # Delete temporary directory
+  echo "Removing temporary directory: $TMP_DIR"
+  rm -rf "$TMP_DIR"
+  # Change directory to user's home to avoid being in a deleted directory
+  cd
+  echo "Cleanup complete."
 }
 trap cleanup EXIT
 
 # Move into the temp directory
 cd "$TMP_DIR"
+echo "Working in temporary directory: $TMP_DIR"
+echo "---"
 
 # Download firmware bundle
-wget https://github.com/tenstorrent/tt-firmware/releases/download/v18.5.0/fw_pack-18.5.0.fwbundle
+echo "Downloading firmware bundle..."
+wget -q --show-progress https://github.com/tenstorrent/tt-firmware/releases/download/v18.5.0/fw_pack-18.5.0.fwbundle
+echo "Download complete."
+echo "---"
 
 # Create and activate a virtual environment in temp
+echo "Creating Python virtual environment..."
 python3 -m venv tt-flash-venv
 source tt-flash-venv/bin/activate
+echo "Virtual environment activated."
+echo "---"
 
 # Install tt-flash
+echo "Installing tt-flash from git..."
 pip install --quiet git+https://github.com/tenstorrent/tt-flash.git
+echo "tt-flash installed."
+echo "---"
 
 # Run flash command
+echo "Running flash command. This may take a moment..."
 tt-flash --fw-tar fw_pack-18.5.0.fwbundle --force
+echo "---"
+echo "Script finished successfully."
+EOF
 
-# Deactivate virtual environment
-deactivate
+# Make the script executable and then run it
+chmod +x tt_flash_firmware.sh && ./tt_flash_firmware.sh
 ```
 
 - **if you are using the following Wormhole-based products, you will need to use `tt-topology` to configure a system-level mesh topology between your Wormhole devices:**
@@ -42,31 +75,61 @@ deactivate
   - **TT-LoudBox**
 - **execute the following command to install `tt-topology` and configure the system-level mesh topology:**
 ```bash
+cat > configure_mesh_topology.sh << 'EOF'
 #!/bin/bash
 set -e  # Exit on any error
+
+# Error handler
+error_handler() {
+  echo "!!! ERROR: Failed to configure mesh topology"
+}
+trap error_handler ERR
 
 # Create a temporary directory and ensure it's cleaned up on exit
 TMP_DIR=$(mktemp -d)
 cleanup() {
-    rm -rf "$TMP_DIR"
+  echo "---"
+  echo "Cleaning up..."
+  # Deactivate virtual environment if 'deactivate' command exists
+  if type deactivate &>/dev/null; then
+    deactivate
+  fi
+  # Delete temporary directory
+  echo "Removing temporary directory: $TMP_DIR"
+  rm -rf "$TMP_DIR"
+  # Change directory to user's home to avoid being in a deleted directory
+  cd
+  echo "Cleanup complete."
 }
 trap cleanup EXIT
 
 # Move into the temp directory
 cd "$TMP_DIR"
+echo "Working in temporary directory: $TMP_DIR"
+echo "---"
 
 # Create and activate a virtual environment in temp
-python3 -m venv tt-topo-venv
-source tt-topo-venv/bin/activate
+echo "Creating Python virtual environment..."
+python3 -m venv tt-topology-venv
+source tt-topology-venv/bin/activate
+echo "Virtual environment activated."
+echo "---"
 
 # Install tt-topology
+echo "Installing tt-topology from git..."
 pip install --quiet git+https://github.com/tenstorrent/tt-topology.git
+echo "tt-topology installed."
+echo "---"
 
-# Configure system-level mesh topology
+# Run tt-toplogy command
+echo "Running tt-topology command. This may take a moment..."
 tt-topology -l mesh
+echo "---"
+echo "Script finished successfully."
+EOF
 
-# Deactivate virtual environment
-deactivate
+# Make the script executable and then run it
+chmod +x configure_mesh_topology.sh && ./configure_mesh_topology.sh
 ```
 
 ## Deploy a vLLM server using tt-inference-server
