@@ -2,6 +2,72 @@
 
 This page demonstrates how to deploy LLMs using the [tt-inference-server](https://github.com/tenstorrent/tt-inference-server) project. We use [vLLM](https://docs.vllm.ai/en/latest/) to serve LLMs for production applications. It is also a convenient entry-point into Tenstorrent's software ecosystem.
 
+## Setup system dependencies
+**⚠️ NOTE: you must read the following instructions:**
+- **this page assumes you have already used tt-installer to install the system dependencies as shown in the [starting guide](https://docs.tenstorrent.com/getting-started/README.html)**
+- **if you are using *any* Wormhole-based product, you will need to use firmware version <= v18.5.0, execute the following commands to install v18.5.0:**
+```bash
+#!/bin/bash
+set -e  # Exit on any error
+
+# Create a temporary directory and ensure it's cleaned up on exit
+TMP_DIR=$(mktemp -d)
+cleanup() {
+    rm -rf "$TMP_DIR"
+}
+trap cleanup EXIT
+
+# Move into the temp directory
+cd "$TMP_DIR"
+
+# Download firmware bundle
+wget https://github.com/tenstorrent/tt-firmware/releases/download/v18.5.0/fw_pack-18.5.0.fwbundle
+
+# Create and activate a virtual environment in temp
+python3 -m venv tt-flash-venv
+source tt-flash-venv/bin/activate
+
+# Install tt-flash
+pip install --quiet git+https://github.com/tenstorrent/tt-flash.git
+
+# Run flash command
+tt-flash --fw-tar fw_pack-18.5.0.fwbundle --force
+
+# Deactivate virtual environment
+deactivate
+```
+
+- **if you are using the following Wormhole-based products, you will need to use `tt-topology` to configure a system-level mesh topology between your Wormhole devices:**
+  - **TT-QuietBox (Wormhole)**
+  - **TT-LoudBox**
+- **execute the following command to install `tt-topology` and configure the system-level mesh topology:**
+```bash
+#!/bin/bash
+set -e  # Exit on any error
+
+# Create a temporary directory and ensure it's cleaned up on exit
+TMP_DIR=$(mktemp -d)
+cleanup() {
+    rm -rf "$TMP_DIR"
+}
+trap cleanup EXIT
+
+# Move into the temp directory
+cd "$TMP_DIR"
+
+# Create and activate a virtual environment in temp
+python3 -m venv tt-topo-venv
+source tt-topo-venv/bin/activate
+
+# Install tt-topology
+pip install --quiet git+https://github.com/tenstorrent/tt-topology.git
+
+# Configure system-level mesh topology
+tt-topology -l mesh
+
+# Deactivate virtual environment
+deactivate
+```
 
 ## Deploy a vLLM server using tt-inference-server
 

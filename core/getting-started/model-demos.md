@@ -1,7 +1,7 @@
 # Model Demos
 This page demonstrates how to run the tt-metalium model demos using the [tt-installer](https://github.com/tenstorrent/tt-installer) tool. The tt-installer can be used to download a [container for running the tt-metalium demos](https://github.com/tenstorrent/tt-installer?tab=readme-ov-file#using-tt-metalium). This container possesses a full build of the tt-metalium project, including the demo source code.
 
-**NOTE: this page assumes you have already used tt-installer to install the system dependencies as shown in the [starting guide](https://docs.tenstorrent.com/getting-started/README.html)**
+**⚠️ NOTE: this page assumes you have already used tt-installer to install the system dependencies as shown in the [starting guide](https://docs.tenstorrent.com/getting-started/README.html)**
 
 ## Downloading and installing the tt-metalium models container
 Execute the following command to download and install the tt-metalium models container:
