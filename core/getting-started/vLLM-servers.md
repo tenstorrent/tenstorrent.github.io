@@ -2,7 +2,7 @@
 
 This page demonstrates how to deploy LLMs using the [tt-inference-server](https://github.com/tenstorrent/tt-inference-server) project. We use [vLLM](https://docs.vllm.ai/en/latest/) to serve LLMs for production applications. It is also a convenient entry-point into Tenstorrent's software ecosystem.
 
-## Setup system dependencies
+## 1. Setup system dependencies
 **⚠️ NOTE: you must read the following instructions:**
 - **this page assumes you have already used tt-installer to install the system dependencies as shown in the [starting guide](https://docs.tenstorrent.com/getting-started/README.html)**
 - **if you are using *any* Wormhole-based product, you will need to use firmware version <= v18.5.0, execute the following commands to install v18.5.0:**
@@ -18,7 +18,7 @@ This page demonstrates how to deploy LLMs using the [tt-inference-server](https:
 TMP_DIR=$(mktemp -d); (trap 'echo "---"; echo "Cleaning up..."; if type deactivate &>/dev/null; then deactivate; fi; echo "Removing temporary directory: $TMP_DIR"; rm -rf "$TMP_DIR"; cd; echo "Cleanup complete."' EXIT; trap 'echo -e "\033[0;31m!!! ERROR: Failed to configure mesh topology\033[0m"' ERR; set -e; cd "$TMP_DIR"; echo "Working in temporary directory: $TMP_DIR"; echo "---"; echo "Creating Python virtual environment..."; python3 -m venv tt-topology-venv; source tt-topology-venv/bin/activate; echo "Virtual environment activated."; echo "---"; echo "Installing tt-topology from git..."; pip install --quiet git+https://github.com/tenstorrent/tt-topology.git; echo "tt-topology installed."; echo "---"; echo "Running tt-topology command. This may take a moment..."; tt-topology -l mesh; echo "---"; echo "Script finished successfully.";)
 ```
 
-## Deploy a vLLM server using tt-inference-server
+## 2. Deploy a vLLM server using tt-inference-server
 
 If this is your first experience with Tenstorrent, these are the recommended models to try with each product:
 * TT-QuietBox (Wormhole), TT-QuietBox (Blackhole), TT-LoudBox
@@ -28,7 +28,7 @@ If this is your first experience with Tenstorrent, these are the recommended mod
 
 For a full list of the currently available and tested models, please visit the [tt-inference-server GitHub page](https://github.com/tenstorrent/tt-inference-server).
 
-### Request model permissions and create Hugging Face Access Token
+### a. Request model permissions and create Hugging Face Access Token
 Downloading the recommended models requires access via Hugging Face. You will need to create a Hugging Face account to continue. Please visit the model's Hugging Face model page to request access:
 * TT-QuietBox (Wormhole), TT-QuietBox (Blackhole), TT-LoudBox
   * [meta-llama/Llama-3.3-70B-Instruct](https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct)
@@ -49,13 +49,13 @@ Execute this script to confirm you can access the recommend models:
 check_hf_access() { [ -z "$1" ] && { printf "✖ Error: Please provide a Hugging Face repository ID.\n"; return 1; }; ! command -v curl &>/dev/null && { printf "✖ Error: curl is not installed.\n"; return 1; }; local REPO_ID=$1; local TOKEN=${HF_TOKEN:-$(cat "$HOME/.cache/huggingface/token" 2>/dev/null)}; [ -z "$TOKEN" ] && printf "ℹ️ Info: No Hugging Face token found.\n   You can only access public repositories.\n"; local AUTH_HEADER=""; [ -n "$TOKEN" ] && AUTH_HEADER="Authorization: Bearer $TOKEN"; printf "Checking access for: %s...\n" "$REPO_ID"; local URL="https://huggingface.co/$REPO_ID/resolve/main/config.json"; local HTTP_CODE=$(curl -s -L -o /dev/null -w "%{http_code}" -H "$AUTH_HEADER" "$URL"); case $HTTP_CODE in 200) printf "✔ Access granted.\n";; 401) printf "✖ Access denied (401 Unauthorized).\n  This is a private or gated repository.\n  Ensure your token is valid and has the correct permissions.\n";; 403) printf "✖ Access forbidden (403 Forbidden).\n  The repository is gated.\n  You need to visit the repository page on Hugging Face and request access.\n";; 404) printf "✖ Repository or 'config.json' not found (404 Not Found).\n  Please check if the repository ID '$REPO_ID' is correct.\n";; *) printf "✖ Failed to check access.\n  Received HTTP status code: %s\n" "$HTTP_CODE";; esac; }; HF_HUB_DISABLE_XET=1; check_hf_access "meta-llama/Llama-3.3-70B-Instruct"; check_hf_access "meta-llama/Llama-3.1-8B-Instruct"
 ```
 
-### Specify target hardware and deployment model
+### b. Specify target hardware and deployment model
 Execute this script to specify which hardware product you are using. The script will set the correct environment variables for your hardware product and automatically choose the recommended model to deploy as per the previous section:
 ```bash
 select_device_and_model(){ echo -e "\nSelect a Tenstorrent system from the list below:"; PS3=$'\n#? '; options=("TT-QuietBox (Wormhole)" "TT-QuietBox (Blackhole)" "TT-LoudBox" "n150s" "n150d" "n300s" "n300d" "p100a" "p150a" "p150b" "Quit"); select opt in "${options[@]}"; do IS_BLACKHOLE=""; case "$opt" in "TT-QuietBox (Wormhole)") DEVICE="t3k"; MODEL="Llama-3.3-70B-Instruct";; "TT-QuietBox (Blackhole)") DEVICE="p150x4"; MODEL="Llama-3.3-70B-Instruct"; IS_BLACKHOLE="--dev-mode";; "TT-LoudBox") DEVICE="t3k"; MODEL="Llama-3.3-70B-Instruct";; "n150s"|"n150d") DEVICE="n150"; MODEL="Llama-3.1-8B-Instruct";; "n300s"|"n300d") DEVICE="n300"; MODEL="Llama-3.1-8B-Instruct";; "p100a") DEVICE="p100"; MODEL="Llama-3.1-8B-Instruct"; IS_BLACKHOLE="--dev-mode";; "p150a"|"p150b") DEVICE="p150"; MODEL="Llama-3.1-8B-Instruct"; IS_BLACKHOLE="--dev-mode";; "Quit") echo "❌ Exiting without setting any environment variables."; return;; *) echo "❌ Invalid option. Try again."; continue;; esac; export DEVICE MODEL IS_BLACKHOLE; echo -e "\n✅ DEVICE set to '$DEVICE'"; echo "✅ MODEL set to '$MODEL'"; [ -n "$IS_BLACKHOLE" ] && echo "✅ IS_BLACKHOLE set to '$IS_BLACKHOLE'"; break; done; }; select_device_and_model
 ```
 
-### Cloning tt-inference-server
+### c. Cloning tt-inference-server
 
 ```bash
 git clone https://github.com/tenstorrent/tt-inference-server.git
@@ -67,7 +67,7 @@ cd tt-inference-server
 git checkout bh-getting-started
 ```
 
-### Starting vLLM server with `run.py` script
+### d. Starting vLLM server with `run.py` script
 
 > ⚠️ Disk Space Warning
 > 
@@ -92,7 +92,7 @@ python3 run.py --model $MODEL --device $DEVICE --workflow server --docker-server
 
 The first time you execute this command it will download the model's weights from Hugging Face. Weight download can take up to 30 minutes depending on the speed of your internet connection. After the above command runs to completion, a Docker container will start and begin initializing the vLLM server. ***This initialization process will take up to 40 minutes the first time you start the vLLM server for the Llama-3.3-70B-Instruct model***.
 
-## Make an example request to the vLLM server
+## 3. Make an example request to the vLLM server
 
 The vLLM server should now be running on port 8000 of your machine. To check if the server is ready to be called, execute this command:
 ```bash
