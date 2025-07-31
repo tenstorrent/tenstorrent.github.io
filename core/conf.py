@@ -19,7 +19,11 @@ release = '1.0'
 templates_path = ['../shared/_templates']
 exclude_patterns = []
 extensions = ['myst_parser',
-              'sphinx_substitution_extensions',]
+              'sphinx_substitution_extensions',
+              'sphinx_copybutton',
+              ]
+
+copybutton_selector = 'div.highlight-bash pre'
 
 myst_enable_extensions = [
     'substitution'
