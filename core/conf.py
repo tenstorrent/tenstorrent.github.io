@@ -19,7 +19,11 @@ release = '1.0'
 templates_path = ['../shared/_templates']
 exclude_patterns = []
 extensions = ['myst_parser',
-              'sphinx_substitution_extensions',]
+              'sphinx_substitution_extensions',
+              'sphinx_copybutton',
+              ]
+
+copybutton_selector = 'div.highlight-bash pre'
 
 myst_enable_extensions = [
     'substitution'
@@ -42,7 +46,8 @@ myst_substitutions = {
 html_theme = "sphinx_rtd_theme"
 html_logo = "../shared/images/tt_logo.svg"
 html_favicon = "../shared/images/favicon.png"
-html_static_path = ['../shared/_static', '_static/assets']
+html_static_path = ['../shared/_static', '_static/assets', '_static/js']
+html_js_files = ['custom.js']
 html_last_updated_fmt = "%b %d, %Y"
 
 html_context = {
