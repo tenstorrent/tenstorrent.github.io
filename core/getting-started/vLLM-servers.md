@@ -4,7 +4,7 @@ This page demonstrates how to deploy LLMs using the [tt-inference-server](https:
 
 ## 1. Setup system dependencies
 **⚠️ NOTE: you must read the following instructions:**
-- **this page assumes you have already used tt-installer to install the system dependencies as shown in the [starting guide](https://docs.tenstorrent.com/getting-started/README.html)**
+- **this page assumes you have already used tt-installer to install the system dependencies as shown in the [starting guide](./README.md)**
 - **if you are using *any* Wormhole-based product, you will need to use firmware version <= v18.5.0, execute the following commands to install v18.5.0:**
 ```bash
 (set -e; error_handler() { echo -e "\033[0;31m!!! ERROR: Failed to flash firmware version v18.5.0\033[0m"; }; trap error_handler ERR; TMP_DIR=$(mktemp -d); cleanup() { echo "---"; echo "Cleaning up..."; if type deactivate &>/dev/null; then deactivate; fi; echo "Removing temporary directory: $TMP_DIR"; rm -rf "$TMP_DIR"; cd; echo "Cleanup complete."; }; trap cleanup EXIT; cd "$TMP_DIR"; echo "Working in temporary directory: $TMP_DIR"; echo "---"; echo "Downloading firmware bundle..."; wget -q --show-progress https://github.com/tenstorrent/tt-firmware/releases/download/v18.5.0/fw_pack-18.5.0.fwbundle; echo "Download complete."; echo "---"; echo "Creating Python virtual environment..."; python3 -m venv tt-flash-venv; source tt-flash-venv/bin/activate; echo "Virtual environment activated."; echo "---"; echo "Installing tt-flash from git..."; pip install --quiet git+https://github.com/tenstorrent/tt-flash.git; echo "tt-flash installed."; echo "---"; echo "Running flash command. This may take a moment..."; tt-flash --fw-tar fw_pack-18.5.0.fwbundle --force; echo "---"; echo "Script finished successfully.";)
