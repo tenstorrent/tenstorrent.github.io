@@ -8,3 +8,4 @@ sphinxcontrib.email
 sphinx-reredirects
 Sphinx_Substitution_Extensions
 sphinx-sitemap
+sphinx-copybutton

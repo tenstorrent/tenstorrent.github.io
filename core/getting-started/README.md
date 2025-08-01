@@ -7,7 +7,8 @@ Welcome to Tenstorrent! This guide will walk you through setting up your Tensix 
 1. [Prerequisites](#prerequisites)
 2. [Unboxing and Hardware Setup](#unboxing-and-hardware-setup)
 3. [Software Installation](#software-installation)
-4. [Support & FAQ](#support-faq)
+4. [First 5 Things To Do](#first-5-things-to-do)
+5. [Support & FAQ](#support-faq)
 
 ---
 
@@ -60,32 +61,21 @@ tt-installer configures necessary packages on your system and installs system-le
 For more information about tt-installer, please see the [repository](https://github.com/tenstorrent/tt-installer).
 If you would prefer to install the software stack manually, see [Manual Installation](https://docs.tenstorrent.com/getting-started/manual-software-install.html).
 
-### Next Steps
-After tt-installer finishes successfully and you have restarted your system, you can proceed to next steps. You may want to:
+---
 
-- Run existing models like Llama and DeepSeek: Use [TT-Transformers](https://github.com/tenstorrent/tt-metal/tree/main/models/tt_transformers).
-- Use a high-level interface to build your own models or migrate from Torch: Use [TT-NN](https://docs.tenstorrent.com/tt-metal/latest/ttnn/ttnn/usage.html#basic-examples).
-- Install TT-Metalium and write high-performance C++ kernels: Read [First 5 Things](https://docs.tenstorrent.com/getting-started/README.html#first-5-things-to-do-with-tt-metalium) below.
-- Learn more about our unique architecture: Start by [reading this guide](https://github.com/tenstorrent/tt-metal/blob/main/METALIUM_GUIDE.md).
+## First 5 Things To Do
+After tt-installer finishes successfully and you have restarted your system, you can proceed how you like. You may want to:
 
-#### First 5 Things To Do With TT-Metalium
-1. **Install and Build:** If you're a developer, install and build the project by following the instructions in the [installation guide](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/installing.html).
-2. **Beginner TT-Metalium Usage | DRAM Loopback:** Try creating a [basic kernel example](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/tt_metal/examples/dram_loopback.html#dram-loopback-example) that uses the L1 and DRAM memory structures of the Tenstorrent device.
-3. **Beginner TT-Metalium Usage | Eltwise Binary Kernel:** Augment your loopback example with an [additional kernel](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/tt_metal/examples/eltwise_binary.html#eltwise-binary-example) that will use the compute engine of the Tensix
-  core to add values in two buffers.
-4. **Beginner TT-Metalium Usage | Single-Core Matrix Multiplication Kernel:** Use TT-Metalium to define your own matrix multiplication kernels. Refer to our simpler [single-core](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/tt_metal/examples/matmul_single_core.html#matmul-single-core-example) example as a starting point.
-5. **Advanced Metalium Usage | Multi-core Matrix Multiplication Kernel:** Explore expert-level usage by building on the previous example to create a [multi-core](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/tt_metal/examples/matmul_multi_core.html#matmul-multi-core-example) implementation.
+* [Run model demos](../getting-started/model-demos.md)
+  * Explore pre-built demonstrations of popular models like Llama, Whisper, Stable Diffusion and ResNet.
+  * This is a great way to see Tenstorrent's software in action without deep dives into model architecture.
+* [Deploy LLMs](../getting-started/vLLM-servers.md)
+  * This is the recommended path users should take to deploy LLMs.
+* Use a high-level interface to build your own models or migrate from Torch: [Use TT-NN](https://docs.tenstorrent.com/tt-metal/latest/ttnn/ttnn/usage.html#basic-examples).
+* Install TT-Metalium and write high-performance C++ kernels: Read the [installation guide](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/get_started/get_started.html#installation).
+* Learn more about our unique architecture: Start by [reading this guide](https://github.com/tenstorrent/tt-metal/blob/main/METALIUM_GUIDE.md).
 
-#### Starting with TT-NN
-
-To get started with TT-NN, visit [this page](https://docs.tenstorrent.com/tt-metal/latest/ttnn/ttnn/get_started.html).
-
-### TT-Buda (Deprecated)
-
-Tenstorrent has discontinued development and support for the TT-Buda stack; these links are provided for reference and for developers still using Grayskull® cards.
-
-- [TT-Buda GitHub Repo](https://github.com/tenstorrent/tt-buda)
-- [First 5 Things](https://github.com/tenstorrent/tt-buda-demos/tree/main/first_5_steps) for **TT-Buda**
+---
 
 ## Support & FAQ
 

@@ -9,6 +9,8 @@ Tenstorrent
    :caption: Getting Started
 
    getting-started/README
+   getting-started/model-demos
+   getting-started/vLLM-servers
 
 .. toctree::
    :hidden:
