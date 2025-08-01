@@ -1,0 +1,314 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deploy LLMs &mdash; Home 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/tt_theme.css?v=0bbfeaf8" />
+      <link rel="stylesheet" type="text/css" href="../_static/home.css?v=c560917e" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=fd3dd8dd"></script>
+      <script src="../_static/custom.js?v=0ccd5bc4"></script>
+      <script src="../_static/posthog.js?v=a97abc7e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Add-In Boards / Cards" href="../aibs/index.html" />
+    <link rel="prev" title="Model Demos" href="model-demos.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+<a href="https://tenstorrent.github.io/">
+    <img src="../_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+
+<a href="../index.html">
+    Home
+</a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">Starting Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model-demos.html">Model Demos</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Deploy LLMs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setup-system-dependencies">1. Setup system dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deploy-a-vllm-server-using-tt-inference-server">2. Deploy a vLLM server using tt-inference-server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#a-request-model-permissions-and-create-hugging-face-access-token">a. Request model permissions and create Hugging Face Access Token</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#b-specify-target-hardware-and-deployment-model">b. Specify target hardware and deployment model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#c-cloning-tt-inference-server">c. Cloning tt-inference-server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#d-starting-vllm-server-with-run-py-script">d. Starting vLLM server with <code class="docutils literal notranslate"><span class="pre">run.py</span></code> script</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#make-an-example-request-to-the-vllm-server">3. Make an example request to the vLLM server</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Hardware</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aibs/index.html">Add-In Boards / Cards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../systems/index.html">Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/pybuda/latest/index.html">TT-Buda (Deprecated)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/index.html">TT-Metalium</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/index.html">TT-NN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../forge/index.html">TT-Forge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual-software-install.html">Manual Software Installation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/README.html">Support &amp; FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Legal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/bounty_terms.html">Bounty Program Terms</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Home</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Deploy LLMs</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/getting-started/vLLM-servers.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="deploy-llms">
+<h1>Deploy LLMs<a class="headerlink" href="#deploy-llms" title="Link to this heading"></a></h1>
+<p>This page demonstrates how to deploy LLMs using the <a class="reference external" href="https://github.com/tenstorrent/tt-inference-server">tt-inference-server</a> project. We use <a class="reference external" href="https://docs.vllm.ai/en/latest/">vLLM</a> to serve LLMs for production applications. It is also a convenient entry-point into Tenstorrent’s software ecosystem.</p>
+<section id="setup-system-dependencies">
+<h2>1. Setup system dependencies<a class="headerlink" href="#setup-system-dependencies" title="Link to this heading"></a></h2>
+<p><strong>⚠️ NOTE: you must read the following instructions:</strong></p>
+<ul class="simple">
+<li><p><strong>this page assumes you have already used tt-installer to install the system dependencies as shown in the <a class="reference internal" href="README.html"><span class="std std-doc">starting guide</span></a></strong></p></li>
+<li><p><strong>if you are using <em>any</em> Wormhole-based product, you will need to use firmware version &lt;= v18.5.0, execute the following commands to install v18.5.0:</strong></p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span><span class="nb">set</span><span class="w"> </span>-e<span class="p">;</span><span class="w"> </span>error_handler<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\033[0;31m!!! ERROR: Failed to flash firmware version v18.5.0\033[0m&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span><span class="p">;</span><span class="w"> </span><span class="nb">trap</span><span class="w"> </span>error_handler<span class="w"> </span>ERR<span class="p">;</span><span class="w"> </span><span class="nv">TMP_DIR</span><span class="o">=</span><span class="k">$(</span>mktemp<span class="w"> </span>-d<span class="k">)</span><span class="p">;</span><span class="w"> </span>cleanup<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;---&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Cleaning up...&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span>deactivate<span class="w"> </span><span class="p">&amp;</span>&gt;/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span>deactivate<span class="p">;</span><span class="w"> </span><span class="k">fi</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Removing temporary directory: </span><span class="nv">$TMP_DIR</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TMP_DIR</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span>cd<span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Cleanup complete.&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span><span class="p">;</span><span class="w"> </span><span class="nb">trap</span><span class="w"> </span>cleanup<span class="w"> </span>EXIT<span class="p">;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TMP_DIR</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Working in temporary directory: </span><span class="nv">$TMP_DIR</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;---&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Downloading firmware bundle...&quot;</span><span class="p">;</span><span class="w"> </span>wget<span class="w"> </span>-q<span class="w"> </span>--show-progress<span class="w"> </span>https://github.com/tenstorrent/tt-firmware/releases/download/v18.5.0/fw_pack-18.5.0.fwbundle<span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Download complete.&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;---&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Creating Python virtual environment...&quot;</span><span class="p">;</span><span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>tt-flash-venv<span class="p">;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>tt-flash-venv/bin/activate<span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Virtual environment activated.&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;---&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Installing tt-flash from git...&quot;</span><span class="p">;</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--quiet<span class="w"> </span>git+https://github.com/tenstorrent/tt-flash.git<span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;tt-flash installed.&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;---&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Running flash command. This may take a moment...&quot;</span><span class="p">;</span><span class="w"> </span>tt-flash<span class="w"> </span>--fw-tar<span class="w"> </span>fw_pack-18.5.0.fwbundle<span class="w"> </span>--force<span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;---&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Script finished successfully.&quot;</span><span class="p">;</span><span class="o">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>if you are using the following Wormhole-based products, you will need to use <code class="docutils literal notranslate"><span class="pre">tt-topology</span></code> to configure a system-level mesh topology between your Wormhole devices:</strong></p>
+<ul>
+<li><p><strong>TT-QuietBox (Wormhole)</strong></p></li>
+<li><p><strong>TT-LoudBox</strong></p></li>
+</ul>
+</li>
+<li><p><strong>execute the following command to install <code class="docutils literal notranslate"><span class="pre">tt-topology</span></code> and configure the system-level mesh topology:</strong></p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">TMP_DIR</span><span class="o">=</span><span class="k">$(</span>mktemp<span class="w"> </span>-d<span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="o">(</span><span class="nb">trap</span><span class="w"> </span><span class="s1">&#39;echo &quot;---&quot;; echo &quot;Cleaning up...&quot;; if type deactivate &amp;&gt;/dev/null; then deactivate; fi; echo &quot;Removing temporary directory: $TMP_DIR&quot;; rm -rf &quot;$TMP_DIR&quot;; cd; echo &quot;Cleanup complete.&quot;&#39;</span><span class="w"> </span>EXIT<span class="p">;</span><span class="w"> </span><span class="nb">trap</span><span class="w"> </span><span class="s1">&#39;echo -e &quot;\033[0;31m!!! ERROR: Failed to configure mesh topology\033[0m&quot;&#39;</span><span class="w"> </span>ERR<span class="p">;</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span>-e<span class="p">;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TMP_DIR</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Working in temporary directory: </span><span class="nv">$TMP_DIR</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;---&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Creating Python virtual environment...&quot;</span><span class="p">;</span><span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>tt-topology-venv<span class="p">;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>tt-topology-venv/bin/activate<span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Virtual environment activated.&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;---&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Installing tt-topology from git...&quot;</span><span class="p">;</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--quiet<span class="w"> </span>git+https://github.com/tenstorrent/tt-topology.git<span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;tt-topology installed.&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;---&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Running tt-topology command. This may take a moment...&quot;</span><span class="p">;</span><span class="w"> </span>tt-topology<span class="w"> </span>-l<span class="w"> </span>mesh<span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;---&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Script finished successfully.&quot;</span><span class="p">;</span><span class="o">)</span>
+</pre></div>
+</div>
+</section>
+<section id="deploy-a-vllm-server-using-tt-inference-server">
+<h2>2. Deploy a vLLM server using tt-inference-server<a class="headerlink" href="#deploy-a-vllm-server-using-tt-inference-server" title="Link to this heading"></a></h2>
+<p>If this is your first experience with Tenstorrent, these are the recommended models to try with each product:</p>
+<ul class="simple">
+<li><p>TT-QuietBox (Wormhole), TT-QuietBox (Blackhole), TT-LoudBox</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">meta-llama/Llama-3.3-70B-Instruct</span></code></p></li>
+</ul>
+</li>
+<li><p>n150s, n150d, n300s, n300d, p100a, p150a, p150b</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">meta-llama/Llama-3.1-8B-Instruct</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p>For a full list of the currently available and tested models, please visit the <a class="reference external" href="https://github.com/tenstorrent/tt-inference-server">tt-inference-server GitHub page</a>.</p>
+<section id="a-request-model-permissions-and-create-hugging-face-access-token">
+<h3>a. Request model permissions and create Hugging Face Access Token<a class="headerlink" href="#a-request-model-permissions-and-create-hugging-face-access-token" title="Link to this heading"></a></h3>
+<p>Downloading the recommended models requires access via Hugging Face. You will need to create a Hugging Face account to continue. Please visit the model’s Hugging Face model page to request access:</p>
+<ul class="simple">
+<li><p>TT-QuietBox (Wormhole), TT-QuietBox (Blackhole), TT-LoudBox</p>
+<ul>
+<li><p><a class="reference external" href="https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct">meta-llama/Llama-3.3-70B-Instruct</a></p></li>
+</ul>
+</li>
+<li><p>n150s, n150d, n300s, n300d, p100a, p150a, p150b</p>
+<ul>
+<li><p><a class="reference external" href="https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct">meta-llama/Llama-3.1-8B-Instruct</a></p></li>
+</ul>
+</li>
+</ul>
+<p><strong>NOTE: It can take up to a few days to be granted access. This process is not controlled by Tenstorrent</strong></p>
+<p>Once you have been granted access, you will need to create a Hugging Face access token. To generate one, follow these instructions: <a class="reference external" href="https://huggingface.co/docs/hub/en/security-tokens">https://huggingface.co/docs/hub/en/security-tokens</a>. This token is required to download the model’s weights from Hugging Face.</p>
+<p>Now, using the system you will be deploying the vLLM server on, export the <code class="docutils literal notranslate"><span class="pre">HF_TOKEN</span></code> environment variable and set the value to your Hugging Face Access Token:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">HF_TOKEN</span><span class="o">=</span>&lt;your-hugging-face-access-token&gt;
+</pre></div>
+</div>
+</section>
+<section id="b-specify-target-hardware-and-deployment-model">
+<h3>b. Specify target hardware and deployment model<a class="headerlink" href="#b-specify-target-hardware-and-deployment-model" title="Link to this heading"></a></h3>
+<p>Execute this script to specify which hardware product you are using. The script will set the correct environment variables for your hardware product and automatically choose the recommended model to deploy as per the previous section:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>select_device_and_model<span class="o">(){</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\nSelect a Tenstorrent system from the list below:&quot;</span><span class="p">;</span><span class="w"> </span><span class="nv">PS3</span><span class="o">=</span><span class="s1">$&#39;\n#? &#39;</span><span class="p">;</span><span class="w"> </span><span class="nv">options</span><span class="o">=(</span><span class="s2">&quot;TT-QuietBox (Wormhole)&quot;</span><span class="w"> </span><span class="s2">&quot;TT-QuietBox (Blackhole)&quot;</span><span class="w"> </span><span class="s2">&quot;TT-LoudBox&quot;</span><span class="w"> </span><span class="s2">&quot;n150s&quot;</span><span class="w"> </span><span class="s2">&quot;n150d&quot;</span><span class="w"> </span><span class="s2">&quot;n300s&quot;</span><span class="w"> </span><span class="s2">&quot;n300d&quot;</span><span class="w"> </span><span class="s2">&quot;p100a&quot;</span><span class="w"> </span><span class="s2">&quot;p150a&quot;</span><span class="w"> </span><span class="s2">&quot;p150b&quot;</span><span class="w"> </span><span class="s2">&quot;Quit&quot;</span><span class="o">)</span><span class="p">;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span>opt<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">options</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nv">IS_BLACKHOLE</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$opt</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;TT-QuietBox (Wormhole)&quot;</span><span class="o">)</span><span class="w"> </span><span class="nv">DEVICE</span><span class="o">=</span><span class="s2">&quot;t3k&quot;</span><span class="p">;</span><span class="w"> </span><span class="nv">MODEL</span><span class="o">=</span><span class="s2">&quot;Llama-3.3-70B-Instruct&quot;</span><span class="p">;;</span><span class="w"> </span><span class="s2">&quot;TT-QuietBox (Blackhole)&quot;</span><span class="o">)</span><span class="w"> </span><span class="nv">DEVICE</span><span class="o">=</span><span class="s2">&quot;p150x4&quot;</span><span class="p">;</span><span class="w"> </span><span class="nv">MODEL</span><span class="o">=</span><span class="s2">&quot;Llama-3.3-70B-Instruct&quot;</span><span class="p">;</span><span class="w"> </span><span class="nv">IS_BLACKHOLE</span><span class="o">=</span><span class="s2">&quot;--dev-mode&quot;</span><span class="p">;;</span><span class="w"> </span><span class="s2">&quot;TT-LoudBox&quot;</span><span class="o">)</span><span class="w"> </span><span class="nv">DEVICE</span><span class="o">=</span><span class="s2">&quot;t3k&quot;</span><span class="p">;</span><span class="w"> </span><span class="nv">MODEL</span><span class="o">=</span><span class="s2">&quot;Llama-3.3-70B-Instruct&quot;</span><span class="p">;;</span><span class="w"> </span><span class="s2">&quot;n150s&quot;</span><span class="p">|</span><span class="s2">&quot;n150d&quot;</span><span class="o">)</span><span class="w"> </span><span class="nv">DEVICE</span><span class="o">=</span><span class="s2">&quot;n150&quot;</span><span class="p">;</span><span class="w"> </span><span class="nv">MODEL</span><span class="o">=</span><span class="s2">&quot;Llama-3.1-8B-Instruct&quot;</span><span class="p">;;</span><span class="w"> </span><span class="s2">&quot;n300s&quot;</span><span class="p">|</span><span class="s2">&quot;n300d&quot;</span><span class="o">)</span><span class="w"> </span><span class="nv">DEVICE</span><span class="o">=</span><span class="s2">&quot;n300&quot;</span><span class="p">;</span><span class="w"> </span><span class="nv">MODEL</span><span class="o">=</span><span class="s2">&quot;Llama-3.1-8B-Instruct&quot;</span><span class="p">;;</span><span class="w"> </span><span class="s2">&quot;p100a&quot;</span><span class="o">)</span><span class="w"> </span><span class="nv">DEVICE</span><span class="o">=</span><span class="s2">&quot;p100&quot;</span><span class="p">;</span><span class="w"> </span><span class="nv">MODEL</span><span class="o">=</span><span class="s2">&quot;Llama-3.1-8B-Instruct&quot;</span><span class="p">;</span><span class="w"> </span><span class="nv">IS_BLACKHOLE</span><span class="o">=</span><span class="s2">&quot;--dev-mode&quot;</span><span class="p">;;</span><span class="w"> </span><span class="s2">&quot;p150a&quot;</span><span class="p">|</span><span class="s2">&quot;p150b&quot;</span><span class="o">)</span><span class="w"> </span><span class="nv">DEVICE</span><span class="o">=</span><span class="s2">&quot;p150&quot;</span><span class="p">;</span><span class="w"> </span><span class="nv">MODEL</span><span class="o">=</span><span class="s2">&quot;Llama-3.1-8B-Instruct&quot;</span><span class="p">;</span><span class="w"> </span><span class="nv">IS_BLACKHOLE</span><span class="o">=</span><span class="s2">&quot;--dev-mode&quot;</span><span class="p">;;</span><span class="w"> </span><span class="s2">&quot;Quit&quot;</span><span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;❌ Exiting without setting any environment variables.&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">return</span><span class="p">;;</span><span class="w"> </span>*<span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;❌ Invalid option. Try again.&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">continue</span><span class="p">;;</span><span class="w"> </span><span class="k">esac</span><span class="p">;</span><span class="w"> </span><span class="nb">export</span><span class="w"> </span>DEVICE<span class="w"> </span>MODEL<span class="w"> </span>IS_BLACKHOLE<span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n✅ DEVICE set to &#39;</span><span class="nv">$DEVICE</span><span class="s2">&#39;&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ MODEL set to &#39;</span><span class="nv">$MODEL</span><span class="s2">&#39;&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$IS_BLACKHOLE</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ IS_BLACKHOLE set to &#39;</span><span class="nv">$IS_BLACKHOLE</span><span class="s2">&#39;&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"> </span><span class="k">done</span><span class="p">;</span><span class="w"> </span><span class="o">}</span><span class="p">;</span><span class="w"> </span>select_device_and_model
+</pre></div>
+</div>
+<p>Execute this script to confirm you can access the recommended model’s weights:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>check_hf_access<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$MODEL</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;✖ Error: Please provide a Hugging Face repository ID.\n&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="o">}</span><span class="p">;</span><span class="w"> </span>!<span class="w"> </span><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span>curl<span class="w"> </span><span class="p">&amp;</span>&gt;/dev/null<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;✖ Error: curl is not installed.\n&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="o">}</span><span class="p">;</span><span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="nv">REPO_ID</span><span class="o">=</span><span class="s2">&quot;meta-llama/</span><span class="nv">$MODEL</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="nv">TOKEN</span><span class="o">=</span><span class="si">${</span><span class="nv">HF_TOKEN</span><span class="k">:-$(</span>cat<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.cache/huggingface/token&quot;</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="k">)</span><span class="si">}</span><span class="p">;</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TOKEN</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;ℹ️ Info: No Hugging Face token found.\n   You can only access public repositories.\n&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="nv">AUTH_HEADER</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TOKEN</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nv">AUTH_HEADER</span><span class="o">=</span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;Checking access for: %s...\n&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$REPO_ID</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="nv">URL</span><span class="o">=</span><span class="s2">&quot;https://huggingface.co/</span><span class="nv">$REPO_ID</span><span class="s2">/resolve/main/config.json&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="nv">HTTP_CODE</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span>-L<span class="w"> </span>-o<span class="w"> </span>/dev/null<span class="w"> </span>-w<span class="w"> </span><span class="s2">&quot;%{http_code}&quot;</span><span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$AUTH_HEADER</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$URL</span><span class="s2">&quot;</span><span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="nv">$HTTP_CODE</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">200</span><span class="o">)</span><span class="w"> </span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;✔ Access granted.\n&quot;</span><span class="p">;;</span><span class="w"> </span><span class="m">401</span><span class="o">)</span><span class="w"> </span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;✖ Access denied (401 Unauthorized).\n  This is a private or gated repository.\n  Ensure your token is valid and has the correct permissions.\n&quot;</span><span class="p">;;</span><span class="w"> </span><span class="m">403</span><span class="o">)</span><span class="w"> </span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;✖ Access forbidden (403 Forbidden).\n  The repository is gated.\n  You need to visit the repository page on Hugging Face and request access.\n&quot;</span><span class="p">;;</span><span class="w"> </span><span class="m">404</span><span class="o">)</span><span class="w"> </span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;✖ Repository or &#39;config.json&#39; not found (404 Not Found).\n  Please check if the repository ID &#39;</span><span class="nv">$REPO_ID</span><span class="s2">&#39; is correct.\n&quot;</span><span class="p">;;</span><span class="w"> </span>*<span class="o">)</span><span class="w"> </span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;✖ Failed to check access.\n  Received HTTP status code: %s\n&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HTTP_CODE</span><span class="s2">&quot;</span><span class="p">;;</span><span class="w"> </span><span class="k">esac</span><span class="p">;</span><span class="w"> </span><span class="o">}</span><span class="p">;</span><span class="w"> </span><span class="nv">HF_HUB_DISABLE_XET</span><span class="o">=</span><span class="m">1</span><span class="p">;</span><span class="w"> </span>check_hf_access<span class="p">;</span>
+</pre></div>
+</div>
+<p>If the command does not succeed and print “✔ Access granted.”, please make sure you have exported your Hugging Face token as per <a class="reference internal" href="#a-request-model-permissions-and-create-hugging-face-access-token"><span class="xref myst">the above instructions</span></a>.</p>
+</section>
+<section id="c-cloning-tt-inference-server">
+<h3>c. Cloning tt-inference-server<a class="headerlink" href="#c-cloning-tt-inference-server" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/tenstorrent/tt-inference-server.git
+<span class="nb">cd</span><span class="w"> </span>tt-inference-server
+</pre></div>
+</div>
+<p>⚠️ If you are using a TT-QuietBox (Blackhole), p100a, p150a, or p150b, you must checkout the <code class="docutils literal notranslate"><span class="pre">bh-getting-started</span></code> branch. Blackhole software optimization is still under active development and requires a development version of tt-inference-server.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>bh-getting-started
+</pre></div>
+</div>
+</section>
+<section id="d-starting-vllm-server-with-run-py-script">
+<h3>d. Starting vLLM server with <code class="docutils literal notranslate"><span class="pre">run.py</span></code> script<a class="headerlink" href="#d-starting-vllm-server-with-run-py-script" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>⚠️ Disk Space Warning</p>
+<p>You will need at least <strong>360GB</strong> of free disk space in your root partition (typically where your home directory is mounted).</p>
+</div></blockquote>
+<p>Set the <code class="docutils literal notranslate"><span class="pre">JWT_SECRET</span></code> environment variable. This is a regular string and is used to seed the generation of your vLLM server’s API key.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">JWT_SECRET</span><span class="o">=</span><span class="s2">&quot;testing&quot;</span>
+</pre></div>
+</div>
+<p>When executing the following command, you will be prompted to answer three questions:</p>
+<ul class="simple">
+<li><p>Where do you want the persistent volume root to be created. <strong>Accept the default: (&lt;path-to-tt-inference-server&gt;/persistent_volume)</strong></p></li>
+<li><p>How do you want to provide the model’s weights. <strong>Accept the default: (Download from Hugging Face)</strong>.</p></li>
+<li><p>Select the Hugging Face cache location on the host. <strong>Accept the default: (&lt;path-to-your-home-dir&gt;/.cache/huggingface)</strong>.</p></li>
+</ul>
+<p>⚠️ If you are using a TT-QuietBox (Blackhole), p100a, p150a, or p150b, you will only by prompted with the second and third questions.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>run.py<span class="w"> </span>--model<span class="w"> </span><span class="nv">$MODEL</span><span class="w"> </span>--device<span class="w"> </span><span class="nv">$DEVICE</span><span class="w"> </span>--workflow<span class="w"> </span>server<span class="w"> </span>--docker-server<span class="w"> </span><span class="nv">$IS_BLACKHOLE</span>
+</pre></div>
+</div>
+<p>The first time you execute this command it will download the model’s weights from Hugging Face. Weight download can take up to 30 minutes depending on the speed of your internet connection. After the above command runs to completion, a Docker container will start and begin initializing the vLLM server. <em><strong>This initialization process will take up to 40 minutes the first time you start the vLLM server for the Llama-3.3-70B-Instruct model</strong></em>.</p>
+</section>
+</section>
+<section id="make-an-example-request-to-the-vllm-server">
+<h2>3. Make an example request to the vLLM server<a class="headerlink" href="#make-an-example-request-to-the-vllm-server" title="Link to this heading"></a></h2>
+<p>The vLLM server should now be running on port 8000 of your machine. To check if the server is ready to be called, execute this command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>check_server_health<span class="o">(){</span><span class="w"> </span><span class="nv">code</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span>-o<span class="w"> </span>/dev/null<span class="w"> </span>-w<span class="w"> </span><span class="s2">&quot;%{http_code}&quot;</span><span class="w"> </span>http://localhost:8000/health<span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="nv">exit_code</span><span class="o">=</span><span class="nv">$?</span><span class="p">;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$exit_code</span><span class="w"> </span>-ne<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;❌ Error: Unable to connect to server at localhost:8000&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">elif</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$code</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">200</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ Server is ready (HTTP 200)&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;⚠️ Server responded with status: </span><span class="nv">$code</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">fi</span><span class="p">;</span><span class="w"> </span><span class="o">}</span><span class="p">;</span><span class="w"> </span>check_server_health
+</pre></div>
+</div>
+<p>If the following message is printed, then the vLLM server is still not ready:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>❌ Error: Unable to connect to server at localhost:8000
+</pre></div>
+</div>
+<p>If the following message is printed, the vLLM server is ready to handle requests:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>✅<span class="w"> </span>Server<span class="w"> </span>is<span class="w"> </span>ready<span class="w"> </span><span class="o">(</span>HTTP<span class="w"> </span><span class="m">200</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>Now that the vLLM server is ready, you must configure an API key to authenticate your requests to the server using the previously set <code class="docutils literal notranslate"><span class="pre">JWT_SECRET</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">VLLM_API_KEY</span></code> will be the environment variable which holds the API key.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>request-venv
+<span class="nb">source</span><span class="w"> </span>request-venv/bin/activate
+pip3<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+pip<span class="w"> </span>install<span class="w"> </span><span class="nv">pyjwt</span><span class="o">==</span><span class="m">2</span>.7.0
+<span class="nb">export</span><span class="w"> </span><span class="nv">VLLM_API_KEY</span><span class="o">=</span><span class="k">$(</span>python3<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;import os; import json; import jwt; json_payload = json.loads(&quot;{\&quot;team_id\&quot;: \&quot;tenstorrent\&quot;, \&quot;token_id\&quot;: \&quot;debug-test\&quot;}&quot;); encoded_jwt = jwt.encode(json_payload, os.environ[&quot;JWT_SECRET&quot;], algorithm=&quot;HS256&quot;); print(encoded_jwt)&#39;</span><span class="k">)</span>
+</pre></div>
+</div>
+<p><strong>The first request to the server is used to perform warmup. It will be significantly slow</strong></p>
+<p>vLLM exposes an <a class="reference external" href="https://platform.openai.com/docs/api-reference/introduction">OpenAI-compatible HTTP API</a>. Here is an example <code class="docutils literal notranslate"><span class="pre">curl</span></code> command to make the first request to the server:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-sS<span class="w"> </span><span class="s2">&quot;http://localhost:8000/v1/completions&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$VLLM_API_KEY</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s2">&quot;{</span>
+<span class="s2">    \&quot;model\&quot;: \&quot;meta-llama/</span><span class="nv">$MODEL</span><span class="s2">\&quot;,</span>
+<span class="s2">    \&quot;prompt\&quot;: \&quot;San Francisco is a\&quot;,</span>
+<span class="s2">    \&quot;max_tokens\&quot;: 50,</span>
+<span class="s2">    \&quot;temperature\&quot;: 0</span>
+<span class="s2">  }&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq
+</pre></div>
+</div>
+<p>Now that the server is warmed up, make the request again to see the server run at full speed</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-sS<span class="w"> </span><span class="s2">&quot;http://localhost:8000/v1/completions&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$VLLM_API_KEY</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-d<span class="w"> </span><span class="s2">&quot;{</span>
+<span class="s2">    \&quot;model\&quot;: \&quot;meta-llama/</span><span class="nv">$MODEL</span><span class="s2">\&quot;,</span>
+<span class="s2">    \&quot;prompt\&quot;: \&quot;San Francisco is a\&quot;,</span>
+<span class="s2">    \&quot;max_tokens\&quot;: 50,</span>
+<span class="s2">    \&quot;temperature\&quot;: 0</span>
+<span class="s2">  }&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="model-demos.html" class="btn btn-neutral float-left" title="Model Demos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../aibs/index.html" class="btn btn-neutral float-right" title="Add-In Boards / Cards" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tenstorrent.
+      <span class="lastupdated">Last updated on Aug 01, 2025.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
