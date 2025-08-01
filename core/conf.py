@@ -47,7 +47,7 @@ html_theme = "sphinx_rtd_theme"
 html_logo = "../shared/images/tt_logo.svg"
 html_favicon = "../shared/images/favicon.png"
 html_static_path = ['../shared/_static', '_static/assets', '_static/js']
-html_js_files = ['custom.js']
+html_js_files = ['custom.js', 'posthog.js']
 html_last_updated_fmt = "%b %d, %Y"
 
 html_context = {
