@@ -21,12 +21,14 @@ exclude_patterns = []
 extensions = ['myst_parser',
               'sphinx_substitution_extensions',
               'sphinx_copybutton',
+              'sphinx_togglebutton',
               ]
 
 copybutton_selector = 'div.highlight-bash pre'
 
 myst_enable_extensions = [
-    'substitution'
+    'substitution',
+    'colon_fence',
 ]
 
 ver_kmd        = Path('../syseng/kmd.version').read_text().rstrip()

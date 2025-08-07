@@ -63,14 +63,14 @@
   --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
 
   --transition-color: color var(--transition-duration) var(--transition-timing);
-  --transition-background: background var(--transition-duration)
-    var(--transition-timing);
+  --transition-background: background var(--transition-duration) var(--transition-timing);
   --transition-all: all var(--transition-duration) var(--transition-timing);
 }
 
 body {
   font-family: var(--font-main);
-  font-size: var(--base-text-size); /* 1rem */
+  font-size: var(--base-text-size);
+  /* 1rem */
   font-weight: 400;
 }
 
@@ -81,7 +81,7 @@ h3 {
   font-weight: 400;
 }
 
-.rst-content .toctree-wrapper > p.caption,
+.rst-content .toctree-wrapper>p.caption,
 h4,
 h5,
 h6,
@@ -187,18 +187,23 @@ i {
   margin-top: 1rem;
 }
 
-.wy-side-nav-search .wy-dropdown > a,
-.wy-side-nav-search > a {
+.wy-side-nav-search .wy-dropdown>a,
+.wy-side-nav-search>a {
   margin-bottom: 0;
 }
 
-.wy-side-nav-search > div, /* search container */
-  .wy-side-nav-search > div > form /* search form */ {
+.wy-side-nav-search>div,
+/* search container */
+.wy-side-nav-search>div>form
+
+/* search form */
+  {
   width: 100%;
 }
 
 .wy-menu-vertical {
-  padding-bottom: 2rem; /* add space to accommodate version bar */
+  padding-bottom: 2rem;
+  /* add space to accommodate version bar */
 }
 
 .wy-menu-vertical header,
@@ -211,7 +216,7 @@ i {
 }
 
 /* Search input */
-#rtd-search-form > input[type="text"] {
+#rtd-search-form>input[type="text"] {
   background-color: transparent;
   border: 2px solid var(--color-dark-purple);
   border-radius: 0;
@@ -225,13 +230,13 @@ i {
   font-weight: 400;
 }
 
-#rtd-search-form > input[type="text"]:focus {
+#rtd-search-form>input[type="text"]:focus {
   border-color: var(--color-accent);
 }
 
 /* Nav: open headers */
 
-.wy-menu-vertical li.current > a,
+.wy-menu-vertical li.current>a,
 .wy-menu-vertical li.on a {
   font-weight: bold;
 }
@@ -243,7 +248,7 @@ i {
 }
 
 .wy-menu-vertical li.current a,
-li.toctree-l1.current > a {
+li.toctree-l1.current>a {
   background-color: var(--color-background-20);
   border-bottom: none !important;
   border-top: none !important;
@@ -253,30 +258,30 @@ li.toctree-l1.current > a {
 }
 
 .wy-menu-vertical li.current,
-.wy-menu-vertical li.toctree-l2.current > a,
-.wy-menu-vertical li.toctree-l2.current li.toctree-l3 > a {
+.wy-menu-vertical li.toctree-l2.current>a,
+.wy-menu-vertical li.toctree-l2.current li.toctree-l3>a {
   background: var(--color-background-40);
 }
 
 .wy-menu-vertical li.current,
-.wy-menu-vertical li.toctree-l3.current > a,
-.wy-menu-vertical li.toctree-l3.current li.toctree-l4 > a {
+.wy-menu-vertical li.toctree-l3.current>a,
+.wy-menu-vertical li.toctree-l3.current li.toctree-l4>a {
   background: var(--color-background-60);
 }
 
 .wy-menu-vertical li.current,
-.wy-menu-vertical li.toctree-l4.current > a,
-.wy-menu-vertical li.toctree-l4.current li.toctree-l5 > a {
+.wy-menu-vertical li.toctree-l4.current>a,
+.wy-menu-vertical li.toctree-l4.current li.toctree-l5>a {
   background: var(--color-background-80);
 }
 
 .wy-menu-vertical li.current a:hover,
-.wy-menu-vertical li.toctree-l2.current > a:hover,
-.wy-menu-vertical li.toctree-l2.current li.toctree-l3 > a:hover,
-.wy-menu-vertical li.toctree-l3.current > a:hover,
-.wy-menu-vertical li.toctree-l3.current li.toctree-l4 > a:hover,
-.wy-menu-vertical li.toctree-l4.current > a:hover,
-.wy-menu-vertical li.toctree-l4.current li.toctree-l5 > a:hover,
+.wy-menu-vertical li.toctree-l2.current>a:hover,
+.wy-menu-vertical li.toctree-l2.current li.toctree-l3>a:hover,
+.wy-menu-vertical li.toctree-l3.current>a:hover,
+.wy-menu-vertical li.toctree-l3.current li.toctree-l4>a:hover,
+.wy-menu-vertical li.toctree-l4.current>a:hover,
+.wy-menu-vertical li.toctree-l4.current li.toctree-l5>a:hover,
 .wy-menu-vertical li.on a:hover {
   background: var(--color-background-alt2);
   transition: var(--transition-background);
@@ -310,7 +315,7 @@ li.toctree-l1.current > a {
   }
 }
 
-.wy-nav-top > i {
+.wy-nav-top>i {
   position: absolute;
   top: 0;
   left: 1.5rem;
@@ -322,37 +327,38 @@ li.toctree-l1.current > a {
   color: var(--color-main);
 }
 
-.wy-nav-top > .fa,
-.wy-nav-top > .fa-bars {
+.wy-nav-top>.fa,
+.wy-nav-top>.fa-bars {
   color: var(--color-main);
 }
 
-.wy-nav-top > .fa:before,
-.wy-nav-top > .fa-bars:before {
+.wy-nav-top>.fa:before,
+.wy-nav-top>.fa-bars:before {
   font-weight: 300 !important;
 }
 
-.wy-nav-top > a {
+.wy-nav-top>a {
   color: var(--color-main);
   font-family: var(--font-display);
   font-weight: 400;
   font-size: 2rem;
 }
 
-.wy-nav-content > .rst-content {
+.wy-nav-content>.rst-content {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   min-height: -webkit-fill-available;
 }
 
-.rst-content > .document {
+.rst-content>.document {
   /* grow document to push footer to bottom of page */
   flex-grow: 1;
 }
 
 .rst-footer-buttons {
-  margin-top: 2rem; /* give footer buttons a little bit of space */
+  margin-top: 2rem;
+  /* give footer buttons a little bit of space */
 }
 
 /* Document styling */
@@ -397,13 +403,8 @@ dl.cpp.function {
   max-width: 100%;
 }
 
-html.writer-html4 .rst-content dl:not(.docutils) > dt,
-html.writer-html5
-  .rst-content
-  dl[class]:not(.option-list):not(.field-list):not(.footnote):not(
-    .citation
-  ):not(.glossary):not(.simple)
-  > dt {
+html.writer-html4 .rst-content dl:not(.docutils)>dt,
+html.writer-html5 .rst-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.citation):not(.glossary):not(.simple)>dt {
   background: var(--color-background-alt);
   color: var(--color-accent);
   border-top: 3px solid var(--color-accent);
@@ -434,7 +435,7 @@ html.writer-html5
   box-shadow: none;
 }
 
-.btn > .fa {
+.btn>.fa {
   /* hide arrows */
   display: none;
 }
@@ -452,4 +453,10 @@ html.writer-html5
   background-color: var(--color-background-alt2) !important;
   background: var(--color-background-alt2) !important;
   color: var(--color-foreground) !important;
+}
+
+/* Fix title color for custom admonition titles */
+.admonition>.admonition-title {
+  color: var(--color-main);
+  /* black or dark color depending on your theme */
 }

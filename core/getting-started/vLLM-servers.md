@@ -1,21 +1,66 @@
 # Deploy LLMs
 
-This page demonstrates how to deploy LLMs using the [tt-inference-server](https://github.com/tenstorrent/tt-inference-server) project. We use [vLLM](https://docs.vllm.ai/en/latest/) to serve LLMs for production applications. It is also a convenient entry-point into Tenstorrent's software ecosystem.
+This page demonstrates how to deploy LLMs using the [tt-inference-server](https://github.com/tenstorrent/tt-inference-server) project. We currently use [vLLM](https://docs.vllm.ai/en/latest/) to serve LLMs for production applications. It is also a convenient entry-point into Tenstorrent's software ecosystem.
 
-## 1. Setup system dependencies
-**⚠️ NOTE: you must read the following instructions:**
-- **this page assumes you have already used tt-installer to install the system dependencies as shown in the [starting guide](./README.md)**
-- **if you are using *any* Wormhole-based product, you will need to use firmware version <= v18.5.0, execute the following commands to install v18.5.0:**
+## Before You Begin
+
+Before beginning this procedure, ensure that you have completed the base software installation. This process has specific system and hardware requirements.
+
+:::{admonition} Important
+:class: warning
+This guide assumes that you have already followed the Installing the Tenstorrent Software Stack guide.
+:::
+
+:::{warning}
+Deploying the recommended models requires a minimum of 360 GB of free disk space in your root partition.
+:::
+
+### **Wormhole™ Networked AI Processor-Specific Prerequisites**
+
+:::{admonition} If you are using a Wormhole™ Networked AI Processor-based product, you must complete the following steps.
+:class: danger
+
+
+Wormhole™ Networked AI Processor hardware requires firmware version `v18.5.0` or older for compatibility with `tt-inference-server`. Run the following script to install the correct firmware version.
+
 ```bash
 (set -e; error_handler() { echo -e "\033[0;31m!!! ERROR: Failed to flash firmware version v18.5.0\033[0m"; }; trap error_handler ERR; TMP_DIR=$(mktemp -d); cleanup() { echo "---"; echo "Cleaning up..."; if type deactivate &>/dev/null; then deactivate; fi; echo "Removing temporary directory: $TMP_DIR"; rm -rf "$TMP_DIR"; cd; echo "Cleanup complete."; }; trap cleanup EXIT; cd "$TMP_DIR"; echo "Working in temporary directory: $TMP_DIR"; echo "---"; echo "Downloading firmware bundle..."; wget -q --show-progress https://github.com/tenstorrent/tt-firmware/releases/download/v18.5.0/fw_pack-18.5.0.fwbundle; echo "Download complete."; echo "---"; echo "Creating Python virtual environment..."; python3 -m venv tt-flash-venv; source tt-flash-venv/bin/activate; echo "Virtual environment activated."; echo "---"; echo "Installing tt-flash from git..."; pip install --quiet git+https://github.com/tenstorrent/tt-flash.git; echo "tt-flash installed."; echo "---"; echo "Running flash command. This may take a moment..."; tt-flash --fw-tar fw_pack-18.5.0.fwbundle --force; echo "---"; echo "Script finished successfully.";)
 ```
 
-- **if you are using the following Wormhole-based products, you will need to use `tt-topology` to configure a system-level mesh topology between your Wormhole devices:**
-  - **TT-QuietBox (Wormhole)**
-  - **TT-LoudBox**
-- **execute the following command to install `tt-topology` and configure the system-level mesh topology:**
+**Note** For multi-device systems such as the TT-QuietBox™ (Wormhole™ Networked AI Processor) or the TT-LoudBox, you must configure a system-level mesh topology. Run the following script to install `tt-topology` and configure the mesh.
+
 ```bash
 TMP_DIR=$(mktemp -d); (trap 'echo "---"; echo "Cleaning up..."; if type deactivate &>/dev/null; then deactivate; fi; echo "Removing temporary directory: $TMP_DIR"; rm -rf "$TMP_DIR"; cd; echo "Cleanup complete."' EXIT; trap 'echo -e "\033[0;31m!!! ERROR: Failed to configure mesh topology\033[0m"' ERR; set -e; cd "$TMP_DIR"; echo "Working in temporary directory: $TMP_DIR"; echo "---"; echo "Creating Python virtual environment..."; python3 -m venv tt-topology-venv; source tt-topology-venv/bin/activate; echo "Virtual environment activated."; echo "---"; echo "Installing tt-topology from git..."; pip install --quiet git+https://github.com/tenstorrent/tt-topology.git; echo "tt-topology installed."; echo "---"; echo "Running tt-topology command. This may take a moment..."; tt-topology -l mesh; echo "---"; echo "Script finished successfully.";)
+```
+:::
+
+## Step 1: Getting Model Access on Hugging Face
+The recommended large language models are gated and require a Hugging Face account.
+
+### **1\. Request Access to the Model**
+
+Visit the model's page on Hugging Face and follow the instructions to request access.
+
+* For TT-QuietBox™ and TT-LoudBox™ systems, we recommend [meta-llama/Llama-3.3-70B-Instruct](https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct)
+* For add-in-card products (n-series, p-series), we recommend [meta-llama/Llama-3.1-8B-Instruct](https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct)
+
+For a full list of the currently available and tested models, please visit the [tt-inference-server GitHub page](https://github.com/tenstorrent/tt-inference-server).
+
+:::{admonition} Important
+:class: warning
+Access is granted by the model owner and is not controlled by Tenstorrent. This process may take several days.
+:::
+
+### **2\. Create a Hugging Face Access Token**
+
+Once you have access, [generate an access token](https://huggingface.co/docs/hub/en/security-tokens) with a minimum of **read** permissions. This token is required to download the model's weights from Hugging Face.
+
+### **3\. Export the Token**
+
+On the system where you will deploy the server, export your token as an environment variable.
+
+```bash
+export HF_TOKEN="<your-hugging-face-access-token>"
 ```
 
 ## 2. Deploy a vLLM server using tt-inference-server
