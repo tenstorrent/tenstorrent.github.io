@@ -24,11 +24,11 @@ Tenstorrent
    :caption: Software
    :maxdepth: 2
 
-   TT-Buda (Deprecated) <https://docs.tenstorrent.com/pybuda/latest/index.html>
+   forge/index
    TT-Metalium <https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/index.html>
    TT-NN <https://docs.tenstorrent.com/tt-metal/latest/ttnn/index.html>
-   forge/index
    Manual Software Installation <getting-started/manual-software-install>
+   TT-Buda (Deprecated) <https://docs.tenstorrent.com/pybuda/latest/index.html>
 .. toctree::
    :hidden:
    :caption: Support
