@@ -2,9 +2,9 @@
 
 
 
-## Software Setup Support
+## Software Stack Setup Support
 
-For software setup, visit our [software setup](https://docs.tenstorrent.com/getting-started/README.html) page.
+For software setup, visit our [software stack setup](../../getting-started/README.md) page.
 
 
 
@@ -16,7 +16,7 @@ For BIOS updates, non-Tenstorrent drivers, and other hardware support, visit the
 
 ## Tenstorrent Support
 
-For support with the Tenstorrent n300 Tensix Processors and related Tenstorrent software, you can visit the Tenstorrent [Discord](https://discord.gg/tvhGzHQwaj) server or contact [support@tenstorrent.com](mailto:support@tenstorrent.com) with additional questions.
+For support with your TT-QuietBox Blackhole and related Tenstorrent software, you can visit the Tenstorrent [Discord](https://discord.gg/tvhGzHQwaj) server or [raise a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1)
 
 
 
