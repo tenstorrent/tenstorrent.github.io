@@ -4,7 +4,8 @@ Systems
    :caption: Systems
    :maxdepth: 2
    
-   quietbox/index
+   quietbox-bh/index
+   quietbox-wh/index
    t3000/index
    t1000/index
    t7000/index

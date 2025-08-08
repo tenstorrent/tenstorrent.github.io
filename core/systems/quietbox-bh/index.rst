@@ -1,5 +1,5 @@
   
-TT-QuietBox
+TT-QuietBox (Blackhole)
 =======================================
 .. toctree::
    :maxdepth: 2
