@@ -454,9 +454,3 @@ html.writer-html5 .rst-content dl[class]:not(.option-list):not(.field-list):not(
   background: var(--color-background-alt2) !important;
   color: var(--color-foreground) !important;
 }
-
-/* Fix title color for custom admonition titles */
-.admonition>.admonition-title {
-  color: var(--color-main);
-  /* black or dark color depending on your theme */
-}
