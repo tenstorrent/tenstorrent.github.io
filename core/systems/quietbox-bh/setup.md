@@ -153,11 +153,31 @@ The TT-QuietBox Blackhole™ workstation uses an ASRock Rack SIENAD8-2L2T mother
 5. Select **Save Changes and Exit**; the system will restart and boot from your USB drive.  
 6. Follow the on-screen Ubuntu installation prompts.
 
-# HOLD FOR BEN’S SCRIPT AND COPY
+---
+
+## **Step 4: Verify System Recognition of Blackhole p150c Accelerators**
+
+Please execute these commands to download the latest list of PCI device IDs and list the recognized devices:
+```bash
+sudo update-pciids
+lspci -d 1e52:
+```
+
+You should see an output which lists four recognized accelerators:
+```
+01:00.0 Processing accelerators: Tenstorrent Inc Blackhole
+41:00.0 Processing accelerators: Tenstorrent Inc Blackhole
+42:00.0 Processing accelerators: Tenstorrent Inc Blackhole
+c1:00.0 Processing accelerators: Tenstorrent Inc Blackhole
+```
+
+:::{danger}
+If you don’t see all four accelerators listed, please [raise a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1). Our team will review your request and provide assistance.
+:::
 
 ---
 
-## **Step 4: Installing the Tenstorrent Software Stack**
+## **Step 5: Installing the Tenstorrent Software Stack**
 
 After completing the operating system installation, proceed with [Installing the Tenstorrent Software Stack](../../getting-started/README.md).
 
@@ -165,4 +185,4 @@ After completing the operating system installation, proceed with [Installing the
 
 ## **Need Additional Support?**
 
-If you encounter any issues, or have a question that isn't covered in the documentation, please [submit a ticket.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1) Our team will review your request and provide assistance.
+If you encounter any issues, or have a question that isn't covered in the documentation, please [raise a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1) Our team will review your request and provide assistance.
