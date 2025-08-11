@@ -61,7 +61,7 @@ At the end of the installation process, you will be prompted to answer this ques
 ```
 [INFO] Would you like to reboot now?
 ```
-**If this is the first time running tt-installer, you must reboot your computer, so reply "Y".**
+**You must answer "Y" if this is your first time running tt-installer on your system.**
 :::
 
 tt-installer configures necessary packages on your system and installs system-level tools as well as our development framework, TT-Metalium. By default, TT-Metalium is installed as a container using Podman. This containerized environment is appropriate for most users as explained [here](https://github.com/tenstorrent/tt-installer/wiki/Using-the-tt%E2%80%90metalium-container), but advanced users and developers may wish to install Metalium natively on the host system or use Docker instead of Podman. See [TT-NN / TT-Metalium Installation](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/installing.html#tt-nn-tt-metalium-installation) for manual installation instructions.
