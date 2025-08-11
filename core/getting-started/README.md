@@ -50,6 +50,7 @@ If for whatever reason the BIOS needs to be updated or is reset, this setting mu
 ## 3. Software Installation
 To interact with the Tensix Processor(s), you’ll need to install the system-level dependencies on your host machine.
 
+### **1\. Executing tt-installer**
 Tenstorrent provides a bash script, [tt-installer](https://github.com/tenstorrent/tt-installer/), for fast and easy setup of our software stack. The installer supports Ubuntu, Fedora, and Debian. To use it, paste the following into your terminal:
 
 ```{code-block} bash
@@ -78,6 +79,7 @@ OK to continue? [Y/n]
 ```
 **Answer "Y" to continue.**
 
+### **2\. Grant Root Privileges**
 Next, the installation will start and ask you to grant the script sudo permissions:
 ```
 [INFO] Starting installation
@@ -89,6 +91,7 @@ Next, the installation will start and ask you to grant the script sudo permissio
 **Using sudo is required so you must enter your user's password.**
 :::
 
+### **3\. Install TT-Metalium Slim Container**
 tt-installer configures necessary packages on your system and installs system-level tools as well as our programming framework, TT-Metalium. By default, TT-Metalium is installed as a container using Podman. This containerized environment is appropriate for most users as explained [here](https://github.com/tenstorrent/tt-installer/wiki/Using-the-tt%E2%80%90metalium-container), but advanced users and developers may wish to install Metalium natively on the host system or use Docker instead of Podman. See [TT-NN / TT-Metalium Installation](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/installing.html#tt-nn-tt-metalium-installation) for manual installation instructions.
 
 Next, you will be prompted whether to install the TT-Metalium slim container:
@@ -100,6 +103,7 @@ Install Metalium [Y/n]
 
 **Installing the TT-Metalium slim container is optional, you may answer "Y" or "N".**
 
+### **4\. Install TT-Metalium Model Demos Container**
 Next, you will be prompted whether to install the TT-Metalium Model Demos container:
 ```
 [INFO] Would you like to install the TT-Metalium Model Demos container?
@@ -112,17 +116,19 @@ This container possesses a full build of the [tt-metal](https://github.com/tenst
 **If you want to run model demos answer "Y" to this question", otherwise, answer "N".**
 :::
 
+### **5\. Choose Python Package Installation Location**
 Next, you will be asked to select how you would like to install Python packages. Our software is distributed in many forms, one of them being Python packages. We provide four installation options:
 ```
 [INFO] How would you like to install Python packages?
 1) active-venv: Use the active virtual environment
-2) new-venv: [DEFAULT] Create a new Python virtual environment (venv) at /home/bgoel/.tenstorrent-venv
+2) new-venv: [DEFAULT] Create a new Python virtual environment (venv) at /home/$USER/.tenstorrent-venv
 3) system-python: Use the system pathing, available for multiple users. *** NOT RECOMMENDED UNLESS YOU ARE SURE ***
 4) pipx: Use pipx for isolated package installation
 Enter your choice (1-4) or press enter for default (new-venv): 
 ```
 **If this is your first time running tt-installer, we recommend using the second, DEFAULT option.**
 
+### **6\. Install System Software Dependencies**
 Next, tt-installer will install:
 * [TT-KMD](https://github.com/tenstorrent/tt-kmd), the Kernel-Mode Driver
 * [TT-Flash](https://github.com/tenstorrent/tt-flash), the utility to flash firmware blobs to Tenstorrent devices
@@ -130,6 +136,7 @@ Next, tt-installer will install:
 * [HugePages](https://github.com/tenstorrent/tt-system-tools), a system tool for improving memory performance
 * [TT-SMI](https://github.com/tenstorrent/tt-smi), the System Management Interface
 
+### **7\. Reboot System**
 :::{admonition} Important
 :class: warning
 At the end of the installation process, you will be prompted to answer this question:
@@ -144,8 +151,29 @@ If you would prefer to install the software stack manually, see [Manual Installa
 
 
 ## 4. Verify System Software Installation
+After rebooting your system, we will verify all system software dependencies were successfully installed and loaded. We will do so by utilizing the [tt-smi](https://github.com/tenstorrent/tt-smi) tool to enumerate all Tenstorrent devices.
 
-TT-SMI INSTRUCTIONS WILL GO HERE
+First, activate the Python environment in which you installed the required Python packages. You performed this environment selection in [Step 5. Choose Python Package Installation Location](#choose-python-package-installation-location).
+:::{note}
+We assume you selected the DEFAULT option, and installed all Python packages under `/home/$USER/.tenstorrent-venv/bin/activate`. Execute this command to activate the Python virtual environment:
+```bash
+source ~/.tenstorrent-venv/bin/activate
+```
+:::
+
+Next, execute this command to start tt-smi, then ensure the number of devices listed under the **"Device Information"** pane matches the number of Tenstorrent devices installed in your system:
+```bash
+tt-smi
+```
+
+Here is an example of what you should see for a system containing a single p150a device:
+![](tt_smi_screenshot.png)
+
+:::{danger}
+If the number of listed devices does not match what you expect, please [contact support](#support-faq) and we will assist you.
+:::
+
+Congratulations, you have successfully installed Tenstorrent's system software!
 
 ---
 
