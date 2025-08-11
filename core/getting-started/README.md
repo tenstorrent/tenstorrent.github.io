@@ -56,7 +56,82 @@ Tenstorrent provides a bash script, [tt-installer](https://github.com/tenstorren
 /bin/bash -c "$(curl -fsSL https://github.com/tenstorrent/tt-installer/releases/latest/download/install.sh)"
 ```
 
-:::{note}
+This script will prompt you to select which software you wish to install. The first thing you will see looks like:
+```
+   __                  __                             __
+  / /____  ____  _____/ /_____  _____________  ____  / /_
+ / __/ _ \/ __ \/ ___/ __/ __ \/ ___/ ___/ _ \/ __ \/ __/
+/ /_/  __/ / / (__  ) /_/ /_/ / /  / /  /  __/ / / / /_
+\__/\___/_/ /_/____/\__/\____/_/  /_/   \___/_/ /_/\__/
+
+[INFO] Welcome to tenstorrent!
+[INFO] This is tt-installer version 1.6.0
+[INFO] Log is at /tmp/tenstorrent_install_l2ULbx/install.log
+[INFO] Using software versions:
+[INFO]   TT-KMD: 2.3.0
+[INFO]   Firmware: 18.7.0
+[INFO]   System Tools: 1.3.1
+[INFO]   tt-smi: 3.0.27
+[INFO]   tt-flash: 3.4.2
+[INFO] This script will install drivers and tooling and properly configure your tenstorrent hardware.
+OK to continue? [Y/n]
+```
+**Answer "Y" to continue.**
+
+Next, the installation will start and ask you to grant the script sudo permissions:
+```
+[INFO] Starting installation
+[INFO] Checking for sudo permissions... (may request password)
+[sudo] password for <your-username>: 
+```
+:::{admonition} Required
+:class: warning
+**Using sudo is required so you must enter your user's password.**
+:::
+
+tt-installer configures necessary packages on your system and installs system-level tools as well as our programming framework, TT-Metalium. By default, TT-Metalium is installed as a container using Podman. This containerized environment is appropriate for most users as explained [here](https://github.com/tenstorrent/tt-installer/wiki/Using-the-tt%E2%80%90metalium-container), but advanced users and developers may wish to install Metalium natively on the host system or use Docker instead of Podman. See [TT-NN / TT-Metalium Installation](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/installing.html#tt-nn-tt-metalium-installation) for manual installation instructions.
+
+Next, you will be prompted whether to install the TT-Metalium slim container:
+```
+[INFO] Would you like to install the TT-Metalium slim container?
+[INFO] This container is appropriate if you only need to use TT-NN
+Install Metalium [Y/n] 
+```
+
+**Installing the TT-Metalium slim container is optional, you may answer "Y" or "N".**
+
+Next, you will be prompted whether to install the TT-Metalium Model Demos container:
+```
+[INFO] Would you like to install the TT-Metalium Model Demos container?
+[INFO] This container is best for users who need more TT-Metalium functionality, such as running prebuilt models, but it's large (10GB)
+Install Metalium Models [Y/n] 
+```
+:::{admonition} Optional
+:class: note
+This container possesses a full build of the [tt-metal](https://github.com/tenstorrent/tt-metal/tree/main) project, including model demo source code.
+**If you want to run model demos answer "Y" to this question", otherwise, answer "N".**
+:::
+
+Next, you will be asked to select how you would like to install Python packages. Our software is distributed in many forms, one of them being Python packages. We provide four installation options:
+```
+[INFO] How would you like to install Python packages?
+1) active-venv: Use the active virtual environment
+2) new-venv: [DEFAULT] Create a new Python virtual environment (venv) at /home/bgoel/.tenstorrent-venv
+3) system-python: Use the system pathing, available for multiple users. *** NOT RECOMMENDED UNLESS YOU ARE SURE ***
+4) pipx: Use pipx for isolated package installation
+Enter your choice (1-4) or press enter for default (new-venv): 
+```
+**If this is your first time running tt-installer, we recommend using the second, DEFAULT option.**
+
+Next, tt-installer will install:
+* [TT-KMD](https://github.com/tenstorrent/tt-kmd), the Kernel-Mode Driver
+* [TT-Flash](https://github.com/tenstorrent/tt-flash), the utility to flash firmware blobs to Tenstorrent devices
+* [TT-Firmware](https://github.com/tenstorrent/tt-firmware), the on-device firmware
+* [HugePages](https://github.com/tenstorrent/tt-system-tools), a system tool for improving memory performance
+* [TT-SMI](https://github.com/tenstorrent/tt-smi), the System Management Interface
+
+:::{admonition} Important
+:class: warning
 At the end of the installation process, you will be prompted to answer this question:
 ```
 [INFO] Would you like to reboot now?
@@ -64,10 +139,13 @@ At the end of the installation process, you will be prompted to answer this ques
 **You must answer "Y" if this is your first time running tt-installer on your system.**
 :::
 
-tt-installer configures necessary packages on your system and installs system-level tools as well as our development framework, TT-Metalium. By default, TT-Metalium is installed as a container using Podman. This containerized environment is appropriate for most users as explained [here](https://github.com/tenstorrent/tt-installer/wiki/Using-the-tt%E2%80%90metalium-container), but advanced users and developers may wish to install Metalium natively on the host system or use Docker instead of Podman. See [TT-NN / TT-Metalium Installation](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/installing.html#tt-nn-tt-metalium-installation) for manual installation instructions.
-
 For more information about tt-installer, please see the [repository](https://github.com/tenstorrent/tt-installer).
 If you would prefer to install the software stack manually, see [Manual Installation](https://docs.tenstorrent.com/getting-started/manual-software-install.html).
+
+
+## 4. Verify System Software Installation
+
+TT-SMI INSTRUCTIONS WILL GO HERE
 
 ---
 
