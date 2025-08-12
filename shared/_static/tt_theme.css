@@ -39,11 +39,21 @@
 
   --color-purple: var(--color-accent);
   --color-dark-purple: #7584e6;
-  --color-red: #fa512e;
-  --color-orange: var(--color-red);
+  --color-teal-plus-plus: #c7f1ff;
+  --color-teal-plus: #9bdbf0;
+  --color-teal: #74c5df;
+  --color-red-plus-plus: #f4d8d2;
+  --color-red-plus: #eab1a5;
+  --color-red: #ff9e8a;
+  --color-red-accent: #fa512e;
+  --color-orange: var(--color-red-accent);
+  --color-green-plus-plus: #c7efe8;
+  --color-green-plus: #92c9bf;
   --color-green: #6faba0;
   --color-dark-green: #3a3433;
-  --color-yellow: #f9c80e;
+  --color-yellow-plus-plus: #f5e2ba;
+  --color-yellow-plus: #f9d68e;
+  --color-yellow: #f6bc42;
 
   --color-main: var(--color-foreground);
 
@@ -380,7 +390,7 @@ li.toctree-l1.current>a {
 /* inline codeblocks */
 .rst-content code.literal,
 .rst-content tt.literal {
-  color: var(--color-red);
+  color: var(--color-red-accent);
 }
 
 pre {
@@ -453,4 +463,57 @@ html.writer-html5 .rst-content dl[class]:not(.option-list):not(.field-list):not(
   background-color: var(--color-background-alt2) !important;
   background: var(--color-background-alt2) !important;
   color: var(--color-foreground) !important;
+}
+
+
+/* Style all admonition block */
+.admonition {
+  color: var(--color-foreground);
+}
+
+/* Style all admonition block titles */
+.admonition>.admonition-title {
+  color: var(--color-foreground);
+  font-weight: bold;
+}
+
+
+/* Style the warning admonition block */
+.admonition.warning {
+  background-color: var(--color-yellow-plus-plus);
+}
+
+/* Style the title of the warning block */
+.admonition.warning>.admonition-title {
+  background: var(--color-yellow);
+}
+
+/* Style the danger admonition block */
+.admonition.danger {
+  background-color: var(--color-red-plus-plus);
+}
+
+/* Style the title of the danger block */
+.admonition.danger>.admonition-title {
+  background: var(--color-red);
+}
+
+/* Style the note admonition block */
+.admonition.note {
+  background-color: var(--color-teal-plus-plus);
+}
+
+/* Style the title of the note block */
+.admonition.note>.admonition-title {
+  background: var(--color-teal);
+}
+
+/* Style the important admonition block */
+.admonition.important {
+  background-color: var(--color-green-plus-plus);
+}
+
+/* Style the title of the important block */
+.admonition.important>.admonition-title {
+  background: var(--color-green);
 }

@@ -14,7 +14,7 @@ Before beginning this procedure, ensure that you have completed the base softwar
 
 ### **(Wormhole™ only)**
 
-:::{admonition} If you are using a Wormhole™ Networked AI Processor-based product, you must complete the following steps.
+:::{admonition} If you are using a Wormhole™ Networked AI Processor-based product, you must complete the following steps
 :class: danger
 
 
