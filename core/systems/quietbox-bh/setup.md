@@ -1,12 +1,14 @@
+---
+myst:
+  html_meta:
+    product-name: TT-QuietBox Blackhole™, Blackhole™ Networked AI Processor, Tensix core  
+    technology-concepts: PCIe, QSFP-DD, Installation, Setup, Electrostatic Discharge (ESD), Basic Input/Output System (BIOS)  
+    document-type: Task-Based Guide (How-To)
+---
+
 # Receiving, Unboxing, and Setup
 
 This guide provides system administrators, hardware engineers, and users responsible for the initial setup of Tenstorrent hardware with step-by-step instructions. You will learn to safely unbox a TT-QuietBox Blackhole™ workstation, connect all required hardware components, and install the recommended operating system.
-
-### **Metadata and Labels**
-
-* **Product Names:** TT-QuietBox Blackhole™, Blackhole™ Networked AI Processor, Tensix core  
-* **Technology Concepts:** PCIe, QSFP-DD, Installation, Setup, Electrostatic Discharge (ESD), Basic Input/Output System (BIOS)  
-* **Document Type:** Task-Based Guide (How-To)
 
 ## **Before You Begin**
 
@@ -120,11 +122,11 @@ Follow these steps to set up the hardware for your TT-QuietBox Blackhole™ work
 
 ![](qb_lan.png)
 
-4. **Connect peripherals.** Connect your monitor, keyboard, and mouse (user-provided). A VGA-to-HDMI adapter is included for monitors that require an HDMI connection.  
-5. **Power on the system.** Locate the main power supply switch on the rear of the workstation and set it to the **ON**position. Press the system power button on the front panel.
+4. **Connect peripherals.** Connect your monitor, keyboard, and mouse (user-provided). A VGA-to-HDMI adapter is included for monitors that require an HDMI connection. **Be sure to plug in both the VGA and USB-A connectors to the rear panel for a video signal to be transmitted.**
+5. **Power on the system.** Locate the main power supply switch on the rear of the workstation and set it to the **ON** position. Press the system power button on the front panel.
 
 :::{note}
-The system's initial hardware initialization during its first Power-On-Self-Test (POST) may require several minutes before displaying the BIOS screen.
+The system's initial hardware initialization during its first Power-On-Self-Test (POST) may require up to 5 minutes before displaying the BIOS screen. If after 5 minutes you do not see the BIOS screen, please [raise a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1)
 :::
 
 ---
