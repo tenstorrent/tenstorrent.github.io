@@ -10,6 +10,8 @@ myst:
 
 This page demonstrates how to deploy LLMs using the [tt-inference-server](https://github.com/tenstorrent/tt-inference-server) project. We currently use [vLLM](https://docs.vllm.ai/en/latest/) to serve LLMs for production applications. It is also a convenient entry-point into Tenstorrent's software ecosystem. You will learn how to prepare your Tenstorrent system, configure access to gated models on Hugging Face, and deploy a vLLM-powered API endpoint using the tt-inference-server project.
 
+---
+
 ## Before You Begin
 
 Before beginning this procedure, ensure that you have completed the base software installation. This process has specific system and hardware requirements.
