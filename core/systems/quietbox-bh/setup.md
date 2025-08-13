@@ -21,7 +21,7 @@ Do not proceed with unboxing or installation if you suspect shipping damage to t
 :::
 
 ### Safety Warnings
-Please visit the [safety warnings](./specifications.md#safety-warnings) section on the specifications page for information about electrical and electrostatic discharge (ESD) warnings.
+Please visit the [safety warnings](specifications.md#safety-warnings) section on the specifications page for information about electrical and electrostatic discharge (ESD) warnings.
 
 ### **Required Tools**
 
@@ -96,11 +96,32 @@ Follow these steps to set up the hardware for your TT-QuietBox Blackhole™ work
 The system's initial hardware initialization during its first Power-On-Self-Test (POST) may require up to 5 minutes before displaying the BIOS screen. If after 5 minutes you do not see the BIOS screen, please [raise a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1)
 :::
 
-6. NEED INPUT FROM NICK HERE
+---
+
+## **Step 3. Accessing Default System Logins**
+
+Follow these instructions for logging into the system using the default Ubuntu and Base Management Controller (BMC) credentials.
+
+### **Accessing the Ubuntu perating system**
+
+When the Ubuntu login prompt appears, enter the following default credentials:
+
+*   **Username**: **ttuser**
+*   **Password**: **ttuser**
+
+### **Accessing the Base Management Controller (BMC)**
+
+This section describes an optional process to access the Base Management Controller (BMC) included with the systsem. To log in using the system's BMC, complete these steps:
+
+1.  Connect an additional Ethernet cable to the management port labeled **MGMT** on the back panel of your system.
+2.  On another computer connected to the same network, open a web browser.
+3.  When prompted, enter the following default credentials:
+    *   **Username**: **admin**
+    *   **Password**: **password**
 
 ---
 
-## **Step 3: Verify System Recognition of Blackhole p150c Accelerators**
+## **Step 4: Verify System Recognition of Blackhole p150c Accelerators**
 
 Please execute these commands to download the latest list of PCI device IDs and list the recognized devices:
 ```bash

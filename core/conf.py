@@ -41,6 +41,7 @@ myst_substitutions = {
     'ver_sys_tools': ver_sys_tools,
 }
 
+myst_heading_anchors = 3  # or 2, depending on how deep you want anchor links
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
