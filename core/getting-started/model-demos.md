@@ -29,7 +29,7 @@ Run the following command to add the models container to your existing Tenstorre
 /bin/bash -c "$(curl -fsSL https://github.com/tenstorrent/tt-installer/releases/latest/download/install.sh)" --no-install-kmd --no-install-hugepages --no-install-metalium-container --install-metalium-models-container --no-install-tt-flash --no-install-tt-topology --update-firmware="off" --reboot-option="never" --mode-non-interactive
 ```
 
-## **2. Starting the Container**
+## **Step 2: Starting the Container**
 To use the models container, execute this command to create an interactive shell with all configuration taken care of:
 ```bash
 tt-metalium-models
@@ -70,3 +70,8 @@ When you are finished, exit the interactive shell.
 ```bash
 exit
 ```
+
+---
+
+## **Need Additional Support?**
+If you encounter any issues, or have a question that isn't covered in the documentation, please [raise a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1) Our team will review your request and provide assistance.

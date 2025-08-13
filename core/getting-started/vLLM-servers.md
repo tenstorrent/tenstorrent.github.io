@@ -1,6 +1,14 @@
-# Deploy LLMs
+---
+myst:
+  html_meta:
+    product-name: tt-inference-server, TT-QuietBox™, TT-LoudBox, Wormhole™ Networked AI Processor, Blackhole™ Networked AI Processor, n150s, n150d, n300s, n300d, p100a, p150a, p150b
+    technology-concepts: LLM, vLLM, Hugging Face, Llama 3, deployment
+    document-type: how-to
+---
 
-This page demonstrates how to deploy LLMs using the [tt-inference-server](https://github.com/tenstorrent/tt-inference-server) project. We currently use [vLLM](https://docs.vllm.ai/en/latest/) to serve LLMs for production applications. It is also a convenient entry-point into Tenstorrent's software ecosystem.
+# **Deploying LLMs**
+
+This page demonstrates how to deploy LLMs using the [tt-inference-server](https://github.com/tenstorrent/tt-inference-server) project. We currently use [vLLM](https://docs.vllm.ai/en/latest/) to serve LLMs for production applications. It is also a convenient entry-point into Tenstorrent's software ecosystem. You will learn how to prepare your Tenstorrent system, configure access to gated models on Hugging Face, and deploy a vLLM-powered API endpoint using the tt-inference-server project.
 
 ## Before You Begin
 
@@ -166,3 +174,8 @@ curl -sS "http://localhost:8000/v1/completions" \
 ```
 
 Run the command again to observe the server respond at full speed.
+
+---
+
+## **Need Additional Support?**
+If you encounter any issues, or have a question that isn't covered in the documentation, please [raise a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1) Our team will review your request and provide assistance.
