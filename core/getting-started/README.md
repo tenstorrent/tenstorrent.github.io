@@ -1,63 +1,51 @@
-# Starting Guide
+---
+myst:
+  html_meta:
+    product-name: tt-installer, TT-Metalium™, TT-SMI
+    technology-concepts: software installation, Podman, containerization, driver
+    document-type: how-to
+---
 
-Welcome to Tenstorrent! This guide will walk you through setting up your Tensix Processor(s) and installing necessary software.
+# **Installing the Tenstorrent Software Stack**
 
-## Table of Contents
+This guide assists users who have completed the physical hardware setup of their Tenstorrent system. You will learn how to install the Tenstorrent software stack, including system dependencies, drivers, and the TT-Metalium™ development environment, and how to verify the installation.
 
-1. [Prerequisites](#prerequisites)
-2. [Unboxing and Hardware Setup](#unboxing-and-hardware-setup)
-3. [Software Installation](#software-installation)
-4. [First 5 Things To Do](#first-5-things-to-do)
-5. [Support & FAQ](#support-faq)
+## **Before You Begin**
+
+Before you begin the software installation, ensure your host machine meets the following prerequisites:
+
+* The host machine has an internet connection to download software packages.  
+* You have administrator privileges on the host machine.  
+* The system is physically unboxed and set up according to your product's installation manual and safety guidelines.
+
+### **Supported Operating Systems**
+
+Tenstorrent recommends Ubuntu 22.04 LTS (Jammy Jellyfish) for all Tenstorrent software. While each SDK may support newer distributions of Ubuntu, consider their compatibility experimental at this time.
+
+### **BIOS Requirements**
+
+The BIOS for your host motherboard should configure the PCIe AER Reporting Mechanism to be set to `OS First`. Tenstorrent's TT-SMI software requires this setting to function properly.
+
+:::{important}
+If you are using a TT-QuietBox, you do not have to worry about setting this option. It is set to `OS First` be default.
+
+If you update or reset your BIOS for any reason, you must reconfigure the PCIe AER Reporting Mechanism setting to `OS First` to ensure TT-SMI functions correctly. This setting is typically located in the **Motherboard Information** section of your BIOS.
+:::
 
 ---
 
-## 1. Prerequisites
+## **Running the Installer Script**
 
-Before you begin, ensure you have the following:
+Tenstorrent recommends using the [tt-installer](https://github.com/tenstorrent/tt-installer/) script to install the Tenstorrent software stack. This script automates the setup process and is compatible with Ubuntu, Fedora, and Debian operating systems.
 
-- A **compatible host machine** with minimum hardware and OS requirements as specified by each product's minimum system requirements:
-  - [Add-In Boards / Cards](https://docs.tenstorrent.com/aibs/index.html)
-  - [Systems](https://docs.tenstorrent.com/systems/index.html)
-- **Network access** to download software packages.
-- **Administrator privileges** on the host machine.
+### **1\. Execute the installer**
+To begin the installation, execute the following command in your terminal:
 
-**NOTE**: The recommended OS for all Tenstorrent software is **Ubuntu 22.04 LTS (Jammy Jellyfish)**. Each SDK may support newer distributions of Ubuntu; however, compatibility should be considered experimental at this time.
-
-***NOTE:** Software support for Grayskull has been discontinued. The last supported versions of Tenstorrent's software for Grayskull are as follows:*
-
-- ***TT-Firmware:** `fw_pack-80.15.0.0.fwbundle`*
-- ***TT-KMD:** `ttkmd_1.31`*
-- ***TT-Buda:** `v0.19.3`*
-- ***TT-Metalium:** `v0.55`*
-
-### TT-QuietBox BIOS Requirement
-
-The BIOS for the host motherboard is configured at the factory with the setting for **PCIe AER Reporting Mechanism** set to **OS First**. Tenstorrent's TT-SMI software will fail if this setting is not configured properly. *You should not have to change this setting when first setting up your TT-QuietBox.*
-
-If for whatever reason the BIOS needs to be updated or is reset, this setting must be configured again to ensure TT-SMI is able to function. It is located in the BIOS here:
-
-`Chipset -> AMD CBS -> NBIO Common Options -> NBIO RAS Common Options -> PCIe AER Reporting Mechanism`
-
-## 2. Unboxing and Hardware Setup
-
-1. **Unpack the hardware** and check all components against the provided list.
-2. **Install the hardware** following the hardware installation manual and safety guidelines by product:
-   - [Add-In Boards / Cards](https://docs.tenstorrent.com/aibs/index.html)
-   - [Systems](https://docs.tenstorrent.com/systems/index.html)
-3. **Secure the hardware** in place, ensuring it is firmly seated and all connections are stable.
-
-## 3. Software Installation
-To interact with the Tensix Processor(s), you’ll need to install the system-level dependencies on your host machine.
-
-### **1\. Executing tt-installer**
-Tenstorrent provides a bash script, [tt-installer](https://github.com/tenstorrent/tt-installer/), for fast and easy setup of our software stack. The installer supports Ubuntu, Fedora, and Debian. To use it, paste the following into your terminal:
-
-```{code-block} bash
+```bash
 /bin/bash -c "$(curl -fsSL https://github.com/tenstorrent/tt-installer/releases/latest/download/install.sh)"
 ```
 
-This script will prompt you to select which software you wish to install. The first thing you will see looks like:
+You will be prompted to select which software you wish to install. The first thing you will see looks like:
 ```
    __                  __                             __
   / /____  ____  _____/ /_____  _____________  ____  / /_
@@ -146,11 +134,9 @@ At the end of the installation process, you will be prompted to answer this ques
 **You must answer "Y" if this is your first time running tt-installer on your system.**
 :::
 
-For more information about tt-installer, please see the [repository](https://github.com/tenstorrent/tt-installer).
-If you would prefer to install the software stack manually, see [Manual Installation](https://docs.tenstorrent.com/getting-started/manual-software-install.html).
+---
 
-
-## 4. Verify System Software Installation
+## **Verify System Software Installation**
 After rebooting your system, we will verify all system software dependencies were successfully installed and loaded. We will do so by utilizing the [tt-smi](https://github.com/tenstorrent/tt-smi) tool to enumerate all Tenstorrent devices.
 
 First, activate the Python environment in which you installed the required Python packages. You performed this environment selection in [Step 5. Choose Python Package Installation Location](#choose-python-package-installation-location).
@@ -170,14 +156,20 @@ Here is an example of what you should see for a system containing a single p150a
 ![](tt_smi_screenshot.png)
 
 :::{danger}
-If the number of listed devices does not match what you expect, please [contact support](#support-faq) and we will assist you.
+If the number of listed devices does not match what you expect, please [contact support](#need-additional-support) and we will assist you.
 :::
 
 Congratulations, you have successfully installed Tenstorrent's system software!
 
 ---
 
-## First 5 Things To Do
+## **Exploring Alternative Installation Methods**
+
+For advanced users or developers who prefer alternative installation methods for the software stack, refer to the [manual software installation guide.](./manual-software-install.md)
+
+---
+
+## **First 5 Things To Do**
 After tt-installer finishes successfully and you have restarted your system, you can proceed how you like. You may want to:
 
 * [Run model demos](../getting-started/model-demos.md)
@@ -191,8 +183,5 @@ After tt-installer finishes successfully and you have restarted your system, you
 
 ---
 
-## Support & FAQ
-
-For support, forums, and community, visit Tenstorrent's [Discord channel](https://discord.gg/tvhGzHQwaj).
-
-For additional support, file any issues through our [Customer Success Platform](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1) or you can contact us directly at [support@tenstorrent.com](mailto:support@tenstorrent.com).
+## **Need Additional Support?**
+If you encounter any issues, or have a question that isn't covered in the documentation, please [raise a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1) Our team will review your request and provide assistance.

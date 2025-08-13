@@ -1,94 +1,118 @@
-# Support and Troubleshooting
+---
+myst:
+  html_meta:
+    product-name: TT-QuietBox
+    technology-concepts: troubleshooting, BIOS, PCIe, coolant, maintenance
+    document-type: troubleshooting
+---
 
+# **Troubleshooting Common Hardware Issues**
+This guide assists users in diagnosing and resolving common hardware issues with the TT-QuietBox™ system, including system instability, boot failures, and long-term maintenance tasks such as coolant refilling.
 
+## **Resolving System Instability or Random Reboots After a BIOS Change**
 
-## Software Stack Setup Support
+If your system experiences random reboots or stability issues after a BIOS update or reset, a specific setting may be incorrectly configured.
 
-For software setup, visit our [software stack setup](../../getting-started/README.md) page.
+**Cause:** The PCIe Advanced Error Reporting (AER) mechanism is not configured to allow the operating system to handle error reporting. This misconfiguration can interfere with Tenstorrent's system management software.
 
+**Solution:** Set the reporting mechanism to **OS First**.
 
+1. Enter the system **BIOS** during boot.  
+2. Navigate to **Advanced** \> **AMD CBS** \> **NBIO Common Options** \> **NBIO RAS Common Options**.  
+3. Locate the setting for **PCIe AER Reporting Mechanism**.  
+4. Change the value to **OS First**.  
+5. Save changes and exit the **BIOS**.  
 
-## BIOS and Hardware Support
+---
 
-For BIOS updates, non-Tenstorrent drivers, and other hardware support, visit the ASRock [product page](https://www.asrockrack.com/general/productdetail.asp?Model=SIENAD8-2L2T#Specifications). 
+## **Resolving Boot Failures or Undetected Cards**
+If your system does not boot, or if Tenstorrent hardware does not appear in software utilities such as `tt-smi`, the PCIe cards may be unseated.
 
+:::{note}
+Extended boot times are normal during the first boot or after a power loss event. System memory training can take up to 10 minutes to complete. This behavior does not indicate a boot failure.
+:::
 
+**Cause:** One or more PCIe cards may have become loose during shipment or relocation.
 
-## Tenstorrent Support
+**Solution:** Reseat the PCIe cards manually.
 
-For support with your TT-QuietBox Blackhole and related Tenstorrent software, you can visit the Tenstorrent [Discord](https://discord.gg/tvhGzHQwaj) server or [raise a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1)
+:::{warning}
+This procedure requires technical expertise and careful handling to avoid damaging system components. Proceed with caution.
+:::
 
+### **Required Tools**
 
+* `2.5mm security hex bit`
+* `2.0mm security hex bit`
+* Phillips head screwdriver
 
-## FAQs and Troubleshooting
+### **Reseating Procedure**
 
-### Liquid coolant maintenance
-
-TT-QuietBox ships with sufficient liquid coolant in the system; there is no need to purchase and/or top up liquid coolant.
-
-### Stability/reboot issues (BIOS reset)
-
-If for whatever reason the BIOS has been reset (for example, an update to the BIOS), a setting change needs to be made to prevent the system from having reboot issues.
-
-In the BIOS, find the following setting:
-
-​	Advanced -> AMD CBS -> NBIO Common Options -> PCIe Aer Reporting Mechanism
-
-And change the setting to **OS First**.
-
-### Boot issues or cards not appearing in software (unseated cards)
-
-***NOTE:** Extended boot times on first boot or after a kernel panic are **normal**. System memory training will occur at first boot or after a kernel panic and can take as long as **20 minutes***.
-
-If you're having issues with the system not booting, or cards aren't appearing in TT-SMI or other software, it's possible one or more cards in TT-QuietBox become unseated during shipment.
-
-Note that some technical expertise and caution will be required to avoid damaging the system components.
-
-To fix this issue:
-
-1. Lay the system on its side to access the PCIe cards. Unscrew the top of the box with a **2.5mm security hex bit**.
+1. Place the system on its side. Use a `2.5mm security hex bit` to unscrew the chassis top panel and access the PCIe cards.  
 
    ![](qb_1_1.jpg)
 
-2. Remove the front glass panel and put it somewhere safe; safety glass is breakable.
+2. Carefully remove the front glass panel and set it aside in a safe location.  
 
-   ![](qb_1_2.png)
+   ![](qb_1_2.jpg)
 
-3. Remove the center retention bar and PCIe bracket screws. Use the **2.0mm security hex bit** to unscrew the middle bar holding the PCIe cards.
+3. Use a `2.0mm security hex bit` to unscrew and remove the center retention bar that secures the PCIe cards.  
 
-   ![](qb_1_3.png)
+   ![](qb_1_3.jpg)
 
-4. Remove phillips screws connecting PCIe shields to back of computer.
+4. Remove the Phillips head screws that secure the PCIe card shields to the back of the chassis.  
+5. Pull the quick-disconnect shield back and gently pull the hoses to detach the cooling tubes from the cards.  
 
-5. Pull quick disconnect shield back and pull on hose to remove tubes.
+   ![](qb_1_4.jpg)
 
-   ![](qb_1_4.png)
+6. Carefully remove the cards from their **PCIe** slots.  
+7. Re-insert each card firmly into its **PCIe** slot. Apply counter-pressure to the motherboard to prevent it from flexing.  
+8. Reinstall all retention bars, screws, cooling tubes, and panels in the reverse order of removal.  
+9. Boot the system and run `tt-smi` to confirm all cards are detected.
 
-6. Cards can then be carefully removed from PCIe slots.
-7. Manually reseat the PCIe cards while holding the motherboard to prevent flexing.
-8. Reinstall the retention mechanisms.
-9. Boot the system and confirm the PCIe cards are appearing in the TT-SMI utility.
-10. If the POST code reads `00` for a long duration during the system boot, power the system down. Then remove and reinstall the CMOS battery after shorting the clear CMOS pad (CLRMOS1) and power the system.
+If the system still fails to boot and displays a `00 POST` code for an extended period, you may need to reset the CMOS. Power down the system, short the `CLRMOS1` jumper on the motherboard, then remove and reinstall the CMOS battery.
 
-### Coolant is running low
+---
 
-Over time, as is typical with liquid-cooled systems, your TT-QuietBox will need to have its coolant refilled.
+## **Refilling Coolant After Long-Term Use**
 
-The coolant used in TT-QuietBox is a combination of [Mayhems XT1 Clear Concentrate](https://mayhems.store/mayhems-xt-1-nuke-v2-clear-concentrate-watercooling-fluid-250ml.html) and distilled water. Note that the water **must** be distilled; other kinds of water may contain contaminants which can damage your system.
+**Cause:** Over time, a small amount of coolant may evaporate from the liquid cooling loop. This is normal for all liquid-cooled systems.
 
-The coolant concentrate needs to be mixed with distilled water in the ratio of 38:62; to produce 1000ml of coolant, 380ml of Mayhems XT1 Clear Concentrate needs to be mixed with 620ml of distilled water.
+:::{note}
+Your TT-QuietBox™ system ships with sufficient coolant for immediate and long-term operation. You do not need to add coolant to a new system. This procedure is only for maintenance after extended use.
+:::
 
-To top-up the coolant in your TT-QuietBox:
+**Solution:** Refill the coolant using the correct mixture.
 
-1. Remove the top cover of the system by removing the four corner screws.
+### **Required Materials**
+
+* `Mayhems XT1 Clear Concentrate`  
+* `Distilled water`
+
+:::{warning}
+You must use distilled water. Tap water or other water types contain minerals and contaminants that can damage the cooling system.
+:::
+
+### **Refilling Procedure**
+
+1. Prepare the coolant mixture. The correct ratio is 38% `Mayhems XT1 Clear Concentrate` to 62% `distilled water`(e.g., 380ml of concentrate mixed with 620ml of distilled water).  
+2. Remove the top cover of the system by removing the four corner screws.  
 
    ![](qb_2_1.png)
 
-2. On the reservoir, you should see a **fill port** and a **purge port**. The port closer to the long side of the reservoir is the **fill port** (the port near the top of the image below); the port closer to the short side of the reservoir is the **purge port** (the port near the bottom of the image below).
+3. Locate the two ports on top of the coolant reservoir. The port closer to the long edge of the reservoir is the **fill port**; the port closer to the short edge is the **purge port**.  
 
    ![](qb_2_2.png)
 
-3. Unscrew both G1/4 plugs and use the **fill port** for adding coolant; the purge port will release air trapped in the cooling loop.
-4. Rescrew the G1/4 plugs and replace the top cover of your system. 
+4. Unscrew the plugs from both ports.  
+5. Slowly pour the prepared coolant mixture into the **fill port**. Air will escape from the **purge port**.  
+6. Once the reservoir is full, securely reinstall both `G1/4` plugs and replace the top cover of the system.
 
-Some air typically enters the loop when coolant is refilled; if you hear bubbles or a light buzz from air moving through the loop, this is normal. You can accelerate the movement of air into a single pocket in the reservoir by gently rocking the system back and forth, but this issue is harmless and typically resolves itself. It's not unusual for the coolant level in the reservoir to lower as air moves through the loop and is replaced by coolant.
+:::{note}
+Hearing a light buzzing sound or seeing bubbles in the loop after a refill is normal. This is harmless and will resolve as the air works its way back to the reservoir.
+:::
+
+---
+
+## **Need Additional Support?**
+If you encounter any issues, or have a question that isn't covered in the documentation, please [raise a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1) Our team will review your request and provide assistance.

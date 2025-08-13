@@ -93,7 +93,7 @@ Follow these steps to set up the hardware for your TT-QuietBox Blackhole™ work
 5. **Power on the system.** Locate the main power supply switch on the rear of the workstation and set it to the **ON** position. Press the system power button on the front panel.
 
 :::{note}
-The system's initial hardware initialization during its first Power-On-Self-Test (POST) may require up to 5 minutes before displaying the BIOS screen. If after 5 minutes you do not see the BIOS screen, please [raise a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1)
+The system's initial hardware initialization during its first Power-On-Self-Test (POST) may require up to 10 minutes before displaying the BIOS screen. If after 10 minutes you do not see the BIOS screen, please [raise a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1)
 :::
 
 ---
