@@ -20,30 +20,8 @@ The fully palletized and crated shipment weighs approximately 134 lbs (61 kg), a
 Do not proceed with unboxing or installation if you suspect shipping damage to the system. Contact Tenstorrent support at `support@tenstorrent.com` for assistance.
 :::
 
-### **Electrical Safety Warning**
-
-:::{danger}
-Failure to follow these electrical safety instructions may result in electric shock, fire, or damage to the equipment.
-:::
-
-* Connect the system to a dedicated AC power circuit with sufficient capacity to support the full power draw of the TT-QuietBox Blackhole™ workstation, including peak loads under heavy AI model execution.  
-* Do not share the outlet with other high-power devices. Avoid using household surge strips, extension cords, or multi-outlet power taps; not all are rated for the sustained current of this system.  
-* Use only the provided C13 power cable, and ensure it is plugged into a properly grounded outlet. Do not bypass or disable the grounding pin.  
-* Verify that the circuit wiring and breaker rating meet or exceed the combined system requirements, including liquid-cooling support and all accelerator cards.  
-* If the circuit becomes overloaded or if the breaker trips during power-up or operation, immediately disconnect and remove power. Then, have a qualified electrician inspect and verify the circuit’s capacity before resuming setup.  
-* Never attempt to reset or bypass a tripped breaker without first confirming the circuit integrity; failure to do so may result in overheating, voltage drop, or irreversible damage.
-
-### **ESD Safety Warning**
-
-:::{admonition} Important
-:class: warning
-Before opening the TT-QuietBox Blackhole™ workstation or handling any internal components, you must discharge static electricity from your body to avoid damaging sensitive hardware. Electrostatic discharge can permanently damage Tensix cores, memory modules, or other components. Handle with care and always follow ESD-safe practices.
-* Touch a grounded metal surface, such as a grounded rack, chassis, or power supply casing, before and during internal handling.  
-* Ideally, wear an ESD wrist strap connected to a verified ground point.  
-* Avoid working on carpeted floors or in low-humidity environments where static buildup is more likely.  
-* Do not touch any processor, memory module, connector, or printed circuit board (PCB) circuitry unless absolutely necessary, and only after properly discharging.
-:::
-
+### Safety Warnings
+Please visit the [safety warnings](./specifications.md#safety-warnings) section on the specifications page for information about electrical and electrostatic discharge (ESD) warnings.
 
 ### **Required Tools**
 
@@ -51,17 +29,6 @@ For unboxing, you will need the following tools:
 
 * Phillips head screwdriver  
 * Scissors or a similar cutting tool
-
-### **Operating System Installation Preparation**
-
-The TT-QuietBox Blackhole™ workstation ships without a pre-installed operating system (OS). Tenstorrent recommends preparing a bootable Universal Serial Bus (USB) flash drive with an installer for Ubuntu 22.04 LTS (Jammy Jellyfish) to ensure compatibility with the Tenstorrent software stack. Refer to the [official Ubuntu tutorial on creating a bootable USB drive](https://ubuntu.com/tutorials/create-a-usb-stick-on-ubuntu#1-overview) for guidance.
-
-For OS installation, you will need:
-
-* USB flash drive with an installer for Ubuntu 22.04 LTS (Jammy Jellyfish)  
-* Keyboard  
-* Mouse  
-* Monitor
 
 ---
 
@@ -129,35 +96,11 @@ Follow these steps to set up the hardware for your TT-QuietBox Blackhole™ work
 The system's initial hardware initialization during its first Power-On-Self-Test (POST) may require up to 5 minutes before displaying the BIOS screen. If after 5 minutes you do not see the BIOS screen, please [raise a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1)
 :::
 
----
-
-## **Step 3: Installing the Operating System**
-
-To install Ubuntu 22.04 LTS, plug your prepared bootable USB drive into an available USB Type-A port. During the Power-On-Self-Test (POST), press a key to enter the boot menu or the system's setup utility.
-
-:::{note}
-The TT-QuietBox Blackhole™ workstation uses an ASRock Rack SIENAD8-2L2T motherboard. The full user manual is available for download from the [ASRock Rack product page](https://www.asrockrack.com/general/productdetail.asp?Model=SIENAD8-2L2T).
-:::
-
-### **Option 1: Using the Boot Menu**
-
-1. Power on or restart the system.  
-2. Press the `F11` key during POST to enter the boot menu.  
-3. Select your USB flash drive from the list.  
-4. Follow the on-screen Ubuntu installation prompts.
-
-### **Option 2: Adjusting the Boot Order in UEFI**
-
-1. Power on or restart the system.  
-2. Press the `F2` or `Delete` key during POST to enter the Unified Extensible Firmware Interface (UEFI) setup utility.  
-3. Navigate to the **Boot** section.  
-4. Set your USB flash drive as the primary boot device.  
-5. Select **Save Changes and Exit**; the system will restart and boot from your USB drive.  
-6. Follow the on-screen Ubuntu installation prompts.
+6. NEED INPUT FROM NICK HERE
 
 ---
 
-## **Step 4: Verify System Recognition of Blackhole p150c Accelerators**
+## **Step 3: Verify System Recognition of Blackhole p150c Accelerators**
 
 Please execute these commands to download the latest list of PCI device IDs and list the recognized devices:
 ```bash
