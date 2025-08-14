@@ -117,32 +117,36 @@ The system's initial hardware initialization during its first Power-On-Self-Test
 
 ---
 
-## **Step 3. Accessing Default System Logins**
+## **Step 3. Install Operating System**
+The TT-QuietBox system ships without an operating system installed. Tenstorrent recommends preparing a bootable USB flash drive with an installer for Ubuntu 22.04 LTS (Jammy Jellyfish) to ensure proper performance and compatibility with the Tenstorrent software stack. 
 
-Follow these instructions for logging into the system using the default Ubuntu and Base Management Controller (BMC) credentials.
+:::{note}
+TT-QuietBox uses an ASRock Rack SIENAD8-2L2T motherboard; the manual for that motherboard is available [here](https://www.asrockrack.com/general/productdetail.asp?Model=SIENAD8-2L2T#Manual).
+:::
 
-### **Accessing the Ubuntu perating system**
+To install Ubuntu 22.04 LTS (Jammy Jellyfish) from a USB flash drive, first plug in the drive to an available USB Type-A port.
 
-When the Ubuntu login prompt appears, enter the following default credentials:
+You can either enter the system's BIOS/UEFI setup to adjust the boot order or enter a boot menu during Power-On-Self-Test (POST):
 
-*   **Username**: **ttuser**
-*   **Password**: **ttuser**
+#### Option 1: Adjust Boot Order
 
-### **Accessing the Base Management Controller (BMC)**
+- Power on or restart the system
+- Press the `F2` or `Delete` key during Power-On-Self-Test (POST) to enter UEFI
+- Navigate to the `Boot` section
+- Set your USB flash drive as the primary boot device
+- Select `Save Changes and Exit`; the system will restart and should now boot from your USB flash drive
+- Follow the on-screen Ubuntu installation prompts
 
-This section describes an optional process to access the Base Management Controller (BMC) included with the systsem. To log in using the system's BMC, complete these steps:
+#### Option 2: Use Boot Menu
 
-1.  Connect an additional Ethernet cable to the management port labeled **MGMT** on the back panel of your system.
-2.  On another computer connected to the same network, open a web browser.
-3.  When prompted, enter the following default credentials:
-    *   **Username**: **admin**
-    *   **Password**: **password**
-
----
+- Power on or restart the system
+- Press the `F11` key during Power-On-Self-Test (POST)
+- Select your USB flash drive
+- Follow the on-screen Ubuntu installation prompts
 
 ## **Step 4: Verify System Recognition of Wormhole n300 Accelerators**
 
-Please execute these commands to download the latest list of PCI device IDs and list the recognized devices:
+Once logged into the system, execute these commands to download the latest list of PCI device IDs and list the recognized devices:
 ```bash
 sudo update-pciids
 lspci -d 1e52:

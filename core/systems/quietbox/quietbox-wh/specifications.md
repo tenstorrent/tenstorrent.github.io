@@ -38,7 +38,7 @@ For assembly instructions, refer to the [Unboxing and Setting Up the TT-QuietBox
 | Host Connectivity | 2x RJ45 10GBase-T via Intel® X710<br />2x RJ45 1GBase-T via Intel® I210<br />4x USB 3.1 Gen 1 (5 Gbps) Type-A (2x Front, 2x Rear)<br />1x VGA<br />1x IPMI | 2x RJ45 10GBase-T via Intel® X710<br />2x RJ45 1GBase-T via Intel® I210<br />4x USB 3.1 Gen 1 (5 Gbps) Type-A (2x Front, 2x Rear)<br />1x VGA<br />1x IPMI |
 | Tensix Processor Connectivity | 8x QSFP-DD Active 200G (2 per card) |
 | Power Supply | 1650W 80 PLUS Platinum |
-| Operating System | Ubuntu 22.04 LTS |
+| Operating System | None |
 | System Dimensions | 10" x 21.5" x 20" (W x D x H) / 254mm x 546mm x 508mm |
 | System Weight | 79.7 lbs / 36.2 kg |
 | Shipped Dimensions | 18" x 33" x 27" (W x D x H) / 453mm x 839mm x 686mm |
@@ -47,7 +47,9 @@ For assembly instructions, refer to the [Unboxing and Setting Up the TT-QuietBox
 **Early prototypes of this system employed the TYAN Tomcat HX S8040 motherboard ([S8040GM4NE-2T](https://www.tyan.com/Motherboards_S8040_S8040GM4NE-2T)).*
 
 ## **Environment**
+The TT-QuietBox system ships without an operating system installed. We recommend installing Ubuntu 22.04 (Jammy Jellyfish) to properly install the Tenstorrent Software Stack.
 
+## **Environment**
 The TT-QuietBox Liquid-Cooled Desktop Workstation is designed to operate at up to 35°C/95°F external ambient temperatures.
 
 ## **Safety Warnings**
