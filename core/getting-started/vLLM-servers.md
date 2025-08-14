@@ -129,7 +129,14 @@ python3 run.py --model $MODEL --device $DEVICE --workflow server --docker-server
 ```
 
 :::{Important}
-The first time you run this command, it will download the model weights. This download can take more than 30 minutes. After the download completes, the server initialization process for a 70B model can take up to 40 minutes.
+The first time you run this command, it will download the model's weights. This download can take more than 30 minutes.
+:::
+
+### **3\. Wait for the server to initialize**
+After the download completes, the server will start initializing in a docker container.
+
+:::{Important}
+The first time you start the server, the initialization process for a 70B model should take about 40 minutes. For an 8B model it should take about 10 minutes.
 :::
 
 ---
