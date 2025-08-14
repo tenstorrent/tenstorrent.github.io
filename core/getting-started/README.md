@@ -6,7 +6,7 @@ myst:
     document-type: how-to
 ---
 
-# **Installing the Tenstorrent Software Stack**
+# Installing the Tenstorrent Software Stack
 
 This guide assists users who have completed the physical hardware setup of their Tenstorrent system. You will learn how to install the Tenstorrent software stack, including system dependencies, drivers, and the TT-Metalium™ development environment, and how to verify the installation.
 
@@ -139,7 +139,7 @@ At the end of the installation process, you will be prompted to answer this ques
 ## **Verify System Software Installation**
 After rebooting your system, we will verify all system software dependencies were successfully installed and loaded. We will do so by utilizing the [tt-smi](https://github.com/tenstorrent/tt-smi) tool to enumerate all Tenstorrent devices.
 
-First, activate the Python environment in which you installed the required Python packages. You performed this environment selection in [Step 5. Choose Python Package Installation Location](#choose-python-package-installation-location).
+First, activate the Python environment in which you installed the required Python packages. You performed this environment selection in [Step 5. Choose Python Package Installation Location](#5-choose-python-package-installation-location).
 :::{note}
 We assume you selected the DEFAULT option, and installed all Python packages under `/home/$USER/.tenstorrent-venv/bin/activate`. Execute this command to activate the Python virtual environment:
 ```bash

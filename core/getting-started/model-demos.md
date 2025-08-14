@@ -6,8 +6,10 @@ myst:
     document-type: how-to
 ---
 
-# **Running Model Demos**
-This guide is for users who have installed the base Tenstorrent Software Stack. You'll learn how to download and enter the containerized environment for model demos, run a basic operation to verify the environment is working, and find more complex model examples. This guide demonstrates how to run the tt-metalium model demos using the [tt-installer](https://github.com/tenstorrent/tt-installer) tool. The tt-installer can be used to download a [container for running the tt-metalium demos](https://github.com/tenstorrent/tt-installer?tab=readme-ov-file#using-tt-metalium). This container possesses a full build of the tt-metalium project, including the demo source code.
+# Running Model Demos
+This guide is for users who have installed the base Tenstorrent Software Stack. You'll learn how to download and enter the containerized environment for model demos, run a basic operation to verify the environment is working, and find more complex model examples.
+
+This guide demonstrates how to run the tt-metalium model demos using the [tt-installer](https://github.com/tenstorrent/tt-installer) tool. The tt-installer can be used to download a [container for running the tt-metalium demos](https://github.com/tenstorrent/tt-installer?tab=readme-ov-file#using-tt-metalium). This container possesses a full build of the tt-metalium project, including the demo source code.
 
 ---
 

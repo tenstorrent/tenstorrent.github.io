@@ -21,7 +21,7 @@ If you have any issues with your TT-QuietBox, please visit the TT-QuietBox [supp
 | **Memory**                            | 512 GB (8x64 GB)<br />DDR5-4800 ECC RDIMM<br />(0 Slots Free) | 256 GB (8x32 GB)<br />DDR5-4800 ECC RDIMM<br />(0 Slots Free) |
 | **Storage**                           | 4 TB NVMe PCIe 4.0 x4                                        | 4 TB NVMe PCIe 4.0 x4                                        |
 | **Tensix Processors**                 | 4x Tenstorrent Wormhole™ n300 Tensix Processor               | 4x Tenstorrent Blackhole™ p150c Tensix Processor             |
-| **Cables**                            | 4x [Warp 100 Bridge](../../aibs/warp100.md)<br />2x QSFP-DD 400GbE Cable | 8x QSFP-DD 800GbE Cable                                      |
+| **Cables**                            | 4x [Warp 100 Bridge](../../../aibs/warp100.md)<br />2x QSFP-DD 400GbE Cable | 8x QSFP-DD 800GbE Cable                                      |
 | **Host System<br />Connectivity**     | 2x RJ45 10GBase-T via Intel® X710<br />2x RJ45 1GBase-T via Intel® I210<br />4x USB 3.1 Gen 1 (5 Gbps) Type-A (2x Front, 2x Rear)<br />1x VGA<br />1x IPMI | 2x RJ45 10GBase-T via Intel® X710<br />2x RJ45 1GBase-T via Intel® I210<br />4x USB 3.1 Gen 1 (5 Gbps) Type-A (2x Front, 2x Rear)<br />1x VGA<br />1x IPMI |
 | **Tensix Processor Connectivity**     | 8x QSFP-DD Active 200G (2 per card)                          | 16x QSFP-DD Passive 800G (4 per card)                        |
 | **Power Supply**                      | 1650W 80 PLUS Gold                                           | 1650W 80 PLUS Platinum                                       |

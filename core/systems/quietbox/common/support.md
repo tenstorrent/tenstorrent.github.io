@@ -6,7 +6,7 @@ myst:
     document-type: troubleshooting
 ---
 
-# **Troubleshooting Common Hardware Issues**
+# Troubleshooting Common Hardware Issues
 This guide assists users in diagnosing and resolving common hardware issues with the TT-QuietBox™ system, including system instability, boot failures, and long-term maintenance tasks such as coolant refilling.
 
 ## **Resolving System Instability or Random Reboots After a BIOS Change**
@@ -54,16 +54,16 @@ This procedure requires technical expertise and careful handling to avoid damagi
 
 2. Carefully remove the front glass panel and set it aside in a safe location.  
 
-   ![](qb_1_2.jpg)
+   ![](qb_1_2.png)
 
 3. Use a `2.0mm security hex bit` to unscrew and remove the center retention bar that secures the PCIe cards.  
 
-   ![](qb_1_3.jpg)
+   ![](qb_1_3.png)
 
 4. Remove the Phillips head screws that secure the PCIe card shields to the back of the chassis.  
 5. Pull the quick-disconnect shield back and gently pull the hoses to detach the cooling tubes from the cards.  
 
-   ![](qb_1_4.jpg)
+   ![](qb_1_4.png)
 
 6. Carefully remove the cards from their **PCIe** slots.  
 7. Re-insert each card firmly into its **PCIe** slot. Apply counter-pressure to the motherboard to prevent it from flexing.  

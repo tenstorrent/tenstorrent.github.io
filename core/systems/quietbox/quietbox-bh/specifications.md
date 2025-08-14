@@ -21,7 +21,7 @@ The Tenstorrent TT-QuietBox Blackhole (TW-04002) system package includes the fol
 
 **Warning** The TT-QuietBox is shipped in a wooden crate with a total weight of approximately 134 lbs (61 kg). The system itself weighs approximately 80 lbs (36 kg). At least two people are required to move and uncrate the system safely.
 
-For assembly instructions, refer to the [Unboxing and Setting Up the TT-QuietBox Workstation Guide](./setup.md). If you encounter issues, refer to the [Troubleshooting Common Hardware Issues page](./support.md).
+For assembly instructions, refer to the [Unboxing and Setting Up the TT-QuietBox Workstation Guide](./setup.md). If you encounter issues, refer to the [Troubleshooting Common Hardware Issues page](../common/support.md).
 
 ## **System Specifications**
 

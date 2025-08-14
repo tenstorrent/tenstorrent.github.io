@@ -145,7 +145,7 @@ If you don’t see all four accelerators listed, please [raise a support request
 
 ## **Step 5: Installing the Tenstorrent Software Stack**
 
-After completing the operating system installation, proceed with [Installing the Tenstorrent Software Stack](../../getting-started/README.md).
+After completing the operating system installation, proceed with [Installing the Tenstorrent Software Stack](../../../getting-started/README.md).
 
 ---
 
