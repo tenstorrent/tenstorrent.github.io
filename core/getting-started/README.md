@@ -15,7 +15,9 @@ This guide assists users who have completed the physical hardware setup of their
 Before you begin the software installation, ensure your host machine meets the following prerequisites:
 
 * The host machine has an internet connection to download software packages.  
-* You have administrator privileges on the host machine.  
+* The host machine has a supported operating system installed (Supported OS listed below)
+  * Tenstorrent also supports [other operating systems](#running-the-installer-script) but are considered experimental at this point
+* You have administrator privileges on the host machine.
 * The system is physically unboxed and set up according to your product's installation manual and safety guidelines.
 
 ### **Supported Operating Systems**
@@ -27,7 +29,7 @@ Tenstorrent recommends Ubuntu 22.04 LTS (Jammy Jellyfish) for all Tenstorrent so
 The BIOS for your host motherboard should configure the PCIe AER Reporting Mechanism to be set to `OS First`. Tenstorrent's TT-SMI software requires this setting to function properly.
 
 :::{important}
-If you are using a TT-QuietBox, you do not have to worry about setting this option. It is set to `OS First` be default.
+If you are using a TT-QuietBox, you do not have to worry about setting this option. It is set to `OS First` by default.
 
 If you update or reset your BIOS for any reason, you must reconfigure the PCIe AER Reporting Mechanism setting to `OS First` to ensure TT-SMI functions correctly. This setting is typically located in the **Motherboard Information** section of your BIOS.
 :::
@@ -89,7 +91,10 @@ Next, you will be prompted whether to install the TT-Metalium slim container:
 Install Metalium [Y/n] 
 ```
 
-**Installing the TT-Metalium slim container is optional, you may answer "Y" or "N".**
+:::{admonition} Optional
+:class: note
+This container possesses a release installation of tt-nn and tt-metalium. **If you want if you want to use tt-nn / tt-metalium to build software, answer “Y” to this question”, otherwise, answer “N”.**
+:::
 
 ### **4\. Install TT-Metalium Model Demos Container**
 Next, you will be prompted whether to install the TT-Metalium Model Demos container:
@@ -137,14 +142,16 @@ At the end of the installation process, you will be prompted to answer this ques
 ---
 
 ## **Verify System Software Installation**
-After rebooting your system, we will verify all system software dependencies were successfully installed and loaded. We will do so by utilizing the [tt-smi](https://github.com/tenstorrent/tt-smi) tool to enumerate all Tenstorrent devices.
+After rebooting your system, verify all system software dependencies were successfully installed and loaded. This section will introduce you to the [tt-smi](https://github.com/tenstorrent/tt-smi) tool, which we'll use to enumerate all Tenstorrent devices.
 
 First, activate the Python environment in which you installed the required Python packages. You performed this environment selection in [Step 5. Choose Python Package Installation Location](#5-choose-python-package-installation-location).
 :::{note}
-We assume you selected the DEFAULT option, and installed all Python packages under `/home/$USER/.tenstorrent-venv/bin/activate`. Execute this command to activate the Python virtual environment:
+If you selected the DEFAULT option which installs all Python packages under `/home/$USER/.tenstorrent-venv/bin/activate`. Execute this command to activate the Python virtual environment:
 ```bash
 source ~/.tenstorrent-venv/bin/activate
 ```
+
+If you did not, use the installation path you chose in [step 5](#5-choose-python-package-installation-location). 
 :::
 
 Next, execute this command to start tt-smi, then ensure the number of devices listed under the **"Device Information"** pane matches the number of Tenstorrent devices installed in your system:
@@ -155,7 +162,8 @@ tt-smi
 Here is an example of what you should see for a system containing a single p150a device:
 ![](tt_smi_screenshot.png)
 
-:::{danger}
+:::{admonition} Important
+:class: danger
 If the number of listed devices does not match what you expect, please [contact support](#need-additional-support) and we will assist you.
 :::
 
