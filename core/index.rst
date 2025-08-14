@@ -11,6 +11,7 @@ Tenstorrent
    getting-started/README
    getting-started/model-demos
    getting-started/vLLM-servers
+   getting-started/tt-software-stack
 
 .. toctree::
    :hidden:

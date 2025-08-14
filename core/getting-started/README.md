@@ -169,17 +169,16 @@ For advanced users or developers who prefer alternative installation methods for
 
 ---
 
-## **First 5 Things To Do**
+## **First Things To Do**
 After tt-installer finishes successfully and you have restarted your system, you can proceed how you like. You may want to:
 
-* [Run model demos](../getting-started/model-demos.md)
+* [Running model demos](./model-demos.md)
   * Explore pre-built demonstrations of popular models like Llama, Whisper, Stable Diffusion and ResNet.
   * This is a great way to see Tenstorrent's software in action without deep dives into model architecture.
-* [Deploy LLMs](../getting-started/vLLM-servers.md)
+* [Deploying LLMs](./vLLM-servers.md)
   * This is the recommended path users should take to deploy LLMs.
-* Use a high-level interface to build your own models or migrate from Torch: [Use TT-NN](https://docs.tenstorrent.com/tt-metal/latest/ttnn/ttnn/usage.html#basic-examples).
-* Install TT-Metalium and write high-performance C++ kernels: Read the [installation guide](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/get_started/get_started.html#installation).
-* Learn more about our unique architecture: Start by [reading this guide](https://github.com/tenstorrent/tt-metal/blob/main/METALIUM_GUIDE.md).
+* Understanding the [Tenstorrent Software Stack](./tt-software-stack.md).
+* Learn more about our unique architecture by [reading this guide](https://github.com/tenstorrent/tt-metal/blob/main/METALIUM_GUIDE.md).
 
 ---
 
