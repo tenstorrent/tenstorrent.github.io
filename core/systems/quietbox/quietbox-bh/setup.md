@@ -12,7 +12,7 @@ This guide provides system administrators, hardware engineers, and users respons
 
 ## **Before You Begin**
 
-Before you begin, choose a clear, stable, and spacious area for the TT-QuietBox Blackhole™ workstation. The system ships in a palletized wooden crate. Ensure you have at least two people and enough room for them to maneuver comfortably and safely around the crate and system. Clear the area where you intend to use the TT-QuietBox Blackhole™ and ensure it has power, as specified in the electrical safety warning below. Also, confirm that all vents are clear of obstructions or other objects.
+Before you begin, choose a clear, stable, and spacious area for the TT-QuietBox Blackhole™ workstation. The system ships in a palletized wooden crate. Ensure you have at least two people and enough room for them to maneuver comfortably and safely around the crate and system. Clear the area where you intend to use the TT-QuietBox Blackhole™ and ensure to use a dedicated circuit and outlet, as specified in the [electrical safety warning](#safety-warnings) linked below. Also, confirm that all vents are clear of obstructions or other objects.
 
 :::{warning}
 The fully palletized and crated shipment weighs approximately 134 lbs (61 kg), and the workstation itself weighs approximately 80 lbs (36 kg). Unboxing and lifting require at least two people for safe maneuverability.
@@ -29,6 +29,11 @@ For unboxing, you will need the following tools:
 
 * Phillips head screwdriver  
 * Scissors or a similar cutting tool
+
+For setup, you will need the following:
+* Keyboard
+* Mouse
+* Monitor
 
 ---
 
@@ -87,6 +92,10 @@ Follow these steps to set up the hardware for your TT-QuietBox Blackhole™ work
 
 3. **Connect to the network.** For host system network access, connect a standard Ethernet cable (Cat 6 or better, user-provided) to an RJ45 LAN port on the rear panel. The **LAN1** and **LAN2** ports are 10GbE, while **LAN3** and **LAN4**are 1GbE.
 
+:::{note}
+The port that is not outlined in the following image is the BMC management port.
+:::
+
 ![](qb_lan.png)
 
 4. **Connect peripherals.** Connect your monitor, keyboard, and mouse (user-provided). A VGA-to-HDMI adapter is included for monitors that require an HDMI connection. **Be sure to plug in both the VGA and USB-A connectors to the rear panel for a video signal to be transmitted.**
@@ -102,14 +111,14 @@ The system's initial hardware initialization during its first Power-On-Self-Test
 
 Follow these instructions for logging into the system using the default Ubuntu and Base Management Controller (BMC) credentials.
 
-### **Accessing the Ubuntu perating system**
+### **Accessing the Ubuntu operating system**
 
 When the Ubuntu login prompt appears, enter the following default credentials:
 
 *   **Username**: **ttuser**
 *   **Password**: **ttuser**
 
-### **Accessing the Base Management Controller (BMC)**
+### **Optional: Accessing the Base Management Controller (BMC)**
 
 This section describes an optional process to access the Base Management Controller (BMC) included with the systsem. To log in using the system's BMC, complete these steps:
 
@@ -121,9 +130,9 @@ This section describes an optional process to access the Base Management Control
 
 ---
 
-## **Step 4: Verify System Recognition of Blackhole p150c Accelerators**
+## **Step 4: Verifying System Recognition of Blackhole p150c Accelerators**
 
-Please execute these commands to download the latest list of PCI device IDs and list the recognized devices:
+In a terminal, execute these commands to download the latest list of PCI device IDs and list the recognized devices:
 ```bash
 sudo update-pciids
 lspci -d 1e52:
@@ -137,8 +146,9 @@ You should see an output which lists four recognized accelerators:
 c1:00.0 Processing accelerators: Tenstorrent Inc Blackhole
 ```
 
-:::{danger}
-If you don’t see all four accelerators listed, please [raise a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1). Our team will review your request and provide assistance.
+:::{admonition} Important
+:class: danger
+If you don’t see all four accelerators listed, please [raise a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1) Our team will review your request and provide assistance.
 :::
 
 ---

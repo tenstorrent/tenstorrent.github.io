@@ -12,7 +12,7 @@ This guide provides system administrators, hardware engineers, and users respons
 
 ## **Before You Begin**
 
-Before you begin, choose a clear, stable, and spacious area for the TT-QuietBox Wormhole™ workstation. The system ships in a palletized wooden crate. Ensure you have at least two people and enough room for them to maneuver comfortably and safely around the crate and system. Clear the area where you intend to use the TT-QuietBox Wormhole™ and ensure it has power, as specified in the electrical safety warning below. Also, confirm that all vents are clear of obstructions or other objects.
+Before you begin, choose a clear, stable, and spacious area for the TT-QuietBox Wormhole™ workstation. The system ships in a palletized wooden crate. Ensure you have at least two people and enough room for them to maneuver comfortably and safely around the crate and system. Clear the area where you intend to use the TT-QuietBox Wormhole™ and ensure to use a dedicated circuit and outlet, as specified in the [electrical safety warning](#safety-warnings) linked below. Also, confirm that all vents are clear of obstructions or other objects.
 
 :::{warning}
 The fully palletized and crated shipment weighs approximately 134 lbs (61 kg), and the workstation itself weighs approximately 80 lbs (36 kg). Unboxing and lifting require at least two people for safe maneuverability.
@@ -29,6 +29,11 @@ For unboxing, you will need the following tools:
 
 * Phillips head screwdriver  
 * Scissors or a similar cutting tool
+
+For setup, you will need the following:
+* Keyboard
+* Mouse
+* Monitor
 
 ---
 
@@ -106,6 +111,10 @@ One QSFP-DD cable will need to be connected to **Port 2** on the cards in **Slot
 
 3. **Connect to the network.** For host system network access, connect a standard Ethernet cable (Cat 6 or better, user-provided) to an RJ45 LAN port on the rear panel. The **LAN1** and **LAN2** ports are 10GbE, while **LAN3** and **LAN4**are 1GbE.
 
+:::{note}
+The port that is not outlined in the following image is the BMC management port.
+:::
+
 ![](qb_lan.png)
 
 4. **Connect peripherals.** Connect your monitor, keyboard, and mouse (user-provided). A VGA-to-HDMI adapter is included for monitors that require an HDMI connection. **Be sure to plug in both the VGA and USB-A connectors to the rear panel for a video signal to be transmitted.**
@@ -144,9 +153,9 @@ You can either enter the system's BIOS/UEFI setup to adjust the boot order or en
 - Select your USB flash drive
 - Follow the on-screen Ubuntu installation prompts
 
-## **Step 4: Verify System Recognition of Wormhole n300 Accelerators**
+## **Step 4: Verifying System Recognition of Wormhole n300 Accelerators**
 
-Once logged into the system, execute these commands to download the latest list of PCI device IDs and list the recognized devices:
+Once logged into the system, execute these commands in a terminal to download the latest list of PCI device IDs and list the recognized devices:
 ```bash
 sudo update-pciids
 lspci -d 1e52:
@@ -160,8 +169,9 @@ b1:00.0 Processing accelerators: Tenstorrent Inc Wormhole
 ca:00.0 Processing accelerators: Tenstorrent Inc Wormhole
 ```
 
-:::{danger}
-If you don’t see all four accelerators listed, please [raise a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1). Our team will review your request and provide assistance.
+:::{admonition} Important
+:class: danger
+If you don’t see all four accelerators listed, please [raise a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1) Our team will review your request and provide assistance.
 :::
 
 ---
