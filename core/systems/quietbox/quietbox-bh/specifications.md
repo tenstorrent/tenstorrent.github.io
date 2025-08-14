@@ -19,7 +19,9 @@ The Tenstorrent TT-QuietBox Blackhole (TW-04002) system package includes the fol
 * 8x QSFP-DD 800GbE Cable, 0.6m/2ft.  
 * VGA-to-HDMI Adapter
 
-**Warning** The TT-QuietBox is shipped in a wooden crate with a total weight of approximately 134 lbs (61 kg). The system itself weighs approximately 80 lbs (36 kg). At least two people are required to move and uncrate the system safely.
+:::{warning}
+The TT-QuietBox is shipped in a wooden crate with a total weight of approximately 134 lbs (61 kg). The system itself weighs approximately 80 lbs (36 kg). At least two people are required to move and uncrate the system safely.
+:::
 
 For assembly instructions, refer to the [Unboxing and Setting Up the TT-QuietBox Workstation Guide](./setup.md). If you encounter issues, refer to the [Troubleshooting Common Hardware Issues page](../common/support.md).
 
@@ -31,7 +33,7 @@ For assembly instructions, refer to the [Unboxing and Setting Up the TT-QuietBox
 | Motherboard | ASRock Rack [SIENAD8-2L2T](https://www.asrockrack.com/general/productdetail.asp?Model=SIENAD8-2L2T#Specifications)* |
 | Memory | 512 GB (8x64 GB) DDR5-4800 ECC RDIMM (0 Slots Free) |
 | Storage | 4 TB NVMe PCIe 4.0 x4 |
-| Tenstorrent Processors | 4x Tenstorrent Blackhole™ p150c Tensix Processors |
+| Tenstorrent Processors | 4x Tenstorrent Blackhole™ p150c Tensix Processor |
 | Included Cables | 8x QSFP-DD 800GbE Cable |
 | Host Connectivity | 2x RJ45 10GBase-T via Intel® X710<br />2x RJ45 1GBase-T via Intel® I210<br />4x USB 3.1 Gen 1 (5 Gbps) Type-A (2x Front, 2x Rear)<br />1x VGA<br />1x IPMI | 2x RJ45 10GBase-T via Intel® X710<br />2x RJ45 1GBase-T via Intel® I210<br />4x USB 3.1 Gen 1 (5 Gbps) Type-A (2x Front, 2x Rear)<br />1x VGA<br />1x IPMI |
 | Tensix Processor Connectivity | 16x QSFP-DD Passive 800G (4 ports per card) |
