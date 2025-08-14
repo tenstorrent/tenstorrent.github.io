@@ -1,4 +1,16 @@
-# Compliance
+---
+myst:
+  html_meta:
+    product-name: e75, e150, n150d, n150s, n300d, n300s, p100a, p150a, p150b, p150c 
+    technology-concepts: Regulatory compliance, FCC, ISED, CE, RoHS, EMC Document
+    document-type: Reference
+---
+
+# **Regulatory Compliance Statements**
+
+This document provides regulatory compliance information for specific Tenstorrent products, including models e75, e150, n150d, n150s, n300d, n300s, p100a, p150b, and p150c. It outlines the standards and regulations with which these devices comply in various regions, assisting users in understanding compliance requirements for proper installation and operation.
+
+## Compliance
 
 The e75, e150, n150d, n150s, n300d, n300s, p100a, p150b, and p150c comply with requirements of:
 
