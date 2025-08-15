@@ -1,5 +1,4 @@
 # Support & FAQ
+If you encounter any issues, or have questions that are not covered by the documentation, please [raise a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1) Our team will review your request and provide assistance.
 
-For support, forums, and community, visit Tenstorrent's [Discord channel](https://discord.gg/tvhGzHQwaj).
-
-For additional support, you can contact us directly at [support@tenstorrent.com](mailto:support@tenstorrent.com).
+For forums and community discussions, visit Tenstorrent's [Discord channel](https://discord.gg/tvhGzHQwaj).

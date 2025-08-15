@@ -21,12 +21,14 @@ exclude_patterns = []
 extensions = ['myst_parser',
               'sphinx_substitution_extensions',
               'sphinx_copybutton',
+              'sphinx_togglebutton',
               ]
 
 copybutton_selector = 'div.highlight-bash pre'
 
 myst_enable_extensions = [
-    'substitution'
+    'substitution',
+    'colon_fence',
 ]
 
 ver_kmd        = Path('../syseng/kmd.version').read_text().rstrip()
@@ -39,6 +41,7 @@ myst_substitutions = {
     'ver_sys_tools': ver_sys_tools,
 }
 
+myst_heading_anchors = 3  # or 2, depending on how deep you want anchor links
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
