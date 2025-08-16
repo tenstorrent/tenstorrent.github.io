@@ -391,6 +391,7 @@ li.toctree-l1.current>a {
 .rst-content code.literal,
 .rst-content tt.literal {
   color: var(--color-red-accent);
+  vertical-align: middle;
 }
 
 pre {
