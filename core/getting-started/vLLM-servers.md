@@ -56,7 +56,8 @@ Verify that the post-installation was successful by running the `hello-world` im
 docker run hello-world
 ```
 
-:::{danger}
+:::{admonition} Important
+:class: danger
 Do not continue if you cannot run the `hello-world` image without root permissions, be sure to follow all post-installation instructions.
 :::
 
