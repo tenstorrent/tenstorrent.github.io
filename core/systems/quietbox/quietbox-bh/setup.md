@@ -126,7 +126,7 @@ This section describes an optional process to access the Base Management Control
 2.  On another computer connected to the same network, open a web browser.
 3.  When prompted, enter the following default credentials:
     *   **Username**: **admin**
-    *   **Password**: **password**
+    *   **Password**: **ZTSI-00025**
 
 ---
 
