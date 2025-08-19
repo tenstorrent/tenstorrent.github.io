@@ -25,7 +25,7 @@ Before beginning this procedure, ensure that you have completed the base softwar
 ### **(Wormhole™ only)**
 
 :::{admonition} If you are using a Wormhole™ Networked AI Processor-based product, you must complete the following steps
-:class: danger
+:class: warning
 
 
 Wormhole™ Networked AI Processor hardware requires firmware version `v18.5.0` or older for compatibility with `tt-inference-server`. Run the following script to install the correct firmware version.
@@ -39,6 +39,26 @@ Wormhole™ Networked AI Processor hardware requires firmware version `v18.5.0` 
 ```bash
 TMP_DIR=$(mktemp -d); (trap 'echo "---"; echo "Cleaning up..."; if type deactivate &>/dev/null; then deactivate; fi; echo "Removing temporary directory: $TMP_DIR"; rm -rf "$TMP_DIR"; cd; echo "Cleanup complete."' EXIT; trap 'echo -e "\033[0;31m!!! ERROR: Failed to configure mesh topology\033[0m"' ERR; set -e; cd "$TMP_DIR"; echo "Working in temporary directory: $TMP_DIR"; echo "---"; echo "Creating Python virtual environment..."; python3 -m venv tt-topology-venv; source tt-topology-venv/bin/activate; echo "Virtual environment activated."; echo "---"; echo "Installing tt-topology from git..."; pip install --quiet git+https://github.com/tenstorrent/tt-topology.git; echo "tt-topology installed."; echo "---"; echo "Running tt-topology command. This may take a moment..."; tt-topology -l mesh; echo "---"; echo "Script finished successfully.";)
 ```
+:::
+
+### **Installing Docker**
+tt-inference-server requires [Docker](https://www.docker.com) to be installed. To install Docker, please follow the official [installation instructions](https://docs.docker.com/engine/install/ubuntu/).
+
+Verify that the installation was successful by running the `hello-world` image:
+```bash
+sudo docker run hello-world
+```
+
+You must also follow the official [post-installation instructions](https://docs.docker.com/engine/install/linux-postinstall/) to run Docker without root permissions.
+
+Verify that the post-installation was successful by running the `hello-world` image again, this time without root permissions:
+```bash
+docker run hello-world
+```
+
+:::{admonition} Important
+:class: danger
+Do not continue if you cannot run the `hello-world` image without root permissions, be sure to follow all post-installation instructions.
 :::
 
 ---
