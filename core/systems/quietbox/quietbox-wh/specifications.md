@@ -49,7 +49,6 @@ For assembly instructions, refer to the [Unboxing and Setting Up the TT-QuietBox
 ## **Environment**
 The TT-QuietBox system ships without an operating system installed. We recommend installing Ubuntu 22.04 (Jammy Jellyfish) to properly install the Tenstorrent Software Stack.
 
-## **Environment**
 The TT-QuietBox Liquid-Cooled Desktop Workstation is designed to operate at up to 35°C/95°F external ambient temperatures.
 
 ## **Safety Warnings**
