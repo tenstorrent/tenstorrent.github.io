@@ -41,7 +41,13 @@ If you update or reset your BIOS for any reason, you must reconfigure the PCIe A
 Tenstorrent recommends using the [tt-installer](https://github.com/tenstorrent/tt-installer/) script to install the Tenstorrent software stack. This script automates the setup process and is compatible with Ubuntu, Fedora, and Debian operating systems.
 
 ### **1\. Execute the installer**
-To begin the installation, execute the following command in your terminal:
+The installer has two dependencies, `curl` and `jq`. Install them using your system package manager. For example, on Ubuntu, run:
+
+```bash
+sudo apt update && sudo apt install -y curl jq
+```
+
+Now, to begin the installation, execute the following command in your terminal:
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://github.com/tenstorrent/tt-installer/releases/latest/download/install.sh)"
