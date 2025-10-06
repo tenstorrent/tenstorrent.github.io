@@ -153,6 +153,17 @@ You can either enter the system's BIOS/UEFI setup to adjust the boot order or en
 - Select your USB flash drive
 - Follow the on-screen Ubuntu installation prompts
 
+### **Optional: Accessing the Base Management Controller (BMC)**
+
+This section describes an optional process to access the Base Management Controller (BMC) included with the systsem. To log in using the system's BMC, complete these steps:
+
+1.  Connect an additional Ethernet cable to the management port labeled **MGMT** on the back panel of your system.
+2.  On another computer connected to the same network, open a web browser.
+3.  When prompted, enter the following default credentials:
+    *   **Username**: **admin**
+    *   **Password**: **ZTSI-00029**
+
+
 ## **Step 4: Verifying System Recognition of Wormhole n300 Accelerators**
 
 Once logged into the system, execute these commands in a terminal to download the latest list of PCI device IDs and list the recognized devices:
