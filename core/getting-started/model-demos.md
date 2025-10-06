@@ -28,7 +28,7 @@ The model demos are packaged in a dedicated container. This keeps the demo envir
 Run the following command to add the models container to your existing Tenstorrent software installation.
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://github.com/tenstorrent/tt-installer/releases/latest/download/install.sh)" --no-install-kmd --no-install-hugepages --no-install-metalium-container --install-metalium-models-container --no-install-tt-flash --no-install-tt-topology --update-firmware="off" --reboot-option="never" --mode-non-interactive
+/bin/bash -c "$(curl -fsSL https://github.com/tenstorrent/tt-installer/releases/latest/download/install.sh)" -- --no-install-kmd --no-install-hugepages --no-install-metalium-container --install-metalium-models-container --no-install-tt-flash --no-install-tt-topology --update-firmware="off" --reboot-option="never" --mode-non-interactive
 ```
 
 ## **Step 2: Starting the Container**
