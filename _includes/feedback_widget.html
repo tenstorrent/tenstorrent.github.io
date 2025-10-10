@@ -1,0 +1,65 @@
+<div id="feedback-widget-container" class="w-full max-w-5xl mx-auto my-8">
+    <div class="bg-white rounded-lg border border-tens-slate-light shadow-sm p-6">
+        <div id="feedback-initial-state" class="flex flex-col sm:flex-row items-center justify-between w-full">
+            <p class="font-semibold text-tens-black mb-4 sm:mb-0">Was this article helpful?</p>
+            <div class="flex items-center space-x-2">
+                <button id="thumb-up-btn" class="p-2 rounded-md border border-gray-300 hover:bg-gray-100 transition focus:outline-none focus:ring-2 focus:ring-tens-purple">
+                    <svg class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                       <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+                    </svg>
+                </button>
+                <button id="thumb-down-btn" class="p-2 rounded-md border border-gray-300 hover:bg-gray-100 transition focus:outline-none focus:ring-2 focus:ring-tens-purple">
+                    <svg class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-3"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <form id="feedback-form" class="hidden mt-4" novalidate>
+            <p id="feedback-prompt" class="font-semibold text-tens-black mb-3"></p>
+
+            <div id="thumbs-down-reasons" class="hidden mb-3">
+                <p class="text-sm text-tens-black font-medium mb-2">How would you describe this article?</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    <div class="custom-radio">
+                        <input type="radio" id="reason-inaccurate" name="down_reason_radio" value="inaccurate">
+                        <label for="reason-inaccurate"><b>Inaccurate:</b> it doesn’t reflect what I see in the product</label>
+                    </div>
+                    <div class="custom-radio">
+                        <input type="radio" id="reason-unclear" name="down_reason_radio" value="unclear">
+                        <label for="reason-unclear"><b>Unclear:</b> it’s difficult to understand</label>
+                    </div>
+                    <div class="custom-radio">
+                        <input type="radio" id="reason-missing" name="down_reason_radio" value="missing">
+                        <label for="reason-missing"><b>Missing information:</b> it’s not comprehensive enough</label>
+                    </div>
+                    <div class="custom-radio">
+                        <input type="radio" id="reason-irrelevant" name="down_reason_radio" value="irrelevant">
+                        <label for="reason-irrelevant"><b>Irrelevant:</b> it doesn’t match what I searched for</label>
+                    </div>
+                </div>
+            </div>
+
+            <textarea id="feedback-text" rows="3" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-tens-purple focus:border-tens-purple transition" placeholder="Please let us know what was or wasn't helpful about this page."></textarea>
+
+            <div class="flex items-center mt-3">
+                <input id="can-contact-checkbox" type="checkbox" class="h-4 w-4 text-tens-purple border-gray-300 rounded focus:ring-tens-purple">
+                <label for="can-contact-checkbox" class="ml-2 block text-sm text-tens-black">Allow Tenstorrent to contact me about my documentation feedback.</label>
+            </div>
+
+            <div id="email-container" class="hidden mt-3">
+                <input type="email" id="feedback-email" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-tens-purple focus:border-tens-purple transition" placeholder="Enter your email address">
+            </div>
+            <button id="submit-feedback-btn" type="submit" class="w-full mt-4 bg-tens-purple text-white font-semibold py-2 px-4 rounded-md hover:bg-tens-purple-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-tens-purple transition">Submit</button>
+        </form>
+
+        <div id="feedback-thank-you-state" class="hidden text-center p-4">
+            <p class="font-semibold text-tens-black">Thank you for your feedback!</p>
+        </div>
+
+        <div id="feedback-error-state" class="hidden text-center p-4">
+            <p class="font-semibold text-red-600">Sorry, something went wrong. Please try again later.</p>
+        </div>
+    </div>
+</div>
