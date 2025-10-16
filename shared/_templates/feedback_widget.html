@@ -1,0 +1,160 @@
+<div class="feedback-widget">
+  <div class="feedback-header">
+    <h4>Was this page helpful?</h4>
+  </div>
+  <div class="feedback-buttons">
+    <button class="feedback-btn" data-feedback="yes">👍 Yes</button>
+    <button class="feedback-btn" data-feedback="no">👎 No</button>
+  </div>
+  <div class="feedback-form" style="display: none;">
+    <textarea placeholder="Tell us how we can improve this page..." rows="3"></textarea>
+    <button class="submit-feedback-btn">Submit Feedback</button>
+  </div>
+  <div class="feedback-thanks" style="display: none;">
+    <p>Thank you for your feedback!</p>
+  </div>
+</div>
+
+<style>
+.feedback-widget {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  background-color: #f6f8fa;
+}
+
+.feedback-header h4 {
+  margin: 0 0 1rem 0;
+  color: #24292e;
+  font-size: 1.1rem;
+}
+
+.feedback-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.feedback-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #d0d7de;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.feedback-btn:hover {
+  background-color: #f3f4f6;
+}
+
+.feedback-btn.active {
+  background-color: #0969da;
+  color: white;
+  border-color: #0969da;
+}
+
+.feedback-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #d0d7de;
+  border-radius: 4px;
+  resize: vertical;
+  font-family: inherit;
+  margin-bottom: 0.5rem;
+}
+
+.submit-feedback-btn {
+  padding: 0.5rem 1rem;
+  background-color: #1f883d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.submit-feedback-btn:hover {
+  background-color: #1a7f37;
+}
+
+.feedback-thanks {
+  color: #1f883d;
+  font-weight: 500;
+}
+
+/* Hide widget when page sets meta hide_feedback=true */
+html:has(meta[name="hide_feedback"][content="true"]) .feedback-widget {
+  display: none !important;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const feedbackBtns = document.querySelectorAll('.feedback-btn');
+  const feedbackForm = document.querySelector('.feedback-form');
+  const feedbackThanks = document.querySelector('.feedback-thanks');
+  const submitBtn = document.querySelector('.submit-feedback-btn');
+  const textarea = document.querySelector('.feedback-form textarea');
+
+  feedbackBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      // Remove active class from all buttons
+      feedbackBtns.forEach(b => b.classList.remove('active'));
+
+      // Add active class to clicked button
+      this.classList.add('active');
+
+      const feedbackType = this.dataset.feedback;
+
+      if (feedbackType === 'no') {
+        // Show form for negative feedback
+        feedbackForm.style.display = 'block';
+      } else {
+        // For positive feedback, show thanks immediately
+        feedbackForm.style.display = 'none';
+        showThanks();
+        sendFeedback(feedbackType, '');
+      }
+    });
+  });
+
+  submitBtn.addEventListener('click', function() {
+    const feedbackText = textarea.value;
+    const activeFeedback = document.querySelector('.feedback-btn.active');
+    const feedbackType = activeFeedback ? activeFeedback.dataset.feedback : 'no';
+
+    sendFeedback(feedbackType, feedbackText);
+    showThanks();
+  });
+
+  function showThanks() {
+    feedbackForm.style.display = 'none';
+    feedbackThanks.style.display = 'block';
+
+    // Hide the entire widget after 3 seconds
+    setTimeout(() => {
+      document.querySelector('.feedback-widget').style.display = 'none';
+    }, 3000);
+  }
+
+  function sendFeedback(type, text) {
+    // This would typically send data to your analytics service
+    // For now, just log to console
+    console.log('Feedback submitted:', {
+      type: type,
+      text: text,
+      page: window.location.pathname,
+      timestamp: new Date().toISOString()
+    });
+
+    // You could integrate with services like:
+    // - Google Analytics
+    // - GitHub Issues API
+    // - Custom feedback API
+  }
+});
+</script>
+

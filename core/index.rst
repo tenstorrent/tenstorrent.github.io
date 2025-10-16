@@ -1,5 +1,7 @@
 Tenstorrent
 ==============================
+.. meta::
+   :hide_feedback: true
 
 .. raw:: html
    :file: _templates/home.html

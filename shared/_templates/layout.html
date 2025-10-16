@@ -32,3 +32,11 @@
 {%- include "searchbox.html" %}
 
 {%- endblock %}
+
+{%- block content %}
+  {{ super() }}
+  {# Default ON. Disable when head contains meta name="hide_feedback". #}
+  {%- if metatags is not defined or ('name="hide_feedback"' not in metatags) -%}
+    {%- include "feedback_widget.html" %}
+  {%- endif -%}
+{%- endblock %}
