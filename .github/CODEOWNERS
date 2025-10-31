@@ -1,0 +1,5 @@
+# CODEOWNERS file for tenstorrent.github.io
+# All changes require approval from maintainers
+
+# Default owners for everything in the repo
+* @tenstorrent/DevRel @tenstorrent/docs-maintainers
