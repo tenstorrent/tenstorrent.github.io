@@ -32,6 +32,8 @@ Tenstorrent
    TT-NN <https://docs.tenstorrent.com/tt-metal/latest/ttnn/index.html>
    Manual Software Installation <getting-started/manual-software-install>
    TT-Buda (Deprecated) <https://docs.tenstorrent.com/pybuda/latest/index.html>
+   tools/index
+
 .. toctree::
    :hidden:
    :caption: Support
