@@ -24,17 +24,10 @@ Before beginning this procedure, ensure that you have completed the base softwar
 
 ### **(Wormhole™ only)**
 
-:::{admonition} If you are using a Wormhole™ Networked AI Processor-based product, you must complete the following steps
+:::{admonition} If you are using a TT-QuietBox™ or TT-LoudBox™ you must complete the following step
 :class: warning
 
-
-Wormhole™ Networked AI Processor hardware requires firmware version `v18.5.0` or older for compatibility with `tt-inference-server`. Run the following script to install the correct firmware version.
-
-```bash
-(set -e; error_handler() { echo -e "\033[0;31m!!! ERROR: Failed to flash firmware version v18.5.0\033[0m"; }; trap error_handler ERR; TMP_DIR=$(mktemp -d); cleanup() { echo "---"; echo "Cleaning up..."; if type deactivate &>/dev/null; then deactivate; fi; echo "Removing temporary directory: $TMP_DIR"; rm -rf "$TMP_DIR"; cd; echo "Cleanup complete."; }; trap cleanup EXIT; cd "$TMP_DIR"; echo "Working in temporary directory: $TMP_DIR"; echo "---"; echo "Downloading firmware bundle..."; wget -q --show-progress https://github.com/tenstorrent/tt-firmware/releases/download/v18.5.0/fw_pack-18.5.0.fwbundle; echo "Download complete."; echo "---"; echo "Creating Python virtual environment..."; python3 -m venv tt-flash-venv; source tt-flash-venv/bin/activate; echo "Virtual environment activated."; echo "---"; echo "Installing tt-flash from git..."; pip install --quiet git+https://github.com/tenstorrent/tt-flash.git; echo "tt-flash installed."; echo "---"; echo "Running flash command. This may take a moment..."; tt-flash --fw-tar fw_pack-18.5.0.fwbundle --force; echo "---"; echo "Script finished successfully.";)
-```
-
-**Note** For multi-device systems such as the TT-QuietBox™ (Wormhole™ Networked AI Processor) or the TT-LoudBox, you must configure a system-level mesh topology. Run the following script to install `tt-topology` and configure the mesh.
+For these systems you must configure a system-level mesh topology between the Wormhole™ Networked AI Processors. Run the following script to install `tt-topology` and configure the mesh.
 
 ```bash
 TMP_DIR=$(mktemp -d); (trap 'echo "---"; echo "Cleaning up..."; if type deactivate &>/dev/null; then deactivate; fi; echo "Removing temporary directory: $TMP_DIR"; rm -rf "$TMP_DIR"; cd; echo "Cleanup complete."' EXIT; trap 'echo -e "\033[0;31m!!! ERROR: Failed to configure mesh topology\033[0m"' ERR; set -e; cd "$TMP_DIR"; echo "Working in temporary directory: $TMP_DIR"; echo "---"; echo "Creating Python virtual environment..."; python3 -m venv tt-topology-venv; source tt-topology-venv/bin/activate; echo "Virtual environment activated."; echo "---"; echo "Installing tt-topology from git..."; pip install --quiet git+https://github.com/tenstorrent/tt-topology.git; echo "tt-topology installed."; echo "---"; echo "Running tt-topology command. This may take a moment..."; tt-topology -l mesh; echo "---"; echo "Script finished successfully.";)
@@ -101,7 +94,7 @@ export HF_TOKEN="<your-hugging-face-access-token>"
 Run the following script to specify your hardware. This script sets the required environment variables and selects the recommended model for your system.
 
 ```bash
-select_device_and_model(){ echo -e "\nSelect a Tenstorrent system from the list below:"; PS3=$'\n#? '; options=("TT-QuietBox (Wormhole)" "TT-QuietBox (Blackhole)" "TT-LoudBox" "n150s" "n150d" "n300s" "n300d" "p100a" "p150a" "p150b" "Quit"); select opt in "${options[@]}"; do IS_BLACKHOLE=""; case "$opt" in "TT-QuietBox (Wormhole)") DEVICE="t3k"; MODEL="Llama-3.3-70B-Instruct";; "TT-QuietBox (Blackhole)") DEVICE="p150x4"; MODEL="Llama-3.3-70B-Instruct"; IS_BLACKHOLE="--dev-mode";; "TT-LoudBox") DEVICE="t3k"; MODEL="Llama-3.3-70B-Instruct";; "n150s"|"n150d") DEVICE="n150"; MODEL="Llama-3.1-8B-Instruct";; "n300s"|"n300d") DEVICE="n300"; MODEL="Llama-3.1-8B-Instruct";; "p100a") DEVICE="p100"; MODEL="Llama-3.1-8B-Instruct"; IS_BLACKHOLE="--dev-mode";; "p150a"|"p150b") DEVICE="p150"; MODEL="Llama-3.1-8B-Instruct"; IS_BLACKHOLE="--dev-mode";; "Quit") echo "❌ Exiting without setting any environment variables."; return;; *) echo "❌ Invalid option. Try again."; continue;; esac; export DEVICE MODEL IS_BLACKHOLE; echo -e "\n✅ DEVICE set to '$DEVICE'"; echo "✅ MODEL set to '$MODEL'"; [ -n "$IS_BLACKHOLE" ] && echo "✅ IS_BLACKHOLE set to '$IS_BLACKHOLE'"; break; done; }; select_device_and_model
+select_device_and_model(){ echo -e "\nSelect a Tenstorrent system from the list below:"; PS3=$'\n#? '; options=("TT-QuietBox (Wormhole)" "TT-QuietBox (Blackhole)" "TT-LoudBox (Wormhole)" "TT-LoudBox (Blackhole)" "n150s" "n150d" "n300s" "n300d" "p100a" "p150a" "p150b" "Quit"); select opt in "${options[@]}"; do case "$opt" in "TT-QuietBox (Wormhole)") DEVICE="t3k"; MODEL="Llama-3.3-70B-Instruct";; "TT-QuietBox (Blackhole)") DEVICE="p150x4"; MODEL="Llama-3.3-70B-Instruct";; "TT-LoudBox (Wormhole)") DEVICE="t3k"; MODEL="Llama-3.3-70B-Instruct";; "TT-LoudBox (Blackhole)") DEVICE="p150x8"; MODEL="Llama-3.3-70B-Instruct";; "n150s"|"n150d") DEVICE="n150"; MODEL="Llama-3.1-8B-Instruct";; "n300s"|"n300d") DEVICE="n300"; MODEL="Llama-3.1-8B-Instruct";; "p100a") DEVICE="p100"; MODEL="Llama-3.1-8B-Instruct";; "p150a"|"p150b") DEVICE="p150"; MODEL="Llama-3.1-8B-Instruct";; "Quit") echo "❌ Exiting without setting any environment variables."; return;; *) echo "❌ Invalid option. Try again."; continue; esac; export DEVICE MODEL; echo -e "\n✅ DEVICE set to '$DEVICE'"; echo "✅ MODEL set to '$MODEL'"; break; done; }; select_device_and_model
 ```
 
 ### **2\. Check Model Access**
@@ -117,15 +110,6 @@ If the command does not succeed and print `✔ Access granted.`, please make sur
 ```bash
 git clone https://github.com/tenstorrent/tt-inference-server.git
 cd tt-inference-server
-```
-
-:::{warning}
-If you are using a Blackhole™ AI Processor product, you must check out a specific development branch. Blackhole™ AI Processor software optimization is under active development.
-:::
-
-```bash
-# Run this command ONLY if you are using a Blackhole™ device.
-git checkout bh-getting-started
 ```
 
 ---
@@ -145,7 +129,7 @@ export JWT_SECRET="testing"
 Execute the following command. The script prompts you for configuration details; in most cases, you may accept the default values.
 
 ```bash
-python3 run.py --model $MODEL --device $DEVICE --workflow server --docker-server $IS_BLACKHOLE
+python3 run.py --model $MODEL --device $DEVICE --workflow server --docker-server
 ```
 
 :::{Important}
