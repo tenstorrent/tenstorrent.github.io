@@ -6,6 +6,7 @@ Add-In Boards / Cards
 
    blackhole/index
    wormhole/index
+   grayskull/index
    ack
    warp100
    compliance
