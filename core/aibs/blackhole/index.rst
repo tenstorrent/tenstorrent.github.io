@@ -1,5 +1,5 @@
 
-Blackhole™ p100a/p150a/p150b Tensix Processor
+Blackhole™ PCIe Cards
 =======================================
 .. toctree::
    :maxdepth: 2
