@@ -5,9 +5,9 @@ Tools
 
 The Tenstorrent System Management Interface (TT-SMI) is a command-line tool that provides a comprehensive interface for interacting with Tenstorrent devices, collecting telemetry data, and displaying device and firmware information.
 
-* `ttnn-visualizer <https://github.com/tenstorrent/ttnn-visualizer>`_
+* `TT-NN Visualizer <https://docs.tenstorrent.com/ttnn-visualizer/>`_
 
-TTNN-Visualizer is an interactive tool for visualizing and analyzing model execution on Tenstorrent hardware. It provides detailed insights through graphs, memory plots, tensor and buffer views, operation flow diagrams, and multi-instance support via file or SSH report loading.
+TT-NN Visualizer is an interactive tool for visualizing and analyzing model execution on Tenstorrent hardware. It provides detailed insights through graphs, memory plots, tensor and buffer views, operation flow diagrams, and multi-instance support via file or SSH report loading.
 
 * `vllm <https://github.com/tenstorrent/vllm>`_
 
