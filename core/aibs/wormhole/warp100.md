@@ -17,6 +17,7 @@ Each card supports up to two Warp 100 Bridges.
 
 Warp 100 Bridges are typically pre-installed in systems. However, if they require removal/replacement/reinstallation, they are keyed to be installed in a specific orientation. The Tenstorrent logo on the bridge should be rotated 270° (or -90°) as shown below:
 
-![](./warp100diagram.png)
+![](../warp100diagram.png)
 
 Do **not** try to install it in the opposite orientation, as you risk damaging the card, your system, and the Warp 100 bridge.
+

@@ -16,19 +16,19 @@ If your Grayskull™ e150, Wormhole™ n150s, or Wormhole™ n300s Tensix Proces
 
 Attach the provided **duct** to the card via three (3) **M3 screws**.
 
-![](./grayskull/images/gs_ack1.png)
+![](../grayskull/images/gs_ack1.png)
 
 ### Step 2. Insert Blower Fan
 
 Insert the **blower fan** into the **duct**.
 
-![](./grayskull/images/gs_ack2.png)
+![](../grayskull/images/gs_ack2.png)
 
 ### Step 3. Fasten the Blower Fan
 
 Fasten the **blower fan** to the **duct plate** through the top of the fan with two (2) **M4 screws**.
 
-![](./grayskull/images/gs_ack3.png)
+![](../grayskull/images/gs_ack3.png)
 
 ### Step 4. Connect Fan Power
 
@@ -38,8 +38,9 @@ The blower fan includes a **passthrough 6-pin PCIe harness**. Connection will de
 
 The **male end** connects to the **6-pin PCIe plug** on the **e150 card**, and the **female end** connects to a **6-pin PCIe cable** from the **power supply**.
 
-![](./grayskull/images/gs_e150_kit_power.png)
+![](../grayskull/images/gs_e150_kit_power.png)
 
 #### Wormhole™ n150s and n300s (Passive Cooled)
 
 Connect a **PCIe 6-pin plug** into the **6-pin female end** of the harness. *(NOTE: You will **not** use the male end of the harness.)*
+

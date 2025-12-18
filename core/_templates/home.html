@@ -127,6 +127,27 @@
       margin-bottom: 0.5rem;
     }
 
+    .legacy-card {
+      justify-content: flex-end;
+    }
+
+    .legacy-card img {
+      height: 120px;
+      object-fit: contain;
+      margin-bottom: auto;
+    }
+
+    @media (min-width: 769px) {
+      .legacy-card img {
+        height: 150px;
+      }
+    }
+
+    .discord-card img {
+      width: 50%;
+      margin: 0 auto;
+    }
+
     @media (min-width: 769px) {
       .hx {
         font-size: 56px;
@@ -221,21 +242,6 @@
           <img src="_static/home/wormhole.png" alt="Wormhole™" />
           <h3>Wormhole™</h3>
         </a>
-        <a href="aibs/warp100" class="card small-card">
-          <img src="_static/home/warp-100-bridge.png" alt="Warp 100 Bridge" />
-          <h4>Warp 100 Bridge</h4>
-        </a>
-        <a href="aibs/ack" class="card small-card">
-          <img
-            src="_static/home/active-cooling-kit.png"
-            alt="Active Cooling Kit"
-          />
-          <h4>Active Cooling Kit</h4>
-        </a>
-        <a href="aibs/grayskull" class="card small-card">
-          <img src="_static/home/grayskull.png" alt="Grayskull™" />
-          <h4>Grayskull™</h4>
-        </a>
       </div>
     </div>
 
@@ -249,14 +255,6 @@
         <a href="systems/t3000" class="card">
           <img src="_static/home/tt-loudbox.png" alt="TT-LoudBox" />
           <h3>TT-LoudBox</h3>
-        </a>
-        <a href="systems/t7000" class="card small-card">
-          <img src="_static/home/t7000.png" alt="T7000" />
-          <h4>T7000</h4>
-        </a>
-        <a href="systems/t1000" class="card small-card">
-          <img src="_static/home/t1000.png" alt="T1000" />
-          <h4>T1000</h4>
         </a>
       </div>
     </div>
@@ -310,9 +308,13 @@
           <img src="_static/home/faq.png" alt="FAQ" />
           <h4>FAQ</h4>
         </a>
-        <a href="support/README.html" class="card small-card">
-          <img src="_static/home/compliance.png" alt="Compliance" />
-          <h4>Support</h4>
+        <a
+          target="_blank"
+          href="https://tenstorrent.atlassian.net/servicedesk/customer/portal/1"
+          class="card small-card"
+        >
+          <img src="_static/home/compliance.png" alt="Support" />
+          <h4>Request Support</h4>
         </a>
         <a
           target="_blank"
@@ -321,6 +323,32 @@
         >
           <img src="_static/home/contact-us.png" alt="Contact Us" />
           <h4>Contact Us</h4>
+        </a>
+        <a
+          target="_blank"
+          href="https://discord.com/invite/tenstorrent"
+          class="card small-card discord-card"
+        >
+          <img src="_static/home/discord.svg" alt="Discord" />
+          <h4>Join Our Discord</h4>
+        </a>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Legacy</h2>
+      <div class="grid">
+        <a href="aibs/grayskull" class="card small-card legacy-card">
+          <img src="_static/home/grayskull.png" alt="Grayskull™" />
+          <h4>Grayskull™</h4>
+        </a>
+        <a href="systems/t7000" class="card small-card legacy-card">
+          <img src="_static/home/t7000.png" alt="T7000" />
+          <h4>T7000</h4>
+        </a>
+        <a href="systems/t1000" class="card small-card legacy-card">
+          <img src="_static/home/t1000.png" alt="T1000" />
+          <h4>T1000</h4>
         </a>
       </div>
     </div>

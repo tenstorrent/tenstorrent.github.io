@@ -1,11 +1,19 @@
 Systems
 =======================================
+
+Blackhole 
+---------
+
 .. toctree::
-   :caption: Systems
-   :maxdepth: 2
+   :maxdepth: 1
    
    quietbox/quietbox-bh/index
+
+Wormhole
+--------
+
+.. toctree::
+   :maxdepth: 1
+   
    quietbox/quietbox-wh/index
    t3000/index
-   t1000/index
-   t7000/index
