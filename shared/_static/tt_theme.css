@@ -219,28 +219,10 @@ i {
 .wy-menu-vertical header,
 .wy-menu-vertical p.caption {
   color: var(--color-main);
-  font-size: 1.1rem;
 }
 
 .wy-menu-vertical a {
   color: var(--color-foreground);
-}
-
-/* Increase font size for navigation submenus */
-.wy-menu-vertical li.toctree-l1 > a {
-  font-size: 1.1rem;
-}
-
-.wy-menu-vertical li.toctree-l2 > a {
-  font-size: 1.045rem;
-}
-
-.wy-menu-vertical li.toctree-l3 > a {
-  font-size: 0.99rem;
-}
-
-.wy-menu-vertical li.toctree-l4 > a {
-  font-size: 0.96rem;
 }
 
 /* Search input */
