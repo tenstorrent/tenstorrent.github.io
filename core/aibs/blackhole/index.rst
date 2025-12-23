@@ -2,17 +2,24 @@
 Blackhole™ PCIe Cards
 =======================================
 
+.. toctree::
+   :hidden:
+
+   installation
+   specifications
+   support
+
 Getting Started
 ---------------
 
-- `Hardware Installation <https://docs.tenstorrent.com/aibs/blackhole/installation.html>`_
+- :doc:`Hardware Installation <installation>`
 - `Software Setup <http://docs.tenstorrent.com/getting-started/README.html>`_
 
 Reference Materials
 -------------------
 
-- `Specifications and Requirements <https://docs.tenstorrent.com/aibs/blackhole/specifications.html>`_
-- `Troubleshooting Common Hardware Issues <https://docs.tenstorrent.com/aibs/blackhole/support.html>`_
+- :doc:`Specifications and Requirements <specifications>`
+- :doc:`Troubleshooting Common Hardware Issues <support>`
 - `Regulatory Compliance Statements <https://docs.tenstorrent.com/aibs/compliance.html>`_
 
 Accessories
