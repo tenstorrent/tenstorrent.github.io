@@ -1,11 +1,8 @@
-Add-In Boards / Cards
+Cards
 =======================================
 .. toctree::
-   :caption: Add-In Boards
-   :maxdepth: 2
+   :maxdepth: 1
 
    blackhole/index
    wormhole/index
-   ack
-   warp100
-   compliance
+

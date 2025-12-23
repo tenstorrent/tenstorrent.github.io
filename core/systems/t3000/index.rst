@@ -1,4 +1,4 @@
-TT-LoudBox
+TT-LoudBox (Wormhole)
 =======================================
 .. toctree::
    :maxdepth: 2

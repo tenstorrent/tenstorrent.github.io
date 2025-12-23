@@ -8,7 +8,7 @@ Tenstorrent
 
 .. toctree::
    :hidden:
-   :caption: Getting Started
+   :caption: Software Guides
 
    getting-started/README
    getting-started/model-demos
@@ -17,7 +17,7 @@ Tenstorrent
 
 .. toctree::
    :hidden:
-   :caption: Hardware
+   :caption: Hardware Guides
 
    aibs/index
    systems/index
@@ -31,7 +31,6 @@ Tenstorrent
    TT-Metalium <https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/index.html>
    TT-NN <https://docs.tenstorrent.com/tt-metal/latest/ttnn/index.html>
    Manual Software Installation <getting-started/manual-software-install>
-   TT-Buda (Deprecated) <https://docs.tenstorrent.com/pybuda/latest/index.html>
    tools/index
 
 .. toctree::

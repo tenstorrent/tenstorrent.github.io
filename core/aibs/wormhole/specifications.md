@@ -1,6 +1,6 @@
 # Specifications/Requirements
 
-## Wormhole™ Tensix Processor
+## Wormhole™ PCIe Cards
 
 The Wormhole™ n150d, n150s, n300d, and n300s Tensix Processor add-in boards are built using the Tenstorrent Wormhole™ Tensix Processor:
 

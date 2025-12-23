@@ -1,4 +1,4 @@
-# Wormhole™ n150d/n150s/n300d/n300s Tensix Processor
+# Wormhole™ PCIe Cards
 
 This section outlines the system requirements, physical installation instructions, and initial software set-up for Wormhole™ n150d, n150s, n300d, and n300s Tensix Processor add-in boards.
 
