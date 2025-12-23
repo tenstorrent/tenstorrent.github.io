@@ -1,0 +1,471 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terminology &mdash; TT Buda  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/tt_theme.css?v=a41de66c" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Advanced User Guide" href="advanced_user_guide.html" />
+    <link rel="prev" title="API Reference" href="api.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+<a href="https://tenstorrent.github.io/">
+    <img src="_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+
+<a href="toc.html">
+    TT Buda
+</a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Introduction to PyBuda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Terminology</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#grayskull">Grayskull</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#wormhole">Wormhole</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tensix">Tensix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#noc">NOC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#l1">L1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fpu">FPU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sfpu">SFPU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unpacker">Unpacker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#packer">Packer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#op">Op</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#epoch">Epoch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#buffer">Buffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pipe">Pipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tile">Tile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#streaming-op">Streaming op</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#blocking-op">Blocking op</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#block">Block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tm-op">TM op</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unicast">Unicast</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multicast">Multicast</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gather">Gather</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hlk">HLK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#llk">LLK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hlkc">HLKC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_user_guide.html">Advanced User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Hardware Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataformats.html">Data Formats and Math Fidelity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer.html">Developer Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="toc.html">TT Buda</a>
+      </nav>
+
+      <div class="wy-nav-content">
+  
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="toc.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Terminology</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/terminology.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="terminology">
+<h1>Terminology<a class="headerlink" href="#terminology" title="Link to this heading"></a></h1>
+<section id="grayskull">
+<h2>Grayskull<a class="headerlink" href="#grayskull" title="Link to this heading"></a></h2>
+<p>First-generation Tenstorrent chip</p>
+</section>
+<section id="wormhole">
+<h2>Wormhole<a class="headerlink" href="#wormhole" title="Link to this heading"></a></h2>
+<p>Second-generation Tenstorrent chip</p>
+</section>
+<section id="tensix">
+<h2>Tensix<a class="headerlink" href="#tensix" title="Link to this heading"></a></h2>
+<p>High-performance compute core in Tenstorrent chips</p>
+</section>
+<section id="noc">
+<h2>NOC<a class="headerlink" href="#noc" title="Link to this heading"></a></h2>
+<p>Network-on-Chip</p>
+</section>
+<section id="l1">
+<h2>L1<a class="headerlink" href="#l1" title="Link to this heading"></a></h2>
+<p>Local memory storage (SRAM) in Tensix is commonly referred to as L1 memory.</p>
+</section>
+<section id="fpu">
+<h2>FPU<a class="headerlink" href="#fpu" title="Link to this heading"></a></h2>
+<p>The dense tensor math unit in Tensix. It performs bulk tensor math operations, such as multiplication and addition, in various floating point formats.</p>
+</section>
+<section id="sfpu">
+<h2>SFPU<a class="headerlink" href="#sfpu" title="Link to this heading"></a></h2>
+<p>Tensix SIMD engine, used for various miscellaneous activations operations, such as exponents, square roots, softmax, topK, and others.</p>
+</section>
+<section id="unpacker">
+<h2>Unpacker<a class="headerlink" href="#unpacker" title="Link to this heading"></a></h2>
+<p>Hardware unit that copies data from local memory to source registers inside <a class="reference internal" href="#fpu"><span class="xref myst">FPU</span></a>. In the process of copying data, unpacker can also uncompress compressed data, and perform conversion
+between various floating point formats.</p>
+</section>
+<section id="packer">
+<h2>Packer<a class="headerlink" href="#packer" title="Link to this heading"></a></h2>
+<p>Hardware unit that copies data from destination registers in FPU to L1 local memory. In the process of copying data, packer can also compress data, and perform format conversions.</p>
+</section>
+<section id="op">
+<h2>Op<a class="headerlink" href="#op" title="Link to this heading"></a></h2>
+<p>A Buda op (<em>operation</em>) is a single math operation, such as matrix multiply, convolution, or pool, performed on one or more tensor operands. If you have ever written a model in PyTorch or
+TensorFlow, a Buda op is analogous to an operation in those frameworks.</p>
+</section>
+<section id="epoch">
+<h2>Epoch<a class="headerlink" href="#epoch" title="Link to this heading"></a></h2>
+<p>A collection of ops that fits onto one chip. In a typical workflow, epoch code will be copied onto a chip which will then compute a batch of one or more tensors before moving on to the next epoch.</p>
+</section>
+<section id="buffer">
+<h2>Buffer<a class="headerlink" href="#buffer" title="Link to this heading"></a></h2>
+<p>A reserved location in local memory, DRAM, or host memory. Buffers are used either as desinations for operation outputs, sources for operation inputs, or temporary locations for intermediate data.</p>
+</section>
+<section id="pipe">
+<h2>Pipe<a class="headerlink" href="#pipe" title="Link to this heading"></a></h2>
+<p>A pipe is a connection between two or more buffers. Once established, a pipe will automatically copy data from source buffers into destination buffers, as space allows.</p>
+</section>
+<section id="tile">
+<h2>Tile<a class="headerlink" href="#tile" title="Link to this heading"></a></h2>
+<p>The smallest unit of math and data transfer in Buda. It is a 32x32 matrix of data.</p>
+</section>
+<section id="streaming-op">
+<h2>Streaming op<a class="headerlink" href="#streaming-op" title="Link to this heading"></a></h2>
+<p>A streaming operation is one that produces outputs as soon as inputs are available to it. It performs the math on a tile-by-tile basis, and therefore requires minimal buffering. Most elementwise
+operations fall into this category.</p>
+</section>
+<section id="blocking-op">
+<h2>Blocking op<a class="headerlink" href="#blocking-op" title="Link to this heading"></a></h2>
+<p>A blocking operation is one that requires a block of tiles to be calculated. Matrix multiplications and reduce operations are typical examples of blocking ops.</p>
+</section>
+<section id="block">
+<h2>Block<a class="headerlink" href="#block" title="Link to this heading"></a></h2>
+<p>A group of tiles on which a <a class="reference internal" href="#blocking-op"><span class="xref myst">blocking operation</span></a> is performed.</p>
+</section>
+<section id="tm-op">
+<h2>TM op<a class="headerlink" href="#tm-op" title="Link to this heading"></a></h2>
+<p>A tensor manipulation (TM) op is a tensor operation that modifies the order of tiles within the tensor, but does not modify the contents. Typically, this involves reshapes, squeezes, unsqueezes
+and other explicit TM operations available in other frameworks, however, there is a class of TMs that are specific to Buda. Because Buda operations rely on input operands arriving in a particular
+order and block shape, sometimes TM operations are needed to “rebuffer” incoming data into the expected order. These TMs can be manually inserted by the user, or automatically by the Buda
+compiler.</p>
+</section>
+<section id="unicast">
+<h2>Unicast<a class="headerlink" href="#unicast" title="Link to this heading"></a></h2>
+<p>A <a class="reference internal" href="#pipe"><span class="xref myst">Pipe</span></a> between two buffers, where one copy of data is transferred from source to destination buffer.</p>
+</section>
+<section id="multicast">
+<h2>Multicast<a class="headerlink" href="#multicast" title="Link to this heading"></a></h2>
+<p>A multicast is a <a class="reference internal" href="#pipe"><span class="xref myst">Pipe</span></a> that has one source buffer but more than one destination. In this case, the NOC will use its multicasting ability to only send one copy of the data along its
+connections, while reaching all destination buffers. It is critical to use multicast pipes whenever same data is broadcast to multiple cores of operations, or bandwidth bottlenecks will be created
+on NOC links.</p>
+</section>
+<section id="gather">
+<h2>Gather<a class="headerlink" href="#gather" title="Link to this heading"></a></h2>
+<p>A gather <a class="reference internal" href="#pipe"><span class="xref myst">Pipe</span></a> has multiple source buffers and one or more destination buffers. The gather pipe will create connections from source buffers to a single gather buffer, which will then be
+unicast or broadcast to destinations.</p>
+</section>
+<section id="hlk">
+<h2>HLK<a class="headerlink" href="#hlk" title="Link to this heading"></a></h2>
+<p>An HLK (High-Level Kernel) is a piece of C++ Buda code that implements the op’s behaviour. It typically contains one or more nested loops in which inputs are read into operand registers, some math
+is performed, and results are written out. HLK is transpiled, using <a class="reference internal" href="#hlkc"><span class="xref myst">HLKC</span></a>, into low-level C++ code that runs on individual RiscV cores. Users who implement new operations would write HLKs
+to describe the desired functionality.</p>
+</section>
+<section id="llk">
+<h2>LLK<a class="headerlink" href="#llk" title="Link to this heading"></a></h2>
+<p>Low-Level Kernels are implementations of low-level Tensix and NOC API used in <a class="reference internal" href="#hlk"><span class="xref myst">HLKs</span></a>. They use a mix of C++ and assembly to provide highly optimized and performant functionality, such
+as data <a class="reference internal" href="#unpacker"><span class="xref myst">unpacking</span></a>, <a class="reference internal" href="#packer"><span class="xref myst">packing</span></a>, running math primitives, and so on. These are typically written by Tenstorrent as they require in-depth knowledge of Tenstorrent
+hardware and low-level programming requirements.</p>
+</section>
+<section id="hlkc">
+<h2>HLKC<a class="headerlink" href="#hlkc" title="Link to this heading"></a></h2>
+<p>HLK Compiler is a transpiler that convert single-threaded HLK into multi-threaded low-level RiscV code that separates data transfer and math into parallel threads for maximum utilization of
+compute resources.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="api.html" class="btn btn-neutral float-left" title="API Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="advanced_user_guide.html" class="btn btn-neutral float-right" title="Advanced User Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tenstorrent.
+      <span class="lastupdated">Last updated on Dec 23, 2025.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+  <div class="feedback-widget" id="tt-feedback">
+  <div class="ttfb-card">
+    <div id="ttfb-initial" class="ttfb-initial">
+      <p class="ttfb-question">Was this article helpful?</p>
+      <div class="ttfb-actions">
+        <button id="ttfb-up" class="ttfb-icon-btn" aria-label="Yes" title="Yes">
+          <span>👍</span>
+        </button>
+        <button id="ttfb-down" class="ttfb-icon-btn" aria-label="No" title="No">
+          <span>👎</span>
+        </button>
+      </div>
+    </div>
+
+    <form id="ttfb-form" class="ttfb-hidden" novalidate>
+      <p id="ttfb-prompt" class="ttfb-prompt"></p>
+
+      <div id="ttfb-reasons" class="ttfb-hidden">
+        <p class="ttfb-reasons-title">How would you describe this article?</p>
+        <div class="ttfb-reasons-grid">
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="inaccurate"> <b>Inaccurate:</b> it doesn’t reflect what I see in the product</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="unclear"> <b>Unclear:</b> it’s difficult to understand</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="missing"> <b>Missing information:</b> it’s not comprehensive enough</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="irrelevant"> <b>Irrelevant:</b> it doesn’t match what I searched for</label>
+        </div>
+      </div>
+
+      <textarea id="ttfb-text" rows="3" class="ttfb-text" placeholder="Please let us know what was or wasn't helpful about this page."></textarea>
+
+      <div class="ttfb-contact">
+        <input id="ttfb-can-contact" type="checkbox"> <label for="ttfb-can-contact">Allow Tenstorrent to contact me about my documentation feedback.</label>
+      </div>
+      <div id="ttfb-email-wrap" class="ttfb-hidden">
+        <input id="ttfb-email" type="email" class="ttfb-email" placeholder="Enter your email address">
+      </div>
+
+      <button id="ttfb-submit" type="submit" class="ttfb-submit">Submit</button>
+    </form>
+
+    <div id="ttfb-thanks" class="ttfb-hidden ttfb-center"><p class="ttfb-thanks-text">Thank you for your feedback!</p></div>
+    <div id="ttfb-error" class="ttfb-hidden ttfb-center"><p class="ttfb-error-text">Sorry, something went wrong. Please try again later.</p></div>
+  </div>
+</div>
+
+<style>
+.feedback-widget { margin: 2rem 0; }
+.ttfb-card {
+  background: #fff;
+  border: 1px solid var(--color-background-40, #d7dbeb66);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+.ttfb-initial { display: flex; flex-direction: row; gap: .75rem; align-items: center; flex-wrap: wrap; justify-content: flex-start; }
+.ttfb-question { margin: 0; font-weight: 600; color: var(--color-foreground, #202020); }
+.ttfb-actions { display: flex; gap: .5rem; }
+.ttfb-icon-btn {
+  padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; background: #fff; cursor: pointer;
+  transition: background var(--transition-duration, 150ms) var(--transition-timing, ease), border-color var(--transition-duration, 150ms) var(--transition-timing, ease);
+}
+.ttfb-icon-btn:hover { background: #f3f4f6; }
+
+.ttfb-hidden { display: none; }
+.ttfb-prompt { margin: .5rem 0 1rem 0; color: var(--color-foreground, #202020); font-weight: 600; }
+.ttfb-reasons-title { margin: 0 0 .5rem 0; color: var(--color-foreground, #202020); font-weight: 500; }
+.ttfb-reasons-grid { display: grid; grid-template-columns: 1fr; gap: .25rem; }
+@media (min-width: 768px) { .ttfb-reasons-grid { grid-template-columns: 1fr 1fr; } }
+.ttfb-radio { display: flex; align-items: flex-start; gap: .5rem; }
+.ttfb-radio input { margin-top: .2rem; }
+
+.ttfb-text {
+  width: 100%; padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; font-family: inherit; resize: vertical;
+}
+.ttfb-contact { display: flex; align-items: center; gap: .5rem; margin-top: .5rem; }
+.ttfb-email { width: 100%; padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; margin-top: .5rem; }
+.ttfb-submit { margin-top: .75rem; padding: .5rem 1rem; background: var(--color-purple, #5164e0); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; }
+.ttfb-submit:hover { background: var(--color-dark-purple, #7584e6); }
+.ttfb-center { text-align: center; padding: 1rem; }
+.ttfb-thanks-text { color: var(--color-purple, #5164e0); font-weight: 600; }
+.ttfb-error-text { color: #dc2626; font-weight: 600; }
+
+/* Hide widget when page sets meta hide_feedback=true */
+html:has(meta[name="hide_feedback"][content="true"]) .feedback-widget { display: none !important; }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const root = document.getElementById('tt-feedback');
+  if (!root) return;
+
+  // Reposition widget: place it just above the Previous/Next buttons
+  try {
+    const footerButtons = document.querySelector('.rst-footer-buttons');
+    if (footerButtons && footerButtons.parentNode) {
+      footerButtons.parentNode.insertBefore(root, footerButtons);
+    }
+  } catch (e) {
+    // no-op if structure not present
+  }
+
+  const initial = root.querySelector('#ttfb-initial');
+  const form = root.querySelector('#ttfb-form');
+  const prompt = root.querySelector('#ttfb-prompt');
+  const reasonsWrap = root.querySelector('#ttfb-reasons');
+  const text = root.querySelector('#ttfb-text');
+  const thanks = root.querySelector('#ttfb-thanks');
+  const error = root.querySelector('#ttfb-error');
+  const upBtn = root.querySelector('#ttfb-up');
+  const downBtn = root.querySelector('#ttfb-down');
+  const canContact = root.querySelector('#ttfb-can-contact');
+  const emailWrap = root.querySelector('#ttfb-email-wrap');
+  const emailInput = root.querySelector('#ttfb-email');
+
+  let sentiment = null; // 'up' | 'down'
+
+  function show(el) { el.classList.remove('ttfb-hidden'); }
+  function hide(el) { el.classList.add('ttfb-hidden'); }
+
+  function setPromptForSentiment() {
+    if (sentiment === 'down') {
+      prompt.textContent = 'We\'re sorry to hear that. Can you tell us more?';
+      show(reasonsWrap);
+    } else {
+      prompt.textContent = 'Thanks! Anything to add? (optional)';
+      hide(reasonsWrap);
+    }
+  }
+
+  function validateEmail(email) {
+    return /.+@.+\..+/.test(email);
+  }
+
+  function submitPayload(payload) {
+    try {
+      if (window.posthog && typeof window.posthog.capture === 'function') {
+        window.posthog.capture('docs_feedback', payload);
+      } else {
+        console.log('Feedback submitted:', payload);
+      }
+      return true;
+    } catch (e) {
+      console.error('Feedback submit error', e);
+      return false;
+    }
+  }
+
+  upBtn.addEventListener('click', function () {
+    sentiment = 'up';
+    hide(initial);
+    setPromptForSentiment();
+    show(form);
+    text.focus();
+  });
+
+  downBtn.addEventListener('click', function () {
+    sentiment = 'down';
+    hide(initial);
+    setPromptForSentiment();
+    show(form);
+  });
+
+  canContact.addEventListener('change', function () {
+    if (canContact.checked) {
+      show(emailWrap);
+      emailInput.focus();
+    } else {
+      hide(emailWrap);
+    }
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const page = window.location.pathname;
+    const ts = new Date().toISOString();
+    const feedbackText = text.value.trim();
+    const canContactVal = !!canContact.checked;
+    const emailVal = emailInput.value.trim();
+    const reasonEl = root.querySelector('input[name="down_reason"]:checked');
+    const reason = reasonEl ? reasonEl.value : null;
+
+    if (canContactVal && emailVal && !validateEmail(emailVal)) {
+      emailInput.setCustomValidity('Please enter a valid email.');
+      emailInput.reportValidity();
+      return;
+    } else {
+      emailInput.setCustomValidity('');
+    }
+
+    const payload = {
+      sentiment,
+      reason,
+      text: feedbackText,
+      can_contact: canContactVal,
+      email: canContactVal ? emailVal || null : null,
+      page,
+      timestamp: ts
+    };
+
+    const ok = submitPayload(payload);
+    hide(form);
+    if (ok) {
+      show(thanks);
+      setTimeout(() => { root.style.display = 'none'; }, 3000);
+    } else {
+      show(error);
+    }
+  });
+});
+</script>
+
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

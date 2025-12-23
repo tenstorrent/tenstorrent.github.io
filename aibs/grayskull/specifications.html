@@ -1,0 +1,544 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Specifications/Requirements &mdash; Home 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../_static/tt_theme.css?v=a41de66c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/home.css?v=c560917e" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=fd3dd8dd"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../../_static/custom.js?v=0ccd5bc4"></script>
+      <script src="../../_static/posthog.js?v=a97abc7e"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+<a href="https://tenstorrent.github.io/">
+    <img src="../../_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+
+<a href="../../index.html">
+    Home
+</a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Software Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/README.html">Installing the Tenstorrent Software Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/model-demos.html">Running Model Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/vLLM-servers.html">Deploying LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/tt-software-stack.html">Understanding the Tenstorrent Software Stack</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Hardware Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Cards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../systems/index.html">Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../forge/index.html">TT-Forge</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/index.html">TT-Metalium</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/index.html">TT-NN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/manual-software-install.html">Manual Software Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Tools</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../support/README.html">Support &amp; FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Legal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/bounty_terms.html">Bounty Program Terms</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Home</a>
+      </nav>
+
+      <div class="wy-nav-content">
+  
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Specifications/Requirements</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/aibs/grayskull/specifications.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="specifications-requirements">
+<h1>Specifications/Requirements<a class="headerlink" href="#specifications-requirements" title="Link to this heading"></a></h1>
+<section id="grayskull-tensix-processor">
+<h2>Grayskull™ Tensix Processor<a class="headerlink" href="#grayskull-tensix-processor" title="Link to this heading"></a></h2>
+<p>The Grayskull™ e75 and e150 Tensix Processor add-in boards are built using the Tenstorrent Grayskull™ Tensix Processor:</p>
+<ul class="simple">
+<li><p><strong>Tensix Core Count:</strong> 120</p></li>
+<li><p><strong>SRAM:</strong> 120 MB (1MB per Tensix Core)</p></li>
+<li><p><strong>Memory:</strong> 8 GB LPDDR4, 256-bit memory bus</p></li>
+</ul>
+</section>
+<section id="e75-e150-comparison-table">
+<h2>e75/e150 Comparison Table<a class="headerlink" href="#e75-e150-comparison-table" title="Link to this heading"></a></h2>
+<p><strong>NOTE:</strong> The <strong>e150 add-in card</strong> comes with a heatsink for passive cooling in systems which can provide sufficient forced airflow to the card. If your system does not (for example, a desktop workstation), installing the <a class="reference internal" href="#../ack.md"><span class="xref myst">Active Cooling Kit</span></a> is <strong>required</strong>. If the card isn’t sufficiently cooled, performance will be substantially reduced to stay in a safe operating temperature range and you risk damage to the card.</p>
+<p><strong>NOTE:</strong> Software support for Grayskull has been discontinued. The last supported versions of Tenstorrent’s software for Grayskull are as follows:</p>
+<ul class="simple">
+<li><p><strong>TT-Firmware:</strong> <code class="docutils literal notranslate"><span class="pre">fw_pack-80.14.0.0.fwbundle</span></code></p></li>
+<li><p><strong>TT-KMD:</strong> <code class="docutils literal notranslate"><span class="pre">ttkmd_1.31</span></code></p></li>
+<li><p><strong>TT-Buda:</strong> <code class="docutils literal notranslate"><span class="pre">v0.19.3</span></code></p></li>
+<li><p><strong>TT-Metalium:</strong> <code class="docutils literal notranslate"><span class="pre">v0.55</span></code></p></li>
+</ul>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Specification</p></th>
+<th class="head"><p>e75</p></th>
+<th class="head"><p>e150</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Part Number</p></td>
+<td><p>TC-01001</p></td>
+<td><p>TC-01002</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tensix Cores</p></td>
+<td><p>96</p></td>
+<td><p>120</p></td>
+</tr>
+<tr class="row-even"><td><p>AI Clock</p></td>
+<td><p>1 GHz</p></td>
+<td><p>1.2 GHz</p></td>
+</tr>
+<tr class="row-odd"><td><p>SRAM</p></td>
+<td><p>96 MB</p></td>
+<td><p>120 MB</p></td>
+</tr>
+<tr class="row-even"><td><p>Memory</p></td>
+<td><p>8 GB LPDDR4</p></td>
+<td><p>8 GB LPDDR4</p></td>
+</tr>
+<tr class="row-odd"><td><p>Memory Speed</p></td>
+<td><p>3.2 GT/sec</p></td>
+<td><p>3.7 GT/sec</p></td>
+</tr>
+<tr class="row-even"><td><p>Memory Bandwidth</p></td>
+<td><p>102 GB/sec</p></td>
+<td><p>118 GB/sec</p></td>
+</tr>
+<tr class="row-odd"><td><p>TeraFLOPS (FP8)</p></td>
+<td><p>221</p></td>
+<td><p>332</p></td>
+</tr>
+<tr class="row-even"><td><p>TeraFLOPS (FP16)</p></td>
+<td><p>55</p></td>
+<td><p>83</p></td>
+</tr>
+<tr class="row-odd"><td><p>TeraFLOPS (BLOCKFP8)</p></td>
+<td><p>55</p></td>
+<td><p>83</p></td>
+</tr>
+<tr class="row-even"><td><p>TBP (Total Board Power)</p></td>
+<td><p>75W</p></td>
+<td><p>200W</p></td>
+</tr>
+<tr class="row-odd"><td><p>External Power</p></td>
+<td><p>1x 6-pin PCIe <em>(required for powering fan)</em></p></td>
+<td><p>1x 6+2-pin PCIe<br />1x 6-pin PCIe</p></td>
+</tr>
+<tr class="row-even"><td><p>System Interface</p></td>
+<td><p>PCI Express 4.0 x16</p></td>
+<td><p>PCI Express 4.0 x16</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cooling</p></td>
+<td><p>Active <em>(blower fan pre-installed)</em></p></td>
+<td><p>Passive <em>(Active Cooling Kit sold separately)</em></p></td>
+</tr>
+<tr class="row-even"><td><p>Dimensions (w/o Cooling Kit) (WxDxH)</p></td>
+<td><p>18mm x 167.5mm x 69mm</p></td>
+<td><p>36mm x 259.8mm x 111.25mm</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dimensions (w/ Cooling Kit) (WxDxH)</p></td>
+<td><p>18mm x 257mm x 98mm</p></td>
+<td><p>36mm x 399mm x 114mm</p></td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" src="../../_images/e150_dimensions.png" /></p>
+<p><em>e150 without Active Cooling Kit</em></p>
+</section>
+<section id="data-precision-formats">
+<h2>Data Precision Formats<a class="headerlink" href="#data-precision-formats" title="Link to this heading"></a></h2>
+<p>The e75/e150 support the following data precision formats:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Format</p></th>
+<th class="head"><p>Bit Depth</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Floating point</p></td>
+<td><p>FP8, FP16, BFLOAT16</p></td>
+</tr>
+<tr class="row-odd"><td><p>Block floating point</p></td>
+<td><p>BLOCKFP2, BLOCKFP4, BLOCKFP8</p></td>
+</tr>
+<tr class="row-even"><td><p>Vector</p></td>
+<td><p>VTF19</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="minimum-system-requirements">
+<h2>Minimum System Requirements<a class="headerlink" href="#minimum-system-requirements" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Part</p></th>
+<th class="head"><p>Requirement</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CPU</p></td>
+<td><p>x86_64 architecture*</p></td>
+</tr>
+<tr class="row-odd"><td><p>Motherboard</p></td>
+<td><p>PCI Express 4.0 x16 slot<br />- Single-slot-width (e75)<br />- Dual-slot-width (e150)</p></td>
+</tr>
+<tr class="row-even"><td><p>Memory</p></td>
+<td><p>64 GB</p></td>
+</tr>
+<tr class="row-odd"><td><p>Storage</p></td>
+<td><p>100 GB (≥2 TB recommended)</p></td>
+</tr>
+<tr class="row-even"><td><p>Power Connectors</p></td>
+<td><p>PCIe 6-pin (e75)<br />PCIe 6+2-pin and PCIe 6-pin (e150)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Total Board Power</p></td>
+<td><p>Up to 75W (e75) / 200W (e150)</p></td>
+</tr>
+<tr class="row-even"><td><p>Operating Temperature Range (Die)</p></td>
+<td><p>0C - 75C</p></td>
+</tr>
+<tr class="row-odd"><td><p>Operating System</p></td>
+<td><p>Ubuntu version 20.04 (Focal Fossa) **</p></td>
+</tr>
+<tr class="row-even"><td><p>Internet Connection</p></td>
+<td><p>Required for driver and stack installation.</p></td>
+</tr>
+</tbody>
+</table>
+<p>** CPU core count and number of sockets will depend on the amount of host preprocessing and post-processing required before and after the accelerator processing.*</p>
+<p>**<em>To check your version, type</em> <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/etc/os-release</span></code>.</p>
+</section>
+<section id="environment-specifications">
+<h2>Environment Specifications<a class="headerlink" href="#environment-specifications" title="Link to this heading"></a></h2>
+<p>The Grayskull™ e75 and e150 Tensix Processor add-in boards are designed to meet these environmental specifications:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Specification</p></th>
+<th class="head"><p>Requirement</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Operating Temperature Range</p></td>
+<td><p>10°C/50°F - 35°C/95°F</p></td>
+</tr>
+<tr class="row-odd"><td><p>Storage Temperature Range</p></td>
+<td><p>-40°C/-40°F - 75°C/167°F</p></td>
+</tr>
+<tr class="row-even"><td><p>Elevation</p></td>
+<td><p>-5 ft. to 10,000 ft.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Air Flow (without Active Cooling Kit)</p></td>
+<td><p>≥30 CFM &#64; up to 35°C/95°F</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tenstorrent.
+      <span class="lastupdated">Last updated on Dec 23, 2025.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+  <div class="feedback-widget" id="tt-feedback">
+  <div class="ttfb-card">
+    <div id="ttfb-initial" class="ttfb-initial">
+      <p class="ttfb-question">Was this article helpful?</p>
+      <div class="ttfb-actions">
+        <button id="ttfb-up" class="ttfb-icon-btn" aria-label="Yes" title="Yes">
+          <span>👍</span>
+        </button>
+        <button id="ttfb-down" class="ttfb-icon-btn" aria-label="No" title="No">
+          <span>👎</span>
+        </button>
+      </div>
+    </div>
+
+    <form id="ttfb-form" class="ttfb-hidden" novalidate>
+      <p id="ttfb-prompt" class="ttfb-prompt"></p>
+
+      <div id="ttfb-reasons" class="ttfb-hidden">
+        <p class="ttfb-reasons-title">How would you describe this article?</p>
+        <div class="ttfb-reasons-grid">
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="inaccurate"> <b>Inaccurate:</b> it doesn’t reflect what I see in the product</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="unclear"> <b>Unclear:</b> it’s difficult to understand</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="missing"> <b>Missing information:</b> it’s not comprehensive enough</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="irrelevant"> <b>Irrelevant:</b> it doesn’t match what I searched for</label>
+        </div>
+      </div>
+
+      <textarea id="ttfb-text" rows="3" class="ttfb-text" placeholder="Please let us know what was or wasn't helpful about this page."></textarea>
+
+      <div class="ttfb-contact">
+        <input id="ttfb-can-contact" type="checkbox"> <label for="ttfb-can-contact">Allow Tenstorrent to contact me about my documentation feedback.</label>
+      </div>
+      <div id="ttfb-email-wrap" class="ttfb-hidden">
+        <input id="ttfb-email" type="email" class="ttfb-email" placeholder="Enter your email address">
+      </div>
+
+      <button id="ttfb-submit" type="submit" class="ttfb-submit">Submit</button>
+    </form>
+
+    <div id="ttfb-thanks" class="ttfb-hidden ttfb-center"><p class="ttfb-thanks-text">Thank you for your feedback!</p></div>
+    <div id="ttfb-error" class="ttfb-hidden ttfb-center"><p class="ttfb-error-text">Sorry, something went wrong. Please try again later.</p></div>
+  </div>
+</div>
+
+<style>
+.feedback-widget { margin: 2rem 0; }
+.ttfb-card {
+  background: #fff;
+  border: 1px solid var(--color-background-40, #d7dbeb66);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+.ttfb-initial { display: flex; flex-direction: row; gap: .75rem; align-items: center; flex-wrap: wrap; justify-content: flex-start; }
+.ttfb-question { margin: 0; font-weight: 600; color: var(--color-foreground, #202020); }
+.ttfb-actions { display: flex; gap: .5rem; }
+.ttfb-icon-btn {
+  padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; background: #fff; cursor: pointer;
+  transition: background var(--transition-duration, 150ms) var(--transition-timing, ease), border-color var(--transition-duration, 150ms) var(--transition-timing, ease);
+}
+.ttfb-icon-btn:hover { background: #f3f4f6; }
+
+.ttfb-hidden { display: none; }
+.ttfb-prompt { margin: .5rem 0 1rem 0; color: var(--color-foreground, #202020); font-weight: 600; }
+.ttfb-reasons-title { margin: 0 0 .5rem 0; color: var(--color-foreground, #202020); font-weight: 500; }
+.ttfb-reasons-grid { display: grid; grid-template-columns: 1fr; gap: .25rem; }
+@media (min-width: 768px) { .ttfb-reasons-grid { grid-template-columns: 1fr 1fr; } }
+.ttfb-radio { display: flex; align-items: flex-start; gap: .5rem; }
+.ttfb-radio input { margin-top: .2rem; }
+
+.ttfb-text {
+  width: 100%; padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; font-family: inherit; resize: vertical;
+}
+.ttfb-contact { display: flex; align-items: center; gap: .5rem; margin-top: .5rem; }
+.ttfb-email { width: 100%; padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; margin-top: .5rem; }
+.ttfb-submit { margin-top: .75rem; padding: .5rem 1rem; background: var(--color-purple, #5164e0); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; }
+.ttfb-submit:hover { background: var(--color-dark-purple, #7584e6); }
+.ttfb-center { text-align: center; padding: 1rem; }
+.ttfb-thanks-text { color: var(--color-purple, #5164e0); font-weight: 600; }
+.ttfb-error-text { color: #dc2626; font-weight: 600; }
+
+/* Hide widget when page sets meta hide_feedback=true */
+html:has(meta[name="hide_feedback"][content="true"]) .feedback-widget { display: none !important; }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const root = document.getElementById('tt-feedback');
+  if (!root) return;
+
+  // Reposition widget: place it just above the Previous/Next buttons
+  try {
+    const footerButtons = document.querySelector('.rst-footer-buttons');
+    if (footerButtons && footerButtons.parentNode) {
+      footerButtons.parentNode.insertBefore(root, footerButtons);
+    }
+  } catch (e) {
+    // no-op if structure not present
+  }
+
+  const initial = root.querySelector('#ttfb-initial');
+  const form = root.querySelector('#ttfb-form');
+  const prompt = root.querySelector('#ttfb-prompt');
+  const reasonsWrap = root.querySelector('#ttfb-reasons');
+  const text = root.querySelector('#ttfb-text');
+  const thanks = root.querySelector('#ttfb-thanks');
+  const error = root.querySelector('#ttfb-error');
+  const upBtn = root.querySelector('#ttfb-up');
+  const downBtn = root.querySelector('#ttfb-down');
+  const canContact = root.querySelector('#ttfb-can-contact');
+  const emailWrap = root.querySelector('#ttfb-email-wrap');
+  const emailInput = root.querySelector('#ttfb-email');
+
+  let sentiment = null; // 'up' | 'down'
+
+  function show(el) { el.classList.remove('ttfb-hidden'); }
+  function hide(el) { el.classList.add('ttfb-hidden'); }
+
+  function setPromptForSentiment() {
+    if (sentiment === 'down') {
+      prompt.textContent = 'We\'re sorry to hear that. Can you tell us more?';
+      show(reasonsWrap);
+    } else {
+      prompt.textContent = 'Thanks! Anything to add? (optional)';
+      hide(reasonsWrap);
+    }
+  }
+
+  function validateEmail(email) {
+    return /.+@.+\..+/.test(email);
+  }
+
+  function submitPayload(payload) {
+    try {
+      if (window.posthog && typeof window.posthog.capture === 'function') {
+        window.posthog.capture('docs_feedback', payload);
+      } else {
+        console.log('Feedback submitted:', payload);
+      }
+      return true;
+    } catch (e) {
+      console.error('Feedback submit error', e);
+      return false;
+    }
+  }
+
+  upBtn.addEventListener('click', function () {
+    sentiment = 'up';
+    hide(initial);
+    setPromptForSentiment();
+    show(form);
+    text.focus();
+  });
+
+  downBtn.addEventListener('click', function () {
+    sentiment = 'down';
+    hide(initial);
+    setPromptForSentiment();
+    show(form);
+  });
+
+  canContact.addEventListener('change', function () {
+    if (canContact.checked) {
+      show(emailWrap);
+      emailInput.focus();
+    } else {
+      hide(emailWrap);
+    }
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const page = window.location.pathname;
+    const ts = new Date().toISOString();
+    const feedbackText = text.value.trim();
+    const canContactVal = !!canContact.checked;
+    const emailVal = emailInput.value.trim();
+    const reasonEl = root.querySelector('input[name="down_reason"]:checked');
+    const reason = reasonEl ? reasonEl.value : null;
+
+    if (canContactVal && emailVal && !validateEmail(emailVal)) {
+      emailInput.setCustomValidity('Please enter a valid email.');
+      emailInput.reportValidity();
+      return;
+    } else {
+      emailInput.setCustomValidity('');
+    }
+
+    const payload = {
+      sentiment,
+      reason,
+      text: feedbackText,
+      can_contact: canContactVal,
+      email: canContactVal ? emailVal || null : null,
+      page,
+      timestamp: ts
+    };
+
+    const ok = submitPayload(payload);
+    hide(form);
+    if (ok) {
+      show(thanks);
+      setTimeout(() => { root.style.display = 'none'; }, 3000);
+    } else {
+      show(error);
+    }
+  });
+});
+</script>
+
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

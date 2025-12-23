@@ -1,0 +1,443 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="Blackhole™ AI Processor" name="product-name" />
+<meta content="PCIe, QSFP-DD, active cooling, passive cooling, GDDR6, ASIC, firmware" name="technology-concepts" />
+<meta content="Troubleshooting" name="document-type" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Troubleshooting Common Hardware Issues &mdash; Home 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../_static/tt_theme.css?v=a41de66c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/home.css?v=c560917e" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=fd3dd8dd"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../../_static/custom.js?v=0ccd5bc4"></script>
+      <script src="../../_static/posthog.js?v=a97abc7e"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Wormhole™ PCIe Cards" href="../wormhole/index.html" />
+    <link rel="prev" title="Specifications and Requirements" href="specifications.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+<a href="https://tenstorrent.github.io/">
+    <img src="../../_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+
+<a href="../../index.html">
+    Home
+</a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Software Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/README.html">Installing the Tenstorrent Software Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/model-demos.html">Running Model Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/vLLM-servers.html">Deploying LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/tt-software-stack.html">Understanding the Tenstorrent Software Stack</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Hardware Guides</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Cards</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Blackhole™ PCIe Cards</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="installation.html">Hardware Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="specifications.html">Specifications and Requirements</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Troubleshooting Common Hardware Issues</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#how-do-i-choose-between-the-tenstorrent-blackhole-p100a-p150a-p150b"><strong>How do I choose between the Tenstorrent Blackhole™ p100a/p150a/p150b?</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#which-qsfp-cable-s-should-i-purchase-for-my-tenstorrent-blackhole-cards"><strong>Which QSFP cable(s) should I purchase for my Tenstorrent Blackhole™ cards?</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-idle-power-consumption-of-my-tenstorrent-blackhole-card-seems-high"><strong>The idle power consumption of my Tenstorrent Blackhole™ card seems high</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-temperatures-reported-by-my-tenstorrent-blackhole-card-seem-high"><strong>The temperatures reported by my Tenstorrent Blackhole™ card seem high</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-fan-noise-of-my-tenstorrent-blackhole-p100a-p150a-card-is-too-quiet-too-loud"><strong>The fan noise of my Tenstorrent Blackhole™ p100a/p150a card is too quiet/too loud</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-do-i-do-if-my-tenstorrent-blackhole-card-is-not-enumerating"><strong>What do I do if my Tenstorrent Blackhole™ card is not enumerating?</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-can-i-demonstrate-the-networking-ability-of-my-tenstorrent-blackhole-cards-how-can-i-test-multiple-cards-together"><strong>How can I demonstrate the networking ability of my Tenstorrent Blackhole™ cards? How can I test multiple cards together?</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#need-additional-support"><strong>Need Additional Support?</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#getting-started">Getting Started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#reference-materials">Reference Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#accessories">Accessories</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../wormhole/index.html">Wormhole™ PCIe Cards</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../systems/index.html">Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../forge/index.html">TT-Forge</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/index.html">TT-Metalium</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/index.html">TT-NN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/manual-software-install.html">Manual Software Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Tools</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../support/README.html">Support &amp; FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Legal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/bounty_terms.html">Bounty Program Terms</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Home</a>
+      </nav>
+
+      <div class="wy-nav-content">
+  
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Cards</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Blackhole™ PCIe Cards</a></li>
+      <li class="breadcrumb-item active">Troubleshooting Common Hardware Issues</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/aibs/blackhole/support.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="troubleshooting-common-hardware-issues">
+<h1>Troubleshooting Common Hardware Issues<a class="headerlink" href="#troubleshooting-common-hardware-issues" title="Link to this heading"></a></h1>
+<p>This document assists Tenstorrent users in resolving common issues encountered with Blackhole™ AI Processors. It provides solutions and directs users to appropriate support resources.</p>
+<section id="how-do-i-choose-between-the-tenstorrent-blackhole-p100a-p150a-p150b">
+<h2><strong>How do I choose between the Tenstorrent Blackhole™ p100a/p150a/p150b?</strong><a class="headerlink" href="#how-do-i-choose-between-the-tenstorrent-blackhole-p100a-p150a-p150b" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>p100a:</strong> This card is the economical entry point in the Blackhole™ product stack and exists for users looking to evaluate Tenstorrent technology. It features 28 GB of GDDR6 and an <strong>active cooling solution</strong> that conforms to industry PCI specifications, and is intended for <strong>single card operation</strong> in <strong>conventional desktop systems</strong>.</p></li>
+<li><p><strong>p150a:</strong> This card provides additional local memory (32 GB) compared to p100a and slightly higher compute density. It also features four passive 800 Gbps QSFP-DD ports used for networking with other Tenstorrent Blackhole™ p150a/p150b cards.  It features an <strong>active cooling solution</strong> that conforms to industry PCI specifications, and is intended for <strong>single- or multi-card operation</strong> in <strong>conventional desktop systems</strong>.</p></li>
+<li><p><strong>p150b:</strong> This card features identical specifications to p150a, but features a <strong>passive cooling solution</strong> that conforms to industry PCI specifications, and is intended for <strong>single- or multi-card operation</strong> in <strong>rack-mounted servers</strong> with <strong>existing high static pressure, forced air cooling</strong>.</p></li>
+</ul>
+</section>
+<section id="which-qsfp-cable-s-should-i-purchase-for-my-tenstorrent-blackhole-cards">
+<h2><strong>Which QSFP cable(s) should I purchase for my Tenstorrent Blackhole™ cards?</strong><a class="headerlink" href="#which-qsfp-cable-s-should-i-purchase-for-my-tenstorrent-blackhole-cards" title="Link to this heading"></a></h2>
+<p>We plan to offer internally validated QSFP cables for sale in the future, but in the meantime, the following models have been validated for use with your Blackhole™ cards:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://cablesondemand.com/amphenol-sf-njyyer0006-000-5m-0-5m-1-6-800g-qsfp-dd-112g-cable-800-gigabit-ethernet-passive-direct-attach-qsfp-double-density-112g-cable-dual-entry-32-awg-qsfp-dd-112g-to-qsfp-dd-112g-sf-njyyer0006-000-5m">Amphenol 0.5m (1.6 ft.) 800G Passive QSFP-DD (SF-NJYYER0006-000.5M)</a></p></li>
+<li><p><a class="reference external" href="https://cablesondemand.com/qsfp-dd-direct-attach-cables-200g-400g-800g-dac-1/amphenol-sf-njyyek0001-001m-1m-3-3-800g-qsfp-dd-112g-cable-800-gigabit-ethernet-passive-direct-attach-qsfp-double-density-112g-cable-dual-entry-32-awg-qsfp-dd-112g-to-qsfp-dd-112g-sf-njyyek0001-001m">Amphenol 1m (3.3 ft.) 800G Passive QSFP-DD (SF-NJYYEK0001-001M)</a></p></li>
+<li><p><a class="reference external" href="https://www.fs.com/products/154258.html?attribute=36925&amp;amp;id=3871095">FS 0.5m (2 ft.) 800G Passive QSFP-DD (QDD-800G-PC005)</a></p></li>
+<li><p><a class="reference external" href="https://www.fs.com/products/154259.html?attribute=36923&amp;amp;id=3720628">FS 1m (3 ft.) 800G Passive QSFP-DD (QDD-800G-PC01)</a></p></li>
+</ul>
+</section>
+<section id="the-idle-power-consumption-of-my-tenstorrent-blackhole-card-seems-high">
+<h2><strong>The idle power consumption of my Tenstorrent Blackhole™ card seems high</strong><a class="headerlink" href="#the-idle-power-consumption-of-my-tenstorrent-blackhole-card-seems-high" title="Link to this heading"></a></h2>
+<p>Blackhole™ AI Processors typically consume approximately 120W at idle. When measuring power at the wall, you might observe a higher power draw because the power supply converts AC current from the wall to DC current within the system, resulting in some expected loss.</p>
+<p>Tenstorrent is exploring methods to further optimize idle power consumption through firmware updates and in future products.</p>
+</section>
+<section id="the-temperatures-reported-by-my-tenstorrent-blackhole-card-seem-high">
+<h2><strong>The temperatures reported by my Tenstorrent Blackhole™ card seem high</strong><a class="headerlink" href="#the-temperatures-reported-by-my-tenstorrent-blackhole-card-seem-high" title="Link to this heading"></a></h2>
+<p>The Blackhole AI Processor is designed to operate safely and continuously at temperatures up to 95°C, even if the ASIC temperature appears high. Existing cooling solutions maintain the Blackhole AI Processor chip, power circuitry, and memory ICs within safe operating specifications. The card automatically reduces clock speeds to prevent overheating.</p>
+<p>Tenstorrent is exploring methods to further optimize default operation through firmware updates and in future products.</p>
+</section>
+<section id="the-fan-noise-of-my-tenstorrent-blackhole-p100a-p150a-card-is-too-quiet-too-loud">
+<h2><strong>The fan noise of my Tenstorrent Blackhole™ p100a/p150a card is too quiet/too loud</strong><a class="headerlink" href="#the-fan-noise-of-my-tenstorrent-blackhole-p100a-p150a-card-is-too-quiet-too-loud" title="Link to this heading"></a></h2>
+<p>Tenstorrent has received varied feedback regarding fan noise levels. Some users express concern about the noise level of their p100a or p150a models, while others prefer to tolerate increased noise to achieve lower idle and operating temperatures.</p>
+<p>Tenstorrent is evaluating the addition of end-user fan controls in a future update.</p>
+</section>
+<section id="what-do-i-do-if-my-tenstorrent-blackhole-card-is-not-enumerating">
+<h2><strong>What do I do if my Tenstorrent Blackhole™ card is not enumerating?</strong><a class="headerlink" href="#what-do-i-do-if-my-tenstorrent-blackhole-card-is-not-enumerating" title="Link to this heading"></a></h2>
+<p>Blackhole™ PCIe cards are designed to operate using PCI Express Gen 5.0. However, Tenstorrent has observed instances where some motherboards set PCIe operation to <em>Auto</em> (often by default), which can prevent the card from enumerating. You can often resolve these issues by manually forcing PCIe operation to <code class="docutils literal notranslate"><span class="pre">Gen</span> <span class="pre">4.0</span></code> or <code class="docutils literal notranslate"><span class="pre">Gen</span> <span class="pre">5.0</span></code> in the <strong>BIOS</strong>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Once you successfully enter an operating environment where the card has enumerated, ensure that you update to the latest firmware. Refer to the <a class="reference internal" href="../../getting-started/README.html"><span class="std std-doc">Installing the Tenstorrent Software Stack guide.</span></a></p>
+</div>
+</section>
+<section id="how-can-i-demonstrate-the-networking-ability-of-my-tenstorrent-blackhole-cards-how-can-i-test-multiple-cards-together">
+<h2><strong>How can I demonstrate the networking ability of my Tenstorrent Blackhole™ cards? How can I test multiple cards together?</strong><a class="headerlink" href="#how-can-i-demonstrate-the-networking-ability-of-my-tenstorrent-blackhole-cards-how-can-i-test-multiple-cards-together" title="Link to this heading"></a></h2>
+<p>Setting up the Llama 3.1 8B model demo (instructions <a class="reference external" href="https://github.com/tenstorrent/tt-metal/tree/main/models/tt_transformers">here</a>) is a useful way to test that your networked Blackhole™ cards are functioning as intended.</p>
+</section>
+<hr class="docutils" />
+<section id="need-additional-support">
+<h2><strong>Need Additional Support?</strong><a class="headerlink" href="#need-additional-support" title="Link to this heading"></a></h2>
+<p>If you encounter any issues, or have a question that isn’t covered in the documentation, please <a class="reference external" href="https://tenstorrent.atlassian.net/servicedesk/customer/portal/1">raise a support request.</a> Our team will review your request and provide assistance.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="specifications.html" class="btn btn-neutral float-left" title="Specifications and Requirements" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../wormhole/index.html" class="btn btn-neutral float-right" title="Wormhole™ PCIe Cards" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tenstorrent.
+      <span class="lastupdated">Last updated on Dec 23, 2025.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+  <div class="feedback-widget" id="tt-feedback">
+  <div class="ttfb-card">
+    <div id="ttfb-initial" class="ttfb-initial">
+      <p class="ttfb-question">Was this article helpful?</p>
+      <div class="ttfb-actions">
+        <button id="ttfb-up" class="ttfb-icon-btn" aria-label="Yes" title="Yes">
+          <span>👍</span>
+        </button>
+        <button id="ttfb-down" class="ttfb-icon-btn" aria-label="No" title="No">
+          <span>👎</span>
+        </button>
+      </div>
+    </div>
+
+    <form id="ttfb-form" class="ttfb-hidden" novalidate>
+      <p id="ttfb-prompt" class="ttfb-prompt"></p>
+
+      <div id="ttfb-reasons" class="ttfb-hidden">
+        <p class="ttfb-reasons-title">How would you describe this article?</p>
+        <div class="ttfb-reasons-grid">
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="inaccurate"> <b>Inaccurate:</b> it doesn’t reflect what I see in the product</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="unclear"> <b>Unclear:</b> it’s difficult to understand</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="missing"> <b>Missing information:</b> it’s not comprehensive enough</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="irrelevant"> <b>Irrelevant:</b> it doesn’t match what I searched for</label>
+        </div>
+      </div>
+
+      <textarea id="ttfb-text" rows="3" class="ttfb-text" placeholder="Please let us know what was or wasn't helpful about this page."></textarea>
+
+      <div class="ttfb-contact">
+        <input id="ttfb-can-contact" type="checkbox"> <label for="ttfb-can-contact">Allow Tenstorrent to contact me about my documentation feedback.</label>
+      </div>
+      <div id="ttfb-email-wrap" class="ttfb-hidden">
+        <input id="ttfb-email" type="email" class="ttfb-email" placeholder="Enter your email address">
+      </div>
+
+      <button id="ttfb-submit" type="submit" class="ttfb-submit">Submit</button>
+    </form>
+
+    <div id="ttfb-thanks" class="ttfb-hidden ttfb-center"><p class="ttfb-thanks-text">Thank you for your feedback!</p></div>
+    <div id="ttfb-error" class="ttfb-hidden ttfb-center"><p class="ttfb-error-text">Sorry, something went wrong. Please try again later.</p></div>
+  </div>
+</div>
+
+<style>
+.feedback-widget { margin: 2rem 0; }
+.ttfb-card {
+  background: #fff;
+  border: 1px solid var(--color-background-40, #d7dbeb66);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+.ttfb-initial { display: flex; flex-direction: row; gap: .75rem; align-items: center; flex-wrap: wrap; justify-content: flex-start; }
+.ttfb-question { margin: 0; font-weight: 600; color: var(--color-foreground, #202020); }
+.ttfb-actions { display: flex; gap: .5rem; }
+.ttfb-icon-btn {
+  padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; background: #fff; cursor: pointer;
+  transition: background var(--transition-duration, 150ms) var(--transition-timing, ease), border-color var(--transition-duration, 150ms) var(--transition-timing, ease);
+}
+.ttfb-icon-btn:hover { background: #f3f4f6; }
+
+.ttfb-hidden { display: none; }
+.ttfb-prompt { margin: .5rem 0 1rem 0; color: var(--color-foreground, #202020); font-weight: 600; }
+.ttfb-reasons-title { margin: 0 0 .5rem 0; color: var(--color-foreground, #202020); font-weight: 500; }
+.ttfb-reasons-grid { display: grid; grid-template-columns: 1fr; gap: .25rem; }
+@media (min-width: 768px) { .ttfb-reasons-grid { grid-template-columns: 1fr 1fr; } }
+.ttfb-radio { display: flex; align-items: flex-start; gap: .5rem; }
+.ttfb-radio input { margin-top: .2rem; }
+
+.ttfb-text {
+  width: 100%; padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; font-family: inherit; resize: vertical;
+}
+.ttfb-contact { display: flex; align-items: center; gap: .5rem; margin-top: .5rem; }
+.ttfb-email { width: 100%; padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; margin-top: .5rem; }
+.ttfb-submit { margin-top: .75rem; padding: .5rem 1rem; background: var(--color-purple, #5164e0); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; }
+.ttfb-submit:hover { background: var(--color-dark-purple, #7584e6); }
+.ttfb-center { text-align: center; padding: 1rem; }
+.ttfb-thanks-text { color: var(--color-purple, #5164e0); font-weight: 600; }
+.ttfb-error-text { color: #dc2626; font-weight: 600; }
+
+/* Hide widget when page sets meta hide_feedback=true */
+html:has(meta[name="hide_feedback"][content="true"]) .feedback-widget { display: none !important; }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const root = document.getElementById('tt-feedback');
+  if (!root) return;
+
+  // Reposition widget: place it just above the Previous/Next buttons
+  try {
+    const footerButtons = document.querySelector('.rst-footer-buttons');
+    if (footerButtons && footerButtons.parentNode) {
+      footerButtons.parentNode.insertBefore(root, footerButtons);
+    }
+  } catch (e) {
+    // no-op if structure not present
+  }
+
+  const initial = root.querySelector('#ttfb-initial');
+  const form = root.querySelector('#ttfb-form');
+  const prompt = root.querySelector('#ttfb-prompt');
+  const reasonsWrap = root.querySelector('#ttfb-reasons');
+  const text = root.querySelector('#ttfb-text');
+  const thanks = root.querySelector('#ttfb-thanks');
+  const error = root.querySelector('#ttfb-error');
+  const upBtn = root.querySelector('#ttfb-up');
+  const downBtn = root.querySelector('#ttfb-down');
+  const canContact = root.querySelector('#ttfb-can-contact');
+  const emailWrap = root.querySelector('#ttfb-email-wrap');
+  const emailInput = root.querySelector('#ttfb-email');
+
+  let sentiment = null; // 'up' | 'down'
+
+  function show(el) { el.classList.remove('ttfb-hidden'); }
+  function hide(el) { el.classList.add('ttfb-hidden'); }
+
+  function setPromptForSentiment() {
+    if (sentiment === 'down') {
+      prompt.textContent = 'We\'re sorry to hear that. Can you tell us more?';
+      show(reasonsWrap);
+    } else {
+      prompt.textContent = 'Thanks! Anything to add? (optional)';
+      hide(reasonsWrap);
+    }
+  }
+
+  function validateEmail(email) {
+    return /.+@.+\..+/.test(email);
+  }
+
+  function submitPayload(payload) {
+    try {
+      if (window.posthog && typeof window.posthog.capture === 'function') {
+        window.posthog.capture('docs_feedback', payload);
+      } else {
+        console.log('Feedback submitted:', payload);
+      }
+      return true;
+    } catch (e) {
+      console.error('Feedback submit error', e);
+      return false;
+    }
+  }
+
+  upBtn.addEventListener('click', function () {
+    sentiment = 'up';
+    hide(initial);
+    setPromptForSentiment();
+    show(form);
+    text.focus();
+  });
+
+  downBtn.addEventListener('click', function () {
+    sentiment = 'down';
+    hide(initial);
+    setPromptForSentiment();
+    show(form);
+  });
+
+  canContact.addEventListener('change', function () {
+    if (canContact.checked) {
+      show(emailWrap);
+      emailInput.focus();
+    } else {
+      hide(emailWrap);
+    }
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const page = window.location.pathname;
+    const ts = new Date().toISOString();
+    const feedbackText = text.value.trim();
+    const canContactVal = !!canContact.checked;
+    const emailVal = emailInput.value.trim();
+    const reasonEl = root.querySelector('input[name="down_reason"]:checked');
+    const reason = reasonEl ? reasonEl.value : null;
+
+    if (canContactVal && emailVal && !validateEmail(emailVal)) {
+      emailInput.setCustomValidity('Please enter a valid email.');
+      emailInput.reportValidity();
+      return;
+    } else {
+      emailInput.setCustomValidity('');
+    }
+
+    const payload = {
+      sentiment,
+      reason,
+      text: feedbackText,
+      can_contact: canContactVal,
+      email: canContactVal ? emailVal || null : null,
+      page,
+      timestamp: ts
+    };
+
+    const ok = submitPayload(payload);
+    hide(form);
+    if (ok) {
+      show(thanks);
+      setTimeout(() => { root.style.display = 'none'; }, 3000);
+    } else {
+      show(error);
+    }
+  });
+});
+</script>
+
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

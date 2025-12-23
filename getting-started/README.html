@@ -1,0 +1,604 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="tt-installer, TT-Metalium™, TT-SMI" name="product-name" />
+<meta content="software installation, Podman, containerization, driver" name="technology-concepts" />
+<meta content="how-to" name="document-type" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installing the Tenstorrent Software Stack &mdash; Home 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/tt_theme.css?v=a41de66c" />
+      <link rel="stylesheet" type="text/css" href="../_static/home.css?v=c560917e" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=fd3dd8dd"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../_static/custom.js?v=0ccd5bc4"></script>
+      <script src="../_static/posthog.js?v=a97abc7e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Running Model Demos" href="model-demos.html" />
+    <link rel="prev" title="Tenstorrent" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+<a href="https://tenstorrent.github.io/">
+    <img src="../_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+
+<a href="../index.html">
+    Home
+</a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Software Guides</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installing the Tenstorrent Software Stack</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#before-you-begin"><strong>Before You Begin</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#supported-operating-systems"><strong>Supported Operating Systems</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bios-requirements"><strong>BIOS Requirements</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#running-the-installer-script"><strong>Running the Installer Script</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#execute-the-installer"><strong>1. Execute the installer</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#grant-root-privileges"><strong>2. Grant Root Privileges</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-tt-metalium-slim-container"><strong>3. Install TT-Metalium Slim Container</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-tt-metalium-model-demos-container"><strong>4. Install TT-Metalium Model Demos Container</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#choose-python-package-installation-location"><strong>5. Choose Python Package Installation Location</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-system-software-dependencies"><strong>6. Install System Software Dependencies</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reboot-system"><strong>7. Reboot System</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#verify-system-software-installation"><strong>Verify System Software Installation</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting"><strong>Troubleshooting</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#no-tenstorrent-devices-detected-please-check-your-hardware-and-try-again-exiting">No Tenstorrent devices detected! Please check your hardware and try again. Exiting…</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#exploring-alternative-installation-methods"><strong>Exploring Alternative Installation Methods</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#first-things-to-do"><strong>First Things To Do</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#need-additional-support"><strong>Need Additional Support?</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="model-demos.html">Running Model Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vLLM-servers.html">Deploying LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tt-software-stack.html">Understanding the Tenstorrent Software Stack</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Hardware Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aibs/index.html">Cards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../systems/index.html">Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../forge/index.html">TT-Forge</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/index.html">TT-Metalium</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/index.html">TT-NN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual-software-install.html">Manual Software Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Tools</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/README.html">Support &amp; FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Legal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/bounty_terms.html">Bounty Program Terms</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Home</a>
+      </nav>
+
+      <div class="wy-nav-content">
+  
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Installing the Tenstorrent Software Stack</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/getting-started/README.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installing-the-tenstorrent-software-stack">
+<h1>Installing the Tenstorrent Software Stack<a class="headerlink" href="#installing-the-tenstorrent-software-stack" title="Link to this heading"></a></h1>
+<p>This guide assists users who have completed the physical hardware setup of their Tenstorrent system. You will learn how to install the Tenstorrent software stack, including system dependencies, drivers, and the TT-Metalium™ development environment, and how to verify the installation.</p>
+<section id="before-you-begin">
+<h2><strong>Before You Begin</strong><a class="headerlink" href="#before-you-begin" title="Link to this heading"></a></h2>
+<p>Before you begin the software installation, ensure your host machine meets the following prerequisites:</p>
+<ul class="simple">
+<li><p>The host machine has an internet connection to download software packages.</p></li>
+<li><p>The host machine has a supported operating system installed (Supported OS listed below)</p>
+<ul>
+<li><p>Tenstorrent also supports <a class="reference internal" href="#running-the-installer-script">other operating systems</a> but are considered experimental at this point</p></li>
+</ul>
+</li>
+<li><p>You have administrator privileges on the host machine.</p></li>
+<li><p>The system is physically unboxed and set up according to your product’s installation manual and safety guidelines.</p></li>
+</ul>
+<section id="supported-operating-systems">
+<h3><strong>Supported Operating Systems</strong><a class="headerlink" href="#supported-operating-systems" title="Link to this heading"></a></h3>
+<p>Tenstorrent recommends Ubuntu 22.04 LTS (Jammy Jellyfish) for all Tenstorrent software. While each SDK may support newer distributions of Ubuntu, consider their compatibility experimental at this time.</p>
+</section>
+<section id="bios-requirements">
+<h3><strong>BIOS Requirements</strong><a class="headerlink" href="#bios-requirements" title="Link to this heading"></a></h3>
+<p>The BIOS for your host motherboard should configure the PCIe AER Reporting Mechanism to be set to <code class="docutils literal notranslate"><span class="pre">OS</span> <span class="pre">First</span></code>. Tenstorrent’s TT-SMI software requires this setting to function properly.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If you are using a TT-QuietBox, you do not have to worry about setting this option. It is set to <code class="docutils literal notranslate"><span class="pre">OS</span> <span class="pre">First</span></code> by default.</p>
+<p>If you update or reset your BIOS for any reason, you must reconfigure the PCIe AER Reporting Mechanism setting to <code class="docutils literal notranslate"><span class="pre">OS</span> <span class="pre">First</span></code> to ensure TT-SMI functions correctly. This setting is typically located in the <strong>Motherboard Information</strong> section of your BIOS.</p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="running-the-installer-script">
+<h2><strong>Running the Installer Script</strong><a class="headerlink" href="#running-the-installer-script" title="Link to this heading"></a></h2>
+<p>Tenstorrent recommends using the <a class="reference external" href="https://github.com/tenstorrent/tt-installer/">tt-installer</a> script to install the Tenstorrent software stack. This script automates the setup process and is compatible with Ubuntu, Fedora, and Debian operating systems.</p>
+<section id="execute-the-installer">
+<h3><strong>1. Execute the installer</strong><a class="headerlink" href="#execute-the-installer" title="Link to this heading"></a></h3>
+<p>The installer has two dependencies, <code class="docutils literal notranslate"><span class="pre">curl</span></code> and <code class="docutils literal notranslate"><span class="pre">jq</span></code>. Install them using your system package manager. For example, on Ubuntu, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>curl<span class="w"> </span>jq
+</pre></div>
+</div>
+<p>Now, to begin the installation, execute the following command in your terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/bin/bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://github.com/tenstorrent/tt-installer/releases/latest/download/install.sh<span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p>You will be prompted to select which software you wish to install. The first thing you will see looks like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   __                  __                             __
+  / /____  ____  _____/ /_____  _____________  ____  / /_
+ / __/ _ \/ __ \/ ___/ __/ __ \/ ___/ ___/ _ \/ __ \/ __/
+/ /_/  __/ / / (__  ) /_/ /_/ / /  / /  /  __/ / / / /_
+\__/\___/_/ /_/____/\__/\____/_/  /_/   \___/_/ /_/\__/
+
+[INFO] Welcome to tenstorrent!
+[INFO] This is tt-installer version 1.6.0
+[INFO] Log is at /tmp/tenstorrent_install_l2ULbx/install.log
+[INFO] Using software versions:
+[INFO]   TT-KMD: 2.3.0
+[INFO]   Firmware: 18.7.0
+[INFO]   System Tools: 1.3.1
+[INFO]   tt-smi: 3.0.27
+[INFO]   tt-flash: 3.4.2
+[INFO] This script will install drivers and tooling and properly configure your tenstorrent hardware.
+OK to continue? [Y/n]
+</pre></div>
+</div>
+<p><strong>Answer “Y” to continue.</strong></p>
+</section>
+<section id="grant-root-privileges">
+<h3><strong>2. Grant Root Privileges</strong><a class="headerlink" href="#grant-root-privileges" title="Link to this heading"></a></h3>
+<p>Next, the installation will start and ask you to grant the script sudo permissions:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">Starting</span> <span class="n">installation</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">Checking</span> <span class="k">for</span> <span class="n">sudo</span> <span class="n">permissions</span><span class="o">...</span> <span class="p">(</span><span class="n">may</span> <span class="n">request</span> <span class="n">password</span><span class="p">)</span>
+<span class="p">[</span><span class="n">sudo</span><span class="p">]</span> <span class="n">password</span> <span class="k">for</span> <span class="o">&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">username</span><span class="o">&gt;</span><span class="p">:</span> 
+</pre></div>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Required</p>
+<p><strong>Using sudo is required so you must enter your user’s password.</strong></p>
+</div>
+</section>
+<section id="install-tt-metalium-slim-container">
+<h3><strong>3. Install TT-Metalium Slim Container</strong><a class="headerlink" href="#install-tt-metalium-slim-container" title="Link to this heading"></a></h3>
+<p>tt-installer configures necessary packages on your system and installs system-level tools as well as our programming framework, TT-Metalium. By default, TT-Metalium is installed as a container using Podman. This containerized environment is appropriate for most users as explained <a class="reference external" href="https://github.com/tenstorrent/tt-installer/wiki/Using-the-tt%E2%80%90metalium-container">here</a>, but advanced users and developers may wish to install Metalium natively on the host system or use Docker instead of Podman. See <a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/installing.html#tt-nn-tt-metalium-installation">TT-NN / TT-Metalium Installation</a> for manual installation instructions.</p>
+<p>Next, you will be prompted whether to install the TT-Metalium slim container:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[INFO] Would you like to install the TT-Metalium slim container?
+[INFO] This container is appropriate if you only need to use TT-NN
+Install Metalium [Y/n] 
+</pre></div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Optional</p>
+<p>This container possesses a release installation of tt-nn and tt-metalium. <strong>If you want if you want to use tt-nn / tt-metalium to build software, answer “Y” to this question”, otherwise, answer “N”.</strong></p>
+</div>
+</section>
+<section id="install-tt-metalium-model-demos-container">
+<h3><strong>4. Install TT-Metalium Model Demos Container</strong><a class="headerlink" href="#install-tt-metalium-model-demos-container" title="Link to this heading"></a></h3>
+<p>Next, you will be prompted whether to install the TT-Metalium Model Demos container:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[INFO] Would you like to install the TT-Metalium Model Demos container?
+[INFO] This container is best for users who need more TT-Metalium functionality, such as running prebuilt models, but it&#39;s large (10GB)
+Install Metalium Models [Y/n] 
+</pre></div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Optional</p>
+<p>This container possesses a full build of the <a class="reference external" href="https://github.com/tenstorrent/tt-metal/tree/main">tt-metal</a> project, including model demo source code.
+<strong>If you want to run model demos answer “Y” to this question”, otherwise, answer “N”.</strong></p>
+</div>
+</section>
+<section id="choose-python-package-installation-location">
+<h3><strong>5. Choose Python Package Installation Location</strong><a class="headerlink" href="#choose-python-package-installation-location" title="Link to this heading"></a></h3>
+<p>Next, you will be asked to select how you would like to install Python packages. Our software is distributed in many forms, one of them being Python packages. We provide four installation options:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[INFO] How would you like to install Python packages?
+1) active-venv: Use the active virtual environment
+2) new-venv: [DEFAULT] Create a new Python virtual environment (venv) at /home/$USER/.tenstorrent-venv
+3) system-python: Use the system pathing, available for multiple users. *** NOT RECOMMENDED UNLESS YOU ARE SURE ***
+4) pipx: Use pipx for isolated package installation
+Enter your choice (1-4) or press enter for default (new-venv): 
+</pre></div>
+</div>
+<p><strong>If this is your first time running tt-installer, we recommend using the second, DEFAULT option.</strong></p>
+</section>
+<section id="install-system-software-dependencies">
+<h3><strong>6. Install System Software Dependencies</strong><a class="headerlink" href="#install-system-software-dependencies" title="Link to this heading"></a></h3>
+<p>Next, tt-installer will install:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/tenstorrent/tt-kmd">TT-KMD</a>, the Kernel-Mode Driver</p></li>
+<li><p><a class="reference external" href="https://github.com/tenstorrent/tt-flash">TT-Flash</a>, the utility to flash firmware blobs to Tenstorrent devices</p></li>
+<li><p><a class="reference external" href="https://github.com/tenstorrent/tt-firmware">TT-Firmware</a>, the on-device firmware</p></li>
+<li><p><a class="reference external" href="https://github.com/tenstorrent/tt-system-tools">HugePages</a>, a system tool for improving memory performance</p></li>
+<li><p><a class="reference external" href="https://github.com/tenstorrent/tt-smi">TT-SMI</a>, the System Management Interface</p></li>
+</ul>
+</section>
+<section id="reboot-system">
+<h3><strong>7. Reboot System</strong><a class="headerlink" href="#reboot-system" title="Link to this heading"></a></h3>
+<div class="warning admonition">
+<p class="admonition-title">Important</p>
+<p>At the end of the installation process, you will be prompted to answer this question:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[INFO] Would you like to reboot now?
+</pre></div>
+</div>
+<p><strong>You must answer “Y” if this is your first time running tt-installer on your system.</strong></p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="verify-system-software-installation">
+<h2><strong>Verify System Software Installation</strong><a class="headerlink" href="#verify-system-software-installation" title="Link to this heading"></a></h2>
+<p>After rebooting your system, verify all system software dependencies were successfully installed and loaded. This section will introduce you to the <a class="reference external" href="https://github.com/tenstorrent/tt-smi">tt-smi</a> tool, which we’ll use to enumerate all Tenstorrent devices.</p>
+<p>First, activate the Python environment in which you installed the required Python packages. You performed this environment selection in <a class="reference internal" href="#choose-python-package-installation-location">Step 5. Choose Python Package Installation Location</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you selected the DEFAULT option which installs all Python packages under <code class="docutils literal notranslate"><span class="pre">/home/$USER/.tenstorrent-venv/bin/activate</span></code>. Execute this command to activate the Python virtual environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>~/.tenstorrent-venv/bin/activate
+</pre></div>
+</div>
+<p>If you did not, use the installation path you chose in <a class="reference internal" href="#choose-python-package-installation-location">step 5</a>.</p>
+</div>
+<p>Next, execute this command to start tt-smi, then ensure the number of devices listed under the <strong>“Device Information”</strong> pane matches the number of Tenstorrent devices installed in your system:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tt-smi
+</pre></div>
+</div>
+<p>Here is an example of what you should see for a system containing a single p150a device:
+<img alt="" src="../_images/tt_smi_screenshot.png" /></p>
+<div class="danger admonition">
+<p class="admonition-title">Important</p>
+<p>If the number of listed devices does not match what you expect, please <a class="reference internal" href="#need-additional-support">contact support</a> and we will assist you.</p>
+</div>
+<p>Congratulations, you have successfully installed Tenstorrent’s system software!</p>
+</section>
+<hr class="docutils" />
+<section id="troubleshooting">
+<h2><strong>Troubleshooting</strong><a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<section id="no-tenstorrent-devices-detected-please-check-your-hardware-and-try-again-exiting">
+<h3>No Tenstorrent devices detected! Please check your hardware and try again. Exiting…<a class="headerlink" href="#no-tenstorrent-devices-detected-please-check-your-hardware-and-try-again-exiting" title="Link to this heading"></a></h3>
+<p>For Blackhole PCIe products such as p100 and p150, you may get an error message after running <code class="docutils literal notranslate"><span class="pre">tt-smi</span></code> that says no devices were detected. When this happens, do the following:</p>
+<ol class="arabic simple">
+<li><p>Verify the card is being supplied power by checking when the system boots that the fan spins and the green power LED illuminates.</p></li>
+<li><p>If the light is on, try resetting the card.</p></li>
+</ol>
+<blockquote>
+<div><p><strong>NOTE:</strong> You can also try the command <code class="docutils literal notranslate"><span class="pre">lspci</span> <span class="pre">-d</span> <span class="pre">1e52</span></code> - if it returns nothing it means the devices failed to enumerate.</p>
+</div></blockquote>
+</section>
+</section>
+<hr class="docutils" />
+<section id="exploring-alternative-installation-methods">
+<h2><strong>Exploring Alternative Installation Methods</strong><a class="headerlink" href="#exploring-alternative-installation-methods" title="Link to this heading"></a></h2>
+<p>For advanced users or developers who prefer alternative installation methods for the software stack, refer to the <a class="reference internal" href="manual-software-install.html"><span class="std std-doc">manual software installation guide.</span></a></p>
+</section>
+<hr class="docutils" />
+<section id="first-things-to-do">
+<h2><strong>First Things To Do</strong><a class="headerlink" href="#first-things-to-do" title="Link to this heading"></a></h2>
+<p>After tt-installer finishes successfully and you have restarted your system, you can proceed how you like. You may want to:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="model-demos.html"><span class="std std-doc">Running model demos</span></a></p>
+<ul>
+<li><p>Explore pre-built demonstrations of popular models like Llama, Whisper, Stable Diffusion and ResNet.</p></li>
+<li><p>This is a great way to see Tenstorrent’s software in action without deep dives into model architecture.</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="vLLM-servers.html"><span class="std std-doc">Deploying LLMs</span></a></p>
+<ul>
+<li><p>This is the recommended path users should take to deploy LLMs.</p></li>
+</ul>
+</li>
+<li><p>Understanding the <a class="reference internal" href="tt-software-stack.html"><span class="std std-doc">Tenstorrent Software Stack</span></a>.</p></li>
+<li><p>Learn more about our unique architecture by <a class="reference external" href="https://github.com/tenstorrent/tt-metal/blob/main/METALIUM_GUIDE.md">reading this guide</a>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="need-additional-support">
+<h2><strong>Need Additional Support?</strong><a class="headerlink" href="#need-additional-support" title="Link to this heading"></a></h2>
+<p>If you encounter any issues, or have a question that isn’t covered in the documentation, please <a class="reference external" href="https://tenstorrent.atlassian.net/servicedesk/customer/portal/1">raise a support request.</a> Our team will review your request and provide assistance.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="Tenstorrent" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="model-demos.html" class="btn btn-neutral float-right" title="Running Model Demos" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tenstorrent.
+      <span class="lastupdated">Last updated on Dec 23, 2025.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+  <div class="feedback-widget" id="tt-feedback">
+  <div class="ttfb-card">
+    <div id="ttfb-initial" class="ttfb-initial">
+      <p class="ttfb-question">Was this article helpful?</p>
+      <div class="ttfb-actions">
+        <button id="ttfb-up" class="ttfb-icon-btn" aria-label="Yes" title="Yes">
+          <span>👍</span>
+        </button>
+        <button id="ttfb-down" class="ttfb-icon-btn" aria-label="No" title="No">
+          <span>👎</span>
+        </button>
+      </div>
+    </div>
+
+    <form id="ttfb-form" class="ttfb-hidden" novalidate>
+      <p id="ttfb-prompt" class="ttfb-prompt"></p>
+
+      <div id="ttfb-reasons" class="ttfb-hidden">
+        <p class="ttfb-reasons-title">How would you describe this article?</p>
+        <div class="ttfb-reasons-grid">
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="inaccurate"> <b>Inaccurate:</b> it doesn’t reflect what I see in the product</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="unclear"> <b>Unclear:</b> it’s difficult to understand</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="missing"> <b>Missing information:</b> it’s not comprehensive enough</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="irrelevant"> <b>Irrelevant:</b> it doesn’t match what I searched for</label>
+        </div>
+      </div>
+
+      <textarea id="ttfb-text" rows="3" class="ttfb-text" placeholder="Please let us know what was or wasn't helpful about this page."></textarea>
+
+      <div class="ttfb-contact">
+        <input id="ttfb-can-contact" type="checkbox"> <label for="ttfb-can-contact">Allow Tenstorrent to contact me about my documentation feedback.</label>
+      </div>
+      <div id="ttfb-email-wrap" class="ttfb-hidden">
+        <input id="ttfb-email" type="email" class="ttfb-email" placeholder="Enter your email address">
+      </div>
+
+      <button id="ttfb-submit" type="submit" class="ttfb-submit">Submit</button>
+    </form>
+
+    <div id="ttfb-thanks" class="ttfb-hidden ttfb-center"><p class="ttfb-thanks-text">Thank you for your feedback!</p></div>
+    <div id="ttfb-error" class="ttfb-hidden ttfb-center"><p class="ttfb-error-text">Sorry, something went wrong. Please try again later.</p></div>
+  </div>
+</div>
+
+<style>
+.feedback-widget { margin: 2rem 0; }
+.ttfb-card {
+  background: #fff;
+  border: 1px solid var(--color-background-40, #d7dbeb66);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+.ttfb-initial { display: flex; flex-direction: row; gap: .75rem; align-items: center; flex-wrap: wrap; justify-content: flex-start; }
+.ttfb-question { margin: 0; font-weight: 600; color: var(--color-foreground, #202020); }
+.ttfb-actions { display: flex; gap: .5rem; }
+.ttfb-icon-btn {
+  padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; background: #fff; cursor: pointer;
+  transition: background var(--transition-duration, 150ms) var(--transition-timing, ease), border-color var(--transition-duration, 150ms) var(--transition-timing, ease);
+}
+.ttfb-icon-btn:hover { background: #f3f4f6; }
+
+.ttfb-hidden { display: none; }
+.ttfb-prompt { margin: .5rem 0 1rem 0; color: var(--color-foreground, #202020); font-weight: 600; }
+.ttfb-reasons-title { margin: 0 0 .5rem 0; color: var(--color-foreground, #202020); font-weight: 500; }
+.ttfb-reasons-grid { display: grid; grid-template-columns: 1fr; gap: .25rem; }
+@media (min-width: 768px) { .ttfb-reasons-grid { grid-template-columns: 1fr 1fr; } }
+.ttfb-radio { display: flex; align-items: flex-start; gap: .5rem; }
+.ttfb-radio input { margin-top: .2rem; }
+
+.ttfb-text {
+  width: 100%; padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; font-family: inherit; resize: vertical;
+}
+.ttfb-contact { display: flex; align-items: center; gap: .5rem; margin-top: .5rem; }
+.ttfb-email { width: 100%; padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; margin-top: .5rem; }
+.ttfb-submit { margin-top: .75rem; padding: .5rem 1rem; background: var(--color-purple, #5164e0); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; }
+.ttfb-submit:hover { background: var(--color-dark-purple, #7584e6); }
+.ttfb-center { text-align: center; padding: 1rem; }
+.ttfb-thanks-text { color: var(--color-purple, #5164e0); font-weight: 600; }
+.ttfb-error-text { color: #dc2626; font-weight: 600; }
+
+/* Hide widget when page sets meta hide_feedback=true */
+html:has(meta[name="hide_feedback"][content="true"]) .feedback-widget { display: none !important; }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const root = document.getElementById('tt-feedback');
+  if (!root) return;
+
+  // Reposition widget: place it just above the Previous/Next buttons
+  try {
+    const footerButtons = document.querySelector('.rst-footer-buttons');
+    if (footerButtons && footerButtons.parentNode) {
+      footerButtons.parentNode.insertBefore(root, footerButtons);
+    }
+  } catch (e) {
+    // no-op if structure not present
+  }
+
+  const initial = root.querySelector('#ttfb-initial');
+  const form = root.querySelector('#ttfb-form');
+  const prompt = root.querySelector('#ttfb-prompt');
+  const reasonsWrap = root.querySelector('#ttfb-reasons');
+  const text = root.querySelector('#ttfb-text');
+  const thanks = root.querySelector('#ttfb-thanks');
+  const error = root.querySelector('#ttfb-error');
+  const upBtn = root.querySelector('#ttfb-up');
+  const downBtn = root.querySelector('#ttfb-down');
+  const canContact = root.querySelector('#ttfb-can-contact');
+  const emailWrap = root.querySelector('#ttfb-email-wrap');
+  const emailInput = root.querySelector('#ttfb-email');
+
+  let sentiment = null; // 'up' | 'down'
+
+  function show(el) { el.classList.remove('ttfb-hidden'); }
+  function hide(el) { el.classList.add('ttfb-hidden'); }
+
+  function setPromptForSentiment() {
+    if (sentiment === 'down') {
+      prompt.textContent = 'We\'re sorry to hear that. Can you tell us more?';
+      show(reasonsWrap);
+    } else {
+      prompt.textContent = 'Thanks! Anything to add? (optional)';
+      hide(reasonsWrap);
+    }
+  }
+
+  function validateEmail(email) {
+    return /.+@.+\..+/.test(email);
+  }
+
+  function submitPayload(payload) {
+    try {
+      if (window.posthog && typeof window.posthog.capture === 'function') {
+        window.posthog.capture('docs_feedback', payload);
+      } else {
+        console.log('Feedback submitted:', payload);
+      }
+      return true;
+    } catch (e) {
+      console.error('Feedback submit error', e);
+      return false;
+    }
+  }
+
+  upBtn.addEventListener('click', function () {
+    sentiment = 'up';
+    hide(initial);
+    setPromptForSentiment();
+    show(form);
+    text.focus();
+  });
+
+  downBtn.addEventListener('click', function () {
+    sentiment = 'down';
+    hide(initial);
+    setPromptForSentiment();
+    show(form);
+  });
+
+  canContact.addEventListener('change', function () {
+    if (canContact.checked) {
+      show(emailWrap);
+      emailInput.focus();
+    } else {
+      hide(emailWrap);
+    }
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const page = window.location.pathname;
+    const ts = new Date().toISOString();
+    const feedbackText = text.value.trim();
+    const canContactVal = !!canContact.checked;
+    const emailVal = emailInput.value.trim();
+    const reasonEl = root.querySelector('input[name="down_reason"]:checked');
+    const reason = reasonEl ? reasonEl.value : null;
+
+    if (canContactVal && emailVal && !validateEmail(emailVal)) {
+      emailInput.setCustomValidity('Please enter a valid email.');
+      emailInput.reportValidity();
+      return;
+    } else {
+      emailInput.setCustomValidity('');
+    }
+
+    const payload = {
+      sentiment,
+      reason,
+      text: feedbackText,
+      can_contact: canContactVal,
+      email: canContactVal ? emailVal || null : null,
+      page,
+      timestamp: ts
+    };
+
+    const ok = submitPayload(payload);
+    hide(form);
+    if (ok) {
+      show(thanks);
+      setTimeout(() => { root.style.display = 'none'; }, 3000);
+    } else {
+      show(error);
+    }
+  });
+});
+</script>
+
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

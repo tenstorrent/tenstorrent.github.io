@@ -1,0 +1,570 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="tt-inference-server, TT-QuietBox™, TT-LoudBox, Wormhole™ Networked AI Processor, Blackhole™ Networked AI Processor, n150s, n150d, n300s, n300d, p100a, p150a, p150b" name="product-name" />
+<meta content="LLM, vLLM, Hugging Face, Llama 3, deployment" name="technology-concepts" />
+<meta content="how-to" name="document-type" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deploying LLMs &mdash; Home 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/tt_theme.css?v=a41de66c" />
+      <link rel="stylesheet" type="text/css" href="../_static/home.css?v=c560917e" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=fd3dd8dd"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../_static/custom.js?v=0ccd5bc4"></script>
+      <script src="../_static/posthog.js?v=a97abc7e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Understanding the Tenstorrent Software Stack" href="tt-software-stack.html" />
+    <link rel="prev" title="Running Model Demos" href="model-demos.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+<a href="https://tenstorrent.github.io/">
+    <img src="../_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+
+<a href="../index.html">
+    Home
+</a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Software Guides</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">Installing the Tenstorrent Software Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model-demos.html">Running Model Demos</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Deploying LLMs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#before-you-begin"><strong>Before You Begin</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#wormhole-only"><strong>(Wormhole™ only)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-docker"><strong>Installing Docker</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#step-1-getting-model-access-on-hugging-face">Step 1: Getting Model Access on Hugging Face</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#request-access-to-the-model"><strong>1. Request Access to the Model</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-hugging-face-access-token"><strong>2. Create a Hugging Face Access Token</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#export-the-token"><strong>3. Export the Token</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#step-2-configuring-the-vllm-server">Step 2: Configuring the vLLM Server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#select-your-hardware"><strong>1. Select Your Hardware</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#check-model-access"><strong>2. Check Model Access</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clone-the-server-repository"><strong>3. Clone the Server Repository</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#step-3-launching-the-vllm-server">Step 3: Launching the vLLM Server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#set-the-jwt-secret"><strong>1. Set the JWT Secret</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-the-deployment-script"><strong>2. Run the Deployment Script</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wait-for-the-server-to-initialize"><strong>3. Wait for the server to initialize</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#step-4-testing-the-server-endpoint">Step 4: Testing the Server Endpoint</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#check-server-health"><strong>1. Check Server Health</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generate-an-api-key"><strong>2. Generate an API Key</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#send-an-example-request"><strong>3. Send an Example Request</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#need-additional-support"><strong>Need Additional Support?</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tt-software-stack.html">Understanding the Tenstorrent Software Stack</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Hardware Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aibs/index.html">Cards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../systems/index.html">Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../forge/index.html">TT-Forge</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/index.html">TT-Metalium</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/index.html">TT-NN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual-software-install.html">Manual Software Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Tools</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/README.html">Support &amp; FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Legal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/bounty_terms.html">Bounty Program Terms</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Home</a>
+      </nav>
+
+      <div class="wy-nav-content">
+  
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Deploying LLMs</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/getting-started/vLLM-servers.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="deploying-llms">
+<h1>Deploying LLMs<a class="headerlink" href="#deploying-llms" title="Link to this heading"></a></h1>
+<p>This page demonstrates how to deploy LLMs using the <a class="reference external" href="https://github.com/tenstorrent/tt-inference-server">tt-inference-server</a> project. We currently use <a class="reference external" href="https://docs.vllm.ai/en/latest/">vLLM</a> to serve LLMs for production applications. It is also a convenient entry-point into Tenstorrent’s software ecosystem. You will learn how to prepare your Tenstorrent system, configure access to gated models on Hugging Face, and deploy a vLLM-powered API endpoint using the tt-inference-server project.</p>
+<hr class="docutils" />
+<section id="before-you-begin">
+<h2><strong>Before You Begin</strong><a class="headerlink" href="#before-you-begin" title="Link to this heading"></a></h2>
+<p>Before beginning this procedure, ensure that you have completed the base software installation. This process has specific system and hardware requirements.</p>
+<div class="warning admonition">
+<p class="admonition-title">Important</p>
+<ul class="simple">
+<li><p>This guide assumes that you have already followed the <a class="reference internal" href="README.html"><span class="std std-doc">Installing the Tenstorrent Software Stack guide</span></a>.</p></li>
+<li><p>Deploying the recommended models requires a minimum of 360 GB of free disk space in your root partition.</p></li>
+</ul>
+</div>
+<section id="wormhole-only">
+<h3><strong>(Wormhole™ only)</strong><a class="headerlink" href="#wormhole-only" title="Link to this heading"></a></h3>
+<div class="warning admonition">
+<p class="admonition-title">If you are using a TT-QuietBox™ or TT-LoudBox™ you must complete the following step</p>
+<p>For these systems you must configure a system-level mesh topology between the Wormhole™ Networked AI Processors. Run the following script to install <code class="docutils literal notranslate"><span class="pre">tt-topology</span></code> and configure the mesh.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">TMP_DIR</span><span class="o">=</span><span class="k">$(</span>mktemp<span class="w"> </span>-d<span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="o">(</span><span class="nb">trap</span><span class="w"> </span><span class="s1">&#39;echo &quot;---&quot;; echo &quot;Cleaning up...&quot;; if type deactivate &amp;&gt;/dev/null; then deactivate; fi; echo &quot;Removing temporary directory: $TMP_DIR&quot;; rm -rf &quot;$TMP_DIR&quot;; cd; echo &quot;Cleanup complete.&quot;&#39;</span><span class="w"> </span>EXIT<span class="p">;</span><span class="w"> </span><span class="nb">trap</span><span class="w"> </span><span class="s1">&#39;echo -e &quot;\033[0;31m!!! ERROR: Failed to configure mesh topology\033[0m&quot;&#39;</span><span class="w"> </span>ERR<span class="p">;</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span>-e<span class="p">;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TMP_DIR</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Working in temporary directory: </span><span class="nv">$TMP_DIR</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;---&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Creating Python virtual environment...&quot;</span><span class="p">;</span><span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>tt-topology-venv<span class="p">;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>tt-topology-venv/bin/activate<span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Virtual environment activated.&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;---&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Installing tt-topology from git...&quot;</span><span class="p">;</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--quiet<span class="w"> </span>git+https://github.com/tenstorrent/tt-topology.git<span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;tt-topology installed.&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;---&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Running tt-topology command. This may take a moment...&quot;</span><span class="p">;</span><span class="w"> </span>tt-topology<span class="w"> </span>-l<span class="w"> </span>mesh<span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;---&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Script finished successfully.&quot;</span><span class="p">;</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="installing-docker">
+<h3><strong>Installing Docker</strong><a class="headerlink" href="#installing-docker" title="Link to this heading"></a></h3>
+<p>tt-inference-server requires <a class="reference external" href="https://www.docker.com">Docker</a> to be installed. To install Docker, please follow the official <a class="reference external" href="https://docs.docker.com/engine/install/ubuntu/">installation instructions</a>.</p>
+<p>Verify that the installation was successful by running the <code class="docutils literal notranslate"><span class="pre">hello-world</span></code> image:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>hello-world
+</pre></div>
+</div>
+<p>You must also follow the official <a class="reference external" href="https://docs.docker.com/engine/install/linux-postinstall/">post-installation instructions</a> to run Docker without root permissions.</p>
+<p>Verify that the post-installation was successful by running the <code class="docutils literal notranslate"><span class="pre">hello-world</span></code> image again, this time without root permissions:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>hello-world
+</pre></div>
+</div>
+<div class="danger admonition">
+<p class="admonition-title">Important</p>
+<p>Do not continue if you cannot run the <code class="docutils literal notranslate"><span class="pre">hello-world</span></code> image without root permissions, be sure to follow all post-installation instructions.</p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="step-1-getting-model-access-on-hugging-face">
+<h2>Step 1: Getting Model Access on Hugging Face<a class="headerlink" href="#step-1-getting-model-access-on-hugging-face" title="Link to this heading"></a></h2>
+<p>The recommended large language models are gated and require a Hugging Face account.</p>
+<section id="request-access-to-the-model">
+<h3><strong>1. Request Access to the Model</strong><a class="headerlink" href="#request-access-to-the-model" title="Link to this heading"></a></h3>
+<p>Visit the model’s page on Hugging Face and follow the instructions to request access.</p>
+<ul class="simple">
+<li><p>For TT-QuietBox™ and TT-LoudBox™ systems, we recommend <a class="reference external" href="https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct">meta-llama/Llama-3.3-70B-Instruct</a></p></li>
+<li><p>For add-in-card products (n-series, p-series), we recommend <a class="reference external" href="https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct">meta-llama/Llama-3.1-8B-Instruct</a></p></li>
+</ul>
+<p>For a full list of the currently available and tested models, please visit the <a class="reference external" href="https://github.com/tenstorrent/tt-inference-server">tt-inference-server GitHub page</a>.</p>
+<div class="warning admonition">
+<p class="admonition-title">Important</p>
+<p>Access is granted by the model owner and is not controlled by Tenstorrent. This process may take several days.</p>
+</div>
+</section>
+<section id="create-a-hugging-face-access-token">
+<h3><strong>2. Create a Hugging Face Access Token</strong><a class="headerlink" href="#create-a-hugging-face-access-token" title="Link to this heading"></a></h3>
+<p>Once you have access, <a class="reference external" href="https://huggingface.co/docs/hub/en/security-tokens">generate an access token</a> with a minimum of <strong>read</strong> permissions. This token is required to download the model’s weights from Hugging Face.</p>
+</section>
+<section id="export-the-token">
+<h3><strong>3. Export the Token</strong><a class="headerlink" href="#export-the-token" title="Link to this heading"></a></h3>
+<p>On the system where you will deploy the server, export your token as an environment variable.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">HF_TOKEN</span><span class="o">=</span><span class="s2">&quot;&lt;your-hugging-face-access-token&gt;&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="step-2-configuring-the-vllm-server">
+<h2>Step 2: Configuring the vLLM Server<a class="headerlink" href="#step-2-configuring-the-vllm-server" title="Link to this heading"></a></h2>
+<section id="select-your-hardware">
+<h3><strong>1. Select Your Hardware</strong><a class="headerlink" href="#select-your-hardware" title="Link to this heading"></a></h3>
+<p>Run the following script to specify your hardware. This script sets the required environment variables and selects the recommended model for your system.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>select_device_and_model<span class="o">(){</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\nSelect a Tenstorrent system from the list below:&quot;</span><span class="p">;</span><span class="w"> </span><span class="nv">PS3</span><span class="o">=</span><span class="s1">$&#39;\n#? &#39;</span><span class="p">;</span><span class="w"> </span><span class="nv">options</span><span class="o">=(</span><span class="s2">&quot;TT-QuietBox (Wormhole)&quot;</span><span class="w"> </span><span class="s2">&quot;TT-QuietBox (Blackhole)&quot;</span><span class="w"> </span><span class="s2">&quot;TT-LoudBox (Wormhole)&quot;</span><span class="w"> </span><span class="s2">&quot;TT-LoudBox (Blackhole)&quot;</span><span class="w"> </span><span class="s2">&quot;n150s&quot;</span><span class="w"> </span><span class="s2">&quot;n150d&quot;</span><span class="w"> </span><span class="s2">&quot;n300s&quot;</span><span class="w"> </span><span class="s2">&quot;n300d&quot;</span><span class="w"> </span><span class="s2">&quot;p100a&quot;</span><span class="w"> </span><span class="s2">&quot;p150a&quot;</span><span class="w"> </span><span class="s2">&quot;p150b&quot;</span><span class="w"> </span><span class="s2">&quot;Quit&quot;</span><span class="o">)</span><span class="p">;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span>opt<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">options</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$opt</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;TT-QuietBox (Wormhole)&quot;</span><span class="o">)</span><span class="w"> </span><span class="nv">DEVICE</span><span class="o">=</span><span class="s2">&quot;t3k&quot;</span><span class="p">;</span><span class="w"> </span><span class="nv">MODEL</span><span class="o">=</span><span class="s2">&quot;Llama-3.3-70B-Instruct&quot;</span><span class="p">;;</span><span class="w"> </span><span class="s2">&quot;TT-QuietBox (Blackhole)&quot;</span><span class="o">)</span><span class="w"> </span><span class="nv">DEVICE</span><span class="o">=</span><span class="s2">&quot;p150x4&quot;</span><span class="p">;</span><span class="w"> </span><span class="nv">MODEL</span><span class="o">=</span><span class="s2">&quot;Llama-3.3-70B-Instruct&quot;</span><span class="p">;;</span><span class="w"> </span><span class="s2">&quot;TT-LoudBox (Wormhole)&quot;</span><span class="o">)</span><span class="w"> </span><span class="nv">DEVICE</span><span class="o">=</span><span class="s2">&quot;t3k&quot;</span><span class="p">;</span><span class="w"> </span><span class="nv">MODEL</span><span class="o">=</span><span class="s2">&quot;Llama-3.3-70B-Instruct&quot;</span><span class="p">;;</span><span class="w"> </span><span class="s2">&quot;TT-LoudBox (Blackhole)&quot;</span><span class="o">)</span><span class="w"> </span><span class="nv">DEVICE</span><span class="o">=</span><span class="s2">&quot;p150x8&quot;</span><span class="p">;</span><span class="w"> </span><span class="nv">MODEL</span><span class="o">=</span><span class="s2">&quot;Llama-3.3-70B-Instruct&quot;</span><span class="p">;;</span><span class="w"> </span><span class="s2">&quot;n150s&quot;</span><span class="p">|</span><span class="s2">&quot;n150d&quot;</span><span class="o">)</span><span class="w"> </span><span class="nv">DEVICE</span><span class="o">=</span><span class="s2">&quot;n150&quot;</span><span class="p">;</span><span class="w"> </span><span class="nv">MODEL</span><span class="o">=</span><span class="s2">&quot;Llama-3.1-8B-Instruct&quot;</span><span class="p">;;</span><span class="w"> </span><span class="s2">&quot;n300s&quot;</span><span class="p">|</span><span class="s2">&quot;n300d&quot;</span><span class="o">)</span><span class="w"> </span><span class="nv">DEVICE</span><span class="o">=</span><span class="s2">&quot;n300&quot;</span><span class="p">;</span><span class="w"> </span><span class="nv">MODEL</span><span class="o">=</span><span class="s2">&quot;Llama-3.1-8B-Instruct&quot;</span><span class="p">;;</span><span class="w"> </span><span class="s2">&quot;p100a&quot;</span><span class="o">)</span><span class="w"> </span><span class="nv">DEVICE</span><span class="o">=</span><span class="s2">&quot;p100&quot;</span><span class="p">;</span><span class="w"> </span><span class="nv">MODEL</span><span class="o">=</span><span class="s2">&quot;Llama-3.1-8B-Instruct&quot;</span><span class="p">;;</span><span class="w"> </span><span class="s2">&quot;p150a&quot;</span><span class="p">|</span><span class="s2">&quot;p150b&quot;</span><span class="o">)</span><span class="w"> </span><span class="nv">DEVICE</span><span class="o">=</span><span class="s2">&quot;p150&quot;</span><span class="p">;</span><span class="w"> </span><span class="nv">MODEL</span><span class="o">=</span><span class="s2">&quot;Llama-3.1-8B-Instruct&quot;</span><span class="p">;;</span><span class="w"> </span><span class="s2">&quot;Quit&quot;</span><span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;❌ Exiting without setting any environment variables.&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">return</span><span class="p">;;</span><span class="w"> </span>*<span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;❌ Invalid option. Try again.&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">continue</span><span class="p">;</span><span class="w"> </span><span class="k">esac</span><span class="p">;</span><span class="w"> </span><span class="nb">export</span><span class="w"> </span>DEVICE<span class="w"> </span>MODEL<span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n✅ DEVICE set to &#39;</span><span class="nv">$DEVICE</span><span class="s2">&#39;&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ MODEL set to &#39;</span><span class="nv">$MODEL</span><span class="s2">&#39;&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"> </span><span class="k">done</span><span class="p">;</span><span class="w"> </span><span class="o">}</span><span class="p">;</span><span class="w"> </span>select_device_and_model
+</pre></div>
+</div>
+</section>
+<section id="check-model-access">
+<h3><strong>2. Check Model Access</strong><a class="headerlink" href="#check-model-access" title="Link to this heading"></a></h3>
+<p>Execute this script to confirm you can access the recommended model’s weights:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>check_hf_access<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$MODEL</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;✖ Error: Please provide a Hugging Face repository ID.\n&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="o">}</span><span class="p">;</span><span class="w"> </span>!<span class="w"> </span><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span>curl<span class="w"> </span><span class="p">&amp;</span>&gt;/dev/null<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;✖ Error: curl is not installed.\n&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="o">}</span><span class="p">;</span><span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="nv">REPO_ID</span><span class="o">=</span><span class="s2">&quot;meta-llama/</span><span class="nv">$MODEL</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="nv">TOKEN</span><span class="o">=</span><span class="si">${</span><span class="nv">HF_TOKEN</span><span class="k">:-$(</span>cat<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.cache/huggingface/token&quot;</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="k">)</span><span class="si">}</span><span class="p">;</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TOKEN</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;ℹ️ Info: No Hugging Face token found.\n   You can only access public repositories.\n&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="nv">AUTH_HEADER</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TOKEN</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nv">AUTH_HEADER</span><span class="o">=</span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;Checking access for: %s...\n&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$REPO_ID</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="nv">URL</span><span class="o">=</span><span class="s2">&quot;https://huggingface.co/</span><span class="nv">$REPO_ID</span><span class="s2">/resolve/main/config.json&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="nv">HTTP_CODE</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span>-L<span class="w"> </span>-o<span class="w"> </span>/dev/null<span class="w"> </span>-w<span class="w"> </span><span class="s2">&quot;%{http_code}&quot;</span><span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$AUTH_HEADER</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$URL</span><span class="s2">&quot;</span><span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="nv">$HTTP_CODE</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">200</span><span class="o">)</span><span class="w"> </span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;✔ Access granted.\n&quot;</span><span class="p">;;</span><span class="w"> </span><span class="m">401</span><span class="o">)</span><span class="w"> </span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;✖ Access denied (401 Unauthorized).\n  This is a private or gated repository.\n  Ensure your token is valid and has the correct permissions.\n&quot;</span><span class="p">;;</span><span class="w"> </span><span class="m">403</span><span class="o">)</span><span class="w"> </span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;✖ Access forbidden (403 Forbidden).\n  The repository is gated.\n  You need to visit the repository page on Hugging Face and request access.\n&quot;</span><span class="p">;;</span><span class="w"> </span><span class="m">404</span><span class="o">)</span><span class="w"> </span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;✖ Repository or &#39;config.json&#39; not found (404 Not Found).\n  Please check if the repository ID &#39;</span><span class="nv">$REPO_ID</span><span class="s2">&#39; is correct.\n&quot;</span><span class="p">;;</span><span class="w"> </span>*<span class="o">)</span><span class="w"> </span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;✖ Failed to check access.\n  Received HTTP status code: %s\n&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HTTP_CODE</span><span class="s2">&quot;</span><span class="p">;;</span><span class="w"> </span><span class="k">esac</span><span class="p">;</span><span class="w"> </span><span class="o">}</span><span class="p">;</span><span class="w"> </span><span class="nv">HF_HUB_DISABLE_XET</span><span class="o">=</span><span class="m">1</span><span class="p">;</span><span class="w"> </span>check_hf_access<span class="p">;</span>
+</pre></div>
+</div>
+<p>If the command does not succeed and print <code class="docutils literal notranslate"><span class="pre">✔</span> <span class="pre">Access</span> <span class="pre">granted.</span></code>, please make sure you have exported your Hugging Face token as per <a class="reference internal" href="#export-the-token">the above instructions</a>.</p>
+</section>
+<section id="clone-the-server-repository">
+<h3><strong>3. Clone the Server Repository</strong><a class="headerlink" href="#clone-the-server-repository" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/tenstorrent/tt-inference-server.git
+<span class="nb">cd</span><span class="w"> </span>tt-inference-server
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="step-3-launching-the-vllm-server">
+<h2>Step 3: Launching the vLLM Server<a class="headerlink" href="#step-3-launching-the-vllm-server" title="Link to this heading"></a></h2>
+<section id="set-the-jwt-secret">
+<h3><strong>1. Set the JWT Secret</strong><a class="headerlink" href="#set-the-jwt-secret" title="Link to this heading"></a></h3>
+<p>This string is used to seed the generation of your server’s API key.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">JWT_SECRET</span><span class="o">=</span><span class="s2">&quot;testing&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="run-the-deployment-script">
+<h3><strong>2. Run the Deployment Script</strong><a class="headerlink" href="#run-the-deployment-script" title="Link to this heading"></a></h3>
+<p>Execute the following command. The script prompts you for configuration details; in most cases, you may accept the default values.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>run.py<span class="w"> </span>--model<span class="w"> </span><span class="nv">$MODEL</span><span class="w"> </span>--device<span class="w"> </span><span class="nv">$DEVICE</span><span class="w"> </span>--workflow<span class="w"> </span>server<span class="w"> </span>--docker-server
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The first time you run this command, it will download the model’s weights. This download can take more than 30 minutes.</p>
+</div>
+</section>
+<section id="wait-for-the-server-to-initialize">
+<h3><strong>3. Wait for the server to initialize</strong><a class="headerlink" href="#wait-for-the-server-to-initialize" title="Link to this heading"></a></h3>
+<p>After the download completes, the server will start initializing in a docker container.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The first time you start the server, the initialization process for a 70B model should take about 40 minutes. For an 8B model it should take about 10 minutes.</p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="step-4-testing-the-server-endpoint">
+<h2>Step 4: Testing the Server Endpoint<a class="headerlink" href="#step-4-testing-the-server-endpoint" title="Link to this heading"></a></h2>
+<section id="check-server-health">
+<h3><strong>1. Check Server Health</strong><a class="headerlink" href="#check-server-health" title="Link to this heading"></a></h3>
+<p>Use the following command to check if the server is ready.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>check_server_health<span class="o">(){</span><span class="w"> </span><span class="nv">code</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span>-o<span class="w"> </span>/dev/null<span class="w"> </span>-w<span class="w"> </span><span class="s2">&quot;%{http_code}&quot;</span><span class="w"> </span>http://localhost:8000/health<span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="nv">exit_code</span><span class="o">=</span><span class="nv">$?</span><span class="p">;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$exit_code</span><span class="w"> </span>-ne<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;❌ Error: Unable to connect to server at localhost:8000&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">elif</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$code</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">200</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ Server is ready (HTTP 200)&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;⚠️ Server responded with status: </span><span class="nv">$code</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">fi</span><span class="p">;</span><span class="w"> </span><span class="o">}</span><span class="p">;</span><span class="w"> </span>check_server_health
+</pre></div>
+</div>
+<p>Wait until the output indicates <code class="docutils literal notranslate"><span class="pre">✅</span> <span class="pre">Server</span> <span class="pre">is</span> <span class="pre">ready</span> <span class="pre">(HTTP</span> <span class="pre">200)</span></code>.</p>
+</section>
+<section id="generate-an-api-key">
+<h3><strong>2. Generate an API Key</strong><a class="headerlink" href="#generate-an-api-key" title="Link to this heading"></a></h3>
+<p>Your <code class="docutils literal notranslate"><span class="pre">JWT_SECRET</span></code> is used to create an API key for authenticating requests.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>request-venv
+<span class="nb">source</span><span class="w"> </span>request-venv/bin/activate
+pip3<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+pip<span class="w"> </span>install<span class="w"> </span><span class="nv">pyjwt</span><span class="o">==</span><span class="m">2</span>.7.0
+<span class="nb">export</span><span class="w"> </span><span class="nv">VLLM_API_KEY</span><span class="o">=</span><span class="k">$(</span>python3<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;import os; import json; import jwt; json_payload = json.loads(&quot;{\&quot;team_id\&quot;: \&quot;tenstorrent\&quot;, \&quot;token_id\&quot;: \&quot;debug-test\&quot;}&quot;); encoded_jwt = jwt.encode(json_payload, os.environ[&quot;JWT_SECRET&quot;], algorithm=&quot;HS256&quot;); print(encoded_jwt)&#39;</span><span class="k">)</span>
+</pre></div>
+</div>
+</section>
+<section id="send-an-example-request">
+<h3><strong>3. Send an Example Request</strong><a class="headerlink" href="#send-an-example-request" title="Link to this heading"></a></h3>
+<p>The vLLM server exposes an OpenAI-compatible API. The first request will be slow as it performs a final warmup.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Warmup request</span>
+curl<span class="w"> </span>-sS<span class="w"> </span><span class="s2">&quot;http://localhost:8000/v1/completions&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$VLLM_API_KEY</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s2">&quot;{</span>
+<span class="s2">    \&quot;model\&quot;: \&quot;meta-llama/</span><span class="nv">$MODEL</span><span class="s2">\&quot;,</span>
+<span class="s2">    \&quot;prompt\&quot;: \&quot;San Francisco is a\&quot;,</span>
+<span class="s2">    \&quot;max_tokens\&quot;: 50,</span>
+<span class="s2">    \&quot;temperature\&quot;: 0</span>
+<span class="s2">  }&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq
+</pre></div>
+</div>
+<p>Run the command again to observe the server respond at full speed.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="need-additional-support">
+<h2><strong>Need Additional Support?</strong><a class="headerlink" href="#need-additional-support" title="Link to this heading"></a></h2>
+<p>If you encounter any issues, or have a question that isn’t covered in the documentation, please <a class="reference external" href="https://tenstorrent.atlassian.net/servicedesk/customer/portal/1">raise a support request.</a> Our team will review your request and provide assistance.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="model-demos.html" class="btn btn-neutral float-left" title="Running Model Demos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tt-software-stack.html" class="btn btn-neutral float-right" title="Understanding the Tenstorrent Software Stack" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tenstorrent.
+      <span class="lastupdated">Last updated on Dec 23, 2025.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+  <div class="feedback-widget" id="tt-feedback">
+  <div class="ttfb-card">
+    <div id="ttfb-initial" class="ttfb-initial">
+      <p class="ttfb-question">Was this article helpful?</p>
+      <div class="ttfb-actions">
+        <button id="ttfb-up" class="ttfb-icon-btn" aria-label="Yes" title="Yes">
+          <span>👍</span>
+        </button>
+        <button id="ttfb-down" class="ttfb-icon-btn" aria-label="No" title="No">
+          <span>👎</span>
+        </button>
+      </div>
+    </div>
+
+    <form id="ttfb-form" class="ttfb-hidden" novalidate>
+      <p id="ttfb-prompt" class="ttfb-prompt"></p>
+
+      <div id="ttfb-reasons" class="ttfb-hidden">
+        <p class="ttfb-reasons-title">How would you describe this article?</p>
+        <div class="ttfb-reasons-grid">
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="inaccurate"> <b>Inaccurate:</b> it doesn’t reflect what I see in the product</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="unclear"> <b>Unclear:</b> it’s difficult to understand</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="missing"> <b>Missing information:</b> it’s not comprehensive enough</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="irrelevant"> <b>Irrelevant:</b> it doesn’t match what I searched for</label>
+        </div>
+      </div>
+
+      <textarea id="ttfb-text" rows="3" class="ttfb-text" placeholder="Please let us know what was or wasn't helpful about this page."></textarea>
+
+      <div class="ttfb-contact">
+        <input id="ttfb-can-contact" type="checkbox"> <label for="ttfb-can-contact">Allow Tenstorrent to contact me about my documentation feedback.</label>
+      </div>
+      <div id="ttfb-email-wrap" class="ttfb-hidden">
+        <input id="ttfb-email" type="email" class="ttfb-email" placeholder="Enter your email address">
+      </div>
+
+      <button id="ttfb-submit" type="submit" class="ttfb-submit">Submit</button>
+    </form>
+
+    <div id="ttfb-thanks" class="ttfb-hidden ttfb-center"><p class="ttfb-thanks-text">Thank you for your feedback!</p></div>
+    <div id="ttfb-error" class="ttfb-hidden ttfb-center"><p class="ttfb-error-text">Sorry, something went wrong. Please try again later.</p></div>
+  </div>
+</div>
+
+<style>
+.feedback-widget { margin: 2rem 0; }
+.ttfb-card {
+  background: #fff;
+  border: 1px solid var(--color-background-40, #d7dbeb66);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+.ttfb-initial { display: flex; flex-direction: row; gap: .75rem; align-items: center; flex-wrap: wrap; justify-content: flex-start; }
+.ttfb-question { margin: 0; font-weight: 600; color: var(--color-foreground, #202020); }
+.ttfb-actions { display: flex; gap: .5rem; }
+.ttfb-icon-btn {
+  padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; background: #fff; cursor: pointer;
+  transition: background var(--transition-duration, 150ms) var(--transition-timing, ease), border-color var(--transition-duration, 150ms) var(--transition-timing, ease);
+}
+.ttfb-icon-btn:hover { background: #f3f4f6; }
+
+.ttfb-hidden { display: none; }
+.ttfb-prompt { margin: .5rem 0 1rem 0; color: var(--color-foreground, #202020); font-weight: 600; }
+.ttfb-reasons-title { margin: 0 0 .5rem 0; color: var(--color-foreground, #202020); font-weight: 500; }
+.ttfb-reasons-grid { display: grid; grid-template-columns: 1fr; gap: .25rem; }
+@media (min-width: 768px) { .ttfb-reasons-grid { grid-template-columns: 1fr 1fr; } }
+.ttfb-radio { display: flex; align-items: flex-start; gap: .5rem; }
+.ttfb-radio input { margin-top: .2rem; }
+
+.ttfb-text {
+  width: 100%; padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; font-family: inherit; resize: vertical;
+}
+.ttfb-contact { display: flex; align-items: center; gap: .5rem; margin-top: .5rem; }
+.ttfb-email { width: 100%; padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; margin-top: .5rem; }
+.ttfb-submit { margin-top: .75rem; padding: .5rem 1rem; background: var(--color-purple, #5164e0); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; }
+.ttfb-submit:hover { background: var(--color-dark-purple, #7584e6); }
+.ttfb-center { text-align: center; padding: 1rem; }
+.ttfb-thanks-text { color: var(--color-purple, #5164e0); font-weight: 600; }
+.ttfb-error-text { color: #dc2626; font-weight: 600; }
+
+/* Hide widget when page sets meta hide_feedback=true */
+html:has(meta[name="hide_feedback"][content="true"]) .feedback-widget { display: none !important; }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const root = document.getElementById('tt-feedback');
+  if (!root) return;
+
+  // Reposition widget: place it just above the Previous/Next buttons
+  try {
+    const footerButtons = document.querySelector('.rst-footer-buttons');
+    if (footerButtons && footerButtons.parentNode) {
+      footerButtons.parentNode.insertBefore(root, footerButtons);
+    }
+  } catch (e) {
+    // no-op if structure not present
+  }
+
+  const initial = root.querySelector('#ttfb-initial');
+  const form = root.querySelector('#ttfb-form');
+  const prompt = root.querySelector('#ttfb-prompt');
+  const reasonsWrap = root.querySelector('#ttfb-reasons');
+  const text = root.querySelector('#ttfb-text');
+  const thanks = root.querySelector('#ttfb-thanks');
+  const error = root.querySelector('#ttfb-error');
+  const upBtn = root.querySelector('#ttfb-up');
+  const downBtn = root.querySelector('#ttfb-down');
+  const canContact = root.querySelector('#ttfb-can-contact');
+  const emailWrap = root.querySelector('#ttfb-email-wrap');
+  const emailInput = root.querySelector('#ttfb-email');
+
+  let sentiment = null; // 'up' | 'down'
+
+  function show(el) { el.classList.remove('ttfb-hidden'); }
+  function hide(el) { el.classList.add('ttfb-hidden'); }
+
+  function setPromptForSentiment() {
+    if (sentiment === 'down') {
+      prompt.textContent = 'We\'re sorry to hear that. Can you tell us more?';
+      show(reasonsWrap);
+    } else {
+      prompt.textContent = 'Thanks! Anything to add? (optional)';
+      hide(reasonsWrap);
+    }
+  }
+
+  function validateEmail(email) {
+    return /.+@.+\..+/.test(email);
+  }
+
+  function submitPayload(payload) {
+    try {
+      if (window.posthog && typeof window.posthog.capture === 'function') {
+        window.posthog.capture('docs_feedback', payload);
+      } else {
+        console.log('Feedback submitted:', payload);
+      }
+      return true;
+    } catch (e) {
+      console.error('Feedback submit error', e);
+      return false;
+    }
+  }
+
+  upBtn.addEventListener('click', function () {
+    sentiment = 'up';
+    hide(initial);
+    setPromptForSentiment();
+    show(form);
+    text.focus();
+  });
+
+  downBtn.addEventListener('click', function () {
+    sentiment = 'down';
+    hide(initial);
+    setPromptForSentiment();
+    show(form);
+  });
+
+  canContact.addEventListener('change', function () {
+    if (canContact.checked) {
+      show(emailWrap);
+      emailInput.focus();
+    } else {
+      hide(emailWrap);
+    }
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const page = window.location.pathname;
+    const ts = new Date().toISOString();
+    const feedbackText = text.value.trim();
+    const canContactVal = !!canContact.checked;
+    const emailVal = emailInput.value.trim();
+    const reasonEl = root.querySelector('input[name="down_reason"]:checked');
+    const reason = reasonEl ? reasonEl.value : null;
+
+    if (canContactVal && emailVal && !validateEmail(emailVal)) {
+      emailInput.setCustomValidity('Please enter a valid email.');
+      emailInput.reportValidity();
+      return;
+    } else {
+      emailInput.setCustomValidity('');
+    }
+
+    const payload = {
+      sentiment,
+      reason,
+      text: feedbackText,
+      can_contact: canContactVal,
+      email: canContactVal ? emailVal || null : null,
+      page,
+      timestamp: ts
+    };
+
+    const ok = submitPayload(payload);
+    hide(form);
+    if (ok) {
+      show(thanks);
+      setTimeout(() => { root.style.display = 'none'; }, 3000);
+    } else {
+      show(error);
+    }
+  });
+});
+</script>
+
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

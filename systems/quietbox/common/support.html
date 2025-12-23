@@ -1,0 +1,488 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="TT-QuietBox" name="product-name" />
+<meta content="troubleshooting, BIOS, PCIe, coolant, maintenance" name="technology-concepts" />
+<meta content="troubleshooting" name="document-type" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Troubleshooting Common Hardware Issues &mdash; Home 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/tt_theme.css?v=a41de66c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/home.css?v=c560917e" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=fd3dd8dd"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../../../_static/custom.js?v=0ccd5bc4"></script>
+      <script src="../../../_static/posthog.js?v=a97abc7e"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="TT-QuietBox (Wormhole)" href="../quietbox-wh/index.html" />
+    <link rel="prev" title="Receiving, Unboxing, and Setup" href="../quietbox-bh/setup.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+<a href="https://tenstorrent.github.io/">
+    <img src="../../../_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+
+<a href="../../../index.html">
+    Home
+</a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Software Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started/README.html">Installing the Tenstorrent Software Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started/model-demos.html">Running Model Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started/vLLM-servers.html">Deploying LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started/tt-software-stack.html">Understanding the Tenstorrent Software Stack</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Hardware Guides</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../aibs/index.html">Cards</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Systems</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#blackhole">Blackhole</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#wormhole">Wormhole</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../quietbox-wh/index.html">TT-QuietBox (Wormhole)</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../quietbox-wh/specifications.html">Specifications and Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quietbox-wh/setup.html">Receiving, Unboxing, and Setup</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Troubleshooting Common Hardware Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../t3000/index.html">TT-LoudBox (Wormhole)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../forge/index.html">TT-Forge</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/index.html">TT-Metalium</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/index.html">TT-NN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started/manual-software-install.html">Manual Software Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools/index.html">Tools</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../support/README.html">Support &amp; FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Legal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/bounty_terms.html">Bounty Program Terms</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Home</a>
+      </nav>
+
+      <div class="wy-nav-content">
+  
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Systems</a></li>
+          <li class="breadcrumb-item"><a href="../quietbox-bh/index.html">TT-QuietBox (Blackhole)</a></li>
+      <li class="breadcrumb-item active">Troubleshooting Common Hardware Issues</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/systems/quietbox/common/support.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="troubleshooting-common-hardware-issues">
+<h1>Troubleshooting Common Hardware Issues<a class="headerlink" href="#troubleshooting-common-hardware-issues" title="Link to this heading"></a></h1>
+<p>This guide assists users in diagnosing and resolving common hardware issues with the TT-QuietBox™ system, including system instability, boot failures, and long-term maintenance tasks such as coolant refilling.</p>
+<section id="resolving-system-instability-or-random-reboots-after-a-bios-change">
+<h2><strong>Resolving System Instability or Random Reboots After a BIOS Change</strong><a class="headerlink" href="#resolving-system-instability-or-random-reboots-after-a-bios-change" title="Link to this heading"></a></h2>
+<p>If your system experiences random reboots or stability issues after a BIOS update or reset, a specific setting may be incorrectly configured.</p>
+<p><strong>Cause:</strong> The PCIe Advanced Error Reporting (AER) mechanism is not configured to allow the operating system to handle error reporting. This misconfiguration can interfere with Tenstorrent’s system management software.</p>
+<p><strong>Solution:</strong> Set the reporting mechanism to <strong>OS First</strong>.</p>
+<ol class="arabic simple">
+<li><p>Enter the system <strong>BIOS</strong> during boot.</p></li>
+<li><p>Navigate to <strong>Advanced</strong> &gt; <strong>AMD CBS</strong> &gt; <strong>NBIO Common Options</strong> &gt; <strong>NBIO RAS Common Options</strong>.</p></li>
+<li><p>Locate the setting for <strong>PCIe AER Reporting Mechanism</strong>.</p></li>
+<li><p>Change the value to <strong>OS First</strong>.</p></li>
+<li><p>Save changes and exit the <strong>BIOS</strong>.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="resolving-boot-failures-or-undetected-cards">
+<h2><strong>Resolving Boot Failures or Undetected Cards</strong><a class="headerlink" href="#resolving-boot-failures-or-undetected-cards" title="Link to this heading"></a></h2>
+<p>If your system does not boot, or if Tenstorrent hardware does not appear in software utilities such as <code class="docutils literal notranslate"><span class="pre">tt-smi</span></code>, the PCIe cards may be unseated.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Extended boot times are normal during the first boot or after a power loss event. System memory training can take up to 10 minutes to complete. This behavior does not indicate a boot failure.</p>
+</div>
+<p><strong>Cause:</strong> One or more PCIe cards may have become loose during shipment or relocation.</p>
+<p><strong>Solution:</strong> Reseat the PCIe cards manually.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This procedure requires technical expertise and careful handling to avoid damaging system components. Proceed with caution.</p>
+</div>
+<section id="required-tools">
+<h3><strong>Required Tools</strong><a class="headerlink" href="#required-tools" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">2.5mm</span> <span class="pre">security</span> <span class="pre">hex</span> <span class="pre">bit</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2.0mm</span> <span class="pre">security</span> <span class="pre">hex</span> <span class="pre">bit</span></code></p></li>
+<li><p>Phillips head screwdriver</p></li>
+</ul>
+</section>
+<section id="reseating-procedure">
+<h3><strong>Reseating Procedure</strong><a class="headerlink" href="#reseating-procedure" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Place the system on its side. Use a <code class="docutils literal notranslate"><span class="pre">2.5mm</span> <span class="pre">security</span> <span class="pre">hex</span> <span class="pre">bit</span></code> to unscrew the chassis top panel and access the PCIe cards.</p>
+<p><img alt="" src="../../../_images/qb_1_1.jpg" /></p>
+</li>
+<li><p>Carefully remove the front glass panel and set it aside in a safe location.</p>
+<p><img alt="" src="../../../_images/qb_1_2.png" /></p>
+</li>
+<li><p>Use a <code class="docutils literal notranslate"><span class="pre">2.0mm</span> <span class="pre">security</span> <span class="pre">hex</span> <span class="pre">bit</span></code> to unscrew and remove the center retention bar that secures the PCIe cards.</p>
+<p><img alt="" src="../../../_images/qb_1_3.png" /></p>
+</li>
+<li><p>Remove the Phillips head screws that secure the PCIe card shields to the back of the chassis.</p></li>
+<li><p>Pull the quick-disconnect shield back and gently pull the hoses to detach the cooling tubes from the cards.</p>
+<p><img alt="" src="../../../_images/qb_1_4.png" /></p>
+</li>
+<li><p>Carefully remove the cards from their <strong>PCIe</strong> slots.</p></li>
+<li><p>Re-insert each card firmly into its <strong>PCIe</strong> slot. Apply counter-pressure to the motherboard to prevent it from flexing.</p></li>
+<li><p>Reinstall all retention bars, screws, cooling tubes, and panels in the reverse order of removal.</p></li>
+<li><p>Boot the system and run <code class="docutils literal notranslate"><span class="pre">tt-smi</span></code> to confirm all cards are detected.</p></li>
+</ol>
+<p>If the system still fails to boot and displays a <code class="docutils literal notranslate"><span class="pre">00</span> <span class="pre">POST</span></code> code for an extended period, you may need to reset the CMOS. Power down the system, short the <code class="docutils literal notranslate"><span class="pre">CLRMOS1</span></code> jumper on the motherboard, then remove and reinstall the CMOS battery.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="refilling-coolant-after-long-term-use">
+<h2><strong>Refilling Coolant After Long-Term Use</strong><a class="headerlink" href="#refilling-coolant-after-long-term-use" title="Link to this heading"></a></h2>
+<p><strong>Cause:</strong> Over time, a small amount of coolant may evaporate from the liquid cooling loop. This is normal for all liquid-cooled systems.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Your TT-QuietBox™ system ships with sufficient coolant for immediate and long-term operation. You do not need to add coolant to a new system. This procedure is only for maintenance after extended use.</p>
+</div>
+<p><strong>Solution:</strong> Refill the coolant using the correct mixture.</p>
+<section id="required-materials">
+<h3><strong>Required Materials</strong><a class="headerlink" href="#required-materials" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Mayhems</span> <span class="pre">XT1</span> <span class="pre">Clear</span> <span class="pre">Concentrate</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Distilled</span> <span class="pre">water</span></code></p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You must use distilled water. Tap water or other water types contain minerals and contaminants that can damage the cooling system.</p>
+</div>
+</section>
+<section id="refilling-procedure">
+<h3><strong>Refilling Procedure</strong><a class="headerlink" href="#refilling-procedure" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Prepare the coolant mixture. The correct ratio is 38% <code class="docutils literal notranslate"><span class="pre">Mayhems</span> <span class="pre">XT1</span> <span class="pre">Clear</span> <span class="pre">Concentrate</span></code> to 62% <code class="docutils literal notranslate"><span class="pre">distilled</span> <span class="pre">water</span></code>(e.g., 380ml of concentrate mixed with 620ml of distilled water).</p></li>
+<li><p>Remove the top cover of the system by removing the four corner screws.</p>
+<p><img alt="" src="../../../_images/qb_2_1.png" /></p>
+</li>
+<li><p>Locate the two ports on top of the coolant reservoir. The port closer to the long edge of the reservoir is the <strong>fill port</strong>; the port closer to the short edge is the <strong>purge port</strong>.</p>
+<p><img alt="" src="../../../_images/qb_2_2.png" /></p>
+</li>
+<li><p>Unscrew the plugs from both ports.</p></li>
+<li><p>Slowly pour the prepared coolant mixture into the <strong>fill port</strong>. Air will escape from the <strong>purge port</strong>.</p></li>
+<li><p>Once the reservoir is full, securely reinstall both <code class="docutils literal notranslate"><span class="pre">G1/4</span></code> plugs and replace the top cover of the system.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Hearing a light buzzing sound or seeing bubbles in the loop after a refill is normal. This is harmless and will resolve as the air works its way back to the reservoir.</p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="need-additional-support">
+<h2><strong>Need Additional Support?</strong><a class="headerlink" href="#need-additional-support" title="Link to this heading"></a></h2>
+<p>If you encounter any issues, or have a question that isn’t covered in the documentation, please <a class="reference external" href="https://tenstorrent.atlassian.net/servicedesk/customer/portal/1">raise a support request.</a> Our team will review your request and provide assistance.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../quietbox-bh/setup.html" class="btn btn-neutral float-left" title="Receiving, Unboxing, and Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../quietbox-wh/index.html" class="btn btn-neutral float-right" title="TT-QuietBox (Wormhole)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tenstorrent.
+      <span class="lastupdated">Last updated on Dec 23, 2025.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+  <div class="feedback-widget" id="tt-feedback">
+  <div class="ttfb-card">
+    <div id="ttfb-initial" class="ttfb-initial">
+      <p class="ttfb-question">Was this article helpful?</p>
+      <div class="ttfb-actions">
+        <button id="ttfb-up" class="ttfb-icon-btn" aria-label="Yes" title="Yes">
+          <span>👍</span>
+        </button>
+        <button id="ttfb-down" class="ttfb-icon-btn" aria-label="No" title="No">
+          <span>👎</span>
+        </button>
+      </div>
+    </div>
+
+    <form id="ttfb-form" class="ttfb-hidden" novalidate>
+      <p id="ttfb-prompt" class="ttfb-prompt"></p>
+
+      <div id="ttfb-reasons" class="ttfb-hidden">
+        <p class="ttfb-reasons-title">How would you describe this article?</p>
+        <div class="ttfb-reasons-grid">
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="inaccurate"> <b>Inaccurate:</b> it doesn’t reflect what I see in the product</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="unclear"> <b>Unclear:</b> it’s difficult to understand</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="missing"> <b>Missing information:</b> it’s not comprehensive enough</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="irrelevant"> <b>Irrelevant:</b> it doesn’t match what I searched for</label>
+        </div>
+      </div>
+
+      <textarea id="ttfb-text" rows="3" class="ttfb-text" placeholder="Please let us know what was or wasn't helpful about this page."></textarea>
+
+      <div class="ttfb-contact">
+        <input id="ttfb-can-contact" type="checkbox"> <label for="ttfb-can-contact">Allow Tenstorrent to contact me about my documentation feedback.</label>
+      </div>
+      <div id="ttfb-email-wrap" class="ttfb-hidden">
+        <input id="ttfb-email" type="email" class="ttfb-email" placeholder="Enter your email address">
+      </div>
+
+      <button id="ttfb-submit" type="submit" class="ttfb-submit">Submit</button>
+    </form>
+
+    <div id="ttfb-thanks" class="ttfb-hidden ttfb-center"><p class="ttfb-thanks-text">Thank you for your feedback!</p></div>
+    <div id="ttfb-error" class="ttfb-hidden ttfb-center"><p class="ttfb-error-text">Sorry, something went wrong. Please try again later.</p></div>
+  </div>
+</div>
+
+<style>
+.feedback-widget { margin: 2rem 0; }
+.ttfb-card {
+  background: #fff;
+  border: 1px solid var(--color-background-40, #d7dbeb66);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+.ttfb-initial { display: flex; flex-direction: row; gap: .75rem; align-items: center; flex-wrap: wrap; justify-content: flex-start; }
+.ttfb-question { margin: 0; font-weight: 600; color: var(--color-foreground, #202020); }
+.ttfb-actions { display: flex; gap: .5rem; }
+.ttfb-icon-btn {
+  padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; background: #fff; cursor: pointer;
+  transition: background var(--transition-duration, 150ms) var(--transition-timing, ease), border-color var(--transition-duration, 150ms) var(--transition-timing, ease);
+}
+.ttfb-icon-btn:hover { background: #f3f4f6; }
+
+.ttfb-hidden { display: none; }
+.ttfb-prompt { margin: .5rem 0 1rem 0; color: var(--color-foreground, #202020); font-weight: 600; }
+.ttfb-reasons-title { margin: 0 0 .5rem 0; color: var(--color-foreground, #202020); font-weight: 500; }
+.ttfb-reasons-grid { display: grid; grid-template-columns: 1fr; gap: .25rem; }
+@media (min-width: 768px) { .ttfb-reasons-grid { grid-template-columns: 1fr 1fr; } }
+.ttfb-radio { display: flex; align-items: flex-start; gap: .5rem; }
+.ttfb-radio input { margin-top: .2rem; }
+
+.ttfb-text {
+  width: 100%; padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; font-family: inherit; resize: vertical;
+}
+.ttfb-contact { display: flex; align-items: center; gap: .5rem; margin-top: .5rem; }
+.ttfb-email { width: 100%; padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; margin-top: .5rem; }
+.ttfb-submit { margin-top: .75rem; padding: .5rem 1rem; background: var(--color-purple, #5164e0); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; }
+.ttfb-submit:hover { background: var(--color-dark-purple, #7584e6); }
+.ttfb-center { text-align: center; padding: 1rem; }
+.ttfb-thanks-text { color: var(--color-purple, #5164e0); font-weight: 600; }
+.ttfb-error-text { color: #dc2626; font-weight: 600; }
+
+/* Hide widget when page sets meta hide_feedback=true */
+html:has(meta[name="hide_feedback"][content="true"]) .feedback-widget { display: none !important; }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const root = document.getElementById('tt-feedback');
+  if (!root) return;
+
+  // Reposition widget: place it just above the Previous/Next buttons
+  try {
+    const footerButtons = document.querySelector('.rst-footer-buttons');
+    if (footerButtons && footerButtons.parentNode) {
+      footerButtons.parentNode.insertBefore(root, footerButtons);
+    }
+  } catch (e) {
+    // no-op if structure not present
+  }
+
+  const initial = root.querySelector('#ttfb-initial');
+  const form = root.querySelector('#ttfb-form');
+  const prompt = root.querySelector('#ttfb-prompt');
+  const reasonsWrap = root.querySelector('#ttfb-reasons');
+  const text = root.querySelector('#ttfb-text');
+  const thanks = root.querySelector('#ttfb-thanks');
+  const error = root.querySelector('#ttfb-error');
+  const upBtn = root.querySelector('#ttfb-up');
+  const downBtn = root.querySelector('#ttfb-down');
+  const canContact = root.querySelector('#ttfb-can-contact');
+  const emailWrap = root.querySelector('#ttfb-email-wrap');
+  const emailInput = root.querySelector('#ttfb-email');
+
+  let sentiment = null; // 'up' | 'down'
+
+  function show(el) { el.classList.remove('ttfb-hidden'); }
+  function hide(el) { el.classList.add('ttfb-hidden'); }
+
+  function setPromptForSentiment() {
+    if (sentiment === 'down') {
+      prompt.textContent = 'We\'re sorry to hear that. Can you tell us more?';
+      show(reasonsWrap);
+    } else {
+      prompt.textContent = 'Thanks! Anything to add? (optional)';
+      hide(reasonsWrap);
+    }
+  }
+
+  function validateEmail(email) {
+    return /.+@.+\..+/.test(email);
+  }
+
+  function submitPayload(payload) {
+    try {
+      if (window.posthog && typeof window.posthog.capture === 'function') {
+        window.posthog.capture('docs_feedback', payload);
+      } else {
+        console.log('Feedback submitted:', payload);
+      }
+      return true;
+    } catch (e) {
+      console.error('Feedback submit error', e);
+      return false;
+    }
+  }
+
+  upBtn.addEventListener('click', function () {
+    sentiment = 'up';
+    hide(initial);
+    setPromptForSentiment();
+    show(form);
+    text.focus();
+  });
+
+  downBtn.addEventListener('click', function () {
+    sentiment = 'down';
+    hide(initial);
+    setPromptForSentiment();
+    show(form);
+  });
+
+  canContact.addEventListener('change', function () {
+    if (canContact.checked) {
+      show(emailWrap);
+      emailInput.focus();
+    } else {
+      hide(emailWrap);
+    }
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const page = window.location.pathname;
+    const ts = new Date().toISOString();
+    const feedbackText = text.value.trim();
+    const canContactVal = !!canContact.checked;
+    const emailVal = emailInput.value.trim();
+    const reasonEl = root.querySelector('input[name="down_reason"]:checked');
+    const reason = reasonEl ? reasonEl.value : null;
+
+    if (canContactVal && emailVal && !validateEmail(emailVal)) {
+      emailInput.setCustomValidity('Please enter a valid email.');
+      emailInput.reportValidity();
+      return;
+    } else {
+      emailInput.setCustomValidity('');
+    }
+
+    const payload = {
+      sentiment,
+      reason,
+      text: feedbackText,
+      can_contact: canContactVal,
+      email: canContactVal ? emailVal || null : null,
+      page,
+      timestamp: ts
+    };
+
+    const ok = submitPayload(payload);
+    hide(form);
+    if (ok) {
+      show(thanks);
+      setTimeout(() => { root.style.display = 'none'; }, 3000);
+    } else {
+      show(error);
+    }
+  });
+});
+</script>
+
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

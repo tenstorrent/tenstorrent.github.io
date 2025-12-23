@@ -1,0 +1,485 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manual Installation &mdash; Home 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/tt_theme.css?v=a41de66c" />
+      <link rel="stylesheet" type="text/css" href="../_static/home.css?v=c560917e" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=fd3dd8dd"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../_static/custom.js?v=0ccd5bc4"></script>
+      <script src="../_static/posthog.js?v=a97abc7e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tools" href="../tools/index.html" />
+    <link rel="prev" title="Tools" href="../forge/tools/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+<a href="https://tenstorrent.github.io/">
+    <img src="../_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+
+<a href="../index.html">
+    Home
+</a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Software Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="README.html">Installing the Tenstorrent Software Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model-demos.html">Running Model Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vLLM-servers.html">Deploying LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tt-software-stack.html">Understanding the Tenstorrent Software Stack</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Hardware Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aibs/index.html">Cards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../systems/index.html">Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../forge/index.html">TT-Forge</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/index.html">TT-Metalium</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/index.html">TT-NN</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Manual Software Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#step-1-install-software-dependencies">Step 1: Install Software Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-2-install-the-kernel-mode-driver-tt-kmd">Step 2: Install the Kernel-Mode Driver (TT-KMD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-3-device-firmware-update-tt-flash-tt-firmware">Step 3: Device Firmware Update (TT-Flash / TT-Firmware)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-tt-flash">Install TT-Flash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update-device-firmware">Update Device Firmware</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#step-4-set-up-hugepages">Step 4: Set Up HugePages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-5-optional-multi-card-configuration-tt-topology">Step 5: (Optional) Multi-Card Configuration (TT-Topology)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-6-install-the-system-management-interface-tt-smi">Step 6: Install the System Management Interface (TT-SMI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-7-verify-system-configuration-and-test-tt-smi">Step 7: Verify System Configuration and Test TT-SMI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Tools</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/README.html">Support &amp; FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Legal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/bounty_terms.html">Bounty Program Terms</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Home</a>
+      </nav>
+
+      <div class="wy-nav-content">
+  
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Manual Installation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/getting-started/manual-software-install.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="manual-installation">
+<h1>Manual Installation<a class="headerlink" href="#manual-installation" title="Link to this heading"></a></h1>
+<p><strong>Important!</strong>
+At this time, the recommended method for installing Tenstorrent software is <a class="reference external" href="https://github.com/tenstorrent/tt-installer">tt-installer</a>. If you would prefer to install software dependencies and configure your system manually, proceed with the instructions below. When you are done, return to the <a class="reference external" href="https://docs.tenstorrent.com/getting-started/README.html">Quickstart Guide</a> for next steps.</p>
+<p>This Starting Guide will reference each software utility where the latest version is available. However, each SDK will have its own compatibility matrix associated with each release. It is strongly recommended to consult each SDK’s release compatibility matrix to ensure you are installing the correct versions of the system software packages.</p>
+<section id="step-1-install-software-dependencies">
+<h2>Step 1: Install Software Dependencies<a class="headerlink" href="#step-1-install-software-dependencies" title="Link to this heading"></a></h2>
+<p>Install git, wget, pip, and DKMS (Dynamic Kernel Module Support) by running the following command in your terminal according to your Linux distribution:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Linux Distro</p></th>
+<th class="head"><p>Installation Command</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Debian, Ubuntu</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">update</span> <span class="pre">&amp;&amp;</span> <span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">-y</span> <span class="pre">wget</span> <span class="pre">git</span> <span class="pre">python3-pip</span> <span class="pre">dkms</span> <span class="pre">cargo</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Fedora</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">dnf</span> <span class="pre">check-update</span> <span class="pre">&amp;&amp;</span> <span class="pre">sudo</span> <span class="pre">dnf</span> <span class="pre">install</span> <span class="pre">-y</span> <span class="pre">wget</span> <span class="pre">git</span> <span class="pre">python3-pip</span> <span class="pre">dkms</span> <span class="pre">cargo</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Enterprise Linux based</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">dnf</span> <span class="pre">install</span> <span class="pre">-y</span> <span class="pre">epel-release</span> <span class="pre">&amp;&amp;</span> <span class="pre">sudo</span> <span class="pre">dnf</span> <span class="pre">check-update</span> <span class="pre">&amp;&amp;</span> <span class="pre">sudo</span> <span class="pre">dnf</span> <span class="pre">install</span> <span class="pre">-y</span> <span class="pre">wget</span> <span class="pre">git</span> <span class="pre">python3-pip</span> <span class="pre">dkms</span> <span class="pre">cargo</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>*NOTE</strong>: Installation on non-Ubuntu distributions should be considered experimental at this time.*</p>
+</section>
+<section id="step-2-install-the-kernel-mode-driver-tt-kmd">
+<h2>Step 2: Install the Kernel-Mode Driver (TT-KMD)<a class="headerlink" href="#step-2-install-the-kernel-mode-driver-tt-kmd" title="Link to this heading"></a></h2>
+<p>Install the driver (<strong><a class="reference external" href="https://github.com/tenstorrent/tt-kmd">TT-KMD</a></strong>) by running these commands in the terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/tenstorrent/tt-kmd.git
+<span class="nb">cd</span><span class="w"> </span>tt-kmd
+sudo<span class="w"> </span>dkms<span class="w"> </span>add<span class="w"> </span>.
+sudo<span class="w"> </span>dkms<span class="w"> </span>install<span class="w"> </span>tenstorrent/1.34
+sudo<span class="w"> </span>modprobe<span class="w"> </span>tenstorrent
+</pre></div>
+</div>
+</section>
+<section id="step-3-device-firmware-update-tt-flash-tt-firmware">
+<h2>Step 3: Device Firmware Update (TT-Flash / TT-Firmware)<a class="headerlink" href="#step-3-device-firmware-update-tt-flash-tt-firmware" title="Link to this heading"></a></h2>
+<p>The <a class="reference external" href="https://github.com/tenstorrent/tt-firmware"><strong>TT-Firmware</strong></a> file needs to be installed using the <a class="reference external" href="https://github.com/tenstorrent/tt-flash">TT-Flash</a> utility.</p>
+<section id="install-tt-flash">
+<h3>Install TT-Flash<a class="headerlink" href="#install-tt-flash" title="Link to this heading"></a></h3>
+<p>To install <strong><a class="reference external" href="https://github.com/tenstorrent/tt-flash">TT-Flash</a></strong>, run this command in the terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/tenstorrent/tt-flash.git
+</pre></div>
+</div>
+<p><strong>*NOTE:</strong> If you are not using a Python virtual environment (venv), you may see an error <code class="docutils literal notranslate"><span class="pre">externally-managed-environment</span></code> when installing via <code class="docutils literal notranslate"><span class="pre">pip</span></code>. To resolve this, <a class="reference external" href="https://docs.python.org/3/tutorial/venv.html">create and/or activate a venv</a> or use a tool like pipx.*</p>
+</section>
+<section id="update-device-firmware">
+<h3>Update Device Firmware<a class="headerlink" href="#update-device-firmware" title="Link to this heading"></a></h3>
+<p>⚠️ NOTE: Blackhole devices require firmware version 18.3.0 or newer.</p>
+<p>To update Tenstorrent device firmware using TT-Flash, run these commands in the terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>https://github.com/tenstorrent/tt-firmware/releases/download/v18.4.0/fw_pack-18.4.0.fwbundle
+tt-flash<span class="w"> </span>--fw-tar<span class="w"> </span>fw_pack-18.4.0.fwbundle
+</pre></div>
+</div>
+<p>If this process worked, reboot the system and go to the next section.</p>
+<p>If running that command results in an error that says the firmware is too old, enter the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tt-flash<span class="w"> </span>--fw-tar<span class="w"> </span>fw_pack-18.4.0.fwbundle<span class="w"> </span>--force
+</pre></div>
+</div>
+<p>Then reboot the system.</p>
+</section>
+</section>
+<section id="step-4-set-up-hugepages">
+<h2>Step 4: Set Up HugePages<a class="headerlink" href="#step-4-set-up-hugepages" title="Link to this heading"></a></h2>
+<p>HugePages lets your system allocate dedicated memory to accelerate communication with Tenstorrent devices. Set up HugePages by running these commands in the terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install `.deb`</span>
+wget<span class="w"> </span>https://github.com/tenstorrent/tt-system-tools/releases/download/v1.3.1/tenstorrent-tools_1.3.1_all.deb
+sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>tenstorrent-tools_1.3.1_all.deb
+
+<span class="c1"># Start Services</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>tenstorrent-hugepages.service
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span><span class="s1">&#39;dev-hugepages\x2d1G.mount&#39;</span>
+
+<span class="c1"># System Reboot</span>
+sudo<span class="w"> </span>reboot
+</pre></div>
+</div>
+<p><strong>*NOTE:</strong> This is a temporary solution for configuring hugepages. If the above fails, please check the latest available release from <a class="reference external" href="https://github.com/tenstorrent/tt-system-tools.git">TT-System-Tools</a>.*</p>
+</section>
+<section id="step-5-optional-multi-card-configuration-tt-topology">
+<h2>Step 5: (Optional) Multi-Card Configuration (TT-Topology)<a class="headerlink" href="#step-5-optional-multi-card-configuration-tt-topology" title="Link to this heading"></a></h2>
+<p><strong>NOTE:</strong> TT-LoudBox and TT-QuietBox ship with their topology already configured. Use this application <em>only if you have modified or are trying to modify the topology of your Wormhole-based TT-LoudBox or TT-QuietBox</em>. If you are not doing so, <em>skip this step</em>. TT-Topology is provided as-is.</p>
+<p>If you are running on a multi-card Wormhole system such as TT-LoudBox or TT-QuietBox, install the Tenstorrent Topology utility (**<a class="reference external" href="https://github.com/tenstorrent/tt-topology">TT-Topology**</a>) and configure a mesh topology by running these commands in the terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">tenstorrent</span><span class="o">/</span><span class="n">tt</span><span class="o">-</span><span class="n">topology</span>
+<span class="n">tt</span><span class="o">-</span><span class="n">topology</span> <span class="o">-</span><span class="n">l</span> <span class="n">mesh</span>
+</pre></div>
+</div>
+</section>
+<section id="step-6-install-the-system-management-interface-tt-smi">
+<h2>Step 6: Install the System Management Interface (TT-SMI)<a class="headerlink" href="#step-6-install-the-system-management-interface-tt-smi" title="Link to this heading"></a></h2>
+<p>Install the Tenstorrent Software Management Interface (<strong><a class="reference external" href="https://github.com/tenstorrent/tt-smi">TT-SMI</a></strong>) by entering this command in the terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">tenstorrent</span><span class="o">/</span><span class="n">tt</span><span class="o">-</span><span class="n">smi</span>
+</pre></div>
+</div>
+</section>
+<section id="step-7-verify-system-configuration-and-test-tt-smi">
+<h2>Step 7: Verify System Configuration and Test TT-SMI<a class="headerlink" href="#step-7-verify-system-configuration-and-test-tt-smi" title="Link to this heading"></a></h2>
+<p>Once your hardware and system software are installed, verify that your system has been configured properly by running the <code class="docutils literal notranslate"><span class="pre">tt-smi</span></code> utility.</p>
+<p>You should see an interface like this one:</p>
+<p><img alt="tt-smi" src="../_images/tt_smi.png" /></p>
+<p>Within TT-SMI, you can see device information, telemetry, and firmware. If TT-SMI runs without errors, congratulations! You’re ready to use your Tenstorrent device. Take note of any host compatibility warnings.</p>
+<p>If you are using a TT-QuietBox and have reboot issues while using TT-SMI, and you’ve recently updated/reset the BIOS, you will need to update a setting. In the BIOS, find the following setting:</p>
+<p>​	Advanced -&gt; AMD CBS -&gt; NBIO Common Options -&gt; PCIe Aer Reporting Mechanism</p>
+<p>And change the setting to <strong>OS First</strong>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../forge/tools/index.html" class="btn btn-neutral float-left" title="Tools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../tools/index.html" class="btn btn-neutral float-right" title="Tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tenstorrent.
+      <span class="lastupdated">Last updated on Dec 23, 2025.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+  <div class="feedback-widget" id="tt-feedback">
+  <div class="ttfb-card">
+    <div id="ttfb-initial" class="ttfb-initial">
+      <p class="ttfb-question">Was this article helpful?</p>
+      <div class="ttfb-actions">
+        <button id="ttfb-up" class="ttfb-icon-btn" aria-label="Yes" title="Yes">
+          <span>👍</span>
+        </button>
+        <button id="ttfb-down" class="ttfb-icon-btn" aria-label="No" title="No">
+          <span>👎</span>
+        </button>
+      </div>
+    </div>
+
+    <form id="ttfb-form" class="ttfb-hidden" novalidate>
+      <p id="ttfb-prompt" class="ttfb-prompt"></p>
+
+      <div id="ttfb-reasons" class="ttfb-hidden">
+        <p class="ttfb-reasons-title">How would you describe this article?</p>
+        <div class="ttfb-reasons-grid">
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="inaccurate"> <b>Inaccurate:</b> it doesn’t reflect what I see in the product</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="unclear"> <b>Unclear:</b> it’s difficult to understand</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="missing"> <b>Missing information:</b> it’s not comprehensive enough</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="irrelevant"> <b>Irrelevant:</b> it doesn’t match what I searched for</label>
+        </div>
+      </div>
+
+      <textarea id="ttfb-text" rows="3" class="ttfb-text" placeholder="Please let us know what was or wasn't helpful about this page."></textarea>
+
+      <div class="ttfb-contact">
+        <input id="ttfb-can-contact" type="checkbox"> <label for="ttfb-can-contact">Allow Tenstorrent to contact me about my documentation feedback.</label>
+      </div>
+      <div id="ttfb-email-wrap" class="ttfb-hidden">
+        <input id="ttfb-email" type="email" class="ttfb-email" placeholder="Enter your email address">
+      </div>
+
+      <button id="ttfb-submit" type="submit" class="ttfb-submit">Submit</button>
+    </form>
+
+    <div id="ttfb-thanks" class="ttfb-hidden ttfb-center"><p class="ttfb-thanks-text">Thank you for your feedback!</p></div>
+    <div id="ttfb-error" class="ttfb-hidden ttfb-center"><p class="ttfb-error-text">Sorry, something went wrong. Please try again later.</p></div>
+  </div>
+</div>
+
+<style>
+.feedback-widget { margin: 2rem 0; }
+.ttfb-card {
+  background: #fff;
+  border: 1px solid var(--color-background-40, #d7dbeb66);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+.ttfb-initial { display: flex; flex-direction: row; gap: .75rem; align-items: center; flex-wrap: wrap; justify-content: flex-start; }
+.ttfb-question { margin: 0; font-weight: 600; color: var(--color-foreground, #202020); }
+.ttfb-actions { display: flex; gap: .5rem; }
+.ttfb-icon-btn {
+  padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; background: #fff; cursor: pointer;
+  transition: background var(--transition-duration, 150ms) var(--transition-timing, ease), border-color var(--transition-duration, 150ms) var(--transition-timing, ease);
+}
+.ttfb-icon-btn:hover { background: #f3f4f6; }
+
+.ttfb-hidden { display: none; }
+.ttfb-prompt { margin: .5rem 0 1rem 0; color: var(--color-foreground, #202020); font-weight: 600; }
+.ttfb-reasons-title { margin: 0 0 .5rem 0; color: var(--color-foreground, #202020); font-weight: 500; }
+.ttfb-reasons-grid { display: grid; grid-template-columns: 1fr; gap: .25rem; }
+@media (min-width: 768px) { .ttfb-reasons-grid { grid-template-columns: 1fr 1fr; } }
+.ttfb-radio { display: flex; align-items: flex-start; gap: .5rem; }
+.ttfb-radio input { margin-top: .2rem; }
+
+.ttfb-text {
+  width: 100%; padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; font-family: inherit; resize: vertical;
+}
+.ttfb-contact { display: flex; align-items: center; gap: .5rem; margin-top: .5rem; }
+.ttfb-email { width: 100%; padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; margin-top: .5rem; }
+.ttfb-submit { margin-top: .75rem; padding: .5rem 1rem; background: var(--color-purple, #5164e0); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; }
+.ttfb-submit:hover { background: var(--color-dark-purple, #7584e6); }
+.ttfb-center { text-align: center; padding: 1rem; }
+.ttfb-thanks-text { color: var(--color-purple, #5164e0); font-weight: 600; }
+.ttfb-error-text { color: #dc2626; font-weight: 600; }
+
+/* Hide widget when page sets meta hide_feedback=true */
+html:has(meta[name="hide_feedback"][content="true"]) .feedback-widget { display: none !important; }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const root = document.getElementById('tt-feedback');
+  if (!root) return;
+
+  // Reposition widget: place it just above the Previous/Next buttons
+  try {
+    const footerButtons = document.querySelector('.rst-footer-buttons');
+    if (footerButtons && footerButtons.parentNode) {
+      footerButtons.parentNode.insertBefore(root, footerButtons);
+    }
+  } catch (e) {
+    // no-op if structure not present
+  }
+
+  const initial = root.querySelector('#ttfb-initial');
+  const form = root.querySelector('#ttfb-form');
+  const prompt = root.querySelector('#ttfb-prompt');
+  const reasonsWrap = root.querySelector('#ttfb-reasons');
+  const text = root.querySelector('#ttfb-text');
+  const thanks = root.querySelector('#ttfb-thanks');
+  const error = root.querySelector('#ttfb-error');
+  const upBtn = root.querySelector('#ttfb-up');
+  const downBtn = root.querySelector('#ttfb-down');
+  const canContact = root.querySelector('#ttfb-can-contact');
+  const emailWrap = root.querySelector('#ttfb-email-wrap');
+  const emailInput = root.querySelector('#ttfb-email');
+
+  let sentiment = null; // 'up' | 'down'
+
+  function show(el) { el.classList.remove('ttfb-hidden'); }
+  function hide(el) { el.classList.add('ttfb-hidden'); }
+
+  function setPromptForSentiment() {
+    if (sentiment === 'down') {
+      prompt.textContent = 'We\'re sorry to hear that. Can you tell us more?';
+      show(reasonsWrap);
+    } else {
+      prompt.textContent = 'Thanks! Anything to add? (optional)';
+      hide(reasonsWrap);
+    }
+  }
+
+  function validateEmail(email) {
+    return /.+@.+\..+/.test(email);
+  }
+
+  function submitPayload(payload) {
+    try {
+      if (window.posthog && typeof window.posthog.capture === 'function') {
+        window.posthog.capture('docs_feedback', payload);
+      } else {
+        console.log('Feedback submitted:', payload);
+      }
+      return true;
+    } catch (e) {
+      console.error('Feedback submit error', e);
+      return false;
+    }
+  }
+
+  upBtn.addEventListener('click', function () {
+    sentiment = 'up';
+    hide(initial);
+    setPromptForSentiment();
+    show(form);
+    text.focus();
+  });
+
+  downBtn.addEventListener('click', function () {
+    sentiment = 'down';
+    hide(initial);
+    setPromptForSentiment();
+    show(form);
+  });
+
+  canContact.addEventListener('change', function () {
+    if (canContact.checked) {
+      show(emailWrap);
+      emailInput.focus();
+    } else {
+      hide(emailWrap);
+    }
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const page = window.location.pathname;
+    const ts = new Date().toISOString();
+    const feedbackText = text.value.trim();
+    const canContactVal = !!canContact.checked;
+    const emailVal = emailInput.value.trim();
+    const reasonEl = root.querySelector('input[name="down_reason"]:checked');
+    const reason = reasonEl ? reasonEl.value : null;
+
+    if (canContactVal && emailVal && !validateEmail(emailVal)) {
+      emailInput.setCustomValidity('Please enter a valid email.');
+      emailInput.reportValidity();
+      return;
+    } else {
+      emailInput.setCustomValidity('');
+    }
+
+    const payload = {
+      sentiment,
+      reason,
+      text: feedbackText,
+      can_contact: canContactVal,
+      email: canContactVal ? emailVal || null : null,
+      page,
+      timestamp: ts
+    };
+
+    const ok = submitPayload(payload);
+    hide(form);
+    if (ok) {
+      show(thanks);
+      setTimeout(() => { root.style.display = 'none'; }, 3000);
+    } else {
+      show(error);
+    }
+  });
+});
+</script>
+
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

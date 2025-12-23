@@ -1,0 +1,536 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="TT-QuietBox Blackhole™, Blackhole™ Networked AI Processor, Tensix core" name="product-name" />
+<meta content="PCIe, QSFP-DD, Installation, Setup, Electrostatic Discharge (ESD), Basic Input/Output System (BIOS)" name="technology-concepts" />
+<meta content="Task-Based Guide (How-To)" name="document-type" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Receiving, Unboxing, and Setup &mdash; Home 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/tt_theme.css?v=a41de66c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/home.css?v=c560917e" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=fd3dd8dd"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../../../_static/custom.js?v=0ccd5bc4"></script>
+      <script src="../../../_static/posthog.js?v=a97abc7e"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Troubleshooting Common Hardware Issues" href="../common/support.html" />
+    <link rel="prev" title="Specifications and Requirements" href="specifications.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+<a href="https://tenstorrent.github.io/">
+    <img src="../../../_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+
+<a href="../../../index.html">
+    Home
+</a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Software Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started/README.html">Installing the Tenstorrent Software Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started/model-demos.html">Running Model Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started/vLLM-servers.html">Deploying LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started/tt-software-stack.html">Understanding the Tenstorrent Software Stack</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Hardware Guides</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../aibs/index.html">Cards</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Systems</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#blackhole">Blackhole</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">TT-QuietBox (Blackhole)</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="specifications.html">Specifications and Requirements</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Receiving, Unboxing, and Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../common/support.html">Troubleshooting Common Hardware Issues</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#wormhole">Wormhole</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../forge/index.html">TT-Forge</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/index.html">TT-Metalium</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/index.html">TT-NN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started/manual-software-install.html">Manual Software Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools/index.html">Tools</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../support/README.html">Support &amp; FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Legal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/bounty_terms.html">Bounty Program Terms</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Home</a>
+      </nav>
+
+      <div class="wy-nav-content">
+  
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Systems</a></li>
+          <li class="breadcrumb-item"><a href="index.html">TT-QuietBox (Blackhole)</a></li>
+      <li class="breadcrumb-item active">Receiving, Unboxing, and Setup</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/systems/quietbox/quietbox-bh/setup.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="receiving-unboxing-and-setup">
+<h1>Receiving, Unboxing, and Setup<a class="headerlink" href="#receiving-unboxing-and-setup" title="Link to this heading"></a></h1>
+<p>This guide provides system administrators, hardware engineers, and users responsible for the initial setup of Tenstorrent hardware with step-by-step instructions. You will learn to safely unbox a TT-QuietBox Blackhole™ workstation, connect all required hardware components, and install the recommended operating system.</p>
+<section id="before-you-begin">
+<h2><strong>Before You Begin</strong><a class="headerlink" href="#before-you-begin" title="Link to this heading"></a></h2>
+<p>Before you begin, choose a clear, stable, and spacious area for the TT-QuietBox Blackhole™ workstation. The system ships in a palletized wooden crate. Ensure you have at least two people and enough room for them to maneuver comfortably and safely around the crate and system. Clear the area where you intend to use the TT-QuietBox Blackhole™ and ensure to use a dedicated 20A circuit and outlet, as specified in the <a class="reference internal" href="#safety-warnings">electrical safety warning</a> linked below. Also, confirm that all vents are clear of obstructions or other objects.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The fully palletized and crated shipment weighs approximately 134 lbs (61 kg), and the workstation itself weighs approximately 80 lbs (36 kg). Unboxing and lifting require at least two people for safe maneuverability.</p>
+<p>Do not proceed with unboxing or installation if you suspect shipping damage to the system. Contact Tenstorrent support by <a class="reference external" href="https://tenstorrent.atlassian.net/servicedesk/customer/portal/1">raising a support request.</a> Our team will review your request and provide assistance.</p>
+</div>
+<section id="safety-warnings">
+<h3>Safety Warnings<a class="headerlink" href="#safety-warnings" title="Link to this heading"></a></h3>
+<p>Please visit the <a class="reference internal" href="specifications.html#safety-warnings"><span class="std std-ref">safety warnings</span></a> section on the specifications page for information about electrical and electrostatic discharge (ESD) warnings.</p>
+</section>
+<section id="required-tools">
+<h3><strong>Required Tools</strong><a class="headerlink" href="#required-tools" title="Link to this heading"></a></h3>
+<p>For unboxing, you will need the following tools:</p>
+<ul class="simple">
+<li><p>Phillips head screwdriver</p></li>
+<li><p>Scissors or a similar cutting tool</p></li>
+</ul>
+<p>For setup, you will need the following:</p>
+<ul class="simple">
+<li><p>Keyboard</p></li>
+<li><p>Mouse</p></li>
+<li><p>Monitor</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="step-1-unboxing-the-workstation">
+<h2><strong>Step 1: Unboxing the Workstation</strong><a class="headerlink" href="#step-1-unboxing-the-workstation" title="Link to this heading"></a></h2>
+<p>Follow these steps to unbox your TT-QuietBox Blackhole™ workstation:</p>
+<ol class="arabic simple">
+<li><p><strong>Position the crate.</strong> Position the crate in your prepared unboxing area, ensuring ample space for two people to work around it.</p></li>
+</ol>
+<p><img alt="" src="../../../_images/qb_setup_1.jpg" /></p>
+<ol class="arabic simple" start="2">
+<li><p><strong>Remove plastic wrap.</strong> Remove the outer plastic wrap and cut the two lifting straps looped around the crate.</p></li>
+</ol>
+<p><img alt="" src="../../../_images/qb_setup_2.jpg" /></p>
+<ol class="arabic simple" start="3">
+<li><p><strong>Open the crate.</strong> Use a <strong>Phillips head screwdriver</strong> to remove the six screws from the top panel of the crate. Lift off the top panel.</p></li>
+</ol>
+<p><img alt="" src="../../../_images/qb_setup_3.jpg" /></p>
+<ol class="arabic simple" start="4">
+<li><p><strong>Remove the system from the crate.</strong> Remove the protective styrofoam from inside the crate. Use the two lifting straps to vertically lift the inner cardboard box out of the wooden crate. Do not tilt the box sideways during this process.</p></li>
+</ol>
+<p><img alt="" src="../../../_images/qb_setup_4.jpg" /></p>
+<ol class="arabic simple" start="5">
+<li><p><strong>Open the cardboard box.</strong> Cut the two lifting straps off the cardboard box and open the top flaps.</p></li>
+</ol>
+<p><img alt="" src="../../../_images/qb_setup_5.jpg" /></p>
+<ol class="arabic simple" start="6">
+<li><p><strong>Unpack accessories.</strong> Remove the documentation and the accessory bag from the box and set them aside.</p></li>
+</ol>
+<p><img alt="" src="../../../_images/qb_setup_6.jpg" /></p>
+<ol class="arabic simple" start="7">
+<li><p><strong>Remove the workstation from the cardboard box.</strong> Reach into the short sides of the box, secure your hands under the supportive styrofoam, and lift the TT-QuietBox Blackhole™ workstation out of the box. Place it in your workspace.</p></li>
+</ol>
+<p><img alt="" src="../../../_images/qb_setup_7.jpg" /></p>
+<ol class="arabic simple" start="8">
+<li><p><strong>Remove additional packing material.</strong> Remove any remaining packaging from the exterior of the TT-QuietBox Blackhole™ workstation.</p></li>
+</ol>
+<p><img alt="" src="../../../_images/qb_setup_8.jpg" /></p>
+<ol class="arabic simple" start="9">
+<li><p><strong>Inspect the system.</strong> Inspect the workstation to ensure all components are properly mounted and secured. The system ships with sufficient liquid coolant for long-term operation; adding or purchasing coolant is not necessary.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="step-2-setting-up-the-hardware">
+<h2><strong>Step 2: Setting Up the Hardware</strong><a class="headerlink" href="#step-2-setting-up-the-hardware" title="Link to this heading"></a></h2>
+<p>Follow these steps to set up the hardware for your TT-QuietBox Blackhole™ workstation:</p>
+<ol class="arabic simple">
+<li><p><strong>Connect the power cable.</strong> Connect the provided C13 power cable to the workstation and then to a dedicated power outlet.</p></li>
+</ol>
+<p><img alt="" src="../../../_images/qb_setup_power.jpg" /></p>
+<ol class="arabic simple" start="2">
+<li><p><strong>Connect QSFP-DD cables.</strong> The included Quad Small Form-factor Pluggable Double Density (QSFP-DD) cables enable high-speed interconnectivity between the Tenstorrent Tensix cores. Your system includes four Blackhole™ processors and eight external QSFP-DD cables to create the processor mesh. Connect the eight cables according to the system topology diagram below. Ensure each cable is aligned correctly and clicks into place; do not force the connections.</p></li>
+</ol>
+<p><img alt="" src="../../../_images/qb_bh_topology.png" /></p>
+<ol class="arabic simple" start="3">
+<li><p><strong>Connect to the network.</strong> For host system network access, connect a standard Ethernet cable (Cat 6 or better, user-provided) to an RJ45 LAN port on the rear panel. The <strong>LAN1</strong> and <strong>LAN2</strong> ports are 10GbE, while <strong>LAN3</strong> and <strong>LAN4</strong>are 1GbE.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The port that is not outlined in the following image is the BMC management port.</p>
+</div>
+<p><img alt="" src="../../../_images/qb_lan.png" /></p>
+<ol class="arabic simple" start="4">
+<li><p><strong>Connect peripherals.</strong> Connect your monitor, keyboard, and mouse (user-provided). A VGA-to-HDMI adapter is included for monitors that require an HDMI connection. <strong>Be sure to plug in both the VGA and USB-A connectors to the rear panel for a video signal to be transmitted.</strong></p></li>
+<li><p><strong>Power on the system.</strong> Locate the main power supply switch on the rear of the workstation and set it to the <strong>ON</strong> position. Press the system power button on the front panel.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The system’s initial hardware initialization during its first Power-On-Self-Test (POST) may require up to 10 minutes before displaying the BIOS screen. If after 10 minutes you do not see the BIOS screen, please <a class="reference external" href="https://tenstorrent.atlassian.net/servicedesk/customer/portal/1">raise a support request.</a></p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="step-3-accessing-default-system-logins">
+<h2><strong>Step 3. Accessing Default System Logins</strong><a class="headerlink" href="#step-3-accessing-default-system-logins" title="Link to this heading"></a></h2>
+<p>Follow these instructions for logging into the system using the default Ubuntu and Base Management Controller (BMC) credentials.</p>
+<section id="accessing-the-ubuntu-operating-system">
+<h3><strong>Accessing the Ubuntu operating system</strong><a class="headerlink" href="#accessing-the-ubuntu-operating-system" title="Link to this heading"></a></h3>
+<p>When the Ubuntu login prompt appears, enter the following default credentials:</p>
+<ul class="simple">
+<li><p><strong>Username</strong>: <strong>ttuser</strong></p></li>
+<li><p><strong>Password</strong>: <strong>ttuser</strong></p></li>
+</ul>
+</section>
+<section id="optional-accessing-the-base-management-controller-bmc">
+<h3><strong>Optional: Accessing the Base Management Controller (BMC)</strong><a class="headerlink" href="#optional-accessing-the-base-management-controller-bmc" title="Link to this heading"></a></h3>
+<p>This section describes an optional process to access the Base Management Controller (BMC) included with the systsem. To log in using the system’s BMC, complete these steps:</p>
+<ol class="arabic simple">
+<li><p>Connect an additional Ethernet cable to the management port labeled <strong>MGMT</strong> on the back panel of your system.</p></li>
+<li><p>On another computer connected to the same network, open a web browser.</p></li>
+<li><p>When prompted, enter the following default credentials:</p>
+<ul class="simple">
+<li><p><strong>Username</strong>: <strong>admin</strong></p></li>
+<li><p><strong>Password</strong>: <strong>ZTSI-00029</strong></p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="step-4-verifying-system-recognition-of-blackhole-p150c-accelerators">
+<h2><strong>Step 4: Verifying System Recognition of Blackhole p150c Accelerators</strong><a class="headerlink" href="#step-4-verifying-system-recognition-of-blackhole-p150c-accelerators" title="Link to this heading"></a></h2>
+<p>In a terminal, execute these commands to download the latest list of PCI device IDs and list the recognized devices:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>update-pciids
+lspci<span class="w"> </span>-d<span class="w"> </span>1e52:
+</pre></div>
+</div>
+<p>You should see an output which lists four recognized accelerators:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">01</span><span class="p">:</span><span class="mf">00.0</span> <span class="n">Processing</span> <span class="n">accelerators</span><span class="p">:</span> <span class="n">Tenstorrent</span> <span class="n">Inc</span> <span class="n">Blackhole</span>
+<span class="mi">41</span><span class="p">:</span><span class="mf">00.0</span> <span class="n">Processing</span> <span class="n">accelerators</span><span class="p">:</span> <span class="n">Tenstorrent</span> <span class="n">Inc</span> <span class="n">Blackhole</span>
+<span class="mi">42</span><span class="p">:</span><span class="mf">00.0</span> <span class="n">Processing</span> <span class="n">accelerators</span><span class="p">:</span> <span class="n">Tenstorrent</span> <span class="n">Inc</span> <span class="n">Blackhole</span>
+<span class="n">c1</span><span class="p">:</span><span class="mf">00.0</span> <span class="n">Processing</span> <span class="n">accelerators</span><span class="p">:</span> <span class="n">Tenstorrent</span> <span class="n">Inc</span> <span class="n">Blackhole</span>
+</pre></div>
+</div>
+<div class="danger admonition">
+<p class="admonition-title">Important</p>
+<p>If you don’t see all four accelerators listed, please <a class="reference external" href="https://tenstorrent.atlassian.net/servicedesk/customer/portal/1">raise a support request.</a> Our team will review your request and provide assistance.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="step-5-installing-the-tenstorrent-software-stack">
+<h2><strong>Step 5: Installing the Tenstorrent Software Stack</strong><a class="headerlink" href="#step-5-installing-the-tenstorrent-software-stack" title="Link to this heading"></a></h2>
+<p>After completing the operating system installation, proceed with <a class="reference internal" href="../../../getting-started/README.html"><span class="std std-doc">Installing the Tenstorrent Software Stack</span></a>.</p>
+</section>
+<hr class="docutils" />
+<section id="need-additional-support">
+<h2><strong>Need Additional Support?</strong><a class="headerlink" href="#need-additional-support" title="Link to this heading"></a></h2>
+<p>If you encounter any issues, or have a question that isn’t covered in the documentation, please <a class="reference external" href="https://tenstorrent.atlassian.net/servicedesk/customer/portal/1">raise a support request.</a> Our team will review your request and provide assistance.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="specifications.html" class="btn btn-neutral float-left" title="Specifications and Requirements" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../common/support.html" class="btn btn-neutral float-right" title="Troubleshooting Common Hardware Issues" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tenstorrent.
+      <span class="lastupdated">Last updated on Dec 23, 2025.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+  <div class="feedback-widget" id="tt-feedback">
+  <div class="ttfb-card">
+    <div id="ttfb-initial" class="ttfb-initial">
+      <p class="ttfb-question">Was this article helpful?</p>
+      <div class="ttfb-actions">
+        <button id="ttfb-up" class="ttfb-icon-btn" aria-label="Yes" title="Yes">
+          <span>👍</span>
+        </button>
+        <button id="ttfb-down" class="ttfb-icon-btn" aria-label="No" title="No">
+          <span>👎</span>
+        </button>
+      </div>
+    </div>
+
+    <form id="ttfb-form" class="ttfb-hidden" novalidate>
+      <p id="ttfb-prompt" class="ttfb-prompt"></p>
+
+      <div id="ttfb-reasons" class="ttfb-hidden">
+        <p class="ttfb-reasons-title">How would you describe this article?</p>
+        <div class="ttfb-reasons-grid">
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="inaccurate"> <b>Inaccurate:</b> it doesn’t reflect what I see in the product</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="unclear"> <b>Unclear:</b> it’s difficult to understand</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="missing"> <b>Missing information:</b> it’s not comprehensive enough</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="irrelevant"> <b>Irrelevant:</b> it doesn’t match what I searched for</label>
+        </div>
+      </div>
+
+      <textarea id="ttfb-text" rows="3" class="ttfb-text" placeholder="Please let us know what was or wasn't helpful about this page."></textarea>
+
+      <div class="ttfb-contact">
+        <input id="ttfb-can-contact" type="checkbox"> <label for="ttfb-can-contact">Allow Tenstorrent to contact me about my documentation feedback.</label>
+      </div>
+      <div id="ttfb-email-wrap" class="ttfb-hidden">
+        <input id="ttfb-email" type="email" class="ttfb-email" placeholder="Enter your email address">
+      </div>
+
+      <button id="ttfb-submit" type="submit" class="ttfb-submit">Submit</button>
+    </form>
+
+    <div id="ttfb-thanks" class="ttfb-hidden ttfb-center"><p class="ttfb-thanks-text">Thank you for your feedback!</p></div>
+    <div id="ttfb-error" class="ttfb-hidden ttfb-center"><p class="ttfb-error-text">Sorry, something went wrong. Please try again later.</p></div>
+  </div>
+</div>
+
+<style>
+.feedback-widget { margin: 2rem 0; }
+.ttfb-card {
+  background: #fff;
+  border: 1px solid var(--color-background-40, #d7dbeb66);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+.ttfb-initial { display: flex; flex-direction: row; gap: .75rem; align-items: center; flex-wrap: wrap; justify-content: flex-start; }
+.ttfb-question { margin: 0; font-weight: 600; color: var(--color-foreground, #202020); }
+.ttfb-actions { display: flex; gap: .5rem; }
+.ttfb-icon-btn {
+  padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; background: #fff; cursor: pointer;
+  transition: background var(--transition-duration, 150ms) var(--transition-timing, ease), border-color var(--transition-duration, 150ms) var(--transition-timing, ease);
+}
+.ttfb-icon-btn:hover { background: #f3f4f6; }
+
+.ttfb-hidden { display: none; }
+.ttfb-prompt { margin: .5rem 0 1rem 0; color: var(--color-foreground, #202020); font-weight: 600; }
+.ttfb-reasons-title { margin: 0 0 .5rem 0; color: var(--color-foreground, #202020); font-weight: 500; }
+.ttfb-reasons-grid { display: grid; grid-template-columns: 1fr; gap: .25rem; }
+@media (min-width: 768px) { .ttfb-reasons-grid { grid-template-columns: 1fr 1fr; } }
+.ttfb-radio { display: flex; align-items: flex-start; gap: .5rem; }
+.ttfb-radio input { margin-top: .2rem; }
+
+.ttfb-text {
+  width: 100%; padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; font-family: inherit; resize: vertical;
+}
+.ttfb-contact { display: flex; align-items: center; gap: .5rem; margin-top: .5rem; }
+.ttfb-email { width: 100%; padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; margin-top: .5rem; }
+.ttfb-submit { margin-top: .75rem; padding: .5rem 1rem; background: var(--color-purple, #5164e0); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; }
+.ttfb-submit:hover { background: var(--color-dark-purple, #7584e6); }
+.ttfb-center { text-align: center; padding: 1rem; }
+.ttfb-thanks-text { color: var(--color-purple, #5164e0); font-weight: 600; }
+.ttfb-error-text { color: #dc2626; font-weight: 600; }
+
+/* Hide widget when page sets meta hide_feedback=true */
+html:has(meta[name="hide_feedback"][content="true"]) .feedback-widget { display: none !important; }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const root = document.getElementById('tt-feedback');
+  if (!root) return;
+
+  // Reposition widget: place it just above the Previous/Next buttons
+  try {
+    const footerButtons = document.querySelector('.rst-footer-buttons');
+    if (footerButtons && footerButtons.parentNode) {
+      footerButtons.parentNode.insertBefore(root, footerButtons);
+    }
+  } catch (e) {
+    // no-op if structure not present
+  }
+
+  const initial = root.querySelector('#ttfb-initial');
+  const form = root.querySelector('#ttfb-form');
+  const prompt = root.querySelector('#ttfb-prompt');
+  const reasonsWrap = root.querySelector('#ttfb-reasons');
+  const text = root.querySelector('#ttfb-text');
+  const thanks = root.querySelector('#ttfb-thanks');
+  const error = root.querySelector('#ttfb-error');
+  const upBtn = root.querySelector('#ttfb-up');
+  const downBtn = root.querySelector('#ttfb-down');
+  const canContact = root.querySelector('#ttfb-can-contact');
+  const emailWrap = root.querySelector('#ttfb-email-wrap');
+  const emailInput = root.querySelector('#ttfb-email');
+
+  let sentiment = null; // 'up' | 'down'
+
+  function show(el) { el.classList.remove('ttfb-hidden'); }
+  function hide(el) { el.classList.add('ttfb-hidden'); }
+
+  function setPromptForSentiment() {
+    if (sentiment === 'down') {
+      prompt.textContent = 'We\'re sorry to hear that. Can you tell us more?';
+      show(reasonsWrap);
+    } else {
+      prompt.textContent = 'Thanks! Anything to add? (optional)';
+      hide(reasonsWrap);
+    }
+  }
+
+  function validateEmail(email) {
+    return /.+@.+\..+/.test(email);
+  }
+
+  function submitPayload(payload) {
+    try {
+      if (window.posthog && typeof window.posthog.capture === 'function') {
+        window.posthog.capture('docs_feedback', payload);
+      } else {
+        console.log('Feedback submitted:', payload);
+      }
+      return true;
+    } catch (e) {
+      console.error('Feedback submit error', e);
+      return false;
+    }
+  }
+
+  upBtn.addEventListener('click', function () {
+    sentiment = 'up';
+    hide(initial);
+    setPromptForSentiment();
+    show(form);
+    text.focus();
+  });
+
+  downBtn.addEventListener('click', function () {
+    sentiment = 'down';
+    hide(initial);
+    setPromptForSentiment();
+    show(form);
+  });
+
+  canContact.addEventListener('change', function () {
+    if (canContact.checked) {
+      show(emailWrap);
+      emailInput.focus();
+    } else {
+      hide(emailWrap);
+    }
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const page = window.location.pathname;
+    const ts = new Date().toISOString();
+    const feedbackText = text.value.trim();
+    const canContactVal = !!canContact.checked;
+    const emailVal = emailInput.value.trim();
+    const reasonEl = root.querySelector('input[name="down_reason"]:checked');
+    const reason = reasonEl ? reasonEl.value : null;
+
+    if (canContactVal && emailVal && !validateEmail(emailVal)) {
+      emailInput.setCustomValidity('Please enter a valid email.');
+      emailInput.reportValidity();
+      return;
+    } else {
+      emailInput.setCustomValidity('');
+    }
+
+    const payload = {
+      sentiment,
+      reason,
+      text: feedbackText,
+      can_contact: canContactVal,
+      email: canContactVal ? emailVal || null : null,
+      page,
+      timestamp: ts
+    };
+
+    const ok = submitPayload(payload);
+    hide(form);
+    if (ok) {
+      show(thanks);
+      setTimeout(() => { root.style.display = 'none'; }, 3000);
+    } else {
+      show(error);
+    }
+  });
+});
+</script>
+
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

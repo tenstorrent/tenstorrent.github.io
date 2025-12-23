@@ -1,0 +1,804 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advanced User Guide &mdash; TT Buda  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/tt_theme.css?v=a41de66c" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Hardware Overview" href="hardware.html" />
+    <link rel="prev" title="Terminology" href="terminology.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+<a href="https://tenstorrent.github.io/">
+    <img src="_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+
+<a href="toc.html">
+    TT Buda
+</a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Introduction to PyBuda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terminology.html">Terminology</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Advanced User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#software-stack-overview">Software Stack Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pybuda-compiler-architecture">PyBuda Compiler Architecture</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#compiler-configuration">Compiler Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#level-1">Level 1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Level 1</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#level-2">Level 2</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Level 2</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#level-3">Level 3</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Level 3</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tools-debug">Tools &amp; Debug</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#reportify">Reportify</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#perf-analyzer-terminal-app">Perf Analyzer (Terminal App)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#debuda-low-level-device-debug">DeBUDA (Low level device debug)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#comparison-to-gpu-programming-model">Comparison To GPU Programming Model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Hardware Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataformats.html">Data Formats and Math Fidelity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer.html">Developer Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="toc.html">TT Buda</a>
+      </nav>
+
+      <div class="wy-nav-content">
+  
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="toc.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Advanced User Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/advanced_user_guide.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="advanced-user-guide">
+<h1>Advanced User Guide<a class="headerlink" href="#advanced-user-guide" title="Link to this heading"></a></h1>
+<section id="software-stack-overview">
+<h2>Software Stack Overview<a class="headerlink" href="#software-stack-overview" title="Link to this heading"></a></h2>
+<p>PyBuda is largely divided into two main components, the compiler and the runtime.  Below is an overview of each component respectively.</p>
+<section id="pybuda-compiler-architecture">
+<h3>PyBuda Compiler Architecture<a class="headerlink" href="#pybuda-compiler-architecture" title="Link to this heading"></a></h3>
+<p><img alt="Software Stack Overview" src="_images/overview.png" /></p>
+<p>The PyBuda compiler is largely broken into 2 halves, frontend and backend as depicted in the image above.  Each piece respectively is organized in passes that iteratively transform the framework model into something executable by the hardware.</p>
+<p><strong>Frontend Passes</strong></p>
+<ul class="simple">
+<li><p><strong>TVM</strong>: PyBuda is itself an ML framework, but typically it’s more convenient to run models that have already been written to target another framework.  We use TVM to abstract our compiler over many popular frameworks so it is often the primary entry point.  We’ve written and maintain a TVM backend that targets PyBuda API.</p></li>
+<li><p><strong>PyBuda API</strong>: It’s also possible to express your model directly in PyBuda.  Most internal tests are written directly in PyBuda.</p></li>
+<li><p><strong>Initial Graph</strong>: This isn’t really a compile pass, but rather an execution trace of the model with dummy tensors.  From this trace we are able to build a rich graph datastructure that the frontend compiler uses to perform transformations over.</p></li>
+<li><p><strong>Decompose</strong>: This pass allows us to implement high level ops, such as <code class="docutils literal notranslate"><span class="pre">softmax</span></code> in terms of lower level ops.  Decomposition in this context is breaking apart high level ops and replacing them in the graph with a new subgraph that implements the original op.  This pass calls top level hooks into python making it very easy to add new decompositions into the compiler.</p></li>
+<li><p><strong>Optimizations</strong>: This is a collection of passes that perform many kinds of optimizations including constant folding, op reordering, and reshape cancelation.</p></li>
+<li><p><strong>Autograd</strong>: We have our own autograd pass which gives us the opportunity to annotate our graph datastructure in a way to help future passes best target our HW.  With this information our placement pass can leverage some unique properties about TT architecture to make training more efficient.  This pass is only enabled if training is enabled.</p></li>
+<li><p><strong>Lowering</strong>: Up until this point we’ve been using operators in a high level IR that we call PyBuda IR.  Lowering does a few things, but it’s main purpose is to lower this high level IR (PyBuda IR) to a low level IR (Buda IR) where this Buda IR is the core set of operations that are backed by HW kernels implemented by our backend compiler.  Lowering is also where we perform data format selection and snap tensor sizes to tile granularity (i.e. 32x32 multiples on the RxC dims).</p></li>
+<li><p><strong>Balancer/Placer</strong>: Finally, our graph is ready to be scheduled onto the HW.  Balancer and Placer are tightly coupled datastructures that together determine how operations will be laid out onto the device core grid and how many resources to assign to each operation.</p></li>
+<li><p><strong>Netlist</strong>: Netlist is the intermediate representation that serves as the API boundary between the frontend and the backend.  It is a textual, human readable, yaml format that describes how operations are to be scheduled onto the chip.</p></li>
+</ul>
+<p><strong>Backend Passes</strong></p>
+<p>The backend is divided into two disjoint compile paths.  Abstractly, if you imagine a graph datastructure with nodes and edges, the left path (kernel compilation) is compiling the nodes or math operations in the graph whereas the right path is compiling the edges or data movement operations.</p>
+<ul class="simple">
+<li><p><strong>Kernel Compilation</strong>: This path walks the netlist and extracts the set of operations specified and compiles the associated kernel implementations.  Compilation here means compiling High Level Kernels (HLKs) implemented in C++ and using a kernel programming library called LLK (low level kernel) via a RISCV compiler toolchain.  This is the actual machine code that will run on the Tensix core hardware.</p></li>
+<li><p><strong>Routing/Pipe Generation</strong>: This path first flows through <code class="docutils literal notranslate"><span class="pre">net2pipe</span></code> which extracts the op connectivity information from the netlist and generates a data movement program.  This program is expressed in an IR that feeds into pipegen, the backend of this compile stage which implements the lowering of this IR into an executable that runs on a piece of hardware called overlay.</p></li>
+</ul>
+</section>
+</section>
+<section id="compiler-configuration">
+<h2>Compiler Configuration<a class="headerlink" href="#compiler-configuration" title="Link to this heading"></a></h2>
+<p>PyBuda compiler is highly configurable via the <code class="docutils literal notranslate"><span class="pre">CompilerConfig</span></code> class.  Instead of programming this class directly, most configs have convenience top level functions, all of which update in place a global instance of the <code class="docutils literal notranslate"><span class="pre">CompilerConfig</span></code>.  Users can create their own <code class="docutils literal notranslate"><span class="pre">CompilerConfig</span></code> and explicitly pass it in for compile, but most examples simply use the global config object since there is rarely a need for multiple instances.  Global config meaning <code class="docutils literal notranslate"><span class="pre">config</span> <span class="pre">=</span> <span class="pre">pybuda.config._get_global_compiler_config()</span></code>.</p>
+<p>Below are some common overrides with brief descriptions for each and organized in levels of increasing control.  Level 1 configs are the first, low hanging fruit configs to reach for while tuning the desired compile output, whereas, Level 3 would be for power users that want explicit control over fine grained compiler decisions.</p>
+<p>Note that there are compiler configurations that are present in the dataclass, but not listed in the tables below, this is intentional for a number of potential reasons.  Some are for debugging / internal developement only and some overrides are deprecated and have not yet been removed from the compiler.  We are working towards better organizing our override system to reflect the level system outlined below, move the development flags into a special area, and remove the deprecated configs.</p>
+<section id="level-1">
+<h3>Level 1<a class="headerlink" href="#level-1" title="Link to this heading"></a></h3>
+<section id="id1">
+<h4>Level 1<a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configuration</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Usage</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">enable_t_streaming</span></code></p></td>
+<td><p>Streaming in this context means dividing the tensor into chunks along either the row or column dimension to stage the computation.  This implies that the computation is spread out temporally (hence the <code class="docutils literal notranslate"><span class="pre">t</span></code>) instead of spatially.  When this flag is enabled the compiler will automatically visit all possible divisions of the tensors for every op in the graph and select the best streaming amount for each op with respect to the others that have been placed on the same epoch.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pybuda.config.set_configuration_options(enable_t_streaming=True)</span></code>, this is useful to enable when encountering the following compiler error: <code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">valid</span> <span class="pre">grids</span> <span class="pre">error</span></code>, we are working to enable this flag by default.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">enable_auto_fusing</span></code></p></td>
+<td><p>Enable compiler pass that performs automatic fusing of subgraphs.  This pass will fuse together groups of ops into a single kernel that executes as a single op in the pipeline.</p></td>
+<td><p>By default true, might be useful to disable to workaround an undesirable fused result, but by and large it should be true. To disable: <code class="docutils literal notranslate"><span class="pre">pybuda.config.set_configuration_options(enable_auto_fusing=False)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">enable_tvm_cpu_fallback</span></code></p></td>
+<td><p>Used in conjunction with <code class="docutils literal notranslate"><span class="pre">cpu_fallback_ops</span></code>. When enabled, this feature will preform all operations in <code class="docutils literal notranslate"><span class="pre">cpu_fallback_ops</span></code> on the cpu, instead of dispatching them do device. In order to not have multiple graph breaks, when an operation is marked as fallback, all of it predecessors or ancestors (whichever list is smaller) will also be preformed on host. If any of the parameters of the fallback op are shared with other operators, those will be performed on host too.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">compiler_cfg.enable_tvm_cpu_fallback=False</span></code> will disable this feature. Default is <code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cpu_fallback_ops</span></code></p></td>
+<td><p>Used in conjunction with <code class="docutils literal notranslate"><span class="pre">enable_tvm_cpu_fallback</span></code>. <a class="reference external" href="https://tvm.apache.org/docs/reference/langref/relay_op.html">This set of relay operator names</a> tells the compiler which operators to fallback on.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">compiler_cfg.cpu_fallback_ops.add(&quot;cumsum&quot;)</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">&quot;embedding&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">enable_tm_cpu_fallback</span></code></p></td>
+<td><p>When enabled, this will allow the compiler to execute tensor manipulation (TMs) operations on host. The compiler uses heuristics to maximize TMs that are done on host so it may include some compute light operations (i.e. add) if it allows for more TMs to be included. No operations deeper than <code class="docutils literal notranslate"><span class="pre">tm_cpu_fallback_max_depth</span></code> will be included in the search algorithm. No compute heavy operations (i.e. matrix multiplication) will be done on host.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">compiler_cfg.enable_tm_cpu_fallback</span> <span class="pre">=</span> <span class="pre">True</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">tm_cpu_fallback_max_depth</span></code></p></td>
+<td><p>The maximum depth of operation (operations between it and graph input/output) for it to be included in TM fallback search. Any operations deeper than this will be performed on device.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">compiler_cfg.tm_cpu_fallback_max_depth</span> <span class="pre">=</span> <span class="pre">5</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">10</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">enable_conv_prestride</span></code></p></td>
+<td><p>Enabling host-side convolution prestiding (occurs during host-tilizer) for more efficient first convolution layer.  For example, this can transform a 7x7 conv into a 4x4 one by reordering and stacking the channels during tilizing.</p></td>
+<td><p>By default this is set to true, but in some cases where the host CPU might be a bottleneck in performing the data reordering it might need to be disabled: <code class="docutils literal notranslate"><span class="pre">pybuda.config.set_configuration_options(enable_conv_prestride=False)</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">enable_device_tilize</span></code></p></td>
+<td><p>Enable or Disable Tilize Op on the embedded platform</p></td>
+<td><p>By default this is set to true, but in some cases where the host CPU might be a bottleneck in performing the tilize operation so it might need to be disabled: <code class="docutils literal notranslate"><span class="pre">pybuda.config.set_configuration_options(enable_device_tilize=False)</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p>- <code class="docutils literal notranslate"><span class="pre">default_dram_parameters</span></code><br/>- <code class="docutils literal notranslate"><span class="pre">pybuda.config.override_dram_parameters</span></code></p></td>
+<td><p>If set to true/false, place parameters in dram by default i.e. <code class="docutils literal notranslate"><span class="pre">prologue</span> <span class="pre">=</span> <span class="pre">not</span> <span class="pre">default_dram_parameters</span></code>, if it’s None we refer to microbatch-size to set prologue config.</p></td>
+<td><p>In batch=1 cases, where parameters are only used once it could be desirable to keep the parameters in DRAM rather than first copying them to L1.  By default the compiler only does this for batch=1, otherwise always tries to copy the parameters to L1, given they fit.  This can also be overridden on a per-op level via <code class="docutils literal notranslate"><span class="pre">pybuda.config.override_dram_parameters(&quot;my_op_name&quot;,</span> <span class="pre">False)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">amp_level</span></code></p></td>
+<td><p>Please refer to the AMP section in the Pybuda user guide for detailed information about AMP and its capabilities.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pybuda.config.set_configuration_options(amp_level=1)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>- <code class="docutils literal notranslate"><span class="pre">default_df_override</span></code><br/>- <code class="docutils literal notranslate"><span class="pre">default_accumulate_df</span></code></p></td>
+<td><p>It is generally recommended to reach for AMP before using explicit overrides, but we also have the ability to override op or buffer data types for output and accumulate data formats.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pybuda.config.set_configuration_options(default_df_override=DataFormat.Bfp8_b,</span> <span class="pre">default_accumulate_df=DataFormat.Float32)</span></code> is an example of how to apply a blanket default programming of data formats for the entire network.  One could then further configure on a per-op level via <code class="docutils literal notranslate"><span class="pre">pybuda.config.configure_mixed_precision(name_regex=&quot;my_node_name&quot;,</span> <span class="pre">output_df=DataFormat.Float16_b)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>- <code class="docutils literal notranslate"><span class="pre">default_math_fidelity</span></code></p></td>
+<td><p>Please refer to the Data Formats and Math Fidelity section of the documentation.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pybuda.config.set_configuration_options(default_math_fidelity=MathFidelity.LoFi)</span></code> is an example of how to apply a blanket default programming of math fidelity for the entire network.  One could then further configure on a per-op level via <code class="docutils literal notranslate"><span class="pre">pybuda.config.configure_mixed_precision(name_regex=&quot;my_node_name&quot;,</span> <span class="pre">math_fidelity=MathFidelity.HiFi3)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">performance_trace</span></code></p></td>
+<td><p>We support 2 performance trace levels <code class="docutils literal notranslate"><span class="pre">PerfTraceLevel.LIGHT</span></code> or <code class="docutils literal notranslate"><span class="pre">PerfTraceLevel.VERBOSE</span></code>.  Each of these levels, to varying degree, instrument the compute kernels with fencepost information and counters that we can then collect post-process for consumption. This trace output directly feeds the <code class="docutils literal notranslate"><span class="pre">perf_analyzer.py</span></code> and PerfUI tools. Note that the Verbose level could have impact on the performance due to the amount of data being captured and stored.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pybuda.config.set_configuration_options(performance_trace=PerfTraceLevel.VERBOSE)</span></code> or <code class="docutils literal notranslate"><span class="pre">PerfTraceLevel.LIGHT</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">enable_stable_softmax</span></code></p></td>
+<td><p>Default enabled, normalizes the activations before performing the exponentiation to avoid infinties / numerical instability.  This normalization step is costly and in some cases, depending on the nature of the data at this particular point in the network, might not be needed.</p></td>
+<td><p>To disable, for extra perf at the cost of potential numerical instability: <code class="docutils literal notranslate"><span class="pre">pybuda.config.set_configuration_options(enable_stable_softmax=False)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">device_mode</span></code></p></td>
+<td><p>Used in the context of offline compilation of <code class="docutils literal notranslate"><span class="pre">.tti</span></code> files.  See <a class="reference internal" href="#user_guide.html#saving-and-loading-models"><span class="xref myst">Saving and Loading Models</span></a> section in the user guide for more information regarding offline compile.</p></td>
+<td><p>- <code class="docutils literal notranslate"><span class="pre">config</span> <span class="pre">=</span> <span class="pre">pybuda.config._get_global_compiler_config()</span></code><br/>- <code class="docutils literal notranslate"><span class="pre">config.device_mode</span> <span class="pre">=</span> <span class="pre">DeviceMode.CompileAndRun</span></code>: Default mode, compile and run current model<br/>- <code class="docutils literal notranslate"><span class="pre">config.device_mode</span> <span class="pre">=</span> <span class="pre">DeviceMode.CompileOnly</span></code>: Compile only and save compiled binary to tti for running later.<br/>- <code class="docutils literal notranslate"><span class="pre">config.device_mode</span> <span class="pre">=</span> <span class="pre">DeviceMode.RunOnly</span></code>: Load and run a precompiled tti.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">input_queues_on_host</span></code></p></td>
+<td><p>If true, input queue backing memory will reside in host RAM in a special device visibible mmio region.  If false, the input queue will be first copied to device RAM.  It’s almost always desirable to program this to true to avoid the overhead of copy to device RAM.</p></td>
+<td><p>By default true, to disable: <code class="docutils literal notranslate"><span class="pre">pybuda.config.set_configuration_options(input_queues_on_host=False)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">output_queues_on_host</span></code></p></td>
+<td><p>If true, output queue backing memory will reside in host RAM in a special device visibible mmio region.  If false, the output queue will be copied from device RAM to the host.  It’s almost always desirable to program this to true to avoid the overhead of copy from device RAM.</p></td>
+<td><p>By default true, to disable: <code class="docutils literal notranslate"><span class="pre">pybuda.config.set_configuration_options(output_queues_on_host=False)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pybuda.config.override_op_size</span></code></p></td>
+<td><p>Override the op grid shape.  It generally correlates that the larger the grid shape, i.e. more core resources given to the op, the faster the op will run.  It should be one of the first overrides to reach for when trying to tune the placement of ops on the device grid.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pybuda.config.override_op_size(&quot;my_op_name&quot;,</span> <span class="pre">(2,</span> <span class="pre">4))</span></code>, where 2 is the desired grid row dimension and 4 is the desired grid column dimension.  It’s generally useful to use the placement report to help visualize what placement the compiler has chosen for the current compilation, then use this override for the op in question.  The report page can then be reloaded to reflect the compilation changes after this override has been applied.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="level-2">
+<h3>Level 2<a class="headerlink" href="#level-2" title="Link to this heading"></a></h3>
+<section id="id2">
+<h4>Level 2<a class="headerlink" href="#id2" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configuration</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Usage</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pybuda.config.override_t_stream_shape</span></code></p></td>
+<td><p>Override the factors that the compiler automatically visits during regular compilation.  Streaming in this context means dividing the tensor into chunks along either the row or column dimension to stage the computation.  This implies that the computation is spread out temporally (hence the <code class="docutils literal notranslate"><span class="pre">t</span></code>) instead of spatially.</p></td>
+<td><p>Used in conjunction with <code class="docutils literal notranslate"><span class="pre">enable_t_streaming=True</span></code> one can explicitly override the streaming amount expressed as slicing factors via <code class="docutils literal notranslate"><span class="pre">pybuda.config.override_t_stream_shape(&quot;op_name&quot;,</span> <span class="pre">(4,</span> <span class="pre">1))</span></code>.  This means to slice the op’s tensor dimensions into 4 chunks along the row dimension to stream the computation in 4 stages.  This override, and t-streaming in general, are useful when tensors might be too large to fit all at once in the device core’s L1 storage.  By slicing up the tensor and staging the computation, we can fit in L1 at the cost of computing the full result temporally.  The compiler currently only supports streaming along one dimension at a time so either the row streaming factor or column streaming factor must be 1. To effectively disable streaming for an op one could use: <code class="docutils literal notranslate"><span class="pre">pybuda.config.override_t_stream_shape(&quot;op_name&quot;,</span> <span class="pre">(1,</span> <span class="pre">1))</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">manual_t_streaming</span></code></p></td>
+<td><p>See <code class="docutils literal notranslate"><span class="pre">enable_t_streaming</span></code> for context, but when <code class="docutils literal notranslate"><span class="pre">manual_t_streaming</span></code> is enabled the compiler turns off automatic visitation of all possible streaming amounts and instead the user must explicitly supply all streaming amounts via <code class="docutils literal notranslate"><span class="pre">pybuda.config.override_t_stream_shape</span></code>.</p></td>
+<td><p>Used in conjunction with <code class="docutils literal notranslate"><span class="pre">enable_t_streaming=True</span></code> and <code class="docutils literal notranslate"><span class="pre">pybuda.config.override_t_stream_shape</span></code>, we’d first program <code class="docutils literal notranslate"><span class="pre">pybuda.config.set_configuration_options(enable_t_streaming=True,</span> <span class="pre">manual_t_streaming=True)</span></code>. If we want any op to stream in the graph, we must explicitly use override <code class="docutils literal notranslate"><span class="pre">pybuda.config.override_t_stream_shape(&quot;my_op&quot;,</span> <span class="pre">(1,</span> <span class="pre">8))</span></code> to manually set the streaming amount.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PYBUDA_ENABLE_TVM_CACHE</span></code> (env)</p></td>
+<td><p>Cache the output of TVM (front end of PyBuda compiler which translates framework (i.e. PyTorch) models into an IR that PyBuda understands), so that next time model is executed, TVM conversion can be skipped.</p></td>
+<td><p>Setting environment variable <code class="docutils literal notranslate"><span class="pre">PYBUDA_ENABLE_TVM_CACHE</span></code> to <code class="docutils literal notranslate"><span class="pre">1</span></code> will enable caching. Not setting or setting it to <code class="docutils literal notranslate"><span class="pre">0</span></code> will disable. Setting it to <code class="docutils literal notranslate"><span class="pre">-1</span></code> will clear the cache for the current test.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">tvm_graph_store_path</span></code></p></td>
+<td><p>Used in conjunction with <code class="docutils literal notranslate"><span class="pre">PYBUDA_ENABLE_TVM_CACHE</span></code>, allows the user to override where TVM cache will be written to, if unset defaults to <code class="docutils literal notranslate"><span class="pre">generated_modules/tvm_cache/</span></code>.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">compiler_cfg.tvm_graph_store_path</span> <span class="pre">=</span> <span class="pre">&quot;path&quot;</span></code>, defaults to <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tvm_graph_load_path</span></code></p></td>
+<td><p>Used in conjunction with <code class="docutils literal notranslate"><span class="pre">PYBUDA_ENABLE_TVM_CACHE</span></code>, allows the user to override where the TVM cache will be read from. If unset defaults to <code class="docutils literal notranslate"><span class="pre">generated_modules/tvm_cache/</span></code>.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">compiler_cfg.tvm_graph_load_path</span> <span class="pre">=</span> <span class="pre">&quot;path&quot;</span></code>, defaults to <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PYBUDA_RELOAD_GENERATED_MODULES</span></code> (env)</p></td>
+<td><p>Reload the generated python module before PyBuda compilation. As part of converting TVM ir into PyBuda, it is serialized into a python module. <code class="docutils literal notranslate"><span class="pre">PYBUDA_RELOAD_GENERATED_MODULES</span></code> can be used to tell the compiler to reload the existing python module instead of regenerating. This allows the user to modify it in place for testing without changing user code.</p></td>
+<td><p>Set <code class="docutils literal notranslate"><span class="pre">PYBUDA_RELOAD_GENERATED_MODULES=1</span></code> environment variable to enable reload, unset to disable. Defaults to unset.</p></td>
+</tr>
+<tr class="row-even"><td><p>- <code class="docutils literal notranslate"><span class="pre">max_pool_add_sub_surround</span></code><br/>- <code class="docutils literal notranslate"><span class="pre">max_pool_add_sub_surround_value</span></code></p></td>
+<td><p>Today our backend implementation of <code class="docutils literal notranslate"><span class="pre">max_pool</span></code> does not support negative activation values.  These configs remaps the values to a positive range before running the max pool and then revert them back to the original range.  Note: this is usually not an issue if max pool follows a relu.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">config</span> <span class="pre">=</span> <span class="pre">pybuda.config._get_global_compiler_config()</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">config.max_pool_add_sub_surround</span> <span class="pre">=</span> <span class="pre">True;</span> <span class="pre">config.max_pool_add_sub_surround_value</span> <span class="pre">=</span> <span class="pre">5.0</span></code>.  In this case if we know the maximium negative value to expect in the activations is <code class="docutils literal notranslate"><span class="pre">5.0</span></code> before going into max pool ops.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">loopback_outputs</span></code></p></td>
+<td><p>Tell the compiler that some outputs from the model are inputs to the subsequent iteration, thus they should be kept on device. This is useful for implementing past cache generative models.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">compiler_cfg.loopback_outputs</span> <span class="pre">=</span> <span class="pre">{&quot;input_name_1&quot;:</span> <span class="pre">output_index_1,</span> <span class="pre">&quot;input_name_2&quot;:</span> <span class="pre">output_index_2}</span></code>, defaults to <code class="docutils literal notranslate"><span class="pre">{}</span></code>. This switch takes in a dictionary of input names and output indices that should be looped back.</p></td>
+</tr>
+<tr class="row-even"><td><p>- <code class="docutils literal notranslate"><span class="pre">op_names_to_epoch_break</span></code><br/>- <code class="docutils literal notranslate"><span class="pre">place_on_new_epoch</span></code></p></td>
+<td><p>Force the specified op name to break to a new epoch during placement.  This also implies that all subsequent nodes scheduled after the specified one will also belong to a subsequent epoch.</p></td>
+<td><p>All of the following are equivalent: <code class="docutils literal notranslate"><span class="pre">pybuda.config.set_epoch_break(&quot;my_op&quot;)</span></code>, <code class="docutils literal notranslate"><span class="pre">config</span> <span class="pre">=</span> <span class="pre">pybuda.config._get_global_compiler_config();</span> <span class="pre">config.place_on_new_epoch(&quot;my_op&quot;)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>- <code class="docutils literal notranslate"><span class="pre">op_names_to_chip_break</span></code><br/>- <code class="docutils literal notranslate"><span class="pre">place_on_new_chip</span></code> (<br/><br/>  <code class="docutils literal notranslate"><span class="pre">&lt;br/&gt;</span>&#160; <span class="pre">*&lt;br/&gt;</span>&#160; </code><br/><br/>  multichip)</p></td>
+<td><p>Akin to <code class="docutils literal notranslate"><span class="pre">place_on_new_epoch</span></code>, but instead of breaking the op schedule at this node to be placed on a new epoch, start placing on the next available chip.  Only available in multichip configurations.</p></td>
+<td><p>All of the following are equivalent: <code class="docutils literal notranslate"><span class="pre">pybuda.config.set_chip_break(&quot;my_op&quot;)</span></code>, <code class="docutils literal notranslate"><span class="pre">config</span> <span class="pre">=</span> <span class="pre">pybuda.config._get_global_compiler_config();</span> <span class="pre">config.place_on_new_chip(&quot;my_op&quot;)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">op_names_dont_fuse</span></code></p></td>
+<td><p>The list of op names supplied will not participate in the automatic fusion pass.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">config</span> <span class="pre">=</span> <span class="pre">pybuda.config._get_global_compiler_config();</span> <span class="pre">config.dont_fuse(&quot;my_op&quot;)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>- <code class="docutils literal notranslate"><span class="pre">amp_properties</span></code><br/>- <code class="docutils literal notranslate"><span class="pre">configure_mixed_precision</span></code></p></td>
+<td><p>Please refer to the <a class="reference internal" href="#user_guide.html#pybuda-automatic-mixed-precision"><span class="xref myst">Pybuda Automatic Mixed Precision</span></a> section in the user guide.</p></td>
+<td><p>Please refer to the <a class="reference internal" href="#user_guide.html#pybuda-automatic-mixed-precision"><span class="xref myst">Pybuda Automatic Mixed Precision</span></a> section in the user guide.</p></td>
+</tr>
+<tr class="row-even"><td><p>- <code class="docutils literal notranslate"><span class="pre">scheduler_constraints</span></code><br/>- <code class="docutils literal notranslate"><span class="pre">add_schedule_constraint</span></code></p></td>
+<td><p>Instruct pybuda compiler to schedule ops in a way that respects the given partial ordering. The compiler will ensure to schedule op_order[i] before op_order[i+1] in the final schedule.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pybuda.config.add_schedule_constraint([&quot;op_a&quot;,</span> <span class="pre">&quot;op_b&quot;])</span></code> will enforce that <code class="docutils literal notranslate"><span class="pre">op_a</span></code> will appear before <code class="docutils literal notranslate"><span class="pre">op_b</span></code> in the schedule.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">tti_dump_format</span></code></p></td>
+<td><p>Used to program the tti format depending on the runtime to be used.</p></td>
+<td><p>- <code class="docutils literal notranslate"><span class="pre">config</span> <span class="pre">=</span> <span class="pre">pybuda.config._get_global_compiler_config()</span></code><br/>- <code class="docutils literal notranslate"><span class="pre">config.tti_dump_format</span> <span class="pre">=</span> <span class="pre">&quot;default&quot;</span></code>: Default path, tti is to be loaded via pybuda python runtime.<br/>- <code class="docutils literal notranslate"><span class="pre">config.tti_dump_format</span> <span class="pre">=</span> <span class="pre">&quot;backend&quot;</span></code>: Embedded path, tti is to be loaded via backend C++ runtime.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">dram_placement_algorithm</span></code></p></td>
+<td><p>Set the algorithm to use for DRAM placement. Valid values are: ROUND_ROBIN, ROUND_ROBIN_FLIP_FLOP, GREATEST_CAPACITY, CLOSEST.  DRAM placement is the process of allocating DRAM queues and intelligently assigning these queues to DRAM channels depending on the cores that they’re accessed from.</p></td>
+<td><p>This configuration might be <code class="docutils literal notranslate"><span class="pre">pybuda.config.set_configuration_options(dram_placement_algorithm=DRAMPlacementAlgorithm.ROUND_ROBIN)</span></code>, the placement algorithm can greatly impact performance of the network, if it’s DRAM bandwidth limited.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pybuda.config.override_op_placement</span></code></p></td>
+<td><p>Override the op placement on the device core grid.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pybuda.config.override_op_placement(&quot;my_op_name&quot;,</span> <span class="pre">(2,</span> <span class="pre">4))</span></code>, in this config the op will be placed a device grid coordinate 2, 4.  It’s generally useful to use the placement report to help visualize what placement the compiler has chosen for the current compilation, then use this override for the op in question.  The report page can then be reloaded to reflect the compilation changes after this override has been applied.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="level-3">
+<h3>Level 3<a class="headerlink" href="#level-3" title="Link to this heading"></a></h3>
+<section id="id3">
+<h4>Level 3<a class="headerlink" href="#id3" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configuration</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Usage</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">graph_solver_self_cut_type</span></code></p></td>
+<td><p>GraphSolver self cut is a feature used to resolve op to op connection incompatibility which would otherwise result in compiler constraint violation. Incompatibility is resolved with queue insertion between two affected ops. There are four valid settings for <code class="docutils literal notranslate"><span class="pre">graph_solver_self_cut_type</span></code>: <code class="docutils literal notranslate"><span class="pre">&quot;None&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;ConsumerOperandDataEdgesFirst&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;ProducerUserDataEdgesFirst&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;FastCut&quot;</span></code>. <code class="docutils literal notranslate"><span class="pre">&quot;FastCut&quot;</span></code> is set by default as it results in fastest compilation time. <code class="docutils literal notranslate"><span class="pre">&quot;ConsumerOperandDataEdgesFirst&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;ProducerUserDataEdgesFirst&quot;</span></code> may be chosen instead as they will potentially produce lesser number of queues which could lead to slightly higher execution performance at cost of longer compilation times.</p></td>
+<td><p>Example of usage: <code class="docutils literal notranslate"><span class="pre">compiler_cfg.graph_solver_self_cut_type</span> <span class="pre">=</span> <span class="pre">&quot;ConsumerOperandDataEdgesFirst&quot;</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">enable_link_past_cache_ios</span></code></p></td>
+<td><p>Setting <code class="docutils literal notranslate"><span class="pre">enable_link_past_cache_ios</span></code> will have the compiler loopback past cache outputs into inputs automatically. This setting is similar to <code class="docutils literal notranslate"><span class="pre">loopback_outputs</span></code>, however the compiler will use heuristics to try and determine which inputs need to be linked with which outputs.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">compiler_cfg.enable_link_past_cache_ios=True</span></code> to enable this feature, default is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">fracture_groups</span></code> / <code class="docutils literal notranslate"><span class="pre">insert_fracture_group</span></code></p></td>
+<td><p>A fracture group describes pybuda a subgraph to be fractured and along specified dimension(s). This is called sharding in some other frameworks/papers.</p></td>
+<td><p>Typically useful for multichip configurations where you want a single op (i.e. a very large matmul) to span multiple chips for more parallelization.  <code class="docutils literal notranslate"><span class="pre">pybuda.config.insert_fracture_group([(&quot;op_a&quot;,</span> <span class="pre">-2,</span> <span class="pre">2),</span> <span class="pre">&quot;op_b&quot;,</span> <span class="pre">-2,</span> <span class="pre">2])</span></code> would fracture both <code class="docutils literal notranslate"><span class="pre">op_a</span></code> and <code class="docutils literal notranslate"><span class="pre">op_b</span></code> along their respective row dimensions by a factor of 2. If the ops specified form a strongly connected subgraph, the compiler will fracture the entire subgraph and avoid gather operations between these ops where possible.</p></td>
+</tr>
+<tr class="row-odd"><td><p>backend_opt_level</p></td>
+<td><p>An integer between <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">4]</span></code> that denotes the optimization level of the backend runtime.</p></td>
+<td><p>- <code class="docutils literal notranslate"><span class="pre">0</span></code>: No optimizations<br/>- <code class="docutils literal notranslate"><span class="pre">1</span></code>: Epoch caching enabled, preload epoch binaries, and resource overlap checks<br/>- <code class="docutils literal notranslate"><span class="pre">2</span></code>: All prev optimizations, queue settings reuse, and mru cache for epoch binaries<br/>- <code class="docutils literal notranslate"><span class="pre">3</span></code>: All prev optimizations, on-device queue updates<br/>- <code class="docutils literal notranslate"><span class="pre">4</span></code>: All prev optimization, looping-on-device, disable eq l1 shadow ptrs, and dis hazard checks</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">place_queue_to_chip_dram</span></code></p></td>
+<td><p>Given a dict of dram queue names to <code class="docutils literal notranslate"><span class="pre">(chip_id,</span> <span class="pre">dram_chan)</span></code>, force the placement of these queues.</p></td>
+<td><p>This can be useful when the <code class="docutils literal notranslate"><span class="pre">dram_placement_algorithm</span></code> is allocating queues with the desired results.</p></td>
+</tr>
+<tr class="row-odd"><td><p>- <code class="docutils literal notranslate"><span class="pre">insert_queues</span></code><br/>- <code class="docutils literal notranslate"><span class="pre">insert_buffering_nop</span></code></p></td>
+<td><p>These two configuration options insert DRAM queues or no-op ops between the specified edge.  This is useful in situations where a subgraph has a fork/join or skip-connect topology, especially ones where the paths are not balanced in terms of number of ops.  This runs into a pipelining issue where the short path must wait for the long path to finish in order to make forward progress.  These two configurations can help explicitly balance these situations to mitigate pipeline bubbles, or in some cases even deadlocks.  These APIs should be required by defualt, we have an fork/join graph pass that does this automatically.</p></td>
+<td><p>- <code class="docutils literal notranslate"><span class="pre">config.insert_queues.append((&quot;producer_op_name&quot;,</span> <span class="pre">&quot;consumer_op_name&quot;,</span> <span class="pre">1))</span></code>: Inserts a queue on the edge connecting this producer/consumer pair.  Here the <code class="docutils literal notranslate"><span class="pre">1</span></code> means consumer operand index 1.<br/>- <code class="docutils literal notranslate"><span class="pre">pybuda.config.insert_buffering_nop(&quot;producer_op_name&quot;,</span> <span class="pre">[&quot;consumer_op_name&quot;])</span></code>: Inserts a no-op, to be used purely as chip local buffer storage, between a producer op and a set of consumer ops.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pybuda.config.override_t_stream_dir</span></code></p></td>
+<td><p>See <code class="docutils literal notranslate"><span class="pre">enable_t_streaming</span></code> for more information about streaming. Override the streaming directions that the compiler automatically visits during regular compilation.  Streaming direction here controls the data ordering of the tensor after it’s been divided into streaming chunks.  For example, streaming direction “R” means that rows are selected to be the major dimension for streaming through the op, whereas “C” means columns are to be used as the major dimension.  This ordering matters and impacts how surrounding ops are also legally allowed to stream and fundamentally is dictated by the access patterns of certain ops.  For example, given some op <code class="docutils literal notranslate"><span class="pre">reduce(dim=-1)</span></code>, we can only legally stream with order “R” to this op because this reduce must consume entire rows before it can produce an output.  Streaming with order “C” into this op would require fully buffering the input before the op can make forward progress which would defeat the purpose of streaming in the first place.</p></td>
+<td><p>Used in conjunction with <code class="docutils literal notranslate"><span class="pre">enable_t_streaming=True</span></code> one can explicitly override the streaming direction expressed as a major ordering via <code class="docutils literal notranslate"><span class="pre">pybuda.config.override_t_stream_dir(&quot;op_name&quot;,</span> <span class="pre">&quot;C&quot;)</span></code>.  This means, force the op to stream in a column major ordering.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pybuda.config.override_u_kt</span></code></p></td>
+<td><p>Override the programming of <code class="docutils literal notranslate"><span class="pre">u_kt</span></code> and therefore implicitly <code class="docutils literal notranslate"><span class="pre">m_k</span></code>.  These two matmul hyper-parameters determine how much of the inner dimension is buffered in L1 at a given time, where <code class="docutils literal notranslate"><span class="pre">u_kt</span> <span class="pre">*</span> <span class="pre">m_k</span> <span class="pre">=</span> <span class="pre">inner_dim_in_tiles</span></code> and <code class="docutils literal notranslate"><span class="pre">u_kt</span></code> corresponds to the size that’s buffered and <code class="docutils literal notranslate"><span class="pre">m_k</span></code> corresponds to how many times the inner dimension is spilled and reloaded into the destination register.  For best performance you almost always want to maximize <code class="docutils literal notranslate"><span class="pre">u_kt</span></code> which is what the compiler already does by default.  The only limiting factor being space in L1.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pybuda.config.override_u_kt(&quot;my_matmul_op&quot;,</span> <span class="pre">4)</span></code> would program <code class="docutils literal notranslate"><span class="pre">u_kt</span></code> to be 4 and <code class="docutils literal notranslate"><span class="pre">m_k</span> <span class="pre">=</span> <span class="pre">total_inner_dim_in_tiles</span> <span class="pre">/</span> <span class="pre">4</span></code>.  Note that this override really only allows the user to make <code class="docutils literal notranslate"><span class="pre">u_kt</span></code> equal to or smaller than what the compiler would have automatically selected since it already maximizes its value.  Programming this <code class="docutils literal notranslate"><span class="pre">u_kt</span></code> to be something larger can result in a <code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">valid</span> <span class="pre">grids</span></code> error if the overridden <code class="docutils literal notranslate"><span class="pre">u_kt</span></code> cannot fit in L1.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pybuda.config.override_input_buffer_multiplier</span></code></p></td>
+<td><p>Override the number of input back buffers there are, by default the compiler will opportunistically try to reclaim L1 for additional input buffering which can help performance because the op is able to prefetch more and mitigate data movement overheads or pipeline bubbles.  This is what the fork/join automatic compiler pass reaches to first before inserting buffering nops or DRAM queues.  Even outside the scope of fork/join, additional input buffering can help performance.  In the typical case the compiler will simply set this value to 2, i.e. double buffered.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pybuda.config.override_input_buffer_multiplier(&quot;my_op&quot;,</span> <span class="pre">0,</span> <span class="pre">4)</span></code> would set “my_op“‘s input operand at index 0 to have an input buffer multiplier of 4.  Note that setting this number too high can result in compilation failures like <code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">valid</span> <span class="pre">grids</span></code> or backend compile failures because the input buffers took too many resources away from other users of L1 on that core.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pybuda.config.override_multi_op_fracture_factor</span></code></p></td>
+<td><p>For convolution only, fracture the convolution into multiple ops along the kernel window dimensions.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pybuda.config.override_multi_op_fracture_factor(&quot;my_conv_3x3&quot;,</span> <span class="pre">3)</span></code> would fracture a 3x3 convolution named “my_conv_3x3” into 3 separate ops to run the convolution kernels in parallel.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="tools-debug">
+<h2>Tools &amp; Debug<a class="headerlink" href="#tools-debug" title="Link to this heading"></a></h2>
+<section id="reportify">
+<h3>Reportify<a class="headerlink" href="#reportify" title="Link to this heading"></a></h3>
+<p>Reportify is a UI tool that we use visualize certain datastructures a device resources. It is not only useful as an internal developer tool, but also for external users to get a better understanding of the transformations that the compiler has done and then using that information to potentially feed back into the compiler via overrides to make different decisions.</p>
+<p>Reportify is a webserver that typically runs on the same remote machine as the compiler.  It’s pointed to a special local directory that the PyBuda compiler populates with all kinds of reports and debug information that the reportify server then serves as UI. Refer to the README.md in the reportify source repo for installing and setting up a webserver instance.</p>
+<p><strong>Home Page</strong></p>
+<p><img alt="Landing Page" src="_images/reportify_landing.png" /></p>
+<p>When you go to the reportify address in your browser, you’ll get the above landing page.  Each row entry represents a different module compilation or test, note that successive compilations clobber previous results.</p>
+<p><img alt="Module" src="_images/reportify_test.png" /></p>
+<p>Clicking on a row brings you to a list of report types associated with this compilation.  The 2 most common report types that are used are typically <em>Buda Reports: Passes</em> and <em>Placement Reports</em>.</p>
+<p><img alt="Buda Reports: Passes" src="_images/reportify_passes.png" /></p>
+<p>When clicking on the <em>Buda Reports: Passes</em> tab, we get a dropdown list of different graph passes to look at.  Each entry corresponds to a high level graph pass that the compiler ran and generated a report for.  We’ll look in detail at 2 of the graph passes, <em>initial_graph</em> and <em>post_placer</em>.</p>
+<p><img alt="Initial Graph Pass" src="_images/reportify_initial.png" /></p>
+<p>When you first click on a graph to visualize, reportify will be fully zoomed out to fit the entire graph inside the window.  Point your cursor to a section of graph you wish to zoom into and use the scroll wheel to zoom.</p>
+<p><img alt="Initial Graph Pass" src="_images/reportify_initial_zoom.png" /></p>
+<p>Here we can better see a section of the initial graph.  The initial graph is less of a graph pass and is rather a direct representation of the initial graph data structure that the compiler generated from tracing the module.  Graph input and output queues are typically drawn with ovals, light blue for activations and dark blue for parameters. Operations in the graph are denoted by rectangles and are annotated with the op’s name, internal compiler attributes associated with this op, and lastly the op’s shape in brackets.</p>
+<p><img alt="Initial Graph Pass" src="_images/reportify_initial_dialog.png" /></p>
+<p>Clicking on a node in the graph brings up a dialog with tons of additional information and metadata about the node.</p>
+<p><img alt="Buda Reports: Passes" src="_images/reportify_passes.png" /></p>
+<p>Let’s step out of the initial graph, and next take a look at another important graph pass, <em>post_placer</em>.</p>
+<p><img alt="Post Placer Pass" src="_images/reportify_post_placer.png" /></p>
+<p>The post-placer graph is at the other end of the spectrum from the initial graph, this represents the fully lowered and placed graph. Here, I’ve already zoomed into an area of subgraph and clicked on a node.  This graph is particularly useful for gathering additional metadata about the placement, low level blocking and tile allocation amounts for each op.  This data is directly used to populate the netlist yaml, the IR format passed to the backend during the final compilation step.</p>
+<p><strong>Placement Reports</strong></p>
+<p><img alt="Module" src="_images/reportify_test.png" /></p>
+<p>Ok, let’s step back to the report type’s page and this time take a look at a different report type, <em>Placement Reports</em>.</p>
+<p><img alt="Placement" src="_images/reportify_placement.jpg" /></p>
+<p>This report type displays a top level view of the device grid and how operations have been placed with respect to each other.  We can see the orange matmul in the middle has been placed onto a 2x5 grid, meaning it uses 10 cores worth of resources during this epoch execution, whereas, most other ops on this epoch are on a 1x1 grid, using only a single core.</p>
+<p><img alt="Placement" src="_images/reportify_placement_dialog.jpg" /></p>
+<p>When hovering over an op with your cursor, a dialog pops up with all of the netlist information about this op.  The input edges, in orange, and output edges, in blue, are also highlighted to visualize the source and destinations of data with respect to this op.  This UI is incredibly useful to see what placement decisions the compiler made.</p>
+</section>
+<section id="perf-analyzer-terminal-app">
+<h3>Perf Analyzer (Terminal App)<a class="headerlink" href="#perf-analyzer-terminal-app" title="Link to this heading"></a></h3>
+<p><img alt="Perf Analyzer" src="_images/perf_analyzer_summary.png" /></p>
+<p><strong>Overview</strong></p>
+<p>With the environment variable TT_BACKEND_PERF_ANALYZER, we can collect some very detailed information about op and pipe performance on silicon. This app helps by providing:</p>
+<ul class="simple">
+<li><p>Data collected from multiple sources, presented in an interactive tabular form within a terminal</p></li>
+<li><p>Quick epoch and model overview to highlight problem areas immediately</p></li>
+<li><p>Highlighting of problem areas - very low utilization, bad u_kt choice</p></li>
+<li><p>A way to save performance data into a single file for off-line analysis</p></li>
+</ul>
+<p><strong>Usage</strong></p>
+<p>To generate data used by the app, run any pybuda test with PYBUDA_OP_PERF=1 and TT_BACKEND_PERF_ANALYZER=1 env variables. PYBUDA_OP_PERF=1 is optional, and not available if a test is run from backend only (please ensure that you don’t have a leftover op_perf.csv file lying around in that case, as the app will try to pick it up).
+Alternatively, if using pybuda benchmark.py, run with –perf_analysis to automatically set the above env variables.
+Once the data has been generated, run the analysis app and give it the netlist name:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pybuda/pybuda/tools/perf_analysis.py<span class="w"> </span>-n<span class="w"> </span>your_netlist.yaml
+</pre></div>
+</div>
+<p>The app will look for performance data in tt_build, and op_perf.csv in the current directory. This corresponds to a typical pybuda test or model run, and should work for the backend runs, too, minus the op_perf.csv file.
+Use –save to save data to a binary file, and then subsequently run with –load from any other location or machine.
+Full set of command line options is below:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>usage:<span class="w"> </span>perf_analysis.py<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>-n<span class="w"> </span>NETLIST<span class="o">]</span><span class="w"> </span><span class="o">[</span>-s<span class="o">]</span><span class="w"> </span><span class="o">[</span>--save<span class="w"> </span>SAVE<span class="o">]</span><span class="w"> </span><span class="o">[</span>--load<span class="w"> </span>LOAD<span class="o">]</span>
+
+Perf<span class="w"> </span>analyzer<span class="w"> </span>collects<span class="w"> </span>performance<span class="w"> </span>data<span class="w"> </span>from<span class="w"> </span>various<span class="w"> </span>sources<span class="w"> </span>and<span class="w"> </span>displays<span class="w"> </span>it<span class="w"> </span><span class="k">in</span><span class="w"> </span>terminal.<span class="w"> </span>To<span class="w"> </span>use,<span class="w"> </span>run<span class="w"> </span>any<span class="w"> </span>pybuda<span class="w"> </span><span class="nb">test</span><span class="w"> </span>with<span class="w"> </span><span class="nv">PYBUDA_OP_PERF</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>and<span class="w"> </span><span class="nv">TT_BACKEND_PERF_ANALYZER</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>switches<span class="w"> </span>to<span class="w"> </span>generate
+data,<span class="w"> </span>and<span class="w"> </span><span class="k">then</span><span class="w"> </span>run<span class="w"> </span>this<span class="w"> </span>script<span class="w"> </span><span class="k">in</span><span class="w"> </span>pybuda<span class="w"> </span>root,<span class="w"> </span>providing<span class="w"> </span>the<span class="w"> </span>netlist.
+
+optional<span class="w"> </span>arguments:
+<span class="w">  </span>-h,<span class="w"> </span>--help<span class="w">            </span>show<span class="w"> </span>this<span class="w"> </span><span class="nb">help</span><span class="w"> </span>message<span class="w"> </span>and<span class="w"> </span><span class="nb">exit</span>
+<span class="w">  </span>-n<span class="w"> </span>NETLIST,<span class="w"> </span>--netlist<span class="w"> </span>NETLIST
+<span class="w">                        </span>Model<span class="w"> </span>netlist
+<span class="w">  </span>-s,<span class="w"> </span>--spatial_epochs<span class="w">  </span>Show<span class="w"> </span>individual<span class="w"> </span>spatial<span class="w"> </span>epochs<span class="w"> </span>instead<span class="w"> </span>of<span class="w"> </span>temporal<span class="w"> </span>ones.<span class="w"> </span>Caution<span class="w"> </span>-<span class="w"> </span>overall<span class="w"> </span>performance<span class="w"> </span>estimate<span class="w"> </span>on<span class="w"> </span>multi-chip<span class="w"> </span>runs<span class="w"> </span>will<span class="w"> </span>not<span class="w"> </span>be<span class="w"> </span>accurate<span class="w"> </span><span class="k">in</span><span class="w"> </span>this<span class="w"> </span>mode.
+<span class="w">  </span>--save<span class="w"> </span>SAVE<span class="w">           </span>Save<span class="w"> </span>collected<span class="w"> </span>data<span class="w"> </span>into<span class="w"> </span>provided<span class="w"> </span>file
+<span class="w">  </span>--load<span class="w"> </span>LOAD<span class="w">           </span>Load<span class="w"> </span>data<span class="w"> </span>from<span class="w"> </span>a<span class="w"> </span>previously<span class="w"> </span>saved<span class="w"> </span>file,<span class="w"> </span>instead<span class="w"> </span>of<span class="w"> </span>from<span class="w"> </span>current<span class="w"> </span>workspace
+</pre></div>
+</div>
+<p><strong>UI</strong></p>
+<p>Most of the data is presented in tables. The app will use the available terminal size, and will automatically fill the window as it is resized. Columns and rows that don’t fit on the screen are
+not shown, but arrow keys can be used to scroll through the data to show what doesn’t fit. Op names
+are shortened to about 50 characters, but pressing F will toggle the full names.
+Pressing ‘H’ will open up a help window with more information about the current screen.</p>
+<p><strong>Summary</strong></p>
+<p>The app initially opens up in the summary screen:</p>
+<p><img alt="Perf Analyzer Summary" src="_images/perf_analyzer_summary.png" /></p>
+<p><em>Note: Most of this information can be seen inside the app by pressing the ‘H’ key for help</em></p>
+<p>At the top, the screen shows the netlist name, and approximate performance and utilization calculated from the collected data.
+The overall performance of the model is based purely on the slowest ops in each epoch. Assuming the batch number is high enough to make epoch reconfiguration and pipeline fill/drain negligible, and that there are no major delays due to data transfer between host and the device, this should be a reasonable, albeit slightly optimistic, approximation. The overall utilization is similarly calculated using math utilizations measured on each core and could be optimistic if other delays are not negligible.
+A known limitation is that current backend measurement doesn’t take into account fork-join delays, so if overall performance, or a particular epoch performance here looks much better than the real measured time, it could be a sign of a fork-join problem.
+The fields in the summary table are:</p>
+<ul class="simple">
+<li><p>cycles: Pipeline stage cycles, i.e. the cycles of the slowest op</p></li>
+<li><p>speed: The number of inputs/s this epoch is processing</p></li>
+<li><p>util: The math utilization of the pipeline this epoch, in steady state</p></li>
+<li><p>mm cores: The number of cores occupied by matrix multiplication ops</p></li>
+<li><p>balancer util: Similar to util, but calculated using estimated op speeds given to the compiler/balancer. This measures how well balancer did its job, given the information it was given.</p></li>
+</ul>
+<p><strong>Epoch Analysis</strong></p>
+<p>Pressing ‘N’ moves to the user to the next epoch, or, if on the summary screen, first epoch. Alternatively, pressing ‘E’ lets you enter the epoch number and jump to it directly.</p>
+<p><em>Note: Most of this information can be seen inside the app by pressing the ‘H’ key for help</em></p>
+<p><img alt="Perf Analyzer Epoch Analysis" src="_images/perf_analyzer_epoch.png" /></p>
+<p>This window shows op performance and utilization for each op in the current epoch. Use P/N keys to move to previous/next epoch, and arrow keys to scroll the rows and columns of the table if it doesn’t fit on the screen. Use F to toggle between full op names and shortened version.
+The performance values in the table are measured on silicon using backend perf analyzer. The table is sorted with the slowest op at the top.
+Some of the key fields in the table are:</p>
+<ul class="simple">
+<li><p>est: The estimated cycles for the op, given to the compiler/balancer.</p></li>
+<li><p>kernel: The measured time kernel took to execute, with infinite input/output bandwidths.</p></li>
+<li><p>bw_kernel: The measure time for the kernel with real pipes feeding data in/out of the core. This is the “real” time it took for the op to complete.</p></li>
+<li><p>bw problem: Identifies the cause of the bw slowdown - input vs output pipe, and if input, then noc vs dram</p></li>
+<li><p>in/out columns: Bandwidths, in bytes/cycle, required for the kernel to run at full speed, and measured with real pipes.</p></li>
+</ul>
+<p><em>Note: A known limitation is that current backend measurement doesn’t take into account fork-join delays, so if overall performance, or a particular epoch performance here looks much better than the real measured time, it could be a sign of a fork-join problem.</em></p>
+<p><strong>Example Workflow / Compiler Feedback</strong></p>
+<p>Let’s consider an example performance report:</p>
+<p><img alt="Perf Analyzer Epoch Analysis" src="_images/perf_analyzer_wf_initial.png" /></p>
+<p>Let’s look at this initial epoch:</p>
+<p><img alt="Perf Analyzer Epoch 0" src="_images/perf_analyzer_epoch_0_initial.png" /></p>
+<p>Just taking a look down the <code class="docutils literal notranslate"><span class="pre">kernel</span></code> column here we can see that <code class="docutils literal notranslate"><span class="pre">_fused_op_0</span></code> took 4-6x longer to execute that all other ops on this epoch, so this is definitely something we should look into.  Let’s take a look at the placement report for this epoch:</p>
+<p><img alt="Placement Epoch 0" src="_images/perf_analyzer_placement_epoch_0_initial.png" /></p>
+<p><code class="docutils literal notranslate"><span class="pre">_fused_op_0</span></code> we can see in the bottom left hand corner on the 2x1 grid.  If we hover over this op we can see its connections:</p>
+<p><img alt="Placement Epoch 0" src="_images/perf_analyzer_placement_epoch_0_initial_hover.png" /></p>
+<p>We can see that this op is gathering from 4 different producer ops, so we’d really like to make this fused op run at around the same speed so that it’ able to keep up with its producers.  From a data movement perspective, this is also not great because the producer cores are on a 7x1 grid and this consumer is on a 2x1 grid.  If we mentally map how the tensor has be chunked onto the producer core grid, i.e. 7 chunks vertically, and then how this maps to the consumer core, i.e. 2 chunks vertically, each consumer core will have to do a lot of gathering.  Specifically, in this example, each consumer core will have to gather across 3.5 producer cores respectively in order to reconstruct the input tensor for this operation.  As a general rule of thumb, the closer to a 1-1 mapping of producer cores to consumer cores the better for data movement.  In BUDA we call this mismatch in core grids (and block shapes) between producer/consumer pairs <em>reblocking</em>. So more accurately, data movement is most efficient when the amount of <em>reblocking</em> (mismatch in grids and block shapes) is minimized.</p>
+<p>So what to do now?  In looking at the placement report we can see that there is a ribbon of ops along the top 7 rows, because of this these ops are balanced for the 2 reasons we discussed previously, 1) their kernel execution times are balanced because all ops have the same number of core resources allocated to them and 2) reblocking has been minimized because their core grids and block shapes match (note: block shapes can be seen by inspecting the netlist or hovering over the op in the placement graph).  Ideally, if we had another column on the device grid, we could also place <code class="docutils literal notranslate"><span class="pre">_fused_op_0</span></code> just to the right of the next op and also give it a 7x1 core grid.  However, we do not, but we do have a bunch of available cores along the bottom.  We can use 2 compiler overrides to reclaim those cores for our <code class="docutils literal notranslate"><span class="pre">_fused_op_0</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ask the compiler to only consider grid shapes of 7x1 for _fused_op_0</span>
+<span class="n">pybuda</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">override_op_size</span><span class="p">(</span><span class="s1">&#39;_fused_op_0&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="c1"># Ask the compiler to transpose the op grid, effectively swapping the rows and columns of the grid orientation</span>
+<span class="n">pybuda</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">override_op_placement</span><span class="p">(</span><span class="s1">&#39;_fused_op_0&#39;</span><span class="p">,</span> <span class="n">transpose_op</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>After rerunning the test, let’s refresh our placement report and take a look if our settings took effect:</p>
+<p><img alt="Placement After Epoch 0" src="_images/perf_analyzer_placement_epoch_0_after.png" /></p>
+<p>Things look quite different!  First let’s notice that <code class="docutils literal notranslate"><span class="pre">_fused_op_0</span></code> is on a transposed 7x1 grid, so our override worked.  But also notice that this decision had a cascading effect, after we chose this the compiler realized that in order to be balanced we can actually give fewer cores to the producer operations preceding the <code class="docutils literal notranslate"><span class="pre">_fused_op_0</span></code> and that it was now better to minimize reblocking on the <em>outgoing</em> edges from the fused op into the max pool operation which can now fit on this epoch.  This outlines a complicated tradeoff that the compiler needs to calculate, is it better to assign more cores on average for all ops and have more epochs, or is it better to assign fewer cores on average for all ops and have fewer epochs.  Even within an epoch there’s many decisions to be made, i.e. which edges will have the most impact by optimizing for their data movement, often times this is to the detriment of another op or connection.</p>
+<p>So did we do better?  From the summary view we can see that this override changed the network from running at <code class="docutils literal notranslate"><span class="pre">742</span> <span class="pre">samples/sec</span></code> to <code class="docutils literal notranslate"><span class="pre">1105</span> <span class="pre">samples/sec</span></code>, so ~1.5x speedup overall.</p>
+<p><img alt="Perf Analyzer Summary After" src="_images/perf_analyzer_summary_after.png" /></p>
+<p>Let’s jump into epoch 0 and take a closer look:</p>
+<p><img alt="Perf Analyzer Epoch 0 After" src="_images/perf_analyzer_epoch_0_after.png" /></p>
+<p>A couple of interesting things to note, <code class="docutils literal notranslate"><span class="pre">_fused_op_0</span></code> is now too fast, it’s kernel execution time lower than its immediate connections so it’d almost certainly be better to reduce this now.  We should also note that overall, epoch 0 is actually executing <em>slower</em>, but we were able to fit many more ops on this epoch (seen in the placement graph above) so overall this was a net win.</p>
+<p>Now, we could stop here, but it’s often interesting to try many experiments.  We might be happy with our original graph, with the exception of the fused op, we can get back to something closer to our original placement by being more explicit:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pybuda</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">override_op_size</span><span class="p">(</span><span class="s1">&#39;conv2d_0.dc.conv2d.3.dc.conv2d.1.dc.sparse_matmul.9.dc.sparse_matmul.1.lc2&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">pybuda</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">override_op_size</span><span class="p">(</span><span class="s1">&#39;conv2d_0.dc.conv2d.3.dc.conv2d.1.dc.matmul.11&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">pybuda</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">override_op_size</span><span class="p">(</span><span class="s1">&#39;conv2d_0.dc.conv2d.3.dc.conv2d.3.dc.sparse_matmul.9.dc.sparse_matmul.1.lc2&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">pybuda</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">override_op_size</span><span class="p">(</span><span class="s1">&#39;conv2d_0.dc.conv2d.3.dc.conv2d.3.dc.matmul.11&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">pybuda</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">override_op_size</span><span class="p">(</span><span class="s1">&#39;conv2d_0.dc.conv2d.3.dc.conv2d.5.dc.sparse_matmul.9.dc.sparse_matmul.1.lc2&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">pybuda</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">override_op_size</span><span class="p">(</span><span class="s1">&#39;conv2d_0.dc.conv2d.3.dc.conv2d.5.dc.matmul.11&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">pybuda</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">override_op_size</span><span class="p">(</span><span class="s1">&#39;conv2d_0.dc.conv2d.3.dc.conv2d.7.dc.sparse_matmul.9.dc.sparse_matmul.1.lc2&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">pybuda</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">override_op_size</span><span class="p">(</span><span class="s1">&#39;conv2d_0.dc.conv2d.3.dc.conv2d.7.dc.matmul.11&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">pybuda</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">override_op_size</span><span class="p">(</span><span class="s1">&#39;_fused_op_0&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">pybuda</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">override_op_placement</span><span class="p">(</span><span class="s1">&#39;_fused_op_0&#39;</span><span class="p">,</span> <span class="n">transpose_op</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We refresh our placement graph and see:</p>
+<p><img alt="Placement Epoch 0 Explicit" src="_images/perf_analyzer_epoch_0_explicit.png" /></p>
+<p>Now we really have what we originally intended to try, but how did we do?  Let’s look at perf analyzer again:</p>
+<p><img alt="Perf Analyzer Summary Explicit" src="_images/perf_analyzer_summary_explicit.png" /></p>
+<p>Overall we’re at <code class="docutils literal notranslate"><span class="pre">763</span> <span class="pre">samples/sec</span></code> so not much better from our original <code class="docutils literal notranslate"><span class="pre">742</span> <span class="pre">samples/sec</span></code>.  Let’s look at the epoch we changed:</p>
+<p><img alt="Perf Analyzer Summary Explicit" src="_images/perf_analyzer_epoch_0_an_explicit.png" /></p>
+<p>Alright so looking at the <code class="docutils literal notranslate"><span class="pre">kernel</span></code> column we’re looking much better, if we look at this epoch runtime we’re at <code class="docutils literal notranslate"><span class="pre">5642</span> <span class="pre">samples/sec</span></code> so much better than originally at <code class="docutils literal notranslate"><span class="pre">4556</span> <span class="pre">samples/sec</span></code>.  So then why did our previous attempt do so much better?  We need to take a step back and take a look at the execution as a whole, across all epochs.  It turned out to be better to have a slower epoch 0 if it meant we could squeeze more ops onto it, this then allieviates future epochs from having to do more work, or potentially eliminates entire epochs that would have existed.</p>
+<p>Some key takeaways from this workflow include:</p>
+<ul class="simple">
+<li><p>Kernel runtimes within an epoch should be balanced and can be manually tweaked by overridding grid size.</p></li>
+<li><p>Efficient data movement can be achieved by minimizing reblocking by using grid size and placement overrides.</p></li>
+<li><p>Performance issues/differences can be reasoned about, by running multiple experiments, comparing results, and looking at the placement solution holistically.</p></li>
+</ul>
+</section>
+<section id="debuda-low-level-device-debug">
+<h3>DeBUDA (Low level device debug)<a class="headerlink" href="#debuda-low-level-device-debug" title="Link to this heading"></a></h3>
+<p>Please reference the official DeBuda documentation <a class="reference external" href="http://yyz-webservice-02.local.tenstorrent.com/docs/debuda-docs/debuda_py/index.html">here</a>.</p>
+</section>
+</section>
+<section id="comparison-to-gpu-programming-model">
+<h2>Comparison To GPU Programming Model<a class="headerlink" href="#comparison-to-gpu-programming-model" title="Link to this heading"></a></h2>
+<p>Tenstorrent device architecture differs from GPUs in a few fundamental ways, including:</p>
+<ul class="simple">
+<li><p>Memory model:</p>
+<ul>
+<li><p>Streaming architecture, no random access pointers.  In fact the BUDA software architecture allows kernels to be written in a way that’s entirely decoupled from the way that memory was laid out from the producer core.  This completely alleviates kernel variation explosion.</p></li>
+<li><p>Kernel threading is abstracted away, instead kernels are written as though they are executing sequentially on a single core.</p></li>
+</ul>
+</li>
+<li><p>Execution model:</p>
+<ul>
+<li><p>Tile based operations, tenstorrent HW works on 32x32 local chunks of data at a time.</p></li>
+<li><p>SFPU HW provides SIMD like programming model.</p></li>
+<li><p>The amount of parallelism can be decided on a per-op level enabling larger ops to use more resources and lighter ops to use fewer resources.</p></li>
+</ul>
+</li>
+<li><p>Scalability:</p>
+<ul>
+<li><p>Same compiler for 1x1 device grid configuration can be scaled up to galaxy sized systems, 1000s of cores.</p></li>
+<li><p>No need to support custom model types / manual model fracturing.</p></li>
+<li><p>No kernel explosion, having to write the same kernel for all kinds of different access patterns.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="terminology.html" class="btn btn-neutral float-left" title="Terminology" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hardware.html" class="btn btn-neutral float-right" title="Hardware Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tenstorrent.
+      <span class="lastupdated">Last updated on Dec 23, 2025.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+  <div class="feedback-widget" id="tt-feedback">
+  <div class="ttfb-card">
+    <div id="ttfb-initial" class="ttfb-initial">
+      <p class="ttfb-question">Was this article helpful?</p>
+      <div class="ttfb-actions">
+        <button id="ttfb-up" class="ttfb-icon-btn" aria-label="Yes" title="Yes">
+          <span>👍</span>
+        </button>
+        <button id="ttfb-down" class="ttfb-icon-btn" aria-label="No" title="No">
+          <span>👎</span>
+        </button>
+      </div>
+    </div>
+
+    <form id="ttfb-form" class="ttfb-hidden" novalidate>
+      <p id="ttfb-prompt" class="ttfb-prompt"></p>
+
+      <div id="ttfb-reasons" class="ttfb-hidden">
+        <p class="ttfb-reasons-title">How would you describe this article?</p>
+        <div class="ttfb-reasons-grid">
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="inaccurate"> <b>Inaccurate:</b> it doesn’t reflect what I see in the product</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="unclear"> <b>Unclear:</b> it’s difficult to understand</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="missing"> <b>Missing information:</b> it’s not comprehensive enough</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="irrelevant"> <b>Irrelevant:</b> it doesn’t match what I searched for</label>
+        </div>
+      </div>
+
+      <textarea id="ttfb-text" rows="3" class="ttfb-text" placeholder="Please let us know what was or wasn't helpful about this page."></textarea>
+
+      <div class="ttfb-contact">
+        <input id="ttfb-can-contact" type="checkbox"> <label for="ttfb-can-contact">Allow Tenstorrent to contact me about my documentation feedback.</label>
+      </div>
+      <div id="ttfb-email-wrap" class="ttfb-hidden">
+        <input id="ttfb-email" type="email" class="ttfb-email" placeholder="Enter your email address">
+      </div>
+
+      <button id="ttfb-submit" type="submit" class="ttfb-submit">Submit</button>
+    </form>
+
+    <div id="ttfb-thanks" class="ttfb-hidden ttfb-center"><p class="ttfb-thanks-text">Thank you for your feedback!</p></div>
+    <div id="ttfb-error" class="ttfb-hidden ttfb-center"><p class="ttfb-error-text">Sorry, something went wrong. Please try again later.</p></div>
+  </div>
+</div>
+
+<style>
+.feedback-widget { margin: 2rem 0; }
+.ttfb-card {
+  background: #fff;
+  border: 1px solid var(--color-background-40, #d7dbeb66);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+.ttfb-initial { display: flex; flex-direction: row; gap: .75rem; align-items: center; flex-wrap: wrap; justify-content: flex-start; }
+.ttfb-question { margin: 0; font-weight: 600; color: var(--color-foreground, #202020); }
+.ttfb-actions { display: flex; gap: .5rem; }
+.ttfb-icon-btn {
+  padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; background: #fff; cursor: pointer;
+  transition: background var(--transition-duration, 150ms) var(--transition-timing, ease), border-color var(--transition-duration, 150ms) var(--transition-timing, ease);
+}
+.ttfb-icon-btn:hover { background: #f3f4f6; }
+
+.ttfb-hidden { display: none; }
+.ttfb-prompt { margin: .5rem 0 1rem 0; color: var(--color-foreground, #202020); font-weight: 600; }
+.ttfb-reasons-title { margin: 0 0 .5rem 0; color: var(--color-foreground, #202020); font-weight: 500; }
+.ttfb-reasons-grid { display: grid; grid-template-columns: 1fr; gap: .25rem; }
+@media (min-width: 768px) { .ttfb-reasons-grid { grid-template-columns: 1fr 1fr; } }
+.ttfb-radio { display: flex; align-items: flex-start; gap: .5rem; }
+.ttfb-radio input { margin-top: .2rem; }
+
+.ttfb-text {
+  width: 100%; padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; font-family: inherit; resize: vertical;
+}
+.ttfb-contact { display: flex; align-items: center; gap: .5rem; margin-top: .5rem; }
+.ttfb-email { width: 100%; padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; margin-top: .5rem; }
+.ttfb-submit { margin-top: .75rem; padding: .5rem 1rem; background: var(--color-purple, #5164e0); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; }
+.ttfb-submit:hover { background: var(--color-dark-purple, #7584e6); }
+.ttfb-center { text-align: center; padding: 1rem; }
+.ttfb-thanks-text { color: var(--color-purple, #5164e0); font-weight: 600; }
+.ttfb-error-text { color: #dc2626; font-weight: 600; }
+
+/* Hide widget when page sets meta hide_feedback=true */
+html:has(meta[name="hide_feedback"][content="true"]) .feedback-widget { display: none !important; }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const root = document.getElementById('tt-feedback');
+  if (!root) return;
+
+  // Reposition widget: place it just above the Previous/Next buttons
+  try {
+    const footerButtons = document.querySelector('.rst-footer-buttons');
+    if (footerButtons && footerButtons.parentNode) {
+      footerButtons.parentNode.insertBefore(root, footerButtons);
+    }
+  } catch (e) {
+    // no-op if structure not present
+  }
+
+  const initial = root.querySelector('#ttfb-initial');
+  const form = root.querySelector('#ttfb-form');
+  const prompt = root.querySelector('#ttfb-prompt');
+  const reasonsWrap = root.querySelector('#ttfb-reasons');
+  const text = root.querySelector('#ttfb-text');
+  const thanks = root.querySelector('#ttfb-thanks');
+  const error = root.querySelector('#ttfb-error');
+  const upBtn = root.querySelector('#ttfb-up');
+  const downBtn = root.querySelector('#ttfb-down');
+  const canContact = root.querySelector('#ttfb-can-contact');
+  const emailWrap = root.querySelector('#ttfb-email-wrap');
+  const emailInput = root.querySelector('#ttfb-email');
+
+  let sentiment = null; // 'up' | 'down'
+
+  function show(el) { el.classList.remove('ttfb-hidden'); }
+  function hide(el) { el.classList.add('ttfb-hidden'); }
+
+  function setPromptForSentiment() {
+    if (sentiment === 'down') {
+      prompt.textContent = 'We\'re sorry to hear that. Can you tell us more?';
+      show(reasonsWrap);
+    } else {
+      prompt.textContent = 'Thanks! Anything to add? (optional)';
+      hide(reasonsWrap);
+    }
+  }
+
+  function validateEmail(email) {
+    return /.+@.+\..+/.test(email);
+  }
+
+  function submitPayload(payload) {
+    try {
+      if (window.posthog && typeof window.posthog.capture === 'function') {
+        window.posthog.capture('docs_feedback', payload);
+      } else {
+        console.log('Feedback submitted:', payload);
+      }
+      return true;
+    } catch (e) {
+      console.error('Feedback submit error', e);
+      return false;
+    }
+  }
+
+  upBtn.addEventListener('click', function () {
+    sentiment = 'up';
+    hide(initial);
+    setPromptForSentiment();
+    show(form);
+    text.focus();
+  });
+
+  downBtn.addEventListener('click', function () {
+    sentiment = 'down';
+    hide(initial);
+    setPromptForSentiment();
+    show(form);
+  });
+
+  canContact.addEventListener('change', function () {
+    if (canContact.checked) {
+      show(emailWrap);
+      emailInput.focus();
+    } else {
+      hide(emailWrap);
+    }
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const page = window.location.pathname;
+    const ts = new Date().toISOString();
+    const feedbackText = text.value.trim();
+    const canContactVal = !!canContact.checked;
+    const emailVal = emailInput.value.trim();
+    const reasonEl = root.querySelector('input[name="down_reason"]:checked');
+    const reason = reasonEl ? reasonEl.value : null;
+
+    if (canContactVal && emailVal && !validateEmail(emailVal)) {
+      emailInput.setCustomValidity('Please enter a valid email.');
+      emailInput.reportValidity();
+      return;
+    } else {
+      emailInput.setCustomValidity('');
+    }
+
+    const payload = {
+      sentiment,
+      reason,
+      text: feedbackText,
+      can_contact: canContactVal,
+      email: canContactVal ? emailVal || null : null,
+      page,
+      timestamp: ts
+    };
+
+    const ok = submitPayload(payload);
+    hide(form);
+    if (ok) {
+      show(thanks);
+      setTimeout(() => { root.style.display = 'none'; }, 3000);
+    } else {
+      show(error);
+    }
+  });
+});
+</script>
+
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
