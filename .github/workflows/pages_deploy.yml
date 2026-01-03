@@ -29,6 +29,24 @@ jobs:
           python3 -m venv .docs-env
           source .docs-env/bin/activate
           pip install -r requirements.txt
+
+      - name: Fetch latest versions from GitHub releases
+        run: |
+          # Fetch latest tt-kmd version
+          KMD_VERSION=$(curl -s https://api.github.com/repos/tenstorrent/tt-kmd/releases/latest | jq -r '.tag_name' | sed 's/^ttkmd-//')
+          echo "Latest tt-kmd version: $KMD_VERSION"
+          echo "$KMD_VERSION" > syseng/kmd.version
+
+          # Fetch latest tt-firmware version
+          FW_VERSION=$(curl -s https://api.github.com/repos/tenstorrent/tt-firmware/releases/latest | jq -r '.tag_name' | sed 's/^v//')
+          echo "Latest tt-firmware version: $FW_VERSION"
+          echo "$FW_VERSION" > syseng/firmware.version
+
+          # Fetch latest tt-system-tools version
+          SYS_TOOLS_VERSION=$(curl -s https://api.github.com/repos/tenstorrent/tt-system-tools/releases/latest | jq -r '.tag_name' | sed 's/^v//')
+          echo "Latest tt-system-tools version: $SYS_TOOLS_VERSION"
+          echo "$SYS_TOOLS_VERSION" > syseng/sys_tools.version
+
       - name: Build documentation
         run: |
           source .docs-env/bin/activate
