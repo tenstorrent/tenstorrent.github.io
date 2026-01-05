@@ -5,15 +5,20 @@ Wormhole™ PCIe Cards
 Getting Started
 ---------------
 
-- `Hardware Installation <https://docs.tenstorrent.com/aibs/wormhole/installation.html>`_
-- `Software Setup <http://docs.tenstorrent.com/getting-started/README.html>`_
+.. toctree::
+   :maxdepth: 1
+   
+   installation
+   Software Setup </getting-started/README>
 
 Reference Materials
 -------------------
 
-- `Specifications and Requirements <https://docs.tenstorrent.com/aibs/wormhole/specifications.html>`_
--  Troubleshooting Common Hardware Issues - TBD
-- `Regulatory Compliance Statements <https://docs.tenstorrent.com/aibs/compliance.html>`_
+.. toctree::
+   :maxdepth: 1
+   
+   specifications
+   /aibs/compliance
 
 Accessories
 -----------
@@ -23,3 +28,10 @@ Accessories
 
    warp100
    ack
+
+
+
+
+
+
+
