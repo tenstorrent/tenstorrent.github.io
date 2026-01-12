@@ -27,15 +27,14 @@ The **p100a** and **p150a** add-in board are designed for desktop workstations w
 | Specification             | p100a                       | p150a                       | p150b                       |
 | ------------------------- | --------------------------- | --------------------------- | --------------------------- |
 | Part Number               | TC-03008                    | TC-03003                    | TC-03002                    |
-| Tensix Cores              | 120                         | 140                         | 140                         |
+| Tensix Cores              | 120                         | 120                         | 120                         |
 | AI Clock                  | Up to 1.35 GHz              | Up to 1.35 GHz              | Up to 1.35 GHz              |
 | "Big RISC-V" Cores        | 16                          | 16                          | 16                          |
 | SRAM                      | 180 MB                      | 210 MB                      | 210 MB                      |
 | Memory                    | 28 GB GDDR6                 | 32 GB GDDR6                 | 32 GB GDDR6                 |
 | Memory Speed              | 16 GT/sec                   | 16 GT/sec                   | 16 GT/sec                   |
 | Memory Bandwidth          | 448 GB/sec                  | 512 GB/sec                  | 512 GB/sec                  |
-| TeraFLOPS (FP16)          | 166                         | 194                         | 194                         |
-| TeraFLOPS (BLOCKFP8)      | 664                         | 774                         | 774                         |
+| TeraFLOPS (BLOCKFP8)      | 664                         | 664                         | 664                         |
 | TBP (Total Board Power)   | 300W                        | 300W                        | 300W                        |
 | External Power            | 1x 12+4-pin 12V-2x6         | 1x 12+4-pin 12V-2x6         | 1x 12+4-pin 12V-2x6         |
 | Power Supply Requirements | ATX 3.1 Certified or better | ATX 3.1 Certified or better | ATX 3.1 Certified or better |
