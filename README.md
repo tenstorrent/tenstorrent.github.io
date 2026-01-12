@@ -69,7 +69,7 @@ We also have versions.html in `shared/_templates` This is used for dosplaying th
 
 To add a new project to the repo:
 
-1. Create a folder with the project name eg `pybuda`
+1. Create a folder with the project name eg `forge`
 2. Create a conf.py file in that folder (you can use the example-conf.py in shared as a starting point)
 3. Add your project to the versions.yml file
 4. You're all set to add markdown or rst files containing documentation to the project!
