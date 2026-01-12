@@ -16,7 +16,6 @@ The Grayskull™ e75 and e150 Tensix Processor add-in boards are built using the
 
 - **TT-Firmware:** `fw_pack-80.14.0.0.fwbundle`
 - **TT-KMD:** `ttkmd_1.31`
-- **TT-Buda:** `v0.19.3`
 - **TT-Metalium:** `v0.55`
 
 | Specification                        | e75                                         | e150                                           |

@@ -35,12 +35,6 @@ Physical and software setup for Tenstorrent workstation and server solutions:
 
 ## APIs, SDKs, and Software
 
-### TT-Buda
-
-Documentation for Tenstorrent's high level API is **here**.
-
-
-
 ### TT-Metalium 
 
 Documentation for Tenstorrent's open source, low level API is **here**.
