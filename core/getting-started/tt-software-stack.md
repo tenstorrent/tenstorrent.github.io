@@ -11,12 +11,54 @@ This document provides developers and researchers with an overview of the main c
 
 ---
 
-## **TT-Metalium™: Programming Tenstorrent Hardware**
-TT-Metalium™ is the low-level, open-source software development kit (SDK) that provides developers direct access to Tenstorrent hardware. It is a bare-metal programming environment designed for users who must write custom C++ kernels for machine learning or other high-performance computing workloads.
+<style>
+.software-stack-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 40px;
+  margin: 20px 0;
+}
 
-Use TT-Metalium™ when you require complete control over the hardware to optimize code for performance, explicitly manage memory, or implement novel operations not found in standard libraries. This environment exposes the RISC-V processors, the Network-on-Chip (NoC), and the matrix and vector engines within each Tensix core.
+.software-stack-content {
+  flex: 1;
+  min-width: 0;
+}
 
-The main project is available in the [tt-metal](https://github.com/tenstorrent/tt-metal) GitHub repository.
+.software-stack-diagram {
+  flex-shrink: 0;
+  max-width: 500px;
+}
+
+@media (max-width: 1434px) {
+  .software-stack-layout {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .software-stack-diagram {
+    max-width: 100%;
+    order: 1;
+    margin-bottom: 20px;
+  }
+  
+  .software-stack-content {
+    order: 2;
+  }
+}
+</style>
+
+<div class="software-stack-layout">
+
+<div class="software-stack-content">
+
+## **TT-Forge™: The MLIR-Based Compiler**
+
+TT-Forge™ is Tenstorrent's Multi-Level Intermediate Representation (MLIR)-based compiler. It bridges high-level machine learning frameworks with the Tenstorrent software stack.
+
+Interact with TT-Forge™ to compile models from frameworks such as [PyTorch](https://pytorch.org), [JAX](https://docs.jax.dev/en/latest/), and [TensorFlow](https://www.tensorflow.org) for execution on Tenstorrent hardware. It offers an automated, general path to run many types of model architectures without requiring custom kernel development. TT-Forge™ integrates with and lowers to TT-Metalium for hardware execution.
+
+The main project is located in the [tt-forge](https://github.com/tenstorrent/tt-forge) GitHub repository.
 
 ---
 
@@ -24,19 +66,30 @@ The main project is available in the [tt-metal](https://github.com/tenstorrent/t
 
 TT-NN™ is a library of neural network operations that provides a user-friendly interface for running models on Tenstorrent hardware. It is designed to be intuitive for developers familiar with [PyTorch](https://pytorch.org).
 
-Use TT-NN™ to run AI models using a familiar, high-level Python API without managing the complexities of the underlying hardware. TT-NN™ builds upon TT-Metalium™ and provides a stable set of pre-packaged, optimized operations. It is also available with a C++ API.
+Interact with TT-NN™ to run AI models using a familiar, high-level Python API without managing the complexities of the underlying hardware. TT-NN™ builds upon TT-Metalium™ and provides a stable set of pre-packaged, optimized operations. It is also available with a C++ API.
 
 The TT-NN™ library is part of the [tt-metal](https://github.com/tenstorrent/tt-metal) GitHub repository.
 
+</div>
+
+<div class="software-stack-diagram">
+
+```{image} tt-software-stack-diagram.png
+:alt: Tenstorrent Software Stack Flowchart
+:width: 500px
+```
+
+</div>
+
+</div>
+
 ---
+## **TT-Metalium™: Programming Tenstorrent Hardware**
+TT-Metalium™ is the low-level, open-source software development kit (SDK) that provides developers direct access to Tenstorrent hardware. It is a bare-metal programming environment designed for users who must write custom C++ kernels for machine learning or other high-performance computing workloads.
 
-## **TT-Forge™: The MLIR-Based Compiler**
+Interact with TT-Metalium™ when you require complete control over the hardware to optimize code for performance, explicitly manage memory, or implement novel operations not found in standard libraries. This environment exposes the RISC-V processors, the Network-on-Chip (NoC), and the matrix and vector engines within each Tensix core.
 
-TT-Forge™ is Tenstorrent’s Multi-Level Intermediate Representation (MLIR)-based compiler. It bridges high-level machine learning frameworks with the Tenstorrent software stack.
-
-Use TT-Forge™ to compile models from frameworks such as [PyTorch](https://pytorch.org), [JAX](https://docs.jax.dev/en/latest/), and [TensorFlow](https://www.tensorflow.org) for execution on Tenstorrent hardware. It offers an automated, general path to run many types of model architectures without requiring custom kernel development. TT-Forge™ integrates with and lowers to TT-Metalium for hardware execution.
-
-The main project is located in the [tt-forge](https://github.com/tenstorrent/tt-forge) GitHub repository.
+The main project is available in the [tt-metal](https://github.com/tenstorrent/tt-metal) GitHub repository.
 
 ---
 
