@@ -1,5 +1,8 @@
 Tools
 =====
+* `tt-studio <https://github.com/tenstorrent/tt-studio>`_
+
+CHANGE THIS DESCRIPTION
 
 * `tt-smi <https://github.com/tenstorrent/tt-smi>`_
 
