@@ -1,8 +1,11 @@
 Tools
 =====
-* `tt-studio <https://github.com/tenstorrent/tt-studio>`_
 
-CHANGE THIS DESCRIPTION
+* `TT-studio <https://github.com/tenstorrent/tt-studio>`_
+
+The Tenstorrent Studio (TT-Studio) is an easy-to-use web interface for running AI models on Tenstorrent hardware. It handles all the technical setup automatically and gives you a simple GUI to deploy models, chat with models, and more.
+
+
 
 * `tt-smi <https://github.com/tenstorrent/tt-smi>`_
 
