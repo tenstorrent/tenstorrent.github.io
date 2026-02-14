@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    product-name: tt-installer, TT-Metalium™, TT-SMI
+    product-name: tt-installer, TT-Metalium™, TT-SMI, TT-Studio
     technology-concepts: software installation, Podman, containerization, driver
     document-type: how-to
 ---
@@ -53,7 +53,7 @@ Now, to begin the installation, execute the following command in your terminal:
 /bin/bash -c "$(curl -fsSL https://github.com/tenstorrent/tt-installer/releases/latest/download/install.sh)"
 ```
 
-You will be prompted to select which software you wish to install. The first thing you will see looks like:
+After displaying the ASCII logo and version information, the installer will ask you to confirm you want to proceed:
 ```
    __                  __                             __
   / /____  ____  _____/ /_____  _____________  ____  / /_
@@ -62,87 +62,75 @@ You will be prompted to select which software you wish to install. The first thi
 \__/\___/_/ /_/____/\__/\____/_/  /_/   \___/_/ /_/\__/
 
 [INFO] Welcome to tenstorrent!
-[INFO] This is tt-installer version 1.6.0
-[INFO] Log is at /tmp/tenstorrent_install_l2ULbx/install.log
-[INFO] Using software versions:
-[INFO]   TT-KMD: 2.3.0
-[INFO]   Firmware: 18.7.0
-[INFO]   System Tools: 1.3.1
-[INFO]   tt-smi: 3.0.27
-[INFO]   tt-flash: 3.4.2
+...
 [INFO] This script will install drivers and tooling and properly configure your tenstorrent hardware.
 OK to continue? [Y/n]
 ```
 **Answer "Y" to continue.**
 
-### **2\. Grant Root Privileges**
-Next, the installation will start and ask you to grant the script sudo permissions:
+### **2\. Choose Default or Custom Installation**
+Next, the installer will ask whether you want to proceed with the default installation:
+```
+Would you like to proceed with the default installation?
+Selecting yes enables non-interactive mode and continues with default options.
+[Y/n]
+```
+**Press Enter or answer "Y" to accept the default installation.** This is the recommended path for most users. The installer will run everything with default options automatically -- you will not be prompted with any additional component questions.
+
+:::{admonition} What does the default installation include?
+:class: note
+The default installation installs the following components:
+* TT-KMD (kernel driver)
+* HugePages
+* SFPI
+* Podman container runtime (with `podman-docker` compatibility shim)
+* TT-Metalium slim container
+* TT-Flash and firmware update
+* TT-SMI
+* tt-inference-server (cloned to `~/.local/lib/tt-inference-server`)
+* TT-Studio (cloned to `~/.local/lib/tt-studio`)
+* A new Python virtual environment at `~/.tenstorrent-venv`
+
+Wrapper scripts for these tools are installed to `~/.local/bin/`.
+:::
+
+:::{admonition} Custom installation (advanced)
+:class: tip
+If you answer "N" to the default installation prompt, you will enter interactive mode where you can individually select which components to install, including the TT-Metalium slim container, the Model Demos container, Python package installation location, and more. This is intended for advanced users and developers who need to customize their setup. See [TT-NN / TT-Metalium Installation](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/installing.html#tt-nn-tt-metalium-installation) for additional manual installation instructions.
+:::
+
+### **3\. Grant Root Privileges**
+The installer will ask you to grant the script sudo permissions:
 ```
 [INFO] Starting installation
 [INFO] Checking for sudo permissions... (may request password)
-[sudo] password for <your-username>: 
+[sudo] password for <your-username>:
 ```
 :::{admonition} Required
 :class: warning
 **Using sudo is required so you must enter your user's password.**
 :::
 
-### **3\. Install TT-Metalium Slim Container**
-tt-installer configures necessary packages on your system and installs system-level tools as well as our programming framework, TT-Metalium. By default, TT-Metalium is installed as a container using Podman. This containerized environment is appropriate for most users as explained [here](https://github.com/tenstorrent/tt-installer/wiki/Using-the-tt%E2%80%90metalium-container), but advanced users and developers may wish to install Metalium natively on the host system or use Docker instead of Podman. See [TT-NN / TT-Metalium Installation](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/installing.html#tt-nn-tt-metalium-installation) for manual installation instructions.
-
-Next, you will be prompted whether to install the TT-Metalium slim container:
-```
-[INFO] Would you like to install the TT-Metalium slim container?
-[INFO] This container is appropriate if you only need to use TT-NN
-Install Metalium [Y/n] 
-```
-
-:::{admonition} Optional
-:class: note
-This container possesses a release installation of tt-nn and tt-metalium. **If you want if you want to use tt-nn / tt-metalium to build software, answer “Y” to this question”, otherwise, answer “N”.**
-:::
-
-### **4\. Install TT-Metalium Model Demos Container**
-Next, you will be prompted whether to install the TT-Metalium Model Demos container:
-```
-[INFO] Would you like to install the TT-Metalium Model Demos container?
-[INFO] This container is best for users who need more TT-Metalium functionality, such as running prebuilt models, but it's large (10GB)
-Install Metalium Models [Y/n] 
-```
-:::{admonition} Optional
-:class: note
-This container possesses a full build of the [tt-metal](https://github.com/tenstorrent/tt-metal/tree/main) project, including model demo source code.
-**If you want to run model demos answer "Y" to this question", otherwise, answer "N".**
-:::
-
-### **5\. Choose Python Package Installation Location**
-Next, you will be asked to select how you would like to install Python packages. Our software is distributed in many forms, one of them being Python packages. We provide four installation options:
-```
-[INFO] How would you like to install Python packages?
-1) active-venv: Use the active virtual environment
-2) new-venv: [DEFAULT] Create a new Python virtual environment (venv) at /home/$USER/.tenstorrent-venv
-3) system-python: Use the system pathing, available for multiple users. *** NOT RECOMMENDED UNLESS YOU ARE SURE ***
-4) pipx: Use pipx for isolated package installation
-Enter your choice (1-4) or press enter for default (new-venv): 
-```
-**If this is your first time running tt-installer, we recommend using the second, DEFAULT option.**
-
-### **6\. Install System Software Dependencies**
-Next, tt-installer will install:
+### **4\. Install System Software Dependencies**
+The installer will now install:
 * [TT-KMD](https://github.com/tenstorrent/tt-kmd), the Kernel-Mode Driver
 * [TT-Flash](https://github.com/tenstorrent/tt-flash), the utility to flash firmware blobs to Tenstorrent devices
 * [TT-Firmware](https://github.com/tenstorrent/tt-firmware), the on-device firmware
 * [HugePages](https://github.com/tenstorrent/tt-system-tools), a system tool for improving memory performance
 * [TT-SMI](https://github.com/tenstorrent/tt-smi), the System Management Interface
 
-### **7\. Reboot System**
+### **5\. Reboot System**
 :::{admonition} Important
 :class: warning
-At the end of the installation process, you will be prompted to answer this question:
+If you used the default installation, the installer will **not** automatically reboot your system. **You must manually reboot if this is your first time running tt-installer on your system:**
+```bash
+sudo reboot
+```
+If you used the custom (interactive) installation, you will be prompted at the end of the installation process:
 ```
 [INFO] Would you like to reboot now?
 ```
-**You must answer "Y" if this is your first time running tt-installer on your system.**
+**Answer "Y" if this is your first time running tt-installer on your system.**
 :::
 
 ---
@@ -150,14 +138,13 @@ At the end of the installation process, you will be prompted to answer this ques
 ## **Verify System Software Installation**
 After rebooting your system, verify all system software dependencies were successfully installed and loaded. This section will introduce you to the [tt-smi](https://github.com/tenstorrent/tt-smi) tool, which we'll use to enumerate all Tenstorrent devices.
 
-First, activate the Python environment in which you installed the required Python packages. You performed this environment selection in [Step 5. Choose Python Package Installation Location](#5-choose-python-package-installation-location).
-:::{note}
-If you selected the DEFAULT option which installs all Python packages under `/home/$USER/.tenstorrent-venv/bin/activate`. Execute this command to activate the Python virtual environment:
+First, activate the Python virtual environment where the installer placed the required Python packages. If you used the default installation, execute this command:
 ```bash
 source ~/.tenstorrent-venv/bin/activate
 ```
 
-If you did not, use the installation path you chose in [step 5](#5-choose-python-package-installation-location). 
+:::{note}
+If you used a custom installation and chose a different Python package location, activate that environment instead.
 :::
 
 Next, execute this command to start tt-smi, then ensure the number of devices listed under the **"Device Information"** pane matches the number of Tenstorrent devices installed in your system:
@@ -200,11 +187,12 @@ For advanced users or developers who prefer alternative installation methods for
 ## **First Things To Do**
 After tt-installer finishes successfully and you have restarted your system, you can proceed how you like. You may want to:
 
+* **Use TT-Studio** -- TT-Studio is installed by default and is the recommended way to interact with your Tenstorrent hardware. Launch it by running `tt-studio` from your terminal. It provides a graphical interface for managing and monitoring your Tenstorrent devices.
+* [Deploying LLMs](./vLLM-servers.md)
+  * This is the recommended path users should take to deploy LLMs. The default installation already includes tt-inference-server.
 * [Running model demos](./model-demos.md)
   * Explore pre-built demonstrations of popular models like Llama, Whisper, Stable Diffusion and ResNet.
   * This is a great way to see Tenstorrent's software in action without deep dives into model architecture.
-* [Deploying LLMs](./vLLM-servers.md)
-  * This is the recommended path users should take to deploy LLMs.
 * Understanding the [Tenstorrent Software Stack](./tt-software-stack.md).
 * Learn more about our unique architecture by [reading this guide](https://github.com/tenstorrent/tt-metal/blob/main/METALIUM_GUIDE.md).
 

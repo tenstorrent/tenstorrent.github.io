@@ -21,9 +21,13 @@ This guide assumes you have already installed the necessary system dependencies 
 
 ---
 
-## **Step 1: Download and Installing the Demos Container**
+## **Step 1: Download and Install the Demos Container**
 
 The model demos are packaged in a dedicated container. This keeps the demo environment and its specific dependencies separate from your system.
+
+:::{note}
+The Model Demos container is **not** included in the default tt-installer installation because of its large size. You must explicitly install it using the command below.
+:::
 
 Run the following command to add the models container to your existing Tenstorrent software installation.
 

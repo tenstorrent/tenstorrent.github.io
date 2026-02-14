@@ -34,24 +34,22 @@ TMP_DIR=$(mktemp -d); (trap 'echo "---"; echo "Cleaning up..."; if type deactiva
 ```
 :::
 
-### **Installing Docker**
-tt-inference-server requires [Docker](https://www.docker.com) to be installed. To install Docker, please follow the official [installation instructions](https://docs.docker.com/engine/install/ubuntu/).
+### **Container Runtime (Docker or Podman)**
+tt-inference-server requires a container runtime. If you ran the default tt-installer, **Podman is already installed** along with the `podman-docker` compatibility shim, which means you can use `docker` commands as usual and they will be handled by Podman. No additional installation is required.
 
-Verify that the installation was successful by running the `hello-world` image:
-```bash
-sudo docker run hello-world
-```
-
-You must also follow the official [post-installation instructions](https://docs.docker.com/engine/install/linux-postinstall/) to run Docker without root permissions.
-
-Verify that the post-installation was successful by running the `hello-world` image again, this time without root permissions:
+Verify that the container runtime is working by running the `hello-world` image:
 ```bash
 docker run hello-world
 ```
 
+:::{admonition} Using Docker instead of Podman
+:class: tip
+If you prefer to use Docker instead of Podman, you may install it by following the official [Docker installation instructions](https://docs.docker.com/engine/install/ubuntu/) and [post-installation instructions](https://docs.docker.com/engine/install/linux-postinstall/). Both Docker and Podman are compatible with tt-inference-server.
+:::
+
 :::{admonition} Important
 :class: danger
-Do not continue if you cannot run the `hello-world` image without root permissions, be sure to follow all post-installation instructions.
+Do not continue if you cannot run the `hello-world` image without root permissions. If using Podman (the default), rootless operation should work out of the box. If using Docker, be sure to follow all post-installation instructions.
 :::
 
 ---
@@ -105,12 +103,22 @@ check_hf_access() { [ -z "$MODEL" ] && { printf "✖ Error: Please provide a Hug
 
 If the command does not succeed and print `✔ Access granted.`, please make sure you have exported your Hugging Face token as per [the above instructions](#3-export-the-token).
 
-### **3\. Clone the Server Repository**
+### **3\. Navigate to the Server Repository**
 
+If you ran the default tt-installer, tt-inference-server is already cloned to `~/.local/lib/tt-inference-server` with a wrapper script at `~/.local/bin/tt-inference-server`. Navigate to it:
+
+```bash
+cd ~/.local/lib/tt-inference-server
+```
+
+:::{admonition} Manual clone (if needed)
+:class: tip
+If you did not use the default tt-installer or need a fresh copy, you can clone the repository manually:
 ```bash
 git clone https://github.com/tenstorrent/tt-inference-server.git
 cd tt-inference-server
 ```
+:::
 
 ---
 
@@ -137,7 +145,7 @@ The first time you run this command, it will download the model's weights. This 
 :::
 
 ### **3\. Wait for the server to initialize**
-After the download completes, the server will start initializing in a docker container.
+After the download completes, the server will start initializing in a container.
 
 :::{Important}
 The first time you start the server, the initialization process for a 70B model should take about 40 minutes. For an 8B model it should take about 10 minutes.
