@@ -16,7 +16,7 @@ help:
 # Development (watch): build the documentation and watch for changes.
 # Served on port 3000 (http://localhost:3000)
 watch:
-	@$(SPHINXWATCH) "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O) --port 3000 --watch '../shared' --open-browser
+	@$(SPHINXWATCH) "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O) --port 3000 --host 0.0.0.0 --watch '../shared' --open-browser
 
 .PHONY: help Makefile
 

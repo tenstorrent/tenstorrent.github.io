@@ -8,6 +8,7 @@ Blackhole
    :maxdepth: 1
    
    quietbox/quietbox-bh/index
+   quietbox/quietbox-bh-2/index
 
 Wormhole
 --------

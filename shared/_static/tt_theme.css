@@ -368,7 +368,9 @@ li.toctree-l1.current>a {
 
 .rst-footer-buttons {
   margin-top: 2rem;
-  /* give footer buttons a little bit of space */
+  clear: both;
+  width: 100%;
+  flex-shrink: 0;
 }
 
 /* Document styling */

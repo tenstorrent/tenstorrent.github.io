@@ -6,7 +6,7 @@ myst:
     document-type: Task-Based Guide (How-To)
 ---
 
-# potato Receiving, Unboxing, and Setup
+# Receiving, Unboxing, and Setup
 
 *<span style="color: purple;">Note: This content is still being drafted. Once finalized, the complete documentation will be available at docs.tenstorrent.com</span>*
 
@@ -123,7 +123,7 @@ When the Ubuntu login prompt appears, enter the following default credentials:
 *   **Username**: **ttuser**
 *   **Password**: **ttuser**
 
-## **Step 4. Accessing Default System Logins**
+## **Step 4. Change Default Password**
 
 When you log in to your QuietBox, navigate to Ubuntu’s password settings to change the default password. Execute the following command in your terminal to change your password:
 [information incoming]
@@ -157,25 +157,28 @@ If you don’t see all four accelerators listed, please [raise a support request
 
 ## **Step 5: Open TT-Studio**
 
-This is a draft.
+*<span style="color: purple;">Note: This content is unfinished.</span>*
 
 TT-Studio is Tenstorrent's simple web interface for running AI models on your TT-QuietBox 2.
 
 To ensure you’re running the latest version of TT-Studio, open a Terminal window and run the following command. 
 
-[code snippet] 
+```bash
 cd ~/.local/lib/tt-studio
 git pull
+```
 
 Then, run this command to open TT-Studio:
 
-[code snippet] tt-studio --easy
+```bash
+tt-studio --easy
+```
 
 You will be prompted to enter a free Hugging Face User Access Token. To create a token, navigate to huggingface.co and create an account, then follow [these steps](https://huggingface.co/docs/hub/en/security-tokens) to generate a token. 
 
 Paste your Hugging Face token into your terminal window and run the command. The model weights will start downloading automatically. Depending on the model you’ve selected and the speed of your connection, downloading model weights may take anywhere from 10 minutes to over 40 minutes. 
 
-Install dependencies using docker...
+Install dependencies using docker...[precise steps tbd]
 
 Return to TT-Studio and and select a model from the pop-up screen and begin. Visit the TT-Studio guide [link forthcoming] for more tutorials on supported models, and everything else TT-Studio can help you create.
 
