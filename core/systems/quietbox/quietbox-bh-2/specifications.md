@@ -43,7 +43,8 @@ For assembly instructions, refer to the [Unboxing and Setting Up the TT-QuietBox
 | Power Supply | 1600W CoolerMaster V Platinum 1600 V2 |
 | Operating System | Ubuntu 24.04.3 LTS |
 | System Dimensions | 8.4” x 17.8” x 15.5” (W x D x H) / 21.4cm x 45.2cm x 39.3cm (including handles and feet) |
-| System Weight | 20.2 kg (44.5 lbs)  |
+| System Weight | 20 kg (44.2 lbs)  |
+| Shipping Weight | TBD kg (TBD lbs)  |
 
 ## **System Overview**
 
@@ -79,7 +80,7 @@ For assembly instructions, refer to the [Unboxing and Setting Up the TT-QuietBox
 | i. | 2x USB 3.2 Gen1 Ports |
 
 ## **Internal Topology**
- The TT-QuietBox 2 is enabled by two Tenstorrent Blackhole cards, which are connected internally with one Warp 400 bridge. The below topology is pre-installed by Tenstorrent, and is here for your reference.
+ The TT-QuietBox 2 is enabled by two Tenstorrent Blackhole cards, which are connected internally with a Samtec ARP6 series High Performance cable. The below topology is pre-installed by Tenstorrent, and is here for your reference.
 
 ```{figure} ./draft-bh-qb2-topology.png
 :alt: QuietBox BH-2 internal topology
@@ -100,9 +101,10 @@ The TT-QuietBox 2 is designed to operate in these conditions:
 * Storage temperature: -40°C to 70°C (-40°F to 158°F)
 * Storage relative humidity: 10% to 95%
 
+(safety-warnings)=
 ## **Safety Warnings**
 
-### **Electrical Safety**
+### **Electrical Safety** 
 
 :::{danger}
 Failure to follow these electrical safety instructions may result in electric shock, fire, or damage to the equipment.
