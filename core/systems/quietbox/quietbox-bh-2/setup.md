@@ -18,14 +18,13 @@ This section guides users through how to safely unbox, setup hardware, and insta
 
 Before you begin:
 * Choose a clear, stable, and spacious area for the TT-QuietBox 2, where it will not need to be moved regularly. 
-* The system weighs 20.2 kg (44.5 lbs) – ensure you can comfortably lift this weight, or ask another person for assistance before getting started. 
-* Clear the area where you intend to use the Workstation and ensure to use a dedicated 15A circuit and outlet, as specified in the [electrical safety warning](#safety-warnings) linked below. 
+* The system weighs 20 kg (44.2 lbs) – ensure you can comfortably lift this weight, or ask another person for assistance before getting started. 
+* Clear the area where you intend to use the Workstation and ensure to use a dedicated 15A circuit and outlet.
 * Confirm that all top vents are clear of obstructions or other objects.
 
 Do not proceed with unboxing or installation if you suspect shipping damage to the system. Contact Tenstorrent support by [raising a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1) Our team will review your request and provide assistance.
 
 ### Safety Warnings
-Please visit the [safety warnings](specifications.md#safety-warnings) section on the specifications page for information about electrical and electrostatic discharge (ESD) warnings.
 
 :::{admonition} Caution: Heavy
 :class: caution
@@ -58,9 +57,9 @@ Note: Only use certified HDMI cables with the TT-QuietBox 2. Using non-certified
 
 *<span style="color: purple;">Note: Photography is expected by March 2026.</span>*
 
-Follow these steps to unbox your TT-QuietBox 2 Workstation:
+Please take a moment to review the {ref}`electric safety warnings <safety-warnings>` before unboxing your TT-QuietBox 2 Workstation. Then, follow these steps:
 
-1. **Open the box.** Position the crate in your prepared unboxing area, ensuring ample space for two people to work around it.  
+1. **Open the box.** Position the crate in your prepared unboxing area, ensuring ample space to work around it.  
 ```{figure} ./placeholder-box-opening.png
 :width: 40%
 ```
@@ -73,7 +72,7 @@ Follow these steps to unbox your TT-QuietBox 2 Workstation:
 ```{figure} ./placeholder-removing-accessories.png
 :width: 40%
 ```
-4. **Lift the TT-QuietBox 2 out of the package using the handles on either side of the unit.** 
+4. **Lift the TT-QuietBox 2 out of the package using the handles.** 
 ```{figure} ./placeholder-lifting-unit-out-of-box.png
 :width: 40%
 ```
@@ -93,7 +92,8 @@ Follow these steps to set up the hardware for your TT-QuietBox Blackhole™ work
 ```{figure} ./placeholder-connecting-power.png
 :width: 40%
 ```
-2. **Connect peripherals.** Connect the included third-party speakerphone USB-A dongle, along with your HDMI monitor, keyboard, and mouse using the HDMI and USB ports on the back of the Workstation. [Information on networking cable TBD]
+2. **Connect peripherals.** Connect the HDMI monitor, keyboard, and mouse using the HDMI and USB ports on the back of the Workstation. If you prefer Ethernet over WiFi, you may connect an Ethernet cable using the RJ45 port. If you'd like sound, connect the included third-party speakerhone dongle to the USB-A port.
+
 ```{figure} ./placeholder-peripheral-connections.png
 :width: 40%
 ```

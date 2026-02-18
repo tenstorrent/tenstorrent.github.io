@@ -1,4 +1,4 @@
-# Troubleshooting Common Hardware Issues
+# curry Troubleshooting Common Hardware Issues
 
 *<span style="color: purple;">Note: This content is still being drafted. Once finalized, the complete documentation will be available at docs.tenstorrent.com</span>*
 
@@ -12,7 +12,7 @@ If you have confirmed all cable connections, the power is on, and there is still
 TT-QuietBox 2 does not have a BMC connection, and this connection is not needed for any of its functions. If there is something in particular you are looking for, please drop us a support request, and we will do our best to help.
 
 ## Can I Manually Install the full Tenstorrent Software Stack onto my TT-QuietBox 2?
-Yes. Please visit the [Installing the Tenstorrent Software Stack guide.](../../getting-started/README.md)
+Yes. Please visit the [Installing the Tenstorrent Software Stack guide](../../../getting-started/README.md).
 
-## I Opened Terminal, but Do Not See tenstorrent.venv Prompting Me
-If your first opening of terminal do not show [tenstorrernt.venv] at the prompt, head to [Installing the Tenstorrent Software Stack](../../getting-started/README.md) and follow steps 1 and 2 for running the tt-installer script. Once completed, your enviornment should automatically activate. Follow the steps on the [setup page](./setup.md) to continue with TT-Studio.
+## I Opened Terminal, But Do Not See [tenstorrent.venv] Prompting Me
+If your first opening of terminal do not show [tenstorrernt.venv] at the prompt, head to [Installing the Tenstorrent Software Stack](../../../getting-started/README.md) and follow steps 1 and 2 for running the tt-installer script. Once completed, your enviornment should automatically activate. Follow the steps on the [setup page](setup.md) to continue with TT-Studio.
