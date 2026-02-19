@@ -38,7 +38,7 @@ For assembly instructions, refer to the [Unboxing and Setting Up the TT-QuietBox
 | Power Supply | 1600W CoolerMaster V Platinum 1600 V2 |
 | Operating System | Ubuntu 24.04.3 LTS |
 | System Dimensions | 8.4” x 17.8” x 15.5” (W x D x H) / 21.4cm x 45.2cm x 39.3cm (including handles and feet) |
-| System Weight | 20 kg (44.2 lbs)  |
+| System Weight | 20 kg (44.2 lbs) +/- 1.5 lbs   |
 | Shipping Weight | TBD kg (TBD lbs)  |
 
 ## **System Overview**

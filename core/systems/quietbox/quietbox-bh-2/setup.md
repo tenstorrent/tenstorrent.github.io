@@ -6,7 +6,7 @@ myst:
     document-type: Task-Based Guide (How-To)
 ---
 
-# Receiving, Unboxing, and Setup
+# potato Receiving, Unboxing, and Setup
 
 *<span style="color: purple;">Note: This content is still being drafted. Once finalized, the complete documentation will be available at docs.tenstorrent.com</span>*
 
@@ -114,77 +114,96 @@ On the front of the workstation, press the power button to turn the system on.
 
 ## **Step 3. Accessing Default System Logins**
 
+
 Once your system is booted up, follow these instructions for logging into the system using the default Ubuntu credentials.
+
 
 ### **Accessing the Ubuntu operating system**
 
-When the Ubuntu login prompt appears, enter the following default credentials:
 
-*   **Username**: **ttuser**
-*   **Password**: **ttuser**
+When the login prompt appears, enter the following default credentials:
+
+
+*   Password: **ttuser**
+
 
 ## **Step 4. Change Default Password**
 
-When you log in to your QuietBox, navigate to Ubuntu’s password settings to change the default password. Execute the following command in your terminal to change your password:
-[information incoming]
 
+After logging in, open a terminal window and follow these steps to change your password from the public default: 
+
+* Run command: `passwd`
+* Enter current password: **ttuser**
+* Enter new password of your choosing and hit enter to confirm the change.
 ---
+## **Step 5: Verify System Recognition of Blackhole Cards**
 
-## **Step 5: Verifying System Recognition of Blackhole Cards**
 
-In a terminal, execute this command to start tt-smi. Ensure the number of devices listed under the “Device Information” pane matches the number of Tenstorrent devices installed in your QuietBox.
+To open TT-SMI and confirm all accelerator cards in the Workstation are active, open a new terminal window. You should see a text prompt that begins with `(.tenstorrent-venv) ttuser@tt-quietbox:-$`
 
-[Diana to verify the below with June]
-```bash
-sudo update-pciids
-lspci -d 1e52:
+_Note: if `.tenstorrent-venv` is not active, please [raise a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1)._
+
+
+Next, in the terminal window, run command `tt-smi`. A new TT-SMI window will open.
+
+
+Under the “Device Information” pane, you should see an output which lists four recognized accelerators:
+```
+0000:02:00.0 p300C
+0000:01:00.0 p300C
+0000:04:00.0 p300C
+0000:03:00.0 p300c
 ```
 
-You should see an output which lists four recognized ASICs:
-```
-01:00.0 Processing accelerators: Tenstorrent Inc Blackhole
-02:00.0 Processing accelerators: Tenstorrent Inc Blackhole
-03:00.0 Processing accelerators: Tenstorrent Inc Blackhole
-04:00.0 Processing accelerators: Tenstorrent Inc Blackhole
-```
 
 :::{admonition} Important
-:class: danger
-If you don’t see all four accelerators listed, please [raise a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1) Our team will review your request and provide assistance.
+:class: caution
+If you don’t see all four accelerators listed, please [visit the troubleshooting page.](./support-bh-2.md)
 :::
-
 ---
+
 
 ## **Step 6: Open TT-Studio**
 
+
 *<span style="color: purple;">Note: This content is unfinished.</span>*
+
 
 TT-Studio is Tenstorrent's simple web interface for running AI models on your TT-QuietBox 2.
 
-To ensure you’re running the latest version of TT-Studio, open a Terminal window and run the following command. 
+
+To ensure you’re running the latest version of TT-Studio, open a Terminal window and run the following command:
+
 
 ```bash
 cd ~/.local/lib/tt-studio
 git pull
 ```
 
+
 Then, run this command to open TT-Studio:
+
 
 ```bash
 tt-studio --easy
 ```
 
-You will be prompted to enter a free Hugging Face User Access Token. To create a token, navigate to huggingface.co and create an account, then follow [these steps](https://huggingface.co/docs/hub/en/security-tokens) to generate a token. 
 
-Paste your Hugging Face token into your terminal window and run the command. The model weights will start downloading automatically. Depending on the model you’ve selected and the speed of your connection, downloading model weights may take anywhere from 10 minutes to over 40 minutes. 
+You will be prompted to enter a free Hugging Face User Access Token. To create a token, navigate to huggingface.co and create an account, then follow [these steps](https://huggingface.co/docs/hub/en/security-tokens) to generate a free token.
+
+
+Paste your Hugging Face token into your terminal window and run the command. The model weights will start downloading automatically. This could take anywhere from 3 to 40 minutes, depending on the model you’ve selected and the speed of your connection.
+
 
 Install dependencies using docker...[precise steps tbd]
 
+
 Return to TT-Studio and and select a model from the pop-up screen and begin. Visit the TT-Studio guide [link forthcoming] for more tutorials on supported models, and everything else TT-Studio can help you create.
 
+
 ## **Other Methods of Running Models**
-After your system is set up, feel free to explore other methods of running models on other layers of our software stack. You may want to:
-- Run models directly from your terminal using [TT-Inference-Server](https://github.com/tenstorrent/tt-inference-server), the fastest way to deploy and test models for serving inference on Tenstorrent hardware. 
+After your system is set up, feel free to explore other methods of running models on other layers of Testorrent's software stack. You may want to:
+- Run models directly from your terminal using [TT-Inference-Server](https://github.com/tenstorrent/tt-inference-server), the fastest way to deploy and test models for serving inference on Tenstorrent hardware.
 - Run [model demos](https://docs.tenstorrent.com/getting-started/model-demos.html) using TT-Metalium.
 
 ---
