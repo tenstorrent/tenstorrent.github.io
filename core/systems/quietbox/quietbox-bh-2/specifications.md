@@ -12,21 +12,15 @@ myst:
 
 *<span style="color: purple;">This page would like your suggestions for content and accuracy. Please add them to the [feedback form here](https://docs.google.com/spreadsheets/d/1y5mFBDAgewitmmoi2eWkuwDViIsMSsukkgnxH87Idc8/edit?usp=sharing). Thank you!</span>*
 
-This document provides system administrators and engineers with detailed technical specifications for the TT-QuietBox™ 2 (Blackhole™) Liquid-Cooled Desktop Workstation. It lists package contents, hardware components, physical dimensions, and operating requirements.
+This document provides detailed technical specifications for the TT-QuietBox™ 2 (Blackhole™) Liquid-Cooled Desktop Workstation. It lists package contents, hardware components, physical dimensions, and operating requirements.
 
 ## **Package Contents**
 
-The Tenstorrent TT-QuietBox 2 (Blackhole) (TW-04003) system package includes the following items:
+The Tenstorrent TT-QuietBox 2 (Blackhole) system package includes the following items:
 
 * 1x TT-QuietBox 2 (Blackhole) Workstation
 * 1x Power Supply Cord (C19 to NEMA 5-15P)
 * 1x AnkerWork S500 speakerphone and dongle (first 100 units)
-
-
-:::{admonition} Caution: Heavy
-:class: caution
-The TT-QuietBox 2 shipping container weighs approximately 50 lbs (22.6 kg). At least two people are recommended to unbox and install the system safely.
-:::
 
 For assembly instructions, refer to the [Unboxing and Setting Up the TT-QuietBox Workstation Guide](./setup.md). If you encounter issues, refer to the [Troubleshooting Common Hardware Issues page](./support-bh-2.md).
 
@@ -34,8 +28,9 @@ For assembly instructions, refer to the [Unboxing and Setting Up the TT-QuietBox
 
 | Specification | Details |
 | ----- | ----- |
+| Model | TW-04003 |
 | CPU | Ryzen 7 9700X 65W Granite Ridge 3.8GHz |
-| Motherboard | ASRock B850M-C, mATX * |
+| Motherboard | ASRock B850M-C, mATX |
 | Memory | 256GB (4x64GB) DDR5-5600 UDIMM, CL46 (4 slots, 0 free) |
 | Storage | 4TB (WDS400T4B0E-00BKY0)<br /> 1x Blazing M.2 (PCIe Gen5x4) with WD Blue SN5000 NVMe SSD<br /> 1x Hyper M.2 (PCIe Gen4x4)<br /> 1x M.2 (PCIe Gen3x2 & SATA3) |
 | Tenstorrent Processors | 2x Liquid-Cooled Blackhole™ cards, each equipped with:<br /><ul style="margin-bottom: 0;"><li>2x Blackhole ASICs</li><li>240 Tensix Cores</li><li>64 GB of DDR6 Memory @ 16 GT/sec (1024 GB/sec memory bandwidth)</li><li>600W of board power</li></ul> |
@@ -54,12 +49,12 @@ For assembly instructions, refer to the [Unboxing and Setting Up the TT-QuietBox
 
 | No | Item | Description |
 | --- | --- | --- |
-| 1 | Carrying Handle | Two handles used to aid in lifting the server |
-| 2 | Glass Panel, Side Access | Showcases internal Accelerator cards.<br />Permits tool-free access to PCIe cards |
-| 3 | Thumbscrew | Toolless thumbscrews to access the internals |
+| 1 | Carrying Handle | Used to aid in lifting the server |
+| 2 | Clear Panel | Showcases internal Accelerator cards and <br />permits tool-free access to the system. |
+| 3 | Thumbscrew | Enables toolless access the internals |
 | 4 | Power and Reset Buttons | Powers the Workstation on/off and resets the workstation |
 | 5 | System Fans | Provides venting and system airflow management |
-| 6 | Liquid Cooling Reservoir | Fluid exchange manifold for system thermal management |
+| 6 | Liquid Cooling Reservoir | For system thermal management |
 
 ## **System Rear View**
 
@@ -68,7 +63,7 @@ For assembly instructions, refer to the [Unboxing and Setting Up the TT-QuietBox
 :width: 65%
 ```
 
-| letter | item |
+| Letter | Item |
 | --- | --- |
 | a. | 1x HDMI Port |
 | b. | 1 x BIOS Flashback Button |
@@ -77,7 +72,7 @@ For assembly instructions, refer to the [Unboxing and Setting Up the TT-QuietBox
 | e. | 1 x RJ-45 1GbE Realtek LAN Port |
 | g. | HD Audio Jacks: Line in / Front Speaker / Microphone |
 | h. | 1x USB 3.2 Gen 2 Type-C Port (non-video) |
-| i. | 2x USB 3.2 Gen1 Ports |
+| i. | 2x USB 3.2 Gen 1 Ports |
 
 ## **Internal Topology**
  The TT-QuietBox 2 is enabled by two Tenstorrent Blackhole cards, which are connected internally with a Samtec ARP6 series High Performance cable. The below topology is pre-installed by Tenstorrent, and is here for your reference.

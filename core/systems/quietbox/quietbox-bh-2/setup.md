@@ -59,16 +59,16 @@ Note: Only use certified HDMI cables with the TT-QuietBox 2. Using non-certified
 
 Please take a moment to review the {ref}`electric safety warnings <safety-warnings>` before unboxing your TT-QuietBox 2 Workstation. Then, follow these steps:
 
-1. **Open the box.** Position the crate in your prepared unboxing area, ensuring ample space to work around it.  
+1. **Grab the box.** Position the crate in your prepared unboxing area, ensuring ample space to work around it.  
 ```{figure} ./placeholder-box-opening.png
 :width: 40%
 ```
-2. **Remove the white side clips near the bottom of the packaging.** 
+2. **Remove the white side clips near the bottom of the packaging.** Squeeze the tabs on the clip and pull to release.
 ```{figure} ./placeholder-removing-side-clips.png
 :width: 40%
 ```
 
-3. **Remove Styrofoam, internal sleeve, and accessories box.**
+3. **Lift exterior and internal cardboard sleeves, remove styrofoam, and accessories box.**
 ```{figure} ./placeholder-removing-accessories.png
 :width: 40%
 ```
@@ -155,7 +155,7 @@ If you don’t see all four accelerators listed, please [raise a support request
 
 ---
 
-## **Step 5: Open TT-Studio**
+## **Step 6: Open TT-Studio**
 
 *<span style="color: purple;">Note: This content is unfinished.</span>*
 
