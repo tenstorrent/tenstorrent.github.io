@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Serve the docs and rebuild whenever a file under core/ or shared/ changes.
-Run this script, then open http://localhost:8000 and refresh after each save.
+Run this script, then open http://localhost:8010 and refresh after each save.
 """
 import os
 import subprocess
@@ -12,6 +12,22 @@ from http.server import HTTPServer, SimpleHTTPRequestHandler
 
 REPO_ROOT = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_DIR = os.path.join(REPO_ROOT, "output")
+
+
+class OutputDirHandler(SimpleHTTPRequestHandler):
+    """Serve from OUTPUT_DIR by path so the server survives 'rm -rf output' during rebuilds."""
+
+    def __init__(self, request, client_address, server):
+        super().__init__(request, client_address, server, directory=OUTPUT_DIR)
+
+    def do_GET(self):
+        if not os.path.isdir(OUTPUT_DIR):
+            self.send_response(503)
+            self.send_header("Retry-After", "5")
+            self.end_headers()
+            self.wfile.write(b"Rebuilding docs; retry in a few seconds.\n")
+            return
+        super().do_GET()
 WATCH_DIRS = [os.path.join(REPO_ROOT, "core"), os.path.join(REPO_ROOT, "shared")]
 POLL_INTERVAL = 2
 BUILD_SCRIPT = os.path.join(REPO_ROOT, "build_docs.py")
@@ -82,9 +98,10 @@ def main():
         print("Running initial build...")
         run_build()
 
-    os.chdir(OUTPUT_DIR)
-    handler = SimpleHTTPRequestHandler
-    server = HTTPServer(("0.0.0.0", PORT), handler)
+    # Do not chdir to OUTPUT_DIR: build_docs.py does 'rm -rf output', which would
+    # delete our cwd and break SimpleHTTPRequestHandler (it uses os.getcwd()).
+    # OutputDirHandler serves from OUTPUT_DIR by absolute path instead.
+    server = HTTPServer(("0.0.0.0", PORT), OutputDirHandler)
 
     watcher = threading.Thread(target=watch_loop, daemon=True)
     watcher.start()

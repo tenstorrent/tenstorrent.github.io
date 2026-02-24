@@ -14,11 +14,11 @@ If you have confirmed the above, and there is still no visual output on your con
 
 4. Check the back of the Workstation. 
 5. If all lights are off **except the yellow DRAM light,** this means the memory is re-training. 
-6. Do not off the Workstation. Please give the system up to 20 minutes to cycle. 
+6. Do not turn off the Workstation. Please give the system up to 20 minutes to cycle. 
 7. After this time, the connected monitor should prompt you to begin. If it does not, raise a support ticket with us and we'll help troubleshoot.
 
 ## Can I Manually Install the Full Tenstorrent Software Stack Onto my TT-QuietBox 2?
-Yes. Please visit the {doc}`Installing the Tenstorrent Software Stack guide <getting-started/README>`.
+Yes. Please visit the [Installing the Tenstorrent Software Stack guide](../../../getting-started/README.html).
 
 ## I Opened Terminal, But Do Not See `tenstorrent.venv`
-If your first opening of terminal does not show `tenstorrernt.venv` at the prompt, head to [Installing the Tenstorrent Software Stack](../../../getting-started/README.md) and follow steps 1 and 2 for running the tt-installer script. Once completed, your enviornment should automatically activate. Follow the steps on the [setup page](setup.md) to continue with TT-Studio.
+If your first opening of terminal does not show `tenstorrernt.venv` at the prompt, head to [Installing the Tenstorrent Software Stack](../../../getting-started/README.html) and follow steps 1 and 2 for running the tt-installer script. Once completed, your enviornment should automatically activate. Follow the steps on the [setup page](setup.html) to continue with TT-Studio.

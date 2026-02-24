@@ -67,7 +67,6 @@ Please take a moment to review the {ref}`electric safety warnings <safety-warnin
 ```{figure} ./placeholder-removing-side-clips.png
 :width: 40%
 ```
-
 3. **Lift exterior and internal cardboard sleeves, remove styrofoam, and accessories box.**
 ```{figure} ./placeholder-removing-accessories.png
 :width: 40%
@@ -92,7 +91,7 @@ Follow these steps to set up the hardware for your TT-QuietBox Blackhole™ work
 ```{figure} ./placeholder-connecting-power.png
 :width: 40%
 ```
-2. **Connect peripherals.** Connect the HDMI monitor, keyboard, and mouse using the HDMI and USB ports on the back of the Workstation. If you prefer Ethernet over WiFi, you may connect an Ethernet cable using the RJ45 port. If you'd like sound, connect the included third-party speakerhone dongle to the USB-A port.
+2. **Connect peripherals.** Connect the HDMI monitor, keyboard, and mouse using the HDMI and USB ports on the back of the Workstation. If you prefer Ethernet to WiFi, you may connect an Ethernet cable using the RJ45 port. If you'd like sound, connect the included third-party speakerphone dongle to the USB-A port.
 
 ```{figure} ./placeholder-peripheral-connections.png
 :width: 40%
@@ -144,26 +143,23 @@ To verify all cards are up and running, use TT-SMI. This is a simple command lin
 
 2. Run command `tt-smi` 
 
-3. Under the “Device Information” pane, you should see an output which lists four recognized accelerators:
-```
-0000:02:00.0 p300C
-0000:01:00.0 p300C
-0000:04:00.0 p300C
-0000:03:00.0 p300c
+3. Under the “Device Information” pane, you should see an output which lists four recognized accelerators. See the screenshot below for reference.
+
+```{figure} ./screencap-tt-smi-qb2.png
+:width: 80%
 ```
 
 :::{admonition} Important
 :class: caution
-If `.tenstorrent-venv` is not active, or you don’t see all four accelerators listed in the Device Information pane, please [visit the troubleshooting page.](./support-bh-2.md)
+If `.tenstorrent-venv` is not active, or you don’t see all four accelerators listed in the Device Information pane of TT-SMI, please [visit the troubleshooting page.](./support-bh-2.md)
 :::
 ---
 
-
 ## **Step 6: Open TT-Studio**
 
-TT-Studio is Tenstorrent's simple web interface for running AI models on your TT-QuietBox 2.
+TT-Studio is Tenstorrent's simple web interface for running AI models, and comes pre-installed on your TT-QuietBox 2.
 
-1. Ensure you’re running the latest version of TT-Studio. Open a terminal window and run the following command:
+1. We recommend ensuring you have the latest version of TT-Studio. Update it by opening a terminal window and pulling the latest version from the tenstorrent/tt-studio repository. Open a terminal window and run the following command:
 
 ```bash
 cd ~/.local/lib/tt-studio
@@ -179,10 +175,24 @@ tt-studio --easy
 
 3. Paste your Hugging Face token into your terminal window and run the command. If the system asks, “Do you want to install dependencies using Docker?” enter “Y” for “yes.” Installing dependencies may take about 3 minutes.
 
-4. Return to TT-Studio and select a model from the drop-down screen to begin. Once selected, the model weights will start downloading automatically.  This could take anywhere from 3 to 40 minutes, depending on the model you’ve selected and the speed of your connection. 
+When completed, terminal will confirm TT-Studio is ready:
+
+```{figure} ./screencap-tt-studio-is-ready.png
+:width: 80%
+```
+
+4. Return to TT-Studio and select a model from the drop-down screen to begin. 
+
+```{figure} ./screencap-tt-studio-select-model.png
+:width: 80%
+```
+Once selected, the model weights will start downloading automatically.  This could take anywhere from 3 to 40 minutes, depending on the model you’ve selected and the speed of your connection. 
+
+```{figure} ./screencap-tt-studio-deploy-model.png
+:width: 80%
+```
 
 Visit the TT-Studio guide [link forthcoming] for more tutorials on supported models, and to learn about everything TT-Studio can help you create.
-
 
 
 ## **Other Methods of Running Models**

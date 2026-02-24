@@ -6,7 +6,7 @@ myst:
     document-type: Reference
 ---
 
-# potato Specifications and Requirements
+# Specifications and Requirements
 
 *<span style="color: purple;">Note: This content is still being drafted. Once finalized, the complete documentation will be available at docs.tenstorrent.com</span>*
 
