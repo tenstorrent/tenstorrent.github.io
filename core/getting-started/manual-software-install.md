@@ -30,9 +30,9 @@ sudo dkms install tenstorrent/{{ver_kmd}}
 sudo modprobe tenstorrent
 ```
 
-## Step 3: Device Firmware Update (TT-Flash / TT-System-Firmware)
+## Step 3: Update Device Firmware (TT-Flash / TT-System-Firmware)
 
-The [**TT-System-Firmware**](https://github.com/tenstorrent/tt-system-firmware) file needs to be installed using the [TT-Flash](https://github.com/tenstorrent/tt-flash) utility.
+Use the [**TT-Flash**](https://github.com/tenstorrent/tt-flash) utility to flash the latest [**TT-System-Firmware**](https://github.com/tenstorrent/tt-system-firmware) onto your Tenstorrent device.
 
 ### Install TT-Flash
 
