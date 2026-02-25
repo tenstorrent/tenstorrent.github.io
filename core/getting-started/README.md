@@ -131,7 +131,7 @@ Enter your choice (1-4) or press enter for default (new-venv):
 Next, tt-installer will install:
 * [TT-KMD](https://github.com/tenstorrent/tt-kmd), the Kernel-Mode Driver
 * [TT-Flash](https://github.com/tenstorrent/tt-flash), the utility to flash firmware blobs to Tenstorrent devices
-* [TT-Firmware](https://github.com/tenstorrent/tt-firmware), the on-device firmware
+* [TT-System-Firmware](https://github.com/tenstorrent/tt-system-firmware), the on-device firmware
 * [HugePages](https://github.com/tenstorrent/tt-system-tools), a system tool for improving memory performance
 * [TT-SMI](https://github.com/tenstorrent/tt-smi), the System Management Interface
 

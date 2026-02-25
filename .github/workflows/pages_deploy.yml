@@ -37,9 +37,9 @@ jobs:
           echo "Latest tt-kmd version: $KMD_VERSION"
           echo "$KMD_VERSION" > syseng/kmd.version
 
-          # Fetch latest tt-firmware version
-          FW_VERSION=$(curl -s https://api.github.com/repos/tenstorrent/tt-firmware/releases/latest | jq -r '.tag_name' | sed 's/^v//')
-          echo "Latest tt-firmware version: $FW_VERSION"
+          # Fetch latest tt-system-firmware version
+          FW_VERSION=$(curl -s https://api.github.com/repos/tenstorrent/tt-system-firmware/releases/latest | jq -r '.tag_name' | sed 's/^v//')
+          echo "Latest tt-system-firmware version: $FW_VERSION"
           echo "$FW_VERSION" > syseng/firmware.version
 
           # Fetch latest tt-system-tools version
