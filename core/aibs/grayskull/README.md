@@ -9,6 +9,6 @@ This section outlines the system requirements, physical installation instruction
 
 ***NOTE:** Software support for Grayskull has been discontinued. The last supported versions of Tenstorrent's software for Grayskull are as follows:*
 
-- **TT-Firmware:** `fw_pack-80.14.0.0.fwbundle`
+- **TT-System-Firmware:** `fw_pack-80.14.0.0.fwbundle`
 - **TT-KMD:** `ttkmd_1.31`
 - **TT-Metalium:** `v0.55`
