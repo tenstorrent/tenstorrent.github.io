@@ -3,11 +3,16 @@ TT-LoudBox (Blackhole)
 
 Getting Started
 ---------------
-Receiving, Unboxing, and Setup
 
+.. toctree::
+   :maxdepth: 1
+
+   setup
 
 Reference Materials
 -------------------
 
-Specifications and Requirements
-Troubleshooting Common Hardware Issues
+.. toctree::
+   :maxdepth: 1
+
+   specifications
