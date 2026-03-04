@@ -16,3 +16,5 @@ Reference Materials
    :maxdepth: 1
 
    specifications
+   configurations
+   support
