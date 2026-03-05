@@ -22,7 +22,13 @@ extensions = ['myst_parser',
               'sphinx_substitution_extensions',
               'sphinx_copybutton',
               'sphinx_togglebutton',
+              'sphinx_sitemap',
               ]
+
+html_baseurl = "https://docs.tenstorrent.com/"
+sitemap_filename = "sitemap_core.xml"
+sitemap_locales = [None]
+sitemap_url_scheme = "{link}"
 
 copybutton_selector = 'div.highlight-bash pre'
 
