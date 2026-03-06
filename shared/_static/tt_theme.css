@@ -257,6 +257,13 @@ i {
   transition: var(--transition-all);
 }
 
+/* No underline for custom toctree-style link lists (e.g. loudbox-bh Getting Started) */
+.rst-content .toctree-no-underline a,
+.wy-menu-vertical .toctree-no-underline a {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
 .wy-menu-vertical li.current a,
 li.toctree-l1.current>a {
   background-color: var(--color-background-20);

@@ -8,11 +8,11 @@ myst:
 
 # Receiving, Unboxing, and Setup
 
-*<span style="color: purple;">Note: This content is still being drafted and is pending final imagery. Once finalized, the complete documentation will be available at docs.tenstorrent.com</span>*
+*<span style="color: purple;">Note: This content is still being drafted and is pending final imagery. Once finalized, the complete documentation will be available at docs.tenstorrent.com. This install guide would love your feedback! Please add it to the attached spreadsheet that came with this website package.</span>*
 
 ## Before You Begin
 
-* The Server should be installed by a trained qualified professional in a Restricted Access Area. Professional installation ensures the Server operates safely and effectively while preventing property damage and personal injuries. The professional installer assumes all responsibility for compliance with local regulatory and safety requirements during installation.
+* The TT-LoudBox™ (Blackhole™) should be installed by a trained qualified professional in a Restricted Access Area. Professional installation ensures the Server operates safely and effectively while preventing property damage and personal injuries. The professional installer assumes all responsibility for compliance with local regulatory and safety requirements during installation.
 
 * The Server should be installed in an area that is clean, dust-free and well-ventilated. Avoid areas where heat, electrical noise and electromagnetic fields are generated.
  
@@ -20,7 +20,7 @@ myst:
 
 ### Safety Warnings
 
-Please visit the safety warnings section on the specifications page for information about electrical and electrostatic discharge (ESD).
+Before beginning setup, please review the [Installation Site Considerations](specifications.md#installation-site-considerations) and the [Electrostatic Discharge](specifications.md#electrostatic-discharge-safety) sections on the Specifications page. This is for your personal safety and the integrity of the server.
 
 :::{admonition} Caution: Heavy Object
 :class: warning
@@ -36,9 +36,9 @@ The Server produces high volume levels, which can be dangerous to hearing over l
 
 * The provided rails will fit a rack between 26.5"and 36.4" deep.
 * Ensure that the leveling jacks on the bottom of the rack are extended to the floor so that the full weight of the rack rests on them.
-* This unit should be mounted at the bottom of the rack if it is the only unit in the rack.
-When mounting this unit in a partially filled rack, load the rack from the bottom to the top with the heaviest component at the bottom of the rack.
-* If the rack is provided with stabilizing devices, install the stabilizers before mounting or servicing the unit in the rack. 
+* If it is the only unit in the rack, the Server should be mounted at the bottom.
+If the rack is partially filled, load the rack from the bottom to the top with the heaviest units at the bottom of the rack.
+* If the rack is provided with stabilizing devices, install the stabilizers before mounting or servicing the Server in the rack. 
 * Ensure your rack’s stabilizing mechanism is in place or that the rack is bolted to to the floor. When sliding the Server in and out of the rack, failure to stabilize the rack can cause the rack to tip over.
 * When not servicing, always keep the front door of the rack and all covers/panels on the servers closed to maintain proper cooling.
 
@@ -55,14 +55,14 @@ The Server’s four PSUs work in a 2+2 redundant configuration, and the expected
 
 For maximum efficiency and redundancy, all four PSUs should be plugged in and powered on at the same time. Running the Server with less than four PSUs is possible but should only be considered a temporary condition. Failed power supplies should be replaced promptly. 
 
-An amber light on the power supply indicates that the power supply is off. A green light indicates that the power supply is operating normally.
+An amber light on the Server's power supply indicates that the power supply is off. A green light indicates that the power supply is operating normally.
 
 
-### Required Tools
+### Package Contents
 
-The Tenstorrent TT-LoudBox™ (Blackhole™) system package includes:
+The Tenstorrent TT-LoudBox (Blackhole) system package includes:
 
-* Tenstorrent TT-LoudBox™ (Blackhole™) Server
+* Tenstorrent TT-LoudBox (Blackhole) Server
 * 4x IEC-60320-C13 to C14 F-M Power Cables 
 * 4U Rack-Mounting Kit
 * 10x QSFP-DD Passive 800G cables (QDD-800G-PC005)
@@ -73,10 +73,10 @@ The Tenstorrent TT-LoudBox™ (Blackhole™) system package includes:
 :width: 60%
 :::
 
-* 1. Remove the clips from either side of the shipping box. There are four (4) clips in total, two on each side of the box. To remove, compress the clips and pull to release. 
-* 2. Lift the top of the box off of the bottom. 
-* 3. Remove the accessory bag from the box and save it for later.
-* 4. Lift the LoudBox out of the box. 
+1. Remove the clips from either side of the shipping box. There are four (4) clips in total, two on each side of the box. To remove, compress the clips and pull to release.
+2. Lift the top of the box off of the bottom.
+3. Remove the accessory bag from the box and save it for later.
+4. Lift the TT-LoudBox out of the box. 
 
 
 :::{admonition} Important
@@ -93,7 +93,7 @@ This section details installation for the rack rails provided in the TT-LoudBox 
 The chassis package includes one pair of rack rail assemblies in the rack mounting kit. Each assembly consists of an inner rail that secures to the chassis and an outer rail that is attached directly to the rack. The inner rails are etched with "L" (Left side) and "R" (Right side).
 
 :::{figure} bh-lb-rail-id-placeholder.png
-:width: 70%
+:width: 50%
 :::
 
 
@@ -111,12 +111,12 @@ chassis, aligning the hooks of the chassis with the inner rail holes. Make sure 
 
 ### 3. Installing the Outer Rails Onto the Rack
 
-* 1. Press upward on the locking tab at the rear end of the middle rail.
-* 2. Push the middle rail back into the outer rail.
-* 3. Hang the hooks on the front of the outer rail onto the square holes on the front of the rack.If desired, use screws to secure the outer rails to the rack.
-* 4. Pull out the rear of the outer rail, adjusting the length until it just fits within the posts of the rack.
-* 5. Hang the hooks of the rear section of the outer rail onto the square holes on the rear of the rack. Take care that the proper holes are used so the rails are level. If desired, use screws to secure the rear of the outer rail to the rear of the rack.
-* 6. Repeat for the other outer rail.
+1. Press upward on the locking tab at the rear end of the middle rail.
+2. Push the middle rail back into the outer rail.
+3. Hang the hooks on the front of the outer rail onto the square holes on the front of the rack. If desired, use screws to secure the outer rails to the rack.
+4. Pull out the rear of the outer rail, adjusting the length until it just fits within the posts of the rack.
+5. Hang the hooks of the rear section of the outer rail onto the square holes on the rear of the rack. Take care that the proper holes are used so the rails are level. If desired, use screws to secure the rear of the outer rail to the rear of the rack.
+6. Repeat for the other outer rail.
 
 :::{figure} bh-lb-outer-rails-placeholder.png
 :width: 70%
@@ -124,10 +124,10 @@ chassis, aligning the hooks of the chassis with the inner rail holes. Make sure 
 
 ### 4. Sliding the Server into the Rack
 
-* 1. Align the chassis rails (A) with the front of the rack rails (B).
-* 2. lide the chassis rails into the rack rails, keeping the pressure even on both sides. You may have to depress the locking tabs while inserting. When the server has been pushed completely into the rack, the locking tabs should "click" into the locked position.
-* 3. If screws are used, tighten the screws on the front and rear of the outer rails.
-* 4. (Optional) Insert and tighten the thumbscrews that hold the front of the server to the rack.
+1. Align the chassis rails (A) with the front of the rack rails (B).
+2. Slide the chassis rails into the rack rails, keeping the pressure even on both sides. You may have to depress the locking tabs while inserting. When the server has been pushed completely into the rack, the locking tabs should "click" into the locked position.
+3. If screws are used, tighten the screws on the front and rear of the outer rails.
+4. (Optional) Insert and tighten the thumbscrews that hold the front of the server to the rack.
 
 :::{figure} bh-lb-slide-rack-placeholder.png
 :width: 50%
@@ -163,6 +163,7 @@ Once you have connected your chosen networking cable, connect your Cat6 cable to
 
 Once all cables are connected, power on the Server by pressing the ⏻ power button on the front control panel. 
 
+(step-4-installing-os-firmware)=
 ## Step 4: Installing the Operating System and Firmware
 
 ### Installing the Operating System
@@ -173,7 +174,7 @@ If you choose to install Ubuntu 22.04, here is how to get started:
 
 When the Ubuntu login prompt appears, enter the following default credentials:
 
-Username: ttuser
+Username: ttuser  
 Password: ttuser
 
 ### Optional: Accessing the Base Management Controller (BMC) 
@@ -194,9 +195,9 @@ To Access the BMC:
 
 ### Firmware
 
-TT-LoudBox (Blackhole) may need to update firmware before first use. To do this, run tt-installer, located at https://github.com/tenstorrent/tt-installer/
+TT-LoudBox (Blackhole) may need to update firmware before first use. To do this, run `tt-installer`, located at https://github.com/tenstorrent/tt-installer/
 
-If a specific firmware version is needed, use the tt-flash utility with your specific firmware version path. This is documented on our GitHub: https://github.com/tenstorrent/tt-flash
+If a specific firmware version is needed, use the `tt-flash` utility with your specific firmware version path. This is documented on our [GitHub tt-flash repository](https://github.com/tenstorrent/tt-flash).
 
 ## Step 5: Verifying System Recognition of Blackhole p150b Accelerators
 
@@ -210,22 +211,22 @@ lspci -d 1e52:
 You should see an output which lists eight recognized Accelerators:
 
 ```
-EXAMPLE 01:00.0 Processing accelerators: Device 1e52:b140
-EXAMPLE 21:00.0 Processing accelerators: Device 1e52:b140
-EXAMPLE 41:00.0 Processing accelerators: Device 1e52:b140
-EXAMPLE 61:00.0 Processing accelerators: Device 1e52:b140
-EXAMPLE 81:00.0 Processing accelerators: Device 1e52:b140
-EXAMPLE a1:00.0 Processing accelerators: Device 1e52:b140
-EXAMPLE c1:00.0 Processing accelerators: Device 1e52:b140
-EXAMPLE e1:00.0 Processing accelerators: Device 1e52:b140
+01:00.0 Processing accelerators: Tenstorrent Inc Blackhole
+25:00.0 Processing accelerators: Tenstorrent Inc Blackhole
+41:00.0 Processing accelerators: Tenstorrent Inc Blackhole
+61:00.0 Processing accelerators: Tenstorrent Inc Blackhole
+81:00.0 Processing accelerators: Tenstorrent Inc Blackhole
+a1:00.0 Processing accelerators: Tenstorrent Inc Blackhole
+c1:00.0 Processing accelerators: Tenstorrent Inc Blackhole
+e1:00.0 Processing accelerators: Tenstorrent Inc Blackhole
 ```
 
 Important
 If you don’t see both accelerators listed, please raise a support request. Our team will provide assistance.
 
-## Step 5: Installing the Tenstorrent Software Stack
+## Step 6: Installing the Tenstorrent Software Stack
 
-After completing the operating system installation, proceed with Installing the Tenstorrent Software Stack.
+After completing the operating system installation, proceed with [Installing the Tenstorrent Software Stack](https://docs.tenstorrent.com/getting-started/README.html).
 
 ## Need Additional Support?
 

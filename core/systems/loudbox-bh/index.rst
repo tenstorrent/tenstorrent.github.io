@@ -4,10 +4,10 @@ TT-LoudBox (Blackhole)
 Getting Started
 ---------------
 
-.. toctree::
-   :maxdepth: 1
+.. container:: toctree-no-underline
 
-   setup
+   * :doc:`Receiving, Unboxing, and Setup <setup>`
+   * :ref:`Installing Operating System and Firmware <step-4-installing-os-firmware>`
 
 Reference Materials
 -------------------
