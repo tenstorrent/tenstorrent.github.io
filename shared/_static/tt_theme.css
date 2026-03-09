@@ -65,9 +65,9 @@
 
   --base-text-size: 16px;
 
-  --font-main: "Degular", sans-serif;
-  --font-display: "DegularDisplay", sans-serif;
-  --font-mono: "RMMono", monospace;
+  --font-main: "Degular", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "DegularDisplay", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "RMMono", "SF Mono", "Cascadia Code", "Consolas", "Liberation Mono", Menlo, monospace;
 
   --transition-duration: 150ms;
   --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
