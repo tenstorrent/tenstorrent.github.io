@@ -11,17 +11,17 @@ This document provides detailed technical specifications for the Tenstorrent Bla
 
 
 ## Blackhole™ Tensix Processor Overview
-The Tenstorrent Blackhole™ Tensix Processor powers the Blackhole™ p100a, p150a, and p150b add-in boards. The processor features:
+The Tenstorrent Blackhole™ Tensix Processor powers the Blackhole™ p100a, p150a, and p150b cards. The processor features:
 
 * Tensix core count: 140  
 * SiFive x280 "Big RISC-V" cores: 16  
 * SRAM: 210 MB (1.5 MB per Tensix core)  
 * Memory: 32 GB GDDR6 with a 256-bit memory bus
 
-##  Add-in Board Comparison Table
+##  Card Comparison Table
 
 :::{note}
-The **p100a** and **p150a** add-in board are designed for desktop workstations where active cooling is required. For rack-mounted servers with sufficient forced air cooling, use the **p150b** add-in board.
+The **p100a** and **p150a** cards are designed for desktop workstations where active cooling is required. For rack-mounted servers with sufficient forced air cooling, use the **p150b** card.
 :::
 
 | Specification             | p100a                       | p150a                       | p150b                       |
@@ -30,7 +30,7 @@ The **p100a** and **p150a** add-in board are designed for desktop workstations w
 | Tensix Cores              | 120                         | 120                         | 120                         |
 | AI Clock                  | Up to 1.35 GHz              | Up to 1.35 GHz              | Up to 1.35 GHz              |
 | "Big RISC-V" Cores        | 16                          | 16                          | 16                          |
-| SRAM                      | 180 MB                      | 210 MB                      | 210 MB                      |
+| SRAM                      | 180 MB                      | 180 MB                      | 180 MB                      |
 | Memory                    | 28 GB GDDR6                 | 32 GB GDDR6                 | 32 GB GDDR6                 |
 | Memory Speed              | 16 GT/sec                   | 16 GT/sec                   | 16 GT/sec                   |
 | Memory Bandwidth          | 448 GB/sec                  | 512 GB/sec                  | 512 GB/sec                  |
@@ -45,7 +45,7 @@ The **p100a** and **p150a** add-in board are designed for desktop workstations w
 
 **For connecting to Tenstorrent Blackhole™-based cards only.*
 
-## Add-in Board Dimensions
+## Card Dimensions
 
 #### p100a
 
@@ -61,7 +61,7 @@ The **p100a** and **p150a** add-in board are designed for desktop workstations w
 
 ## Connectivity (p150a/p150b)
 
-Blackhole™ add-in boards feature four QSFP-DD ports for connecting to other add-in boards. *(p150b pictured; p150a will have the same ports.)*
+Blackhole™ PCIe cards feature four QSFP-DD ports for connecting to other cards. *(p150b pictured; p150a will have the same ports.)*
 
 ![](./images/bh_portspec.png)
 
@@ -96,7 +96,7 @@ The Blackhole™ Tensix Processor supports the following data precision formats:
 
 ## Environment Specifications
 
-The Blackhole™ Tensix Processor add-in boards are designed to meet these environmental specifications:
+The Blackhole™ Tensix Processor cards are designed to meet these environmental specifications:
 
 | Specification               | Requirement               |
 | --------------------------- | ------------------------- |
