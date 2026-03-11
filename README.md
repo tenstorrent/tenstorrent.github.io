@@ -40,7 +40,7 @@ The repo also contains scripts for building documentation.
 The `build_docs.py` script builds the documentation for core documentation folder.
 
 The documentation for the other projects in Tenstorrent ecosystem are linked in `index.rst` (see TT-NN, TT-Metalium, or TT-Forge). These projects build their own documentation 
-in their own repos through Github Pages. Github's organization account is then used to link these together under the same domain as follows:
+in their own repos through GitHub Pages. GitHub's organization account is then used to link these together under the same domain as follows:
 Domain: docs.tenstorrent.com is pointing to the pages local to this repo
 `docs.tenstorrent.com/{github repo name}` points project-specific documentation. For example: [docs.tenstorrent.com/tt-blacksmith ](https://docs.tenstorrent.com/tt-blacksmith/)
 is build in repo [tt-blacksmith](https://github.com/tenstorrent/tt-blacksmith)
