@@ -13,10 +13,10 @@ This document provides detailed technical specifications for the Tenstorrent Bla
 ## Blackhole™ Tensix Processor Overview
 The Tenstorrent Blackhole™ Tensix Processor powers the Blackhole™ p100a, p150a, and p150b cards. The processor features:
 
-* Tensix core count: 140  
+* Tensix core count: 120  
 * SiFive x280 "Big RISC-V" cores: 16  
-* SRAM: 210 MB (1.5 MB per Tensix core)  
-* Memory: 32 GB GDDR6 with a 256-bit memory bus
+* SRAM: 180 MB (1.5 MB per Tensix core)  
+* Memory: up to 32 GB GDDR6 with a 256-bit memory bus
 
 ##  Card Comparison Table
 
