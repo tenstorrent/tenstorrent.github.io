@@ -2,8 +2,6 @@
 
 *<span style="color: purple;">Note: This content is still being drafted. Once finalized, the complete documentation will be available at docs.tenstorrent.com</span>*
 
-*<span style="color: purple;">This page would like your suggestions for content and accuracy. Please add them to the [feedback form here](https://docs.google.com/spreadsheets/d/1y5mFBDAgewitmmoi2eWkuwDViIsMSsukkgnxH87Idc8/edit?usp=sharing). Thank you!</span>*
-
 ## Monitor Stays Black After Powering On
 First, ensure all cables are functioning and connected:
 1. Confirm the power cable is securely connected to the back of the Workstation, and is recieving power from a grounded outlet. 

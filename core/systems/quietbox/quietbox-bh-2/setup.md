@@ -10,8 +10,6 @@ myst:
 
 *<span style="color: purple;">Note: This content is still being drafted. Once finalized, the complete documentation will be available at docs.tenstorrent.com</span>*
 
-*<span style="color: purple;">This page would like your suggestions for content and accuracy. Please add them to the [feedback form here](https://docs.google.com/spreadsheets/d/1y5mFBDAgewitmmoi2eWkuwDViIsMSsukkgnxH87Idc8/edit?usp=sharing). Thank you!</span>*
-
 This section guides users through how to safely unbox, setup hardware, and install software on a TT-QuietBox 2 (Blackhole) Workstation.
 
 ## **Before You Begin**

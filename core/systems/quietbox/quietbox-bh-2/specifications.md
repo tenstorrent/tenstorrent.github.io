@@ -10,8 +10,6 @@ myst:
 
 *<span style="color: purple;">Note: This content is still being drafted. Once finalized, the complete documentation will be available at docs.tenstorrent.com</span>*
 
-*<span style="color: purple;">This page would like your suggestions for content and accuracy. Please add them to the [feedback form here](https://docs.google.com/spreadsheets/d/1y5mFBDAgewitmmoi2eWkuwDViIsMSsukkgnxH87Idc8/edit?usp=sharing). Thank you!</span>*
-
 This document provides detailed technical specifications for the TT-QuietBox™ 2 (Blackhole™) Liquid-Cooled Desktop Workstation. It lists package contents, hardware components, physical dimensions, and operating requirements.
 
 ## **Package Contents**
