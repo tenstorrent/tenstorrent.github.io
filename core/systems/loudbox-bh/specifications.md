@@ -12,8 +12,8 @@ This document provides detailed technical specifications for the Tenstorrent TT-
 
 For rack-mounting, setup, and cabling instructions, refer to the [Setup Guide](./setup.md).
 
-### Important Safety Note
-
+:::{admonition} Important Safety Note
+:class: Important
 This is a Class A product designed for use in a commercial environment.  In a domestic environment, this product may cause radio interference, in which case the user may be required to take adequate measures.
  
 Changes or modifications to this Server that are not expressly approved by Tenstorrent may void the user's authority to operate it. Tenstorrent cannot accept responsibility for any failure to satisfy any Safety, EMC or regulatory requirements that result from non-approved modification of the product, including the fitting of non-Tenstorrent recommended cards, cables, or any other hardware or software modification that may affect compliance. To avoid damage and personal injury, only use Tenstorrent approved hardware with this device. 
@@ -21,6 +21,7 @@ Changes or modifications to this Server that are not expressly approved by Tenst
 The Server contains a Class 1 Laser within the optical transceiver module. The laser is self-contained. If a replacement is required, only use a certified optical fiber transceiver Class 1 Laser product.
 
 Do not use the TT-LoudBox (Blackhole) in a way that it was not designed to be used.
+:::
 
 ## System Specifications
 

@@ -8,18 +8,17 @@ myst:
 
 # Support
 
+*<span style="color: purple;">Note: This content is in progress and this product is pre-launch. This install guide would love your feedback! Please add it to the attached spreadsheet that came with this website package.</span>*
+
 ## Software Setup Support
 
 For software setup, visit our [software setup](https://docs.tenstorrent.com/getting-started/README.html) page.
 
-
-
 ## BIOS and Hardware Support
 
-For BIOS updates, non-Tenstorrent drivers, and other hardware support, visit the SuperMicro [product page](https://www.supermicro.com/en/products/system/gpu/4u/sys-740gp-tnrt). 
-
+This server is built on a Supermicro chassic. For BIOS updates, non-Tenstorrent drivers, and other chassis-related hardware support, visit the SuperMicro [product page](https://www.supermicro.com/en/products/system/gpu/4u/as-4125gs-tnrt). 
 
 
 ## Tenstorrent Support
 
-For support with the Tenstorrent n150s, n300s, and related Tenstorrent software, you can visit the Tenstorrent [Discord](https://discord.gg/tvhGzHQwaj) server or contact [support@tenstorrent.com](mailto:support@tenstorrent.com) with additional questions.
+For additional support, you can visit the Tenstorrent [Discord](https://discord.gg/tvhGzHQwaj) server or contact [support@tenstorrent.com](mailto:support@tenstorrent.com) with any questions. We are here to help.

@@ -525,3 +525,11 @@ html.writer-html5 .rst-content dl[class]:not(.option-list):not(.field-list):not(
 .admonition.important>.admonition-title {
   background: var(--color-green);
 }
+
+/* Hide loudbox-bh from sidebar and page content unless viewing that section */
+.wy-menu-vertical li:has(> a[href*="loudbox-bh"]):not(.current) {
+  display: none;
+}
+.rst-content .toctree-wrapper li:has(> a[href*="loudbox-bh"]) {
+  display: none;
+}

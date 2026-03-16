@@ -8,7 +8,9 @@ myst:
 
 # Topology Configurations for Multiple Servers
 
-This page details multi-server mesh topology configuration options for the TT-LoudBox (Blackhole).
+*<span style="color: purple;">Note: This content is in progress and this product is pre-launch. This install guide would love your feedback! Please add it to the attached spreadsheet that came with this website package.</span>*
+
+This page details multi-server mesh topology configuration options for the TT-LoudBox (Blackhole). Please note that multi-server scale out is in development. As Tenstorrent validates additional topologies, we will update this page.
 
 For full site requirements and setup instructions, refer to the [Setup Guide](./setup.md).
 
@@ -19,7 +21,7 @@ For Blackhole P150 systems our convention is to enumerate our ports per card as 
 :width: 60%
 :::
 
-When arranged in the Rack-Mounted box the left-most Card is referred to as “Board/Tray/Card” 1, numbered consecutively till 8 at the right.
+When arranged in the rackmounted box, the left-most card is referred to as “Board/Tray/Card” 1, then heading right, each card is numbered consecutively until card 8.
 
 ## Two Servers (4x4 Mesh)
 
@@ -33,7 +35,7 @@ Cabling Guide — Table of Connections
 | host_0 | 7 | 2 | host_1 | 3 | 1 | |
 | host_0 | 8 | 2 | host_1 | 4 | 1 | |
 
-:::{figure} bh-lb-4x4-topology.jpg
+:::{figure} bh-lb-4x4_Mesh.jpg
 :width: 60%
 :::
 
@@ -48,7 +50,7 @@ Cabling Guide — Table of Connections
 | host_1 | 4 | 3 | host_3 | 1 | 4 | |
 | host_1 | 8 | 3 | host_3 | 5 | 4 | |
 
-:::{figure} bh-lb-8x4-topology.jpg
+:::{figure} bh-lb-8x4_Mesh.jpg
 :width: 40%
 :::
 

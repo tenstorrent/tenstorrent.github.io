@@ -6,6 +6,7 @@ TT-LoudBox (Blackhole)
    :maxdepth: 1
 
    setup
+   OS-setup
    specifications
    configurations
    support
@@ -13,10 +14,11 @@ TT-LoudBox (Blackhole)
 Getting Started
 ---------------
 
-.. container:: toctree-no-underline
+.. toctree::
+   :maxdepth: 1
 
-   * :doc:`Receiving, Unboxing, and Setup <setup>`
-   * :ref:`Installing Operating System and Firmware <step-4-installing-os-firmware>`
+   setup
+   OS-setup
 
 Reference Materials
 -------------------

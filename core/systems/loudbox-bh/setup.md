@@ -8,7 +8,7 @@ myst:
 
 # Receiving, Unboxing, and Setup
 
-*<span style="color: purple;">Note: This content is still being drafted and is pending final imagery. Once finalized, the complete documentation will be available at docs.tenstorrent.com. This install guide would love your feedback! Please add it to the attached spreadsheet that came with this website package.</span>*
+*<span style="color: purple;">Note: This content is in progress and this product is pre-launch. This install guide would love your feedback! Please add it to the attached spreadsheet that came with this website package.</span>*
 
 ## Before You Begin
 
@@ -76,7 +76,7 @@ The Tenstorrent TT-LoudBox (Blackhole) system package includes:
 1. Remove the clips from either side of the shipping box. There are four (4) clips in total, two on each side of the box. To remove, compress the clips and pull to release.
 2. Lift the top of the box off of the bottom.
 3. Remove the accessory bag from the box and save it for later.
-4. Lift the TT-LoudBox out of the box. 
+4. With two people, lift the TT-LoudBox out of the box. 
 
 
 :::{admonition} Important
@@ -139,16 +139,16 @@ Note: The above is an illustrative example. Always install servers at the lowest
 
 ### 1. Connect QSFP-DD Cables
 
-Note: for mulit-server mesh configurations, please view our Topology Configuration page.
+Note: for multi-server mesh configurations, please view our [Topology Configuration page](configurations.md).
 
 The Server can be operated in either a grid (no cables) or mesh topology.
 Meshing provides the benefit of decreased latency by decreasing the hop count between chips and is recommended for high performance operations. Tenstorrent recommends the following mesh as a baseline default for a single server.
 
-:::{figure} bh-lb-2x4-topology.jpeg
+:::{figure} bh-lb-2x4_Mesh.jpeg
 :width: 50%
 :::
 
-You may wish to install a custom mesh for your particular needs. Tenstorrent offers recommended topologies for specific use cases. Please refer to our Topology Configuration page for more details.
+Tenstorrent is in the process of validating additional mesh topologies for specific use cases. You may wish to install a custom mesh topology for your needs, however, please note we cannot guarantee performance or error-free operation on any custom topologies at this time. For multi-server scale out, please refer to our [Topology Configuration page](configurations.md).
 
 ### 2. Connect Networking, BMC and Power Cables
 
@@ -163,71 +163,8 @@ Once you have connected your chosen networking cable, connect your Cat6 cable to
 
 Once all cables are connected, power on the Server by pressing the ⏻ power button on the front control panel. 
 
-(step-4-installing-os-firmware)=
-## Step 4: Installing the Operating System and Firmware
-
-### Installing the Operating System
-
-The TT-LoudBox system ships without an operating system (OS) installed. We recommend installing Ubuntu 22.04 (Jammy Jellyfish), or your preferred OS.
-
-If you choose to install Ubuntu 22.04, here is how to get started:
-
-When the Ubuntu login prompt appears, enter the following default credentials:
-
-Username: ttuser  
-Password: ttuser
-
-### Optional: Accessing the Base Management Controller (BMC) 
-
-The MAC address and password for the BMC can be found on a small slide-out tray, at the bottom of the system. The label will look like this:
-
-:::{figure} bh-lb-bmc-placeholder.png
-:width: 80%
-:::
-
-To Access the BMC: 
-1. Ensure the Server is powered on, and the BMC cable is connected to the network port and BMC Ethernet slot. 
-2. Once the system is fully booted, the BMC’s IP address will appear on the screen. 
-3. Note the IP address and use that to login to the BMC at https://<bmc ip address>
-4. When prompted, enter the default BMC credentials:
-   - Uname: ADMIN
-   - Password: [printed on the slide-out tab in the image above]
-
-### Firmware
-
-TT-LoudBox (Blackhole) may need to update firmware before first use. To do this, run `tt-installer`, located at https://github.com/tenstorrent/tt-installer/
-
-If a specific firmware version is needed, use the `tt-flash` utility with your specific firmware version path. This is documented on our [GitHub tt-flash repository](https://github.com/tenstorrent/tt-flash).
-
-## Step 5: Verifying System Recognition of Blackhole p150b Accelerators
-
-In a terminal, execute these commands to download the latest list of PCI device IDs and list the recognized devices:
-
-```
-sudo update-pciids
-lspci -d 1e52:
-```
-
-You should see an output which lists eight recognized Accelerators:
-
-```
-01:00.0 Processing accelerators: Tenstorrent Inc Blackhole
-25:00.0 Processing accelerators: Tenstorrent Inc Blackhole
-41:00.0 Processing accelerators: Tenstorrent Inc Blackhole
-61:00.0 Processing accelerators: Tenstorrent Inc Blackhole
-81:00.0 Processing accelerators: Tenstorrent Inc Blackhole
-a1:00.0 Processing accelerators: Tenstorrent Inc Blackhole
-c1:00.0 Processing accelerators: Tenstorrent Inc Blackhole
-e1:00.0 Processing accelerators: Tenstorrent Inc Blackhole
-```
-
-Important
-If you don’t see both accelerators listed, please raise a support request. Our team will provide assistance.
-
-## Step 6: Installing the Tenstorrent Software Stack
-
-After completing the operating system installation, proceed with [Installing the Tenstorrent Software Stack](https://docs.tenstorrent.com/getting-started/README.html).
+Your hardware setup is complete. Please head to the [Operating System and Firmware Setup](software-setup.md) page to continue.
 
 ## Need Additional Support?
 
-If you encounter any issues, or have a question that isn’t covered in the documentation, please raise a support request. Our team will review your request and provide assistance.
+If you encounter any issues, or have a question that isn’t covered in the documentation, please reach out at [support@tenstorrent.com](mailto:support@tenstorrent.com) Our team will review your request and provide assistance.
