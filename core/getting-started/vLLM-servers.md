@@ -108,8 +108,15 @@ If the command does not succeed and print `✔ Access granted.`, please make sur
 ### **3\. Clone the Server Repository**
 
 ```bash
+# 1. Clone the repository
 git clone https://github.com/tenstorrent/tt-inference-server.git
 cd tt-inference-server
+
+# 2. Update all tags from the remote (standardizing the local list)
+git fetch --tags
+
+# 3. Checkout the highest Semantic Version tag starting with "v"
+git checkout $(git tag -l "v*" --sort=-v:refname | head -n 1)
 ```
 
 ---
