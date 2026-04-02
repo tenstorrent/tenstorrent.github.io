@@ -33,7 +33,7 @@ For assembly instructions, refer to the [Unboxing and Setting Up the TT-QuietBox
 | Storage | 4TB (WDS400T4B0E-00BKY0)<br /> 1x Blazing M.2 (PCIe Gen5x4) with WD Blue SN5000 NVMe SSD<br /> 1x Hyper M.2 (PCIe Gen4x4)<br /> 1x M.2 (PCIe Gen3x2 & SATA3) |
 | Tenstorrent Processors | 2x Liquid-Cooled Blackhole™ cards, each equipped with:<br /><ul style="margin-bottom: 0;"><li>2x Blackhole ASICs</li><li>240 Tensix Cores</li><li>64 GB of DDR6 Memory @ 16 GT/sec (1024 GB/sec memory bandwidth)</li><li>600W of board power</li></ul> |
 | Host Connectivity | 2x WiFi Antenna Ports<br />1x HDMI Port<br />1x USB 3.2 Gen 2 Type-A Port<br />1x USB 3.2 Gen 2 Type-C Port (non-video)<br />2x USB 3.2 Gen1 Ports<br />4x USB 2.0 Ports<br />1 x RJ45 LAN Port<br />1 x BIOS Flashback Button<br />HD Audio Jacks: Line in / Front Speaker / Microphone |
-| Power Supply | 1600W CoolerMaster V Platinum 1600 V2 |
+| Power Supply | 1600W Cooler Master V Platinum 1600 V2 |
 | Operating System | Ubuntu 24.04.3 LTS |
 | System Dimensions | 8.4” x 17.8” x 15.5” (W x D x H) / 21.4cm x 45.2cm x 39.3cm (including handles and feet) |
 | System Weight | 20 kg (44.2 lbs) +/- 1.5 lbs   |
@@ -83,7 +83,7 @@ For assembly instructions, refer to the [Unboxing and Setting Up the TT-QuietBox
 
 * The workstation’s internal AC/DC power supply consists of one 1600-watt 80 Plus Titanium Power Supply Unit (PSU).
 * The expected peak power consumption of the Workstation is 1.5kW.
-* For maximum efficiency, ensure your outlet can handle 100-240V (15A is recommended).
+* For standard 120V operation, the Workstation must be used with a dedicated 15A circuit to avoid tripping your circuit breaker. 
 
 ## **Enviornment**
 

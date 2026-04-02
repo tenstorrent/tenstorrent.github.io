@@ -31,7 +31,7 @@ The TT-QuietBox 2 shipping container weighs approximately 50 lbs (22.6 kg). At l
 
 :::{admonition} Caution: Hot Surfaces
 :class: caution
-The interior of the workstation can become extremely hot when running. Do not touch any interior components of the workstation before turning the power off, letting the Power Supply Unit (PSU) fully drain, and allowing interior components to cool
+The interior of the workstation can become extremely hot when running. Do not touch any interior components of the workstation before turning the power off, letting the Power Supply Unit (PSU) fully drain, and allowing interior components to cool.
 :::
 
 ### **Required Tools**
@@ -109,19 +109,18 @@ On the front of the workstation, press the power button to turn the system on.
 
 ---
 
-## **Step 3. Accessing Default System Logins**
+## **Step 3. Accessing the Ubuntu Operating System**
 
 
-Once your system is booted up, follow these instructions for logging into the system using the default Ubuntu credentials.
+TT-Quietbox 2 comes pre-installed with the Ubuntu operating system (24.04.3 LTS). 
 
+Once your system is booted up, when the login prompt appears:
 
-### **Accessing the Ubuntu Operating System**
+Select the default username: **ttuser**
 
+Enter the default password: **ttuser**
 
-When the login prompt appears, enter the following default credentials:
-
-
-*   Password: **ttuser**
+Note: There is welcome animation that plays on each bootup of TT-QuietBox 2. If you would like to disable this animation, run: `/home/ttuser/scripts/disable-demo-mode.sh`
 
 
 ## **Step 4. Change Default Password**
@@ -132,8 +131,17 @@ After logging in, open a terminal window and follow these steps to change your p
 1. Run command: `passwd`
 2. Enter current password: **ttuser**
 3. Enter new password of your choosing and hit enter to confirm the change.
+
+## **Step 5. Connect to Internet**
+TT-QuietBox 2 can be connected to the itnernet either via WiFi or Ethernet cable. 
+
+For cable connections, locate the standard RJ45 port on the back of the Workstation, and plug your modem's Ethernet cable into it.
+
+For WiFi connections, on your monitor, click on the status icons in the top right corner of the screen. Then, click on "Wi-Fi" (it may say "not connected" or "off). Select your WiFi network from the drop down list, enter the password, and click "Connect."
+
+
 ---
-## **Step 5: Verify System Recognition of Blackhole Cards**
+## **Step 6: Verify System Recognition of Blackhole Cards**
 
 To verify all cards are up and running, use TT-SMI. This is a simple command line utility that displays devices, device telemetry and other system information.
 
@@ -151,9 +159,12 @@ To verify all cards are up and running, use TT-SMI. This is a simple command lin
 :class: caution
 If `.tenstorrent-venv` is not active, or you don’t see all four accelerators listed in the Device Information pane of TT-SMI, please [visit the troubleshooting page.](./support-bh-2.md)
 :::
+
+Once all cards have been verified, close TT-SMI by pressing Q on your keyboard.
+
 ---
 
-## **Step 6: Open TT-Studio**
+## **Step 7: Open TT-Studio**
 
 TT-Studio is Tenstorrent's simple web interface for running AI models, and comes pre-installed on your TT-QuietBox 2.
 
@@ -169,7 +180,15 @@ Then, run this command to open TT-Studio:
 tt-studio --easy
 ```
 
-2. Terminal will prompt you to enter a Hugging Face User Access Token. To create a free token, navigate to huggingface.co and either login or create an account, then follow [these steps](https://huggingface.co/docs/hub/en/security-tokens) to generate a token.
+2. Terminal will prompt you to enter a Hugging Face User Access Token.
+
+   * **If you already have a Hugging Face account:** navigate to [www.huggingface.co](https://huggingface.co), then follow [these steps](https://huggingface.co/docs/hub/en/security-tokens#how-to-manage-user-access-tokens) to generate a access token.
+
+   * **If you don't have a Hugging Face account:** Hugging Face is a free, open source community for collaborating on AI models and applications. Hugging Face access tokens are the unique security keys that allow weights from AI models hosted on Hugging Face to be downloaded to your machine. To create a free Hugging Face access token, navigate to [www.huggingface.co](https://huggingface.co) and create an account. Then follow [these steps](https://huggingface.co/docs/hub/en/security-tokens#how-to-manage-user-access-tokens) to generate a access token.
+
+```{raw} html
+<p style="margin-top: 1em;"></p>
+```
 
 3. Paste your Hugging Face token into your terminal window and run the command. If the system asks, “Do you want to install dependencies using Docker?” enter “Y” for “yes.” Installing dependencies may take about 3 minutes.
 
