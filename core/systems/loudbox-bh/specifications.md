@@ -33,8 +33,9 @@ Do not use the TT-LoudBox (Blackhole) in a way that it was not designed to be us
 | Expansion Slots | Nine PCIe 5.0 x16 FHFL slots |
 | Storage | 2 x 3.8 TB PCIe 4 NVMe |
 | Tensix Processors | 8x Tenstorrent Blackhole™ p150b Tensix Processors |
-| Cables | 4x IEC-60320-C13 to C14 F-M power cables (provided)<br>10x QSFP-DD Passive 800G 0.5m for processor mesh (provided)<br>1x Mellanox 100G DAC for networking — optional (not provided)<br>1x Cat 6 for the BMC — optional (not provided)<br>1x RJ45 Standard Ethernet — optional (not provided) |
+| Power Cables Provided | 4x Quail Electronics IEC-60320-C13 to C14 F-M Universal Power Cords<br><div style="margin-left: 1.25em; margin-top: 0.35em;">Depending on your region, the following series will be provided with your Server<br>*Japan & Taiwan: Quail 1999.079<br>*Korea: TBD<br>*India: TBD<br>*Rest of the World: Quail 3532.110</div> |
 | Host System Connectivity Ports | 2x RJ45 10GbE LAN<br>1x RJ45 1GbE Dedicated BMC/IPMI<br>2x QSFP56 100GbE (NIC)<br>2x USB Type A<br>1x COM<br>1x VGA |
+| Other Cables | 10x QSFP-DD Passive 800G 0.5m for processor mesh (provided)<br>1x Mellanox 100G DAC for networking — optional (not provided)<br>1x Cat 6 for the BMC — optional (not provided)<br>1x RJ45 Standard Ethernet — optional (not provided) |
 | Tensix Processor Connectivity | 32x QSFP-DD Passive 800G (4x per Blackhole™ p150b card). Connects to other Blackhole Tensix Processors only. |
 | Power Supply | 2+2 2000W Titanium Power Supply Units (PSUs). Expected peak consumption of 4kW. |
 | Base System | SuperMicro GPU A+ Server AS-4125GS-TNRT |
