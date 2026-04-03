@@ -144,7 +144,7 @@ Note: for multi-server mesh configurations, please view our [Topology Configurat
 The Server can be operated in either a grid (no cables) or mesh topology.
 Meshing provides the benefit of decreased latency by decreasing the hop count between chips and is recommended for high performance operations. Tenstorrent recommends the following mesh as a baseline default for a single server.
 
-:::{figure} bh-lb-2x4_Mesh.jpeg
+:::{figure} bh-lb-2x4_Mesh.jpg
 :width: 50%
 :::
 
