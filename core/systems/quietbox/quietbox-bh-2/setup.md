@@ -89,7 +89,7 @@ Follow these steps to set up the hardware for your TT-QuietBox Blackhole™ work
 ```{figure} ./placeholder-connecting-power.png
 :width: 40%
 ```
-2. **Connect peripherals.** Connect the HDMI monitor, keyboard, and mouse using the HDMI and USB ports on the back of the Workstation. If you prefer Ethernet to WiFi, you may connect an Ethernet cable using the RJ45 port. If you'd like sound, connect the included third-party speakerphone dongle to the USB-A port.
+2. **Connect peripherals.** Connect the HDMI monitor, keyboard, and mouse using the HDMI and USB ports on the back of the Workstation. If you prefer Ethernet to WiFi for faster downloading of models, connect your Ethernet cable to the RJ45 port. If you'd like sound, connect the included third-party speakerphone to the USB-A port.
 
 ```{figure} ./placeholder-peripheral-connections.png
 :width: 40%
@@ -132,8 +132,16 @@ After logging in, open a terminal window and follow these steps to change your p
 2. Enter current password: **ttuser**
 3. Enter new password of your choosing and hit enter to confirm the change.
 
-## **Step 5. Connect to Internet**
-TT-QuietBox 2 can be connected to the itnernet either via WiFi or Ethernet cable. 
+## **Step 5. Verify and Update Ubuntu Operating System**
+
+To ensure your operating system has the latest Ubuntu updates, open a Terminal window and run:
+
+```bash
+sudo apt update && sudo apt upgrade -y
+```
+
+## **Step 6. Connect to Internet**
+TT-QuietBox 2 can be connected to the itnernet via WiFi or Ethernet cable. For faster model downloads, we recommend a direct Ethernet connection.
 
 For cable connections, locate the standard RJ45 port on the back of the Workstation, and plug your modem's Ethernet cable into it.
 
@@ -141,7 +149,7 @@ For WiFi connections, on your monitor, click on the status icons in the top righ
 
 
 ---
-## **Step 6: Verify System Recognition of Blackhole Cards**
+## **Step 7: Verify System Recognition of Blackhole Cards**
 
 To verify all cards are up and running, use TT-SMI. This is a simple command line utility that displays devices, device telemetry and other system information.
 
@@ -164,7 +172,7 @@ Once all cards have been verified, close TT-SMI by pressing Q on your keyboard.
 
 ---
 
-## **Step 7: Open TT-Studio**
+## **Step 8: Open TT-Studio**
 
 TT-Studio is Tenstorrent's simple web interface for running AI models, and comes pre-installed on your TT-QuietBox 2.
 
@@ -177,7 +185,7 @@ git pull
 Then, run this command to open TT-Studio:
 
 ```bash
-tt-studio --easy
+tt-studio
 ```
 
 2. Terminal will prompt you to enter a Hugging Face User Access Token.
@@ -198,7 +206,7 @@ When completed, terminal will confirm TT-Studio is ready:
 :width: 80%
 ```
 
-4. Return to TT-Studio and select a model from the drop-down screen to begin. 
+4. The TT-Studio web app will launch in your default web browser. Select a model from the drop down to begin.
 
 ```{figure} ./screencap-tt-studio-select-model.png
 :width: 80%

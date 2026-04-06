@@ -1,4 +1,4 @@
-# Troubleshooting Common Hardware Issues
+# FAQ and Troubleshooting 
 
 *<span style="color: purple;">Note: This content is still being drafted. Once finalized, the complete documentation will be available at docs.tenstorrent.com</span>*
 
@@ -18,5 +18,4 @@ If you have confirmed the above, and there is still no visual output on your con
 ## Can I Manually Install the Full Tenstorrent Software Stack Onto my TT-QuietBox 2?
 Yes. Please visit the [Installing the Tenstorrent Software Stack guide](../../../getting-started/README.html).
 
-## I Opened Terminal, But Do Not See `tenstorrent.venv`
-If your first opening of terminal does not show `tenstorrernt.venv` at the prompt, head to [Installing the Tenstorrent Software Stack](../../../getting-started/README.html) and follow steps 1 and 2 for running the tt-installer script. Once completed, your enviornment should automatically activate. Follow the steps on the [setup page](setup.html) to continue with TT-Studio.
+
