@@ -18,7 +18,7 @@ The Tenstorrent TT-QuietBox 2 (Blackhole) system package includes the following 
 
 * 1x TT-QuietBox 2 (Blackhole) Workstation
 * 1x Power Supply Cord (C19 to NEMA 5-15P)
-* 1x AnkerWork S500 speakerphone and dongle (first 100 units)
+* 1x AnkerWork S500 speakerphone
 
 For assembly instructions, refer to the [Unboxing and Setting Up the TT-QuietBox Workstation Guide](./setup.md). If you encounter issues, refer to the [Troubleshooting Common Hardware Issues page](./support-bh-2.md).
 
