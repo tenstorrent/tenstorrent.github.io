@@ -109,51 +109,49 @@ On the front of the workstation, press the power button to turn the system on.
 
 ---
 
-## **Step 3. Accessing the Ubuntu Operating System**
+## **Step 3. First-Time Log In**
 
-
-TT-Quietbox 2 comes pre-installed with the Ubuntu operating system (24.04.3 LTS). 
+*Note: There is welcome animation that plays on each bootup of TT-QuietBox 2. If you would like to disable this animation, in a Terminal, run:* `/home/ttuser/scripts/disable-demo-mode.sh`
 
 Once your system is booted up, when the login prompt appears:
 
-Select the default username: **ttuser**
-
 Enter the default password: **ttuser**
-
-Note: There is welcome animation that plays on each bootup of TT-QuietBox 2. If you would like to disable this animation, run: `/home/ttuser/scripts/disable-demo-mode.sh`
-
 
 ## **Step 4. Change Default Password**
 
-
-After logging in, open a terminal window and follow these steps to change your password from the public default: 
+After logging in, open a Terminal window by pressing CNTRL+ ALT +T and follow these steps to change your password from the public default: 
 
 1. Run command: `passwd`
 2. Enter current password: **ttuser**
 3. Enter new password of your choosing and hit enter to confirm the change.
 
-## **Step 5. Verify and Update Ubuntu Operating System**
+## **Step 5. **Confirm/Setup Internet Connection**
+TT-QuietBox 2 can be connected to the itnernet via WiFi or Ethernet cable. For faster model downloads, we recommend a direct Ethernet connection.
 
-To ensure your operating system has the latest Ubuntu updates, open a Terminal window and run:
+If you have not done so already during hardware setup, connect your Ethernet cable to the standard RJ45 port on the back of the Workstation. Then, verify your internet connection by clicking on the status icons in the upper right corner of the screen. Confirm the internet connection reads "Wired."
+
+If you would prefer to set up a WiFi connection, on your monitor, click on the status icons in the top right corner of the screen. Then, click on "Wi-Fi" (it may say "not connected" or "off). Select your WiFi network from the drop down list, enter the password, and click "Connect."
+
+## **Step 6. Update the Ubuntu Operating System**
+
+TT-Quietbox 2 comes pre-installed with the Ubuntu operating system (24.04.3 LTS). 
+
+Upon logging in, Software Updater may offer a prompt that new software has been issued since the latest release. If this prompt appears, click "Install Now" to download the latest Ubuntu updates.
+
+We recommend ensuring you are running the latest version of Ubuntu. To do this, open a Terminal window by pressing CNTRL+ ALT +T, then run:
 
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
 
-## **Step 6. Connect to Internet**
-TT-QuietBox 2 can be connected to the itnernet via WiFi or Ethernet cable. For faster model downloads, we recommend a direct Ethernet connection.
-
-For cable connections, locate the standard RJ45 port on the back of the Workstation, and plug your modem's Ethernet cable into it.
-
-For WiFi connections, on your monitor, click on the status icons in the top right corner of the screen. Then, click on "Wi-Fi" (it may say "not connected" or "off). Select your WiFi network from the drop down list, enter the password, and click "Connect."
-
+Wait for any downloads to complete, then proceed to the next step.
 
 ---
 ## **Step 7: Verify System Recognition of Blackhole Cards**
 
-To verify all cards are up and running, use TT-SMI. This is a simple command line utility that displays devices, device telemetry and other system information.
+TT-SMI is a simple command line utility that displays devices, device telemetry and other system information. To verify all cards are up and running in your TT-QuietBox, do the following steps:
 
-1. Open a new terminal window. You should see a text prompt that reads: `(.tenstorrent-venv) ttuser@tt-quietbox:-$`
+1. Open a new Terminal window by pressing CNTRL+ ALT +T. You should see a text prompt that reads: `(.tenstorrent-venv) ttuser@tt-quietbox:-$`
 
 2. Run command `tt-smi` 
 
@@ -176,53 +174,87 @@ Once all cards have been verified, close TT-SMI by pressing Q on your keyboard.
 
 TT-Studio is Tenstorrent's simple web interface for running AI models, and comes pre-installed on your TT-QuietBox 2.
 
-1. We recommend ensuring you have the latest version of TT-Studio. Update it by opening a terminal window and pulling the latest version from the tenstorrent/tt-studio repository. Open a terminal window and run the following command:
+1. Ensure you have the latest version of TT-Studio from the open source Tenstorret GitHub repository. To do this, open a Terminal window by pressing CNTRL+ ALT +T and run the following command:
 
 ```bash
 cd ~/.local/lib/tt-studio
 git pull
 ```
-Then, run this command to open TT-Studio:
+2. Once the latest version has been confirmed or downloaded, run this command in Terminal to open TT-Studio:
 
 ```bash
 tt-studio
 ```
 
-2. Terminal will prompt you to enter a Hugging Face User Access Token.
+Your Terminal window will show a "Welcome to TT-Studio" message. See screenshot below for reference.
 
-   * **If you already have a Hugging Face account:** navigate to [www.huggingface.co](https://huggingface.co), then follow [these steps](https://huggingface.co/docs/hub/en/security-tokens#how-to-manage-user-access-tokens) to generate a access token.
-
-   * **If you don't have a Hugging Face account:** Hugging Face is a free, open source community for collaborating on AI models and applications. Hugging Face access tokens are the unique security keys that allow weights from AI models hosted on Hugging Face to be downloaded to your machine. To create a free Hugging Face access token, navigate to [www.huggingface.co](https://huggingface.co) and create an account. Then follow [these steps](https://huggingface.co/docs/hub/en/security-tokens#how-to-manage-user-access-tokens) to generate a access token.
-
-```{raw} html
-<p style="margin-top: 1em;"></p>
-```
-
-3. Paste your Hugging Face token into your terminal window and run the command. If the system asks, “Do you want to install dependencies using Docker?” enter “Y” for “yes.” Installing dependencies may take about 3 minutes.
-
-When completed, terminal will confirm TT-Studio is ready:
-
-```{figure} ./screencap-tt-studio-is-ready.png
+```{figure} ./qb2-screenshot-first-time-tt-studio.png
 :width: 80%
 ```
 
-4. The TT-Studio web app will launch in your default web browser. Select a model from the drop down to begin.
+**Step 9: Launch Your First Model**
 
-```{figure} ./screencap-tt-studio-select-model.png
+At the bottom of the Terminal screen, you will be prompted to enter a Hugging Face User access token (aka "HF_TOKEN").
+
+Hugging Face is a free, open source community for collaborating on AI models and applications. Hugging Face access tokens are the unique security keys that allow weights from AI models hosted on Hugging Face to be downloaded to your machine. Read more about how user access tokens work in the [Hugging Face documentation](https://huggingface.co/docs/hub/en/security-tokens#how-to-manage-user-access-tokens).
+
+ TT-Studio supports the following common models at first boot-up, all hosted on Hugging Face:
+
+| Type | Model |
+| --- | --- |
+| Video Gen | Wan 2.2 |
+| Text to Image | Flux |
+| Language Models | GPT-OSS 120B, Llama 3.1 70B, Qwen3-32B, Llama 3.1 8B |
+
+To get started with your first Hugging Face model on your TT-QuietBox 2, follow these steps:
+
+1. Create or Login to your Hugging Face account. Open a new browswer window and navigate to [huggingface.co](https://huggingface.co).
+
+2. Visit the Hugging Face model page of your choice and hit Request Access in the upper right corner. Depending on your choice of model, you may be prompted to sign a community license agreement; proceed if you agree.
+
+4. Once approved, create your access token at [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens).
+
+5. Paste your Hugging Face token into the Terminal window and run the command. Wait until your access if confirmed. If the system asks, “Do you want to install dependencies using Docker?” enter “Y” for “yes.” Installing dependencies may take about 3 minutes.
+
+```{figure} ./qb2-screenshot-install-docker.png
 :width: 80%
 ```
-Once selected, the model weights will start downloading automatically.  This could take anywhere from 3 to 40 minutes, depending on the model you’ve selected and the speed of your connection. 
+
+```{figure} ./qb2-screenshot-launching-ttstudio.png
+:width: 80%
+```
+
+6. TT-Studio runs on top of TT-Inference Server which requires sudo privileges to set up. Enter your password when prompted (this is the same password you use to login).
+
+```{figure} ./qb2-screenshot-sudo-pw.png
+:width: 80%
+```
+7. TT-Studio web app will now launch in your default web browser. 
+
+The below screenshots use Llama 3.370B as an example. Click on the model of your choice from the dropdown menu and press "NEXT." 
+
+```{figure} ./qb2-screenshot-select-model.png
+:width: 80%
+```
+
+When prompted on the next screen, proceed by hitting "DEPLOY." The model weights will start downloading automatically. 
+
+
+```{figure} ./qb2-screenshot-deploy-model.png
+:width: 80%
+```
+
+First it will say "creating container" (screenshot) 
+
+Model download can take anywhere from 3 to a few hours, depending on the model you’ve selected and the speed of your internet connection (WiFi connections will be slower than direct Ethernet. The screen will show "model unavailable" until download is finished. (see screenshot)
 
 ```{figure} ./screencap-tt-studio-deploy-model.png
 :width: 80%
 ```
 
-Visit the TT-Studio guide [link forthcoming] for more tutorials on supported models, and to learn about everything TT-Studio can help you create.
-
-
 ## **Other Methods of Running Models**
 After your system is set up, feel free to explore other methods of running models on other layers of Testorrent's software stack. You may want to:
-- Run models directly from your terminal using [TT-Inference-Server](https://github.com/tenstorrent/tt-inference-server), the fastest way to deploy and test models for serving inference on Tenstorrent hardware.
+- Run models directly from Terminal using [TT-Inference-Server](https://github.com/tenstorrent/tt-inference-server), the fastest way to deploy and test models for serving inference on Tenstorrent hardware.
 - Run [model demos](https://docs.tenstorrent.com/getting-started/model-demos.html) using TT-Metalium.
 
 ---
