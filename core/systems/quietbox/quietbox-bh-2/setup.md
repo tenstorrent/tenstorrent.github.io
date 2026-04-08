@@ -5,7 +5,6 @@ myst:
     technology-concepts: PCIe, QSFP-DD, Installation, Setup, Electrostatic Discharge (ESD), Basic Input/Output System (BIOS)  
     document-type: Task-Based Guide (How-To)
 ---
-test potato potato potato
 
 # Receiving, Unboxing, and Setup
 
