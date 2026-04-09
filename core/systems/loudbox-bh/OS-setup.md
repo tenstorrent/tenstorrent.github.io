@@ -74,7 +74,7 @@ e1:00.0 Processing accelerators: Tenstorrent Inc Blackhole
 
 :::{admonition} Important
 :class: Important
-If you don’t see both accelerators listed, please raise a support request. Our team will provide assistance.
+If you don’t see all eight accelerators listed, please raise a support request. Our team will provide assistance.
 :::
 
 ## Step 4: Installing the Tenstorrent Software Stack

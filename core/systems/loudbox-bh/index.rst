@@ -1,16 +1,6 @@
 TT-LoudBox (Blackhole)
 =======================================
 
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-
-   setup
-   OS-setup
-   specifications
-   configurations
-   support
-
 Getting Started
 ---------------
 

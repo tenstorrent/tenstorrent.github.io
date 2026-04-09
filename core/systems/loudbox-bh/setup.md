@@ -163,8 +163,9 @@ Once you have connected your chosen networking cable, connect your Cat6 cable to
 
 Once all cables are connected, power on the Server by pressing the ⏻ power button on the front control panel. 
 
-Your hardware setup is complete. Please head to the [Operating System and Firmware Setup](software-setup.md) page to continue.
+Your hardware setup is complete. Please head to the [Operating System and Firmware Setup](OS-setup.md) page to continue.
 
 ## Need Additional Support?
 
 If you encounter any issues, or have a question that isn’t covered in the documentation, please reach out at [support@tenstorrent.com](mailto:support@tenstorrent.com) Our team will review your request and provide assistance.
+
