@@ -14,9 +14,9 @@ myst:
 
 * The TT-LoudBox™ (Blackhole™) should be installed by a trained qualified professional in a Restricted Access Area. Professional installation ensures the Server operates safely and effectively while preventing property damage and personal injuries. The professional installer assumes all responsibility for compliance with local regulatory and safety requirements during installation.
 
-* The Server should be installed in an area that is clean, dust-free and well-ventilated. Avoid areas where heat, electrical noise and electromagnetic fields are generated.
+* The TT-LoudBox™ (Blackhole™) should be installed in an area that is clean, dust-free and well-ventilated. Avoid areas where heat, electrical noise and electromagnetic fields are generated.
  
-* Leave at least 25 inches of clearance in front of the rack, and at least 30 inches of clearance behind the rack. This will allow the doors to open completely in the event of servicing, and will ensure proper airflow.
+* When rack-mounting, leave at least 25 inches of clearance in front of the rack and at least 30 inches of clearance behind the rack. This will allow the doors to open completely in the event of servicing and will ensure proper airflow.
 
 ### Safety Warnings
 
@@ -29,7 +29,7 @@ The Server weighs 45kg (99lbs). To avoid personal injury and Server damage, at l
 
 :::{admonition} Caution: Hearing Damage Risk
 :class: warning
-The Server produces high volume levels, which can be dangerous to hearing over long periods. We strongly recommend using hearing protection when you are installing, servicing, or working near this Server.
+The Server produces high volume levels, which can be dangerous to your hearing over long periods. We strongly recommend using hearing protection when you are installing, servicing, or working near this Server.
 :::
 
 ### Important Rack Considerations
@@ -38,7 +38,7 @@ The Server produces high volume levels, which can be dangerous to hearing over l
 * Ensure that the leveling jacks on the bottom of the rack are extended to the floor so that the full weight of the rack rests on them.
 * If it is the only unit in the rack, the Server should be mounted at the bottom.
 If the rack is partially filled, load the rack from the bottom to the top with the heaviest units at the bottom of the rack.
-* If the rack is provided with stabilizing devices, install the stabilizers before mounting or servicing the Server in the rack. 
+* If the rack has stabilizing devices, install the stabilizers before mounting or servicing the Server in the rack. 
 * Ensure your rack’s stabilizing mechanism is in place or that the rack is bolted to to the floor. When sliding the Server in and out of the rack, failure to stabilize the rack can cause the rack to tip over.
 * When not servicing, always keep the front door of the rack and all covers/panels on the servers closed to maintain proper cooling.
 
@@ -46,7 +46,7 @@ If the rack is partially filled, load the rack from the bottom to the top with t
 
 :::{admonition} Caution: Shock Hazard
 :class: warning
-This Server contains multiple power supply units (PSUs). Before any servicing, shut down the Server, disconnect all power supply cables, and allow the PSUs to fully drain.
+This Server contains multiple power supply units (PSUs). Before any servicing, shut down the Server, disconnect all power supply cables, and allow all PSUs to fully drain.
 :::
 
 Before installing, ensure that the rack facility has four 20A/240V circuits which can be dedicated to the Server. The rack’s PDU (Power Distribution Unit) outlets should be rated for 10A contiguous load per PSU.
@@ -69,14 +69,43 @@ The Tenstorrent TT-LoudBox (Blackhole) system package includes:
 
 ## Step 1: Unboxing the Server
 
-:::{figure} bh-lb-unboxing-placeholder.png
-:width: 60%
+1. Remove the clips from either side of the shipping box. There are four (4) clips in total, two on each side of the box. To remove, compress the clips and pull to release.
+
+:::{figure} bh-lb-clip-removal.jpg
+:width: 40%
 :::
 
-1. Remove the clips from either side of the shipping box. There are four (4) clips in total, two on each side of the box. To remove, compress the clips and pull to release.
 2. Lift the top of the box off of the bottom.
-3. Remove the accessory bag from the box and save it for later.
-4. With two people, lift the TT-LoudBox out of the box. 
+
+:::{figure} bh-lb-lift-top.jpg
+:width: 40%
+:::
+
+3. Remove the rack rails and accesories and set aside. Then lift the styrofoam casing.
+
+:::{figure} bh-lb-remove-railkit.jpg
+:width: 40%
+:::
+
+:::{figure} bh-lb-accessories.jpg
+:width: 40%
+:::
+
+:::{figure} bh-lb-remove-styrofoam.jpg
+:width: 40%
+:::
+
+4. Lift and remove the inner cardboard sleeve.
+
+:::{figure} bh-lb-remove-inner-sleeve.jpg
+:width: 40%
+:::
+
+5. With at least two people, lift the TT-LoudBox out of the box. 
+
+:::{figure} bh-lb-two-man-lift.jpg
+:width: 40%
+:::
 
 
 :::{admonition} Important
