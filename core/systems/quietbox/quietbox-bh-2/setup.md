@@ -14,33 +14,21 @@ This section guides users through how to safely unbox, setup hardware, and insta
 
 ## **Before You Begin**
 
-Before you begin:
-* Choose a clear, stable, and spacious area for the TT-QuietBox 2, where it will not need to be moved regularly. 
-* The system weighs 20 kg (44.2 lbs) – ensure you can comfortably lift this weight, or ask another person for assistance before getting started. 
-* Clear the area where you intend to use the Workstation and ensure to use a dedicated 15A circuit and outlet.
-* Confirm that all top vents are clear of obstructions or other objects.
+Choose a suitable location for your System:
+* Choose a stable area for the TT-QuietBox 2 where it will not need to be moved regularly, and none of the vents will be blocked.
+* Choose a location for your Quietbox that supports the power draw of the Quietbox. The PSU on the Quietbox 2 is rated to draw up to 1600W of power. A standard 15A circuit can handle up to 1800W. Be mindful when choosing the location of your Quietbox of the other electronics which may draw power from the same circuit. We recommend putting the Quietbox on a dedicated circuit, if not you may trip a breaker.
+* Review the {ref}`safety warnings <safety-warnings>`.
+* Inspect your package for signs of damage. Do not proceed with unboxing or installation if you suspect shipping damage to the system. Contact Tenstorrent support by [raising a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1) Our team will review your request and provide assistance.
 
-Do not proceed with unboxing or installation if you suspect shipping damage to the system. Contact Tenstorrent support by [raising a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1) Our team will review your request and provide assistance.
-
-### Safety Warnings
-
-:::{admonition} Caution: Heavy
-:class: caution
-The TT-QuietBox 2 shipping container weighs approximately 50 lbs (22.6 kg). At least two people are recommended to unbox and install the system safely.
-:::
-
-:::{admonition} Caution: Hot Surfaces
-:class: caution
-The interior of the workstation can become extremely hot when running. Do not touch any interior components of the workstation before turning the power off, letting the Power Supply Unit (PSU) fully drain, and allowing interior components to cool.
-:::
 
 ### **Required Tools**
+Ensure you have everything you need to get started.
 
 The Tenstorrent TT-QuietBox 2 (Blackhole) (TW-04003) package includes the following items:
 
 * 1x TT-QuietBox 2 (Blackhole) Workstation
 * 1x Power Supply Cord (C19 to NEMA 5-15P)
-* 1x AnkerWork S500 speakerphone (first 100 units)
+* 1x AnkerWork S500 speakerphone 
 
 For setup, you will also need your own:
 * Keyboard
@@ -53,9 +41,8 @@ Note: Only use certified HDMI cables with the TT-QuietBox 2. Using non-certified
 
 ## **Step 1: Unboxing the Workstation**
 
-Please take a moment to review the {ref}`electric safety warnings <safety-warnings>` before unboxing your TT-QuietBox 2 Workstation. Then, follow these steps:
 
-1. **Grab the box.** Position the crate in your prepared unboxing area, ensuring ample space to work around it.  
+1. **Grab the box.** Position the box in your prepared unboxing area, ensuring ample space to work around it.  
 ```{figure} ./qb2-unboxing-box.jpg
 :width: 40%
 ```
@@ -99,37 +86,18 @@ Please take a moment to review the {ref}`electric safety warnings <safety-warnin
 ```{figure} ./qb2-remove-plastic-side.jpg
 :width: 40%
 ```
-
-6. **Inspect the system.** Remove the four screws on the side panel to inspect the workstation and ensure all components are properly mounted and secured. The system ships with sufficient liquid coolant for long-term operation; adding or purchasing coolant is not necessary.
-
-```{figure} ./qb2-unscrew-panel.jpg
-:width: 40%
-```
-
-```{figure} ./qb2-lifting-side-panel.jpg
-:width: 40%
-```
-
-```{figure} ./qb2-open-side.jpg
-:width: 40%
-```
 ---
 
 ## **Step 2: Setting Up the Hardware**
 
 Follow these steps to set up the hardware for your TT-QuietBox Blackhole™ workstation:
 
-<span style="color: purple; font-weight: bold;">The section below may change based on pending imagery. We may use one image of the rear view of the workstation with the ports called out.</span>
+<span style="color: purple; font-weight: bold;">The section below may change based on pending imagery. </span>
 
 1. **Connect the power cable.** Connect the provided C19 power cable to the workstation and then to a dedicated power outlet. See the Electrical Safety section for the full list of power requirements. 
-```{figure} ./placeholder-connecting-power.png
-:width: 40%
-```
-2. **Connect peripherals.** Connect the HDMI monitor, keyboard, and mouse using the HDMI and USB ports on the back of the Workstation. If you prefer Ethernet to WiFi for faster downloading of models, connect your Ethernet cable to the RJ45 port. If you'd like sound, connect the included third-party speakerphone to the USB-A port.
 
-```{figure} ./placeholder-peripheral-connections.png
-:width: 40%
-```
+2. **Connect peripherals.** Connect the HDMI monitor, keyboard, and mouse using the HDMI and USB ports on the back of the Workstation. We recommend Ethernet over WiFi for faster downloading of models. If you choose to use ethernet connect your Ethernet cable to the RJ45 port. If you'd like sound, connect the included third-party speakerphone to the USB-A port.
+
 
 3. **Power on the Workstation.** On the back of the workstation, flip the switch on the PSU to the "I" position.  
 
@@ -139,17 +107,17 @@ Follow these steps to set up the hardware for your TT-QuietBox Blackhole™ work
 ```
 4. **On the front of the workstation, press the power button to turn the system on.**
 
-```{figure} ./placeholder-power-button-closeup.png
-:width: 30%
-```
-
 ---
 
 ## **Step 3. First-Time Log In**
 
-*Note: There is a welcome animation that plays on each bootup of TT-QuietBox 2. If you would like to disable this animation, in a Terminal, run:* `/home/ttuser/scripts/disable-demo-mode.sh`
+When the system boots you'll see a welcome animation. If you would like to disable this animation for subsequent boot ups, in a Terminal, run:
 
-Once your system is booted up, when the login prompt appears:
+```bash
+/home/ttuser/scripts/disable-demo-mode.sh
+```
+
+Once your system is booted up, the login prompt will appear.
 
 Enter the default password: **ttuser**
 
@@ -172,7 +140,7 @@ If you would prefer to set up a WiFi connection, on your monitor, click on the s
 
 TT-QuietBox 2 comes pre-installed with the Ubuntu operating system (24.04.3 LTS). 
 
-Upon logging in, Software Updater may offer a prompt that new software has been issued since the latest release. If this prompt appears, click "Install Now" to download the latest Ubuntu updates.
+Upon logging in, a Ubuntu Software Updater may offer a prompt that new software has been issued since the latest release. If this prompt appears, click "Install Now" to download the latest Ubuntu updates.
 
 We recommend ensuring you are running the latest version of Ubuntu. To do this, open a Terminal window by pressing Ctrl+Alt+T, then run:
 
@@ -187,7 +155,7 @@ Wait for any downloads to complete, then proceed to the next step.
 
 To verify all cards are up and running in your TT-QuietBox, launch TT-SMI. This is Tenstorrent's simple command line utility that displays devices, device telemetry and other system information. 
 
-1. Open a new Terminal window by pressing Ctrl+Alt+T. You should see a text prompt that reads: `(.tenstorrent-venv) ttuser@tt-quietbox:~$`
+1. In the terminal your shell prompt should read: `(.tenstorrent-venv) ttuser@tt-quietbox:~$`
 
 2. Run command `tt-smi` 
 
@@ -206,7 +174,28 @@ Once all cards have been verified, close TT-SMI by pressing Q on your keyboard.
 
 ---
 
-## **Step 8: Launch TT-Studio**
+## **Step 8: Get Access to Model Weights**
+
+To deploy a model, you'll need to get permission to download the model weights in TT-Studio. 
+
+TT-Studio supports the following common models on Quietbox 2:
+
+| Type | Model |
+| --- | --- |
+| Video Gen | Wan 2.2 |
+| Text to Image | Flux |
+| Language Models | GPT-OSS 120B, Llama 3.1 70B, Qwen3-32B, Llama 3.1 8B |
+
+Hugging Face is a free, open source community for collaborating on AI models and applications. Hugging Face access tokens are the unique security keys that allow weights from AI models hosted on Hugging Face to be downloaded to your machine. Read more about how user access tokens work in the [Hugging Face documentation](https://huggingface.co/docs/hub/en/security-tokens#how-to-manage-user-access-tokens).
+
+To get access to model weights, follow these steps:
+
+1. Open a new browser window and navigate to [huggingface.co](https://huggingface.co).
+2. Create or log in to your Hugging Face account.
+3. On the Hugging Face website, visit the model page of your choice. Depending on your choice of model you may need to click **Request Access** in the upper right corner or you may be prompted to scroll through and sign a community license agreement.
+4. Once approved, create your access token at [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens). Copy the access token.
+
+## **Step 9: Launch TT-Studio**
 
 TT-Studio is Tenstorrent's simple web interface for running AI models.
 
@@ -216,7 +205,7 @@ TT-Studio is Tenstorrent's simple web interface for running AI models.
 cd ~/.local/lib/tt-studio
 git pull
 ```
-2. Once the latest version has been confirmed or downloaded, run this command in Terminal to open TT-Studio:
+2. When the following process is complete, run this command in Terminal to open TT-Studio:
 
 ```bash
 tt-studio
@@ -228,31 +217,13 @@ Your Terminal window will show a "Welcome to TT-Studio" message. See screenshot 
 :width: 80%
 ```
 
-## **Step 9: Launch Your First Model**
+## **Step 10: Launch Your First Model**
 
 At the bottom of the Terminal screen, you will be prompted to enter a Hugging Face User Access Token (aka "HF_TOKEN").
 
-Hugging Face is a free, open source community for collaborating on AI models and applications. Hugging Face access tokens are the unique security keys that allow weights from AI models hosted on Hugging Face to be downloaded to your machine. Read more about how user access tokens work in the [Hugging Face documentation](https://huggingface.co/docs/hub/en/security-tokens#how-to-manage-user-access-tokens).
+1. Paste this Hugging Face token into the Terminal window and run the command.
 
-TT-Studio supports the following common models at first boot-up, all hosted on Hugging Face:
-
-| Type | Model |
-| --- | --- |
-| Video Gen | Wan 2.2 |
-| Text to Image | Flux |
-| Language Models | GPT-OSS 120B, Llama 3.1 70B, Qwen3-32B, Llama 3.1 8B |
-
-To get started with your first Hugging Face model on your TT-QuietBox 2, follow these steps:
-
-1. Create or log in to your Hugging Face account. Open a new browser window and navigate to [huggingface.co](https://huggingface.co).
-
-2. On the Hugging Face website, visit the model page of your choice and click **Request Access** in the upper right corner. Depending on your choice of model, you may be prompted to sign a community license agreement.
-
-3. Once approved, create your access token at [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens).
-
-4. Paste this Hugging Face token into the Terminal window and run the command. Wait until your access is confirmed.
-
-5. If the system asks, “Do you want to install dependencies using Docker?” enter “Y” for “yes.” Installing dependencies may take about 3 minutes.
+2. If the system asks, “Do you want to install dependencies using Docker?” enter “Y” for “yes.” Installing dependencies may take about 3 minutes.
 
 ```{figure} ./qb2-screenshot-install-docker.png
 :width: 80%
@@ -262,18 +233,18 @@ To get started with your first Hugging Face model on your TT-QuietBox 2, follow 
 :width: 80%
 ```
 
-6. When prompted by Terminal, enter your sudo password (this is the same password you use to log in). TT-Studio runs on top of TT-Inference Server which requires sudo privileges to set up.
+3. When prompted, enter your sudo password (this is the same password you use to log in). TT-Studio runs on top of TT-Inference Server which requires sudo privileges to set up.
 
 ```{figure} ./qb2-screenshot-sudo-pw.png
 :width: 80%
 ```
-7. The TT-Studio web app will now launch in your default web browser. Click on the model of your choice from the drop-down menu and press "NEXT." The screenshots below use Llama 3.3 70B as an example. 
+4. The TT-Studio web app will now launch in your default web browser. Click on the model of your choice from the drop-down menu and press "NEXT." The screenshots below use Llama 3.3 70B as an example. 
 
 ```{figure} ./qb2-screenshot-select-model.png
 :width: 80%
 ```
 
-8. When prompted on the next screen, proceed by hitting "DEPLOY." The model weights will start downloading automatically. 
+5. When prompted on the next screen, proceed by hitting "DEPLOY." The model weights will start downloading automatically. 
 
 
 ```{figure} ./qb2-screenshot-deploy-model.png
@@ -300,3 +271,4 @@ After your TT-QuietBox 2 is set up, feel free to explore other methods of runnin
 ## **Need Additional Support?**
 
 If you encounter any issues, or have a question that isn't covered in this guide, please [raise a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1) Our team will review your request and provide assistance.
+
