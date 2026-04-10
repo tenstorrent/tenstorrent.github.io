@@ -107,7 +107,6 @@ The Tenstorrent TT-LoudBox (Blackhole) system package includes:
 :width: 40%
 :::
 
-
 :::{admonition} Important
 :class: important
 Do not pick up the server with the front handles. The handles should only be used to pull the system from a rack.
@@ -115,18 +114,12 @@ Do not pick up the server with the front handles. The handles should only be use
 
 ## Step 2: Rack Mounting the Server
 
-### 1. Identifying the Inner Rack Rails
+This section details installation for the rack rails that are provided in the TT-LoudBox (Blackhole) package. If you choose to use a different set of rails, the assembly procedure may differ slightly. Please also refer to the installation instructions for your rack unit.
 
-This section details installation for the rack rails provided in the TT-LoudBox (Blackhole) package. There are a variety of rack units on the market, so the assembly procedure may differ slightly if you choose to use a different set of rails. Also refer to the installation instructions for your rack unit.
-
-The chassis package includes one pair of rack rail assemblies in the rack mounting kit. Each assembly consists of an inner rail that secures to the chassis and an outer rail that is attached directly to the rack. The inner rails are etched with "L" (Left side) and "R" (Right side).
-
-:::{figure} bh-lb-rail-id-placeholder.png
-:width: 50%
-:::
+The rail kit package contains a pair of inner rails that secure to the Server chassis and a pair of outer rails that attach directly to the rack. The inner rails are etched with "L" (left side) and "R" (right side).
 
 
-### 2. Installing the Inner Rails on the Chassis
+### 1. Installing the Inner Rails on the Chassis
 
 1. Identify the left and right side inner rails. Place the correct inner rail on the side of the
 chassis, aligning the hooks of the chassis with the inner rail holes. Make sure the rail faces "outward" so that it will fit with the rack's mounting bracket.
@@ -137,14 +130,38 @@ chassis, aligning the hooks of the chassis with the inner rail holes. Make sure 
 :width: 50%
 :::
 
+:::{figure} bh-lb-inner-rails.jpg
+:width: 50%
+:::
 
-### 3. Installing the Outer Rails Onto the Rack
+
+### 2. Installing the Outer Rails Onto the Rack
 
 1. Press upward on the locking tab at the rear end of the middle rail.
 2. Push the middle rail back into the outer rail.
+
+:::{figure} bh-lb-middle-and-outer-rail.jpg
+:width: 70%
+:::
+
 3. Hang the hooks on the front of the outer rail onto the square holes on the front of the rack. If desired, use screws to secure the outer rails to the rack.
+
+:::{figure} bh-lb-securing-outer-rails2.jpg
+:width: 70%
+:::
+
 4. Pull out the rear of the outer rail, adjusting the length until it just fits within the posts of the rack.
+
+:::{figure} bh-lb-extending-rails.jpg
+:width: 70%
+:::
+
 5. Hang the hooks of the rear section of the outer rail onto the square holes on the rear of the rack. Take care that the proper holes are used so the rails are level. If desired, use screws to secure the rear of the outer rail to the rear of the rack.
+
+:::{figure} bh-lb-back-outer-rails.jpg
+:width: 50%
+:::
+
 6. Repeat for the other outer rail.
 
 :::{figure} bh-lb-outer-rails-placeholder.png
