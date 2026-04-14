@@ -18,9 +18,9 @@ The Tenstorrent TT-QuietBox 2 (Blackhole) system package includes the following 
 
 * 1x TT-QuietBox 2 (Blackhole) Workstation
 * 1x Power Supply Cord (C19 to NEMA 5-15P)
-* 1x AnkerWork S500 speakerphone
+* 1x AnkerWork S500 Speakerphone
 
-For assembly instructions, refer to the [Unboxing and Setting Up the TT-QuietBox Workstation Guide](./setup.md). If you encounter issues, refer to the [Troubleshooting Common Hardware Issues page](./support-bh-2.md).
+For assembly instructions, refer to the [Unboxing and Set Up Guide](./setup.md). If you encounter issues, refer to the [Troubleshooting Common Hardware Issues page](./support-bh-2.md).
 
 ## **System Specifications**
 
@@ -36,14 +36,14 @@ For assembly instructions, refer to the [Unboxing and Setting Up the TT-QuietBox
 | Power Supply | 1600W Cooler Master V Platinum 1600 V2 |
 | Operating System | Ubuntu 24.04.3 LTS |
 | System Dimensions | 8.4” x 17.8” x 15.5” (W x D x H) / 21.4cm x 45.2cm x 39.3cm (including handles and feet) |
-| System Weight | 20 kg (44.2 lbs) +/- 1.5 lbs   |
-| Shipping Weight | TBD kg (TBD lbs)  |
+| System Weight | 20 kg (44 lbs) +/- 1.5 lbs   |
+| Shipping Weight | 23.2 kg (52 lbs)  |
 
 ## **System Overview**
 
-*<span style="color: purple;">Note: These images are not final</span>*
-
-![QuietBox BH-2 system ISO view](./draft-bh-qb-2-system-iso-view.png)
+```{figure} ./qb2-system-iso-view.jpg
+:width: 65%
+```
 
 | No | Item | Description |
 | --- | --- | --- |
@@ -51,13 +51,10 @@ For assembly instructions, refer to the [Unboxing and Setting Up the TT-QuietBox
 | 2 | Clear Panel | Showcases internal Accelerator cards and <br />permits tool-free access to the system. |
 | 3 | Thumbscrew | Enables toolless access the internals |
 | 4 | Power and Reset Buttons | Powers the Workstation on/off and resets the workstation |
-| 5 | System Fans | Provides venting and system airflow management |
-| 6 | Liquid Cooling Reservoir | For system thermal management |
 
 ## **System Rear View**
 
-```{figure} ./draft-bh-qb-2-system-rear-view.png
-:alt: QuietBox BH-2 system rear view
+```{figure} ./qb2-rear-view.jpg
 :width: 65%
 ```
 
@@ -75,10 +72,10 @@ For assembly instructions, refer to the [Unboxing and Setting Up the TT-QuietBox
 ## **Internal Topology**
  The TT-QuietBox 2 is enabled by two Tenstorrent Blackhole cards, which are connected internally with a Samtec ARP6 series High Performance cable. The below topology is pre-installed by Tenstorrent, and is here for your reference.
 
-```{figure} ./draft-bh-qb2-topology.png
-:alt: QuietBox BH-2 internal topology
-:width: 75%
+```{figure} ./qb2-topology.jpg
+:width: 65%
 ```
+
 ## **Power Requirements**
 
 * The workstation’s internal AC/DC power supply consists of one 1600-watt 80 Plus Titanium Power Supply Unit (PSU).
@@ -95,20 +92,19 @@ The TT-QuietBox 2 is designed to operate in these conditions:
 * Storage relative humidity: 10% to 95%
 
 (safety-warnings)=
-## **Safety Warnings**
+## **Important Safety Warnings**
 
 ### **Electrical Safety** 
 
 :::{danger}
-Failure to follow these electrical safety instructions may result in electric shock, fire, or damage to the equipment.
-:::
+Failure to follow these electrical safety instructions may result in electric shock, fire, or damage to the Workstation.
 
-* Connect the system to a dedicated AC power circuit with sufficient capacity to support the full power draw of the TT-QuietBox 2 workstation, including peak loads under heavy AI model execution.  
+* The expected full power draw of this Workstation is 15A. Ensure you are connecting the power to an AC power circuit with sufficient capacity to support this. Failure to connect to dedictaed 15A breaker may result in tripping the breaker, or dangerous operating conditions.
 * Do not share the outlet with other high-power devices. Avoid using household surge strips, extension cords, or multi-outlet power taps; not all are rated for the sustained current of this system.  
 * Use only the provided C19 power cable, and ensure it is plugged into a properly grounded outlet. Do not bypass or disable the grounding pin.  Using a non-Tenstorrent approved power cable may result in dangerous operating conditions.
-* Verify that the circuit wiring and breaker rating meet or exceed the combined system requirements, including liquid-cooling support and all accelerator cards.  
 * If the circuit becomes overloaded or if the breaker trips during power-up or operation, immediately disconnect and remove power. Then, have a qualified electrician inspect and verify the circuit’s capacity before resuming setup.  
 * Never attempt to reset or bypass a tripped breaker without first confirming the circuit integrity; failure to do so may result in overheating, voltage drop, or irreversible damage.
+:::
 
 ### **Electrostatic Discharge Safety**
 
@@ -121,7 +117,7 @@ Before opening the TT-QuietBox 2 Blackhole workstation or handling any internal 
 * Do not touch any processor, memory module, connector, or printed circuit board (PCB) circuitry unless absolutely necessary, and only after properly discharging.
 :::
 
-## **Notice to Users**
+## **Other Notices to Users**
 
 * This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation.
 * This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation.

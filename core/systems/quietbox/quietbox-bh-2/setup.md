@@ -39,14 +39,14 @@ Note: Only use certified HDMI cables with the TT-QuietBox 2. Using non-certified
 
 ---
 
-## **Step 1: Unboxing the Workstation**
+## **Step 1: Unbox the Workstation**
 
 
-1. **Grab the box.** Position the box in your prepared unboxing area, ensuring ample space to work around it.  
+1. Position the box in your prepared unboxing area, ensuring ample space to work around it.  
 ```{figure} ./qb2-unboxing-box.jpg
 :width: 40%
 ```
-2. **Remove the white side clips near the bottom of the packaging.** Squeeze the tabs on the clip and pull to release.
+2. Remove the white side clips near the bottom of the packaging. Squeeze the tabs on the clip and pull to release.
 ```{figure} ./qb2-unboxing-clips.jpg
 :width: 40%
 ```
@@ -55,7 +55,7 @@ Note: Only use certified HDMI cables with the TT-QuietBox 2. Using non-certified
 :width: 40%
 ```
 
-3. **Lift box lid, remove accessories box and styrofoam, then remove internal cardboard case and plastic sleeve.**
+3. Lift box lid, remove accessories box and styrofoam, then remove internal cardboard case and plastic sleeve.
 ```{figure} ./qb2-unboxing-lift-sleeve.jpg
 :width: 40%
 ```
@@ -71,13 +71,13 @@ Note: Only use certified HDMI cables with the TT-QuietBox 2. Using non-certified
 :width: 40%
 ```
 
-4. **Lift the TT-QuietBox 2 out of the package using the handles.** 
+4. Lift the TT-QuietBox 2 out of the package using the handles.
 
 ```{figure} ./qb2-unboxing-lift-workstation.jpg
 :width: 40%
 ```
 
-5. **Remove protective wrapping on all sides.** 
+5. Remove protective wrapping on all sides. 
 
 ```{figure} ./qb2-remove-plastic-front.jpg
 :width: 40%
@@ -88,24 +88,23 @@ Note: Only use certified HDMI cables with the TT-QuietBox 2. Using non-certified
 ```
 ---
 
-## **Step 2: Setting Up the Hardware**
+## Step 2: Set Up the Hardware
 
-Follow these steps to set up the hardware for your TT-QuietBox Blackhole™ workstation:
-
-<span style="color: purple; font-weight: bold;">The section below may change based on pending imagery. </span>
+```{figure} ./qb2-rear-view.jpg
+:width: 60%
+```
 
 1. **Connect the power cable.** Connect the provided C19 power cable to the workstation and then to a dedicated power outlet. See the Electrical Safety section for the full list of power requirements. 
 
 2. **Connect peripherals.** Connect the HDMI monitor, keyboard, and mouse using the HDMI and USB ports on the back of the Workstation. We recommend Ethernet over WiFi for faster downloading of models. If you choose to use ethernet connect your Ethernet cable to the RJ45 port. If you'd like sound, connect the included third-party speakerphone to the USB-A port.
 
-
 3. **Power on the Workstation.** On the back of the workstation, flip the switch on the PSU to the "I" position.  
 
-```{figure} ./draft-bh-qb2-rear-PSU.png
-:alt: QuietBox BH-2 rear PSU switch
-:width: 30%
+4. **On the front of the Workstation, press the power button to turn the system on.**
+
+```{figure} ./qb2-power-button.jpg
+:width: 40%
 ```
-4. **On the front of the workstation, press the power button to turn the system on.**
 
 ---
 
@@ -136,7 +135,7 @@ If you have not done so already during hardware setup, connect your Ethernet cab
 
 If you would prefer to set up a WiFi connection, on your monitor, click on the status icons in the top right corner of the screen. Then, click on "Wi-Fi" (it may say "not connected" or "off"). Select your WiFi network from the drop-down list, enter the password, and click "Connect."
 
-## **Step 6. Update the Ubuntu Operating System**
+## **Step 6. Update Ubuntu Operating System**
 
 TT-QuietBox 2 comes pre-installed with the Ubuntu operating system (24.04.3 LTS). 
 
