@@ -23,7 +23,7 @@ Physical and software setup for Tenstorrent workstation and server solutions:
 
 - [**T1000 Desktop Workstation**](./systems/t1000/README.md)
 
-- [**LoudBox (T3000) 4U Workstation**](./systems/t3000/README.md)
+- [**LoudBox (T3000) 4U Workstation**](./systems/t3000/index.rst)
 
 - [**T7000 4U Workstation**](./systems/t7000/README.md)
 

@@ -10,11 +10,11 @@ myst:
 
 *<span style="color: purple;">Note: This content is in progress and this product is pre-launch. This install guide would love your feedback! Please add it to the attached spreadsheet that came with this website package.</span>*
 
-This document provides first-time operating system and firmware setup for the Tenstorrent TT-LoudBox™ (Blackhole™) Air-Cooled 4U Server. 
+This document provides first-time operating system and firmware setup for the Tenstorrent TT-LoudBox™ (Blackhole™) Air-Cooled 4U Server.
 
 :::{admonition} Important
 :class: Important
-Ensure your TT-LoudBox (Blackhole) is successfully setup and powered on before beginning. If not, please head to the [Setup Guide](./setup.md) first.
+Ensure your TT-LoudBox (Blackhole) is successfully rack-mounted and powered on before beginning. If not, please head to the [Hardware Setup Guide](./setup.md) first.
 :::
 
 ## Step 1: Installing the Operating System
@@ -32,16 +32,16 @@ Password: ttuser
 
 The MAC address and password for the BMC can be found on a small slide-out tray, at the bottom of the system. The label will look like this:
 
-:::{figure} bh-lb-bmc-placeholder.png
-:width: 80%
+:::{figure} bh-lb-bmc-tab.jpg
+:width: 50%
 :::
 
-To Access the BMC: 
-1. Ensure the Server is powered on, and the BMC cable is connected to the network port and BMC Ethernet slot. 
-2. Once the system is fully booted, the BMC’s IP address will appear on the screen. 
-3. Note the IP address and use that to login to the BMC at https://<bmc ip address>
+To access the BMC:
+1. Ensure the Server is powered on, and the BMC cable is connected to the network port and BMC Ethernet slot.
+2. Once the system is fully booted, the BMC’s IP address will appear on the screen.
+3. Note the IP address and use that to log in to the BMC at `https://<bmc-ip-address>` (replace the placeholder with the address shown on the system).
 4. When prompted, enter the default BMC credentials:
-   - Uname: ADMIN
+   - Username: ADMIN
    - Password: [printed on the slide-out tab in the image above]
 
 ## Step 2: Check for Firmware Update
@@ -59,7 +59,7 @@ sudo update-pciids
 lspci -d 1e52:
 ```
 
-You should see an output which lists eight recognized Accelerators:
+You should see output that lists eight recognized accelerators:
 
 ```
 01:00.0 Processing accelerators: Tenstorrent Inc Blackhole
@@ -83,4 +83,4 @@ After completing the operating system installation and firmware update, proceed 
 
 ## Need Additional Support?
 
-If you encounter any issues, or have a question that isn’t covered in the documentation, please reach out at [support@tenstorrent.com](mailto:support@tenstorrent.com) Our team will review your request and provide assistance.
+If you encounter any issues, or have a question that isn’t covered in the documentation, please reach out at [support@tenstorrent.com](mailto:support@tenstorrent.com). Our team will review your request and provide assistance.

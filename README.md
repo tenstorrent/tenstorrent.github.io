@@ -27,7 +27,30 @@ To build the Sphinx documentation, follow these steps:
 
 ### Local Dev
 
-When making changes locally, you can run `make watch` in the directory of the project you are working on, rather than building the whole doc site. This will build the project's html and serve it on [port 3000](http://127.0.0.1:3000), watching for changes and rebuilding as needed.
+For **core** docs (Systems, LoudBox, QuietBox, and so on), use a **virtual environment** at the repo root so Sphinx and `sphinx-autobuild` are available (macOS/Homebrew Python often blocks global `pip install`).
+
+1. One-time setup from the repo root:
+
+    ```bash
+    python3 -m venv .venv
+    .venv/bin/pip install -r requirements.txt
+    ```
+
+2. Start live reload (pick one):
+
+    ```bash
+    ./serve-docs-live.sh
+    ```
+
+    or:
+
+    ```bash
+    cd core && make watch
+    ```
+
+3. Open **http://127.0.0.1:3000/** (for example [TT-LoudBox setup](http://127.0.0.1:3000/systems/loudbox-bh/setup.html)). Save files under `core/` or `shared/`; the server rebuilds and you refresh the browser.
+
+If `make watch` used to fail with `sphinx-autobuild: command not found`, that was because the tool was not on your shell `PATH`; the Makefile and `serve-docs-live.sh` now call `.venv/bin/python -m sphinx_autobuild` explicitly.
 
 > ⚠️
 > Make sure to delete the `_build` directory between builds, as this can sometimes cause issues with updates not getting built.

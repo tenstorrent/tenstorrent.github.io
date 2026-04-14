@@ -16,8 +16,7 @@ For software setup, visit our [software setup](https://docs.tenstorrent.com/gett
 
 ## BIOS and Hardware Support
 
-This server is built on a Supermicro chassic. For BIOS updates, non-Tenstorrent drivers, and other chassis-related hardware support, visit the SuperMicro [product page](https://www.supermicro.com/en/products/system/gpu/4u/as-4125gs-tnrt). 
-
+This server is built on a Supermicro chassis. For BIOS updates, non-Tenstorrent drivers, and other chassis-related hardware support, visit the Supermicro [product page](https://www.supermicro.com/en/products/system/gpu/4u/as-4125gs-tnrt).
 
 ## Tenstorrent Support
 

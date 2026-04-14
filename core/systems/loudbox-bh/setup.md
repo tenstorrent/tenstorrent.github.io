@@ -12,9 +12,9 @@ myst:
 
 ## Before You Begin
 
-* The TT-LoudBox™ (Blackhole™) should be installed by a trained qualified professional in a Restricted Access Area. Professional installation ensures the Server operates safely and effectively while preventing property damage and personal injuries. The professional installer assumes all responsibility for compliance with local regulatory and safety requirements during installation.
+* The TT-LoudBox (Blackhole) should be installed by a trained, qualified professional in a Restricted Access Area. Professional installation ensures the Server operates safely and effectively while preventing property damage and personal injuries. The professional installer assumes all responsibility for compliance with local regulatory and safety requirements during installation.
 
-* The TT-LoudBox™ (Blackhole™) should be installed in an area that is clean, dust-free and well-ventilated. Avoid areas where heat, electrical noise and electromagnetic fields are generated.
+* The TT-LoudBox (Blackhole) should be installed in an area that is clean, dust-free and well-ventilated. Avoid areas where heat, electrical noise and electromagnetic fields are generated.
  
 * When rack-mounting, leave at least 25 inches of clearance in front of the rack and at least 30 inches of clearance behind the rack. This will allow the doors to open completely in the event of servicing and will ensure proper airflow.
 
@@ -24,7 +24,7 @@ Before beginning setup, please review the [Installation Site Considerations](spe
 
 :::{admonition} Caution: Heavy Object
 :class: warning
-The Server weighs 45kg (99lbs). To avoid personal injury and Server damage, at least two people are required for unboxing. Use of a Server lift is recommended for rack installation
+The Server weighs 45kg (99lbs). To avoid personal injury and Server damage, at least two people are required for unboxing. Use of a Server lift is recommended for rack installation.
 :::
 
 :::{admonition} Caution: Hearing Damage Risk
@@ -34,12 +34,12 @@ The Server produces high volume levels, which can be dangerous to your hearing o
 
 ### Important Rack Considerations
 
-* The provided rails will fit a rack between 26.5"and 36.4" deep.
+* The provided rails will fit a rack between 26.5" and 36.4" deep.
 * Ensure that the leveling jacks on the bottom of the rack are extended to the floor so that the full weight of the rack rests on them.
 * If it is the only unit in the rack, the Server should be mounted at the bottom.
 If the rack is partially filled, load the rack from the bottom to the top with the heaviest units at the bottom of the rack.
 * If the rack has stabilizing devices, install the stabilizers before mounting or servicing the Server in the rack. 
-* Ensure your rack’s stabilizing mechanism is in place or that the rack is bolted to to the floor. When sliding the Server in and out of the rack, failure to stabilize the rack can cause the rack to tip over.
+* Ensure your rack’s stabilizing mechanism is in place or that the rack is bolted to the floor. When sliding the Server in and out of the rack, failure to stabilize the rack can cause the rack to tip over.
 * When not servicing, always keep the front door of the rack and all covers/panels on the servers closed to maintain proper cooling.
 
 ### Site Power Requirements and Recommendations
@@ -81,7 +81,7 @@ The Tenstorrent TT-LoudBox (Blackhole) system package includes:
 :width: 40%
 :::
 
-3. Remove the rack rails and accesories and set aside. Then lift the styrofoam casing.
+3. Remove the rack rails and accessories and set aside. Then lift the styrofoam casing.
 
 :::{figure} bh-lb-remove-railkit.jpg
 :width: 40%
@@ -119,65 +119,67 @@ This section details installation for the rack rails that are provided in the TT
 The rail kit package contains a pair of inner rails that secure to the Server chassis and a pair of outer rails that attach directly to the rack. The inner rails are etched with "L" (left side) and "R" (right side).
 
 
-### 1. Installing the Inner Rails on the Chassis
+### 1. Installing the Inner Rails onto the Chassis
 
-1. Identify the left and right side inner rails. Place the correct inner rail on the side of the
-chassis, aligning the hooks of the chassis with the inner rail holes. Make sure the rail faces "outward" so that it will fit with the rack's mounting bracket.
-2. Slide the rail toward the front of the chassis to hook the inner rail onto the side of the chassis.
-3. If desired, secure the rail with two flat head M4 x 4mm screws as illustrated.
-
-:::{figure} bh-lb-rail-id-2-placeholder.png
-:width: 50%
-:::
+1. Identify the left and right side inner rails. Place the left inner rail on the left side of the
+chassis, aligning the hooks of the chassis with the inner rail holes. Repeat with the right side. Make sure the rail faces "outward" so that it will fit with the rack's mounting bracket.
 
 :::{figure} bh-lb-inner-rails.jpg
-:width: 50%
+:width: 40%
 :::
 
+2. If desired, secure the rail with two flat head M4 x 4mm screws as illustrated.
 
-### 2. Installing the Outer Rails Onto the Rack
+
+### 2. Installing the Outer Rails onto the Rack
 
 1. Press upward on the locking tab at the rear end of the middle rail.
 2. Push the middle rail back into the outer rail.
 
 :::{figure} bh-lb-middle-and-outer-rail.jpg
-:width: 70%
+:width: 40%
 :::
 
 3. Hang the hooks on the front of the outer rail onto the square holes on the front of the rack. If desired, use screws to secure the outer rails to the rack.
 
 :::{figure} bh-lb-securing-outer-rails2.jpg
-:width: 70%
+:width: 40%
 :::
 
 4. Pull out the rear of the outer rail, adjusting the length until it just fits within the posts of the rack.
 
 :::{figure} bh-lb-extending-rails.jpg
-:width: 70%
+:width: 40%
 :::
 
 5. Hang the hooks of the rear section of the outer rail onto the square holes on the rear of the rack. Take care that the proper holes are used so the rails are level. If desired, use screws to secure the rear of the outer rail to the rear of the rack.
 
 :::{figure} bh-lb-back-outer-rails.jpg
-:width: 50%
+:width: 40%
 :::
 
 6. Repeat for the other outer rail.
 
-:::{figure} bh-lb-outer-rails-placeholder.png
-:width: 70%
+
+### 3. Sliding the Server into the Rack
+
+1. Align the chassis rails with the front of the rack rails. Match the inner rail "A" with outer rail "A" on one side. Repeat and match the "B" rails on the opposite side.
+
+:::{figure} bh-lb-chassis-rails-2.jpg
+:width: 40%
 :::
 
-### 4. Sliding the Server into the Rack
+2. With two people, slide the chassis rails into the rack rails, keeping the pressure even on both sides. You may have to depress the locking tabs while inserting. When the server has been pushed completely into the rack, the locking tabs should "click" into the locked position.
 
-1. Align the chassis rails (A) with the front of the rack rails (B).
-2. Slide the chassis rails into the rack rails, keeping the pressure even on both sides. You may have to depress the locking tabs while inserting. When the server has been pushed completely into the rack, the locking tabs should "click" into the locked position.
+:::{figure} bh-lb-slide-chassis-into-rack.jpg
+:width: 40%
+:::
+
+:::{figure} bh-lb-chassis-in-rack.jpg
+:width: 40%
+:::
+
 3. If screws are used, tighten the screws on the front and rear of the outer rails.
-4. (Optional) Insert and tighten the thumbscrews that hold the front of the server to the rack.
-
-:::{figure} bh-lb-slide-rack-placeholder.png
-:width: 50%
-:::
 
 Note: The above is an illustrative example. Always install servers at the lowest open position in the rack to ensure stability.
 
@@ -191,10 +193,14 @@ The Server can be operated in either a grid (no cables) or mesh topology.
 Meshing provides the benefit of decreased latency by decreasing the hop count between chips and is recommended for high performance operations. Tenstorrent recommends the following mesh as a baseline default for a single server.
 
 :::{figure} bh-lb-2x4_Mesh.jpg
-:width: 50%
+:width: 60%
 :::
 
-Tenstorrent is in the process of validating additional mesh topologies for specific use cases. You may wish to install a custom mesh topology for your needs, however, please note we cannot guarantee performance or error-free operation on any custom topologies at this time. For multi-server scale out, please refer to our [Topology Configuration page](configurations.md).
+:::{figure} bh-lb-2x4-photo.jpg
+:width: 60%
+:::
+
+Tenstorrent is in the process of validating additional mesh topologies for specific use cases. You may wish to install a custom mesh topology for your needs, however, please note we cannot guarantee performance or error-free operation on any user-generated topologies. For multi-server scale out guidance, please refer to our [Topology Configuration page](configurations.md).
 
 ### 2. Connect Networking, BMC and Power Cables
 
@@ -202,16 +208,20 @@ There are two options to connect the Server to the local network. For the fastes
 
 Once you have connected your chosen networking cable, connect your Cat6 cable to the BMC port. Finally plug in the power cables provided in the package.
 
-:::{figure} bh-lb-rear-networking-placeholder.png
-:width: 50%
+:::{figure} bh-lb-all-rear-cables.jpg
+:width: 40%
 :::
-*<span style="color: purple;">Note: This image will be replaced by a clearer image of the rear I/O with ports called out</span>*
 
 Once all cables are connected, power on the Server by pressing the ⏻ power button on the front control panel. 
+
+:::{figure} bh-lb-power-on.jpg
+:width: 40%
+:::
 
 Your hardware setup is complete. Please head to the [Operating System and Firmware Setup](OS-setup.md) page to continue.
 
 ## Need Additional Support?
 
-If you encounter any issues, or have a question that isn’t covered in the documentation, please reach out at [support@tenstorrent.com](mailto:support@tenstorrent.com) Our team will review your request and provide assistance.
+If you encounter any issues, or have a question that isn’t covered in the documentation, please reach out at [support@tenstorrent.com](mailto:support@tenstorrent.com). Our team will review your request and provide assistance.
 
+ 
