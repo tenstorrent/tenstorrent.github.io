@@ -36,13 +36,7 @@ For **core** docs (Systems, LoudBox, QuietBox, and so on), use a **virtual envir
     .venv/bin/pip install -r requirements.txt
     ```
 
-2. Start live reload (pick one):
-
-    ```bash
-    ./serve-docs-live.sh
-    ```
-
-    or:
+2. Start live reload:
 
     ```bash
     cd core && make watch
@@ -50,7 +44,7 @@ For **core** docs (Systems, LoudBox, QuietBox, and so on), use a **virtual envir
 
 3. Open **http://127.0.0.1:3000/** (for example [TT-LoudBox setup](http://127.0.0.1:3000/systems/loudbox-bh/setup.html)). Save files under `core/` or `shared/`; the server rebuilds and you refresh the browser.
 
-If `make watch` used to fail with `sphinx-autobuild: command not found`, that was because the tool was not on your shell `PATH`; the Makefile and `serve-docs-live.sh` now call `.venv/bin/python -m sphinx_autobuild` explicitly.
+If `make watch` used to fail with `sphinx-autobuild: command not found`, that was because the tool was not on your shell `PATH`; the Makefile now calls `.venv/bin/python -m sphinx_autobuild` explicitly.
 
 > ⚠️
 > Make sure to delete the `_build` directory between builds, as this can sometimes cause issues with updates not getting built.

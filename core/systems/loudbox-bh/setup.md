@@ -8,7 +8,7 @@ myst:
 
 # Receiving, Unboxing, and Setup
 
-*<span style="color: purple;">Note: This content is in progress and this product is pre-launch. This install guide would love your feedback! Please add it to the attached spreadsheet that came with this website package.</span>*
+*<span style="color: purple;">Note: This product is pre-launch and specifications are subject to change. This install guide would love your feedback! Please add it to the attached spreadsheet that came with this website package.</span>*
 
 ## Before You Begin
 
@@ -134,6 +134,10 @@ chassis, aligning the hooks of the chassis with the inner rail holes. Repeat wit
 ### 2. Installing the Outer Rails onto the Rack
 
 1. Press upward on the locking tab at the rear end of the middle rail.
+:::{figure} bh-lb-middle-rail-snap.jpg
+:width: 40%
+:::
+
 2. Push the middle rail back into the outer rail.
 
 :::{figure} bh-lb-middle-and-outer-rail.jpg

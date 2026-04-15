@@ -8,7 +8,7 @@ myst:
 
 # Topology Configurations for Multiple Servers
 
-*<span style="color: purple;">Note: This content is in progress and this product is pre-launch. This install guide would love your feedback! Please add it to the attached spreadsheet that came with this website package.</span>*
+*<span style="color: purple;">Note: This product is pre-launch and specifications are subject to change. This install guide would love your feedback! Please add it to the attached spreadsheet that came with this website package.</span>*
 
 This page details multi-server mesh topology configuration options for the TT-LoudBox (Blackhole). Please note that multi-server scale out is in development. As Tenstorrent validates additional topologies, we will update this page.
 
@@ -54,35 +54,8 @@ Cabling Guide — Table of Connections
 :width: 40%
 :::
 
-## Software Descriptors
+## Validate Multi-Server Configuration
 
-### Deployment Descriptor
-
-The Deployment Descriptor defines deployment-specific characteristics of a multi-host system.
-It includes node type and hostname specifications, which enable validation to ensure that the deployed or connected system matches the intended configuration.
-In addition, the descriptor provides fields relevant to server and rack deployments, such as data center hall, aisle, rack, and shelf identifiers, supporting organized and traceable system management.
-
-Save the below code-block as template deployment. Make sure to edit as necessary for your hostnames.
-
-```text
-# .textproto: Descriptors of deployment characteristics of system
-#   host: fields to be updated whenever hostnames in deployment are updated
-hosts {
-  node_type: "P150_LB"
-  host: "host_0"
-}
-hosts {
-  node_type: "P150_LB"
-  host: "host_1"
-}
-hosts {
-  node_type: "P150_LB"
-  host: "host_2"
-}
-hosts {
-  node_type: "P150_LB"
-  host: "host_3"
-}
-```
+Once you have finished connecting the cables across your Servers, validate your connections using the [TT-Metal Multi-Node-Cluster Validation Tool](https://github.com/tenstorrent/tt-metal/blob/main/tools/scaleout/validation/README.md).
 
 For additional advice or questions on custom configurations, please contact your Tenstorrent rep, or reach out to us at [support@tenstorrent.com](mailto:support@tenstorrent.com). We would be happy to help.
