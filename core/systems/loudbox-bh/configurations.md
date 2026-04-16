@@ -17,7 +17,7 @@ For full site requirements and setup instructions, refer to the [Setup Guide](./
 ### Clarifications on Notation
 For Blackhole P150 systems our convention is to enumerate our ports per card as shown below; top (furthest from motherboard) as “Port 1” and bottom (closest to motherboard) as “Port 4”. 
 
-:::{figure} bh-lb-qsfp-key.png
+:::{figure} bh-lb-qsfp-key.jpg
 :width: 60%
 :::
 
