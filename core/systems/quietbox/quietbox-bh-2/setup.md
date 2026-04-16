@@ -96,7 +96,7 @@ Note: Only use certified HDMI cables with the TT-QuietBox 2. Using non-certified
 
 1. **Connect the power cable.** Connect the provided C19 power cable to the workstation and then to a dedicated power outlet. See the Electrical Safety section for the full list of power requirements. 
 
-2. **Connect peripherals.** Connect the HDMI monitor, keyboard, and mouse using the HDMI and USB ports on the back of the Workstation. We recommend Ethernet over WiFi for faster downloading of models. If you choose to use ethernet connect your Ethernet cable to the RJ45 port. If you'd like sound, connect the included third-party speakerphone to the USB-A port.
+2. **Connect peripherals.** Connect the HDMI monitor, keyboard, and mouse to the back of the Workstation. (Please note: video is not supported through the USB-C port). For internet connections, we recommend Ethernet over WiFi for faster downloading of models. If you prefer Ethernet, connect your Ethernet cable to the RJ45 port. If you'd like sound, connect the included third-party speakerphone to the USB-A port.
 
 3. **Power on the Workstation.** On the back of the workstation, flip the switch on the PSU to the "I" position.  
 

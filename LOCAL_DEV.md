@@ -1,10 +1,20 @@
 # Local docs preview (see edits when you save)
 
-**Recommended: poll-and-serve (works with Cursor saves)**
+## One-time setup (repository root)
 
-1. **Open a terminal** in the repo and run:
+Create the local Python environment used by `watch_and_serve.py`, `serve-docs-live.sh`, and CI (`.docs-env` is gitignored):
+
+```bash
+cd /path/to/tenstorrent.github.io
+python3 -m venv .docs-env
+.docs-env/bin/pip install -r requirements.txt
+```
+
+## Recommended: poll-and-serve (works with Cursor saves)
+
+1. **Open a terminal** in this repository (the directory that contains `watch_and_serve.py`) and run:
+
    ```bash
-   cd /Users/dhelmuth/Documents/tenstorrent.github.io
    python3 watch_and_serve.py
    ```
 
