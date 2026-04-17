@@ -12,7 +12,7 @@ myst:
 
 This section guides users through how to safely unbox, setup hardware, and install software on a TT-QuietBox 2 (Blackhole) Workstation.
 
-## **Before You Begin**
+## Before You Begin
 
 Choose a suitable location for your System:
 * Choose a stable area for the TT-QuietBox 2 where it will not need to be moved regularly, and none of the vents will be blocked.
@@ -21,7 +21,7 @@ Choose a suitable location for your System:
 * Inspect your package for signs of damage. Do not proceed with unboxing or installation if you suspect shipping damage to the system. Contact Tenstorrent support by [raising a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1) Our team will review your request and provide assistance.
 
 
-### **Required Tools**
+### Required Tools
 Ensure you have everything you need to get started.
 
 The Tenstorrent TT-QuietBox 2 (Blackhole) (TW-04003) package includes the following items:
@@ -39,7 +39,7 @@ Note: Only use certified HDMI cables with the TT-QuietBox 2. Using non-certified
 
 ---
 
-## **Step 1: Unbox the Workstation**
+## Step 1: Unbox the Workstation
 
 
 1. Position the box in your prepared unboxing area, ensuring ample space to work around it.  
@@ -108,7 +108,7 @@ Note: Only use certified HDMI cables with the TT-QuietBox 2. Using non-certified
 
 ---
 
-## **Step 3. First-Time Log In**
+## Step 3. First-Time Log In
 
 When the system boots you'll see a welcome animation. If you would like to disable this animation for subsequent boot ups, in a Terminal, run:
 
@@ -120,7 +120,7 @@ Once your system is booted up, the login prompt will appear.
 
 Enter the default password: **ttuser**
 
-## **Step 4. Change Default Password**
+## Step 4. Change Default Password
 
 After logging in, open a Terminal window by pressing Ctrl+Alt+T and follow these steps to change your password from the public default: 
 
@@ -128,14 +128,14 @@ After logging in, open a Terminal window by pressing Ctrl+Alt+T and follow these
 2. Enter current password: **ttuser**
 3. Enter new password of your choosing and hit enter to confirm the change.
 
-## **Step 5. Setup and Confirm Internet Connection**
+## Step 5. Setup and Confirm Internet Connection
 TT-QuietBox 2 can be connected to the internet via WiFi or Ethernet cable. For faster model downloads, we recommend a direct Ethernet connection.
 
 If you have not done so already during hardware setup, connect your Ethernet cable to the standard RJ45 port on the back of the Workstation. Then, verify your internet connection by clicking on the status icons in the upper right corner of the screen. Confirm the internet connection reads "Wired."
 
 If you would prefer to set up a WiFi connection, on your monitor, click on the status icons in the top right corner of the screen. Then, click on "Wi-Fi" (it may say "not connected" or "off"). Select your WiFi network from the drop-down list, enter the password, and click "Connect."
 
-## **Step 6. Update Ubuntu Operating System**
+## Step 6. Update Ubuntu Operating System
 
 TT-QuietBox 2 comes pre-installed with the Ubuntu operating system (24.04.3 LTS). 
 
@@ -150,7 +150,7 @@ sudo apt update && sudo apt upgrade -y
 Wait for any downloads to complete, then proceed to the next step.
 
 ---
-## **Step 7: Verify System Recognition of Blackhole Cards**
+## Step 7: Verify System Recognition of Blackhole Cards
 
 To verify all cards are up and running in your TT-QuietBox, launch TT-SMI. This is Tenstorrent's simple command line utility that displays devices, device telemetry and other system information. 
 
@@ -173,7 +173,7 @@ Once all cards have been verified, close TT-SMI by pressing Q on your keyboard.
 
 ---
 
-## **Step 8: Get Access to Model Weights**
+## Step 8: Get Access to Model Weights
 
 To deploy a model, you'll need to get permission to download the model weights in TT-Studio. 
 
@@ -194,7 +194,7 @@ To get access to model weights, follow these steps:
 3. On the Hugging Face website, visit the model page of your choice. Depending on your choice of model you may need to click **Request Access** in the upper right corner or you may be prompted to scroll through and sign a community license agreement.
 4. Once approved, create your access token at [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens). Copy the access token.
 
-## **Step 9: Launch TT-Studio**
+## Step 9: Launch TT-Studio
 
 TT-Studio is Tenstorrent's simple web interface for running AI models.
 
@@ -216,7 +216,7 @@ Your Terminal window will show a "Welcome to TT-Studio" message. See screenshot 
 :width: 80%
 ```
 
-## **Step 10: Launch Your First Model**
+## Step 10: Launch Your First Model
 
 At the bottom of the Terminal screen, you will be prompted to enter a Hugging Face User Access Token (aka "HF_TOKEN").
 
@@ -260,14 +260,14 @@ Downloading a model can take anywhere from a few minutes to a few hours, dependi
 :width: 80%
 ```
 
-## **Other Methods of Running Models**
+## Other Methods of Running Models
 After your TT-QuietBox 2 is set up, feel free to explore other methods of running models on other layers of Tenstorrent's software stack. You may want to:
 - Run models directly from Terminal using [TT-Inference-Server](https://github.com/tenstorrent/tt-inference-server), the fastest way to deploy and test models for serving inference on Tenstorrent hardware.
 - Run [model demos](https://docs.tenstorrent.com/getting-started/model-demos.html) using TT-Metalium.
 
 ---
 
-## **Need Additional Support?**
+## Need Additional Support?
 
 If you encounter any issues, or have a question that isn't covered in this guide, please [raise a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1) Our team will review your request and provide assistance.
 
