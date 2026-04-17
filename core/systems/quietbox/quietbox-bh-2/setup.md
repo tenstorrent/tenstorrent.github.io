@@ -16,7 +16,7 @@ This section guides users through how to safely unbox, setup hardware, and insta
 
 Choose a suitable location for your System:
 * Choose a stable area for the TT-QuietBox 2 where it will not need to be moved regularly, and none of the vents will be blocked.
-* Choose a location for your Quietbox that supports the power draw of the Quietbox. The PSU on the Quietbox 2 is rated to draw up to 1600W of power. A standard 15A circuit can handle up to 1800W. Be mindful when choosing the location of your Quietbox of the other electronics which may draw power from the same circuit. We recommend putting the Quietbox on a dedicated circuit, if not you may trip a breaker.
+* The Power Supply Unit (PSU) on the TT-QuietBox 2 is rated to draw up to 1600W of power. A standard 15A circuit can handle up to 1800W. When choosing the location of your TT-QuietBox 2, be mindful of the other electronics which may draw power from the same circuit. We recommend putting the TT-QuietBox on a dedicated circuit, if not you may trip a breaker.
 * Review the {ref}`safety warnings <safety-warnings>`.
 * Inspect your package for signs of damage. Do not proceed with unboxing or installation if you suspect shipping damage to the system. Contact Tenstorrent support by [raising a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1) Our team will review your request and provide assistance.
 
@@ -96,7 +96,9 @@ Note: Only use certified HDMI cables with the TT-QuietBox 2. Using non-certified
 
 1. **Connect the power cable.** Connect the provided C19 power cable to the workstation and then to a dedicated power outlet. See the Electrical Safety section for the full list of power requirements. 
 
-2. **Connect peripherals.** Connect the HDMI monitor, keyboard, and mouse to the back of the Workstation. (Please note: video is not supported through the USB-C port). For internet connections, we recommend Ethernet over WiFi for faster downloading of models. If you prefer Ethernet, connect your Ethernet cable to the RJ45 port. If you'd like sound, connect the included third-party speakerphone to the USB-A port.
+2. **Connect peripherals.** Connect the HDMI monitor, keyboard, and mouse to the back of the Workstation. (Please note: video is not supported through the USB-C port). For internet connections, we recommend Ethernet over WiFi for faster downloading of models. If you prefer Ethernet, connect your Ethernet cable to the RJ45 port. 
+
+For sound and interaction with future text-to-speech (TTS) and speech-to-text (STT) AI models, there are a few options. You may either connect the provided speakerphone to the USB-C port or connect an audio device to the audiojack. 
 
 3. **Power on the Workstation.** On the back of the workstation, flip the switch on the PSU to the "I" position.  
 
@@ -141,7 +143,7 @@ TT-QuietBox 2 comes pre-installed with the Ubuntu operating system (24.04.3 LTS)
 
 Upon logging in, a Ubuntu Software Updater may offer a prompt that new software has been issued since the latest release. If this prompt appears, click "Install Now" to download the latest Ubuntu updates.
 
-We recommend ensuring you are running the latest version of Ubuntu. To do this, open a Terminal window by pressing Ctrl+Alt+T, then run:
+To ensure you have the latest system package updates, open a Terminal window by pressing Ctrl+Alt+T and run:
 
 ```bash
 sudo apt update && sudo apt upgrade -y
@@ -177,7 +179,7 @@ Once all cards have been verified, close TT-SMI by pressing Q on your keyboard.
 
 To deploy a model, you'll need to get permission to download the model weights in TT-Studio. 
 
-TT-Studio supports the following common models on Quietbox 2:
+TT-Studio supports the following common models on TT-QuietBox 2:
 
 | Type | Model |
 | --- | --- |
@@ -191,8 +193,9 @@ To get access to model weights, follow these steps:
 
 1. Open a new browser window and navigate to [huggingface.co](https://huggingface.co).
 2. Create or log in to your Hugging Face account.
-3. On the Hugging Face website, visit the model page of your choice. Depending on your choice of model you may need to click **Request Access** in the upper right corner or you may be prompted to scroll through and sign a community license agreement.
-4. Once approved, create your access token at [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens). Copy the access token.
+3. Create your access token at [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens). Copy the access token as it is only displayed once and will be needed in the next step.
+4. On the Hugging Face website, visit the model page of your choice. Depending on your choice of model you may need to click **Request Access** in the upper right corner or you may be prompted to scroll through and sign a community license agreement.
+
 
 ## Step 9: Launch TT-Studio
 

@@ -19,31 +19,22 @@ mkdir -p "$OUT/_images" "$OUT/systems/quietbox/quietbox-bh-2" "$OUT/aibs"
 
 rsync -a --exclude 'home/' "$HTML/_static/" "$OUT/_static/"
 
-IMGS=(
-  placeholder-box-opening.png
-  placeholder-removing-side-clips.png
-  placeholder-removing-accessories.png
-  placeholder-lifting-unit-out-of-box.png
-  placeholder-side-workstation.png
-  placeholder-connecting-power.png
-  placeholder-peripheral-connections.png
-  draft-bh-qb2-rear-PSU.png
-  placeholder-power-button-closeup.png
-  screencap-tt-smi-qb2.png
-  screencap-tt-studio-is-ready.png
-  screencap-tt-studio-select-model.png
-  screencap-tt-studio-deploy-model.png
-  draft-bh-qb-2-system-iso-view.png
-  draft-bh-qb-2-system-rear-view.png
-  draft-bh-qb2-topology.png
-)
-for f in "${IMGS[@]}"; do
-  if [[ ! -f "$HTML/_images/$f" ]]; then
-    echo "Missing image: $HTML/_images/$f" >&2
-    exit 1
+# Sphinx copies figures to _images/ using the source basename. Copy every
+# QuietBox BH2 asset that the built pages reference (not the old placeholder
+# names), otherwise figures such as qb2-power-button.jpg 404 offline.
+shopt -s nullglob
+copied=0
+for f in "$HTML/_images"/qb2-* "$HTML/_images"/screencap-*; do
+  if [[ -f "$f" ]]; then
+    cp "$f" "$OUT/_images/"
+    copied=$((copied + 1))
   fi
-  cp "$HTML/_images/$f" "$OUT/_images/"
 done
+shopt -u nullglob
+if (( copied < 1 )); then
+  echo "No qb2-* or screencap-* images found under $HTML/_images — run make html in core/ first." >&2
+  exit 1
+fi
 
 cp "$HTML/systems/index.html" "$OUT/systems/"
 cp "$HTML/systems/quietbox/quietbox-bh-2/"*.html "$OUT/systems/quietbox/quietbox-bh-2/"
