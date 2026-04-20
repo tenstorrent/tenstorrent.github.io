@@ -375,6 +375,24 @@ li.toctree-l1.current>a {
 
 /* Document styling */
 
+/* Tight list spacing inside table cells (inline spec tables with <ul>) */
+.rst-content td ul.tt-spec-cell-list,
+.rst-content th ul.tt-spec-cell-list {
+  margin: 0;
+  padding-left: 1.15em;
+  line-height: 1.4;
+}
+.rst-content td ul.tt-spec-cell-list > li,
+.rst-content th ul.tt-spec-cell-list > li {
+  margin: 0;
+  padding: 0;
+}
+.rst-content td ul.tt-spec-cell-list li > p,
+.rst-content th ul.tt-spec-cell-list li > p {
+  margin: 0;
+  line-height: inherit;
+}
+
 .document * h1,
 .document * h2,
 .document * h3,

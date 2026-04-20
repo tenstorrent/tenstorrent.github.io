@@ -6,17 +6,21 @@ myst:
     document-type: Task-Based Guide (How-To)
 ---
 
-# Receiving, Unboxing, and Setup
+```{figure} ./qb2-setup-hero.jpg
+:width: 65%
+```
+
+# Hardware and Software Setup
 
 *<span style="color: purple;">Note: This content is still being drafted. Once finalized, the complete documentation will be available at docs.tenstorrent.com</span>*
 
-This section guides users through how to safely unbox, setup hardware, and install software on a TT-QuietBox 2 (Blackhole) Workstation.
+This guide shows users how to safely unbox, setup hardware, and install software on a TT-QuietBox 2 (Blackhole) Workstation.
 
 ## Before You Begin
 
 Choose a suitable location for your System:
 * Choose a stable area for the TT-QuietBox 2 where it will not need to be moved regularly, and none of the vents will be blocked.
-* The Power Supply Unit (PSU) on the TT-QuietBox 2 is rated to draw up to 1600W of power. A standard 15A circuit can handle up to 1800W. When choosing the location of your TT-QuietBox 2, be mindful of the other electronics which may draw power from the same circuit. We recommend putting the TT-QuietBox on a dedicated circuit, if not you may trip a breaker.
+* The Power Supply Unit (PSU) on the TT-QuietBox 2 is rated to draw up to 1600W of power. A standard 15A circuit can handle up to 1800W. When choosing the location of your TT-QuietBox 2, be mindful of the other electronics which may draw power from the same circuit. We recommend putting the TT-QuietBox 2 on a dedicated circuit, if not you may trip a breaker.
 * Review the {ref}`safety warnings <safety-warnings>`.
 * Inspect your package for signs of damage. Do not proceed with unboxing or installation if you suspect shipping damage to the system. Contact Tenstorrent support by [raising a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1) Our team will review your request and provide assistance.
 
@@ -112,12 +116,6 @@ For sound and interaction with future text-to-speech (TTS) and speech-to-text (S
 
 ## Step 3. First-Time Log In
 
-When the system boots you'll see a welcome animation. If you would like to disable this animation for subsequent boot ups, in a Terminal, run:
-
-```bash
-/home/ttuser/scripts/disable-demo-mode.sh
-```
-
 Once your system is booted up, the login prompt will appear.
 
 Enter the default password: **ttuser**
@@ -162,7 +160,7 @@ To verify all cards are up and running in your TT-QuietBox, launch TT-SMI. This 
 
 3. Under the “Device Information” pane, you should see an output which lists four recognized accelerators. See the screenshot below for reference.
 
-```{figure} ./screencap-tt-smi-qb2.png
+```{figure} ./screencap-tt-smi-qb2.jpg
 :width: 80%
 ```
 
@@ -215,7 +213,7 @@ tt-studio
 
 Your Terminal window will show a "Welcome to TT-Studio" message. See screenshot below for reference.
 
-```{figure} ./qb2-screenshot-first-time-tt-studio.png
+```{figure} ./qb2-screenshot-first-time-tt-studio.jpg
 :width: 80%
 ```
 
@@ -227,39 +225,39 @@ At the bottom of the Terminal screen, you will be prompted to enter a Hugging Fa
 
 2. If the system asks, “Do you want to install dependencies using Docker?” enter “Y” for “yes.” Installing dependencies may take about 3 minutes.
 
-```{figure} ./qb2-screenshot-install-docker.png
+```{figure} ./qb2-screenshot-install-docker.jpg
 :width: 80%
 ```
 
-```{figure} ./qb2-screenshot-launching-ttstudio.png
+```{figure} ./qb2-screenshot-launching-ttstudio.jpg
 :width: 80%
 ```
 
 3. When prompted, enter your sudo password (this is the same password you use to log in). TT-Studio runs on top of TT-Inference Server which requires sudo privileges to set up.
 
-```{figure} ./qb2-screenshot-sudo-pw.png
+```{figure} ./qb2-screenshot-sudo-pw.jpg
 :width: 80%
 ```
 4. The TT-Studio web app will now launch in your default web browser. Click on the model of your choice from the drop-down menu and press "NEXT." The screenshots below use Llama 3.3 70B as an example. 
 
-```{figure} ./qb2-screenshot-select-model.png
+```{figure} ./qb2-screenshot-select-model.jpg
 :width: 80%
 ```
 
 5. When prompted on the next screen, proceed by hitting "DEPLOY." The model weights will start downloading automatically. 
 
 
-```{figure} ./qb2-screenshot-deploy-model.png
+```{figure} ./qb2-screenshot-deploy-model.jpg
 :width: 80%
 ```
 
 Downloading a model can take anywhere from a few minutes to a few hours, depending on the model you’ve selected and the speed of your internet connection. WiFi connections will be slower than direct Ethernet. TT-Studio will show the status of "model unavailable" until model download is finished. 
 
-```{figure} ./qb2-screenshot-deploying.png
+```{figure} ./qb2-screenshot-deploying.jpg
 :width: 80%
 ```
 
-```{figure} ./qb2-screenshot-creating-container.png
+```{figure} ./qb2-screenshot-creating-container.jpg
 :width: 80%
 ```
 
