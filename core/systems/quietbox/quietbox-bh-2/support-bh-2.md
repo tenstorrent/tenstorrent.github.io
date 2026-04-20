@@ -18,4 +18,9 @@ If you have confirmed the above, and there is still no visual output on your con
 ## Can I Manually Install the Full Tenstorrent Software Stack Onto my TT-QuietBox 2?
 Yes. Please visit the [Installing the Tenstorrent Software Stack guide](../../../getting-started/README.html).
 
+## Can I Turn Off the Start Up Welcome Animation?
+When the system boots up, you'll see a welcome animation. If you would like to disable this, in a Terminal, run:
 
+```bash
+/home/ttuser/scripts/disable-demo-mode.sh
+```
