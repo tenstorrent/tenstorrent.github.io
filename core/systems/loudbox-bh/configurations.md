@@ -28,12 +28,12 @@ When arranged in the rackmounted box, the left-most card is referred to as “Bo
 Cabling Guide — Table of Connections  
 *Includes same single host connections as above with additions to connect them.*
 
-| Source Hostname | Source Tray | Source Port | Destination Hostname | Destination Tray | Destination Port | Cable Type |
-| --- | --- | --- | --- | --- | --- | --- |
-| host_0 | 5 | 2 | host_1 | 1 | 1 | |
-| host_0 | 6 | 2 | host_1 | 2 | 1 | |
-| host_0 | 7 | 2 | host_1 | 3 | 1 | |
-| host_0 | 8 | 2 | host_1 | 4 | 1 | |
+| Source Hostname | Source Tray | Source Port | Destination Hostname | Destination Tray | Destination Port |
+| --- | --- | --- | --- | --- | --- |
+| host_0 | 5 | 2 | host_1 | 1 | 1 |
+| host_0 | 6 | 2 | host_1 | 2 | 1 |
+| host_0 | 7 | 2 | host_1 | 3 | 1 |
+| host_0 | 8 | 2 | host_1 | 4 | 1 |
 
 :::{figure} bh-lb-4x4_Mesh.jpg
 :width: 60%
@@ -43,12 +43,12 @@ Cabling Guide — Table of Connections
 
 *Includes 2 2x host connections as above with additions to connect between them.*
 
-| Source Hostname | Source Tray | Source Port | Destination Hostname | Destination Tray | Destination Port | Cable Type |
-| --- | --- | --- | --- | --- | --- | --- |
-| host_0 | 4 | 3 | host_2 | 1 | 4 | |
-| host_0 | 8 | 3 | host_2 | 5 | 4 | |
-| host_1 | 4 | 3 | host_3 | 1 | 4 | |
-| host_1 | 8 | 3 | host_3 | 5 | 4 | |
+| Source Hostname | Source Tray | Source Port | Destination Hostname | Destination Tray | Destination Port |
+| --- | --- | --- | --- | --- | --- |
+| host_0 | 4 | 3 | host_2 | 1 | 4 |
+| host_0 | 8 | 3 | host_2 | 5 | 4 |
+| host_1 | 4 | 3 | host_3 | 1 | 4 |
+| host_1 | 8 | 3 | host_3 | 5 | 4 |
 
 :::{figure} bh-lb-8x4_Mesh.jpg
 :width: 40%
