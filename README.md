@@ -27,10 +27,21 @@ To build the Sphinx documentation, follow these steps:
 
 ### Local Dev
 
-When making changes locally, you can run `make watch` in the directory of the project you are working on, rather than building the whole doc site. This will build the project's html and serve it on [port 3000](http://127.0.0.1:3000), watching for changes and rebuilding as needed.
+For **core** docs, use a virtualenv so `sphinx-build` and `sphinx-autobuild` are available (the `core` Makefile auto-uses `../.venv/bin/python3` when that path exists):
+
+```bash
+# One-time (or when requirements change)
+make -C core venv
+
+cd core
+export homepage=index.html
+make watch
+```
+
+Then open [http://127.0.0.1:3000/](http://127.0.0.1:3000/). The watch target passes `-a` to Sphinx to avoid stale incremental output, and it watches `../shared` for theme/CSS changes.
 
 > ⚠️
-> Make sure to delete the `_build` directory between builds, as this can sometimes cause issues with updates not getting built.
+> If a page still looks out of date, remove `core/_build` and run `make watch` again.
 
 ## Repo Structure
 
