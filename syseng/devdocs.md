@@ -2,7 +2,7 @@
 
 > **Note:**  This is not for end users, this is specifically for developers, most users should not need to dig into these and it's recommended to go ahead and look into the Metalium documentation directly.
 >
->If you **DO** want to do some developement on these things, you can find the relevant pieces in the appropriate Github repositories below:
+>If you **DO** want to do some development on these things, you can find the relevant pieces in the appropriate GitHub repositories below:
 
 | Tool | Description | Repository |
 |------|-------------|------------|

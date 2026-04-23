@@ -45,8 +45,9 @@ This container is ephemeral so all changes made inside will be lost when the con
 
 To confirm that the environment is configured correctly and can access the hardware, run the simple test program. This program performs an exponentiation and a matrix multiplication operation on the device:
 
+**Note**:
+This should be run inside the container.
 ```bash
-# this should be run inside the container
 python ttnn/ttnn/examples/usage/run_op_on_device.py
 ```
 

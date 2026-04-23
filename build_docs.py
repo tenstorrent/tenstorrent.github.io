@@ -19,6 +19,33 @@ def move_dir(src, dst):
     subprocess.run("mv " + src + "* " + dst, shell=True)
 
 
+SITEMAP_BASE = "https://docs.tenstorrent.com"
+
+
+def write_sitemap_index(output_dir, projects):
+    """Write a sitemap index at output/sitemap.xml linking all project sitemaps."""
+    sitemaps = []
+    for project in projects:
+        if project == "core":
+            path = os.path.join(output_dir, "sitemap_core.xml")
+            loc = f"{SITEMAP_BASE}/sitemap_core.xml"
+        else:
+            path = os.path.join(output_dir, project, "latest", "sitemap.xml")
+            loc = f"{SITEMAP_BASE}/{project}/latest/sitemap.xml"
+        if os.path.isfile(path):
+            sitemaps.append(loc)
+    if not sitemaps:
+        return
+    index_path = os.path.join(output_dir, "sitemap.xml")
+    with open(index_path, "w", encoding="utf-8") as f:
+        f.write('<?xml version="1.0" encoding="UTF-8"?>\n')
+        f.write('<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
+        for loc in sitemaps:
+            f.write(f"  <sitemap>\n    <loc>{loc}</loc>\n  </sitemap>\n")
+        f.write("</sitemapindex>\n")
+    print(f"Wrote sitemap index to {index_path} with {len(sitemaps)} sitemap(s).")
+
+
 def copy_pdfs(project, output_dir):
     """Copy PDF files from source project directory to output directory."""
     print(f"Copying PDFs for {project}...")
@@ -66,3 +93,5 @@ with open("versions.yml", "r") as yaml_file:
             # Copy PDFs for other projects to their respective output directories
             copy_pdfs(project, f"output/{project}/latest")
         print(f"Built {project}.")
+
+    write_sitemap_index("output", list(docs.keys()))

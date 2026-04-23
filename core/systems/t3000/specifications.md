@@ -2,9 +2,9 @@
 
 ## Package Contents
 
-The Tenstorrent TT-LoudBox (T3000) 4U/Desktop Workstation system package includes:
+The Tenstorrent TT-LoudBox (Wormhole) 4U/Desktop Workstation (aka T3000) system package includes:
 
-- Tenstorrent TT-LoudBox (T3000) 4U/Desktop Workstation system
+- Tenstorrent TT-LoudBox (Wormhole) 4U/Desktop Workstation system
 - C13 Power Cable, 1.8m/6ft.
 - 4U Rack-Mounting Kit
 - 2x QSFP-DD 400GbE Cable, 0.6m/2ft. (TW-02002 only)
@@ -51,6 +51,11 @@ The TT-LoudBox ships with the Warp 100 bridges connected, but the two QSFP-DD ca
 One QSFP-DD cable will need to be connected to **Port 1** on the cards in **Slots 1 and 4**.
 
 One QSFP-DD cable will need to be connected to **Port 2** on the cards in **Slots 3 and 2**.
+
+:::{admonition} Note on Multi-Card/Server Setups
+:class: important
+TT-LoudBox (Wormhole) comes with its topology already configured. However, Wormhole cards can be configured for custom Ethernet routing. If you would like to setup a custom topology, please use the [TT-Topology command utility](https://github.com/tenstorrent/tt-topology/blob/main/README.md) for the setup of multi-card configurations.
+:::
 
 ## Environment Specifications
 
