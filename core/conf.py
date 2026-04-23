@@ -47,11 +47,6 @@ myst_heading_anchors = 3  # or 2, depending on how deep you want anchor links
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = "sphinx_rtd_theme"
-# Omit in-page headings (H2+) from the left nav; body layout and anchors unchanged.
-# https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#confval-titles-only
-html_theme_options = {
-    "titles_only": True,
-}
 html_logo = "../shared/images/tt_logo.svg"
 html_favicon = "../shared/images/favicon.png"
 html_static_path = ['../shared/_static', '_static/assets', '_static/js']
