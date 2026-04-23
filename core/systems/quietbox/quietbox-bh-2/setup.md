@@ -139,9 +139,9 @@ If you would prefer to set up a WiFi connection, on your monitor, click on the s
 
 TT-QuietBox 2 comes pre-installed with the Ubuntu operating system (24.04.3 LTS). 
 
-Upon logging in, a Ubuntu Software Updater may offer a prompt that new software has been issued since the latest release. If this prompt appears, click "Install Now" to download the latest Ubuntu updates.
+**Step 1:** Upon logging in, a Ubuntu Software Updater may offer a prompt that new software has been issued since the latest release. If this prompt appears, click "Install Now" to download the latest Ubuntu updates.
 
-To ensure you have the latest system package updates, open a Terminal window by pressing Ctrl+Alt+T and run:
+**Step 2:** To ensure you have the latest system package updates, open a Terminal window by pressing Ctrl+Alt+T and run:
 
 ```bash
 sudo apt update && sudo apt upgrade -y
@@ -169,25 +169,29 @@ To verify all cards are up and running in your TT-QuietBox, launch TT-SMI. This 
 If `.tenstorrent-venv` is not active, or you don’t see all four accelerators listed in the Device Information pane of TT-SMI, please [visit the troubleshooting page.](./support-bh-2.md)
 :::
 
-Once all cards have been verified, close TT-SMI by pressing Q on your keyboard.
+4. Once all cards have been verified, close TT-SMI by pressing Q on your keyboard.
 
 ---
 
 ## Step 8: Get Access to Model Weights
 
-To deploy a model, you'll need to get permission to download the model weights in TT-Studio. 
+TT-QuietBox 2 comes pre-installed with TT-Studio, Tenstorrent's simple web interface for running AI models.
 
-TT-Studio supports the following common models on TT-QuietBox 2:
+TT-Studio currently supports the following common models on TT-QuietBox 2:
 
 | Type | Model |
 | --- | --- |
-| Video Gen | Wan 2.2 |
-| Text to Image | Flux |
-| Language Models | GPT-OSS 120B, Llama 3.1 70B, Qwen3-32B, Llama 3.1 8B |
+| Video Gen | Wan 2.2 (coming soon) |
+| Text to Image | Flux (coming soon) |
+| Language Models | GPT-OSS 120B (coming soon), Llama 3.1 70B, Qwen3-32B, Llama 3.1 8B |
 
-Hugging Face is a free, open source community for collaborating on AI models and applications. Hugging Face access tokens are the unique security keys that allow weights from AI models hosted on Hugging Face to be downloaded to your machine. Read more about how user access tokens work in the [Hugging Face documentation](https://huggingface.co/docs/hub/en/security-tokens#how-to-manage-user-access-tokens).
+To deploy a model in TT-Studio, first download the model weights from Hugging Face. 
 
-To get access to model weights, follow these steps:
+<em>Note: for <strong>Qwen3-32B</strong>, the model weights come pre-downloaded onto your TT-QuietBox 2. However you will still require an access token from Hugging Face to use the model.</em>
+
+Hugging Face is a free, open source community for collaborating on AI models and applications. Hugging Face access tokens are the unique security keys that allow weights from AI models to be downloaded to your machine. Read more about how user access tokens work in the [Hugging Face documentation](https://huggingface.co/docs/hub/en/security-tokens#how-to-manage-user-access-tokens).
+
+To get access to model weights on Hugging Face, follow these steps:
 
 1. Open a new browser window and navigate to [huggingface.co](https://huggingface.co).
 2. Create or log in to your Hugging Face account.
@@ -197,15 +201,13 @@ To get access to model weights, follow these steps:
 
 ## Step 9: Launch TT-Studio
 
-TT-Studio is Tenstorrent's simple web interface for running AI models.
-
 1. Ensure you have the latest version of TT-Studio from the open source Tenstorrent GitHub repository. To do this, open a Terminal window by pressing Ctrl+Alt+T and run the following command:
 
 ```bash
 cd ~/.local/lib/tt-studio
 git pull
 ```
-2. When the following process is complete, run this command in Terminal to open TT-Studio:
+2. When the process is complete, run this command in Terminal to open TT-Studio:
 
 ```bash
 tt-studio
@@ -213,7 +215,7 @@ tt-studio
 
 Your Terminal window will show a "Welcome to TT-Studio" message. See screenshot below for reference.
 
-```{figure} ./qb2-screenshot-first-time-tt-studio.jpg
+```{figure} ./qb2-screenshot-open-tt-studio.jpg
 :width: 80%
 ```
 
@@ -229,37 +231,20 @@ At the bottom of the Terminal screen, you will be prompted to enter a Hugging Fa
 :width: 80%
 ```
 
-```{figure} ./qb2-screenshot-launching-ttstudio.jpg
-:width: 80%
-```
-
-3. When prompted, enter your sudo password (this is the same password you use to log in). TT-Studio runs on top of TT-Inference Server which requires sudo privileges to set up.
+3. When prompted, enter your sudo password (this is the same password you use to log in to your Workstation). TT-Studio runs on top of TT-Inference Server which requires sudo privileges to set up.
 
 ```{figure} ./qb2-screenshot-sudo-pw.jpg
 :width: 80%
 ```
-4. The TT-Studio web app will now launch in your default web browser. Click on the model of your choice from the drop-down menu and press "NEXT." The screenshots below use Llama 3.3 70B as an example. 
+4. The TT-Studio web app will now launch in your default web browser. Click on the model of your choice from the drop-down menu and press "NEXT." 
 
-```{figure} ./qb2-screenshot-select-model.jpg
+```{figure} ./qb2-screenshot-select-model2.png
 :width: 80%
 ```
 
 5. When prompted on the next screen, proceed by hitting "DEPLOY." The model weights will start downloading automatically. 
 
-
-```{figure} ./qb2-screenshot-deploy-model.jpg
-:width: 80%
-```
-
 Downloading a model can take anywhere from a few minutes to a few hours, depending on the model you’ve selected and the speed of your internet connection. WiFi connections will be slower than direct Ethernet. TT-Studio will show the status of "model unavailable" until model download is finished. 
-
-```{figure} ./qb2-screenshot-deploying.jpg
-:width: 80%
-```
-
-```{figure} ./qb2-screenshot-creating-container.jpg
-:width: 80%
-```
 
 ## Other Methods of Running Models
 After your TT-QuietBox 2 is set up, feel free to explore other methods of running models on other layers of Tenstorrent's software stack. You may want to:

@@ -375,6 +375,12 @@ li.toctree-l1.current>a {
 
 /* Document styling */
 
+/* Bold inside italic in body copy (MyST nested * ** * can under-render) */
+.rst-content .document em strong,
+.rst-content .document em b {
+  font-weight: 700;
+}
+
 /* Tight list spacing inside table cells (inline spec tables with <ul>) */
 .rst-content td ul.tt-spec-cell-list,
 .rst-content th ul.tt-spec-cell-list {
