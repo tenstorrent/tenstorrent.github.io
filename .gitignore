@@ -1,5 +1,4 @@
 _build/
 .venv/
-.docs-env/
 .DS_Store
 output/
