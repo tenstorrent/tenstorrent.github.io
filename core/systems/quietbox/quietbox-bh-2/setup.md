@@ -6,13 +6,14 @@ myst:
     document-type: Task-Based Guide (How-To)
 ---
 
-```{figure} ./qb2-setup-hero.jpg
+```{figure} ./qb2-setup-hero2.jpg
 :width: 65%
+:target: ./qb2-setup-hero2.jpg
 ```
 
 # Hardware and Software Setup
 
-*<span style="color: purple;">Note: This content is still being drafted. Once finalized, the complete documentation will be available at docs.tenstorrent.com</span>*
+*<span style="color: purple;">Note: This product is pre-launch and documentation is subject to change.</span>*
 
 This guide shows users how to safely unbox, setup hardware, and install software on a TT-QuietBox 2 (Blackhole) Workstation.
 

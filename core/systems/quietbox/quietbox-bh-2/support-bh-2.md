@@ -1,6 +1,6 @@
 # FAQ and Troubleshooting 
 
-*<span style="color: purple;">Note: This content is still being drafted. Once finalized, the complete documentation will be available at docs.tenstorrent.com</span>*
+*<span style="color: purple;">Note: This product is pre-launch and documentation is subject to change.</span>*
 
 ## Monitor Stays Black After Powering On
 First, ensure all cables are functioning and connected:

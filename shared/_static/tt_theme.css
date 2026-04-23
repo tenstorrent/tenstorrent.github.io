@@ -375,6 +375,15 @@ li.toctree-l1.current>a {
 
 /* Document styling */
 
+/* After float-left figures, restore full-width flow for the next heading/section */
+.tt-float-clear {
+  clear: both;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
 /* Bold inside italic in body copy (MyST nested * ** * can under-render) */
 .rst-content .document em strong,
 .rst-content .document em b {
