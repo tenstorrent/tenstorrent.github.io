@@ -19,7 +19,7 @@ Ensure your TT-LoudBox (Blackhole) is successfully rack-mounted and powered on b
 
 ## Step 1: Installing the Operating System
 
-TT-LoudBox ships without an operating system (OS) installed. We recommend installing Ubuntu 22.04 (Jammy Jellyfish), or your preferred OS.
+TT-LoudBox ships without an operating system (OS) installed. We recommend installing Ubuntu 22.04 (Jammy Jellyfish), or your preferred OS. Instructions for installing Ubuntu can be found [here](https://ubuntu.com/tutorials/install-ubuntu-server#1-overview).
 
 If you choose to install Ubuntu 22.04, here is how to get started:
 
