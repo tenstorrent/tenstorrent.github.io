@@ -14,6 +14,6 @@ Getting Started
 Reference Materials
 -------------------
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    
    support
