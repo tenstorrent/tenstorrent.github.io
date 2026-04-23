@@ -56,7 +56,7 @@ The e75, e150, n150d, n150s, n300d, n300s, p100a, p150b, and p150c have been tes
 
 This device complies with Innovation, Science and Economic Development Canada (ISED) license-exempt RSS Standard(s). Operation is subject to the following two conditions: (1) this device may not cause interference, and (2) this device must accept any interference, including interference that may cause undesired operation of the device.
 
-### Francais
+### Français
 
 Le présent appareil est conforme aux CNR D’Innovation, Sciences et Développement économique Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes : (1) l’appareil ne doit pas produire de brouillage, et (2) l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
 

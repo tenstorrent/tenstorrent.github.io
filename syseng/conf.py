@@ -8,7 +8,11 @@ author = 'Tenstorrent'
 root_doc = "index"
 templates_path = ['../shared/_templates']
 exclude_patterns = []
-extensions = ['myst_parser']
+extensions = ['myst_parser', 'sphinx_sitemap']
+
+html_baseurl = "https://docs.tenstorrent.com/syseng/latest/"
+sitemap_locales = [None]
+sitemap_url_scheme = "{link}"
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output

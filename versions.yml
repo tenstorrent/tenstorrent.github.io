@@ -1,1 +1,12 @@
 core:
+
+ttnn:
+  versions:
+    latest: {}
+
+tt-metalium:
+  versions:
+    latest: {}
+
+syseng:
+  - latest
