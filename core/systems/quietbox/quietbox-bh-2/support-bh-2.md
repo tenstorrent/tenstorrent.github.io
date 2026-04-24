@@ -14,7 +14,7 @@ When the system boots up, you'll see a welcome animation. If you would like to d
 
 ## Why Does My Monitor Stay Black After Powering On?
 First, ensure all cables are functioning and connected:
-1. Confirm the power cable is securely connected to the back of the Workstation, and is recieving power from a grounded outlet. 
+1. Confirm the power cable is securely connected to the back of the Workstation, and is receiving power from a grounded outlet. 
 2. Ensure you have flipped the "I" switch in the back of the Workstation upright into the "on" position, then pressed the power button on the front of the workstation. 
 3. Confirm the HDMI cable is securely connected at both the monitor and the Workstation ports and is functioning normally.
 
