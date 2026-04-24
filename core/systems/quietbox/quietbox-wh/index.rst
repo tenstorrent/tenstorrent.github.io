@@ -1,9 +1,20 @@
-  
 TT-QuietBox (Wormhole)
 =======================================
-.. toctree::
-   :maxdepth: 2
 
-   specifications
+Getting Started
+---------------
+
+.. toctree::
+   :maxdepth: 1
+   
    setup
-   ../common/support
+   Software Setup </getting-started/README>
+
+
+Reference Materials
+-------------------
+.. toctree::
+   :maxdepth: 1
+   
+   Specifications <specifications>
+   Troubleshooting <../common/support>

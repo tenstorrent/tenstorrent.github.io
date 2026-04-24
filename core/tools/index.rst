@@ -1,7 +1,10 @@
 Tools
 =====
+* `TT-Studio <https://github.com/tenstorrent/tt-studio>`_
 
-* `tt-smi <https://github.com/tenstorrent/tt-smi>`_
+The Tenstorrent Studio (TT-Studio) is an easy to use web interface for running AI models on Tenstorrent hardware. It handles all the technical setup automatically and gives you a simple GUI to deploy models, chat with models, and more.
+
+* `TT-SMI <https://github.com/tenstorrent/tt-smi>`_
 
 The Tenstorrent System Management Interface (TT-SMI) is a command-line tool that provides a comprehensive interface for interacting with Tenstorrent devices, collecting telemetry data, and displaying device and firmware information.
 
@@ -9,15 +12,15 @@ The Tenstorrent System Management Interface (TT-SMI) is a command-line tool that
 
 TT-NN Visualizer is an interactive tool for visualizing and analyzing model execution on Tenstorrent hardware. It provides detailed insights through graphs, memory plots, tensor and buffer views, operation flow diagrams, and multi-instance support via file or SSH report loading.
 
-* `vllm <https://github.com/tenstorrent/vllm>`_
+* `vLLM <https://github.com/tenstorrent/vllm>`_
 
-Tenstorrent vLLM is a high-throughput and memory-efficient inference and serving engine for LLMs on Tenstorrent hardware.
+Tenstorrent's vLLM fork is a high-throughput and memory-efficient inference and serving engine for LLMs on Tenstorrent hardware.
 
-* `tt-topology <https://github.com/tenstorrent/tt-topology>`_
+* `TT-Topology <https://github.com/tenstorrent/tt-topology>`_
 
-Tenstorrent Topology (TT-Topology) is a command-line utility used to flash multiple NB cards on a system for specific Ethernet routing configurations.
+Tenstorrent Topology (TT-Topology) is a command-line utility used to flash multiple cards on a system for specific Ethernet routing configurations.
 
-* `model-explorer <https://github.com/tenstorrent/model-explorer>`_
+* `Model-Explorer <https://github.com/tenstorrent/model-explorer>`_
 
 Model Explorer provides an intuitive, hierarchical view of model graphs, organizing operations into nested layers that users can easily expand or collapse.
 

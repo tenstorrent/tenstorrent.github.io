@@ -1,9 +1,21 @@
 TT-QuietBox (Blackhole)
 =======================================
 
-.. toctree::
-   :maxdepth: 2
+Getting Started
+---------------
 
-   specifications
+.. toctree::
+   :maxdepth: 1
+   
    setup
-   ../common/support
+   Software Setup </getting-started/README>
+
+
+Reference Materials
+-------------------
+.. toctree::
+   :maxdepth: 1
+   
+   Specifications <specifications>
+   Troubleshooting <../common/support>
+

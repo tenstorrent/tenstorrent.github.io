@@ -375,10 +375,45 @@ li.toctree-l1.current>a {
 
 .rst-footer-buttons {
   margin-top: 2rem;
-  /* give footer buttons a little bit of space */
+  clear: both;
+  width: 100%;
+  flex-shrink: 0;
 }
 
 /* Document styling */
+
+/* After float-left figures, restore full-width flow for the next heading/section */
+.tt-float-clear {
+  clear: both;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Bold inside italic in body copy (MyST nested * ** * can under-render) */
+.rst-content .document em strong,
+.rst-content .document em b {
+  font-weight: 700;
+}
+
+/* Tight list spacing inside table cells (inline spec tables with <ul>) */
+.rst-content td ul.tt-spec-cell-list,
+.rst-content th ul.tt-spec-cell-list {
+  margin: 0;
+  padding-left: 1.15em;
+  line-height: 1.4;
+}
+.rst-content td ul.tt-spec-cell-list > li,
+.rst-content th ul.tt-spec-cell-list > li {
+  margin: 0;
+  padding: 0;
+}
+.rst-content td ul.tt-spec-cell-list li > p,
+.rst-content th ul.tt-spec-cell-list li > p {
+  margin: 0;
+  line-height: inherit;
+}
 
 .document * h1,
 .document * h2,

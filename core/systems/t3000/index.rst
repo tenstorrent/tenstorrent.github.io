@@ -1,8 +1,19 @@
 TT-LoudBox (Wormhole)
 =======================================
-.. toctree::
-   :maxdepth: 2
 
-   softwaresetup
+Getting Started
+---------------
+
+.. toctree::
+   :maxdepth: 1
+   
    specifications
+   Software Setup </getting-started/README>
+
+
+Reference Materials
+-------------------
+.. toctree::
+   :maxdepth: 1
+   
    support
