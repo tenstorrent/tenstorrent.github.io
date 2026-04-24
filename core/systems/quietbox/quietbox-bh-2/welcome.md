@@ -10,11 +10,11 @@ myst:
 :width: 65%
 ```
 
-# Welcome to Your Quietbox 2
+# Welcome to Your TT-QuietBox 2
 
 You've powered it on. You've verified the chips. You've changed the default password and confirmed the accelerators are alive with the venerable `tt-smi`. The [install guide](/systems/quietbox/quietbox-bh-2/setup) got you here. This guide continues your adventure.
 
-The TT-QuietBox 2 is yours. There are no API keys to manage, no requests-per-minute limits to negotiate, and no logs leaving your network on the way to inference. Whatever you run on it stays between you and the QuietBox.
+The TT-QuietBox 2 is yours. There are no API keys to manage, no requests-per-minute limits to negotiate, and no logs leaving your network on the way to inference. Whatever you run on it stays between you and the TT-QuietBox 2.
 
 This guide walks through your machine, what it can do out of the box, and where to go deeper once you're ready.
 
@@ -22,9 +22,9 @@ This guide walks through your machine, what it can do out of the box, and where 
 
 ## What Your Hardware Is and What It Can Do
 
-The QB2 houses two liquid-cooled Tenstorrent Blackhole™ cards, connected internally via a high-speed Samtec cable. Each card carries two Blackhole ASICs. Four chips total. Each chip has 120 Tensix cores — 480 across the system — and the cards together provide 128 GB of DDR6 memory at a combined memory bandwidth of over 2 TB/sec. The host side is a Ryzen 7 9700X with 256 GB of DDR5 system RAM and 4 TB of NVMe storage.
+The TT-QuietBox 2 houses two liquid-cooled Tenstorrent Blackhole™ cards, connected internally via a high-speed Samtec cable. Each card carries two Blackhole ASICs. Four chips total. Each chip has 120 Tensix cores — 480 across the system — and the cards together provide 128 GB of DDR6 memory at a combined memory bandwidth of over 2 TB/sec. The host side is a Ryzen 7 9700X with 256 GB of DDR5 system RAM and 4 TB of NVMe storage.
 
-In practical terms: the QB2 runs Qwen3-32B at roughly 8 seconds per response and Llama-3.3-70B at roughly 14 seconds per response. For video, it generates 5-second clips with Wan 2.2 in roughly 6 minutes after the server is warm — or 28-second clips via SkyReels-V2 for faster turnaround. For image, it handles FLUX.1-dev stills at quality that compares favorably to what you'd get from a cloud endpoint — without the round trip.
+In practical terms: the TT-QuietBox 2 runs Qwen3-32B at roughly 8 seconds per response and Llama-3.3-70B at roughly 14 seconds per response. For video, it generates 5-second clips with Wan 2.2 in roughly 6 minutes after the server is warm — or 28-second clips via SkyReels-V2 for faster turnaround. For image, it handles FLUX.1-dev stills at quality that compares favorably to what you'd get from a cloud endpoint — without the round trip.
 
 ### Monitoring It in Real Time
 
@@ -62,7 +62,7 @@ tt-studio
 
 tt-studio handles the Hugging Face token, model download, container setup, and server startup. It exposes the same models tt-toplike watches and the same endpoint tt-local-generator and agents can talk to.
 
-Models supported on QB2:
+Models supported on the TT-QuietBox 2:
 
 | Type | Model |
 |------|-------|
@@ -78,14 +78,14 @@ Zero cloud dependency. The model weights live on your 4 TB NVMe. The inference h
 
 Local inference means the data never leaves the machine. That's the architecture, not a policy — there's no other path for it to take. Queries you wouldn't send to a cloud API, documents you can't put in a commercial service, sensitive context that belongs on your own hardware: all of it runs here.
 
-The QB2 is large enough to run agent frameworks that actually work. A single tool call succeeds about 93% of the time at 32B scale. A three-step reasoning loop succeeds about 78% of the time. Multi-agent pipelines are usable. These numbers fall apart at 7B. They come together at 32B. They're good at 70B.
+The TT-QuietBox 2 is large enough to run agent frameworks that actually work. A single tool call succeeds about 93% of the time at 32B scale. A three-step reasoning loop succeeds about 78% of the time. Multi-agent pipelines are usable. These numbers fall apart at 7B. They come together at 32B. They're good at 70B.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/mrvqKeBtVvU?si=9X3qfKmQnSFeMzWh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-The **tt-vscode-toolkit** provides guided lessons for getting started, all validated on QB2 hardware. The lesson catalog includes:
+The **tt-vscode-toolkit** provides guided lessons for getting started, all validated on TT-QuietBox 2 hardware. The lesson catalog includes:
 
 - [Running your first model with TT-Inference Server](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/tt-inference-server/)
-- [Local AI agents on QuietBox 2](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/qb2-local-agents/) — raw-Python agentic demos using smolagents, CrewAI, and the OpenAI Agents SDK, each demonstrating a different pattern: web research, codebase navigation, multi-role pipelines, and stateful interactive agents
+- [Local AI agents on TT-QuietBox 2](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/qb2-local-agents/) — raw-Python agentic demos using smolagents, CrewAI, and the OpenAI Agents SDK, each demonstrating a different pattern: web research, codebase navigation, multi-role pipelines, and stateful interactive agents
 - [Image classification and model evaluation on Tensix hardware](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/forge-image-classification/)
 - [Video generation with Wan 2.2](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/qb2-video-generation/)
 - Architecture deep dives — understanding what Tensix cores are, how the memory hierarchy is organized, and how to write kernels for them
@@ -98,11 +98,11 @@ For full documentation: [docs.tenstorrent.com/tt-vscode-toolkit](https://docs.te
 
 ## Create, Curate, and Watch an Endless Stream of Video Content
 
-[**tt-local-generator**](https://docs.tenstorrent.com/tt-local-generator) is a GTK4 desktop application for generating videos and images using the Tenstorrent hardware in your QB2. It wraps the tt-inference-server backend into a prompt-to-video pipeline with a gallery, a queue, and a kiosk mode for continuous playback.
+[**tt-local-generator**](https://docs.tenstorrent.com/tt-local-generator) is a GTK4 desktop application for generating videos and images using the Tenstorrent hardware in your TT-QuietBox 2. It wraps the tt-inference-server backend into a prompt-to-video pipeline with a gallery, a queue, and a kiosk mode for continuous playback.
 
 The basic loop is: write a prompt (or click "✨ Inspire me" to generate one), submit it, and browse your existing gallery while the generation runs. The GPU stays busy. Newly finished clips appear in the gallery as they complete. The generation queue drains automatically so you don't have to babysit it.
 
-**What generates on QB2:**
+**What generates on the TT-QuietBox 2:**
 
 | Mode | Model |
 |------|-------|
@@ -115,7 +115,7 @@ Prompts have a three-tier generation system: algorithmic word-bank sampling for 
 
 **TT-TV** is the kiosk mode: a borderless fullscreen player that cycles your generated content with channel-change transitions and a broadcast-style lower-third showing prompt, model, and pool size. A sidebar entry field lets anyone in the room type a prompt that goes to the front of the queue. Newly finished generations appear within a few playback slots of completing, so the pool grows continuously on its own. It's a self-replenishing content channel built from your own hardware.
 
-For a guided walkthrough: [Generating Video on QuietBox 2](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/qb2-video-generation/)
+For a guided walkthrough: [Generating Video on TT-QuietBox 2](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/qb2-video-generation/)
 
 For full documentation and installation: [docs.tenstorrent.com/tt-local-generator](https://docs.tenstorrent.com/tt-local-generator)
 
@@ -129,7 +129,7 @@ The Blackhole ASIC is not a GPU. It is a different answer to the question of how
 
 Each Tensix core is a programmable unit that combines matrix math engines with a RISC-V control processor. The 120 Tensix cores on each Blackhole chip are connected through a 2D mesh Network-on-Chip. There is no central dispatcher — computation moves through the mesh as packets, and cores coordinate directly. This is what the Memory Castle visualization is showing: the flow of read operations, write operations, cache hits, and misses through the DDR→L2→L1→Tensix hierarchy, rendered as particles navigating between layers of a dungeon.
 
-The consequence of this architecture is that memory bandwidth is the primary resource, not clock speed. That is why the QB2 specs lead with 1024 GB/sec per card rather than GHz.
+The consequence of this architecture is that memory bandwidth is the primary resource, not clock speed. That is why the TT-QuietBox 2 specs lead with 1024 GB/sec per card rather than GHz.
 
 ### TT-Metalium
 
