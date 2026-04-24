@@ -17,7 +17,6 @@ Getting Started
    :maxdepth: 1
    
    setup
-   welcome
 
 Reference Materials
 -------------------
