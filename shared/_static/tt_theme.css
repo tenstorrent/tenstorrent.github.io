@@ -65,9 +65,9 @@
 
   --base-text-size: 16px;
 
-  --font-main: "Degular", sans-serif;
-  --font-display: "DegularDisplay", sans-serif;
-  --font-mono: "RMMono", monospace;
+  --font-main: "Degular", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "DegularDisplay", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "RMMono", "SF Mono", "Cascadia Code", "Consolas", "Liberation Mono", Menlo, monospace;
 
   --transition-duration: 150ms;
   --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
@@ -255,6 +255,13 @@ i {
   background: var(--color-background-alt2);
   color: var(--color-foreground);
   transition: var(--transition-all);
+}
+
+/* No underline for custom toctree-style link lists (e.g. loudbox-bh Getting Started) */
+.rst-content .toctree-no-underline a,
+.wy-menu-vertical .toctree-no-underline a {
+  text-decoration: none !important;
+  border-bottom: none !important;
 }
 
 .wy-menu-vertical li.current a,
@@ -517,4 +524,12 @@ html.writer-html5 .rst-content dl[class]:not(.option-list):not(.field-list):not(
 /* Style the title of the important block */
 .admonition.important>.admonition-title {
   background: var(--color-green);
+}
+
+/* Hide loudbox-bh from sidebar and page content unless viewing that section */
+.wy-menu-vertical li:has(> a[href*="loudbox-bh"]):not(.current) {
+  display: none;
+}
+.rst-content .toctree-wrapper li:has(> a[href*="loudbox-bh"]) {
+  display: none;
 }
