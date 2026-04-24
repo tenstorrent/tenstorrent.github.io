@@ -1,4 +1,6 @@
-# Docs image format
+# Contributing
+
+## Documentation: image format
 
 Use the **figure** directive with **`:width:`** for images in MyST/Markdown docs (e.g. under `core/`).
 

@@ -13,7 +13,7 @@ myst:
 This document provides first-time operating system and firmware setup for the Tenstorrent TT-LoudBox™ (Blackhole™) Air-Cooled 4U Server.
 
 :::{admonition} Important
-:class: Important
+:class: important
 Ensure your TT-LoudBox (Blackhole) is successfully rack-mounted and powered on before beginning. If not, please head to the [Hardware Setup Guide](./setup.md) first.
 :::
 
@@ -73,7 +73,7 @@ e1:00.0 Processing accelerators: Tenstorrent Inc Blackhole
 ```
 
 :::{admonition} Important
-:class: Important
+:class: important
 If you don’t see all eight accelerators listed, please raise a support request. Our team will provide assistance.
 :::
 
