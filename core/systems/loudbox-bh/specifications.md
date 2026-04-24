@@ -85,7 +85,7 @@ a washer. The rack itself should also be grounded. Particular attention should b
 
 ### Electrostatic Discharge Safety
 
-:::{admonition} Important
+:::{admonition} Caution
 :class: caution
 Before opening the server or handling any internal components, you must discharge static electricity from your body to avoid damaging sensitive hardware. Electrostatic discharge can permanently damage Tensix cores, memory modules, or other components. Handle with care and always follow ESD-safe practices.
 
