@@ -24,6 +24,10 @@ Tenstorrent Topology (TT-Topology) is a command-line utility used to flash multi
 
 Model Explorer provides an intuitive, hierarchical view of model graphs, organizing operations into nested layers that users can easily expand or collapse.
 
+* `tt-vscode-toolkit <https://docs.tenstorrent.com/tt-vscode-toolkit>`_
+
+tt-vscode-toolkit is an integrated learning environment for Tenstorrent software development and exploration for VSCode users.
+
 .. important::
    For tools specific to individual components of the Tenstorrent software stack—such as TT-Metalium or TT-NN—please refer to their dedicated tool sections in the documentation:
    

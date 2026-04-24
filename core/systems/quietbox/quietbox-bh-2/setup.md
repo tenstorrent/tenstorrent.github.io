@@ -252,6 +252,8 @@ After your TT-QuietBox 2 is set up, feel free to explore other methods of runnin
 - Run models directly from Terminal using [TT-Inference-Server](https://github.com/tenstorrent/tt-inference-server), the fastest way to deploy and test models for serving inference on Tenstorrent hardware.
 - Run [model demos](https://docs.tenstorrent.com/getting-started/model-demos.html) using TT-Metalium.
 
+Our [**welcome guide** to the TT-QuietBox 2](./welcome.md) covers video generation, interactive lessons with our VSCode extension, and more.
+
 ---
 
 ## Need Additional Support?
