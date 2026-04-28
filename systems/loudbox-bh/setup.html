@@ -1,0 +1,590 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="TT-LoudBox Blackhole" name="product-name" />
+<meta content="Setup, Installation" name="technology-concepts" />
+<meta content="Task-Based Guide (How-To)" name="document-type" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Receiving, Unboxing, and Setup &mdash; Home 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../_static/tt_theme.css?v=dc7519ea" />
+      <link rel="stylesheet" type="text/css" href="../../_static/home.css?v=c560917e" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+    <link rel="canonical" href="https://docs.tenstorrent.com/systems/loudbox-bh/setup.html" />
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=fd3dd8dd"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../../_static/custom.js?v=0ccd5bc4"></script>
+      <script src="../../_static/posthog.js?v=a97abc7e"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+<a href="https://tenstorrent.github.io/">
+    <img src="../../_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+
+<a href="../../index.html">
+    Home
+</a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Software Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/README.html">Installing the Tenstorrent Software Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/model-demos.html">Running Model Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/vLLM-servers.html">Deploying LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/tt-software-stack.html">Understanding the Tenstorrent Software Stack</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Hardware Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../aibs/index.html">Cards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../forge/index.html">TT-Forge</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/index.html">TT-Metalium</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/index.html">TT-NN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/manual-software-install.html">Manual Software Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Tools</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../support/README.html">Support &amp; FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Legal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/bounty_terms.html">Bounty Program Terms</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Home</a>
+      </nav>
+
+      <div class="wy-nav-content">
+  
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Receiving, Unboxing, and Setup</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/systems/loudbox-bh/setup.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="receiving-unboxing-and-setup">
+<h1>Receiving, Unboxing, and Setup<a class="headerlink" href="#receiving-unboxing-and-setup" title="Link to this heading"></a></h1>
+<p><em><span style="color: purple;">Note: This product is pre-launch and specifications are subject to change. This install guide would love your feedback! Please add it to the attached spreadsheet that came with this website package.</span></em></p>
+<section id="before-you-begin">
+<h2>Before You Begin<a class="headerlink" href="#before-you-begin" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>The TT-LoudBox (Blackhole) should be installed by a trained, qualified professional in a Restricted Access Area. Professional installation ensures the Server operates safely and effectively while preventing property damage and personal injuries. The professional installer assumes all responsibility for compliance with local regulatory and safety requirements during installation.</p></li>
+<li><p>The TT-LoudBox (Blackhole) should be installed in an area that is clean, dust-free and well-ventilated. Avoid areas where heat, electrical noise and electromagnetic fields are generated.</p></li>
+<li><p>When rack-mounting, leave at least 25 inches of clearance in front of the rack and at least 30 inches of clearance behind the rack. This will allow the doors to open completely in the event of servicing and will ensure proper airflow.</p></li>
+</ul>
+<section id="safety-warnings">
+<h3>Safety Warnings<a class="headerlink" href="#safety-warnings" title="Link to this heading"></a></h3>
+<p>Before beginning setup, please review the <a class="reference internal" href="specifications.html#installation-site-considerations"><span class="std std-ref">Installation Site Considerations</span></a> and the <a class="reference internal" href="specifications.html#electrostatic-discharge-safety"><span class="std std-ref">Electrostatic Discharge</span></a> sections on the Specifications page. This is for your personal safety and the integrity of the server.</p>
+<div class="warning admonition">
+<p class="admonition-title">Caution: Heavy Object</p>
+<p>The Server weighs 45kg (99lbs). To avoid personal injury and Server damage, at least two people are required for unboxing. Use of a Server lift is recommended for rack installation.</p>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Caution: Hearing Damage Risk</p>
+<p>The Server produces high volume levels, which can be dangerous to your hearing over long periods. We strongly recommend using hearing protection when you are installing, servicing, or working near this Server.</p>
+</div>
+</section>
+<section id="important-rack-considerations">
+<h3>Important Rack Considerations<a class="headerlink" href="#important-rack-considerations" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>The provided rails will fit a rack between 26.5” and 36.4” deep.</p></li>
+<li><p>Ensure that the leveling jacks on the bottom of the rack are extended to the floor so that the full weight of the rack rests on them.</p></li>
+<li><p>If it is the only unit in the rack, the Server should be mounted at the bottom.
+If the rack is partially filled, load the rack from the bottom to the top with the heaviest units at the bottom of the rack.</p></li>
+<li><p>If the rack has stabilizing devices, install the stabilizers before mounting or servicing the Server in the rack.</p></li>
+<li><p>Ensure your rack’s stabilizing mechanism is in place or that the rack is bolted to the floor. When sliding the Server in and out of the rack, failure to stabilize the rack can cause the rack to tip over.</p></li>
+<li><p>When not servicing, always keep the front door of the rack and all covers/panels on the servers closed to maintain proper cooling.</p></li>
+</ul>
+</section>
+<section id="site-power-requirements-and-recommendations">
+<h3>Site Power Requirements and Recommendations<a class="headerlink" href="#site-power-requirements-and-recommendations" title="Link to this heading"></a></h3>
+<div class="warning admonition">
+<p class="admonition-title">Caution: Shock Hazard</p>
+<p>This Server contains multiple power supply units (PSUs). Before any servicing, shut down the Server, disconnect all power supply cables, and allow all PSUs to fully drain.</p>
+</div>
+<p>Before installing, ensure that the rack facility has four 20A/240V circuits which can be dedicated to the Server. The rack’s PDU (Power Distribution Unit) outlets should be rated for 10A contiguous load per PSU.</p>
+<p>The Server’s four PSUs work in a 2+2 redundant configuration, and the expected power consumption of the Server at peak loads is 4kW. The PSUs automatically sense the input voltage between 200 V to 240 V, and operate at that voltage. Note that different input voltages will result in different maximum power output levels.</p>
+<p>For maximum efficiency and redundancy, all four PSUs should be plugged in and powered on at the same time. Running the Server with less than four PSUs is possible but should only be considered a temporary condition. Failed power supplies should be replaced promptly.</p>
+<p>An amber light on the Server’s power supply indicates that the power supply is off. A green light indicates that the power supply is operating normally.</p>
+</section>
+<section id="package-contents">
+<h3>Package Contents<a class="headerlink" href="#package-contents" title="Link to this heading"></a></h3>
+<p>The Tenstorrent TT-LoudBox (Blackhole) system package includes:</p>
+<ul class="simple">
+<li><p>Tenstorrent TT-LoudBox (Blackhole) Server</p></li>
+<li><p>4x IEC-60320-C13 to C14 F-M Power Cables</p></li>
+<li><p>4U Rack-Mounting Kit</p></li>
+<li><p>10x QSFP-DD Passive 800G cables (QDD-800G-PC005)</p></li>
+</ul>
+</section>
+</section>
+<section id="step-1-unboxing-the-server">
+<h2>Step 1: Unboxing the Server<a class="headerlink" href="#step-1-unboxing-the-server" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Remove the clips from either side of the shipping box. There are four (4) clips in total, two on each side of the box. To remove, compress the clips and pull to release.</p></li>
+</ol>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/bh-lb-clip-removal.jpg"><img alt="../../_images/bh-lb-clip-removal.jpg" src="../../_images/bh-lb-clip-removal.jpg" style="width: 40%;" />
+</a>
+</figure>
+<ol class="arabic simple" start="2">
+<li><p>Lift the top of the box off of the bottom.</p></li>
+</ol>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/bh-lb-lift-top.jpg"><img alt="../../_images/bh-lb-lift-top.jpg" src="../../_images/bh-lb-lift-top.jpg" style="width: 40%;" />
+</a>
+</figure>
+<ol class="arabic simple" start="3">
+<li><p>Remove the rack rails and accessories and set aside. Then lift the styrofoam casing.</p></li>
+</ol>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/bh-lb-remove-railkit.jpg"><img alt="../../_images/bh-lb-remove-railkit.jpg" src="../../_images/bh-lb-remove-railkit.jpg" style="width: 40%;" />
+</a>
+</figure>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/bh-lb-accessories.jpg"><img alt="../../_images/bh-lb-accessories.jpg" src="../../_images/bh-lb-accessories.jpg" style="width: 40%;" />
+</a>
+</figure>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/bh-lb-remove-styrofoam.jpg"><img alt="../../_images/bh-lb-remove-styrofoam.jpg" src="../../_images/bh-lb-remove-styrofoam.jpg" style="width: 40%;" />
+</a>
+</figure>
+<ol class="arabic simple" start="4">
+<li><p>Lift and remove the inner cardboard sleeve.</p></li>
+</ol>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/bh-lb-remove-inner-sleeve.jpg"><img alt="../../_images/bh-lb-remove-inner-sleeve.jpg" src="../../_images/bh-lb-remove-inner-sleeve.jpg" style="width: 40%;" />
+</a>
+</figure>
+<ol class="arabic simple" start="5">
+<li><p>With at least two people, lift the TT-LoudBox out of the box.</p></li>
+</ol>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/bh-lb-two-man-lift.jpg"><img alt="../../_images/bh-lb-two-man-lift.jpg" src="../../_images/bh-lb-two-man-lift.jpg" style="width: 40%;" />
+</a>
+</figure>
+<div class="important admonition">
+<p class="admonition-title">Important</p>
+<p>Do not pick up the server with the front handles. The handles should only be used to pull the system from a rack.</p>
+</div>
+</section>
+<section id="step-2-rack-mounting-the-server">
+<h2>Step 2: Rack Mounting the Server<a class="headerlink" href="#step-2-rack-mounting-the-server" title="Link to this heading"></a></h2>
+<p>This section details installation for the rack rails that are provided in the TT-LoudBox (Blackhole) package. If you choose to use a different set of rails, the assembly procedure may differ slightly. Please also refer to the installation instructions for your rack unit.</p>
+<p>The rail kit package contains a pair of inner rails that secure to the Server chassis and a pair of outer rails that attach directly to the rack. The inner rails are etched with “L” (left side) and “R” (right side).</p>
+<section id="installing-the-inner-rails-onto-the-chassis">
+<h3>1. Installing the Inner Rails onto the Chassis<a class="headerlink" href="#installing-the-inner-rails-onto-the-chassis" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Identify the left and right side inner rails. Place the left inner rail on the left side of the
+chassis, aligning the hooks of the chassis with the inner rail holes. Repeat with the right side. Make sure the rail faces “outward” so that it will fit with the rack’s mounting bracket.</p></li>
+</ol>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/bh-lb-inner-rails.jpg"><img alt="../../_images/bh-lb-inner-rails.jpg" src="../../_images/bh-lb-inner-rails.jpg" style="width: 40%;" />
+</a>
+</figure>
+<ol class="arabic simple" start="2">
+<li><p>If desired, secure the rail with two flat head M4 x 4mm screws as illustrated.</p></li>
+</ol>
+</section>
+<section id="installing-the-outer-rails-onto-the-rack">
+<h3>2. Installing the Outer Rails onto the Rack<a class="headerlink" href="#installing-the-outer-rails-onto-the-rack" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Press upward on the locking tab at the rear end of the middle rail.</p></li>
+</ol>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/bh-lb-middle-rail-snap.jpg"><img alt="../../_images/bh-lb-middle-rail-snap.jpg" src="../../_images/bh-lb-middle-rail-snap.jpg" style="width: 40%;" />
+</a>
+</figure>
+<ol class="arabic simple" start="2">
+<li><p>Push the middle rail back into the outer rail.</p></li>
+</ol>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/bh-lb-middle-and-outer-rail.jpg"><img alt="../../_images/bh-lb-middle-and-outer-rail.jpg" src="../../_images/bh-lb-middle-and-outer-rail.jpg" style="width: 40%;" />
+</a>
+</figure>
+<ol class="arabic simple" start="3">
+<li><p>Hang the hooks on the front of the outer rail onto the square holes on the front of the rack. If desired, use screws to secure the outer rails to the rack.</p></li>
+</ol>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/bh-lb-securing-outer-rails2.jpg"><img alt="../../_images/bh-lb-securing-outer-rails2.jpg" src="../../_images/bh-lb-securing-outer-rails2.jpg" style="width: 40%;" />
+</a>
+</figure>
+<ol class="arabic simple" start="4">
+<li><p>Pull out the rear of the outer rail, adjusting the length until it just fits within the posts of the rack.</p></li>
+</ol>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/bh-lb-extending-rails.jpg"><img alt="../../_images/bh-lb-extending-rails.jpg" src="../../_images/bh-lb-extending-rails.jpg" style="width: 40%;" />
+</a>
+</figure>
+<ol class="arabic simple" start="5">
+<li><p>Hang the hooks of the rear section of the outer rail onto the square holes on the rear of the rack. Take care that the proper holes are used so the rails are level. If desired, use screws to secure the rear of the outer rail to the rear of the rack.</p></li>
+</ol>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/bh-lb-back-outer-rails.jpg"><img alt="../../_images/bh-lb-back-outer-rails.jpg" src="../../_images/bh-lb-back-outer-rails.jpg" style="width: 40%;" />
+</a>
+</figure>
+<ol class="arabic simple" start="6">
+<li><p>Repeat for the other outer rail.</p></li>
+</ol>
+</section>
+<section id="sliding-the-server-into-the-rack">
+<h3>3. Sliding the Server into the Rack<a class="headerlink" href="#sliding-the-server-into-the-rack" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Align the chassis rails with the front of the rack rails. Match the inner rail “A” with outer rail “A” on one side. Repeat and match the “B” rails on the opposite side.</p></li>
+</ol>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/bh-lb-chassis-rails-2.jpg"><img alt="../../_images/bh-lb-chassis-rails-2.jpg" src="../../_images/bh-lb-chassis-rails-2.jpg" style="width: 40%;" />
+</a>
+</figure>
+<ol class="arabic simple" start="2">
+<li><p>With two people, slide the chassis rails into the rack rails, keeping the pressure even on both sides. You may have to depress the locking tabs while inserting. When the server has been pushed completely into the rack, the locking tabs should “click” into the locked position.</p></li>
+</ol>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/bh-lb-slide-chassis-into-rack.jpg"><img alt="../../_images/bh-lb-slide-chassis-into-rack.jpg" src="../../_images/bh-lb-slide-chassis-into-rack.jpg" style="width: 40%;" />
+</a>
+</figure>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/bh-lb-chassis-in-rack.jpg"><img alt="../../_images/bh-lb-chassis-in-rack.jpg" src="../../_images/bh-lb-chassis-in-rack.jpg" style="width: 40%;" />
+</a>
+</figure>
+<ol class="arabic simple" start="3">
+<li><p>If screws are used, tighten the screws on the front and rear of the outer rails.</p></li>
+</ol>
+<p>Note: The above is an illustrative example. Always install servers at the lowest open position in the rack to ensure stability.</p>
+</section>
+</section>
+<section id="step-3-setting-up-the-mesh-topology-single-server">
+<h2>Step 3: Setting Up the Mesh Topology (Single Server)<a class="headerlink" href="#step-3-setting-up-the-mesh-topology-single-server" title="Link to this heading"></a></h2>
+<section id="connect-qsfp-dd-cables">
+<h3>1. Connect QSFP-DD Cables<a class="headerlink" href="#connect-qsfp-dd-cables" title="Link to this heading"></a></h3>
+<p>Note: for multi-server mesh configurations, please view our <a class="reference internal" href="configurations.html"><span class="std std-doc">Topology Configuration page</span></a>.</p>
+<p>The Server can be operated in either a grid (no cables) or mesh topology.
+Meshing provides the benefit of decreased latency by decreasing the hop count between chips and is recommended for high performance operations. Tenstorrent recommends the following mesh as a baseline default for a single server.</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/bh-lb-2x4_Mesh.jpg"><img alt="../../_images/bh-lb-2x4_Mesh.jpg" src="../../_images/bh-lb-2x4_Mesh.jpg" style="width: 60%;" />
+</a>
+</figure>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/bh-lb-2x4-photo.jpg"><img alt="../../_images/bh-lb-2x4-photo.jpg" src="../../_images/bh-lb-2x4-photo.jpg" style="width: 60%;" />
+</a>
+</figure>
+<p>Tenstorrent is in the process of validating additional mesh topologies for specific use cases. You may wish to install a custom mesh topology for your needs, however, please note we cannot guarantee performance or error-free operation on any user-generated topologies. For multi-server scale out guidance, please refer to our <a class="reference internal" href="configurations.html"><span class="std std-doc">Topology Configuration page</span></a>.</p>
+</section>
+<section id="connect-networking-bmc-and-power-cables">
+<h3>2. Connect Networking, BMC and Power Cables<a class="headerlink" href="#connect-networking-bmc-and-power-cables" title="Link to this heading"></a></h3>
+<p>There are two options to connect the Server to the local network. For the fastest performance, a Mellanox 100G DAC cable can be plugged into the QSFP56 port in the rear of the Server, and then into your network. Alternatively, a standard Ethernet cable can be connected to the RJ45 port, adjacent to the BMC management port.</p>
+<p>Once you have connected your chosen networking cable, connect your Cat6 cable to the BMC port. Finally plug in the power cables provided in the package.</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/bh-lb-all-rear-cables.jpg"><img alt="../../_images/bh-lb-all-rear-cables.jpg" src="../../_images/bh-lb-all-rear-cables.jpg" style="width: 40%;" />
+</a>
+</figure>
+<p>Once all cables are connected, power on the Server by pressing the ⏻ power button on the front control panel.</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/bh-lb-power-on.jpg"><img alt="../../_images/bh-lb-power-on.jpg" src="../../_images/bh-lb-power-on.jpg" style="width: 40%;" />
+</a>
+</figure>
+<p>Your hardware setup is complete. Please head to the <a class="reference internal" href="OS-setup.html"><span class="std std-doc">Operating System and Firmware Setup</span></a> page to continue.</p>
+</section>
+</section>
+<section id="need-additional-support">
+<h2>Need Additional Support?<a class="headerlink" href="#need-additional-support" title="Link to this heading"></a></h2>
+<p>If you encounter any issues, or have a question that isn’t covered in the documentation, please reach out at <a class="reference external" href="mailto:support&#37;&#52;&#48;tenstorrent&#46;com">support<span>&#64;</span>tenstorrent<span>&#46;</span>com</a>. Our team will review your request and provide assistance.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tenstorrent.
+      <span class="lastupdated">Last updated on Apr 28, 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+  <div class="feedback-widget" id="tt-feedback">
+  <div class="ttfb-card">
+    <div id="ttfb-initial" class="ttfb-initial">
+      <p class="ttfb-question">Was this article helpful?</p>
+      <div class="ttfb-actions">
+        <button id="ttfb-up" class="ttfb-icon-btn" aria-label="Yes" title="Yes">
+          <span>👍</span>
+        </button>
+        <button id="ttfb-down" class="ttfb-icon-btn" aria-label="No" title="No">
+          <span>👎</span>
+        </button>
+      </div>
+    </div>
+
+    <form id="ttfb-form" class="ttfb-hidden" novalidate>
+      <p id="ttfb-prompt" class="ttfb-prompt"></p>
+
+      <div id="ttfb-reasons" class="ttfb-hidden">
+        <p class="ttfb-reasons-title">How would you describe this article?</p>
+        <div class="ttfb-reasons-grid">
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="inaccurate"> <b>Inaccurate:</b> it doesn’t reflect what I see in the product</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="unclear"> <b>Unclear:</b> it’s difficult to understand</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="missing"> <b>Missing information:</b> it’s not comprehensive enough</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="irrelevant"> <b>Irrelevant:</b> it doesn’t match what I searched for</label>
+        </div>
+      </div>
+
+      <textarea id="ttfb-text" rows="3" class="ttfb-text" placeholder="Please let us know what was or wasn't helpful about this page."></textarea>
+
+      <div class="ttfb-contact">
+        <input id="ttfb-can-contact" type="checkbox"> <label for="ttfb-can-contact">Allow Tenstorrent to contact me about my documentation feedback.</label>
+      </div>
+      <div id="ttfb-email-wrap" class="ttfb-hidden">
+        <input id="ttfb-email" type="email" class="ttfb-email" placeholder="Enter your email address">
+      </div>
+
+      <button id="ttfb-submit" type="submit" class="ttfb-submit">Submit</button>
+    </form>
+
+    <div id="ttfb-thanks" class="ttfb-hidden ttfb-center"><p class="ttfb-thanks-text">Thank you for your feedback!</p></div>
+    <div id="ttfb-error" class="ttfb-hidden ttfb-center"><p class="ttfb-error-text">Sorry, something went wrong. Please try again later.</p></div>
+  </div>
+</div>
+
+<style>
+.feedback-widget { margin: 2rem 0; }
+.ttfb-card {
+  background: #fff;
+  border: 1px solid var(--color-background-40, #d7dbeb66);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+.ttfb-initial { display: flex; flex-direction: row; gap: .75rem; align-items: center; flex-wrap: wrap; justify-content: flex-start; }
+.ttfb-question { margin: 0; font-weight: 600; color: var(--color-foreground, #202020); }
+.ttfb-actions { display: flex; gap: .5rem; }
+.ttfb-icon-btn {
+  padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; background: #fff; cursor: pointer;
+  transition: background var(--transition-duration, 150ms) var(--transition-timing, ease), border-color var(--transition-duration, 150ms) var(--transition-timing, ease);
+}
+.ttfb-icon-btn:hover { background: #f3f4f6; }
+
+.ttfb-hidden { display: none; }
+.ttfb-prompt { margin: .5rem 0 1rem 0; color: var(--color-foreground, #202020); font-weight: 600; }
+.ttfb-reasons-title { margin: 0 0 .5rem 0; color: var(--color-foreground, #202020); font-weight: 500; }
+.ttfb-reasons-grid { display: grid; grid-template-columns: 1fr; gap: .25rem; }
+@media (min-width: 768px) { .ttfb-reasons-grid { grid-template-columns: 1fr 1fr; } }
+.ttfb-radio { display: flex; align-items: flex-start; gap: .5rem; }
+.ttfb-radio input { margin-top: .2rem; }
+
+.ttfb-text {
+  width: 100%; padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; font-family: inherit; resize: vertical;
+}
+.ttfb-contact { display: flex; align-items: center; gap: .5rem; margin-top: .5rem; }
+.ttfb-email { width: 100%; padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; margin-top: .5rem; }
+.ttfb-submit { margin-top: .75rem; padding: .5rem 1rem; background: var(--color-purple, #5164e0); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; }
+.ttfb-submit:hover { background: var(--color-dark-purple, #7584e6); }
+.ttfb-center { text-align: center; padding: 1rem; }
+.ttfb-thanks-text { color: var(--color-purple, #5164e0); font-weight: 600; }
+.ttfb-error-text { color: #dc2626; font-weight: 600; }
+
+/* Hide widget when page sets meta hide_feedback=true */
+html:has(meta[name="hide_feedback"][content="true"]) .feedback-widget { display: none !important; }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const root = document.getElementById('tt-feedback');
+  if (!root) return;
+
+  // Reposition widget: place it just above the Previous/Next buttons
+  try {
+    const footerButtons = document.querySelector('.rst-footer-buttons');
+    if (footerButtons && footerButtons.parentNode) {
+      footerButtons.parentNode.insertBefore(root, footerButtons);
+    }
+  } catch (e) {
+    // no-op if structure not present
+  }
+
+  const initial = root.querySelector('#ttfb-initial');
+  const form = root.querySelector('#ttfb-form');
+  const prompt = root.querySelector('#ttfb-prompt');
+  const reasonsWrap = root.querySelector('#ttfb-reasons');
+  const text = root.querySelector('#ttfb-text');
+  const thanks = root.querySelector('#ttfb-thanks');
+  const error = root.querySelector('#ttfb-error');
+  const upBtn = root.querySelector('#ttfb-up');
+  const downBtn = root.querySelector('#ttfb-down');
+  const canContact = root.querySelector('#ttfb-can-contact');
+  const emailWrap = root.querySelector('#ttfb-email-wrap');
+  const emailInput = root.querySelector('#ttfb-email');
+
+  let sentiment = null; // 'up' | 'down'
+
+  function show(el) { el.classList.remove('ttfb-hidden'); }
+  function hide(el) { el.classList.add('ttfb-hidden'); }
+
+  function setPromptForSentiment() {
+    if (sentiment === 'down') {
+      prompt.textContent = 'We\'re sorry to hear that. Can you tell us more?';
+      show(reasonsWrap);
+    } else {
+      prompt.textContent = 'Thanks! Anything to add? (optional)';
+      hide(reasonsWrap);
+    }
+  }
+
+  function validateEmail(email) {
+    return /.+@.+\..+/.test(email);
+  }
+
+  function submitPayload(payload) {
+    try {
+      if (window.posthog && typeof window.posthog.capture === 'function') {
+        window.posthog.capture('docs_feedback', payload);
+      } else {
+        console.log('Feedback submitted:', payload);
+      }
+      return true;
+    } catch (e) {
+      console.error('Feedback submit error', e);
+      return false;
+    }
+  }
+
+  upBtn.addEventListener('click', function () {
+    sentiment = 'up';
+    hide(initial);
+    setPromptForSentiment();
+    show(form);
+    text.focus();
+  });
+
+  downBtn.addEventListener('click', function () {
+    sentiment = 'down';
+    hide(initial);
+    setPromptForSentiment();
+    show(form);
+  });
+
+  canContact.addEventListener('change', function () {
+    if (canContact.checked) {
+      show(emailWrap);
+      emailInput.focus();
+    } else {
+      hide(emailWrap);
+    }
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const page = window.location.pathname;
+    const ts = new Date().toISOString();
+    const feedbackText = text.value.trim();
+    const canContactVal = !!canContact.checked;
+    const emailVal = emailInput.value.trim();
+    const reasonEl = root.querySelector('input[name="down_reason"]:checked');
+    const reason = reasonEl ? reasonEl.value : null;
+
+    if (canContactVal && emailVal && !validateEmail(emailVal)) {
+      emailInput.setCustomValidity('Please enter a valid email.');
+      emailInput.reportValidity();
+      return;
+    } else {
+      emailInput.setCustomValidity('');
+    }
+
+    const payload = {
+      sentiment,
+      reason,
+      text: feedbackText,
+      can_contact: canContactVal,
+      email: canContactVal ? emailVal || null : null,
+      page,
+      timestamp: ts
+    };
+
+    const ok = submitPayload(payload);
+    hide(form);
+    if (ok) {
+      show(thanks);
+      setTimeout(() => { root.style.display = 'none'; }, 3000);
+    } else {
+      show(error);
+    }
+  });
+});
+</script>
+
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
