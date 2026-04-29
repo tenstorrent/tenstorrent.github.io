@@ -15,7 +15,7 @@ myst:
 
 *<span style="color: purple;">Note: This product is pre-launch and documentation is subject to change.</span>*
 
-This guide shows users how to safely unbox, setup hardware, and install software on a TT-QuietBox 2 (Blackhole) Workstation.
+This guide shows users how to safely unbox, setup hardware, and install software on a TT-QuietBox<sup>™</sup> 2 (Blackhole<sup>®</sup>) Workstation.
 
 ## Before You Begin
 
@@ -103,7 +103,7 @@ Note: Only use certified HDMI cables with the TT-QuietBox 2. Using non-certified
 
 2. **Connect peripherals.** Connect the HDMI monitor, keyboard, and mouse to the back of the Workstation. (Please note: video is not supported through the USB-C port). For internet connections, we recommend Ethernet over WiFi for faster downloading of models. If you prefer Ethernet, connect your Ethernet cable to the RJ45 port. 
 
-For sound and interaction with future text-to-speech (TTS) and speech-to-text (STT) AI models, there are a few options. You may either connect the provided speakerphone to the USB-C port or connect an audio device to the audiojack. 
+For sound and interaction with future text-to-speech (TTS) and speech-to-text (STT) AI models, there are a few options. You may either connect the provided speakerphone to the USB-C port or connect your own audio device to the audiojack. 
 
 3. **Power on the Workstation.** On the back of the workstation, flip the switch on the PSU to the "I" position.  
 
@@ -178,13 +178,7 @@ If `.tenstorrent-venv` is not active, or you don’t see all four accelerators l
 
 TT-QuietBox 2 comes pre-installed with TT-Studio, Tenstorrent's simple web interface for running AI models.
 
-TT-Studio currently supports the following common models on TT-QuietBox 2:
-
-| Type | Model |
-| --- | --- |
-| Video Gen | Wan 2.2 (coming soon) |
-| Text to Image | Flux (coming soon) |
-| Language Models | GPT-OSS 120B (coming soon), Llama 3.1 70B, Qwen3-32B, Llama 3.1 8B |
+For the most up-to-date list of models supported by TT-QuietBox 2, check the [Developer Hub](https://tenstorrent.com/developers).
 
 To deploy a model in TT-Studio, first download the model weights from Hugging Face. 
 

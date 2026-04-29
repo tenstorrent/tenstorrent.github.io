@@ -12,9 +12,9 @@ myst:
 
 # Specifications
 
-*<span style="color: purple;">Note: This content is still being drafted. Once finalized, the complete documentation will be available at docs.tenstorrent.com</span>*
+*<span style="color: purple;">Note: This product is pre-launch and documentation is subject to change.</span>*
 
-This document provides detailed technical specifications for the TT-QuietBox™ 2 (Blackhole™) Liquid-Cooled Desktop Workstation. It lists package contents, hardware components, physical dimensions, and operating requirements.
+This document provides detailed technical specifications for the TT-QuietBox<sup>™</sup> 2 (Blackhole<sup>®</sup>) Workstation. It lists package contents, hardware components, physical dimensions, and operating requirements.
 
 ## **Package Contents**
 
@@ -38,10 +38,14 @@ The Tenstorrent TT-QuietBox 2 (Blackhole) system package includes the following 
 | External I/O Ports | 1x HDMI Port<br />1x USB 3.2 Gen 2 Type-A Port<br />1x USB 3.2 Gen 2 Type-C Port (non-video)<br />2x USB 3.2 Gen 1 Ports<br />4x USB 2.0 Ports<br />1 x BIOS Flashback Button<br />HD Audio Jacks: Line in / Front Speaker / Microphone |
 | Connectivity | 1 x RJ45 LAN Port<br /><ul class="tt-spec-cell-list"><li>Gigabit LAN 10/100/1000 Mb/s Base T</li><li>Realtek 8111H</li></ul><br />2x WiFi Antenna<br /><ul class="tt-spec-cell-list"><li>802.11ax WiFi 6 Module</li><li>Supports IEEE 802.11a/b/g/n/ax</li><li>Supports Dual-Band (2.4/5 GHz)</li><li>Supports Bluetooth 5.3</li></ul> |
 | Power Supply | 1600W Cooler Master V Platinum 1600 V2 |
+| Sound Pressure | 38 dBA (under max operating load) |
 | System Dimensions | Height: 15.6” (39.5 cm) Width: 9.1” (23.1 cm) Depth: 17.8” (45.2 cm) (including handles and feet) |
 | System Weight | 20 kg (44 lbs) +/- 1.5 lbs   |
 | Shipping Box Dimensions | Height: 20.7” (52.5 cm) Width: 14.4” (36.7 cm) Depth: 25.0” (63.5 cm) |
 | Shipping Box Weight | 23.2 kg (52 lbs)  |
+
+## **Supported Models**
+For the most up-to-date list of models supported by TT-QuietBox 2, check the [Developer Hub](https://tenstorrent.com/developers).
 
 ## **Power and Operating Conditions**
 
