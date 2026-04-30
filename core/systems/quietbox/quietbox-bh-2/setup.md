@@ -15,7 +15,7 @@ myst:
 
 *<span style="color: purple;">Note: This product is pre-launch and documentation is subject to change.</span>*
 
-This guide shows users how to safely unbox, setup hardware, and install software on a TT-QuietBox<sup>™</sup> 2 (Blackhole<sup>®</sup>) Workstation.
+This guide shows users how to safely unbox, setup hardware, and install software on a TT-QuietBox<sup>™</sup> 2 (Blackhole<sup>®</sup>) workstation.
 
 ## Before You Begin
 
@@ -31,7 +31,7 @@ Ensure you have everything you need to get started.
 
 The Tenstorrent TT-QuietBox 2 (Blackhole) (TW-04003) package includes the following items:
 
-* 1x TT-QuietBox 2 (Blackhole) Workstation
+* 1x TT-QuietBox 2 (Blackhole) workstation
 * 1x Power Supply Cord (C19 to NEMA 5-15P)
 * 1x AnkerWork S500 speakerphone 
 
@@ -101,13 +101,13 @@ Note: Only use certified HDMI cables with the TT-QuietBox 2. Using non-certified
 
 1. **Connect the power cable.** Connect the provided C19 power cable to the workstation and then to a dedicated power outlet. See the Electrical Safety section for the full list of power requirements. 
 
-2. **Connect peripherals.** Connect the HDMI monitor, keyboard, and mouse to the back of the Workstation. (Please note: video is not supported through the USB-C port). For internet connections, we recommend Ethernet over WiFi for faster downloading of models. If you prefer Ethernet, connect your Ethernet cable to the RJ45 port. 
+2. **Connect peripherals.** Connect the HDMI monitor, keyboard, and mouse to the back of the workstation. (Please note: video is not supported through the USB-C port). For internet connections, we recommend Ethernet over WiFi for faster downloading of models. If you prefer Ethernet, connect your Ethernet cable to the RJ45 port. 
 
 For sound and interaction with future text-to-speech (TTS) and speech-to-text (STT) AI models, there are a few options. You may either connect the provided speakerphone to the USB-C port or connect your own audio device to the audio jack. 
 
-3. **Power on the Workstation.** On the back of the workstation, flip the switch on the PSU to the "I" position.  
+3. **Power on the workstation.** On the back of the workstation, flip the switch on the PSU to the "I" position.  
 
-4. **On the front of the Workstation, press the power button to turn the system on.**
+4. **On the front of the workstation, press the power button to turn the system on.**
 
 ```{figure} ./qb2-power-button.jpg
 :width: 40%
@@ -226,7 +226,7 @@ At the bottom of the Terminal screen, you will be prompted to enter a Hugging Fa
 :width: 80%
 ```
 
-3. When prompted, enter your sudo password (this is the same password you use to log in to your Workstation). TT-Studio runs on top of TT-Inference Server which requires sudo privileges to set up.
+3. When prompted, enter your sudo password (this is the same password you use to log in to your workstation). TT-Studio runs on top of TT-Inference Server which requires sudo privileges to set up.
 
 ```{figure} ./qb2-screenshot-sudo-pw.jpg
 :width: 80%

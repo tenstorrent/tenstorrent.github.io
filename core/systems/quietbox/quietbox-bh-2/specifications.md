@@ -14,13 +14,13 @@ myst:
 
 *<span style="color: purple;">Note: This product is pre-launch and documentation is subject to change.</span>*
 
-This document provides detailed technical specifications for the TT-QuietBox<sup>™</sup> 2 (Blackhole<sup>®</sup>) Workstation. It lists package contents, hardware components, physical dimensions, and operating requirements.
+This document provides detailed technical specifications for the TT-QuietBox<sup>™</sup> 2 (Blackhole<sup>®</sup>) workstation. It lists package contents, hardware components, physical dimensions, and operating requirements.
 
 ## **Package Contents**
 
 The Tenstorrent TT-QuietBox 2 (Blackhole) system package includes the following items:
 
-* 1x TT-QuietBox 2 (Blackhole) Workstation
+* 1x TT-QuietBox 2 (Blackhole) workstation
 * 1x Power Supply Cord (C19 to NEMA 5-15P)
 * 1x AnkerWork S500 Speakerphone
 
@@ -67,10 +67,10 @@ The Power Supply Unit (PSU) on the TT-QuietBox 2 is rated to draw up to 1600W of
 
 | No | Item | Description |
 | --- | --- | --- |
-| 1 | Handle | Used to aid in lifting the Workstation |
+| 1 | Handle | Used to aid in lifting the workstation |
 | 2 | Glass Panel | Showcases internal Accelerator cards |
 | 3 | Thumbscrew | Enables toolless access to the interior |
-| 4 | Power and Reset Buttons | Powers the Workstation on/off and resets the Workstation |
+| 4 | Power and Reset Buttons | Powers the workstation on/off and resets the workstation |
 
 ## **System Rear View**
 
@@ -106,7 +106,7 @@ The TT-QuietBox 2 is enabled by two Tenstorrent Blackhole cards, which are conne
 ### **Electrical Safety** 
 
 :::{danger}
-Failure to follow these electrical safety instructions may result in electric shock, fire, or damage to the Workstation.
+Failure to follow these electrical safety instructions may result in electric shock, fire, or damage to the workstation.
 
 * Ensure you are connecting the power to an AC power circuit with sufficient capacity to support 15A. Failure to connect to dedicated 15A breaker may result in tripping the breaker, or dangerous operating conditions.
 * Do not share the outlet with other high-power devices. Avoid using household surge strips, extension cords, or multi-outlet power taps; not all are rated for the sustained current of this system.  
@@ -130,5 +130,5 @@ Before opening the TT-QuietBox 2 Blackhole workstation or handling any internal 
 
 * This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation.
 * This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation.
-* Changes or modifications to this Workstation which are not expressly approved by Tenstorrent may void the user's authority to operate it. Tenstorrent cannot accept responsibility for any failure to satisfy any Safety, EMC or regulatory requirements that result from non-approved modification of the product, including the fitting of non-Tenstorrent cards, cables, or any other hardware or software modification which may affect compliance. To avoid damage and personal injury, only use Tenstorrent approved hardware with this device. 
+* Changes or modifications to this workstation which are not expressly approved by Tenstorrent may void the user's authority to operate it. Tenstorrent cannot accept responsibility for any failure to satisfy any Safety, EMC or regulatory requirements that result from non-approved modification of the product, including the fitting of non-Tenstorrent cards, cables, or any other hardware or software modification which may affect compliance. To avoid damage and personal injury, only use Tenstorrent approved hardware with this device. 
 * Do not use the TT-QuietBox 2 in a way that it was not designed to be used.
