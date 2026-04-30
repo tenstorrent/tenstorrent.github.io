@@ -80,7 +80,7 @@ Local inference means the data never leaves the machine. That's the architecture
 
 The TT-QuietBox 2 is large enough to run agent frameworks that actually work. A single tool call succeeds about 93% of the time at 32B scale. A three-step reasoning loop succeeds about 78% of the time. Multi-agent pipelines are usable. These numbers fall apart at 7B. They come together at 32B. They're good at 70B.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/mrvqKeBtVvU?si=9X3qfKmQnSFeMzWh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/WcTe_TejcVs?si=Z1XxSdWFJcEG-eqs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 The **tt-vscode-toolkit** provides guided lessons for getting started, all validated on TT-QuietBox 2 hardware. The lesson catalog includes:
 
