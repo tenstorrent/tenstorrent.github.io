@@ -57,6 +57,8 @@ For the most up-to-date list of models supported by TT-QuietBox 2, check the [De
 | Non-Operating Temperature | -4°F to 140°F (-20°C to 60°C) |
 | Non-Operating Relative Humidity |  5% to 95% (non-condensing) |
 
+The Power Supply Unit (PSU) on the TT-QuietBox 2 is rated to draw up to 1600W of power and has demonstrated drawing 1200W of power running image generation models. A standard 15A circuit can handle up to 1800W. When choosing the location of your TT-QuietBox 2, be mindful of the other electronics which may draw power from the same circuit. We recommend putting the TT-QuietBox 2 on a dedicated circuit, if not you may trip a breaker.
+
 ## **System Overview**
 
 ```{figure} ./qb2-system-iso-view.jpg
@@ -65,7 +67,7 @@ For the most up-to-date list of models supported by TT-QuietBox 2, check the [De
 
 | No | Item | Description |
 | --- | --- | --- |
-| 1 | Handle | Used to aid in lifting the Workstation|
+| 1 | Handle | Used to aid in lifting the Workstation |
 | 2 | Glass Panel | Showcases internal Accelerator cards |
 | 3 | Thumbscrew | Enables toolless access to the interior |
 | 4 | Power and Reset Buttons | Powers the Workstation on/off and resets the Workstation |
@@ -83,15 +85,16 @@ For the most up-to-date list of models supported by TT-QuietBox 2, check the [De
 | 3 | 1x USB 3.2 Gen 2 Type-A Port |
 | 4 | 4x USB 2.0 Type-A Ports |
 | 5 | Power Cable Port |
-| 6 | On/Off Power Supply Unit Switch|
+| 6 | On/Off Power Supply Unit Switch |
 | 7 | 1x USB 3.2 Gen 2 Type-C Port (non-video) |
 | 8 | 2x USB 3.2 Gen 1 Type-A Ports |
-| 9 | 1x RJ45 **TBD GbE** LAN Port | 
+| 9 | 1x RJ45 **TBD GbE** LAN Port |
 | 10 | 2x WiFi Antenna |
 | 11 | HD Audio Jacks: Line in / Front Speaker / Microphone  |
 
 ## **Internal Topology**
- The TT-QuietBox 2 is enabled by two Tenstorrent Blackhole cards, which are connected internally with a Samtec ARP6 series High Performance cable. The below topology is pre-installed by Tenstorrent, and is here for your reference.
+
+The TT-QuietBox 2 is enabled by two Tenstorrent Blackhole cards, which are connected internally with a Samtec ARP6 series High Performance cable. The below topology is pre-installed by Tenstorrent, and is here for your reference.
 
 ```{figure} ./qb2-topology.jpg
 :width: 65%
