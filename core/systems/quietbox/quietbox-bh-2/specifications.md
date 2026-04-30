@@ -14,13 +14,13 @@ myst:
 
 *<span style="color: purple;">Note: This product is pre-launch and documentation is subject to change.</span>*
 
-This document provides detailed technical specifications for the TT-QuietBox<sup>™</sup> 2 (Blackhole<sup>®</sup>) Workstation. It lists package contents, hardware components, physical dimensions, and operating requirements.
+This document provides detailed technical specifications for the TT-QuietBox<sup>™</sup> 2 (Blackhole<sup>®</sup>) workstation. It lists package contents, hardware components, physical dimensions, and operating requirements.
 
 ## **Package Contents**
 
 The Tenstorrent TT-QuietBox 2 (Blackhole) system package includes the following items:
 
-* 1x TT-QuietBox 2 (Blackhole) Workstation
+* 1x TT-QuietBox 2 (Blackhole) workstation
 * 1x Power Supply Cord (C19 to NEMA 5-15P)
 * 1x AnkerWork S500 Speakerphone
 
@@ -57,6 +57,8 @@ For the most up-to-date list of models supported by TT-QuietBox 2, check the [De
 | Non-Operating Temperature | -4°F to 140°F (-20°C to 60°C) |
 | Non-Operating Relative Humidity |  5% to 95% (non-condensing) |
 
+The Power Supply Unit (PSU) on the TT-QuietBox 2 is rated to draw up to 1600W of power and has demonstrated drawing 1200W of power running image generation models. A standard 15A circuit can handle up to 1800W. When choosing the location of your TT-QuietBox 2, be mindful of the other electronics which may draw power from the same circuit. We recommend putting the TT-QuietBox 2 on a dedicated circuit, if not you may trip a breaker.
+
 ## **System Overview**
 
 ```{figure} ./qb2-system-iso-view.jpg
@@ -65,10 +67,10 @@ For the most up-to-date list of models supported by TT-QuietBox 2, check the [De
 
 | No | Item | Description |
 | --- | --- | --- |
-| 1 | Handle | Used to aid in lifting the Workstation|
+| 1 | Handle | Used to aid in lifting the workstation |
 | 2 | Glass Panel | Showcases internal Accelerator cards |
 | 3 | Thumbscrew | Enables toolless access to the interior |
-| 4 | Power and Reset Buttons | Powers the Workstation on/off and resets the Workstation |
+| 4 | Power and Reset Buttons | Powers the workstation on/off and resets the workstation |
 
 ## **System Rear View**
 
@@ -83,15 +85,16 @@ For the most up-to-date list of models supported by TT-QuietBox 2, check the [De
 | 3 | 1x USB 3.2 Gen 2 Type-A Port |
 | 4 | 4x USB 2.0 Type-A Ports |
 | 5 | Power Cable Port |
-| 6 | On/Off Power Supply Unit Switch|
+| 6 | On/Off Power Supply Unit Switch |
 | 7 | 1x USB 3.2 Gen 2 Type-C Port (non-video) |
 | 8 | 2x USB 3.2 Gen 1 Type-A Ports |
-| 9 | 1x RJ45 **TBD GbE** LAN Port | 
+| 9 | 1x RJ45 **TBD GbE** LAN Port |
 | 10 | 2x WiFi Antenna |
 | 11 | HD Audio Jacks: Line in / Front Speaker / Microphone  |
 
 ## **Internal Topology**
- The TT-QuietBox 2 is enabled by two Tenstorrent Blackhole cards, which are connected internally with a Samtec ARP6 series High Performance cable. The below topology is pre-installed by Tenstorrent, and is here for your reference.
+
+The TT-QuietBox 2 is enabled by two Tenstorrent Blackhole cards, which are connected internally with a Samtec ARP6 series High Performance cable. The below topology is pre-installed by Tenstorrent, and is here for your reference.
 
 ```{figure} ./qb2-topology.jpg
 :width: 65%
@@ -103,7 +106,7 @@ For the most up-to-date list of models supported by TT-QuietBox 2, check the [De
 ### **Electrical Safety** 
 
 :::{danger}
-Failure to follow these electrical safety instructions may result in electric shock, fire, or damage to the Workstation.
+Failure to follow these electrical safety instructions may result in electric shock, fire, or damage to the workstation.
 
 * Ensure you are connecting the power to an AC power circuit with sufficient capacity to support 15A. Failure to connect to dedicated 15A breaker may result in tripping the breaker, or dangerous operating conditions.
 * Do not share the outlet with other high-power devices. Avoid using household surge strips, extension cords, or multi-outlet power taps; not all are rated for the sustained current of this system.  
@@ -127,5 +130,5 @@ Before opening the TT-QuietBox 2 Blackhole workstation or handling any internal 
 
 * This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation.
 * This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation.
-* Changes or modifications to this Workstation which are not expressly approved by Tenstorrent may void the user's authority to operate it. Tenstorrent cannot accept responsibility for any failure to satisfy any Safety, EMC or regulatory requirements that result from non-approved modification of the product, including the fitting of non-Tenstorrent cards, cables, or any other hardware or software modification which may affect compliance. To avoid damage and personal injury, only use Tenstorrent approved hardware with this device. 
+* Changes or modifications to this workstation which are not expressly approved by Tenstorrent may void the user's authority to operate it. Tenstorrent cannot accept responsibility for any failure to satisfy any Safety, EMC or regulatory requirements that result from non-approved modification of the product, including the fitting of non-Tenstorrent cards, cables, or any other hardware or software modification which may affect compliance. To avoid damage and personal injury, only use Tenstorrent approved hardware with this device. 
 * Do not use the TT-QuietBox 2 in a way that it was not designed to be used.

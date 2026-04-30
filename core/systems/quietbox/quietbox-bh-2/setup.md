@@ -15,13 +15,13 @@ myst:
 
 *<span style="color: purple;">Note: This product is pre-launch and documentation is subject to change.</span>*
 
-This guide shows users how to safely unbox, setup hardware, and install software on a TT-QuietBox<sup>™</sup> 2 (Blackhole<sup>®</sup>) Workstation.
+This guide shows users how to safely unbox, setup hardware, and install software on a TT-QuietBox<sup>™</sup> 2 (Blackhole<sup>®</sup>) workstation.
 
 ## Before You Begin
 
 Choose a suitable location for your System:
-* Choose a stable area for the TT-QuietBox 2 where it will not need to be moved regularly, and none of the vents will be blocked.
-* The Power Supply Unit (PSU) on the TT-QuietBox 2 is rated to draw up to 1600W of power. A standard 15A circuit can handle up to 1800W. When choosing the location of your TT-QuietBox 2, be mindful of the other electronics which may draw power from the same circuit. We recommend putting the TT-QuietBox 2 on a dedicated circuit, if not you may trip a breaker.
+* Choose a stable area for the TT-QuietBox 2 where it will not need to be moved regularly. To ensure proper airflow intake, allow for 10 inches (25 cm) of clearance around the body of the workstation. Also avoid placing items on top of the workstation, as this can block the heat exhaust.
+* The Power Supply Unit (PSU) on the TT-QuietBox 2 is rated to draw up to 1600W of power and has demonstrated drawing 1200W of power running image generation models. A standard 15A circuit can handle up to 1800W. When choosing the location of your TT-QuietBox 2, be mindful of the other electronics which may draw power from the same circuit. We recommend putting the TT-QuietBox 2 on a dedicated circuit, if not you may trip a breaker.
 * Review the {ref}`safety warnings <safety-warnings>`.
 * Inspect your package for signs of damage. Do not proceed with unboxing or installation if you suspect shipping damage to the system. Contact Tenstorrent support by [raising a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1) Our team will review your request and provide assistance.
 
@@ -31,7 +31,7 @@ Ensure you have everything you need to get started.
 
 The Tenstorrent TT-QuietBox 2 (Blackhole) (TW-04003) package includes the following items:
 
-* 1x TT-QuietBox 2 (Blackhole) Workstation
+* 1x TT-QuietBox 2 (Blackhole) workstation
 * 1x Power Supply Cord (C19 to NEMA 5-15P)
 * 1x AnkerWork S500 speakerphone 
 
@@ -101,13 +101,13 @@ Note: Only use certified HDMI cables with the TT-QuietBox 2. Using non-certified
 
 1. **Connect the power cable.** Connect the provided C19 power cable to the workstation and then to a dedicated power outlet. See the Electrical Safety section for the full list of power requirements. 
 
-2. **Connect peripherals.** Connect the HDMI monitor, keyboard, and mouse to the back of the Workstation. (Please note: video is not supported through the USB-C port). For internet connections, we recommend Ethernet over WiFi for faster downloading of models. If you prefer Ethernet, connect your Ethernet cable to the RJ45 port. 
+2. **Connect peripherals.** Connect the HDMI monitor, keyboard, and mouse to the back of the workstation. (Please note: video is not supported through the USB-C port). For internet connections, we recommend Ethernet over WiFi for faster downloading of models. If you prefer Ethernet, connect your Ethernet cable to the RJ45 port. 
 
-For sound and interaction with future text-to-speech (TTS) and speech-to-text (STT) AI models, there are a few options. You may either connect the provided speakerphone to the USB-C port or connect your own audio device to the audiojack. 
+For sound and interaction with future text-to-speech (TTS) and speech-to-text (STT) AI models, there are a few options. You may either connect the provided speakerphone to the USB-C port or connect your own audio device to the audio jack. 
 
-3. **Power on the Workstation.** On the back of the workstation, flip the switch on the PSU to the "I" position.  
+3. **Power on the workstation.** On the back of the workstation, flip the switch on the PSU to the "I" position.  
 
-4. **On the front of the Workstation, press the power button to turn the system on.**
+4. **On the front of the workstation, press the power button to turn the system on.**
 
 ```{figure} ./qb2-power-button.jpg
 :width: 40%
@@ -132,7 +132,7 @@ After logging in, open a Terminal window by pressing Ctrl+Alt+T and follow these
 ## Step 5. Setup and Confirm Internet Connection
 TT-QuietBox 2 can be connected to the internet via WiFi or Ethernet cable. For faster model downloads, we recommend a direct Ethernet connection.
 
-If you have not done so already during hardware setup, connect your Ethernet cable to the standard RJ45 port on the back of the Workstation. Then, verify your internet connection by clicking on the status icons in the upper right corner of the screen. Confirm the internet connection reads "Wired."
+If you have not done so already during hardware setup, connect your Ethernet cable to the standard RJ45 port on the back of the workstation. Then, verify your internet connection by clicking on the status icons in the upper right corner of the screen. Confirm the internet connection reads "Wired."
 
 If you would prefer to set up a WiFi connection, on your monitor, click on the status icons in the top right corner of the screen. Then, click on "Wi-Fi" (it may say "not connected" or "off"). Select your WiFi network from the drop-down list, enter the password, and click "Connect."
 
@@ -226,7 +226,7 @@ At the bottom of the Terminal screen, you will be prompted to enter a Hugging Fa
 :width: 80%
 ```
 
-3. When prompted, enter your sudo password (this is the same password you use to log in to your Workstation). TT-Studio runs on top of TT-Inference Server which requires sudo privileges to set up.
+3. When prompted, enter your sudo password (this is the same password you use to log in to your workstation). TT-Studio runs on top of TT-Inference Server which requires sudo privileges to set up.
 
 ```{figure} ./qb2-screenshot-sudo-pw.jpg
 :width: 80%
