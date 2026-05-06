@@ -32,9 +32,9 @@ The Tenstorrent TT-QuietBox 2 (Blackhole) system package includes the following 
 | Operating System | Ubuntu 24.04.3 LTS |
 | CPU | Ryzen 7 9700X 65W Granite Ridge 3.8GHz |
 | Motherboard | ASRock B850M-C, mATX |
-| Memory | 256GB (4x64GB) DDR5-5600 UDIMM, CL46 (4 slots, 0 free) |
+| Memory | 256 GB (4x64 GB) DDR5-5600 UDIMM, CL46 (4 slots, 0 free) |
 | Storage | 4TB (WDS400T4B0E-00BKY0)<br /> 1x Blazing M.2 (PCIe Gen5x4) with WD Blue SN5000 NVMe SSD<br /> 1x Hyper M.2 (PCIe Gen4x4)<br /> 1x M.2 (PCIe Gen3x2 & SATA3) |
-| Tenstorrent Processors | 2x Liquid-Cooled Blackhole™ cards, each equipped with:<br /><ul class="tt-spec-cell-list"><li>2x Blackhole ASICs</li><li>240 Tensix Cores</li><li>64 GB of DDR6 Memory @ 16 GT/sec (1024 GB/sec memory bandwidth)</li><li>600W of board power</li></ul> |
+| Tenstorrent Processors | 2x Liquid-Cooled Blackhole™ cards, each equipped with:<br /><ul class="tt-spec-cell-list"><li>2x Blackhole ASICs</li><li>240 Tensix Cores</li><li>64 GB of GDDR6 Memory @ 16 GT/sec (1024 GB/sec memory bandwidth)</li><li>600W of board power</li></ul> |
 | External I/O Ports | 1x HDMI Port<br />1x USB 3.2 Gen 2 Type-A Port<br />1x USB 3.2 Gen 2 Type-C Port (non-video)<br />2x USB 3.2 Gen 1 Ports<br />4x USB 2.0 Ports<br />1 x BIOS Flashback Button<br />HD Audio Jacks: Line in / Front Speaker / Microphone |
 | Connectivity | 1 x RJ45 LAN Port<br /><ul class="tt-spec-cell-list"><li>Gigabit LAN 10/100/1000 Mb/s Base T</li><li>Realtek 8111H</li></ul><br />2x WiFi Antenna<br /><ul class="tt-spec-cell-list"><li>802.11ax WiFi 6 Module</li><li>Supports IEEE 802.11a/b/g/n/ax</li><li>Supports Dual-Band (2.4/5 GHz)</li><li>Supports Bluetooth 5.3</li></ul> |
 | Power Supply | 1600W Cooler Master V Platinum 1600 V2 |
