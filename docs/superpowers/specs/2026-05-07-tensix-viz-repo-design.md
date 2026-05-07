@@ -166,7 +166,31 @@ Hardware configs in `topologies/` as JSON. Renderers load by name or accept inli
   "eth_links": { "per_side": 4, "sides": ["N", "S", "E", "W"] }
 }
 ```
-Note: WH multi-chip configs (WH T3000, WH-based Galaxy) are **out of scope for v1**. `wh-chip.json` ships so that `TensixViz` can load it for single-chip WH demos; WH `CardViz`/`SystemViz`/`ClusterViz` configs are a v2 addition.
+**`topologies/wh-n300.json`** — n300 card (2 WH chips)
+```json
+{
+  "chips": ["wh-chip", "wh-chip"],
+  "layout": "horizontal",
+  "labels": ["Left (L)", "Right (R)"],
+  "intra_links": [
+    { "from": { "chip": 0 }, "to": { "chip": 1 }, "link_count": 2, "speed_gbps": 100 }
+  ]
+}
+```
+Note: Specific ETH port indices for WH intra-card links are not yet confirmed from hardware docs. `link_count: 2` is confirmed (2× 100G links = 200 GB/s). Port indices to be filled in from hardware documentation before implementation.
+
+**`topologies/t3000.json`** — T3000 system (4× n300 = 8 WH chips, 2×4 mesh)
+```json
+{
+  "cards": ["wh-n300", "wh-n300", "wh-n300", "wh-n300"],
+  "layout": "grid",
+  "grid": [2, 4],
+  "labels": ["Card 0", "Card 1", "Card 2", "Card 3"],
+  "inter_links": [
+    { "topology": "2d_mesh", "link_count": 2, "speed_gbps": 100 }
+  ]
+}
+```
 
 **`topologies/bh-p300c.json`** — P300c card (2 BH chips)
 ```json
@@ -271,7 +295,7 @@ One section per class, each with a live canvas and controls:
 | `tensix-viz.js` | IIFE bundle (source extracted from tt-vscode-toolkit) |
 | `tensix-viz.esm.js` | ESM build output |
 | `tensix-viz.css` | Extracted from tt-vscode-toolkit |
-| `topologies/*.json` | New — 5 topology config files |
+| `topologies/*.json` | New — 8 topology config files (bh-chip, wh-chip, bh-p300c, wh-n300, qb2, t3000, bh-galaxy, bh-galaxy-sc) |
 | `examples/index.html` | New — self-contained runnable demos |
 | `README.md` | New — API reference + quick-start |
 | `package.json` | New — package metadata + esbuild dev dep |
