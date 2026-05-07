@@ -550,4 +550,81 @@ html[data-theme="light"] .qb2-note-bar { background: #eef2f7; }
   </div>
 
 </div><!-- end .qb2-welcome -->
+
+<script>
+(function() {
+  'use strict';
+
+  /* ------------------------------------------------------------------
+     QB2 Welcome — TensixViz initialization + idle animation
+
+     Waits for window.TensixViz (loaded via Sphinx html_js_files as
+     tensix-viz.js) then initializes 4 Blackhole chip instances and
+     starts the idle looping animation.
+
+     Workload scripts and card click handler are added in the next
+     block (qb2ActivateCard), which is defined further down.
+  ------------------------------------------------------------------ */
+
+  var CHIP_IDS = ['qb2Canvas0', 'qb2Canvas1', 'qb2Canvas2', 'qb2Canvas3'];
+  var vizInstances = [];
+  var currentMode = 'idle';
+
+  /* ----- idle script: quiet random shimmer ----- */
+  /* Highlights small scattered groups of Tensix cores on a slow cycle.
+     Blackhole Tensix cores occupy rows 1-10, cols 1-7 and 9-15.
+     Max heat kept low (~20-25% of cores) to simulate ARC + DDR idle. */
+  var idleScript = [
+    { step: 'highlight', cores: [[2,2],[5,4],[9,7],[13,3],[3,8],[7,5],[11,2],[14,9]], color: '#4fd1c5', label: '', ms: 700 },
+    { step: 'pause', ms: 500 },
+    { step: 'unhighlight', ms: 350 },
+    { step: 'pause', ms: 350 },
+    { step: 'highlight', cores: [[4,3],[10,6],[2,9],[14,2],[7,7],[12,4],[1,5],[6,8]], color: '#4a7a9b', label: '', ms: 700 },
+    { step: 'pause', ms: 500 },
+    { step: 'unhighlight', ms: 350 },
+    { step: 'pause', ms: 300 },
+    { step: 'highlight', cores: [[3,1],[6,3],[11,5],[15,8],[2,7],[9,2],[13,9],[4,6]], color: '#4fd1c5', label: '', ms: 700 },
+    { step: 'pause', ms: 500 },
+    { step: 'unhighlight', ms: 350 },
+    { step: 'pause', ms: 400 }
+  ];
+
+  /* ----- init: poll for TensixViz then create instances ----- */
+  function initViz() {
+    if (typeof window.TensixViz === 'undefined') {
+      setTimeout(initViz, 80);
+      return;
+    }
+    CHIP_IDS.forEach(function(id, i) {
+      var canvas = document.getElementById(id);
+      if (!canvas) return;
+      var viz = new window.TensixViz(canvas, { arch: 'blackhole', speed: 1.0 });
+      vizInstances[i] = viz;
+    });
+    playAllViz(idleScript, true);
+  }
+
+  /* ----- helper: play script on all 4 chips simultaneously ----- */
+  function playAllViz(script, loop) {
+    vizInstances.forEach(function(viz) {
+      if (!viz) return;
+      viz.reset();
+      viz._loop = !!loop;
+      viz.play(script);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initViz);
+
+  /* Expose shared state for the card click handler defined below */
+  window._qb2Viz = {
+    instances: vizInstances,
+    playAll: playAllViz,
+    idleScript: idleScript,
+    getMode: function() { return currentMode; },
+    setMode: function(m) { currentMode = m; }
+  };
+
+})();
+</script>
 ```
