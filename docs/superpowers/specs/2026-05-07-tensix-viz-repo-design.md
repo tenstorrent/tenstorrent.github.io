@@ -42,8 +42,9 @@ https://cdn.jsdelivr.net/gh/tsingletaryTT/tensix-viz@v1/tensix-viz.js
 Always include SRI hash in examples to mitigate CDN compromise risk:
 ```html
 <script src="https://cdn.jsdelivr.net/gh/tsingletaryTT/tensix-viz@v1/tensix-viz.js"
-        integrity="sha384-..." crossorigin="anonymous"></script>
+        integrity="sha384-[generated at first release build]" crossorigin="anonymous"></script>
 ```
+The SRI hash is generated after the first release build (`openssl dgst -sha384 -binary tensix-viz.js | openssl base64 -A`) and recorded in the README and `examples/index.html` at that time.
 
 **Sphinx docs:** Copy `tensix-viz.js` locally into `_static/js/` — no CDN dependency. Already done for QB2 welcome page.
 
@@ -165,6 +166,7 @@ Hardware configs in `topologies/` as JSON. Renderers load by name or accept inli
   "eth_links": { "per_side": 4, "sides": ["N", "S", "E", "W"] }
 }
 ```
+Note: WH multi-chip configs (WH T3000, WH-based Galaxy) are **out of scope for v1**. `wh-chip.json` ships so that `TensixViz` can load it for single-chip WH demos; WH `CardViz`/`SystemViz`/`ClusterViz` configs are a v2 addition.
 
 **`topologies/bh-p300c.json`** — P300c card (2 BH chips)
 ```json
@@ -238,11 +240,12 @@ await viz.transitionTo('card', { index: 0 })
 await viz.activate('diffusion')
 ```
 
-**CDN (README quick-start and examples/index.html only):**
+**CDN (README quick-start only):**
 ```html
 <script src="https://cdn.jsdelivr.net/gh/tsingletaryTT/tensix-viz@v1/tensix-viz.js"
-        integrity="sha384-[hash]" crossorigin="anonymous"></script>
+        integrity="sha384-[generated at first release build]" crossorigin="anonymous"></script>
 ```
+`examples/index.html` references `../tensix-viz.js` (local relative path) so it works without a CDN when opened directly from a repo clone.
 
 **Backward compatibility:** The `TensixViz` constructor signature is frozen. Any existing page using `new TensixViz(canvas, {arch: 'blackhole'})` works without changes after swapping the file.
 
