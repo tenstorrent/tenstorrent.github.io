@@ -30,10 +30,42 @@ myst:
   color: inherit;
 }
 .qb2-welcome .qb2-page-sub {
-  margin: 0 0 24px 0;
-  font-size: 0.95rem;
-  color: #546070;
+  margin: 0 0 16px 0;
+  font-size: 1.05rem;
+  color: #3a4d60;
 }
+
+/* ---------- CTA row ---------- */
+.qb2-cta-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.qb2-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+}
+.qb2-cta-btn-primary {
+  background: #007acc;
+  color: #fff !important;
+  border: 1.5px solid #007acc;
+}
+.qb2-cta-btn-primary:hover { background: #005fa3; border-color: #005fa3; }
+.qb2-cta-btn-outline {
+  background: transparent;
+  color: #2a3a4a !important;
+  border: 1.5px solid #d0d8e4;
+}
+.qb2-cta-btn-outline:hover { border-color: #6a8aaa; background: #f0f4f8; }
 
 /* ---------- chip widget ---------- */
 .qb2-chip-widget {
@@ -293,6 +325,23 @@ canvas.qb2-chip-canvas {
   <!-- ===== PAGE HEADING ===== -->
   <h1 class="qb2-page-title">Welcome to Your TT-QuietBox 2</h1>
   <p class="qb2-page-sub">Four Blackhole chips &middot; 480 Tensix cores &middot; 128 GB DDR6 &middot; no API keys required</p>
+
+  <!-- ===== CTA ROW ===== -->
+  <div class="qb2-cta-row">
+    <a class="qb2-cta-btn qb2-cta-btn-primary"
+       href="https://marketplace.visualstudio.com/items?itemName=Tenstorrent.tt-vscode-toolkit"
+       target="_blank" rel="noopener">
+      &#9889; Install VS&thinsp;Code Toolkit
+    </a>
+    <a class="qb2-cta-btn qb2-cta-btn-outline"
+       href="https://docs.tenstorrent.com/tt-vscode-toolkit">
+      &#128218; Browse all lessons
+    </a>
+    <a class="qb2-cta-btn qb2-cta-btn-outline"
+       href="/systems/quietbox/quietbox-bh-2/setup">
+      &#128203; Setup guide
+    </a>
+  </div>
 
   <!-- ===== CHIP WIDGET ===== -->
   <div class="qb2-chip-widget" id="qb2ChipWidget">
