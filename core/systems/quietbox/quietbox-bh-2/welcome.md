@@ -618,7 +618,6 @@ html[data-theme="light"] .qb2-note-bar { background: #eef2f7; }
 
   /* Expose shared state for the card click handler defined below */
   window._qb2Viz = {
-    instances: vizInstances,
     playAll: playAllViz,
     idleScript: idleScript,
     getMode: function() { return currentMode; },
