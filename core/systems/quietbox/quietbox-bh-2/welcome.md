@@ -11,8 +11,8 @@ myst:
 <style>
 /* ============================================================
    QB2 Welcome page — scoped to .qb2-welcome
-   Uses CSS custom properties from RTD theme where possible.
-   Chip widget is always dark (hardware panel aesthetic).
+   Light-first defaults. Chip widget is always dark (hardware
+   panel aesthetic). Dark-mode overrides at the bottom.
    ============================================================ */
 
 /* ---------- layout container ---------- */
@@ -27,12 +27,12 @@ myst:
   font-size: 1.6rem;
   font-weight: 700;
   margin: 0 0 4px 0;
-  color: var(--color-foreground, #e0e0e0);
+  color: inherit;
 }
 .qb2-welcome .qb2-page-sub {
   margin: 0 0 24px 0;
   font-size: 0.95rem;
-  color: var(--color-foreground-muted, #9aa0aa);
+  color: #546070;
 }
 
 /* ---------- chip widget ---------- */
@@ -165,8 +165,8 @@ canvas.qb2-chip-canvas {
 }
 
 .qb2-intent-card {
-  background: var(--color-background-secondary, #1a2535);
-  border: 1.5px solid var(--color-border, #2a3a4a);
+  background: #f5f7fa;
+  border: 1.5px solid #d0d8e4;
   border-radius: 8px;
   padding: 16px;
   cursor: pointer;
@@ -174,7 +174,7 @@ canvas.qb2-chip-canvas {
   user-select: none;
 }
 .qb2-intent-card:hover {
-  border-color: #4a7a9b;
+  border-color: #6a8aaa;
 }
 
 /* accent borders — active state */
@@ -192,11 +192,11 @@ canvas.qb2-chip-canvas {
   font-size: 1.0rem;
   font-weight: 700;
   margin: 0 0 2px 0;
-  color: var(--color-foreground, #e0e0e0);
+  color: #1e2a3a;
 }
 .qb2-intent-tagline {
   font-size: 0.8rem;
-  color: var(--color-foreground-muted, #8a9aaa);
+  color: #546070;
   margin: 0 0 10px 0;
 }
 .qb2-intent-row {
@@ -209,7 +209,7 @@ canvas.qb2-chip-canvas {
 .qb2-intent-label {
   font-size: 0.7rem;
   font-weight: 600;
-  color: var(--color-foreground-muted, #8a9aaa);
+  color: #6a7888;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   min-width: 52px;
@@ -217,15 +217,15 @@ canvas.qb2-chip-canvas {
 }
 .qb2-intent-val {
   font-size: 0.8rem;
-  color: var(--color-foreground, #ccd0d6);
+  color: #2a3a4a;
 }
 .qb2-perf {
   font-family: "Ubuntu Mono", "Fira Mono", monospace;
   font-size: 0.72rem;
-  background: rgba(255,255,255,0.07);
+  background: rgba(0,0,0,0.06);
   border-radius: 3px;
   padding: 1px 5px;
-  color: #9aa8b4;
+  color: #6a7888;
   white-space: nowrap;
 }
 .qb2-lesson-btn {
@@ -239,38 +239,11 @@ canvas.qb2-chip-canvas {
   transition: opacity 0.2s ease;
 }
 .qb2-lesson-btn:hover { opacity: 0.8; }
-.card-chat    .qb2-lesson-btn { background: rgba(79,209,197,0.15);  color: #4fd1c5; }
-.card-video   .qb2-lesson-btn { background: rgba(236,150,184,0.15); color: #ec96b8; }
-.card-agents  .qb2-lesson-btn { background: rgba(147,112,219,0.15); color: #9370db; }
-.card-explore .qb2-lesson-btn { background: rgba(244,196,113,0.15); color: #f4c471; }
-
-/* ---------- light mode overrides ---------- */
-@media (prefers-color-scheme: light) {
-  .qb2-intent-card {
-    background: #f5f7fa;
-    border-color: #d0d8e4;
-  }
-  .qb2-intent-card:hover { border-color: #6a8aaa; }
-  .qb2-intent-title  { color: #1a2535; }
-  .qb2-intent-tagline { color: #546070; }
-  .qb2-intent-val    { color: #2a3545; }
-  .qb2-intent-label  { color: #6a7888; }
-  .qb2-perf {
-    background: rgba(0,0,0,0.06);
-    color: #6a7888;
-  }
-}
-
-/* RTD light theme class override */
-body.light .qb2-intent-card,
-html[data-theme="light"] .qb2-intent-card {
-  background: #f5f7fa;
-  border-color: #d0d8e4;
-}
-html[data-theme="light"] .qb2-intent-title  { color: #1a2535; }
-html[data-theme="light"] .qb2-intent-tagline { color: #546070; }
-html[data-theme="light"] .qb2-intent-val    { color: #2a3545; }
-html[data-theme="light"] .qb2-intent-label  { color: #6a7888; }
+/* Lesson button colors: darker accent shades for contrast on light card bg (#f5f7fa) */
+.card-chat    .qb2-lesson-btn { background: rgba(79,209,197,0.15);  color: #0e7c74; }
+.card-video   .qb2-lesson-btn { background: rgba(236,150,184,0.15); color: #b03468; }
+.card-agents  .qb2-lesson-btn { background: rgba(147,112,219,0.15); color: #5a2dbb; }
+.card-explore .qb2-lesson-btn { background: rgba(244,196,113,0.15); color: #876200; }
 
 /* ---------- reference table ---------- */
 .qb2-ref-table {
@@ -282,23 +255,23 @@ html[data-theme="light"] .qb2-intent-label  { color: #6a7888; }
 .qb2-ref-table th {
   text-align: left;
   padding: 6px 10px;
-  border-bottom: 2px solid var(--color-border, #2a3a4a);
-  color: var(--color-foreground-muted, #8a9aaa);
+  border-bottom: 2px solid #d0d8e4;
+  color: #6a7888;
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
 .qb2-ref-table td {
   padding: 7px 10px;
-  border-bottom: 1px solid var(--color-border, #2a3a4a);
-  color: var(--color-foreground, #ccd0d6);
+  border-bottom: 1px solid #e8ecf0;
+  color: #2a3a4a;
   vertical-align: top;
 }
 .qb2-ref-table td:first-child {
   font-family: "Ubuntu Mono", "Fira Mono", monospace;
   font-weight: 600;
   white-space: nowrap;
-  color: var(--color-brand-primary, #9370db);
+  color: #7a50c8;
 }
 .qb2-ref-table a { color: inherit; text-decoration: underline; }
 
@@ -306,18 +279,13 @@ html[data-theme="light"] .qb2-intent-label  { color: #6a7888; }
 .qb2-note-bar {
   margin-top: 24px;
   padding: 12px 16px;
-  background: var(--color-background-secondary, #1a2535);
+  background: #eef2f7;
   border-left: 3px solid #4a7a9b;
   border-radius: 0 6px 6px 0;
   font-size: 0.83rem;
-  color: var(--color-foreground-muted, #8a9aaa);
+  color: #546070;
 }
-.qb2-note-bar a { color: #7ab4d4; }
-
-@media (prefers-color-scheme: light) {
-  .qb2-note-bar { background: #eef2f7; }
-}
-html[data-theme="light"] .qb2-note-bar { background: #eef2f7; }
+.qb2-note-bar a { color: #2a6a9b; }
 </style>
 
 <div class="qb2-welcome">
