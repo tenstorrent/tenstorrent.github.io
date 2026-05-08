@@ -389,6 +389,9 @@ canvas.qb2-chip-canvas {
         <span class="qb2-chip-specs">480 cores &middot; 128 GB DDR6 &middot; 2 TB/s bandwidth</span>
         <span class="qb2-chip-mode-label" id="qb2ModeLabel">&#9679; idle</span>
       </div>
+      <a href="https://github.com/tsingletaryTT/tensix-viz"
+         style="display:block;text-align:right;font-size:0.65rem;opacity:.4;color:inherit;text-decoration:none;margin-top:4px;padding-right:2px"
+         title="tensix-viz — hardware topology visualizer">tensix-viz ↗</a>
 
     </div>
   </div><!-- end chip widget -->
