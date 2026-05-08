@@ -577,34 +577,12 @@ canvas.qb2-chip-canvas {
 
      Waits for window.TensixViz (loaded via Sphinx html_js_files as
      tensix-viz.js) then initializes 4 Blackhole chip instances and
-     starts the idle looping animation.
-
-     Workload scripts and card click handler are added in the next
-     block (qb2ActivateCard), which is defined further down.
+     starts the idle animation via the tensix-viz activate() API.
   ------------------------------------------------------------------ */
 
   var CHIP_IDS = ['qb2Canvas0', 'qb2Canvas1', 'qb2Canvas2', 'qb2Canvas3'];
   var vizInstances = [];
   var currentMode = 'idle';
-
-  /* ----- idle script: quiet random shimmer ----- */
-  /* Highlights small scattered groups of Tensix cores on a slow cycle.
-     Blackhole Tensix cores occupy rows 1-10, cols 1-7 and 9-15.
-     Max heat kept low (~20-25% of cores) to simulate ARC + DDR idle. */
-  var idleScript = [
-    { step: 'highlight', cores: [[2,2],[5,4],[9,7],[13,3],[3,8],[7,5],[11,2],[14,9]], color: '#4fd1c5', label: '', ms: 700 },
-    { step: 'pause', ms: 500 },
-    { step: 'unhighlight', ms: 350 },
-    { step: 'pause', ms: 350 },
-    { step: 'highlight', cores: [[4,3],[10,6],[2,9],[14,2],[7,7],[12,4],[1,5],[6,8]], color: '#4a7a9b', label: '', ms: 700 },
-    { step: 'pause', ms: 500 },
-    { step: 'unhighlight', ms: 350 },
-    { step: 'pause', ms: 300 },
-    { step: 'highlight', cores: [[3,1],[6,3],[11,5],[15,8],[2,7],[9,2],[13,9],[4,6]], color: '#4fd1c5', label: '', ms: 700 },
-    { step: 'pause', ms: 500 },
-    { step: 'unhighlight', ms: 350 },
-    { step: 'pause', ms: 400 }
-  ];
 
   /* ----- init: poll for TensixViz then create instances ----- */
   function initViz() {
@@ -615,28 +593,18 @@ canvas.qb2-chip-canvas {
     CHIP_IDS.forEach(function(id, i) {
       var canvas = document.getElementById(id);
       if (!canvas) return;
-      var viz = new window.TensixViz(canvas, { arch: 'blackhole', speed: 1.0 });
-      vizInstances[i] = viz;
+      vizInstances[i] = new window.TensixViz(canvas, { arch: 'blackhole', speed: 1.0 });
     });
-    playAllViz(idleScript, true);
-  }
-
-  /* ----- helper: play script on all 4 chips simultaneously ----- */
-  function playAllViz(script, loop) {
-    vizInstances.forEach(function(viz) {
-      if (!viz) return;
-      viz.reset();
-      viz._loop = !!loop;
-      viz.play(script);
-    });
+    vizInstances.forEach(function(viz) { if (viz) viz.activate('idle'); });
   }
 
   document.addEventListener('DOMContentLoaded', initViz);
 
   /* Expose shared state for the card click handler defined below */
   window._qb2Viz = {
-    playAll: playAllViz,
-    idleScript: idleScript,
+    activate: function(mode) {
+      vizInstances.forEach(function(viz) { if (viz) viz.activate(mode); });
+    },
     getMode: function() { return currentMode; },
     setMode: function(m) { currentMode = m; }
   };
@@ -649,123 +617,33 @@ canvas.qb2-chip-canvas {
   'use strict';
 
   /* ------------------------------------------------------------------
-     QB2 Welcome — workload animation scripts + card click handler
+     QB2 Welcome — workload animation modes + card click handler
 
      Depends on window._qb2Viz set by the init script above.
-     Each workload script loops via viz._loop = true.
+     Uses the tensix-viz activate(mode) API — continuous RAF loops
+     replace the previous hand-written step arrays.
 
-     Animation design:
-       chat    — teal column sweep L→R (token generation)
-       video   — pink expanding ring from center (diffusion denoising)
-       agents  — purple burst clusters (async tool-call dispatch)
-       explore — gold sinusoidal wave (Particle Life physics field)
-
-     Blackhole Tensix grid: rows 1-10, cols 1-7 and 9-15 (col 8 = PCIe).
+     Mode mapping:
+       chat    → 'inference'   teal column sweep (token generation)
+       video   → 'diffusion'   pink expanding ring (denoising timestep)
+       agents  → 'agents'      purple burst clusters (tool-call dispatch)
+       explore → 'explore'     gold sinusoidal field (Particle Life)
   ------------------------------------------------------------------ */
 
-  /* ----- CHAT: inference wave — column sweep left to right ----- */
-  var chatScript = (function() {
-    var steps = [];
-    var cols = [1,2,3,4,5,6,7,9,10,11,12,13,14,15];
-    for (var i = 0; i < cols.length; i++) {
-      var col = cols[i];
-      var cores = [];
-      for (var row = 1; row <= 10; row++) cores.push([col, row]);
-      steps.push({ step: 'unhighlight', ms: 0 });
-      steps.push({ step: 'highlight', cores: cores, color: '#4fd1c5', label: i === 0 ? 'inference' : '', ms: 220 });
-      steps.push({ step: 'pause', ms: 60 });
-    }
-    steps.push({ step: 'clear' });
-    steps.push({ step: 'pause', ms: 500 });
-    return steps;
-  })();
+  /* tensix-viz activate() mode names for each intent card */
+  var MODE_MAP = {
+    chat:    'inference',
+    video:   'diffusion',
+    agents:  'agents',
+    explore: 'explore'
+  };
 
-  /* ----- VIDEO: diffusion ripple — expanding ring from center ----- */
-  var videoScript = (function() {
-    var steps = [];
-    /* Center at col 7, row 5 (left half avoids PCIe at col 8) */
-    var cx = 7, cy = 5;
-    var cols = [1,2,3,4,5,6,7,9,10,11,12,13,14,15];
-    for (var r = 1; r <= 7; r++) {
-      var ring = [];
-      for (var row = 1; row <= 10; row++) {
-        for (var ci = 0; ci < cols.length; ci++) {
-          var col = cols[ci];
-          var dist = Math.round(Math.sqrt(
-            Math.pow(col - cx, 2) + Math.pow(row - cy, 2)
-          ));
-          if (dist === r) ring.push([col, row]);
-        }
-      }
-      if (ring.length > 0) {
-        steps.push({ step: 'unhighlight', ms: 0 });
-        steps.push({ step: 'highlight', cores: ring, color: '#ec96b8', label: r === 1 ? 'diffusion step' : '', ms: 280 });
-        steps.push({ step: 'pause', ms: 80 });
-      }
-    }
-    steps.push({ step: 'clear' });
-    steps.push({ step: 'pause', ms: 500 });
-    return steps;
-  })();
-
-  /* ----- AGENTS: burst clusters — async tool-call dispatch ----- */
-  var agentsScript = (function() {
-    var clusters = [
-      [[1,2],[2,2],[1,3],[2,3]],
-      [[5,6],[6,6],[5,7],[6,7]],
-      [[11,3],[12,3],[11,4]],
-      [[14,7],[13,7],[14,8],[13,8]],
-      [[3,9],[4,9],[3,10],[4,10]],
-      [[9,1],[10,1],[9,2]],
-      [[7,5],[6,5],[7,4]]
-    ];
-    var steps = [];
-    for (var i = 0; i < clusters.length; i++) {
-      steps.push({
-        step: 'highlight',
-        cores: clusters[i],
-        color: '#9370db',
-        label: i === 0 ? 'tool dispatch' : '',
-        ms: 280
-      });
-      steps.push({ step: 'pause', ms: 220 });
-    }
-    steps.push({ step: 'unhighlight', ms: 400 });
-    steps.push({ step: 'pause', ms: 400 });
-    return steps;
-  })();
-
-  /* ----- EXPLORE: sinusoidal field — Particle Life physics ----- */
-  var exploreScript = (function() {
-    var steps = [];
-    var cols = [1,2,3,4,5,6,7,9,10,11,12,13,14,15];
-    for (var phase = 0; phase < 5; phase++) {
-      var cores = [];
-      for (var ci = 0; ci < cols.length; ci++) {
-        var col = cols[ci];
-        for (var row = 1; row <= 10; row++) {
-          if (Math.sin(col * 0.75 + phase * 1.1 + row * 0.45) > 0.25) {
-            cores.push([col, row]);
-          }
-        }
-      }
-      if (cores.length > 0) {
-        steps.push({ step: 'unhighlight', ms: 0 });
-        steps.push({ step: 'highlight', cores: cores, color: '#f4c471', label: phase === 0 ? 'particle life' : '', ms: 320 });
-        steps.push({ step: 'pause', ms: 120 });
-      }
-    }
-    steps.push({ step: 'clear' });
-    steps.push({ step: 'pause', ms: 400 });
-    return steps;
-  })();
-
-  /* ----- mode configuration ----- */
-  var CARD_MODES = {
-    chat:    { script: chatScript,    label: '\u25cf chat inference',  cls: 'mode-chat' },
-    video:   { script: videoScript,   label: '\u25cf video diffusion', cls: 'mode-video' },
-    agents:  { script: agentsScript,  label: '\u25cf agent dispatch',  cls: 'mode-agents' },
-    explore: { script: exploreScript, label: '\u25cf particle life',   cls: 'mode-explore' }
+  /* UI labels and CSS class suffixes */
+  var MODE_META = {
+    chat:    { label: '\u25cf chat inference',  cls: 'mode-chat'    },
+    video:   { label: '\u25cf video diffusion', cls: 'mode-video'   },
+    agents:  { label: '\u25cf agent dispatch',  cls: 'mode-agents'  },
+    explore: { label: '\u25cf particle life',   cls: 'mode-explore' }
   };
 
   /* ----- card click handler ----- */
@@ -784,23 +662,23 @@ canvas.qb2-chip-canvas {
       modeLabel.className = 'qb2-chip-mode-label';
       modeLabel.textContent = '\u25cf idle';
       cards.forEach(function(c) { c.classList.remove('active'); });
-      v.playAll(v.idleScript, true);
+      v.activate('idle');
       return;
     }
 
     /* activate the chosen workload mode */
     v.setMode(mode);
-    var cfg = CARD_MODES[mode];
-    widget.className    = 'qb2-chip-widget ' + cfg.cls;
-    modeLabel.className = 'qb2-chip-mode-label ' + cfg.cls;
-    modeLabel.textContent = cfg.label;
+    var meta = MODE_META[mode];
+    widget.className    = 'qb2-chip-widget ' + meta.cls;
+    modeLabel.className = 'qb2-chip-mode-label ' + meta.cls;
+    modeLabel.textContent = meta.label;
 
     cards.forEach(function(c) { c.classList.remove('active'); });
     var id = 'card' + mode.charAt(0).toUpperCase() + mode.slice(1);
     var activeCard = document.getElementById(id);
     if (activeCard) activeCard.classList.add('active');
 
-    v.playAll(cfg.script, true);
+    v.activate(MODE_MAP[mode]);
   };
 
 })();
