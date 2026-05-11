@@ -10,31 +10,35 @@ myst:
 :width: 65%
 ```
 
-# Welcome to Your TT-QuietBox 2
+# Welcome to Your TT-QuietBox 2 
 
-You've powered it on. You've verified the chips. You've changed the default password and confirmed the accelerators are alive with the venerable `tt-smi`. The [install guide](/systems/quietbox/quietbox-bh-2/setup) got you here. This guide continues your adventure.
+<p style="color: purple; font-style: italic;">If you haven't set up your QuietBox 2 yet, head to the <a href="setup.html">Install Guide</a>.</p>
 
-The TT-QuietBox 2 is yours. There are no API keys to manage, no requests-per-minute limits to negotiate, and no logs leaving your network on the way to inference. Whatever you run on it stays between you and the TT-QuietBox 2.
+You've powered it on. You've verified the chips. You've changed the default password and confirmed the Blackhole® cards are alive with the venerable <code>TT-SMI</code>. This guide continues your adventure.
+
+Your QuietBox 2 is yours. There are no API keys to manage, no requests-per-minute limits to negotiate, and no logs leaving your network on the way to inference. You truly own your hardware.
 
 This guide walks through your machine, what it can do out of the box, and where to go deeper once you're ready.
 
 ---
 
-## What Your Hardware Is and What It Can Do
+## What is the TT-QuietBox 2 and What Can it Do?
 
-The TT-QuietBox 2 houses two liquid-cooled Tenstorrent Blackhole™ cards, connected internally via a high-speed Samtec cable. Each card carries two Blackhole ASICs. Four chips total. Each chip has 120 Tensix cores — 480 across the system — and the cards together provide 128 GB of DDR6 memory at a combined memory bandwidth of over 2 TB/sec. The host side is a Ryzen 7 9700X with 256 GB of DDR5 system RAM and 4 TB of NVMe storage.
+Your QuietBox 2 houses two liquid-cooled Tenstorrent Blackhole cards, connected internally via a high-speed Samtec cable. Each card carries two Blackhole ASICs, for four chips total inside the workstation. Each chip has 120 Tensix cores — 480 across the workstation — and the cards together provide 128 GB of GDDR6 memory at a combined memory bandwidth of over 2 TB/sec. The host side is a Ryzen 7 9700X with 256 GB of DDR5 system RAM and 4 TB of NVMe storage. For full hardware specifications, see the {doc}`specifications` page on our docs site.
 
-In practical terms: the TT-QuietBox 2 runs Qwen3-32B at roughly 8 seconds per response and Llama-3.3-70B at roughly 14 seconds per response. For video, it generates 5-second clips with Wan 2.2 in roughly 6 minutes after the server is warm — or 28-second clips via SkyReels-V2 for faster turnaround. For image, it handles FLUX.1-dev stills at quality that compares favorably to what you'd get from a cloud endpoint — without the round trip.
+In real-world terms: the TT-QuietBox 2 runs Qwen3-32B at roughly 8 seconds per response and Llama-3.3-70B at roughly 14 seconds per response. For video, it generates 5-second clips with Wan 2.2 in roughly 6 minutes after the server is warm — or 28-second clips via SkyReels-V2 for faster turnaround. For image, it handles FLUX.1-dev stills at quality that compares favorably to what you'd get from a cloud endpoint — without the round trip.
 
-### Monitoring It in Real Time
+### Monitoring Your QuietBox 2 in Real Time
 
-[**tt-toplike**](https://docs.tenstorrent.com/tt-toplike) is a terminal hardware monitor built specifically for Tenstorrent silicon. It reads power, temperature, current, DDR training status, and ARC firmware health from the chips and drives a set of visualizations directly from that telemetry.
+[**TT-toplike**](https://docs.tenstorrent.com/tt-toplike) is a terminal hardware monitor built specifically for Tenstorrent silicon. It reads power, temperature, current, DDR training status, and ARC firmware health from the chips and drives a set of visualizations directly from that telemetry.
+
+To use, open a terminal window and run:
 
 ```bash
 tt-toplike
 ```
 
-By default it uses the sysfs backend — reading directly from the Linux hwmon kernel interface, which is completely non-invasive and safe to run while models are serving. Press `v` to cycle through visualization modes:
+By default TT-toplike uses the 'sysfs' backend — reading directly from the Linux 'hwmon' kernel interface, which is completely non-invasive and safe to run while models are serving. Press `v` to cycle through visualization modes:
 
 - **Normal** — a live telemetry table with color-coded power and temperature readings. We try to tell you what's running on your chips too
 - **Starfield** — Tensix cores rendered as stars; brightness follows power draw, color follows temperature, twinkle rate follows current
@@ -42,35 +46,28 @@ By default it uses the sysfs backend — reading directly from the Linux hwmon k
 - **Memory Flow** — NoC particle streams across DDR channels
 - **Arcade** — all three visualizations simultaneously, with a `@` hero character whose position is set by live power and current readings
 
-The visualizations aren't decorative. Every particle, brightness change, and color shift maps to a real signal from the chip. Idle hardware shows a quietly animated floor — the ARC management cores, DDR refresh cycles, and SRAM retention that keep the system alive at rest. Active inference shows something more like a light show.
+These visualizations aren't decorative. Every particle, brightness change, and color shift maps to a real signal from the chip. Idle hardware shows a quietly animated floor — the ARC management cores, DDR refresh cycles, and SRAM retention that keep the system alive at rest. Active inference shows something more like a light show.
 
-For full documentation and installation: [docs.tenstorrent.com/tt-toplike](https://docs.tenstorrent.com/tt-toplike)
-
-For full hardware specifications: {doc}`specifications`
+For full documentation and installation, see [docs.tenstorrent.com/tt-toplike](https://docs.tenstorrent.com/tt-toplike)
 
 ---
 
-## Run Models Easily with tt-inference-server and tt-studio
+## Run Models Easily with TT-Inference-Server and TT-Studio
 
-[**tt-inference-server**](https://github.com/tenstorrent/tt-inference-server) is the fastest way to deploy models for serving inference on Tenstorrent hardware. It manages Docker containers, model downloads, and serving configuration, and provides the OpenAI-compatible API endpoint that the rest of the software stack connects to.
+[**TT-Inference-Server**](https://github.com/tenstorrent/tt-inference-server) is the fastest way to deploy models for serving inference on Tenstorrent hardware. It manages Docker containers, model downloads, serving configuration, and provides the OpenAI-compatible API endpoint that the rest of the Tenstorrent software stack connects to.
 
-[**tt-studio**](https://github.com/tenstorrent/tt-studio) is a web interface that wraps tt-inference-server with a point-and-click model selection and deployment flow. Launch it from the terminal:
+[**TT-Studio**](https://github.com/tenstorrent/tt-studio) is a simple, user-friendly web interface that wraps TT-Inference-Server with a point-and-click model selection and deployment flow. Launch it from the terminal:
 
 ```bash
 tt-studio
 ```
+You will need a (free) Hugging Face access token to engage with models in TT-Studio. For more details on this, see [step 8 of the QuietBox 2 setup guide](setup.html#step-8-get-access-to-model-weights).
 
-tt-studio handles the Hugging Face token, model download, container setup, and server startup. It exposes the same models tt-toplike watches and the same endpoint tt-local-generator and agents can talk to.
+TT-Studio handles the Hugging Face token, model download, container setup, and server startup. It exposes the same models TT-Toplike watches and the same endpoint TT-Local-Generator and agents can talk to.
 
-Models supported on the TT-QuietBox 2:
+We are adding new models to QuietBox 2 every day. View the most updated list at the [Developer Hub](https://tenstorrent.com/developers) (select "TT-QuietBox 2" on left side menu).
 
-| Type | Model |
-|------|-------|
-| Video generation | Wan 2.2 |
-| Image generation | FLUX.1-dev |
-| Language | Llama 3.3 70B, Qwen3-32B, Llama 3.1 8B |
-
-Zero cloud dependency. The model weights live on your 4 TB NVMe. The inference happens on your chips. The output stays on your network.
+QuietBox 2 operates with zero cloud dependency. The model weights live on your 4 TB NVMe. The inference happens on your chips. The output stays on your network.
 
 ---
 
@@ -78,11 +75,11 @@ Zero cloud dependency. The model weights live on your 4 TB NVMe. The inference h
 
 Local inference means the data never leaves the machine. That's the architecture, not a policy — there's no other path for it to take. Queries you wouldn't send to a cloud API, documents you can't put in a commercial service, sensitive context that belongs on your own hardware: all of it runs here.
 
-The TT-QuietBox 2 is large enough to run agent frameworks that actually work. A single tool call succeeds about 93% of the time at 32B scale. A three-step reasoning loop succeeds about 78% of the time. Multi-agent pipelines are usable. These numbers fall apart at 7B. They come together at 32B. They're good at 70B.
+The QuietBox 2 is large enough to run agent frameworks that actually work. A single tool call succeeds about 93% of the time at 32B scale. A three-step reasoning loop succeeds about 78% of the time. Multi-agent pipelines are usable. These numbers fall apart at 7B. They come together at 32B. They're good at 70B.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/mrvqKeBtVvU?si=9X3qfKmQnSFeMzWh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-The **tt-vscode-toolkit** provides guided lessons for getting started, all validated on TT-QuietBox 2 hardware. The lesson catalog includes:
+The **TT-Vscode-Toolkit** provides guided lessons for getting started, all validated on QuietBox 2 hardware. The lesson catalog includes:
 
 - [Running your first model with TT-Inference Server](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/tt-inference-server/)
 - [Local AI agents on TT-QuietBox 2](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/qb2-local-agents/) — raw-Python agentic demos using smolagents, CrewAI, and the OpenAI Agents SDK, each demonstrating a different pattern: web research, codebase navigation, multi-role pipelines, and stateful interactive agents
@@ -96,7 +93,7 @@ For full documentation: [docs.tenstorrent.com/tt-vscode-toolkit](https://docs.te
 
 ---
 
-## Create, Curate, and Watch an Endless Stream of Video Content
+## Create, Curate, and Watch an Endless Stream of Video Content STOPPED HERE
 
 [**tt-local-generator**](https://docs.tenstorrent.com/tt-local-generator) is a GTK4 desktop application for generating videos and images using the Tenstorrent hardware in your TT-QuietBox 2. It wraps the tt-inference-server backend into a prompt-to-video pipeline with a gallery, a queue, and a kiosk mode for continuous playback.
 
