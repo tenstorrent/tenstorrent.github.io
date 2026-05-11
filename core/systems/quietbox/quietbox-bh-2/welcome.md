@@ -507,6 +507,10 @@ canvas.qb2-chip-canvas {
         <span class="qb2-intent-val">Particle Life Simulator on 4&times; chips &mdash; emergent complexity</span>
       </div>
       <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Compile</span>
+        <span class="qb2-intent-val">TT-Forge &mdash; bring any PyTorch or ONNX model to the hardware, 100+ supported</span>
+      </div>
+      <div class="qb2-intent-row">
         <span class="qb2-intent-label">Program</span>
         <span class="qb2-intent-val">TT-Metalium &mdash; C++ kernels on RISC-V cores in the 2D mesh</span>
       </div>
@@ -564,6 +568,11 @@ canvas.qb2-chip-canvas {
         <td>tt-vscode-toolkit</td>
         <td>Guided lessons and architecture walkthroughs, validated on QB2</td>
         <td><a href="https://docs.tenstorrent.com/tt-vscode-toolkit">docs.tenstorrent.com/tt-vscode-toolkit</a></td>
+      </tr>
+      <tr>
+        <td><a href="https://docs.tenstorrent.com/tt-forge">TT-Forge</a></td>
+        <td>MLIR compiler frontend &mdash; run PyTorch, ONNX, and JAX models on QB2 hardware, 100+ models supported</td>
+        <td><a href="https://docs.tenstorrent.com/tt-forge">docs.tenstorrent.com/tt-forge</a></td>
       </tr>
       <tr>
         <td>TT-Metalium</td>
