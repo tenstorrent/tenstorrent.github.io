@@ -430,7 +430,7 @@ canvas.qb2-chip-canvas {
         <span class="qb2-intent-label">Monitor</span>
         <span class="qb2-intent-val">tt-toplike &mdash; watch cores during inference</span>
       </div>
-      <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/qb2-local-agents/">&#8594; Local AI Agents on QB2</a>
+      <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/coding-assistant/">&#8594; Coding Assistant with Aider</a>
     </div>
 
     <!-- VIDEO -->
