@@ -423,10 +423,6 @@ canvas.qb2-chip-canvas {
         <span class="qb2-intent-val">Llama-3.1-8B <span class="qb2-perf">fast</span></span>
       </div>
       <div class="qb2-intent-row">
-        <span class="qb2-intent-label">Browse</span>
-        <span class="qb2-intent-val">tt-model-runner &mdash; catalog, benchmarks, TUI &amp; GUI</span>
-      </div>
-      <div class="qb2-intent-row">
         <span class="qb2-intent-label">API</span>
         <span class="qb2-intent-val">tt-inference-server &mdash; OpenAI-compatible endpoint, pre-installed</span>
       </div>
@@ -553,11 +549,6 @@ canvas.qb2-chip-canvas {
         <td>tt-inference-server</td>
         <td>OpenAI-compatible model serving endpoint</td>
         <td>Pre-installed at <code>~/.local/lib/tt-inference-server</code></td>
-      </tr>
-      <tr>
-        <td><a href="https://github.com/tsingletaryTT/tt-model-runner">tt-model-runner</a></td>
-        <td>Browse, load, and benchmark models from a GUI and TUI &mdash; catalog explorer for tt-inference-server</td>
-        <td><a href="https://github.com/tsingletaryTT/tt-model-runner">github.com/tsingletaryTT/tt-model-runner</a></td>
       </tr>
       <tr>
         <td>tt-toplike</td>
