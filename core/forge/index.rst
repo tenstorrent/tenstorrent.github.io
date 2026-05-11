@@ -11,7 +11,7 @@ Demos
 
 .. rst-class:: toctree-no-underline
 
-* `Bringing Up Models on Tenstorrent Hardware with TT-Forge <https://docs.tenstorrent.com/tt-forge/model-bring-up-guide.html>`_
+* `Bringing Up Models on Tenstorrent Hardware with TT-Forge <../tt-forge/model-bring-up-guide.html>`_
 
 Compiler Stack
 --------------
