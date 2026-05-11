@@ -329,6 +329,11 @@ canvas.qb2-chip-canvas {
   <!-- ===== CTA ROW ===== -->
   <div class="qb2-cta-row">
     <a class="qb2-cta-btn qb2-cta-btn-primary"
+       href="https://github.com/tenstorrent/tt-studio"
+       target="_blank" rel="noopener">
+      &#128187; Open TT-Studio
+    </a>
+    <a class="qb2-cta-btn qb2-cta-btn-outline"
        href="https://marketplace.visualstudio.com/items?itemName=Tenstorrent.tt-vscode-toolkit"
        target="_blank" rel="noopener">
       &#9889; Install VS&thinsp;Code Toolkit
@@ -402,6 +407,10 @@ canvas.qb2-chip-canvas {
       <p class="qb2-intent-title">Chat with AI</p>
       <p class="qb2-intent-tagline">Private LLM inference &mdash; 32B &amp; 70B scale</p>
       <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Start here</span>
+        <span class="qb2-intent-val">tt-studio &mdash; browser UI, one-click model deploy, pre-installed</span>
+      </div>
+      <div class="qb2-intent-row">
         <span class="qb2-intent-label">Models</span>
         <span class="qb2-intent-val">Qwen3-32B <span class="qb2-perf">~8s/response</span></span>
       </div>
@@ -414,8 +423,8 @@ canvas.qb2-chip-canvas {
         <span class="qb2-intent-val">Llama-3.1-8B <span class="qb2-perf">fast</span></span>
       </div>
       <div class="qb2-intent-row">
-        <span class="qb2-intent-label">Deploy</span>
-        <span class="qb2-intent-val">tt-studio &mdash; point-and-click launcher, pre-installed</span>
+        <span class="qb2-intent-label">Browse</span>
+        <span class="qb2-intent-val">tt-model-runner &mdash; catalog, benchmarks, TUI &amp; GUI</span>
       </div>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">API</span>
@@ -434,6 +443,14 @@ canvas.qb2-chip-canvas {
       <p class="qb2-intent-title">Generate Video &amp; Images</p>
       <p class="qb2-intent-tagline">Text-to-video, image-to-video, stills</p>
       <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Start here</span>
+        <span class="qb2-intent-val">tt-studio &mdash; deploy any model with one click, pre-installed</span>
+      </div>
+      <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Gallery</span>
+        <span class="qb2-intent-val">tt-local-generator &mdash; queue, gallery, TT-TV kiosk mode</span>
+      </div>
+      <div class="qb2-intent-row">
         <span class="qb2-intent-label">Video</span>
         <span class="qb2-intent-val">Wan 2.2-14B <span class="qb2-perf">~6 min/5-sec clip</span></span>
       </div>
@@ -444,10 +461,6 @@ canvas.qb2-chip-canvas {
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Image</span>
         <span class="qb2-intent-val">FLUX.1-dev <span class="qb2-perf">high-quality stills</span></span>
-      </div>
-      <div class="qb2-intent-row">
-        <span class="qb2-intent-label">Tool</span>
-        <span class="qb2-intent-val">tt-local-generator &mdash; queue, gallery, TT-TV kiosk mode</span>
       </div>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Prompts</span>
@@ -505,8 +518,13 @@ canvas.qb2-chip-canvas {
         <span class="qb2-intent-label">Lessons</span>
         <span class="qb2-intent-val">CS Fundamentals series &middot; Particle Life walkthrough</span>
       </div>
+      <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Train</span>
+        <span class="qb2-intent-val">tt-blacksmith &mdash; fine-tune or train from scratch on 4&times; Blackhole</span>
+      </div>
       <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cs-fundamentals-01-computer/">&#8594; CS Fundamentals</a>
       <a class="qb2-lesson-btn" style="margin-left:6px;" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cookbook-particle-life/">&#8594; Particle Life</a>
+      <a class="qb2-lesson-btn" style="margin-left:6px;" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/ct1-understanding-training/">&#8594; Custom Training</a>
     </div>
 
   </div><!-- end intent grid -->
@@ -527,14 +545,19 @@ canvas.qb2-chip-canvas {
         <td>Pre-installed</td>
       </tr>
       <tr>
-        <td>tt-studio</td>
-        <td>Model deployment web UI &mdash; point and click to launch any supported model</td>
-        <td>Pre-installed via <code>tt-studio</code></td>
+        <td><a href="https://github.com/tenstorrent/tt-studio">tt-studio</a></td>
+        <td>Web GUI for deploying and chatting with AI models &mdash; handles all setup automatically, deploy models in one click</td>
+        <td>Pre-installed &mdash; run <code>tt-studio</code></td>
       </tr>
       <tr>
         <td>tt-inference-server</td>
         <td>OpenAI-compatible model serving endpoint</td>
         <td>Pre-installed at <code>~/.local/lib/tt-inference-server</code></td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/tsingletaryTT/tt-model-runner">tt-model-runner</a></td>
+        <td>Browse, load, and benchmark models from a GUI and TUI &mdash; catalog explorer for tt-inference-server</td>
+        <td><a href="https://github.com/tsingletaryTT/tt-model-runner">github.com/tsingletaryTT/tt-model-runner</a></td>
       </tr>
       <tr>
         <td>tt-toplike</td>
@@ -556,6 +579,11 @@ canvas.qb2-chip-canvas {
         <td>Low-level Tensix programming &mdash; C++ kernels on RISC-V cores</td>
         <td><a href="https://docs.tenstorrent.com">docs.tenstorrent.com</a></td>
       </tr>
+      <tr>
+        <td><a href="https://docs.tenstorrent.com/tt-blacksmith/">tt-blacksmith</a></td>
+        <td>Optimized training recipes &mdash; fine-tune and train models from scratch on QB2</td>
+        <td><a href="https://docs.tenstorrent.com/tt-blacksmith/">docs.tenstorrent.com/tt-blacksmith</a></td>
+      </tr>
     </tbody>
   </table>
 
@@ -564,6 +592,11 @@ canvas.qb2-chip-canvas {
     <strong>Hardware setup not finished?</strong> Start with the
     <a href="/systems/quietbox/quietbox-bh-2/setup">setup guide</a> &mdash; unboxing, first login, verifying chips with tt-smi, and launching your first model.
     Need help? <a href="https://tenstorrent.com/support">Raise a support request.</a>
+  </div>
+  <div class="qb2-note-bar" style="margin-top:8px;opacity:.8">
+    <strong>Want to try before you install?</strong>
+    <a href="https://console.tenstorrent.com" target="_blank" rel="noopener">console.tenstorrent.com</a>
+    &mdash; run LLM inference, image and video generation in-browser, backed by Tenstorrent hardware.
   </div>
 
 </div><!-- end .qb2-welcome -->
