@@ -10,7 +10,7 @@ myst:
 
 ```{raw} html
 
-<script src="https://cdn.jsdelivr.net/gh/tsingletaryTT/tensix-viz@v2/tensix-viz.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/tsingletaryTT/tensix-viz@main/tensix-viz.js" crossorigin="anonymous"></script>
 
 <style>
 /* ============================================================
