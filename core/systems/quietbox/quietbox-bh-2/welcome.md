@@ -69,8 +69,8 @@ myst:
 
 /* ---------- chip widget ---------- */
 .qb2-chip-widget {
-  background: #0d1f2d;
-  border: 1px solid #1e3a50;
+  background: var(--tv-bg);
+  border: 1px solid var(--tv-border-subtle);
   border-radius: 10px;
   padding: 18px 20px 14px;
   margin-bottom: 28px;
@@ -95,7 +95,7 @@ myst:
 .qb2-card-side-label {
   font-family: "Ubuntu Mono", "Fira Mono", monospace;
   font-size: 10px;
-  color: #4a7a9b;
+  color: var(--tv-text-muted);
   writing-mode: vertical-rl;
   text-orientation: mixed;
   transform: rotate(180deg);
@@ -117,13 +117,13 @@ myst:
 .qb2-chip-label {
   font-family: "Ubuntu Mono", "Fira Mono", monospace;
   font-size: 9px;
-  color: #4a7a9b;
+  color: var(--tv-text-muted);
   letter-spacing: 0.08em;
 }
 canvas.qb2-chip-canvas {
   display: block;
   border-radius: 3px;
-  border: 1px solid #1e3a50;
+  border: 1px solid var(--tv-border-subtle);
 }
 
 /* samtec divider */
@@ -138,13 +138,13 @@ canvas.qb2-chip-canvas {
 .qb2-samtec-line {
   flex: 1;
   height: 1px;
-  background: #1e3a50;
+  background: var(--tv-border-subtle);
   max-width: 180px;
 }
 .qb2-samtec-label {
   font-family: "Ubuntu Mono", "Fira Mono", monospace;
   font-size: 9px;
-  color: #4a7a9b;
+  color: var(--tv-text-muted);
   letter-spacing: 0.1em;
   white-space: nowrap;
 }
@@ -156,31 +156,31 @@ canvas.qb2-chip-canvas {
   align-items: center;
   margin-top: 12px;
   padding-top: 10px;
-  border-top: 1px solid #1e3a50;
+  border-top: 1px solid var(--tv-border-subtle);
   width: 100%;
 }
 .qb2-chip-specs {
   font-family: "Ubuntu Mono", "Fira Mono", monospace;
   font-size: 10px;
-  color: #4a7a9b;
+  color: var(--tv-text-muted);
   letter-spacing: 0.06em;
 }
 .qb2-chip-mode-label {
   font-family: "Ubuntu Mono", "Fira Mono", monospace;
   font-size: 10px;
-  color: #4a7a9b;
+  color: var(--tv-text-muted);
   letter-spacing: 0.08em;
   transition: color 0.4s ease;
   min-width: 140px;
   text-align: right;
 }
-.qb2-chip-mode-label.mode-chat    { color: #4fd1c5; }
+.qb2-chip-mode-label.mode-chat    { color: var(--tv-teal); }
 .qb2-chip-mode-label.mode-video   { color: #ec96b8; }
 .qb2-chip-mode-label.mode-agents  { color: #9370db; }
 .qb2-chip-mode-label.mode-explore { color: #f4c471; }
 
 /* widget border highlight on active card */
-.qb2-chip-widget.mode-chat    { border-color: #4fd1c5; }
+.qb2-chip-widget.mode-chat    { border-color: var(--tv-teal); }
 .qb2-chip-widget.mode-video   { border-color: #ec96b8; }
 .qb2-chip-widget.mode-agents  { border-color: #9370db; }
 .qb2-chip-widget.mode-explore { border-color: #f4c471; }
@@ -349,7 +349,7 @@ canvas.qb2-chip-canvas {
   </div>
 
   <!-- ===== CHIP WIDGET ===== -->
-  <div class="qb2-chip-widget" id="qb2ChipWidget">
+  <div class="qb2-chip-widget tv-light" id="qb2ChipWidget">
     <div class="qb2-chip-widget-inner">
 
       <!-- CARD 0 (top row) -->
@@ -695,7 +695,7 @@ canvas.qb2-chip-canvas {
     /* clicking the active card toggles back to idle */
     if (v.getMode() === mode) {
       v.setMode('idle');
-      widget.className    = 'qb2-chip-widget';
+      widget.className    = 'qb2-chip-widget tv-light';
       modeLabel.className = 'qb2-chip-mode-label';
       modeLabel.textContent = '\u25cf idle';
       cards.forEach(function(c) { c.classList.remove('active'); });
@@ -706,7 +706,7 @@ canvas.qb2-chip-canvas {
     /* activate the chosen workload mode */
     v.setMode(mode);
     var meta = MODE_META[mode];
-    widget.className    = 'qb2-chip-widget ' + meta.cls;
+    widget.className    = 'qb2-chip-widget tv-light ' + meta.cls;
     modeLabel.className = 'qb2-chip-mode-label ' + meta.cls;
     modeLabel.textContent = meta.label;
 
