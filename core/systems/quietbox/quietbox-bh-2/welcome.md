@@ -324,7 +324,7 @@ canvas.qb2-chip-canvas {
 
   <!-- ===== PAGE HEADING ===== -->
   <h1 class="qb2-page-title">Welcome to Your TT-QuietBox 2</h1>
-  <p class="qb2-page-sub">Four Blackhole chips &middot; 480 Tensix cores &middot; 128 GB DDR6 &middot; no API keys required</p>
+  <p class="qb2-page-sub">Four Blackhole chips &middot; 480 Tensix cores &middot; 128 GB GDDR6 &middot; no API keys required</p>
 
   <!-- ===== CTA ROW ===== -->
   <div class="qb2-cta-row">
@@ -391,7 +391,7 @@ canvas.qb2-chip-canvas {
 
       <!-- widget footer -->
       <div class="qb2-chip-footer">
-        <span class="qb2-chip-specs">480 cores &middot; 128 GB DDR6 &middot; 2 TB/s bandwidth</span>
+        <span class="qb2-chip-specs">480 cores &middot; 128 GB GDDR6 &middot; 2 TB/s bandwidth</span>
         <span class="qb2-chip-mode-label" id="qb2ModeLabel">&#9679; idle</span>
       </div>
 
@@ -408,7 +408,7 @@ canvas.qb2-chip-canvas {
       <p class="qb2-intent-tagline">Private LLM inference &mdash; 32B &amp; 70B scale</p>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Start here</span>
-        <span class="qb2-intent-val">tt-studio &mdash; browser UI, one-click model deploy, pre-installed</span>
+        <span class="qb2-intent-val">TT-Studio &mdash; browser UI, one-click model deploy, pre-installed</span>
       </div>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Models</span>
@@ -423,12 +423,16 @@ canvas.qb2-chip-canvas {
         <span class="qb2-intent-val">Llama-3.1-8B <span class="qb2-perf">fast</span></span>
       </div>
       <div class="qb2-intent-row">
+        <span class="qb2-intent-label"></span>
+        <span class="qb2-intent-val"><a href="https://developer.tenstorrent.com/" target="_blank" rel="noopener">developer.tenstorrent.com ↗</a> &mdash; live model catalog</span>
+      </div>
+      <div class="qb2-intent-row">
         <span class="qb2-intent-label">API</span>
-        <span class="qb2-intent-val">tt-inference-server &mdash; OpenAI-compatible endpoint, pre-installed</span>
+        <span class="qb2-intent-val">TT-Inference-Server &mdash; OpenAI-compatible endpoint, pre-installed</span>
       </div>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Monitor</span>
-        <span class="qb2-intent-val">tt-toplike &mdash; watch cores during inference</span>
+        <span class="qb2-intent-val">TT-Toplike &mdash; watch cores during inference</span>
       </div>
       <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/coding-assistant/">&#8594; Coding Assistant with Aider</a>
     </div>
@@ -440,11 +444,11 @@ canvas.qb2-chip-canvas {
       <p class="qb2-intent-tagline">Text-to-video, image-to-video, stills</p>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Start here</span>
-        <span class="qb2-intent-val">tt-studio &mdash; deploy any model with one click, pre-installed</span>
+        <span class="qb2-intent-val">TT-Studio &mdash; deploy any model with one click, pre-installed</span>
       </div>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Gallery</span>
-        <span class="qb2-intent-val">tt-local-generator &mdash; queue, gallery, TT-TV kiosk mode</span>
+        <span class="qb2-intent-val">TT-Local-Generator &mdash; queue, gallery, TT-TV kiosk mode</span>
       </div>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Video</span>
@@ -497,10 +501,10 @@ canvas.qb2-chip-canvas {
     <div class="qb2-intent-card card-explore" id="cardExplore" onclick="qb2ActivateCard('explore')">
       <div class="qb2-intent-icon">&#128300;</div>
       <p class="qb2-intent-title">Explore the Architecture</p>
-      <p class="qb2-intent-tagline">tt-toplike, Particle Life, TT-Metalium</p>
+      <p class="qb2-intent-tagline">TT-Toplike, Particle Life, TT-Metalium</p>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Watch</span>
-        <span class="qb2-intent-val">tt-toplike &mdash; Starfield, Memory Castle, Memory Flow, Arcade</span>
+        <span class="qb2-intent-val">TT-Toplike &mdash; Starfield, Memory Castle, Memory Flow, Arcade</span>
       </div>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Run</span>
@@ -520,7 +524,7 @@ canvas.qb2-chip-canvas {
       </div>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Train</span>
-        <span class="qb2-intent-val">tt-blacksmith &mdash; fine-tune or train from scratch on 4&times; Blackhole</span>
+        <span class="qb2-intent-val">TT-Blacksmith &mdash; fine-tune or train from scratch on 4&times; Blackhole</span>
       </div>
       <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cs-fundamentals-01-computer/">&#8594; CS Fundamentals</a>
       <a class="qb2-lesson-btn" style="margin-left:6px;" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cookbook-particle-life/">&#8594; Particle Life</a>
@@ -540,32 +544,32 @@ canvas.qb2-chip-canvas {
     </thead>
     <tbody>
       <tr>
-        <td>tt-smi</td>
+        <td>TT-SMI</td>
         <td>Hardware status and telemetry snapshot</td>
         <td>Pre-installed</td>
       </tr>
       <tr>
-        <td><a href="https://github.com/tenstorrent/tt-studio">tt-studio</a></td>
-        <td>Web GUI for deploying and chatting with AI models &mdash; handles all setup automatically, deploy models in one click</td>
+        <td><a href="https://github.com/tenstorrent/tt-studio">TT-Studio</a></td>
+        <td>Web GUI for deploying and chatting with AI models &mdash; handles all setup automatically, deploy models in one click. Gated models (e.g. Llama) require a <a href="https://huggingface.co/settings/tokens" target="_blank" rel="noopener">Hugging Face token</a>.</td>
         <td>Pre-installed &mdash; run <code>tt-studio</code></td>
       </tr>
       <tr>
-        <td>tt-inference-server</td>
+        <td>TT-Inference-Server</td>
         <td>OpenAI-compatible model serving endpoint</td>
         <td>Pre-installed at <code>~/.local/lib/tt-inference-server</code></td>
       </tr>
       <tr>
-        <td>tt-toplike</td>
+        <td>TT-Toplike</td>
         <td>Real-time hardware visualization &mdash; power, temperature, core activity</td>
         <td><a href="https://docs.tenstorrent.com/tt-toplike">docs.tenstorrent.com/tt-toplike</a></td>
       </tr>
       <tr>
-        <td>tt-local-generator</td>
+        <td>TT-Local-Generator</td>
         <td>Local video and image generation queue and gallery</td>
         <td><a href="https://docs.tenstorrent.com/tt-local-generator">docs.tenstorrent.com/tt-local-generator</a></td>
       </tr>
       <tr>
-        <td>tt-vscode-toolkit</td>
+        <td>TT-VSCode-Toolkit</td>
         <td>Guided lessons and architecture walkthroughs, validated on QB2</td>
         <td><a href="https://docs.tenstorrent.com/tt-vscode-toolkit">docs.tenstorrent.com/tt-vscode-toolkit</a></td>
       </tr>
@@ -580,7 +584,7 @@ canvas.qb2-chip-canvas {
         <td><a href="https://docs.tenstorrent.com">docs.tenstorrent.com</a></td>
       </tr>
       <tr>
-        <td><a href="https://docs.tenstorrent.com/tt-blacksmith/">tt-blacksmith</a></td>
+        <td><a href="https://docs.tenstorrent.com/tt-blacksmith/">TT-Blacksmith</a></td>
         <td>Optimized training recipes &mdash; fine-tune and train models from scratch on QB2</td>
         <td><a href="https://docs.tenstorrent.com/tt-blacksmith/">docs.tenstorrent.com/tt-blacksmith</a></td>
       </tr>
