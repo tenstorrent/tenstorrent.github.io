@@ -490,7 +490,7 @@ canvas.qb2-chip-canvas {
       <p class="qb2-intent-tagline">Tool calling, multi-agent, stateful pipelines</p>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Best model</span>
-        <span class="qb2-intent-val">Llama-3.3-70B <span class="qb2-perf">93% tool-call &middot; 78% 3-step</span></span>
+        <span class="qb2-intent-val">Llama-3.3-70B &mdash; best for agents</span>
       </div>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Also works</span>
