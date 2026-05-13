@@ -10,6 +10,26 @@ myst:
 
 ```{raw} html
 
+<script>
+/* tensix-viz is not registered globally in conf.py — load it only here.
+   Derive the _static/ base URL from an already-injected static script so
+   this works regardless of how deeply nested the page is. */
+(function () {
+  var src = (document.querySelector('script[src*="_static/"]') || {}).src;
+  if (!src) return;
+  var base = src.replace(/_static\/.*/, '_static/');
+
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = base + 'tensix-viz.css';
+  document.head.appendChild(link);
+
+  var s = document.createElement('script');
+  s.src = base + 'tensix-viz.js';
+  document.head.appendChild(s);
+}());
+</script>
+
 <style>
 /* ============================================================
    QB2 Welcome page — scoped to .qb2-welcome
