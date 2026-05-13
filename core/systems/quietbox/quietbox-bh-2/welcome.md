@@ -6,6 +6,8 @@ myst:
     document-type: Conceptual Guide (What's Next)
 ---
 
+# Welcome to Your TT-QuietBox 2
+
 ```{raw} html
 
 <style>
@@ -14,6 +16,10 @@ myst:
    Light-first defaults. Chip widget is always dark (hardware
    panel aesthetic). Dark-mode overrides at the bottom.
    ============================================================ */
+
+/* Sphinx generates an h1 from the doc title for <title> and TOC;
+   hide it here since the page renders its own custom heading */
+#welcome-to-your-tt-quietbox-2 > h1 { display: none; }
 
 /* ---------- layout container ---------- */
 .qb2-welcome {
