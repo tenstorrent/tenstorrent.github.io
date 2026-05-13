@@ -608,21 +608,6 @@ canvas.qb2-chip-canvas {
         <td>Pre-installed at <code>~/.local/lib/tt-inference-server</code></td>
       </tr>
       <tr>
-        <td><a href="https://docs.tenstorrent.com/tt-forge">TT-Forge</a></td>
-        <td>MLIR compiler frontend &mdash; run PyTorch, ONNX, and JAX models on QB2 hardware, 100+ models supported</td>
-        <td><a href="https://docs.tenstorrent.com/tt-forge">docs.tenstorrent.com/tt-forge</a></td>
-      </tr>
-      <tr>
-        <td>TT-Metalium</td>
-        <td>Low-level Tensix programming &mdash; C++ kernels on RISC-V cores</td>
-        <td><a href="https://docs.tenstorrent.com">docs.tenstorrent.com</a></td>
-      </tr>
-      <tr>
-        <td><a href="https://docs.tenstorrent.com/tt-blacksmith/">TT-Blacksmith</a></td>
-        <td>Optimized training recipes &mdash; fine-tune and train models from scratch on QB2</td>
-        <td><a href="https://docs.tenstorrent.com/tt-blacksmith/">docs.tenstorrent.com/tt-blacksmith</a></td>
-      </tr>
-      <tr>
         <td>TT-Toplike</td>
         <td>Real-time hardware visualization &mdash; power, temperature, core activity</td>
         <td><a href="https://docs.tenstorrent.com/tt-toplike">docs.tenstorrent.com/tt-toplike</a></td>
@@ -636,6 +621,21 @@ canvas.qb2-chip-canvas {
         <td>TT-VSCode-Toolkit</td>
         <td>Guided lessons and architecture walkthroughs, validated on QB2</td>
         <td><a href="https://docs.tenstorrent.com/tt-vscode-toolkit">docs.tenstorrent.com/tt-vscode-toolkit</a></td>
+      </tr>
+      <tr>
+        <td><a href="https://docs.tenstorrent.com/tt-forge">TT-Forge</a></td>
+        <td>MLIR compiler frontend &mdash; run PyTorch, ONNX, and JAX models on QB2 hardware, 100+ models supported</td>
+        <td><a href="https://docs.tenstorrent.com/tt-forge">docs.tenstorrent.com/tt-forge</a></td>
+      </tr>
+      <tr>
+        <td>TT-Metalium</td>
+        <td>Low-level Tensix programming &mdash; C++ kernels on RISC-V cores</td>
+        <td><a href="https://docs.tenstorrent.com">docs.tenstorrent.com</a></td>
+      </tr>
+      <tr>
+        <td><a href="https://docs.tenstorrent.com/tt-blacksmith/">TT-Blacksmith</a></td>
+        <td>Optimized training recipes &mdash; fine-tune and train models from scratch on QB2</td>
+        <td><a href="https://docs.tenstorrent.com/tt-blacksmith/">docs.tenstorrent.com/tt-blacksmith</a></td>
       </tr>
     </tbody>
   </table>
