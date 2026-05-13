@@ -235,12 +235,11 @@ canvas.qb2-chip-canvas {
   display: flex;
   gap: 8px;
   padding: 4px 0;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
   align-items: baseline;
   flex-wrap: wrap;
 }
-.qb2-intent-row:last-of-type {
-  border-bottom: none;
+.qb2-intent-row + .qb2-intent-row {
+  border-top: 1px solid rgba(0,0,0,0.10);
 }
 .qb2-intent-label {
   font-size: 0.7rem;
@@ -250,8 +249,6 @@ canvas.qb2-chip-canvas {
   letter-spacing: 0.05em;
   min-width: 68px;
   flex-shrink: 0;
-  border-right: 1.5px solid #d0d8e4;
-  padding-right: 8px;
 }
 .qb2-intent-val {
   font-size: 0.8rem;
@@ -448,7 +445,7 @@ canvas.qb2-chip-canvas {
         <span class="qb2-intent-val">TT-Toplike &mdash; watch cores during inference</span>
       </div>
       <div class="qb2-lesson-area">
-        <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/coding-assistant/">Lesson &#8594; Coding Assistant with Aider</a>
+        <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/coding-assistant/">&#8594; Coding Assistant with Aider</a>
       </div>
     </div>
 
@@ -482,7 +479,7 @@ canvas.qb2-chip-canvas {
         <span class="qb2-intent-val">&#10024; Inspire me &mdash; Qwen3-0.6B on host CPU, fully on-device</span>
       </div>
       <div class="qb2-lesson-area">
-        <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/qb2-video-generation/">Lesson &#8594; Video Generation on QB2</a>
+        <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/qb2-video-generation/">&#8594; Video Generation on QB2</a>
       </div>
     </div>
 
@@ -512,7 +509,7 @@ canvas.qb2-chip-canvas {
         <span class="qb2-intent-val">Data never leaves the machine &mdash; architecture, not policy</span>
       </div>
       <div class="qb2-lesson-area">
-        <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/qb2-local-agents/">Lesson &#8594; Local AI Agents on QB2</a>
+        <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/qb2-local-agents/">&#8594; Local AI Agents on QB2</a>
       </div>
     </div>
 
@@ -546,9 +543,9 @@ canvas.qb2-chip-canvas {
         <span class="qb2-intent-val">TT-Blacksmith &mdash; fine-tune or train from scratch on 4&times; Blackhole</span>
       </div>
       <div class="qb2-lesson-area">
-        <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cs-fundamentals-01-computer/">Lesson &#8594; CS Fundamentals</a>
-        <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cookbook-particle-life/">Lesson &#8594; Particle Life</a>
-        <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/ct1-understanding-training/">Lesson &#8594; Custom Training</a>
+        <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cs-fundamentals-01-computer/">&#8594; CS Fundamentals</a>
+        <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cookbook-particle-life/">&#8594; Particle Life</a>
+        <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/ct1-understanding-training/">&#8594; Custom Training</a>
       </div>
     </div>
 
