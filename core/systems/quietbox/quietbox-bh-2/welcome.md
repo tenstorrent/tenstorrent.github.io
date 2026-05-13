@@ -183,20 +183,30 @@ canvas.qb2-chip-canvas {
 .qb2-chip-mode-label.mode-chat    { color: var(--tv-teal); }
 .qb2-chip-mode-label.mode-video   { color: #ec96b8; }
 .qb2-chip-mode-label.mode-agents  { color: #9370db; }
+.qb2-chip-mode-label.mode-hack    { color: #fb923c; }
 .qb2-chip-mode-label.mode-explore { color: #f4c471; }
 
 /* widget border highlight on active card */
 .qb2-chip-widget.mode-chat    { border-color: var(--tv-teal); }
 .qb2-chip-widget.mode-video   { border-color: #ec96b8; }
 .qb2-chip-widget.mode-agents  { border-color: #9370db; }
+.qb2-chip-widget.mode-hack    { border-color: #fb923c; }
 .qb2-chip-widget.mode-explore { border-color: #f4c471; }
 
-/* ---------- intent cards (stacked) ---------- */
+/* ---------- intent cards ---------- */
 .qb2-intent-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
   margin-bottom: 28px;
+}
+/* Explore spans full width — it has more rows and gets the extra room */
+.qb2-intent-card.card-explore {
+  grid-column: 1 / -1;
+}
+@media (max-width: 640px) {
+  .qb2-intent-grid { grid-template-columns: 1fr; }
+  .qb2-intent-card.card-explore { grid-column: auto; }
 }
 
 .qb2-intent-card {
@@ -216,6 +226,7 @@ canvas.qb2-chip-canvas {
 .qb2-intent-card.active.card-chat    { border-color: #4fd1c5; box-shadow: 0 0 12px rgba(79,209,197,0.15); }
 .qb2-intent-card.active.card-video   { border-color: #ec96b8; box-shadow: 0 0 12px rgba(236,150,184,0.15); }
 .qb2-intent-card.active.card-agents  { border-color: #9370db; box-shadow: 0 0 12px rgba(147,112,219,0.15); }
+.qb2-intent-card.active.card-hack    { border-color: #fb923c; box-shadow: 0 0 12px rgba(251,146,60,0.15); }
 .qb2-intent-card.active.card-explore { border-color: #f4c471; box-shadow: 0 0 12px rgba(244,196,113,0.15); }
 
 .qb2-intent-icon {
@@ -288,6 +299,7 @@ canvas.qb2-chip-canvas {
 .card-chat    .qb2-lesson-btn { background: rgba(79,209,197,0.15);  color: #0e7c74; }
 .card-video   .qb2-lesson-btn { background: rgba(236,150,184,0.15); color: #b03468; }
 .card-agents  .qb2-lesson-btn { background: rgba(147,112,219,0.15); color: #5a2dbb; }
+.card-hack    .qb2-lesson-btn { background: rgba(251,146,60,0.15);  color: #7c2d12; }
 .card-explore .qb2-lesson-btn { background: rgba(244,196,113,0.15); color: #876200; }
 
 /* ---------- reference table ---------- */
@@ -425,10 +437,6 @@ canvas.qb2-chip-canvas {
       </div>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Models</span>
-        <span class="qb2-intent-val">Qwen3-32B <span class="qb2-perf">~8s/response</span></span>
-      </div>
-      <div class="qb2-intent-row">
-        <span class="qb2-intent-label"></span>
         <span class="qb2-intent-val">Llama-3.3-70B <span class="qb2-perf">~14s/response</span></span>
       </div>
       <div class="qb2-intent-row">
@@ -470,16 +478,12 @@ canvas.qb2-chip-canvas {
         <span class="qb2-intent-val">Wan 2.2-14B <span class="qb2-perf">~6 min/5-sec clip</span></span>
       </div>
       <div class="qb2-intent-row">
-        <span class="qb2-intent-label"></span>
-        <span class="qb2-intent-val">SkyReels-V2 <span class="qb2-perf">~28s, image-to-video</span></span>
-      </div>
-      <div class="qb2-intent-row">
         <span class="qb2-intent-label">Image</span>
         <span class="qb2-intent-val">FLUX.1-dev <span class="qb2-perf">high-quality stills</span></span>
       </div>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Prompts</span>
-        <span class="qb2-intent-val">&#10024; Inspire me &mdash; Qwen3-0.6B on host CPU, fully on-device</span>
+        <span class="qb2-intent-val">&#10024; Inspire me &mdash; prompt ideas from a small on-device model</span>
       </div>
       <div class="qb2-lesson-area">
         <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/qb2-video-generation/">&#8594; Video Generation on QB2</a>
@@ -496,10 +500,6 @@ canvas.qb2-chip-canvas {
         <span class="qb2-intent-val">Llama-3.3-70B &mdash; best for agents</span>
       </div>
       <div class="qb2-intent-row">
-        <span class="qb2-intent-label">Also works</span>
-        <span class="qb2-intent-val">Qwen3-32B</span>
-      </div>
-      <div class="qb2-intent-row">
         <span class="qb2-intent-label">Frameworks</span>
         <span class="qb2-intent-val">smolagents &middot; CrewAI &middot; OpenAI Agents SDK</span>
       </div>
@@ -513,6 +513,32 @@ canvas.qb2-chip-canvas {
       </div>
       <div class="qb2-lesson-area">
         <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/qb2-local-agents/">&#8594; Local AI Agents on QB2</a>
+      </div>
+    </div>
+
+    <!-- HACK -->
+    <div class="qb2-intent-card card-hack" id="cardHack" onclick="qb2ActivateCard('hack')">
+      <div class="qb2-intent-icon">&#9889;</div>
+      <p class="qb2-intent-title">Hack the Hardware</p>
+      <p class="qb2-intent-tagline">There&rsquo;s a real computer in here &mdash; boot Linux, write kernels</p>
+      <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Boot</span>
+        <span class="qb2-intent-val">tt-bh-linux &mdash; run Linux on 16 RISC-V cores inside the chip</span>
+      </div>
+      <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Demos</span>
+        <span class="qb2-intent-val">Mandelbrot fractal &middot; Conway&rsquo;s Game of Life &middot; Zork on TT hardware</span>
+      </div>
+      <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Metal</span>
+        <span class="qb2-intent-val">TT-Metalium &mdash; write C++ kernels, dispatch across 480 Tensix cores</span>
+      </div>
+      <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Bare metal</span>
+        <span class="qb2-intent-val">tt-tiny &mdash; George Hotz&rsquo;s minimal Python exploration of the chip</span>
+      </div>
+      <div class="qb2-lesson-area">
+        <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cookbook-game-of-life/">&#8594; Cookbook: Game of Life</a>
       </div>
     </div>
 
@@ -685,6 +711,7 @@ canvas.qb2-chip-canvas {
        chat    → 'inference'   teal column sweep (token generation)
        video   → 'diffusion'   pink expanding ring (denoising timestep)
        agents  → 'agents'      purple burst clusters (tool-call dispatch)
+       hack    → 'explore'     gold sinusoidal field (kernel dispatch stand-in)
        explore → 'explore'     gold sinusoidal field (Particle Life)
   ------------------------------------------------------------------ */
 
@@ -693,6 +720,7 @@ canvas.qb2-chip-canvas {
     chat:    'inference',
     video:   'diffusion',
     agents:  'agents',
+    hack:    'explore',
     explore: 'explore'
   };
 
@@ -701,6 +729,7 @@ canvas.qb2-chip-canvas {
     chat:    { label: '\u25cf chat inference',  cls: 'mode-chat'    },
     video:   { label: '\u25cf video diffusion', cls: 'mode-video'   },
     agents:  { label: '\u25cf agent dispatch',  cls: 'mode-agents'  },
+    hack:    { label: '\u25cf kernel dispatch',  cls: 'mode-hack'   },
     explore: { label: '\u25cf particle life',   cls: 'mode-explore' }
   };
 
