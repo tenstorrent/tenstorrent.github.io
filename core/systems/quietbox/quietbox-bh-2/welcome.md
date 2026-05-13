@@ -233,10 +233,14 @@ canvas.qb2-chip-canvas {
 }
 .qb2-intent-row {
   display: flex;
-  gap: 6px;
-  margin-bottom: 5px;
+  gap: 8px;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
   align-items: baseline;
   flex-wrap: wrap;
+}
+.qb2-intent-row:last-of-type {
+  border-bottom: none;
 }
 .qb2-intent-label {
   font-size: 0.7rem;
@@ -244,8 +248,10 @@ canvas.qb2-chip-canvas {
   color: #6a7888;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  min-width: 52px;
+  min-width: 68px;
   flex-shrink: 0;
+  border-right: 1.5px solid #d0d8e4;
+  padding-right: 8px;
 }
 .qb2-intent-val {
   font-size: 0.8rem;
@@ -260,9 +266,16 @@ canvas.qb2-chip-canvas {
   color: #6a7888;
   white-space: nowrap;
 }
+.qb2-lesson-area {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
 .qb2-lesson-btn {
   display: inline-block;
-  margin-top: 10px;
   font-size: 0.78rem;
   font-weight: 600;
   padding: 5px 12px;
@@ -434,7 +447,9 @@ canvas.qb2-chip-canvas {
         <span class="qb2-intent-label">Monitor</span>
         <span class="qb2-intent-val">TT-Toplike &mdash; watch cores during inference</span>
       </div>
-      <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/coding-assistant/">&#8594; Coding Assistant with Aider</a>
+      <div class="qb2-lesson-area">
+        <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/coding-assistant/">Lesson &#8594; Coding Assistant with Aider</a>
+      </div>
     </div>
 
     <!-- VIDEO -->
@@ -466,7 +481,9 @@ canvas.qb2-chip-canvas {
         <span class="qb2-intent-label">Prompts</span>
         <span class="qb2-intent-val">&#10024; Inspire me &mdash; Qwen3-0.6B on host CPU, fully on-device</span>
       </div>
-      <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/qb2-video-generation/">&#8594; Video Generation on QB2</a>
+      <div class="qb2-lesson-area">
+        <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/qb2-video-generation/">Lesson &#8594; Video Generation on QB2</a>
+      </div>
     </div>
 
     <!-- AGENTS -->
@@ -494,7 +511,9 @@ canvas.qb2-chip-canvas {
         <span class="qb2-intent-label">Privacy</span>
         <span class="qb2-intent-val">Data never leaves the machine &mdash; architecture, not policy</span>
       </div>
-      <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/qb2-local-agents/">&#8594; Local AI Agents on QB2</a>
+      <div class="qb2-lesson-area">
+        <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/qb2-local-agents/">Lesson &#8594; Local AI Agents on QB2</a>
+      </div>
     </div>
 
     <!-- EXPLORE -->
@@ -526,9 +545,11 @@ canvas.qb2-chip-canvas {
         <span class="qb2-intent-label">Train</span>
         <span class="qb2-intent-val">TT-Blacksmith &mdash; fine-tune or train from scratch on 4&times; Blackhole</span>
       </div>
-      <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cs-fundamentals-01-computer/">&#8594; CS Fundamentals</a>
-      <a class="qb2-lesson-btn" style="margin-left:6px;" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cookbook-particle-life/">&#8594; Particle Life</a>
-      <a class="qb2-lesson-btn" style="margin-left:6px;" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/ct1-understanding-training/">&#8594; Custom Training</a>
+      <div class="qb2-lesson-area">
+        <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cs-fundamentals-01-computer/">Lesson &#8594; CS Fundamentals</a>
+        <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cookbook-particle-life/">Lesson &#8594; Particle Life</a>
+        <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/ct1-understanding-training/">Lesson &#8594; Custom Training</a>
+      </div>
     </div>
 
   </div><!-- end intent grid -->
