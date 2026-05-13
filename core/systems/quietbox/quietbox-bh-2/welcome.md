@@ -10,25 +10,7 @@ myst:
 
 ```{raw} html
 
-<script>
-/* tensix-viz is not registered globally in conf.py — load it only here.
-   Derive the _static/ base URL from an already-injected static script so
-   this works regardless of how deeply nested the page is. */
-(function () {
-  var src = (document.querySelector('script[src*="_static/"]') || {}).src;
-  if (!src) return;
-  var base = src.replace(/_static\/.*/, '_static/');
-
-  var link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.href = base + 'tensix-viz.css';
-  document.head.appendChild(link);
-
-  var s = document.createElement('script');
-  s.src = base + 'tensix-viz.js';
-  document.head.appendChild(s);
-}());
-</script>
+<script src="https://cdn.jsdelivr.net/gh/tsingletaryTT/tensix-viz@v2/tensix-viz.js" crossorigin="anonymous"></script>
 
 <style>
 /* ============================================================
@@ -95,8 +77,8 @@ myst:
 
 /* ---------- chip widget ---------- */
 .qb2-chip-widget {
-  background: var(--tv-bg);
-  border: 1px solid var(--tv-border-subtle);
+  background: #EEF4F8;
+  border: 1px solid #B8D4E0;
   border-radius: 10px;
   padding: 18px 20px 14px;
   margin-bottom: 28px;
@@ -121,7 +103,7 @@ myst:
 .qb2-card-side-label {
   font-family: "Ubuntu Mono", "Fira Mono", monospace;
   font-size: 10px;
-  color: var(--tv-text-muted);
+  color: #4A6878;
   writing-mode: vertical-rl;
   text-orientation: mixed;
   transform: rotate(180deg);
@@ -143,13 +125,13 @@ myst:
 .qb2-chip-label {
   font-family: "Ubuntu Mono", "Fira Mono", monospace;
   font-size: 9px;
-  color: var(--tv-text-muted);
+  color: #4A6878;
   letter-spacing: 0.08em;
 }
 canvas.qb2-chip-canvas {
   display: block;
   border-radius: 3px;
-  border: 1px solid var(--tv-border-subtle);
+  border: 1px solid #B8D4E0;
 }
 
 /* samtec divider */
@@ -164,13 +146,13 @@ canvas.qb2-chip-canvas {
 .qb2-samtec-line {
   flex: 1;
   height: 1px;
-  background: var(--tv-border-subtle);
+  background: #B8D4E0;
   max-width: 180px;
 }
 .qb2-samtec-label {
   font-family: "Ubuntu Mono", "Fira Mono", monospace;
   font-size: 9px;
-  color: var(--tv-text-muted);
+  color: #4A6878;
   letter-spacing: 0.1em;
   white-space: nowrap;
 }
@@ -182,32 +164,32 @@ canvas.qb2-chip-canvas {
   align-items: center;
   margin-top: 12px;
   padding-top: 10px;
-  border-top: 1px solid var(--tv-border-subtle);
+  border-top: 1px solid #B8D4E0;
   width: 100%;
 }
 .qb2-chip-specs {
   font-family: "Ubuntu Mono", "Fira Mono", monospace;
   font-size: 10px;
-  color: var(--tv-text-muted);
+  color: #4A6878;
   letter-spacing: 0.06em;
 }
 .qb2-chip-mode-label {
   font-family: "Ubuntu Mono", "Fira Mono", monospace;
   font-size: 10px;
-  color: var(--tv-text-muted);
+  color: #4A6878;
   letter-spacing: 0.08em;
   transition: color 0.4s ease;
   min-width: 140px;
   text-align: right;
 }
-.qb2-chip-mode-label.mode-chat    { color: var(--tv-teal); }
+.qb2-chip-mode-label.mode-chat    { color: #0D9488; }
 .qb2-chip-mode-label.mode-video   { color: #ec96b8; }
 .qb2-chip-mode-label.mode-agents  { color: #9370db; }
 .qb2-chip-mode-label.mode-hack    { color: #fb923c; }
 .qb2-chip-mode-label.mode-explore { color: #f4c471; }
 
 /* widget border highlight on active card */
-.qb2-chip-widget.mode-chat    { border-color: var(--tv-teal); }
+.qb2-chip-widget.mode-chat    { border-color: #0D9488; }
 .qb2-chip-widget.mode-video   { border-color: #ec96b8; }
 .qb2-chip-widget.mode-agents  { border-color: #9370db; }
 .qb2-chip-widget.mode-hack    { border-color: #fb923c; }
