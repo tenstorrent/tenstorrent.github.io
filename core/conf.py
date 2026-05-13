@@ -67,3 +67,4 @@ html_context = {
 def setup(app):
     app.add_css_file("tt_theme.css")
     app.add_css_file("home.css")
+    app.add_css_file("tensix-viz.css")

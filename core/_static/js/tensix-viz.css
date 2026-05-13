@@ -1,0 +1,395 @@
+/* tensix-viz.css — theming via CSS custom properties
+ *
+ * Theme classes go on the widget container element:
+ *   (none)     dark mode — default, backward-compatible
+ *   .tv-light  force light (Cool Slate palette)
+ *   .tv-auto   follow OS prefers-color-scheme
+ */
+
+/* ─── Dark defaults ─────────────────────────────────────────────────────── */
+:root {
+  /* Backgrounds — three depth levels matching widget hierarchy */
+  --tv-bg:             #0B1E28;   /* .tensix-viz-wrapper outer bg */
+  --tv-bg-header:      #0A1820;   /* header/footer/legend strips */
+  --tv-bg-card:        #0D1F2D;   /* .tv-card inner bg */
+  --tv-bg-system:      #0A1820;   /* .tv-system inner bg */
+  --tv-bg-cluster:     #080F18;   /* .tv-cluster inner bg */
+
+  /* Borders */
+  --tv-border:         #3A7A8C;   /* main widget border (improved from #2D6675) */
+  --tv-border-subtle:  #1A3C47;   /* inner dividers */
+
+  /* Core-type fills */
+  --tv-tensix:         #163848;
+  --tv-dram:           #152035;
+  --tv-eth:            #221638;
+  --tv-pcie:           #2A2010;
+  --tv-empty:          #0A1820;
+
+  /* Core-type borders */
+  --tv-tensix-border:  #3A7A8C;
+  --tv-dram-border:    #2D4A6A;
+  --tv-eth-border:     #5B3DA0;
+  --tv-pcie-border:    #8B6914;
+
+  /* Active / highlight */
+  --tv-tensix-active:  #4FD1C5;
+
+  /* Text */
+  --tv-text:           #E8F0F2;
+  --tv-text-muted:     #607D8B;
+
+  /* Accents */
+  --tv-teal:           #4FD1C5;
+
+  /* Controls */
+  --tv-btn-bg:         #1A3C47;
+  --tv-btn-bg-hover:   #2D6675;
+  --tv-btn-active-bg:  #4FD1C5;
+  --tv-btn-active-fg:  #0B1E28;
+
+  /* Cluster tile */
+  --tv-tile:           #1e4a58;
+  --tv-tile-outline:   #4fd1c5;
+
+  /* Breadcrumb */
+  --tv-breadcrumb-fg:  #4fd1c5;
+  --tv-breadcrumb-bg:  rgba(10,24,32,0.85);
+
+  /* Card ETH link */
+  --tv-eth-link:       #5b3da0;
+}
+
+/* ─── Light theme — Cool Slate ──────────────────────────────────────────── */
+.tv-light {
+  --tv-bg:             #EEF4F8;
+  --tv-bg-header:      #E4EDF4;
+  --tv-bg-card:        #E8F1F6;
+  --tv-bg-system:      #E4EDF4;
+  --tv-bg-cluster:     #DDE8F0;
+  --tv-border:         #6AACBE;
+  --tv-border-subtle:  #B8D4E0;
+  --tv-tensix:         #CCDDE8;
+  --tv-dram:           #C5D8E8;
+  --tv-eth:            #C5C5E0;
+  --tv-pcie:           #E0D8C8;
+  --tv-empty:          #E4EDF4;
+  --tv-tensix-border:  #6AACBE;
+  --tv-dram-border:    #5A9AB8;
+  --tv-eth-border:     #7070B8;
+  --tv-pcie-border:    #A0906A;
+  --tv-tensix-active:  #0D9488;
+  --tv-text:           #1A2C38;
+  --tv-text-muted:     #4A6878;
+  --tv-teal:           #0D9488;
+  --tv-btn-bg:         #D8EBF2;
+  --tv-btn-bg-hover:   #B8D4E0;
+  --tv-btn-active-bg:  #0D9488;
+  --tv-btn-active-fg:  #EEF4F8;
+  --tv-tile:           #CCDDE8;
+  --tv-tile-outline:   #0D9488;
+  --tv-breadcrumb-fg:  #0D9488;
+  --tv-breadcrumb-bg:  rgba(238,244,248,0.90);
+  --tv-eth-link:       #7070B8;
+}
+
+/* ─── Auto theme — follows OS preference ────────────────────────────────── */
+@media (prefers-color-scheme: light) {
+  .tv-auto {
+    --tv-bg:             #EEF4F8;
+    --tv-bg-header:      #E4EDF4;
+    --tv-bg-card:        #E8F1F6;
+    --tv-bg-system:      #E4EDF4;
+    --tv-bg-cluster:     #DDE8F0;
+    --tv-border:         #6AACBE;
+    --tv-border-subtle:  #B8D4E0;
+    --tv-tensix:         #CCDDE8;
+    --tv-dram:           #C5D8E8;
+    --tv-eth:            #C5C5E0;
+    --tv-pcie:           #E0D8C8;
+    --tv-empty:          #E4EDF4;
+    --tv-tensix-border:  #6AACBE;
+    --tv-dram-border:    #5A9AB8;
+    --tv-eth-border:     #7070B8;
+    --tv-pcie-border:    #A0906A;
+    --tv-tensix-active:  #0D9488;
+    --tv-text:           #1A2C38;
+    --tv-text-muted:     #4A6878;
+    --tv-teal:           #0D9488;
+    --tv-btn-bg:         #D8EBF2;
+    --tv-btn-bg-hover:   #B8D4E0;
+    --tv-btn-active-bg:  #0D9488;
+    --tv-btn-active-fg:  #EEF4F8;
+    --tv-tile:           #CCDDE8;
+    --tv-tile-outline:   #0D9488;
+    --tv-breadcrumb-fg:  #0D9488;
+    --tv-breadcrumb-bg:  rgba(238,244,248,0.90);
+    --tv-eth-link:       #7070B8;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LEGACY TensixViz container (chip.js auto-init path)
+   ═════════════════════════════════════════════════════════════════════════ */
+
+.tensix-viz-wrapper {
+  margin: 24px 0;
+  background: var(--tv-bg);
+  border: 1px solid var(--tv-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tensix-viz-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  background: var(--tv-bg-header);
+  border-bottom: 1px solid var(--tv-border-subtle);
+}
+
+.tensix-viz-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--tv-teal);
+  font-family: monospace;
+  letter-spacing: 0.05em;
+}
+
+.tensix-viz-arch-badge {
+  font-size: 10px;
+  color: var(--tv-text-muted);
+  padding: 1px 6px;
+  border: 1px solid var(--tv-border-subtle);
+  border-radius: 10px;
+}
+
+.tensix-viz-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  gap: 8px;
+}
+
+.tensix-viz-canvas {
+  display: block;
+  border-radius: 4px;
+  max-width: 100%;
+}
+
+.tensix-viz-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tv-play,
+.tv-step {
+  background: var(--tv-btn-bg);
+  border: 1px solid var(--tv-border);
+  border-radius: 4px;
+  color: var(--tv-teal);
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1;
+  padding: 4px 10px;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.tv-play:hover,
+.tv-step:hover {
+  background: var(--tv-btn-bg-hover);
+  border-color: var(--tv-teal);
+}
+
+.tv-play:active,
+.tv-step:active {
+  background: var(--tv-btn-active-bg);
+  color: var(--tv-btn-active-fg);
+}
+
+.tv-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 6px 14px;
+  border-top: 1px solid var(--tv-border-subtle);
+  background: var(--tv-bg-header);
+}
+
+.tv-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--tv-text-muted);
+}
+
+.tv-legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CardViz, SystemViz, ClusterViz containers
+   ═════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Card ─────────────────────────────────────────────────────────────── */
+
+.tv-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--tv-bg-card);
+  border-radius: 8px;
+  padding: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.tv-chip-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.tv-chip-wrapper.tv-hidden   { opacity: 0; pointer-events: none; }
+.tv-chip-wrapper.tv-active   { transform: scale(1.1); }
+.tv-chip-wrapper.tv-highlighted { outline: 2px solid var(--tv-tensix-active); border-radius: 4px; }
+
+.tv-chip-label {
+  color: var(--tv-text-muted);
+  font-size: 0.7rem;
+  font-family: monospace;
+  text-align: center;
+}
+
+.tv-card-link {
+  width: 24px;
+  height: 40px;
+  border-top: 2px dashed var(--tv-eth-link);
+  border-bottom: 2px dashed var(--tv-eth-link);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.tv-card-link::after {
+  content: 'ETH';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--tv-eth-link);
+  font-size: 0.55rem;
+  font-family: monospace;
+  white-space: nowrap;
+}
+
+/* ─── System ────────────────────────────────────────────────────────────── */
+
+.tv-system {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: var(--tv-bg-system);
+  border-radius: 8px;
+  padding: 16px;
+  position: relative;
+}
+
+.tv-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.tv-card-wrapper.tv-hidden   { opacity: 0; pointer-events: none; }
+.tv-card-wrapper.tv-active   { transform: scale(1.05); }
+.tv-card-wrapper.tv-highlighted { outline: 2px solid var(--tv-tensix-active); border-radius: 6px; }
+
+.tv-system-card-label {
+  color: var(--tv-text-muted);
+  font-size: 0.75rem;
+  font-family: monospace;
+  letter-spacing: 0.05em;
+}
+
+.tv-system-link {
+  color: var(--tv-eth-link);
+  font-size: 0.65rem;
+  font-family: monospace;
+  text-align: center;
+  padding: 2px 8px;
+  border-left: 2px dashed var(--tv-eth-link);
+  border-right: 2px dashed var(--tv-eth-link);
+  white-space: nowrap;
+}
+
+/* ─── Cluster ───────────────────────────────────────────────────────────── */
+
+.tv-cluster {
+  background: var(--tv-bg-cluster);
+  border-radius: 8px;
+  padding: 16px;
+  position: relative;
+}
+
+.tv-cluster-spec {
+  color: var(--tv-text-muted);
+  font-size: 0.7rem;
+  font-family: monospace;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.tv-cluster-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 3px;
+}
+
+.tv-cluster-dot-mode .tv-cluster-grid {
+  grid-template-columns: repeat(16, 1fr);
+  gap: 2px;
+}
+
+.tv-cluster-tile {
+  aspect-ratio: 1;
+  border-radius: 2px;
+  background: var(--tv-tile);
+  cursor: pointer;
+  transition: background 0.1s ease;
+}
+
+.tv-cluster-tile.tv-highlighted { outline: 2px solid var(--tv-tile-outline); }
+.tv-cluster-tile.tv-hidden      { opacity: 0.1; pointer-events: none; }
+.tv-cluster-tile.tv-active      { outline: 2px solid var(--tv-tile-outline); }
+
+/* ─── Breadcrumb ────────────────────────────────────────────────────────── */
+
+.tv-breadcrumb {
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  font-size: 0.7rem;
+  font-family: monospace;
+  color: var(--tv-breadcrumb-fg);
+  z-index: 10;
+  background: var(--tv-breadcrumb-bg);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* ─── Zoom state ────────────────────────────────────────────────────────── */
+
+.tv-zoomed-in { overflow: visible; }
