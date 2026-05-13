@@ -672,6 +672,7 @@ var _TensixVizBundle = (() => {
       prev[r] = [];
       for (var c = 0; c < W; c++) prev[r][c] = 0;
     }
+    var _kd = { list: [], nextDispatch: 5 };
     var MODES = {
       idle: function(c2, r2) {
         return Math.min(1, prev[r2][c2] * 0.9 + (Math.random() < 0.03 ? Math.random() * 0.35 : 0));
@@ -714,6 +715,58 @@ var _TensixVizBundle = (() => {
         var w2 = Math.max(0, 1 - Math.abs(c2 - (t * speed + 0.33) % 1 * W) / 2) * 0.85;
         var w3 = Math.max(0, 1 - Math.abs(c2 - (t * speed + 0.66) % 1 * W) / 2) * 0.85;
         return Math.max(w1, w2, w3);
+      },
+      kernel_dispatch: function(c2, r2) {
+        if (c2 === 0 && r2 === 0) {
+          for (var i = _kd.list.length - 1; i >= 0; i--) {
+            _kd.list[i].age++;
+            if (_kd.list[i].age >= _kd.list[i].maxAge) _kd.list.splice(i, 1);
+          }
+          if (--_kd.nextDispatch <= 0) {
+            var kw = 1 + Math.floor(Math.random() * Math.min(8, W - 1));
+            var kh = 1 + Math.floor(Math.random() * Math.min(6, H - 1));
+            var kc = Math.floor(Math.random() * (W - kw));
+            var kr = Math.floor(Math.random() * (H - kh));
+            _kd.list.push({
+              c: kc,
+              r: kr,
+              w: kw,
+              h: kh,
+              age: 0,
+              maxAge: 38 + Math.floor(Math.random() * 50),
+              seed: Math.random() * 100
+            });
+            if (Math.random() < 0.4) {
+              kw = 1 + Math.floor(Math.random() * Math.min(6, W - 1));
+              kh = 1 + Math.floor(Math.random() * Math.min(4, H - 1));
+              kc = Math.floor(Math.random() * (W - kw));
+              kr = Math.floor(Math.random() * (H - kh));
+              _kd.list.push({
+                c: kc,
+                r: kr,
+                w: kw,
+                h: kh,
+                age: 0,
+                maxAge: 38 + Math.floor(Math.random() * 50),
+                seed: Math.random() * 100
+              });
+            }
+            _kd.nextDispatch = 18 + Math.floor(Math.random() * 28);
+          }
+        }
+        var val = 0;
+        for (var i = 0; i < _kd.list.length; i++) {
+          var k = _kd.list[i];
+          if (c2 < k.c || c2 >= k.c + k.w || r2 < k.r || r2 >= k.r + k.h) continue;
+          var dist = c2 - k.c + (r2 - k.r);
+          var effectiveAge = k.age - dist * 1.5;
+          if (effectiveAge < 0) continue;
+          var fadeIn = Math.min(1, effectiveAge / 4);
+          var fadeOut = Math.min(1, (k.maxAge - k.age) / 10);
+          var noise = 0.72 + 0.28 * Math.sin(c2 * 7.3 + r2 * 4.1 + k.seed + t * 6);
+          val = Math.max(val, fadeIn * fadeOut * noise * 0.88);
+        }
+        return val;
       }
     };
     var fn = MODES[mode];
@@ -1123,7 +1176,9 @@ var _TensixVizBundle = (() => {
       wrapper.appendChild(label);
       container.appendChild(wrapper);
       self._cardEls.push(wrapper);
-      const card = new CardViz(wrapper, cardName);
+      const cardContainer = document.createElement("div");
+      wrapper.appendChild(cardContainer);
+      const card = new CardViz(cardContainer, cardName);
       self._cards.push(card);
       if (i < topo.cards.length - 1 && topo.inter_links && topo.inter_links.length) {
         const link = document.createElement("div");

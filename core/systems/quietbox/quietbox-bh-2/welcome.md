@@ -710,11 +710,11 @@ canvas.qb2-chip-canvas {
      replace the previous hand-written step arrays.
 
      Mode mapping:
-       chat    → 'inference'   teal column sweep (token generation)
-       video   → 'diffusion'   pink expanding ring (denoising timestep)
-       agents  → 'agents'      purple burst clusters (tool-call dispatch)
-       hack    → 'explore'     gold sinusoidal field (kernel dispatch stand-in)
-       explore → 'explore'     gold sinusoidal field (Particle Life)
+       chat    → 'inference'        teal column sweep (token generation)
+       video   → 'diffusion'        pink expanding ring (denoising timestep)
+       agents  → 'agents'           purple burst clusters (tool-call dispatch)
+       hack    → 'kernel_dispatch'  orange rect grids lighting up across the mesh
+       explore → 'explore'          gold sinusoidal field (Particle Life)
   ------------------------------------------------------------------ */
 
   /* tensix-viz activate() mode names for each intent card */
@@ -722,7 +722,7 @@ canvas.qb2-chip-canvas {
     chat:    'inference',
     video:   'diffusion',
     agents:  'agents',
-    hack:    'explore',
+    hack:    'kernel_dispatch',
     explore: 'explore'
   };
 
