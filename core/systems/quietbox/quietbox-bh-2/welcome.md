@@ -358,11 +358,11 @@ canvas.qb2-chip-canvas {
         <div class="qb2-chip-pair">
           <div class="qb2-chip-wrap">
             <span class="qb2-chip-label">BH&middot;0</span>
-            <canvas class="qb2-chip-canvas" id="qb2Canvas0" width="238" height="108"></canvas>
+            <canvas class="qb2-chip-canvas" id="qb2Canvas0" width="248" height="168"></canvas>
           </div>
           <div class="qb2-chip-wrap">
             <span class="qb2-chip-label">BH&middot;1</span>
-            <canvas class="qb2-chip-canvas" id="qb2Canvas1" width="238" height="108"></canvas>
+            <canvas class="qb2-chip-canvas" id="qb2Canvas1" width="248" height="168"></canvas>
           </div>
         </div>
       </div>
@@ -380,11 +380,11 @@ canvas.qb2-chip-canvas {
         <div class="qb2-chip-pair">
           <div class="qb2-chip-wrap">
             <span class="qb2-chip-label">BH&middot;2</span>
-            <canvas class="qb2-chip-canvas" id="qb2Canvas2" width="238" height="108"></canvas>
+            <canvas class="qb2-chip-canvas" id="qb2Canvas2" width="248" height="168"></canvas>
           </div>
           <div class="qb2-chip-wrap">
             <span class="qb2-chip-label">BH&middot;3</span>
-            <canvas class="qb2-chip-canvas" id="qb2Canvas3" width="238" height="108"></canvas>
+            <canvas class="qb2-chip-canvas" id="qb2Canvas3" width="248" height="168"></canvas>
           </div>
         </div>
       </div>
