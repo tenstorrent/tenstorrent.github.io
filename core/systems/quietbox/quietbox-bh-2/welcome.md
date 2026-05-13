@@ -191,15 +191,12 @@ canvas.qb2-chip-canvas {
 .qb2-chip-widget.mode-agents  { border-color: #9370db; }
 .qb2-chip-widget.mode-explore { border-color: #f4c471; }
 
-/* ---------- intent grid (2x2) ---------- */
+/* ---------- intent cards (stacked) ---------- */
 .qb2-intent-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   margin-bottom: 28px;
-}
-@media (max-width: 640px) {
-  .qb2-intent-grid { grid-template-columns: 1fr; }
 }
 
 .qb2-intent-card {
