@@ -247,26 +247,35 @@ canvas.qb2-chip-canvas {
 }
 .qb2-intent-row {
   display: flex;
-  gap: 8px;
-  padding: 4px 0;
-  align-items: baseline;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 3px;
+  padding: 6px 0;
 }
 .qb2-intent-row + .qb2-intent-row {
-  border-top: 1px solid rgba(0,0,0,0.10);
+  border-top: 1px solid rgba(0,0,0,0.08);
 }
 .qb2-intent-label {
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: #6a7888;
+  font-size: 0.67rem;
+  font-weight: 700;
+  color: #8a9bb0;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  min-width: 68px;
-  flex-shrink: 0;
+  letter-spacing: 0.07em;
 }
 .qb2-intent-val {
   font-size: 0.8rem;
   color: #2a3a4a;
+  line-height: 1.4;
+}
+/* subtle deep links — inherit color, dotted underline that strengthens on hover */
+.qb2-intent-val a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(0,0,0,0.22);
+}
+.qb2-intent-val a:hover {
+  text-decoration-color: rgba(0,0,0,0.55);
 }
 .qb2-perf {
   font-family: "Ubuntu Mono", "Fira Mono", monospace;
@@ -433,27 +442,19 @@ canvas.qb2-chip-canvas {
       <p class="qb2-intent-tagline">Private LLM inference &mdash; 32B &amp; 70B scale</p>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Start here</span>
-        <span class="qb2-intent-val">TT-Studio &mdash; browser UI, one-click model deploy, pre-installed</span>
+        <span class="qb2-intent-val"><a href="https://github.com/tenstorrent/tt-studio" target="_blank" rel="noopener">TT-Studio</a> &mdash; browser UI, one-click model deploy, pre-installed</span>
       </div>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Models</span>
-        <span class="qb2-intent-val">Llama-3.3-70B <span class="qb2-perf">~14s/response</span></span>
-      </div>
-      <div class="qb2-intent-row">
-        <span class="qb2-intent-label"></span>
-        <span class="qb2-intent-val">Llama-3.1-8B <span class="qb2-perf">fast</span></span>
-      </div>
-      <div class="qb2-intent-row">
-        <span class="qb2-intent-label"></span>
-        <span class="qb2-intent-val"><a href="https://developer.tenstorrent.com/" target="_blank" rel="noopener">developer.tenstorrent.com ↗</a> &mdash; live model catalog</span>
+        <span class="qb2-intent-val">Llama-3.3-70B <span class="qb2-perf">~14s/response</span> &middot; Llama-3.1-8B <span class="qb2-perf">fast</span> &middot; <a href="https://developer.tenstorrent.com/" target="_blank" rel="noopener">full catalog ↗</a></span>
       </div>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">API</span>
-        <span class="qb2-intent-val">TT-Inference-Server &mdash; OpenAI-compatible endpoint, pre-installed</span>
+        <span class="qb2-intent-val"><a href="https://github.com/tenstorrent/tt-inference-server" target="_blank" rel="noopener">TT-Inference-Server</a> &mdash; OpenAI-compatible endpoint, pre-installed</span>
       </div>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Monitor</span>
-        <span class="qb2-intent-val">TT-Toplike &mdash; watch cores during inference</span>
+        <span class="qb2-intent-val"><a href="https://docs.tenstorrent.com/tt-toplike/" target="_blank" rel="noopener">TT-Toplike</a> &mdash; watch cores during inference</span>
       </div>
       <div class="qb2-lesson-area">
         <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/coding-assistant/">&#8594; Coding Assistant with Aider</a>
@@ -467,11 +468,11 @@ canvas.qb2-chip-canvas {
       <p class="qb2-intent-tagline">Text-to-video, image-to-video, stills</p>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Start here</span>
-        <span class="qb2-intent-val">TT-Studio &mdash; deploy any model with one click, pre-installed</span>
+        <span class="qb2-intent-val"><a href="https://github.com/tenstorrent/tt-studio" target="_blank" rel="noopener">TT-Studio</a> &mdash; deploy any model with one click, pre-installed</span>
       </div>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Gallery</span>
-        <span class="qb2-intent-val">TT-Local-Generator &mdash; queue, gallery, TT-TV kiosk mode</span>
+        <span class="qb2-intent-val"><a href="https://docs.tenstorrent.com/tt-local-generator/" target="_blank" rel="noopener">TT-Local-Generator</a> &mdash; queue, gallery, TT-TV kiosk mode</span>
       </div>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Video</span>
@@ -523,22 +524,23 @@ canvas.qb2-chip-canvas {
       <p class="qb2-intent-tagline">There&rsquo;s a real computer in here &mdash; boot Linux, write kernels</p>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Boot</span>
-        <span class="qb2-intent-val">tt-bh-linux &mdash; run Linux on 16 RISC-V cores inside the chip</span>
+        <span class="qb2-intent-val"><a href="https://github.com/tenstorrent/tt-bh-linux" target="_blank" rel="noopener">tt-bh-linux</a> &mdash; run Linux on 16 RISC-V cores inside the chip</span>
       </div>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Demos</span>
-        <span class="qb2-intent-val">Mandelbrot fractal &middot; Conway&rsquo;s Game of Life &middot; Zork on TT hardware</span>
+        <span class="qb2-intent-val">Conway&rsquo;s Game of Life &middot; <a href="https://github.com/tsingletaryTT/tt-zork-and-more" target="_blank" rel="noopener">Zork on TT hardware</a></span>
       </div>
       <div class="qb2-intent-row">
-        <span class="qb2-intent-label">Metal</span>
-        <span class="qb2-intent-val">TT-Metalium &mdash; write C++ kernels, dispatch across 480 Tensix cores</span>
+        <span class="qb2-intent-label">Kernels</span>
+        <span class="qb2-intent-val"><a href="https://github.com/tenstorrent/tt-lang" target="_blank" rel="noopener">tt-lang</a> &mdash; Python DSL for Tensix kernels &middot; <a href="https://github.com/tenstorrent/tt-metal" target="_blank" rel="noopener">TT-Metalium</a> &mdash; C++ dispatch</span>
       </div>
       <div class="qb2-intent-row">
-        <span class="qb2-intent-label">Bare metal</span>
-        <span class="qb2-intent-val">tt-tiny &mdash; George Hotz&rsquo;s minimal Python exploration of the chip</span>
+        <span class="qb2-intent-label">Explore</span>
+        <span class="qb2-intent-val"><a href="https://github.com/geohot/tt-tiny" target="_blank" rel="noopener">tt-tiny</a> &mdash; George Hotz&rsquo;s minimal bare-metal Python exploration</span>
       </div>
       <div class="qb2-lesson-area">
         <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cookbook-game-of-life/">&#8594; Cookbook: Game of Life</a>
+        <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/tt-lang-intro/">&#8594; Intro to tt-lang</a>
       </div>
     </div>
 
@@ -549,7 +551,7 @@ canvas.qb2-chip-canvas {
       <p class="qb2-intent-tagline">TT-Toplike, Particle Life, TT-Metalium</p>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Watch</span>
-        <span class="qb2-intent-val">TT-Toplike &mdash; Starfield, Memory Castle, Memory Flow, Arcade</span>
+        <span class="qb2-intent-val"><a href="https://docs.tenstorrent.com/tt-toplike/" target="_blank" rel="noopener">TT-Toplike</a> &mdash; Starfield, Memory Castle, Memory Flow, Arcade</span>
       </div>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Run</span>
@@ -557,11 +559,11 @@ canvas.qb2-chip-canvas {
       </div>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Compile</span>
-        <span class="qb2-intent-val">TT-Forge &mdash; bring any PyTorch or ONNX model to the hardware, 100+ supported</span>
+        <span class="qb2-intent-val"><a href="https://github.com/tenstorrent/tt-forge" target="_blank" rel="noopener">TT-Forge</a> &mdash; bring any PyTorch or ONNX model to the hardware, 100+ supported</span>
       </div>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Program</span>
-        <span class="qb2-intent-val">TT-Metalium &mdash; C++ kernels on RISC-V cores in the 2D mesh</span>
+        <span class="qb2-intent-val"><a href="https://github.com/tenstorrent/tt-metal" target="_blank" rel="noopener">TT-Metalium</a> &mdash; C++ kernels on RISC-V cores in the 2D mesh</span>
       </div>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Lessons</span>
@@ -569,7 +571,7 @@ canvas.qb2-chip-canvas {
       </div>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Train</span>
-        <span class="qb2-intent-val">TT-Blacksmith &mdash; fine-tune or train from scratch on 4&times; Blackhole</span>
+        <span class="qb2-intent-val"><a href="https://docs.tenstorrent.com/tt-blacksmith/" target="_blank" rel="noopener">TT-Blacksmith</a> &mdash; fine-tune or train from scratch on 4&times; Blackhole</span>
       </div>
       <div class="qb2-lesson-area">
         <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cs-fundamentals-01-computer/">&#8594; CS Fundamentals</a>
