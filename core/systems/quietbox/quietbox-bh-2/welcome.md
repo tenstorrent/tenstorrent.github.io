@@ -568,6 +568,10 @@ canvas.qb2-chip-canvas {
         <span class="qb2-intent-val"><a href="https://github.com/tenstorrent/tt-metal" target="_blank" rel="noopener">TT-Metalium</a> &mdash; C++ kernels on RISC-V cores in the 2D mesh</span>
       </div>
       <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Discover</span>
+        <span class="qb2-intent-val"><a href="https://docs.tenstorrent.com/tt-awesome" target="_blank" rel="noopener">TT-Awesome</a> &mdash; community apps, demos, libraries, and write-ups</span>
+      </div>
+      <div class="qb2-intent-row">
         <span class="qb2-intent-label">Lessons</span>
         <span class="qb2-intent-val">CS Fundamentals series &middot; Particle Life walkthrough</span>
       </div>
