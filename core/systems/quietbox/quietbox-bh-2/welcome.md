@@ -691,7 +691,11 @@ canvas.qb2-chip-canvas {
   /* Expose shared state for the card click handler defined below */
   window._qb2Viz = {
     activate: function(mode) {
-      vizInstances.forEach(function(viz) { if (viz) viz.activate(mode); });
+      vizInstances.forEach(function(viz, i) {
+        if (!viz) return;
+        try { viz.activate(mode); }
+        catch (err) { console.error('[qb2] chip ' + i + ' activate("' + mode + '") failed:', err); }
+      });
     },
     getMode: function() { return currentMode; },
     setMode: function(m) { currentMode = m; }
