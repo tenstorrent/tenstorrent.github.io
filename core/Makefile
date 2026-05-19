@@ -12,21 +12,40 @@ SPHINXOPTS    ?=
 SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = .
 BUILDDIR      = _build
+# Same layout as `make html` (sphinx -M html writes HTML under $(BUILDDIR)/html/).
+WEBROOT       = $(BUILDDIR)/html
+
+HOST          ?= 127.0.0.1
+PORT          ?= 3000
+SERVE_PORT    ?= 8766
 
 # Put it first so that "make" without argument is like "make help".
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-# Development (watch): build the documentation and watch for changes.
-# Uses repo-root .venv so `sphinx-autobuild` does not need to be on PATH.
-# Served on port 3000 — http://127.0.0.1:3000/
+# Development (watch): sphinx-autobuild. Run from core/: cd core && make watch
 watch:
 	@test -x "$(VENV_PY)" || (echo "Missing $(VENV_PY) — run: cd \"$(REPO_ROOT)\" && python3 -m venv .venv && .venv/bin/pip install -r requirements.txt" >&2; exit 1)
-	@"$(VENV_PY)" -m sphinx_autobuild "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O) --port 3000 --host 127.0.0.1 --watch "$(REPO_ROOT)/shared" --open-browser
+	@echo ""
+	@echo "Preview: http://$(HOST):$(PORT)/forge/index.html"
+	@echo ""
+	@"$(VENV_PY)" -m sphinx_autobuild "$(SOURCEDIR)" "$(WEBROOT)" $(SPHINXOPTS) $(O) \
+		--port $(PORT) --host $(HOST) \
+		--watch "$(REPO_ROOT)/shared" \
+		--watch "$(REPO_ROOT)/syseng"
 
-.PHONY: help Makefile
+# One-shot HTML build + stdlib HTTP server (no live reload).
+serve:
+	@test -x "$(VENV_PY)" || (echo "Missing $(VENV_PY) — run: cd \"$(REPO_ROOT)\" && python3 -m venv .venv && .venv/bin/pip install -r requirements.txt" >&2; exit 1)
+	@"$(VENV_PY)" -m sphinx -M html "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+	@echo ""
+	@echo "Serving: http://$(HOST):$(SERVE_PORT)/forge/index.html"
+	@echo ""
+	@cd "$(WEBROOT)" && "$(VENV_PY)" -m http.server $(SERVE_PORT) --bind $(HOST)
+
+.PHONY: help Makefile watch serve
 
 # Catch-all target: route all unknown targets to Sphinx using the new
-# "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
+# `make mode` option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 %: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
