@@ -94,7 +94,7 @@ The Power Supply Unit (PSU) on the TT-QuietBox 2 is rated to draw up to 1600W of
 
 ## **Internal Topology**
 
-The TT-QuietBox 2 is enabled by two Tenstorrent Blackhole cards, which are connected internally with a Samtec ARP6 series High Performance cable. The below topology is pre-installed by Tenstorrent, and is here for your reference.
+The TT-QuietBox 2 is enabled by two Tenstorrent {doc}`Blackhole p300c cards </aibs/blackhole/p300>`, which are connected internally with a Samtec ARP6 series High Performance cable. The below topology is pre-installed by Tenstorrent, and is here for your reference. 
 
 ```{figure} ./qb2-topology.jpg
 :width: 65%
