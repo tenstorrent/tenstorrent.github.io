@@ -29,6 +29,7 @@ Tenstorrent
 
    forge/index
    TT-Metalium <https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/index.html>
+   TT-Lang <https://docs.tenstorrent.com/tt-lang/>
    TT-NN <https://docs.tenstorrent.com/tt-metal/latest/ttnn/index.html>
    Manual Software Installation <getting-started/manual-software-install>
    tools/index
