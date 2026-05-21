@@ -1,4 +1,4 @@
-TT-Forge
+TT-Forge™
 =======================================
 
 TT-Forge is Tenstorrent's end-to-end compiler stack. 
