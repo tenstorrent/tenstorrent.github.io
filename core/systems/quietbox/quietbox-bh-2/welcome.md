@@ -354,6 +354,15 @@ canvas.qb2-chip-canvas {
   color: #546070;
 }
 .qb2-note-bar a { color: #2a6a9b; }
+
+/* ---------- intro paragraph ---------- */
+.qb2-welcome .qb2-intro {
+  font-size: 0.95rem;
+  color: #2a3a4a;
+  line-height: 1.65;
+  margin: 0 0 20px 0;
+}
+.qb2-welcome .qb2-intro a { color: #007acc; }
 </style>
 
 <div class="qb2-welcome">
@@ -361,6 +370,9 @@ canvas.qb2-chip-canvas {
   <!-- ===== PAGE HEADING ===== -->
   <h1 class="qb2-page-title">Welcome to Your TT-QuietBox 2</h1>
   <p class="qb2-page-sub">Four Blackhole chips &middot; 480 Tensix cores &middot; 128 GB GDDR6 &middot; no API keys required</p>
+
+  <!-- ===== INTRO ===== -->
+  <p class="qb2-intro">You've powered it on, verified the chips, and changed the default password. The <a href="setup.html">setup guide</a> got you here &mdash; this page continues your adventure. The TT-QuietBox 2 is yours: no API keys to manage, no requests-per-minute limits, and no logs leaving your network on the way to inference. Whatever you run stays between you and the hardware.</p>
 
   <!-- ===== CTA ROW ===== -->
   <div class="qb2-cta-row">
@@ -379,7 +391,7 @@ canvas.qb2-chip-canvas {
       &#128218; Browse all lessons
     </a>
     <a class="qb2-cta-btn qb2-cta-btn-outline"
-       href="/systems/quietbox/quietbox-bh-2/setup">
+       href="setup.html">
       &#128203; Setup guide
     </a>
   </div>
@@ -649,7 +661,7 @@ canvas.qb2-chip-canvas {
   <!-- ===== NOTE BAR ===== -->
   <div class="qb2-note-bar">
     <strong>Hardware setup not finished?</strong> Start with the
-    <a href="/systems/quietbox/quietbox-bh-2/setup">setup guide</a> &mdash; unboxing, first login, verifying chips with tt-smi, and launching your first model.
+    <a href="setup.html">setup guide</a> &mdash; unboxing, first login, verifying chips with tt-smi, and launching your first model.
     Need help? <a href="https://tenstorrent.com/support">Raise a support request.</a>
   </div>
   <div class="qb2-note-bar" style="margin-top:8px;opacity:.8">
