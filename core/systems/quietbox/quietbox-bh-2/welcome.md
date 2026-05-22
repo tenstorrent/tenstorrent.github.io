@@ -372,7 +372,7 @@ canvas.qb2-chip-canvas {
   <p class="qb2-page-sub">Four Blackhole chips &middot; 480 Tensix cores &middot; 128 GB GDDR6 &middot; no API keys required</p>
 
   <!-- ===== INTRO ===== -->
-  <p class="qb2-intro">You've powered it on, verified the chips, and changed the default password. The <a href="setup.html">setup guide</a> got you here &mdash; this page continues your adventure. The TT-QuietBox 2 is yours: no API keys to manage, no requests-per-minute limits, and no logs leaving your network on the way to inference. Whatever you run stays between you and the hardware.</p>
+  <p class="qb2-intro">From open source models to local agents to custom kernels and infinite generative art. Welcome to your TT-QuietBox 2.</p>
 
   <!-- ===== CTA ROW ===== -->
   <div class="qb2-cta-row">
