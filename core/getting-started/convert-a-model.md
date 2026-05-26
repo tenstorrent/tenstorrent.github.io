@@ -115,7 +115,7 @@ export PYTHONPATH=.
 python demos/tt-xla/cnn/resnet_demo.py
 ```
 
-If everything is configured correctly, the model predicts the contents of a sample image and prints a label with a confidence score. You can browse the full set of bundled conversions in [`demos/tt-xla`](https://github.com/tenstorrent/tt-forge/tree/main/demos/tt-xla) (CNN and NLP models for both PyTorch and JAX).
+If everything is configured correctly, the script compiles and runs six ResNet variants (ResNet-18/34/50/101/152 plus a TIMM ResNet-50) end-to-end on device, then exits 0. The script prints extensive compiler and runtime logs followed by a `============` separator per variant; the final separator marks the end of the last variant. (The demo runs `output_postprocess` on the result but does not print the predicted class — passing the postprocess step is itself the correctness signal.) You can browse the full set of bundled conversions in [`demos/tt-xla`](https://github.com/tenstorrent/tt-forge/tree/main/demos/tt-xla) (CNN and NLP models for both PyTorch and JAX).
 
 ## Step 4: Choose an Optimization Level
 
