@@ -164,9 +164,11 @@ tokenizer = AutoTokenizer.from_pretrained(model_id)
 model = AutoModelForCausalLM.from_pretrained(model_id, torch_dtype=torch.bfloat16)
 model.eval()
 
-# 3. Compile for Tenstorrent. This is the conversion step — the graph is lowered
-#    through TT-MLIR to TT-Metalium on the first forward pass.
-compiled_model = torch.compile(model, backend="tt")
+# 3. Compile for Tenstorrent, and move the compiled model to the device.
+#    The actual lowering through TT-MLIR to TT-Metalium happens on the first
+#    forward pass; `.to(device)` is required up front so the model's weights
+#    and inputs live on the same device when dynamo traces the graph.
+compiled_model = torch.compile(model, backend="tt").to(device)
 
 # 4. Move inputs to the device and run inference.
 inputs = tokenizer("The capital of France is", return_tensors="pt")
