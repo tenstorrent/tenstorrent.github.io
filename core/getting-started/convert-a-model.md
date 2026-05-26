@@ -89,21 +89,23 @@ cd tt-forge
 git submodule update --init --recursive
 ```
 
-The ResNet demo loads its image-classification model through `torchvision`, which is not pulled in by `pjrt-plugin-tt`. Install it into the same environment, but use `--no-deps` so pip does not replace the `torch` build that TT-XLA was compiled against:
+The ResNet demo loads its model through `torchvision` and `timm`, postprocesses results with `transformers`, and loads sample images with `datasets` — none of which are pulled in by `pjrt-plugin-tt`. Install them with `--no-deps` so pip does not replace the `torch` build that TT-XLA was compiled against, then install the lightweight transitive dependencies they actually need at runtime:
 
 ```bash
-pip install torchvision --no-deps
+pip install --no-deps torchvision transformers==4.57.1 datasets timm tabulate
+pip install huggingface_hub 'tokenizers>=0.22,<=0.23.0' safetensors regex \
+            pyyaml pyarrow dill multiprocess xxhash
 ```
 
 :::{admonition} If you see an `_XLAC` undefined-symbol ImportError
 :class: warning
-If running the demo (or any conversion) fails with `ImportError: .../_XLAC.cpython-312-x86_64-linux-gnu.so: undefined symbol: _ZNR5torch7Library4_def...`, `torchvision` (or another package) has upgraded `torch` to a build whose C++ ABI no longer matches the `torch_xla` shipped in `pjrt-plugin-tt`. Reinstall the matching versions:
+If running the demo (or any conversion) fails with `ImportError: .../_XLAC.cpython-312-x86_64-linux-gnu.so: undefined symbol: _ZNR5torch7Library4_def...`, one of the packages above has upgraded `torch` to a build whose C++ ABI no longer matches the `torch_xla` shipped in `pjrt-plugin-tt`. Reinstall the matching versions:
 
 ```bash
 pip install --force-reinstall --no-deps pjrt-plugin-tt --extra-index-url https://pypi.eng.aws.tenstorrent.com/
 ```
 
-Then reinstall `torchvision` with `--no-deps` as shown above.
+Then reinstall the demo packages with `--no-deps` as shown above.
 :::
 
 From the repository root, run the demo:
