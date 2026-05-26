@@ -231,6 +231,11 @@ codegen_output/
 └── tensors/          # Serialized model weights and inputs (if export_tensors is True)
 ```
 
+:::{admonition} `main.py` / `main.cpp` generation requires `tt-alchemist`
+:class: warning
+The `irs/` dump above is always produced. Generating `main.py`, `main.cpp`, `run`, and `tensors/` additionally requires the `tt-alchemist` codegen runtime. With the released `pjrt-plugin-tt` wheel (1.1.0 as of writing) the forward pass raises `ValueError: Error code: 13` with `module_builder.cc: ERR| tt-alchemist library or functions not available`, even though `lib64/libtt-alchemist-python-runner.so` is present in the wheel — the runtime hookup is not yet wired up in that release. Use the IRs in `irs/` to inspect what the compiler decided, and follow the [TT-XLA Code Generation Guide](https://docs.tenstorrent.com/tt-xla/getting_started_codegen.html) for a source-build path that produces the full output.
+:::
+
 `main.py` is where the interesting reading happens — every `ttnn.matmul`, `ttnn.add`, layout conversion, and shard placement the compiler chose is spelled out as a regular TT-NN call. The `irs/` directory shows the same graph at four levels of lowering:
 
 | File             | What it represents                                              |
