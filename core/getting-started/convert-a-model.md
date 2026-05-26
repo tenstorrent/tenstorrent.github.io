@@ -1,14 +1,14 @@
 ---
 myst:
   html_meta:
-    product-name: TT-Forge™, TT-XLA, TT-Forge-ONNX, TT-MLIR, TT-Metalium™
-    technology-concepts: model compilation, PyTorch, JAX, ONNX, torch.compile, PJRT, bfloat16, PCC
+    product-name: TT-Forge™, TT-XLA, TT-Forge-ONNX, TT-MLIR, TT-Metalium™, TT-NN™
+    technology-concepts: model compilation, PyTorch, JAX, ONNX, torch.compile, PJRT, bfloat16, optimization levels, TT-NN code generation
     document-type: how-to
 ---
 
 # Converting a Model
 
-This guide is for developers who want to take their own model — written in PyTorch, JAX, or ONNX — and run it on Tenstorrent hardware. You will learn how [TT-Forge™](https://github.com/tenstorrent/tt-forge) fits together, how to install a frontend, how to run a ready-made conversion to confirm your setup works, and how to convert and validate your own model.
+This guide is for developers who want to take their own model — written in PyTorch, JAX, or ONNX — and run it on Tenstorrent hardware. You will install a [TT-Forge™](https://github.com/tenstorrent/tt-forge) frontend, run a ready-made conversion to confirm your setup works, convert your own model, and (optionally) lower it to standalone TT-NN code.
 
 TT-Forge is Tenstorrent's graph-compiler stack. You hand it a model from a standard framework, and it lowers that model through a common intermediate representation ([TT-MLIR](https://github.com/tenstorrent/tt-mlir)) down to [TT-Metalium™](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/index.html), which dispatches the work to your Wormhole™ or Blackhole™ card. You do not rewrite the model — you compile it.
 
@@ -115,7 +115,7 @@ export PYTHONPATH=.
 python demos/tt-xla/cnn/resnet_demo.py
 ```
 
-If everything is configured correctly, the script compiles and runs six ResNet variants (ResNet-18/34/50/101/152 plus a TIMM ResNet-50) end-to-end on device, then exits 0. The script prints extensive compiler and runtime logs followed by a `============` separator per variant; the final separator marks the end of the last variant. (The demo runs `output_postprocess` on the result but does not print the predicted class — passing the postprocess step is itself the correctness signal.) You can browse the full set of bundled conversions in [`demos/tt-xla`](https://github.com/tenstorrent/tt-forge/tree/main/demos/tt-xla) (CNN and NLP models for both PyTorch and JAX).
+The script compiles and runs six ResNet variants (ResNet-18/34/50/101/152 plus a TIMM ResNet-50) on device, printing a `============` separator after each one. The demo does not print a class label — completing all six runs without error is itself the success signal. You can browse the full set of bundled conversions in [`demos/tt-xla`](https://github.com/tenstorrent/tt-forge/tree/main/demos/tt-xla) (CNN and NLP models for both PyTorch and JAX).
 
 ## Step 4: Choose an Optimization Level
 
@@ -146,7 +146,7 @@ Bring the model up at level `"0"` so failures are easy to diagnose, then jump to
 
 ## Step 5: Convert Your Own Model
 
-Converting an arbitrary PyTorch model comes down to four changes: select the TT runtime, cast the model to `bfloat16`, compile it with the `tt` backend, and move the inputs to the device. The example below converts any [Hugging Face](https://huggingface.co) causal-LM, but the same pattern applies to your own `nn.Module`.
+Converting an arbitrary PyTorch model comes down to four changes: select the TT runtime, cast the model to `bfloat16`, compile with the `tt` backend and move the result onto the device, then move the inputs to the device. The example below uses a [Hugging Face](https://huggingface.co) causal-LM; the same pattern applies to your own `nn.Module`.
 
 ```python
 import torch
@@ -154,23 +154,16 @@ import torch_xla.core.xla_model as xm
 import torch_xla.runtime as xr
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-# 1. Point the XLA runtime at the Tenstorrent device.
 xr.set_device_type("TT")
 device = xm.xla_device()
 
-# 2. Load any model and cast it to bfloat16 (the recommended default precision).
 model_id = "meta-llama/Llama-3.2-1B"
 tokenizer = AutoTokenizer.from_pretrained(model_id)
 model = AutoModelForCausalLM.from_pretrained(model_id, torch_dtype=torch.bfloat16)
 model.eval()
 
-# 3. Compile for Tenstorrent, and move the compiled model to the device.
-#    The actual lowering through TT-MLIR to TT-Metalium happens on the first
-#    forward pass; `.to(device)` is required up front so the model's weights
-#    and inputs live on the same device when dynamo traces the graph.
 compiled_model = torch.compile(model, backend="tt").to(device)
 
-# 4. Move inputs to the device and run inference.
 inputs = tokenizer("The capital of France is", return_tensors="pt")
 input_ids = inputs["input_ids"].to(device)
 
@@ -182,7 +175,7 @@ with torch.no_grad():
 
 :::{admonition} Compilation is lazy and cached
 :class: note
-`torch.compile(model, backend="tt")` does not compile immediately. The graph is compiled on the **first** forward pass and cached, so the first iteration is always slow (full compilation, weight transfer, and kernel compilation). Warm up with a few iterations before measuring anything.
+`torch.compile(model, backend="tt")` does not compile immediately — the lowering through TT-MLIR to TT-Metalium happens on the **first** forward pass and is cached afterwards. The first iteration is therefore always slow; warm up with a few iterations before measuring anything.
 :::
 
 :::{admonition} Always cast to bfloat16
@@ -194,13 +187,11 @@ Once the model runs, the next questions are usually *is the output numerically c
 
 ## Step 6: Generate TT-NN Code (Optional)
 
-TT-XLA can lower the same compiled graph to standalone source code that calls the [TT-NN](https://docs.tenstorrent.com/tt-metal/latest/ttnn/index.html) API directly — either Python or C++. Reach for this when you want to:
+TT-XLA can lower the same compiled graph to standalone source that calls the [TT-NN](https://docs.tenstorrent.com/tt-metal/latest/ttnn/index.html) API directly — either Python or C++. Reach for this when you want to:
 
-* **Read what the compiler decided.** The generated Python is a direct, human-readable transcript of the TT-NN calls the runtime would otherwise issue. It is the best way to see what TT-XLA actually compiled your model into.
-* **Ship without the toolchain.** The generated C++ only depends on the TT-NN library — no Python, no XLA, no PJRT plugin at runtime.
+* **Read what the compiler decided.** The intermediate representations and the generated Python are a direct, human-readable record of how your model was lowered.
+* **Ship without the toolchain.** The generated C++ depends only on the TT-NN library — no Python, no XLA, no PJRT plugin at runtime.
 * **Separate compile from execute.** Compile once on a workstation, run elsewhere from the emitted artifact.
-
-If you only want to run the model from Python on a device you control, you can skip this step — codegen is not needed.
 
 | Backend         | Language    | Standalone               | Use it for                                  |
 | :-------------- | :---------- | :----------------------- | :------------------------------------------ |
@@ -219,9 +210,9 @@ torch_xla.set_custom_compile_options({
 })
 ```
 
-By default the compiler also exports the real model weights and inputs into `<export_path>/tensors/` so the generated code runs against the same data your PyTorch model saw. Set `"export_tensors": False` if you want the generated code to use placeholder `ttnn.ones` instead — useful for sharing the output without shipping the weights.
+By default the compiler also exports the real model weights and inputs into `<export_path>/tensors/` so the generated code runs against the same data your PyTorch model saw. Set `"export_tensors": False` if you want placeholder `ttnn.ones` inputs instead — useful for sharing the output without shipping weights.
 
-Re-run the conversion script from Step 5 with the option above in place. Code generation happens during the first forward pass — the same place ordinary compilation happens — and the source files are written to `<export_path>/`:
+Re-run the conversion script from Step 5 with the option above in place. Code generation happens during the first forward pass — the same place ordinary compilation happens — and writes the following layout under `<export_path>/`:
 
 ```
 codegen_output/
@@ -231,12 +222,7 @@ codegen_output/
 └── tensors/          # Serialized model weights and inputs (if export_tensors is True)
 ```
 
-:::{admonition} `main.py` / `main.cpp` generation requires `tt-alchemist`
-:class: warning
-The `irs/` dump above is always produced. Generating `main.py`, `main.cpp`, `run`, and `tensors/` additionally requires the `tt-alchemist` codegen runtime. With the released `pjrt-plugin-tt` wheel (1.1.0 as of writing) the forward pass raises `ValueError: Error code: 13` with `module_builder.cc: ERR| tt-alchemist library or functions not available`, even though `lib64/libtt-alchemist-python-runner.so` is present in the wheel — the runtime hookup is not yet wired up in that release. Use the IRs in `irs/` to inspect what the compiler decided, and follow the [TT-XLA Code Generation Guide](https://docs.tenstorrent.com/tt-xla/getting_started_codegen.html) for a source-build path that produces the full output.
-:::
-
-`main.py` is where the interesting reading happens — every `ttnn.matmul`, `ttnn.add`, layout conversion, and shard placement the compiler chose is spelled out as a regular TT-NN call. The `irs/` directory shows the same graph at four levels of lowering:
+The `irs/` directory is always produced and is the artifact to read when you want to know what the compiler decided. It contains the same graph at four levels of lowering:
 
 | File             | What it represents                                              |
 | :--------------- | :-------------------------------------------------------------- |
@@ -245,7 +231,12 @@ The `irs/` dump above is always produced. Generating `main.py`, `main.cpp`, `run
 | `ttir*.mlir`     | TT Intermediate Representation — hardware-agnostic tensor IR    |
 | `ttnn*.mlir`     | TTNN dialect — the backend-specific IR the codegen reads from   |
 
-For `codegen_py`, run the bundled `./run` script from inside the export directory to execute `main.py` on device against the exported tensors. For `codegen_cpp`, compile `main.cpp` against the TT-NN library and link it into your application — the generated headers and source contain everything needed to reconstruct the graph and invoke it.
+:::{admonition} `main.py` / `main.cpp` generation requires `tt-alchemist`
+:class: warning
+Generating `main.py`, `main.cpp`, and the bundled `run` script additionally requires the `tt-alchemist` codegen runtime, which is not yet enabled in the released `pjrt-plugin-tt` wheel. If the forward pass fails with `tt-alchemist library or functions not available`, use the IRs in `irs/` to inspect the compiler output, and follow the [TT-XLA Code Generation Guide](https://docs.tenstorrent.com/tt-xla/getting_started_codegen.html) for the source-build path that produces the full output.
+:::
+
+When the full output is produced, `main.py` spells out every `ttnn.matmul`, `ttnn.add`, layout conversion, and shard placement the compiler chose as a regular TT-NN call. Run the bundled `./run` script from inside the export directory to execute it on device. For `codegen_cpp`, compile `main.cpp` against the TT-NN library and link it into your application.
 
 :::{note}
 The JAX path is the same shape — pass the dict via `jax.jit(forward, compiler_options={...})`. See the [TT-XLA Code Generation Guide](https://docs.tenstorrent.com/tt-xla/getting_started_codegen.html) for the JAX example and advanced serialization options.

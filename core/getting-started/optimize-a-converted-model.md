@@ -167,9 +167,9 @@ A successful run prints the computed tensor and the expected tensor and passes i
 
 The single-tile version uses one Tensix core and synchronizes once per tile. The bundled tutorial continues with steps that scale the same operation up — and these are the techniques that turn a correct kernel into a fast one:
 
-* **Step 2 — multi-tile blocks:** group tiles into larger blocks so each transfer and compute iteration covers a patch of tiles, amortizing synchronization overhead.
-* **Step 3 — multi-node grid:** parallelize across a fixed grid of cores (e.g. `grid=(4, 4)`), with each core handling a region of the tensor.
-* **Step 4 — auto grid:** use `grid="auto"` to let the compiler pick the largest grid that fits, with bounds-checking for tensors that do not divide evenly.
+* **`step_2_*` — multi-tile blocks:** group tiles into larger blocks so each transfer and compute iteration covers a patch of tiles, amortizing synchronization overhead.
+* **`step_3_*` — multi-node grid:** parallelize across a fixed grid of cores (e.g. `grid=(4, 4)`), with each core handling a region of the tensor.
+* **`step_4_*` — auto grid:** use `grid="auto"` to let the compiler pick the largest grid that fits, with bounds-checking for tensors that do not divide evenly.
 
 Work through them in order in the [elementwise tutorial](https://github.com/tenstorrent/tt-lang/tree/main/examples/elementwise-tutorial). For a fused matmul (`relu(a @ b + c)`) that scales to multiple devices, see the [matmul tutorial](https://github.com/tenstorrent/tt-lang/tree/main/examples/matmul-tutorial).
 
