@@ -97,7 +97,7 @@ Local certification or regulatory requirements that are still in progress.
 When the system boots up, you'll see a welcome animation. If you would like to disable this, in a Terminal, run:
 
 ```bash
-/home/ttuser/scripts/disable-demo-mode.sh
+/home/ttuser/scripts/tt-disable-demo-mode.sh
 ```
 
 ### Why Does My Monitor Stay Black After Powering On?

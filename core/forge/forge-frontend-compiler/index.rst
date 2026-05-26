@@ -1,4 +1,4 @@
-TT-Forge Frontend Compiler
+TT-Forge™ Frontend Compiler
 =======================================
 TT-Forge offers three different frontend compilers, making it easy to work with a model from almost any framework. These compilers take a high-level model and convert it into Tenstorrent's internal graph IR. The frontend compilers include:
 
