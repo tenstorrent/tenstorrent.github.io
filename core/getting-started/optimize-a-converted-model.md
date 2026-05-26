@@ -6,7 +6,7 @@ myst:
     document-type: how-to
 ---
 
-# Optimizing a Converted Model
+# Optimize a Kernel
 
 This guide is for developers who already have a model running on Tenstorrent hardware and want to make it faster. You will learn how to use [TT-Lang](https://github.com/tenstorrent/tt-lang) to replace a slow sequence of operations with a single fused custom kernel, validate it without hardware using the functional simulator, run it on device, and drop it back into a [TT-NN](https://docs.tenstorrent.com/tt-metal/latest/ttnn/index.html) graph.
 
@@ -37,7 +37,7 @@ Throughout this guide we use the example shipped with TT-Lang: computing `y = (a
 
 ---
 
-## Step 1: Install TT-Lang
+## Install TT-Lang
 
 Create an isolated Python environment with Python 3.11 or later (3.12 recommended):
 
@@ -65,7 +65,7 @@ tt-lang-setup        # copies bundled tutorials to ./tutorials/
 
 `tt-lang-setup` is idempotent and copies the bundled tutorials (`elementwise`, `matmul`, `broadcast`) into `./tutorials/`.
 
-## Step 2: Understand the Baseline
+## Understand the Baseline
 
 The starting point ([`step_0_ttnn_base.py`](https://github.com/tenstorrent/tt-lang/blob/main/examples/elementwise-tutorial/step_0_ttnn_base.py)) expresses the whole computation in TT-NN, with no custom operation:
 
@@ -77,7 +77,7 @@ y = ttnn.multiply(ttnn.add(ttnn.multiply(a, b), c), d)
 
 This dispatches three operations, and the intermediate results of `a * b` and `a * b + c` make extra trips through DRAM. That DRAM traffic is exactly what fusion eliminates.
 
-## Step 3: Read the Fused Kernel
+## Read the Fused Kernel
 
 A TT-Lang operation is a Python function decorated with `@ttl.operation()`. Inside it run **kernel functions** that execute concurrently: data-movement kernels (`@ttl.datamovement()`) move tiles between DRAM and L1, and a compute kernel (`@ttl.compute()`) does the arithmetic. They pass tiles to each other through **dataflow buffers** (DFBs) allocated in L1.
 
@@ -139,7 +139,7 @@ def __tutorial_operation(a, b, c, y):
 
 The three `a * b`, `+ c`, and the read/write fuse into one pass: each input tile is read from DRAM once, the result is computed in L1, and the output tile is written back once.
 
-## Step 4: Validate in the Simulator
+## Validate in the Simulator
 
 Before running on hardware, validate the kernel logic with the functional simulator. It executes the operation as pure Python on CPU — no compilation, no device required — so you can catch bugs early and use any Python debugger:
 
@@ -153,7 +153,7 @@ The script checks its own result against the TT-NN baseline with `torch.allclose
 The simulator typically supports more language features than the compiler at any given moment. See the [functionality matrix](https://github.com/tenstorrent/tt-lang/blob/main/docs/sphinx/specs/TTLangSpecification.md) for current coverage.
 :::
 
-## Step 5: Run on Hardware
+## Run on Hardware
 
 Once the logic is validated, run the same script with `python` (instead of `ttlang-sim`) to compile the operation and execute it on your Tenstorrent device:
 
@@ -163,7 +163,7 @@ python tutorials/elementwise/step_1_single_node_single_tile_block.py
 
 A successful run prints the computed tensor and the expected tensor and passes its built-in `allclose` check.
 
-## Step 6: Scale Across Cores
+## Scale Across Cores
 
 The single-tile version uses one Tensix core and synchronizes once per tile. The bundled tutorial continues with steps that scale the same operation up — and these are the techniques that turn a correct kernel into a fast one:
 
@@ -173,7 +173,7 @@ The single-tile version uses one Tensix core and synchronizes once per tile. The
 
 Work through them in order in the [elementwise tutorial](https://github.com/tenstorrent/tt-lang/tree/main/examples/elementwise-tutorial). For a fused matmul (`relu(a @ b + c)`) that scales to multiple devices, see the [matmul tutorial](https://github.com/tenstorrent/tt-lang/tree/main/examples/matmul-tutorial).
 
-## Step 7: Integrate Into Your TT-NN Graph
+## Integrate Into Your TT-NN Graph
 
 The payoff: a TT-Lang operation is a drop-in replacement inside a TT-NN graph. Wrap the custom operation in a normal Python function that allocates the output tensor, then call it exactly where the TT-NN op sequence used to be:
 
