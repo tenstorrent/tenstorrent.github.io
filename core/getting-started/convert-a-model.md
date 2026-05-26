@@ -93,8 +93,8 @@ The ResNet demo loads its model through `torchvision` and `timm`, postprocesses 
 
 ```bash
 pip install --no-deps torchvision transformers==4.57.1 datasets timm tabulate
-pip install huggingface_hub 'tokenizers>=0.22,<=0.23.0' safetensors regex \
-            pyyaml pyarrow dill multiprocess xxhash
+pip install 'huggingface_hub>=0.34.0,<1.0' 'tokenizers>=0.22,<=0.23.0' \
+            safetensors regex pyyaml pyarrow dill multiprocess xxhash
 ```
 
 :::{admonition} If you see an `_XLAC` undefined-symbol ImportError
