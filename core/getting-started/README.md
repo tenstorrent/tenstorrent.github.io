@@ -205,6 +205,10 @@ After tt-installer finishes successfully and you have restarted your system, you
   * This is a great way to see Tenstorrent's software in action without deep dives into model architecture.
 * [Deploying LLMs](./vLLM-servers.md)
   * This is the recommended path users should take to deploy LLMs.
+* [Converting a model](./convert-a-model.md)
+  * Bring your own PyTorch, JAX, or ONNX model and compile it to run on Tenstorrent hardware with TT-Forge. Includes an optional step for emitting standalone TT-NN Python or C++.
+* [Optimize a kernel](./optimize-a-converted-model.md)
+  * Fuse hot operation sequences into custom kernels with TT-Lang once your model runs.
 * Understanding the [Tenstorrent Software Stack](./tt-software-stack.md).
 * Learn more about our unique architecture by [reading this guide](https://github.com/tenstorrent/tt-metal/blob/main/METALIUM_GUIDE.md).
 
