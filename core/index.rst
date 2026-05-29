@@ -12,6 +12,8 @@ Tenstorrent
 
    getting-started/README
    getting-started/model-demos
+   getting-started/convert-a-model
+   getting-started/optimize-a-converted-model
    getting-started/vLLM-servers
    getting-started/tt-software-stack
 

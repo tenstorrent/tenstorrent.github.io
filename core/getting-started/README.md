@@ -202,6 +202,8 @@ After tt-installer finishes successfully and you have restarted your system, you
 
 * [Deploy and serve models with TT-Inference-Server](./vLLM-servers.md) — the recommended path for running LLMs. The [tt-inference-server repository](https://github.com/tenstorrent/tt-inference-server) is the authoritative source for which models are validated on your hardware.
 * [Run model demos](./model-demos.md) — pre-built demonstrations of popular models like Llama, Whisper, Stable Diffusion and ResNet.
+* [Converting a model](./convert-a-model.md) — bring your own PyTorch, JAX, or ONNX model and compile it to run on Tenstorrent hardware with TT-Forge. Includes an optional step for emitting standalone TT-NN Python or C++.
+* [Optimize a kernel](./optimize-a-converted-model.md) — fuse hot operation sequences into custom kernels with TT-Lang once your model runs.
 * [Monitor your hardware with TT-SMI and TT-Toplike](https://docs.tenstorrent.com/tt-toplike/) — run `tt-smi` for a status snapshot, or `tt-toplike` for a live view of power, temperature, and core activity while a model serves requests.
 * [Use TT-Studio](https://github.com/tenstorrent/tt-studio) for a point-and-click web interface over TT-Inference-Server.
 * Understand the [Tenstorrent software stack](./tt-software-stack.md) — how TT-Forge™, TT-NN™, and TT-Metalium™ relate to each other.
