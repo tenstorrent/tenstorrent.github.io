@@ -204,6 +204,8 @@ Now that your model endpoint is running:
 * **Watch it in real time** — run `tt-toplike` in a second terminal window. [TT-Toplike](https://docs.tenstorrent.com/tt-toplike/) shows live core activity, power draw, and memory traffic on the chips while they serve requests.
 * **Add a browser UI** — [TT-Studio](https://github.com/tenstorrent/tt-studio) wraps TT-Inference-Server with a point-and-click deployment and chat interface. Run `tt-studio` in the terminal to start it.
 * **Check supported models** — the [tt-inference-server repository](https://github.com/tenstorrent/tt-inference-server) is the authoritative source for which models are validated on each hardware generation.
+* **Use it as a coding assistant** — the [Coding Assistant with Aider](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/coding-assistant/) lesson walks through pairing a local vLLM endpoint with Aider for on-device pair programming.
+* **Build agents on top of it** — if you have a TT-QuietBox™ 2, the [Local AI Agents on QuietBox 2](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/qb2-local-agents/) lesson covers tool-calling pipelines and multi-agent workflows against your local endpoint.
 * **Try image and video generation** — if you have a TT-QuietBox™ 2, [TT-Local-Generator](https://docs.tenstorrent.com/tt-local-generator/) runs alongside inference with its own queue and gallery.
 
 ---
