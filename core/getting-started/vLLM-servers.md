@@ -197,5 +197,16 @@ Run the command again to observe the server respond at full speed.
 
 ---
 
+## **What to Do Next**
+
+Now that your model endpoint is running:
+
+* **Watch it in real time** — run `tt-toplike` in a second terminal window. [TT-Toplike](https://docs.tenstorrent.com/tt-toplike/) shows live core activity, power draw, and memory traffic on the chips while they serve requests.
+* **Add a browser UI** — [TT-Studio](https://github.com/tenstorrent/tt-studio) wraps TT-Inference-Server with a point-and-click deployment and chat interface. Run `tt-studio` in the terminal to start it.
+* **Check supported models** — the [tt-inference-server repository](https://github.com/tenstorrent/tt-inference-server) is the authoritative source for which models are validated on each hardware generation.
+* **Try additional modalities** — [TT-Local-Generator](https://docs.tenstorrent.com/tt-local-generator/) runs image and video generation alongside inference, with its own queue and gallery.
+
+---
+
 ## **Need Additional Support?**
 If you encounter any issues, or have a question that isn't covered in the documentation, please [raise a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1) Our team will review your request and provide assistance.

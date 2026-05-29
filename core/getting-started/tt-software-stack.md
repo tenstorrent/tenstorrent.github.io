@@ -107,6 +107,18 @@ The main project is available in the [tt-metal](https://github.com/tenstorrent/t
 
 ---
 
+## Running Models on Hardware
+
+Once you have the software stack installed, these are the primary entry points for running models:
+
+* **[TT-Inference-Server](https://github.com/tenstorrent/tt-inference-server)** — manages Docker containers, model downloads, and serving configuration, and provides an OpenAI-compatible API endpoint. It is the authoritative source for which models are validated on each hardware generation.
+* **[TT-Forge Models](https://github.com/tenstorrent/tt-forge-models)** — the catalog of models that have been validated against TT-Forge™. The starting point when compiling a PyTorch, ONNX, or JAX model against the stack.
+* **[TT-Studio](https://github.com/tenstorrent/tt-studio)** — a web interface over TT-Inference-Server for users who prefer a point-and-click model deployment flow.
+
+For monitoring your hardware while models run, [TT-Toplike](https://docs.tenstorrent.com/tt-toplike/) reads power, temperature, and core activity in real time from the chips.
+
+---
+
 ## Exploring our Developer Hub
 
 To continue learning, visit and explore our [Developer Hub](https://tenstorrent.com/developers). There you will find in-depth articles, and information on our software bounty program. You can also find tutorials and technical overviews on our [YouTube channel](https://www.youtube.com/@tenstorrentinc).
