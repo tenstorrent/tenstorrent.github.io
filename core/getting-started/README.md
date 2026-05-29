@@ -200,13 +200,12 @@ For advanced users or developers who prefer alternative installation methods for
 ## **First Things To Do**
 After tt-installer finishes successfully and you have restarted your system, you can proceed how you like. You may want to:
 
-* [Running model demos](./model-demos.md)
-  * Explore pre-built demonstrations of popular models like Llama, Whisper, Stable Diffusion and ResNet.
-  * This is a great way to see Tenstorrent's software in action without deep dives into model architecture.
-* [Deploying LLMs](./vLLM-servers.md)
-  * This is the recommended path users should take to deploy LLMs.
-* Understanding the [Tenstorrent Software Stack](./tt-software-stack.md).
-* Learn more about our unique architecture by [reading this guide](https://github.com/tenstorrent/tt-metal/blob/main/METALIUM_GUIDE.md).
+* [Deploy and serve models with TT-Inference-Server](./vLLM-servers.md) — the recommended path for running LLMs. The [tt-inference-server repository](https://github.com/tenstorrent/tt-inference-server) is the authoritative source for which models are validated on your hardware.
+* [Run model demos](./model-demos.md) — pre-built demonstrations of popular models like Llama, Whisper, Stable Diffusion and ResNet.
+* [Monitor your hardware with TT-SMI and TT-Toplike](https://docs.tenstorrent.com/tt-toplike/) — run `tt-smi` for a status snapshot, or `tt-toplike` for a live view of power, temperature, and core activity while a model serves requests.
+* [Use TT-Studio](https://github.com/tenstorrent/tt-studio) for a point-and-click web interface over TT-Inference-Server.
+* Understand the [Tenstorrent software stack](./tt-software-stack.md) — how TT-Forge™, TT-NN™, and TT-Metalium™ relate to each other.
+* Learn more about our unique architecture by [reading the Metalium guide](https://github.com/tenstorrent/tt-metal/blob/main/METALIUM_GUIDE.md).
 
 ---
 
