@@ -274,12 +274,12 @@
 
     .hero-right {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       gap: 16px;
       flex: 1 0 0;
       align-self: stretch;
-      justify-content: center;
-      max-width: 360px;
+      align-items: center;
+      max-width: 560px;
     }
 
     .quick-card {
@@ -484,7 +484,7 @@
         align-items: flex-start;
       }
       .hero-title { font-size: 40px; }
-      .hero-right { max-width: 100%; min-width: 0; width: 100%; }
+      .hero-right { max-width: 100%; width: 100%; flex-direction: column; }
       .navbar-links { display: none; }
       .page-content { padding: 0 24px; }
     }
