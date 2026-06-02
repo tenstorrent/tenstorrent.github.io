@@ -75,7 +75,7 @@ def copy_pdfs(project, output_dir):
         except Exception as e:
             print(f"  Error copying {pdf_file}: {e}")
 
-os.environ["homepage"] = "https://tenstorrent.github.io/"
+os.environ["homepage"] = "https://firdovsimammedovk.github.io/tenstorrent-sandbox/"
 
 with open("versions.yml", "r") as yaml_file:
     subprocess.run("rm -rf output", shell=True)
