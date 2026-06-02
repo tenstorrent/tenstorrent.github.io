@@ -32,15 +32,16 @@
 
     .navbar {
       display: flex;
-      height: 72px;
+      min-height: 72px;
       padding: 20px 24px;
       justify-content: space-between;
-      align-items: center;
+      align-items: center !important;
       background: #092221;
       border-bottom: 1px solid #c7d9d8;
       position: sticky;
       top: 0;
       z-index: 100;
+      margin: 0 !important;
     }
 
     .navbar-left {
@@ -57,7 +58,7 @@
 
     .nav-dropdown {
       position: absolute;
-      top: calc(100% + 12px);
+      top: calc(100% + 4px);
       left: 0;
       background: #fff;
       border: 1px solid #c7d9d8;
@@ -87,19 +88,21 @@
       padding: 0 12px;
       align-items: center;
       border-radius: 4px;
-      color: #092221;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 1.35;
+      color: #092221 !important;
+      text-decoration: none !important;
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      line-height: 1.35 !important;
       letter-spacing: 0.25px;
       white-space: nowrap;
+      background: transparent;
       transition: background 120ms ease;
     }
 
     .nav-dropdown a:hover,
     .nav-dropdown a.active {
-      background: #e5f2f1;
+      background: #e5f2f1 !important;
+      color: #092221 !important;
     }
 
     .navbar-logo {
@@ -494,12 +497,19 @@
 
     /* ── Sphinx RTD overrides ─────────────────────────────────── */
 
-    .wy-breadcrumbs        { display: none !important; }
-    .wy-breadcrumbs-aside  { display: none !important; }
+    html, body {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .wy-body-for-nav,
+    .wy-grid-for-nav       { margin: 0 !important; padding: 0 !important; }
+    .wy-breadcrumbs        { display: none !important; height: 0 !important; }
+    .wy-breadcrumbs-aside  { display: none !important; height: 0 !important; }
     .rst-content .section > .headerlink { display: none !important; }
     .wy-nav-side           { display: none !important; }
-    .wy-nav-top            { display: none !important; }
-    .wy-nav-content-wrap   { margin-left: 0 !important; background: transparent !important; }
+    .wy-nav-top            { display: none !important; height: 0 !important; }
+    .wy-nav-content-wrap   { margin: 0 !important; padding: 0 !important; background: transparent !important; }
     .wy-nav-content        { max-width: 100% !important; padding: 0 !important; margin: 0 !important; min-height: 0 !important; }
     .rst-content,
     .document              { padding: 0 !important; margin: 0 !important; }
@@ -510,6 +520,74 @@
     .document * h2,
     .document * h3,
     .document * h4 { overflow: hidden; }
+
+    /* ── Sphinx footer override ───────────────────────────────── */
+
+    .rst-content footer,
+    footer[role="contentinfo"],
+    div[role="contentinfo"] {
+      display: none !important;
+    }
+
+    /* ── Site footer ──────────────────────────────────────────── */
+
+    .site-footer {
+      background: #092221;
+      border-top: 1px solid rgba(199,217,216,0.25);
+      padding: 32px 120px;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .footer-logo img {
+      height: 20px;
+      width: auto;
+      opacity: 0.8;
+    }
+
+    .footer-logo span {
+      color: #d9e8e5;
+      font-family: "RMMono", "Berkeley Mono", "Courier New", monospace;
+      font-size: 13px;
+      letter-spacing: 0;
+    }
+
+    .footer-copy {
+      color: #678583;
+      font-size: 13px;
+      margin: 0;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      color: #678583;
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 150ms ease;
+    }
+
+    .footer-links a:hover { color: #d9e8e5; }
+
+    @media (max-width: 768px) {
+      .site-footer { padding: 24px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+    }
 
     /* ── Responsive ──────────────────────────────────────────── */
 
@@ -567,8 +645,25 @@
             <a href="systems/index.html">Systems</a>
           </div>
         </li>
-        <li><a href="#tools">Tools</a></li>
-        <li><a href="#resources">Resources</a></li>
+        <li class="has-dropdown">
+          <a href="#tools">Tools</a>
+          <div class="nav-dropdown">
+            <a href="https://github.com/tenstorrent/tt-inference-server" target="_blank" rel="noopener">TT-Inference-Server</a>
+            <a href="https://docs.tenstorrent.com/tt-toplike/" target="_blank" rel="noopener">TT-Toplike</a>
+            <a href="https://docs.tenstorrent.com/tt-awesome" target="_blank" rel="noopener">TT-Awesome</a>
+            <a href="https://console.tenstorrent.com" target="_blank" rel="noopener">console.tenstorrent.com</a>
+          </div>
+        </li>
+        <li class="has-dropdown">
+          <a href="#resources">Resources</a>
+          <div class="nav-dropdown">
+            <a href="https://tenstorrent.atlassian.net/servicedesk/customer/portal/1" target="_blank" rel="noopener">Request Support</a>
+            <a href="https://developer.tenstorrent.com" target="_blank" rel="noopener">Developer Hub</a>
+            <a href="https://discord.com/invite/tenstorrent" target="_blank" rel="noopener">Join our Discord</a>
+            <a href="https://tenstorrent.com/faq" target="_blank" rel="noopener">FAQ</a>
+            <a href="https://tenstorrent.com/contact" target="_blank" rel="noopener">Contact Us</a>
+          </div>
+        </li>
       </ul>
     </div>
     <div class="navbar-right">
@@ -849,5 +944,21 @@
 
     </div>
   </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a href="/" class="footer-logo">
+        <img src="_static/tt_logo.svg" alt="Tenstorrent" />
+        <span>DOCUMENTATION</span>
+      </a>
+      <p class="footer-copy">© 2025 Tenstorrent Inc. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="https://tenstorrent.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>
+        <a href="https://github.com/tenstorrent" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://discord.com/invite/tenstorrent" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </footer>
 
 </body>
