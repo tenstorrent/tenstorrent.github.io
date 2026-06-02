@@ -42,6 +42,11 @@
   --stone-900: #092221;
   --border: #C7D9D8;
   --button-primary-background: #1B8EB1;
+  --text-inverse: #D9E8E5;
+  --bckground-card: #FFF;
+  --text-base: 16px;
+  --wide: 0.25px;
+  --space-4: 16px;
 
   --color-purple: var(--color-accent);
   --color-dark-purple: #7584e6;
