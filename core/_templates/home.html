@@ -1,7 +1,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tenstorrent Documentation</title>
   <style>
     @font-face {
       font-family: "Degular";
@@ -13,30 +12,32 @@
       src: url("./fonts/DegularDisplay-Light.woff") format("woff"),
         url("./fonts/DegularDisplay-Light.woff2") format("woff2");
     }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
+    @font-face {
+      font-family: "RMMono";
+      src: url("./fonts/RMMono-Regular.woff") format("woff"),
+        url("./fonts/RMMono-Regular.woff2") format("woff2");
     }
+
+    *, *::before, *::after { box-sizing: border-box; }
 
     body {
-      font-family: "Degular", sans-serif;
+      font-family: "Neue Haas Unica Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f5f7f7;
-      color: #333;
+      background-color: #f1f8f8;
+      color: #092221;
     }
 
-    /* ── Navbar ──────────────────────────────────────────────── */
+    /* ── Navbar ─────────────────────────────────────────────── */
 
     .navbar {
       display: flex;
+      height: 72px;
       padding: 20px 24px;
       justify-content: space-between;
       align-items: center;
-      align-self: stretch;
-      border-bottom: 1px solid var(--border, #C7D9D8);
-      background: var(--background-inverse, #092221);
-      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+      background: #092221;
+      border-bottom: 1px solid #c7d9d8;
       position: sticky;
       top: 0;
       z-index: 100;
@@ -44,35 +45,35 @@
 
     .navbar-left {
       display: flex;
+      gap: 48px;
       align-items: center;
-      gap: 32px;
     }
 
     .navbar-logo {
       display: flex;
+      gap: 10px;
       align-items: center;
-      gap: 8px;
       text-decoration: none;
+      flex-shrink: 0;
     }
 
     .navbar-logo img {
-      height: 28px;
+      height: 24px;
       width: auto;
     }
 
     .navbar-logo span {
-      color: #fff;
-      font-family: "DegularDisplay", sans-serif;
+      color: #d9e8e5;
+      font-family: "RMMono", "Berkeley Mono", "Courier New", monospace;
       font-size: 16px;
-      font-weight: 400;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0;
+      white-space: nowrap;
     }
 
     .navbar-links {
       display: flex;
-      align-items: center;
-      gap: 24px;
+      gap: 8px;
       list-style: none !important;
       margin: 0 !important;
       padding: 0 !important;
@@ -80,44 +81,46 @@
 
     .navbar-links li {
       list-style: none !important;
-      padding: 0 !important;
       margin: 0 !important;
+      padding: 0 !important;
     }
 
-    .navbar-links li::before {
-      display: none !important;
-    }
+    .navbar-links li::before { display: none !important; }
 
     .navbar-links a {
-      color: #C7D9D8;
+      display: flex;
+      height: 32px;
+      padding: 0 8px;
+      align-items: center;
+      color: #d9e8e5;
       text-decoration: none;
       font-size: 14px;
       font-weight: 400;
-      transition: color 150ms ease;
+      letter-spacing: 0.25px;
+      border-radius: 4px;
+      white-space: nowrap;
+      transition: background 150ms ease;
     }
 
-    .navbar-links a:hover {
-      color: #fff;
-    }
+    .navbar-links a:hover { background: rgba(255,255,255,0.08); }
+    .navbar-links a.active { background: #0e3433; }
 
     .navbar-right {
       display: flex;
+      gap: 40px;
       align-items: center;
-      gap: 12px;
     }
 
     .navbar-search {
       display: flex;
       width: 240px;
       height: 32px;
-      padding: 0 var(--space-2, 8px);
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      gap: var(--space-2, 8px);
-      border-radius: var(--Half, 2px);
-      border: 1px solid var(--border-subtle, #C7D9D8);
-      background: var(--background-1, #F1F8F8);
+      padding: 0 8px;
+      align-items: center;
+      border-radius: 2px;
+      border: 1px solid #c7d9d8;
+      background: #f1f8f8;
+      flex-shrink: 0;
     }
 
     .navbar-search input {
@@ -125,13 +128,18 @@
       background: transparent;
       border: none;
       outline: none;
-      color: var(--text-default, #092221);
-      font-family: "Neue Haas Unica Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-family: inherit;
       font-size: 14px;
+      color: #092221;
+      letter-spacing: 0.25px;
     }
 
-    .navbar-search input::placeholder {
-      color: var(--text-secondary, #3A5452);
+    .navbar-search input::placeholder { color: #678583; }
+
+    .navbar-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
     }
 
     .btn-cta {
@@ -139,409 +147,343 @@
       height: 32px;
       padding: 0 12px;
       align-items: center;
-      border-radius: var(--1, 4px);
-      background: var(--button-primary-background, #1B8EB1);
-      color: #fff;
-      font-family: "Degular", sans-serif;
-      font-size: 14px;
-      font-weight: 500;
-      text-decoration: none;
+      justify-content: center;
+      background: #1b8eb1;
+      color: #f1f8f8;
       border: none;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.25px;
+      text-decoration: none;
       cursor: pointer;
       white-space: nowrap;
       transition: background 150ms ease;
     }
 
-    .btn-cta:hover {
-      background: #1a7fa0;
-    }
+    .btn-cta:hover { background: #1a7fa0; }
 
     .btn-github {
       display: flex;
       height: 32px;
       min-width: 72px;
-      padding: 0 var(--space-3, 12px);
-      justify-content: center;
+      padding: 0 12px;
       align-items: center;
+      justify-content: center;
       gap: 6px;
-      border-radius: 4px;
-      border: 1px solid rgba(199, 217, 216, 0.4);
       background: transparent;
-      color: #C7D9D8;
-      font-family: "Degular", sans-serif;
+      border: none;
+      border-radius: 4px;
+      color: #e5f2f1;
+      font-family: inherit;
       font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.25px;
       text-decoration: none;
-      transition: border-color 150ms ease, color 150ms ease;
+      white-space: nowrap;
+      transition: color 150ms ease;
     }
 
-    .btn-github:hover {
-      border-color: #C7D9D8;
-      color: #fff;
-    }
+    .btn-github:hover { color: #fff; }
 
     .btn-github svg {
       width: 16px;
       height: 16px;
       fill: currentColor;
+      flex-shrink: 0;
     }
 
     /* ── Hero ────────────────────────────────────────────────── */
 
-    .hero {
-      background: var(--stone-900, #092221);
-      align-self: stretch;
-    }
+    .hero { background: #092221; }
 
     .hero-inner {
       display: flex;
       height: 600px;
-      max-width: 1280px;
-      margin: 0 auto;
       padding: 160px 80px;
       justify-content: space-between;
       align-items: center;
-      align-self: stretch;
       gap: 40px;
     }
 
     .hero-left {
       display: flex;
       flex-direction: column;
-      gap: 24px;
-      flex: 1;
-      max-width: 520px;
+      gap: 32px;
+      flex-shrink: 0;
     }
 
     .hero-title {
-      color: var(--text-inverse, #D9E8E5);
-      font-family: "Degular Display", "DegularDisplay", sans-serif;
+      color: #d9e8e5;
+      font-family: "DegularDisplay", "Degular Display", sans-serif;
       font-size: 64px;
-      font-style: normal;
       font-weight: 300;
-      line-height: 110%;
+      line-height: 1.1;
       margin: 0;
+      white-space: nowrap;
     }
 
     .hero-subtitle {
-      color: var(--text-inverse, #D9E8E5);
-      font-family: "Neue Haas Unica Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: var(--text-base, 16px);
-      font-style: normal;
+      color: #d9e8e5;
+      font-size: 16px;
       font-weight: 400;
-      line-height: 120%;
-      letter-spacing: var(--wide, 0.25px);
+      line-height: 1.2;
+      letter-spacing: 0.25px;
       margin: 0;
       max-width: 380px;
     }
 
     .hero-subtitle a {
-      color: #1B8EB1;
-      text-decoration: none;
-    }
-
-    .hero-subtitle a:hover {
+      color: #5cbcdb;
+      font-weight: 500;
       text-decoration: underline;
     }
+
+    .hero-subtitle a:hover { color: #74c5df; }
 
     .hero-search {
       display: flex;
       height: 40px;
-      padding: 0 var(--space-2, 8px);
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      gap: var(--space-2, 8px);
-      align-self: stretch;
-      border-radius: var(--Half, 2px);
-      border: 1px solid var(--border, #C7D9D8);
-      background: var(--background-1, #F1F8F8);
+      padding: 0 8px;
+      align-items: center;
+      gap: 8px;
+      border-radius: 2px;
+      border: 1px solid #c7d9d8;
+      background: #f1f8f8;
+      width: 350px;
     }
 
     .hero-search input {
-      width: 100%;
+      flex: 1;
       background: transparent;
       border: none;
       outline: none;
-      color: var(--text-default, #092221);
-      font-family: "Neue Haas Unica Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-family: inherit;
       font-size: 14px;
+      color: #092221;
+      letter-spacing: 0.25px;
     }
 
-    .hero-search input::placeholder {
-      color: var(--text-secondary, #3A5452);
-    }
-
-    .hero-search svg {
-      width: 16px;
-      height: 16px;
-      fill: var(--text-secondary, #3A5452);
-      flex-shrink: 0;
-    }
+    .hero-search input::placeholder { color: #678583; }
 
     .hero-right {
       display: flex;
-      flex-direction: row;
-      gap: 16px;
-      flex: 1 0 0;
-      align-self: stretch;
-      align-items: center;
-      max-width: 560px;
+      gap: 40px;
+      width: 663px;
+      flex-shrink: 0;
+      align-self: center;
     }
 
     .quick-card {
       display: flex;
-      padding: 24px;
+      flex: 1;
       flex-direction: column;
-      align-items: flex-start;
-      gap: var(--space-4, 16px);
-      flex: 1 0 0;
-      align-self: stretch;
-      border-radius: var(--2, 8px);
-      border: 1px solid var(--border, #C7D9D8);
-      background: var(--bckground-card, #FFF);
-      box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+      gap: 16px;
+      padding: 24px;
+      border-radius: 8px;
+      border: 1px solid #c7d9d8;
+      background: #fff;
+      box-shadow: 0 4px 5px rgba(0,0,0,0.15);
       text-decoration: none;
+      align-self: stretch;
       transition: box-shadow 150ms ease;
     }
 
-    .quick-card:hover {
-      box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.2);
-    }
+    .quick-card:hover { box-shadow: 0 6px 16px rgba(0,0,0,0.2); }
 
     .quick-card-label {
-      color: var(--text-accent, #1E86A9);
-      font-family: "Berkeley Mono", "Courier New", monospace;
-      font-size: var(--text-xs, 12px);
-      font-style: normal;
+      color: #1e86a9;
+      font-family: "RMMono", "Berkeley Mono", "Courier New", monospace;
+      font-size: 12px;
       font-weight: 400;
-      line-height: 100%;
-      letter-spacing: var(--widest, 0.75px);
+      line-height: 1;
+      letter-spacing: 0.75px;
       text-transform: uppercase;
     }
 
+    .quick-card-body {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
     .quick-card h4 {
-      color: var(--text-default, #092221);
-      font-family: "Neue Haas Unica Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: #092221;
       font-size: 18px;
-      font-style: normal;
       font-weight: 500;
-      line-height: 130%;
+      line-height: 1.3;
       margin: 0;
+      white-space: nowrap;
     }
 
     .quick-card p {
-      color: var(--text-secondary, #3A5452);
-      font-family: "Neue Haas Unica Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: var(--text-sm, 14px);
-      font-style: normal;
+      color: #3a5452;
+      font-size: 14px;
       font-weight: 400;
-      line-height: 135%;
-      letter-spacing: var(--wide, 0.25px);
+      line-height: 1.35;
+      letter-spacing: 0.25px;
       margin: 0;
     }
 
-    /* ── Content sections ────────────────────────────────────── */
+    /* ── Page content ────────────────────────────────────────── */
 
-    .page-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 80px;
+    .page-wrap {
+      padding: 80px 120px;
+      background: #f1f8f8;
     }
 
-    .hx {
-      font-size: 48px;
-      line-height: 90%;
-      font-family: "DegularDisplay", sans-serif;
+    .sections-list {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .divider {
+      height: 1px;
+      background: #c7d9d8;
+      width: 100%;
+      flex-shrink: 0;
     }
 
     .section {
       display: flex;
       flex-direction: column;
-      border-bottom: 1px solid #dde4e3;
       gap: 24px;
-      padding: 36px 0 24px;
-    }
-
-    .section:last-child {
-      margin-bottom: 36px;
     }
 
     .section h2 {
       margin: 0 !important;
-      margin-bottom: 0 !important;
-      line-height: 90%;
-      color: #092221;
+      font-family: "Neue Haas Unica Pro", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+      font-size: 22px !important;
+      font-weight: 500 !important;
+      line-height: 1.3 !important;
+      color: #000 !important;
+      letter-spacing: 0 !important;
     }
 
-    .intro {
-      width: 100%;
-    }
-
-    .link-button {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .link-button > svg {
-      width: 14px;
-      height: 14px;
-      display: inline-block;
-      stroke: #1B8EB1;
-    }
-
-    .link-button:visited > svg {
-      stroke: #1a7fa0;
-    }
-
-    @media (min-width: 1024px) {
-      .intro {
-        width: 70%;
-      }
-    }
-
-    .grid {
+    .cards-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 18px;
+      gap: 32px;
     }
 
+    /* Horizontal card */
     .card {
       display: flex;
-      flex-direction: column;
-      background-color: #eef2f1;
-      border-radius: 10px;
-      overflow: hidden;
-      width: 100%;
       gap: 16px;
-      padding: 18px;
-      transition: background-color 100ms ease-in;
+      width: 360px;
+      padding: 16px;
+      border-radius: 8px;
+      border: 1px solid #c7d9d8;
+      background: #fff;
       text-decoration: none;
+      flex-shrink: 0;
+      transition: box-shadow 150ms ease;
     }
 
-    .card:hover {
-      background-color: #dde8e7;
+    .card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+
+    .card-img {
+      width: 80px;
+      height: 80px;
+      flex-shrink: 0;
+      border-radius: 4px;
+      overflow: hidden;
+      background: #e5f2f1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .card * {
-      color: #092221 !important;
-    }
-
-    .small-card {
-      width: calc(50% - 10px);
-      padding: 12px;
-      gap: 8px;
-    }
-
-    .card img {
+    .card-img img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 4px;
+      pointer-events: none;
     }
 
-    .card h3 {
-      font-family: "Degular", sans-serif;
+    .card-text {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      justify-content: center;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .card-title {
+      color: #092221;
+      font-size: 16px !important;
+      font-weight: 500 !important;
+      line-height: 1.2 !important;
+      letter-spacing: 0 !important;
+      margin: 0 !important;
+      font-family: "Neue Haas Unica Pro", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    }
+
+    .card-desc {
+      color: #3a5452;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.35;
+      letter-spacing: 0.25px;
       margin: 0;
-      margin-bottom: 1rem;
     }
 
-    .card .reg {
-      font-size: 0.70em;
+    /* sup/TM in card titles */
+    .card-title sup {
+      font-size: 0.6em;
       vertical-align: super;
       line-height: 0;
-      margin-left: -0.3em;
-      position: relative;
-      top: -0.3em;
     }
 
-    .small-card h4 {
-      font-weight: normal;
-      font-size: 16px;
-      margin-bottom: 0.5rem;
-    }
+    /* ── Sphinx RTD overrides ─────────────────────────────────── */
 
-    .legacy-card {
-      justify-content: flex-end;
-    }
-
-    .legacy-card img {
-      height: 120px;
-      object-fit: contain;
-      margin-bottom: auto;
-    }
-
-    @media (min-width: 769px) {
-      .legacy-card img {
-        height: 150px;
-      }
-    }
-
-    .discord-card img {
-      width: 50%;
-      margin: 0 auto;
-    }
-
-    @media (min-width: 769px) {
-      .hx { font-size: 56px; }
-      .card { width: calc(50% - 9px); }
-      .small-card { width: calc(33% - 10.2px); gap: 16px; }
-    }
-
-    @media (min-width: 1024px) {
-      .hx { font-size: 96px; }
-    }
-
-    @media (max-width: 768px) {
-      .hero {
-        height: auto;
-        padding: 80px 24px;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .hero-title { font-size: 40px; }
-      .hero-right { max-width: 100%; width: 100%; flex-direction: column; }
-      .navbar-links { display: none; }
-      .page-content { padding: 0 24px; }
-    }
-
-    /* ── Remove Sphinx RTD chrome on home page ── */
     .wy-breadcrumbs        { display: none !important; }
     .wy-breadcrumbs-aside  { display: none !important; }
-    div[role="navigation"].wy-breadcrumbs-aside { display: none !important; }
     .rst-content .section > .headerlink { display: none !important; }
-
-    /* ── Remove Sphinx RTD sidebar and make page full-width ── */
-    .wy-nav-side       { display: none !important; }
-    .wy-nav-top        { display: none !important; }
-    .wy-nav-content-wrap {
-      margin-left: 0 !important;
-      background: transparent !important;
-    }
-    .wy-nav-content {
-      max-width: 100% !important;
-      padding: 0 !important;
-      margin: 0 !important;
-      min-height: 0 !important;
-    }
+    .wy-nav-side           { display: none !important; }
+    .wy-nav-top            { display: none !important; }
+    .wy-nav-content-wrap   { margin-left: 0 !important; background: transparent !important; }
+    .wy-nav-content        { max-width: 100% !important; padding: 0 !important; margin: 0 !important; min-height: 0 !important; }
     .rst-content,
-    .document {
-      padding: 0 !important;
-      margin: 0 !important;
-    }
-    /* Hide Sphinx-generated h1 and footer nav */
+    .document              { padding: 0 !important; margin: 0 !important; }
     .rst-content .section > h1:first-child { display: none !important; }
-    .rst-footer-buttons                    { display: none !important; }
-    /* Pull content flush to window edges */
-    .wy-nav-content > .rst-content > .document > .section {
-      padding: 0 !important;
-      margin: 0 !important;
-    }
-
-    /* Override tt-theme.css */
+    .rst-footer-buttons    { display: none !important; }
+    .wy-nav-content > .rst-content > .document > .section { padding: 0 !important; margin: 0 !important; }
     .document * h1,
     .document * h2,
     .document * h3,
-    .document * h4 {
-      overflow: hidden;
+    .document * h4 { overflow: hidden; }
+
+    /* ── Responsive ──────────────────────────────────────────── */
+
+    @media (max-width: 1280px) {
+      .hero-inner { gap: 32px; }
+      .hero-right { width: auto; flex: 1; }
+      .page-wrap { padding: 80px 60px; }
+    }
+
+    @media (max-width: 1024px) {
+      .hero-inner { height: auto; padding: 80px 40px; flex-direction: column; align-items: flex-start; }
+      .hero-title { font-size: 48px; white-space: normal; }
+      .hero-right { width: 100%; }
+      .hero-search { width: 100%; }
+      .page-wrap { padding: 60px 40px; }
+      .card { width: calc(50% - 16px); }
+    }
+
+    @media (max-width: 768px) {
+      .navbar-links { display: none; }
+      .navbar-right { gap: 12px; }
+      .hero-inner { padding: 60px 24px; }
+      .hero-title { font-size: 40px; }
+      .hero-right { flex-direction: column; gap: 16px; }
+      .page-wrap { padding: 40px 24px; }
+      .sections-list { gap: 32px; }
+      .card { width: 100%; }
     }
   </style>
 </head>
@@ -552,184 +494,293 @@
     <div class="navbar-left">
       <a href="/" class="navbar-logo">
         <img src="_static/tt_logo.svg" alt="Tenstorrent" />
-        <span>Documentation</span>
+        <span>DOCUMENTATION</span>
       </a>
       <ul class="navbar-links">
         <li><a href="getting-started/README.html">Getting Started</a></li>
         <li><a href="#software">Software</a></li>
         <li><a href="#hardware">Hardware</a></li>
         <li><a href="#tools">Tools</a></li>
-        <li><a href="#support">Resources</a></li>
+        <li><a href="#resources">Resources</a></li>
       </ul>
     </div>
     <div class="navbar-right">
       <div class="navbar-search">
-        <input type="text" placeholder="Search…" />
+        <input type="text" placeholder="Search" />
       </div>
-      <a href="https://tenstorrent.com" class="btn-cta">This is a CTA</a>
-      <a href="https://github.com/tenstorrent" class="btn-github" target="_blank">
-        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
-            0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13
-            -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87
-            2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95
-            0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21
-            2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04
-            2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15
-            0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01
-            1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-        </svg>
-        Github
-      </a>
+      <div class="navbar-actions">
+        <a href="https://tenstorrent.com" class="btn-cta">Get Started</a>
+        <a href="https://github.com/tenstorrent" class="btn-github" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
+              0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13
+              -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87
+              2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95
+              0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21
+              2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04
+              2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15
+              0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01
+              1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+          Github
+        </a>
+      </div>
     </div>
   </nav>
 
   <!-- Hero -->
   <section class="hero">
     <div class="hero-inner">
-    <div class="hero-left">
-      <h1 class="hero-title">Tenstorrent<br />Documentation</h1>
-      <p class="hero-subtitle">
-        Start building with Tenstorrent. Explore our
-        <a href="getting-started/README.html">Getting Started</a> guides,
-        submit a <a href="https://tenstorrent.atlassian.net/servicedesk/customer/portal/1">Support Ticket</a>,
-        or explore our documentation.
-      </p>
-      <div class="hero-search">
-        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398l3.85 3.85a1 1 0 0 0
-            1.415-1.414l-3.868-3.834zm-5.242 1.406a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
-        </svg>
-        <input type="text" placeholder="Search documentation…" />
+      <div class="hero-left">
+        <h1 class="hero-title">Tenstorrent<br />Documentation</h1>
+        <p class="hero-subtitle">
+          Start building with Tenstorrent. Explore our
+          <a href="getting-started/README.html">Getting Started</a> guides,
+          submit a <a href="https://tenstorrent.atlassian.net/servicedesk/customer/portal/1">Support Ticket</a>,
+          or explore our documentation.
+        </p>
+        <div class="hero-search">
+          <input type="text" placeholder="Search" />
+        </div>
+      </div>
+      <div class="hero-right">
+        <a href="https://tenstorrent.atlassian.net/servicedesk/customer/portal/1" class="quick-card">
+          <span class="quick-card-label">QUICK START</span>
+          <div class="quick-card-body">
+            <h4>Submit Support Ticket</h4>
+            <p>A guide for installing the necessary software on your new Tenstorrent hardware, and running your first "Hello World" program.</p>
+          </div>
+        </a>
+        <a href="getting-started/README.html" class="quick-card">
+          <span class="quick-card-label">QUICK START</span>
+          <div class="quick-card-body">
+            <h4>Software Setup</h4>
+            <p>A guide for installing the necessary software on your new Tenstorrent hardware, and running your first "Hello World" program.</p>
+          </div>
+        </a>
       </div>
     </div>
-    <div class="hero-right">
-      <a href="getting-started/README.html" class="quick-card">
-        <span class="quick-card-label">Quick Start</span>
-        <h4>Submit Support Ticket</h4>
-        <p>A guide for installing the necessary software on your new Tenstorrent hardware, and running your first "Hello World" program.</p>
-      </a>
-      <a href="getting-started/README.html" class="quick-card">
-        <span class="quick-card-label">Quick Start</span>
-        <h4>Software Setup</h4>
-        <p>A guide for installing the necessary software on your new Tenstorrent hardware, and running your first "Hello World" program.</p>
-      </a>
-    </div>
-    </div><!-- /.hero-inner -->
   </section>
 
   <!-- Content sections -->
-  <div class="page-content">
+  <div class="page-wrap">
+    <div class="sections-list">
 
-    <div class="section" id="hardware">
-      <h2>Hardware</h2>
-      <div class="grid">
-        <a href="aibs/blackhole/index.html" class="card">
-          <img src="_static/home/blackhole.png" alt="Blackhole" />
-          <h3>Blackhole<span class="reg">®</span></h3>
-        </a>
-        <a href="aibs/wormhole/index.html" class="card">
-          <img src="_static/home/wormhole.png" alt="Wormhole™" />
-          <h3>Wormhole™</h3>
-        </a>
-        <a href="systems/index.html" class="card small-card">
-          <img src="_static/home/tt-quietbox.png" alt="TT-QuietBox" />
-          <h4>TT-QuietBox™ (Blackhole)</h4>
-        </a>
-        <a href="systems/index.html" class="card small-card">
-          <img src="_static/home/tt-quietbox.png" alt="TT-QuietBox" />
-          <h4>TT-QuietBox™ (Wormhole)</h4>
-        </a>
-        <a href="systems/t3000/index.html" class="card small-card">
-          <img src="_static/home/tt-loudbox.png" alt="TT-LoudBox" />
-          <h4>TT-LoudBox™ (Wormhole)</h4>
-        </a>
+      <!-- Hardware -->
+      <div class="section" id="hardware">
+        <h2>Hardware</h2>
+        <div class="cards-grid">
+          <a href="aibs/blackhole/index.html" class="card">
+            <div class="card-img">
+              <img src="_static/home/blackhole.png" alt="Cards (Blackhole)" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">Cards (Blackhole)</p>
+              <p class="card-desc">Infinitely scalable and designed for high performance AI processing.</p>
+            </div>
+          </a>
+          <a href="aibs/wormhole/index.html" class="card">
+            <div class="card-img">
+              <img src="_static/home/wormhole.png" alt="Cards (Wormhole)" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">Cards (Wormhole)</p>
+              <p class="card-desc">Flexible, scalable processors built with Tensix Cores™</p>
+            </div>
+          </a>
+          <a href="systems/index.html" class="card">
+            <div class="card-img">
+              <img src="_static/home/tt-quietbox.png" alt="TT-QuietBox (Blackhole)" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">TT-QuietBox<sup>TM</sup> (Blackhole)</p>
+              <p class="card-desc">Dead quiet desktop AI</p>
+            </div>
+          </a>
+          <a href="systems/index.html" class="card">
+            <div class="card-img">
+              <img src="_static/home/tt-quietbox.png" alt="TT-QuietBox (Wormhole)" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">TT-QuietBox<sup>TM</sup> (Wormhole)</p>
+              <p class="card-desc">Dead quiet desktop AI</p>
+            </div>
+          </a>
+          <a href="systems/t3000/index.html" class="card">
+            <div class="card-img">
+              <img src="_static/home/tt-loudbox.png" alt="TT-LoudBox (Wormhole)" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">TT-LoudBox<sup>TM</sup> (Wormhole)</p>
+              <p class="card-desc">High-performance workstation AI</p>
+            </div>
+          </a>
+        </div>
       </div>
-    </div>
 
-    <div class="section" id="software">
-      <h2>Software</h2>
-      <div class="grid">
-        <a target="_blank" href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/index.html" class="card small-card">
-          <img src="_static/home/tt-nn.png" alt="TT-NN™" />
-          <h4>TT-NN™</h4>
-        </a>
-        <a target="_blank" href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/index.html" class="card small-card">
-          <img src="_static/home/tt-metalium.png" alt="TT-Metalium™" />
-          <h4>TT-Metalium™</h4>
-        </a>
-        <a target="_blank" href="https://docs.tenstorrent.com/tt-lang/" class="card small-card">
-          <img src="_static/home/tt-lang.png" alt="TT-Lang™" />
-          <h4>TT-Lang™</h4>
-        </a>
-        <a target="_blank" href="https://docs.tenstorrent.com/tt-mlir/" class="card small-card">
-          <img src="_static/home/tt-mlir.png" alt="TT-MLIR" />
-          <h4>TT-MLIR</h4>
-        </a>
+      <div class="divider"></div>
+
+      <!-- Software -->
+      <div class="section" id="software">
+        <h2>Software</h2>
+        <div class="cards-grid">
+          <a target="_blank" href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/index.html" class="card">
+            <div class="card-img">
+              <img src="_static/home/tt-nn.png" alt="TT-NN" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">TT-NN</p>
+              <p class="card-desc">An open-source C++ and Python library of neural network operations</p>
+            </div>
+          </a>
+          <a target="_blank" href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/index.html" class="card">
+            <div class="card-img">
+              <img src="_static/home/tt-metalium.png" alt="TT-Metalium" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">TT-Metalium<sup>TM</sup></p>
+              <p class="card-desc">Expert-level open source software for builders</p>
+            </div>
+          </a>
+          <a target="_blank" href="https://docs.tenstorrent.com/tt-mlir/" class="card">
+            <div class="card-img">
+              <img src="_static/home/tt-mlir.png" alt="TT-MLIR" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">TT-MLIR</p>
+              <p class="card-desc">OS MLIR-based compiler designed to optimize and deploy ML models and other workloads</p>
+            </div>
+          </a>
+        </div>
       </div>
-    </div>
 
-    <div class="section" id="tools">
-      <h2>Tools &amp; Ecosystem</h2>
-      <div class="grid">
-        <a target="_blank" href="https://github.com/tenstorrent/tt-inference-server" class="card small-card">
-          <h4>TT-Inference-Server</h4>
-          <p style="font-size:0.85em;color:#555;margin:0">Deploy and serve models — the canonical source for validated model support</p>
-        </a>
-        <a target="_blank" href="https://docs.tenstorrent.com/tt-toplike/" class="card small-card">
-          <h4>TT-Toplike</h4>
-          <p style="font-size:0.85em;color:#555;margin:0">Real-time hardware monitoring: power, temperature, core activity</p>
-        </a>
-        <a target="_blank" href="https://docs.tenstorrent.com/tt-awesome" class="card small-card">
-          <h4>TT-Awesome</h4>
-          <p style="font-size:0.85em;color:#555;margin:0">Community-curated catalog of apps, demos, and experiments</p>
-        </a>
-        <a target="_blank" href="https://console.tenstorrent.com" class="card small-card">
-          <h4>console.tenstorrent.com</h4>
-          <p style="font-size:0.85em;color:#555;margin:0">Run inference and generation in the browser — no install required</p>
-        </a>
+      <div class="divider"></div>
+
+      <!-- Tools -->
+      <div class="section" id="tools">
+        <h2>Tools</h2>
+        <div class="cards-grid">
+          <a target="_blank" href="https://github.com/tenstorrent/tt-inference-server" class="card">
+            <div class="card-img">
+              <img src="_static/home/tt-nn.png" alt="TT-Inference-Server" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">TT-Inference-Server</p>
+              <p class="card-desc">Deploy and serve models — the canonical source for validated model support</p>
+            </div>
+          </a>
+          <a target="_blank" href="https://docs.tenstorrent.com/tt-toplike/" class="card">
+            <div class="card-img">
+              <img src="_static/home/tt-metalium.png" alt="TT-Toplike" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">TT-Toplike</p>
+              <p class="card-desc">Real-time hardware monitoring: power, temperature, core activity</p>
+            </div>
+          </a>
+          <a target="_blank" href="https://docs.tenstorrent.com/tt-awesome" class="card">
+            <div class="card-img">
+              <img src="_static/home/tt-mlir.png" alt="TT-Awesome" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">TT-Awesome</p>
+              <p class="card-desc">Community-curated catalog of apps, demos, and experiments</p>
+            </div>
+          </a>
+        </div>
       </div>
-    </div>
 
-    <div class="section" id="support">
-      <h2>Support</h2>
-      <div class="grid">
-        <a target="_blank" href="https://tenstorrent.com/faq" class="card small-card">
-          <img src="_static/home/faq.png" alt="FAQ" />
-          <h4>FAQ</h4>
-        </a>
-        <a target="_blank" href="https://tenstorrent.atlassian.net/servicedesk/customer/portal/1" class="card small-card">
-          <img src="_static/home/compliance.png" alt="Support" />
-          <h4>Request Support</h4>
-        </a>
-        <a target="_blank" href="https://tenstorrent.com/contact" class="card small-card">
-          <img src="_static/home/contact-us.png" alt="Contact Us" />
-          <h4>Contact Us</h4>
-        </a>
-        <a target="_blank" href="https://discord.com/invite/tenstorrent" class="card small-card discord-card">
-          <img src="_static/home/discord.svg" alt="Discord" />
-          <h4>Join Our Discord</h4>
-        </a>
+      <div class="divider"></div>
+
+      <!-- Resources -->
+      <div class="section" id="resources">
+        <h2>Resources</h2>
+        <div class="cards-grid">
+          <a target="_blank" href="https://tenstorrent.atlassian.net/servicedesk/customer/portal/1" class="card">
+            <div class="card-img">
+              <img src="_static/home/compliance.png" alt="Request Support" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">Request Support</p>
+              <p class="card-desc">Submit a support ticket</p>
+            </div>
+          </a>
+          <a target="_blank" href="https://developer.tenstorrent.com" class="card">
+            <div class="card-img">
+              <img src="_static/home/tt-nn.png" alt="Developer Hub" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">Developer Hub</p>
+              <p class="card-desc">Join the Tenstorrent developer community</p>
+            </div>
+          </a>
+          <a target="_blank" href="https://discord.com/invite/tenstorrent" class="card">
+            <div class="card-img">
+              <img src="_static/home/discord.svg" alt="Discord" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">Join our Discord</p>
+              <p class="card-desc">Join the Tenstorrent developer community</p>
+            </div>
+          </a>
+          <a target="_blank" href="https://tenstorrent.com/faq" class="card">
+            <div class="card-img">
+              <img src="_static/home/faq.png" alt="FAQ" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">FAQ</p>
+              <p class="card-desc">Learn more about our hardware and software</p>
+            </div>
+          </a>
+          <a target="_blank" href="https://tenstorrent.com/contact" class="card">
+            <div class="card-img">
+              <img src="_static/home/contact-us.png" alt="Contact Us" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">Contact Us</p>
+              <p class="card-desc"></p>
+            </div>
+          </a>
+        </div>
       </div>
-    </div>
 
-    <div class="section">
-      <h2>Legacy</h2>
-      <div class="grid">
-        <a href="aibs/grayskull/index.html" class="card small-card legacy-card">
-          <img src="_static/home/grayskull.png" alt="Grayskull™" />
-          <h4>Grayskull™</h4>
-        </a>
-        <a href="systems/t7000/index.html" class="card small-card legacy-card">
-          <img src="_static/home/t7000.png" alt="T7000" />
-          <h4>T7000</h4>
-        </a>
-        <a href="systems/t1000/index.html" class="card small-card legacy-card">
-          <img src="_static/home/t1000.png" alt="T1000" />
-          <h4>T1000</h4>
-        </a>
+      <div class="divider"></div>
+
+      <!-- Legacy -->
+      <div class="section" id="legacy">
+        <h2>Legacy</h2>
+        <div class="cards-grid">
+          <a href="aibs/grayskull/index.html" class="card">
+            <div class="card-img">
+              <img src="_static/home/grayskull.png" alt="Grayskull" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">Grayskull™</p>
+              <p class="card-desc"></p>
+            </div>
+          </a>
+          <a href="systems/t7000/index.html" class="card">
+            <div class="card-img">
+              <img src="_static/home/t7000.png" alt="T7000" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">T7000</p>
+              <p class="card-desc"></p>
+            </div>
+          </a>
+          <a href="systems/t1000/index.html" class="card">
+            <div class="card-img">
+              <img src="_static/home/t1000.png" alt="T1000" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">T1000</p>
+              <p class="card-desc"></p>
+            </div>
+          </a>
+        </div>
       </div>
-    </div>
 
+    </div>
   </div>
+
 </body>
