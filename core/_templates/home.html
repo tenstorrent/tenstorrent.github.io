@@ -620,6 +620,72 @@
     .document * h4 {
       overflow: hidden;
     }
+
+    /* ── Site footer (folded in from main) ───────────────────── */
+    /* Hide the default RTD/Sphinx footer so we don't get two */
+    .rst-content footer,
+    footer[role="contentinfo"],
+    div[role="contentinfo"] {
+      display: none !important;
+    }
+
+    .site-footer {
+      background: #092221;
+      border-top: 1px solid rgba(199, 217, 216, 0.25);
+      padding: 32px 120px;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .footer-logo img {
+      height: 20px;
+      width: auto;
+      opacity: 0.8;
+    }
+
+    .footer-logo span {
+      color: #d9e8e5;
+      font-family: "Berkeley Mono", "Courier New", monospace;
+      font-size: 13px;
+      letter-spacing: 0;
+    }
+
+    .footer-copy {
+      color: #678583;
+      font-size: 13px;
+      margin: 0;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      color: #678583;
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 150ms ease;
+    }
+
+    .footer-links a:hover { color: #d9e8e5; }
+
+    @media (max-width: 768px) {
+      .site-footer { padding: 24px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+    }
   </style>
 </head>
 <body>
@@ -1004,4 +1070,20 @@
     </div>
 
   </div>
+
+  <!-- Footer (folded in from main) -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a href="/" class="footer-logo">
+        <img src="_static/tt_logo.svg" alt="Tenstorrent" />
+        <span>DOCUMENTATION</span>
+      </a>
+      <p class="footer-copy">© 2025 Tenstorrent Inc. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="https://tenstorrent.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>
+        <a href="https://github.com/tenstorrent" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://discord.com/invite/tenstorrent" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </footer>
 </body>
