@@ -37,6 +37,12 @@
   --color-foreground: #202020;
   --color-accent: #5164e0;
 
+  /* Figma design tokens */
+  --background-inverse: #092221;
+  --stone-900: #092221;
+  --border: #C7D9D8;
+  --button-primary-background: #1B8EB1;
+
   --color-purple: var(--color-accent);
   --color-dark-purple: #7584e6;
   --color-teal-plus-plus: #c7f1ff;

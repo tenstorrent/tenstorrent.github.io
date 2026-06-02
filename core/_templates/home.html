@@ -14,17 +14,297 @@
         url("./fonts/DegularDisplay-Light.woff2") format("woff2");
     }
 
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: "Degular", sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f8f9fa;
+      background-color: #f5f7f7;
       color: #333;
     }
 
-    .container {
+    /* ── Navbar ──────────────────────────────────────────────── */
+
+    .navbar {
+      display: flex;
+      padding: 20px 24px;
+      justify-content: space-between;
+      align-items: center;
+      align-self: stretch;
+      border-bottom: 1px solid var(--border, #C7D9D8);
+      background: var(--background-inverse, #092221);
+      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .navbar-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .navbar-logo img {
+      height: 28px;
+      width: auto;
+    }
+
+    .navbar-logo span {
+      color: #fff;
+      font-family: "DegularDisplay", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .navbar-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-links a {
+      color: #C7D9D8;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 400;
+      transition: color 150ms ease;
+    }
+
+    .navbar-links a:hover {
+      color: #fff;
+    }
+
+    .navbar-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .navbar-search {
+      display: flex;
+      align-items: center;
+      height: 32px;
+      padding: 0 12px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(199, 217, 216, 0.3);
+      border-radius: 4px;
+    }
+
+    .navbar-search input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #C7D9D8;
+      font-family: "Degular", sans-serif;
+      font-size: 14px;
+      width: 180px;
+    }
+
+    .navbar-search input::placeholder {
+      color: rgba(199, 217, 216, 0.5);
+    }
+
+    .btn-cta {
+      display: flex;
+      height: 32px;
+      padding: 0 12px;
+      align-items: center;
+      border-radius: var(--1, 4px);
+      background: var(--button-primary-background, #1B8EB1);
+      color: #fff;
+      font-family: "Degular", sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 150ms ease;
+    }
+
+    .btn-cta:hover {
+      background: #1a7fa0;
+    }
+
+    .btn-github {
+      display: flex;
+      height: 32px;
+      min-width: 72px;
+      padding: 0 var(--space-3, 12px);
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      border-radius: 4px;
+      border: 1px solid rgba(199, 217, 216, 0.4);
+      background: transparent;
+      color: #C7D9D8;
+      font-family: "Degular", sans-serif;
+      font-size: 14px;
+      text-decoration: none;
+      transition: border-color 150ms ease, color 150ms ease;
+    }
+
+    .btn-github:hover {
+      border-color: #C7D9D8;
+      color: #fff;
+    }
+
+    .btn-github svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    /* ── Hero ────────────────────────────────────────────────── */
+
+    .hero {
+      display: flex;
+      height: 600px;
+      padding: 160px 80px;
+      justify-content: space-between;
+      align-items: center;
+      align-self: stretch;
+      background: var(--stone-900, #092221);
+      gap: 40px;
+    }
+
+    .hero-left {
       display: flex;
       flex-direction: column;
+      gap: 24px;
+      flex: 1;
+      max-width: 520px;
+    }
+
+    .hero-title {
+      font-family: "DegularDisplay", sans-serif;
+      font-size: 64px;
+      font-weight: 300;
+      line-height: 90%;
+      color: #fff;
+      margin: 0;
+    }
+
+    .hero-subtitle {
+      font-size: 16px;
+      color: #C7D9D8;
+      line-height: 1.6;
+      margin: 0;
+      max-width: 380px;
+    }
+
+    .hero-subtitle a {
+      color: #1B8EB1;
+      text-decoration: none;
+    }
+
+    .hero-subtitle a:hover {
+      text-decoration: underline;
+    }
+
+    .hero-search {
+      display: flex;
+      align-items: center;
+      height: 40px;
+      max-width: 340px;
+      padding: 0 14px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(199, 217, 216, 0.35);
+      border-radius: 4px;
+      gap: 8px;
+    }
+
+    .hero-search input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #fff;
+      font-family: "Degular", sans-serif;
+      font-size: 14px;
+    }
+
+    .hero-search input::placeholder {
+      color: rgba(199, 217, 216, 0.5);
+    }
+
+    .hero-search svg {
+      width: 16px;
+      height: 16px;
+      fill: rgba(199, 217, 216, 0.5);
+      flex-shrink: 0;
+    }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-width: 260px;
+      max-width: 320px;
+    }
+
+    .quick-card {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(199, 217, 216, 0.15);
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 150ms ease, border-color 150ms ease;
+    }
+
+    .quick-card:hover {
+      background: rgba(255, 255, 255, 0.10);
+      border-color: rgba(199, 217, 216, 0.35);
+    }
+
+    .quick-card-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #1B8EB1;
+    }
+
+    .quick-card h4 {
+      font-family: "Degular", sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: #fff;
+      margin: 0;
+    }
+
+    .quick-card p {
+      font-size: 13px;
+      color: #C7D9D8;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* ── Content sections ────────────────────────────────────── */
+
+    .page-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 80px;
     }
 
     .hx {
@@ -36,7 +316,7 @@
     .section {
       display: flex;
       flex-direction: column;
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid #dde4e3;
       gap: 24px;
       padding: 36px 0 24px;
     }
@@ -49,6 +329,7 @@
       margin: 0 !important;
       margin-bottom: 0 !important;
       line-height: 90%;
+      color: #092221;
     }
 
     .intro {
@@ -65,11 +346,11 @@
       width: 14px;
       height: 14px;
       display: inline-block;
-      stroke: var(--color-accent);
+      stroke: #1B8EB1;
     }
 
     .link-button:visited > svg {
-      stroke: var(--color-dark-purple);
+      stroke: #1a7fa0;
     }
 
     @media (min-width: 1024px) {
@@ -87,21 +368,22 @@
     .card {
       display: flex;
       flex-direction: column;
-      background-color: #edeff9;
+      background-color: #eef2f1;
       border-radius: 10px;
       overflow: hidden;
       width: 100%;
       gap: 16px;
       padding: 18px;
       transition: background-color 100ms ease-in;
+      text-decoration: none;
     }
 
     .card:hover {
-      background-color: #d7dbeb;
+      background-color: #dde8e7;
     }
 
     .card * {
-      color: #202020 !important;
+      color: #092221 !important;
     }
 
     .small-card {
@@ -158,46 +440,26 @@
     }
 
     @media (min-width: 769px) {
-      .hx {
-        font-size: 56px;
-      }
-
-      .card {
-        width: calc(50% - 9px);
-      }
-
-      .small-card {
-        width: calc(33% - 10.2px);
-        gap: 16px;
-      }
+      .hx { font-size: 56px; }
+      .card { width: calc(50% - 9px); }
+      .small-card { width: calc(33% - 10.2px); gap: 16px; }
     }
 
     @media (min-width: 1024px) {
-      .hx {
-        font-size: 96px;
-      }
+      .hx { font-size: 96px; }
     }
 
-    @media (min-width: 1280px) {
-      .card h3 {
-        font-size: 32px;
+    @media (max-width: 768px) {
+      .hero {
+        height: auto;
+        padding: 80px 24px;
+        flex-direction: column;
+        align-items: flex-start;
       }
-
-      .small-card h4 {
-        font-size: 22px;
-      }
-    }
-
-    @media (min-width: 1536px) {
-      .hx {
-        font-size: 108px;
-      }
-    }
-
-    @media (min-width: 1920) {
-      .hx {
-        font-size: 144px;
-      }
+      .hero-title { font-size: 40px; }
+      .hero-right { max-width: 100%; min-width: 0; width: 100%; }
+      .navbar-links { display: none; }
+      .page-content { padding: 0 24px; }
     }
 
     /* Override tt-theme.css */
@@ -205,43 +467,86 @@
     .document * h2,
     .document * h3,
     .document * h4 {
-      /*
-        Remove horizontal overflow (so scrollbars don't appear on every header
-        element for users with "Show scroll bars" set to "Always" on macOS)
-      */
       overflow: hidden;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1 class="hx">Tenstorrent<br />Documentation</h1>
 
-    <div class="section">
-      <h2>Quick Link: Software Setup</h2>
-      <div class="intro">
-        Welcome to Tenstorrent! This guide will walk you through installing the necessary open source software on your new Tenstorrent hardware, and running your first
-        “Hello World” program.
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-left">
+      <a href="/" class="navbar-logo">
+        <img src="_static/tt_logo.svg" alt="Tenstorrent" />
+        <span>Documentation</span>
+      </a>
+      <ul class="navbar-links">
+        <li><a href="getting-started/README.html">Getting Started</a></li>
+        <li><a href="#software">Software</a></li>
+        <li><a href="#hardware">Hardware</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a href="#support">Resources</a></li>
+      </ul>
+    </div>
+    <div class="navbar-right">
+      <div class="navbar-search">
+        <input type="text" placeholder="Search…" />
       </div>
-      <a class="link-button" href="getting-started/README.html">
-        <span>Software Setup</span>
-        <svg
-          width="17"
-          height="16"
-          viewbox="0 0 17 16"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          class=""
-          role="none"
-        >
-          <path d="M1 14.5L15.2929 1.79289" stroke-width="2" />
-          <path d="M5 1.5H15.5V12" stroke-width="2" />
+      <a href="https://tenstorrent.com" class="btn-cta">Find a CPU</a>
+      <a href="https://github.com/tenstorrent" class="btn-github" target="_blank">
+        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
+            0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13
+            -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87
+            2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95
+            0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21
+            2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04
+            2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15
+            0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01
+            1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
         </svg>
+        Github
       </a>
     </div>
+  </nav>
 
-    <div class="section">
-      <h2>Cards</h2>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-left">
+      <h1 class="hero-title">Tenstorrent<br />Documentation</h1>
+      <p class="hero-subtitle">
+        Start building with Tenstorrent. Explore our
+        <a href="getting-started/README.html">Getting Started</a> guides,
+        submit a <a href="https://tenstorrent.atlassian.net/servicedesk/customer/portal/1">Support Ticket</a>,
+        or explore our documentation.
+      </p>
+      <div class="hero-search">
+        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398l3.85 3.85a1 1 0 0 0
+            1.415-1.414l-3.868-3.834zm-5.242 1.406a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
+        </svg>
+        <input type="text" placeholder="Search documentation…" />
+      </div>
+    </div>
+    <div class="hero-right">
+      <a href="getting-started/README.html" class="quick-card">
+        <span class="quick-card-label">Quick Start</span>
+        <h4>Submit Support Ticket</h4>
+        <p>A guide for installing the necessary software on your new Tenstorrent hardware, and running your first "Hello World" program.</p>
+      </a>
+      <a href="getting-started/README.html" class="quick-card">
+        <span class="quick-card-label">Quick Start</span>
+        <h4>Software Setup</h4>
+        <p>A guide for installing the necessary software on your new Tenstorrent hardware, and running your first "Hello World" program.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Content sections -->
+  <div class="page-content">
+
+    <div class="section" id="hardware">
+      <h2>Hardware</h2>
       <div class="grid">
         <a href="aibs/blackhole/index.html" class="card">
           <img src="_static/home/blackhole.png" alt="Blackhole" />
@@ -251,131 +556,81 @@
           <img src="_static/home/wormhole.png" alt="Wormhole™" />
           <h3>Wormhole™</h3>
         </a>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>Systems</h2>
-      <div class="grid">
-        <a href="systems/index.html" class="card">
+        <a href="systems/index.html" class="card small-card">
           <img src="_static/home/tt-quietbox.png" alt="TT-QuietBox" />
-          <h3>TT-QuietBox™</h3>
+          <h4>TT-QuietBox™ (Blackhole)</h4>
         </a>
-        <a href="systems/t3000/index.html" class="card">
+        <a href="systems/index.html" class="card small-card">
+          <img src="_static/home/tt-quietbox.png" alt="TT-QuietBox" />
+          <h4>TT-QuietBox™ (Wormhole)</h4>
+        </a>
+        <a href="systems/t3000/index.html" class="card small-card">
           <img src="_static/home/tt-loudbox.png" alt="TT-LoudBox" />
-          <h3>TT-LoudBox™</h3>
+          <h4>TT-LoudBox™ (Wormhole)</h4>
         </a>
       </div>
     </div>
 
-    <div class="section">
+    <div class="section" id="software">
       <h2>Software</h2>
       <div class="grid">
-        <a
-          target="_blank"
-          href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/index.html"
-          class="card small-card"
-        >
+        <a target="_blank" href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/index.html" class="card small-card">
           <img src="_static/home/tt-nn.png" alt="TT-NN™" />
           <h4>TT-NN™</h4>
         </a>
-        <a
-          target="_blank"
-          href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/index.html"
-          class="card small-card"
-        >
+        <a target="_blank" href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/index.html" class="card small-card">
           <img src="_static/home/tt-metalium.png" alt="TT-Metalium™" />
           <h4>TT-Metalium™</h4>
         </a>
-        <a
-          target="_blank"
-          href="https://docs.tenstorrent.com/tt-lang/"
-          class="card small-card"
-        >
+        <a target="_blank" href="https://docs.tenstorrent.com/tt-lang/" class="card small-card">
           <img src="_static/home/tt-lang.png" alt="TT-Lang™" />
           <h4>TT-Lang™</h4>
         </a>
-        <a
-          target="_blank"
-          href="https://docs.tenstorrent.com/tt-mlir/"
-          class="card small-card"
-        >
+        <a target="_blank" href="https://docs.tenstorrent.com/tt-mlir/" class="card small-card">
           <img src="_static/home/tt-mlir.png" alt="TT-MLIR" />
           <h4>TT-MLIR</h4>
         </a>
       </div>
     </div>
 
-    <div class="section">
+    <div class="section" id="tools">
       <h2>Tools &amp; Ecosystem</h2>
       <div class="grid">
-        <a
-          target="_blank"
-          href="https://github.com/tenstorrent/tt-inference-server"
-          class="card small-card"
-        >
+        <a target="_blank" href="https://github.com/tenstorrent/tt-inference-server" class="card small-card">
           <h4>TT-Inference-Server</h4>
           <p style="font-size:0.85em;color:#555;margin:0">Deploy and serve models — the canonical source for validated model support</p>
         </a>
-        <a
-          target="_blank"
-          href="https://docs.tenstorrent.com/tt-toplike/"
-          class="card small-card"
-        >
+        <a target="_blank" href="https://docs.tenstorrent.com/tt-toplike/" class="card small-card">
           <h4>TT-Toplike</h4>
           <p style="font-size:0.85em;color:#555;margin:0">Real-time hardware monitoring: power, temperature, core activity</p>
         </a>
-        <a
-          target="_blank"
-          href="https://docs.tenstorrent.com/tt-awesome"
-          class="card small-card"
-        >
+        <a target="_blank" href="https://docs.tenstorrent.com/tt-awesome" class="card small-card">
           <h4>TT-Awesome</h4>
           <p style="font-size:0.85em;color:#555;margin:0">Community-curated catalog of apps, demos, and experiments</p>
         </a>
-        <a
-          target="_blank"
-          href="https://console.tenstorrent.com"
-          class="card small-card"
-        >
+        <a target="_blank" href="https://console.tenstorrent.com" class="card small-card">
           <h4>console.tenstorrent.com</h4>
           <p style="font-size:0.85em;color:#555;margin:0">Run inference and generation in the browser — no install required</p>
         </a>
       </div>
     </div>
 
-    <div class="section">
+    <div class="section" id="support">
       <h2>Support</h2>
       <div class="grid">
-        <a
-          target="_blank"
-          href="https://tenstorrent.com/faq"
-          class="card small-card"
-        >
+        <a target="_blank" href="https://tenstorrent.com/faq" class="card small-card">
           <img src="_static/home/faq.png" alt="FAQ" />
           <h4>FAQ</h4>
         </a>
-        <a
-          target="_blank"
-          href="https://tenstorrent.atlassian.net/servicedesk/customer/portal/1"
-          class="card small-card"
-        >
+        <a target="_blank" href="https://tenstorrent.atlassian.net/servicedesk/customer/portal/1" class="card small-card">
           <img src="_static/home/compliance.png" alt="Support" />
           <h4>Request Support</h4>
         </a>
-        <a
-          target="_blank"
-          href="https://tenstorrent.com/contact"
-          class="card small-card"
-        >
+        <a target="_blank" href="https://tenstorrent.com/contact" class="card small-card">
           <img src="_static/home/contact-us.png" alt="Contact Us" />
           <h4>Contact Us</h4>
         </a>
-        <a
-          target="_blank"
-          href="https://discord.com/invite/tenstorrent"
-          class="card small-card discord-card"
-        >
+        <a target="_blank" href="https://discord.com/invite/tenstorrent" class="card small-card discord-card">
           <img src="_static/home/discord.svg" alt="Discord" />
           <h4>Join Our Discord</h4>
         </a>
@@ -399,5 +654,6 @@
         </a>
       </div>
     </div>
+
   </div>
 </body>
