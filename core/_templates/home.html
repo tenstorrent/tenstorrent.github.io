@@ -462,6 +462,33 @@
       .page-content { padding: 0 24px; }
     }
 
+    /* ── Remove Sphinx RTD sidebar and make page full-width ── */
+    .wy-nav-side       { display: none !important; }
+    .wy-nav-top        { display: none !important; }
+    .wy-nav-content-wrap {
+      margin-left: 0 !important;
+      background: transparent !important;
+    }
+    .wy-nav-content {
+      max-width: 100% !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      min-height: 0 !important;
+    }
+    .rst-content,
+    .document {
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+    /* Hide Sphinx-generated h1 and footer nav */
+    .rst-content .section > h1:first-child { display: none !important; }
+    .rst-footer-buttons                    { display: none !important; }
+    /* Pull content flush to window edges */
+    .wy-nav-content > .rst-content > .document > .section {
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
     /* Override tt-theme.css */
     .document * h1,
     .document * h2,
