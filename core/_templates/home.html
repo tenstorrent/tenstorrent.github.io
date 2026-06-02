@@ -73,9 +73,19 @@
       display: flex;
       align-items: center;
       gap: 24px;
-      list-style: none;
-      margin: 0;
-      padding: 0;
+      list-style: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .navbar-links li {
+      list-style: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    .navbar-links li::before {
+      display: none !important;
     }
 
     .navbar-links a {
@@ -174,13 +184,18 @@
     /* ── Hero ────────────────────────────────────────────────── */
 
     .hero {
+      background: var(--stone-900, #092221);
+      align-self: stretch;
+    }
+
+    .hero-inner {
       display: flex;
       height: 600px;
+      max-width: 1280px;
+      margin: 0 auto;
       padding: 160px 80px;
       justify-content: space-between;
       align-items: center;
-      align-self: stretch;
-      background: var(--stone-900, #092221);
       gap: 40px;
     }
 
@@ -519,7 +534,7 @@
       <div class="navbar-search">
         <input type="text" placeholder="Search…" />
       </div>
-      <a href="https://tenstorrent.com" class="btn-cta">Find a CPU</a>
+      <a href="https://tenstorrent.com" class="btn-cta">This is a CTA</a>
       <a href="https://github.com/tenstorrent" class="btn-github" target="_blank">
         <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
           <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
@@ -539,6 +554,7 @@
 
   <!-- Hero -->
   <section class="hero">
+    <div class="hero-inner">
     <div class="hero-left">
       <h1 class="hero-title">Tenstorrent<br />Documentation</h1>
       <p class="hero-subtitle">
@@ -567,6 +583,7 @@
         <p>A guide for installing the necessary software on your new Tenstorrent hardware, and running your first "Hello World" program.</p>
       </a>
     </div>
+    </div><!-- /.hero-inner -->
   </section>
 
   <!-- Content sections -->
