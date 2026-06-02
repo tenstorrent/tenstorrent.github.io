@@ -49,6 +49,59 @@
       align-items: center;
     }
 
+    /* ── Dropdown ────────────────────────────────────────────── */
+
+    .navbar-links li.has-dropdown {
+      position: relative;
+    }
+
+    .nav-dropdown {
+      position: absolute;
+      top: calc(100% + 12px);
+      left: 0;
+      background: #fff;
+      border: 1px solid #c7d9d8;
+      border-radius: 8px;
+      box-shadow: 0 4px 4px rgba(0,0,0,0.15);
+      padding: 16px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-width: 220px;
+      z-index: 200;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 120ms ease, visibility 120ms ease;
+    }
+
+    .navbar-links li.has-dropdown:hover .nav-dropdown {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .nav-dropdown a {
+      display: flex;
+      height: 32px;
+      padding: 0 12px;
+      align-items: center;
+      border-radius: 4px;
+      color: #092221;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.35;
+      letter-spacing: 0.25px;
+      white-space: nowrap;
+      transition: background 120ms ease;
+    }
+
+    .nav-dropdown a:hover,
+    .nav-dropdown a.active {
+      background: #e5f2f1;
+    }
+
     .navbar-logo {
       display: flex;
       gap: 10px;
@@ -214,6 +267,7 @@
       flex-direction: column;
       gap: 32px;
       flex-shrink: 0;
+      max-width: 480px;
     }
 
     .hero-title {
@@ -497,8 +551,22 @@
       </a>
       <ul class="navbar-links">
         <li><a href="getting-started/README.html">Getting Started</a></li>
-        <li><a href="#software">Software</a></li>
-        <li><a href="#hardware">Hardware</a></li>
+        <li class="has-dropdown">
+          <a href="#software">Software</a>
+          <div class="nav-dropdown">
+            <a href="getting-started/tt-software-stack.html">Understanding our Software Stack</a>
+            <a href="forge/index.html">TT-Forge</a>
+            <a href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/index.html" target="_blank" rel="noopener">TT-Metalium</a>
+            <a href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/index.html" target="_blank" rel="noopener">TT-NN</a>
+          </div>
+        </li>
+        <li class="has-dropdown">
+          <a href="#hardware">Hardware</a>
+          <div class="nav-dropdown">
+            <a href="aibs/index.html">Cards</a>
+            <a href="systems/index.html">Systems</a>
+          </div>
+        </li>
         <li><a href="#tools">Tools</a></li>
         <li><a href="#resources">Resources</a></li>
       </ul>
