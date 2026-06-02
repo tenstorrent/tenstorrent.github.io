@@ -108,26 +108,30 @@
 
     .navbar-search {
       display: flex;
-      align-items: center;
+      width: 240px;
       height: 32px;
-      padding: 0 12px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(199, 217, 216, 0.3);
-      border-radius: 4px;
+      padding: 0 var(--space-2, 8px);
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: var(--space-2, 8px);
+      border-radius: var(--Half, 2px);
+      border: 1px solid var(--border-subtle, #C7D9D8);
+      background: var(--background-1, #F1F8F8);
     }
 
     .navbar-search input {
+      width: 100%;
       background: transparent;
       border: none;
       outline: none;
-      color: #C7D9D8;
-      font-family: "Degular", sans-serif;
+      color: var(--text-default, #092221);
+      font-family: "Neue Haas Unica Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-size: 14px;
-      width: 180px;
     }
 
     .navbar-search input::placeholder {
-      color: rgba(199, 217, 216, 0.5);
+      color: var(--text-secondary, #3A5452);
     }
 
     .btn-cta {
@@ -241,34 +245,36 @@
 
     .hero-search {
       display: flex;
-      align-items: center;
       height: 40px;
-      max-width: 340px;
-      padding: 0 14px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(199, 217, 216, 0.35);
-      border-radius: 4px;
-      gap: 8px;
+      padding: 0 var(--space-2, 8px);
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: var(--space-2, 8px);
+      align-self: stretch;
+      border-radius: var(--Half, 2px);
+      border: 1px solid var(--border, #C7D9D8);
+      background: var(--background-1, #F1F8F8);
     }
 
     .hero-search input {
-      flex: 1;
+      width: 100%;
       background: transparent;
       border: none;
       outline: none;
-      color: #fff;
+      color: var(--text-default, #092221);
       font-family: "Neue Haas Unica Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-size: 14px;
     }
 
     .hero-search input::placeholder {
-      color: rgba(217, 232, 229, 0.5);
+      color: var(--text-secondary, #3A5452);
     }
 
     .hero-search svg {
       width: 16px;
       height: 16px;
-      fill: rgba(217, 232, 229, 0.5);
+      fill: var(--text-secondary, #3A5452);
       flex-shrink: 0;
     }
 
