@@ -15,8 +15,9 @@ Getting Started
 
 .. toctree::
    :maxdepth: 1
-   
+
    setup
+   welcome
 
 Reference Materials
 -------------------

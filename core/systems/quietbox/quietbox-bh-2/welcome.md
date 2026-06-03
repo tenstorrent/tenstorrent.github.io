@@ -482,7 +482,7 @@ canvas.qb2-chip-canvas {
       <p class="qb2-intent-tagline">Text-to-video, image-to-video, stills</p>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Start here</span>
-        <span class="qb2-intent-val"><a href="https://github.com/tenstorrent/tt-studio" target="_blank" rel="noopener">TT-Studio</a> &mdash; deploy any model with one click, pre-installed</span>
+        <span class="qb2-intent-val"><a href="https://github.com/tenstorrent/tt-inference-server" target="_blank" rel="noopener">TT-Inference-Server</a> &mdash; deploy and serve generation models, pre-installed</span>
       </div>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Gallery</span>
