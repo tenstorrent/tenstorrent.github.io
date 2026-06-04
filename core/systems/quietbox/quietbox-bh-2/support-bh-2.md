@@ -140,7 +140,15 @@ cd ~/.local/lib/tt-studio
 git checkout tt_qb2_launch_branch
 git pull
 ```
-6. Continue the software setup in the TT-QuietBox 2 setup guide at [Step 8: Get Access to Model Weights](./setup.md#step-8-get-access-to-model-weights).
+6. If you'd like to use the pre-downloaded Qwen3-32B model with this new user, copy the model files to their home directory:
+
+```bash
+mkdir -p ~/data/tt-cache
+sudo cp -r /home/ttuser/data/tt-cache/volume_id_tt_transformers-Qwen3-32B-vqb2_launch /home/$USER/data/tt-cache/volume_id_tt_transformers-Qwen3-32B-vqb2_launch
+sudo chown -R $USER:$USER /home/$USER/data/tt-cache/volume_id_tt_transformers-Qwen3-32B-vqb2_launch/
+sudo chmod -R o+rwX /home/$USER/data/tt-cache/volume_id_tt_transformers-Qwen3-32B-vqb2_launch
+```
+7. Continue the software setup in the TT-QuietBox 2 setup guide at [Step 8: Get Access to Model Weights](./setup.md#step-8-get-access-to-model-weights).
 
 ### My Question Wasn’t Answered Here, Where Can I Reach Out?
 For general questions, pre-sales inquiries, or to talk with our team, use the [contact us form](https://tenstorrent.com/contact) on the Tenstorrent website, and we’ll route you to the right expert.
