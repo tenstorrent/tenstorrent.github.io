@@ -322,7 +322,6 @@ i {
   display: flex;
   width: 220px;
   height: 32px;
-  padding: 0 8px;
   align-items: center;
   border-radius: 2px;
   border: 1px solid rgba(199, 217, 216, 0.5);
@@ -331,9 +330,6 @@ i {
 
 .tt-nav-search-form input {
   width: 100%;
-  background: transparent;
-  border: none;
-  outline: none;
   font-family: var(--font-main);
   font-size: 14px;
   color: #D9E8E5;
