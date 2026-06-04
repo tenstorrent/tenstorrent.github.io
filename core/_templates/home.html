@@ -116,6 +116,22 @@
       color: #092221 !important;
     }
 
+    .nav-dropdown-header {
+      font-family: "RMMono", "Berkeley Mono", "Courier New", monospace;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.75px;
+      text-transform: uppercase;
+      color: #678583;
+      padding: 4px 12px 0;
+    }
+
+    .nav-dropdown-divider {
+      height: 1px;
+      background: #c7d9d8;
+      margin: 4px 0;
+    }
+
     .navbar-logo {
       display: flex;
       gap: 10px;
@@ -429,6 +445,17 @@
       letter-spacing: 0 !important;
     }
 
+    .hw-group,
+    .group-head {
+      margin: 0 !important;
+      font-family: "RMMono", "Berkeley Mono", "Courier New", monospace !important;
+      font-size: 13px !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.75px !important;
+      text-transform: uppercase !important;
+      color: #1e86a9 !important;
+    }
+
     .cards-grid {
       display: flex;
       flex-wrap: wrap;
@@ -642,9 +669,9 @@
         <li class="has-dropdown">
           <a href="#get-started">Get Started</a>
           <div class="nav-dropdown">
-            <a href="getting-started/README.html">Install the Software Stack</a>
-            <a href="getting-started/vLLM-servers.html">Serve a Model</a>
-            <a href="getting-started/tt-software-stack.html">Understand the Software Stack</a>
+            <a href="getting-started/README.html">Install the software stack</a>
+            <a href="getting-started/vLLM-servers.html">Run your first model</a>
+            <a href="getting-started/tt-software-stack.html">Understand the software stack</a>
           </div>
         </li>
         <li class="has-dropdown">
@@ -659,16 +686,19 @@
         <li class="has-dropdown">
           <a href="#hardware">Hardware</a>
           <div class="nav-dropdown">
-            <a href="aibs/blackhole/index.html">Blackhole Cards</a>
-            <a href="aibs/wormhole/index.html">Wormhole Cards</a>
+            <span class="nav-dropdown-header">Blackhole</span>
+            <a href="aibs/blackhole/index.html">Blackhole PCIe Cards</a>
             <a href="systems/quietbox/quietbox-bh/index.html">TT-QuietBox (Blackhole)</a>
             <a href="systems/quietbox/quietbox-bh-2/index.html">TT-QuietBox 2 (Blackhole)</a>
+            <div class="nav-dropdown-divider"></div>
+            <span class="nav-dropdown-header">Wormhole</span>
+            <a href="aibs/wormhole/index.html">Wormhole Cards</a>
             <a href="systems/quietbox/quietbox-wh/index.html">TT-QuietBox (Wormhole)</a>
             <a href="systems/t3000/index.html">TT-LoudBox (Wormhole)</a>
           </div>
         </li>
         <li class="has-dropdown">
-          <a href="#learn">Guides</a>
+          <a href="#learn">Learn</a>
           <div class="nav-dropdown">
             <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/tt-installer/" target="_blank" rel="noopener">Start Here: First Inference</a>
             <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/tt-inference-server/" target="_blank" rel="noopener">Build &amp; Serve</a>
@@ -731,9 +761,7 @@
         <h1 class="hero-title">Tenstorrent<br />Documentation</h1>
         <p class="hero-subtitle">
           No hardware yet? Get access to Tenstorrent silicon right in your browser with
-          <a href="https://console.tenstorrent.com" target="_blank" rel="noopener">Tenstorrent Cloud</a> —
-          then deploy and interact with models through
-          <a href="https://github.com/tenstorrent/tt-studio" target="_blank" rel="noopener">TT-Studio</a>.
+          <a href="https://console.tenstorrent.com" target="_blank" rel="noopener">Tenstorrent Cloud</a>
         </p>
         <div class="hero-search">
           <input type="text" placeholder="Search" />
@@ -741,17 +769,17 @@
       </div>
       <div class="hero-right">
         <a href="getting-started/README.html" class="quick-card">
-          <span class="quick-card-label">QUICKSTART</span>
+          <span class="quick-card-label">Get Started</span>
           <div class="quick-card-body">
             <h4>Install the software stack</h4>
             <p>Set up drivers, firmware, and the TT-Metalium environment on your Tenstorrent hardware, then verify your install.</p>
           </div>
         </a>
-        <a href="getting-started/vLLM-servers.html" class="quick-card">
-          <span class="quick-card-label">QUICKSTART</span>
+        <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/" target="_blank" rel="noopener" class="quick-card">
+          <span class="quick-card-label">TT Developer Toolkit</span>
           <div class="quick-card-body">
-            <h4>Run your first model</h4>
-            <p>Deploy a vLLM-powered API endpoint with tt-inference-server and serve a model end-to-end.</p>
+            <h4>Learn by building</h4>
+            <p>Get hands-on with a guided learning path — from making your first inference to building full applications with LLMs.</p>
           </div>
         </a>
       </div>
@@ -772,15 +800,21 @@
               <p class="card-desc">Deploy and serve models — the canonical source for validated model support.</p>
             </div>
           </a>
+          <a href="https://github.com/tenstorrent/tt-studio" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">TT-Studio</p>
+              <p class="card-desc">Point-and-click web UI for deploying and interacting with models.</p>
+            </div>
+          </a>
           <a href="https://github.com/tenstorrent/tt-metal" target="_blank" rel="noopener" class="card">
             <div class="card-text">
-              <p class="card-title">tt-metal</p>
-              <p class="card-desc">The core repository for TT-Metalium and TT-NN — low-level kernels to high-level ops.</p>
+              <p class="card-title">TT-Metalium</p>
+              <p class="card-desc">Low-level open-source C++ SDK for writing custom kernels directly on Tensix cores.</p>
             </div>
           </a>
           <a href="https://docs.tenstorrent.com/tt-vscode-toolkit" target="_blank" rel="noopener" class="card">
             <div class="card-text">
-              <p class="card-title">TT-VSCode-Toolkit</p>
+              <p class="card-title">TT Developer Toolkit</p>
               <p class="card-desc">Guided, hardware-tagged lessons for learning Tenstorrent development in VS Code.</p>
             </div>
           </a>
@@ -788,12 +822,6 @@
             <div class="card-text">
               <p class="card-title">TT-Lang</p>
               <p class="card-desc">Python DSL for authoring fused custom operations on Tenstorrent hardware.</p>
-            </div>
-          </a>
-          <a href="https://docs.tenstorrent.com/tt-awesome" target="_blank" rel="noopener" class="card">
-            <div class="card-text">
-              <p class="card-title">TT-Awesome</p>
-              <p class="card-desc">Community-curated catalog of apps, demos, and experiments.</p>
             </div>
           </a>
         </div>
@@ -807,65 +835,20 @@
         <div class="cards-grid">
           <a href="getting-started/README.html" class="card">
             <div class="card-text">
-              <p class="card-title">Install the Software Stack</p>
+              <p class="card-title">Install the software stack</p>
               <p class="card-desc">Install drivers, firmware, and the TT-Metalium environment, then verify your setup.</p>
             </div>
           </a>
           <a href="getting-started/vLLM-servers.html" class="card">
             <div class="card-text">
-              <p class="card-title">Serve a Model</p>
+              <p class="card-title">Run your first model</p>
               <p class="card-desc">Stand up an OpenAI-compatible inference server for high-throughput LLM serving.</p>
             </div>
           </a>
           <a href="getting-started/tt-software-stack.html" class="card">
             <div class="card-text">
-              <p class="card-title">Understand the Software Stack</p>
+              <p class="card-title">Understand the software stack</p>
               <p class="card-desc">How TT-Forge, TT-NN, and TT-Metalium fit together — and which to use when.</p>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <div class="divider"></div>
-
-      <!-- Guides -->
-      <div class="section" id="learn">
-        <h2>Guides</h2>
-        <div class="cards-grid">
-          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/tt-inference-server/" target="_blank" rel="noopener" class="card">
-            <div class="card-text">
-              <p class="card-title">Build &amp; Serve</p>
-              <p class="card-desc">Production inference with tt-inference-server and vLLM, image/video generation, and deployment.</p>
-            </div>
-          </a>
-          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/coding-assistant/" target="_blank" rel="noopener" class="card">
-            <div class="card-text">
-              <p class="card-title">Applications &amp; Projects</p>
-              <p class="card-desc">Real-world apps and hands-on cookbook projects — coding assistants, agents, simulations.</p>
-            </div>
-          </a>
-          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/ct1-understanding-training/" target="_blank" rel="noopener" class="card">
-            <div class="card-text">
-              <p class="card-title">Custom Training</p>
-              <p class="card-desc">Fine-tuning, multi-device training, experiment tracking, and training from scratch.</p>
-            </div>
-          </a>
-          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/forge-image-classification/" target="_blank" rel="noopener" class="card">
-            <div class="card-text">
-              <p class="card-title">Compilers &amp; Kernels</p>
-              <p class="card-desc">TT-Forge, JAX/XLA, TT-Lang, and exploring TT-Metalium at the kernel level.</p>
-            </div>
-          </a>
-          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cs-fundamentals-01-computer/" target="_blank" rel="noopener" class="card">
-            <div class="card-text">
-              <p class="card-title">CS Fundamentals</p>
-              <p class="card-desc">RISC-V architecture, memory hierarchy, parallelism, and synchronization on Tenstorrent silicon.</p>
-            </div>
-          </a>
-          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/" target="_blank" rel="noopener" class="card">
-            <div class="card-text">
-              <p class="card-title">Browse All Lessons</p>
-              <p class="card-desc">The full TT-VSCode-Toolkit catalog with hardware tags, duration, and validation status.</p>
             </div>
           </a>
         </div>
@@ -918,83 +901,19 @@
 
       <div class="divider"></div>
 
-      <!-- Tools -->
-      <div class="section" id="tools">
-        <h2>Tools</h2>
-        <div class="cards-grid">
-          <a href="https://github.com/tenstorrent/tt-inference-server" target="_blank" rel="noopener" class="card">
-            <div class="card-text">
-              <p class="card-title">TT-Inference-Server</p>
-              <p class="card-desc">Deploy and serve models — the canonical source for validated model support.</p>
-            </div>
-          </a>
-          <a href="https://github.com/tenstorrent/tt-studio" target="_blank" rel="noopener" class="card">
-            <div class="card-text">
-              <p class="card-title">TT-Studio</p>
-              <p class="card-desc">Point-and-click web UI for deploying a model — the fastest path for new users.</p>
-            </div>
-          </a>
-          <a href="https://github.com/tenstorrent/tt-smi" target="_blank" rel="noopener" class="card">
-            <div class="card-text">
-              <p class="card-title">TT-SMI</p>
-              <p class="card-desc">Command-line device telemetry and firmware info — ships with the software stack.</p>
-            </div>
-          </a>
-          <a href="https://docs.tenstorrent.com/tt-toplike/" target="_blank" rel="noopener" class="card">
-            <div class="card-text">
-              <p class="card-title">TT-Toplike</p>
-              <p class="card-desc">Real-time terminal monitor: power, temperature, current, and core activity.</p>
-            </div>
-          </a>
-          <a href="https://docs.tenstorrent.com/ttnn-visualizer/" target="_blank" rel="noopener" class="card">
-            <div class="card-text">
-              <p class="card-title">TT-NN Visualizer</p>
-              <p class="card-desc">Inspect model execution: graphs, memory plots, tensor and buffer views.</p>
-            </div>
-          </a>
-          <a href="https://github.com/tenstorrent/tt-topology" target="_blank" rel="noopener" class="card">
-            <div class="card-text">
-              <p class="card-title">TT-Topology</p>
-              <p class="card-desc">Configure Ethernet routing on multi-card QuietBox and LoudBox systems.</p>
-            </div>
-          </a>
-          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit" target="_blank" rel="noopener" class="card">
-            <div class="card-text">
-              <p class="card-title">TT-VSCode-Toolkit</p>
-              <p class="card-desc">Guided VS Code learning environment — browse tracks in the Learn section above.</p>
-            </div>
-          </a>
-          <a href="https://docs.tenstorrent.com/tt-awesome" target="_blank" rel="noopener" class="card">
-            <div class="card-text">
-              <p class="card-title">TT-Awesome</p>
-              <p class="card-desc">Community-curated catalog of apps, demos, and experiments.</p>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <div class="divider"></div>
-
       <!-- Hardware -->
       <div class="section" id="hardware">
         <h2>Hardware</h2>
+
+        <h3 class="hw-group">Blackhole</h3>
         <div class="cards-grid">
           <a href="aibs/blackhole/index.html" class="card">
             <div class="card-img">
               <img src="_static/home/blackhole.png" alt="Blackhole®" />
             </div>
             <div class="card-text">
-              <p class="card-title">Blackhole® Cards</p>
+              <p class="card-title">Blackhole® PCIe Cards</p>
               <p class="card-desc">Infinitely scalable, high-performance AI processing.</p>
-            </div>
-          </a>
-          <a href="aibs/wormhole/index.html" class="card">
-            <div class="card-img">
-              <img src="_static/home/wormhole.png" alt="Wormhole™" />
-            </div>
-            <div class="card-text">
-              <p class="card-title">Wormhole™ Cards</p>
-              <p class="card-desc">Flexible, scalable processors built with Tensix Cores™.</p>
             </div>
           </a>
           <a href="systems/quietbox/quietbox-bh/index.html" class="card">
@@ -1015,6 +934,21 @@
               <p class="card-desc">Next-generation liquid-cooled Blackhole workstation.</p>
             </div>
           </a>
+        </div>
+
+        <div class="divider"></div>
+
+        <h3 class="hw-group">Wormhole</h3>
+        <div class="cards-grid">
+          <a href="aibs/wormhole/index.html" class="card">
+            <div class="card-img">
+              <img src="_static/home/wormhole.png" alt="Wormhole™" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">Wormhole™ Cards</p>
+              <p class="card-desc">Flexible, scalable processors built with Tensix Cores™.</p>
+            </div>
+          </a>
           <a href="systems/quietbox/quietbox-wh/index.html" class="card">
             <div class="card-img">
               <img src="_static/home/tt-quietbox.png" alt="TT-QuietBox™ (Wormhole)" />
@@ -1031,6 +965,126 @@
             <div class="card-text">
               <p class="card-title">TT-LoudBox™ (Wormhole)</p>
               <p class="card-desc">High-throughput workstation AI.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Learn -->
+      <div class="section" id="learn">
+        <h2>Learn through TT Developer Toolkit</h2>
+        <div class="cards-grid">
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/tt-installer/" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">Your First Inference</p>
+              <p class="card-desc">Set up the toolkit, detect hardware, and run your first model end-to-end.</p>
+            </div>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/tt-inference-server/" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">Serving &amp; APIs</p>
+              <p class="card-desc">Production inference with tt-inference-server and vLLM, plus image and video generation.</p>
+            </div>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/coding-assistant/" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">Applications</p>
+              <p class="card-desc">Real-world apps: coding assistants, AI agents, and video generation on QuietBox 2.</p>
+            </div>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/ct1-understanding-training/" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">Custom Training</p>
+              <p class="card-desc">Datasets, fine-tuning, multi-device training, and training from scratch.</p>
+            </div>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cookbook-overview/" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">Cookbook</p>
+              <p class="card-desc">Hands-on projects: Game of Life, audio processing, fractals, and particle sims.</p>
+            </div>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/forge-image-classification/" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">Compilers &amp; Frameworks</p>
+              <p class="card-desc">Image classification with TT-Forge, JAX and PyTorch/XLA, and an intro to TT-Lang.</p>
+            </div>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cs-fundamentals-01-computer/" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">CS Fundamentals</p>
+              <p class="card-desc">RISC-V architecture, memory hierarchy, parallelism, synchronization, and complexity.</p>
+            </div>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/bounty-program/" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">Advanced</p>
+              <p class="card-desc">Model bring-up bounties and exploring TT-Metalium at the kernel level.</p>
+            </div>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/deploy-vscode-to-koyeb/" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">Deployment</p>
+              <p class="card-desc">Deploy the toolkit and your work to the cloud with Koyeb.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Tools -->
+      <div class="section" id="tools">
+        <h2>Tools</h2>
+        <div class="cards-grid">
+          <a href="https://github.com/tenstorrent/tt-inference-server" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">TT-Inference-Server</p>
+              <p class="card-desc">Deploy and serve models — the canonical source for validated model support.</p>
+            </div>
+          </a>
+          <a href="https://github.com/tenstorrent/tt-studio" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">TT-Studio</p>
+              <p class="card-desc">Point-and-click web UI for deploying a model — the fastest path for new users.</p>
+            </div>
+          </a>
+          <a href="https://github.com/tenstorrent/tt-smi" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">tt-smi</p>
+              <p class="card-desc">Command-line device telemetry and firmware info — ships with the software stack.</p>
+            </div>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-toplike/" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">tt-toplike</p>
+              <p class="card-desc">Real-time terminal monitor: power, temperature, current, and core activity.</p>
+            </div>
+          </a>
+          <a href="https://docs.tenstorrent.com/ttnn-visualizer/" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">tt-nn visualizer</p>
+              <p class="card-desc">Inspect model execution: graphs, memory plots, tensor and buffer views.</p>
+            </div>
+          </a>
+          <a href="https://github.com/tenstorrent/tt-topology" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">tt-topology</p>
+              <p class="card-desc">Configure Ethernet routing on multi-card QuietBox and LoudBox systems.</p>
+            </div>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">TT Developer Toolkit</p>
+              <p class="card-desc">Guided VS Code learning environment — browse tracks in the Learn section above.</p>
+            </div>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-awesome" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">tt-awesome</p>
+              <p class="card-desc">Community-curated catalog of apps, demos, and experiments.</p>
             </div>
           </a>
         </div>
@@ -1116,7 +1170,6 @@
           </a>
         </div>
       </div>
-
     </div>
   </div>
 
