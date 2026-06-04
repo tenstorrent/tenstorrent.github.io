@@ -172,6 +172,10 @@ If `.tenstorrent-venv` is not active, or you don’t see all four accelerators l
 
 4. Once all cards have been verified, close TT-SMI by pressing Q on your keyboard.
 
+:::{note}
+Setting up your TT-QuietBox 2 for more than one person? {ref}`Follow these steps to set up another user on your TT-QuietBox 2 <qb2-add-new-user>`.
+:::
+
 ---
 
 ## Step 8: Get Access to Model Weights
