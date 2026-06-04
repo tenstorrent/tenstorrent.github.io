@@ -1,10 +1,21 @@
 Tools
 =======================================
-TT-NPE is a tool that can be used to validate compiled ops, simulate op execution at the tile or kernel level, and help debug hardware/compiler mismatches.
+
+.. list-table::
+   :widths: 50 50
+   :class: tt-index-cards
+
+   * - `TT-Blacksmith <https://docs.tenstorrent.com/tt-blacksmith/>`_
+
+       A cookbook for model fine-tuning and training experiments on Tenstorrent hardware.
+
+     - `TT-NPE <https://docs.tenstorrent.com/tt-npe/>`_
+
+       Used to validate compiled ops, simulate op execution at the tile or kernel level, and help debug hardware/compiler mismatches.
 
 .. toctree::
-   :caption: Tools
+   :hidden:
    :maxdepth: 2
 
-   
+    TT-Blacksmith <https://docs.tenstorrent.com/tt-blacksmith/>
     TT-NPE <https://docs.tenstorrent.com/tt-npe/>
