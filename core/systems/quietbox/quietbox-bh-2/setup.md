@@ -244,7 +244,6 @@ Downloading a model can take anywhere from a few minutes to a few hours, dependi
 ## Other Methods of Running Models
 After your TT-QuietBox 2 is set up, feel free to explore other methods of running models on other layers of Tenstorrent's software stack. You may want to:
 - Run models directly from Terminal using [TT-Inference-Server](https://github.com/tenstorrent/tt-inference-server), the fastest way to deploy and test models for serving inference on Tenstorrent hardware.
-- Run [model demos](https://docs.tenstorrent.com/getting-started/model-demos.html) using TT-Metalium.
 
 ---
 
