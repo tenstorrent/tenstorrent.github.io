@@ -415,13 +415,13 @@ i {
   top: var(--tt-navbar-height) !important;
   height: calc(100vh - var(--tt-navbar-height)) !important;
   background-color: #E5F2F1 !important;
-  width: 260px !important;
+  width: 308px !important;
 }
 
-/* Content area pushed below navbar, offset for 260px sidebar */
+/* Content area pushed below navbar, offset for 308px sidebar */
 .wy-nav-content-wrap {
   padding-top: var(--tt-navbar-height);
-  margin-left: 260px !important;
+  margin-left: 308px !important;
 }
 
 .wy-nav-content {
@@ -480,11 +480,17 @@ i {
 }
 
 .wy-menu-vertical {
-  padding: 4px 0 6rem;
-  padding-left: 5px;
+  padding: 0 24px 6rem;
 }
 
-/* Section group headers (captions) */
+/* 4px gap between items (Figma: gap-[4px]) */
+.wy-menu-vertical ul {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Section group headers (captions) — Figma: Berkeley Mono 12px, #3A5452, py-12px */
 .wy-menu-vertical header,
 .wy-menu-vertical p.caption {
   color: #3A5452;
@@ -493,11 +499,12 @@ i {
   font-weight: 400;
   letter-spacing: var(--widest);
   text-transform: uppercase;
-  padding: 12px 24px 4px;
+  padding: 12px 0 4px;
   margin: 0;
   border-top: none;
   pointer-events: none;
   cursor: default;
+  line-height: 1;
 }
 
 .wy-menu-vertical header:hover,
@@ -508,14 +515,17 @@ i {
   color: #3A5452 !important;
 }
 
-/* Nav items */
+/* Nav items — Figma: Neue Haas Unica Pro 14px, padding 8px 8px 8px 12px, border-radius 4px */
 .wy-menu-vertical a {
   color: var(--color-foreground);
   font-size: 14px;
+  font-weight: 400;
+  line-height: 1.35;
   letter-spacing: var(--wide);
   padding: 8px 8px 8px 12px !important;
-  margin: 0 8px;
+  margin: 0;
   border-radius: 4px;
+  display: block;
 }
 
 /* Sub-items indented */
