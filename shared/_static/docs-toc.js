@@ -20,11 +20,6 @@
     toc.className = 'tt-page-toc';
     toc.setAttribute('aria-label', 'Page contents');
 
-    var title = document.createElement('p');
-    title.className = 'tt-page-toc-title';
-    title.textContent = 'On this page';
-    toc.appendChild(title);
-
     var ul = document.createElement('ul');
 
     headings.forEach(function (h) {
@@ -40,7 +35,11 @@
 
       var a = document.createElement('a');
       a.href = '#' + h.id;
-      a.textContent = h.textContent.replace(/¶$/, '').trim();
+
+      /* Strip headerlink anchors (¶ / [] symbols) before reading text */
+      var clone = h.cloneNode(true);
+      clone.querySelectorAll('a.headerlink').forEach(function (el) { el.remove(); });
+      a.textContent = clone.textContent.trim();
 
       a.addEventListener('click', function (e) {
         e.preventDefault();
