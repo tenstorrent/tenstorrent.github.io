@@ -449,7 +449,7 @@ i {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  padding: 32px 24px 16px;
+  padding: 0 24px;
   border-bottom: none !important;
 }
 
@@ -515,6 +515,11 @@ i {
   color: #3A5452 !important;
 }
 
+/* Hide RTD's default expand toggle (shown before text) */
+.wy-menu-vertical li span.toctree-expand {
+  display: none !important;
+}
+
 /* Nav items — Figma: Neue Haas Unica Pro 14px, padding 8px 8px 8px 12px, border-radius 4px */
 .wy-menu-vertical a {
   color: var(--color-foreground);
@@ -525,7 +530,19 @@ i {
   padding: 8px 8px 8px 12px !important;
   margin: 0;
   border-radius: 4px;
-  display: block;
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Chevron › on the right for items that have children */
+.wy-menu-vertical li:has(> ul) > a::after {
+  content: "›";
+  font-size: 18px;
+  line-height: 1;
+  color: #3A5452;
+  flex-shrink: 0;
+  margin-left: 8px;
 }
 
 /* Sub-items indented */
