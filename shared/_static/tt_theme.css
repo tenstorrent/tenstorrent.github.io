@@ -1012,7 +1012,7 @@ html.writer-html5 .rst-content dl[class]:not(.option-list):not(.field-list):not(
 /* Breadcrumbs */
 .wy-breadcrumbs {
   background: #ffffff;
-  padding: 8px 24px;
+  padding: 8px 0px 25px;
   font-size: 13px;
   margin-bottom: 0 !important;
 }
@@ -1024,6 +1024,11 @@ html.writer-html5 .rst-content dl[class]:not(.option-list):not(.field-list):not(
 .wy-breadcrumbs a {
   color: var(--color-accent) !important;
   border-bottom: none !important;
+}
+
+/* Remove "View page source" link */
+.wy-breadcrumbs-aside {
+  display: none !important;
 }
 
 /* Remove the hr below breadcrumbs */
