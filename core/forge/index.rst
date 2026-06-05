@@ -31,5 +31,5 @@ Cookbook
 .. toctree::
    :maxdepth: 1
 
-   TT-Blacksmith <https://docs.tenstorrent.com/tt-blacksmith/>
+   TT-Blacksmith <https://firdovsimammedovk.github.io/tt-blacksmith-sandbox/>
 

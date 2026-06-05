@@ -5,7 +5,7 @@ Tools
    :widths: 50 50
    :class: tt-index-cards
 
-   * - `TT-Blacksmith <https://docs.tenstorrent.com/tt-blacksmith/>`_
+   * - `TT-Blacksmith <https://firdovsimammedovk.github.io/tt-blacksmith-sandbox/>`_
 
        A cookbook for model fine-tuning and training experiments on Tenstorrent hardware.
 
