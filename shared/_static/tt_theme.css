@@ -598,6 +598,7 @@ li.toctree-l1.current>a,
 .wy-menu-vertical li.on a {
   background-color: rgba(103, 133, 131, 0.1) !important;
   border: none !important;
+  border-right: none !important;
   color: var(--color-foreground) !important;
   font-weight: 500;
 }
