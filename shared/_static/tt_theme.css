@@ -562,8 +562,9 @@ i {
   font-size: 13px;
 }
 
-.wy-menu-vertical .toctree-l4 a {
-  padding-left: 48px !important;
+.wy-menu-vertical .toctree-l4 a,
+.wy-menu-vertical .toctree-l5 a {
+  padding-left: 0 !important;
   font-size: 12px;
 }
 
@@ -601,6 +602,7 @@ li.toctree-l1.current>a,
   border-right: none !important;
   color: var(--color-foreground) !important;
   font-weight: 500;
+  padding-left: 10px !important;
 }
 
 .wy-menu-vertical li.toctree-l2.current>a,
