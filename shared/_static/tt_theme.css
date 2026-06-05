@@ -515,8 +515,9 @@ i {
   color: #3A5452 !important;
 }
 
-/* Hide RTD's default expand toggle (shown before text) */
-.wy-menu-vertical li span.toctree-expand {
+/* Hide RTD's default expand toggle (span and button variants) */
+.wy-menu-vertical li span.toctree-expand,
+.wy-menu-vertical li button.toctree-expand {
   display: none !important;
 }
 
@@ -532,22 +533,22 @@ i {
   border-radius: 4px;
   display: flex !important;
   align-items: center;
-  justify-content: space-between;
 }
 
-/* Chevron › on the right for items that have children */
+/* Chevron › pushed to the right via margin-left: auto */
 .wy-menu-vertical li:has(> ul) > a::after {
   content: "›";
   font-size: 18px;
   line-height: 1;
   color: #3A5452;
   flex-shrink: 0;
-  margin-left: 8px;
+  margin-left: auto;
+  padding-left: 8px;
 }
 
-/* Sub-items indented */
+/* Sub-items */
 .wy-menu-vertical .toctree-l2 a {
-  padding-left: 24px !important;
+  padding-left: 0 !important;
   font-size: 13px;
 }
 
