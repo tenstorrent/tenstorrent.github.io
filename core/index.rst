@@ -27,10 +27,10 @@ Tenstorrent
    :maxdepth: 2
 
    forge/index
-   TT-Metalium <https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/index.html>
+   TT-Metalium <https://firdovsimammedovk.github.io/tt-metal-sandbox/tt-metalium/>
    TT-Lang <https://firdovsimammedovk.github.io/tt-lang-sandbox/>
    TT-Blacksmith <https://firdovsimammedovk.github.io/tt-blacksmith-sandbox/>
-   TT-NN <https://docs.tenstorrent.com/tt-metal/latest/ttnn/index.html>
+   TT-NN <https://firdovsimammedovk.github.io/tt-metal-sandbox/ttnn/>
    Manual Software Installation <getting-started/manual-software-install>
    tools/index
 
