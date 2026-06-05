@@ -490,6 +490,10 @@ i {
   gap: 4px;
 }
 
+.wy-menu-vertical > ul {
+  padding-left: 15px;
+}
+
 /* Section group headers (captions) — Figma: Berkeley Mono 12px, #3A5452, py-12px */
 .wy-menu-vertical header,
 .wy-menu-vertical p.caption {
@@ -528,7 +532,7 @@ i {
   font-weight: 400;
   line-height: 1.35;
   letter-spacing: var(--wide);
-  padding: 8px 8px 8px 12px !important;
+  padding: 8px 8px 8px 0 !important;
   margin: 0;
   border-radius: 4px;
   display: flex !important;
