@@ -596,7 +596,12 @@ i {
 /* Active item — Figma: rgba(103,133,131,0.1) bg, border-radius 4px, no border */
 .wy-menu-vertical li.current>a,
 li.toctree-l1.current>a,
-.wy-menu-vertical li.on a {
+.wy-menu-vertical li.on a,
+.wy-menu-vertical li.toctree-l2.current>a,
+.wy-menu-vertical li.toctree-l2.current li.toctree-l3>a,
+.wy-menu-vertical li.toctree-l3.current>a,
+.wy-menu-vertical li.toctree-l3.current li.toctree-l4>a,
+.wy-menu-vertical li.toctree-l4.current>a {
   background-color: rgba(103, 133, 131, 0.1) !important;
   border: none !important;
   border-right: none !important;
@@ -605,13 +610,9 @@ li.toctree-l1.current>a,
   padding-left: 10px !important;
 }
 
-.wy-menu-vertical li.toctree-l2.current>a,
-.wy-menu-vertical li.toctree-l2.current li.toctree-l3>a,
-.wy-menu-vertical li.toctree-l3.current>a,
-.wy-menu-vertical li.toctree-l3.current li.toctree-l4>a,
-.wy-menu-vertical li.toctree-l4.current>a {
-  background: rgba(103, 133, 131, 0.07) !important;
-  border: none !important;
+/* Also remove border-right from any current link */
+.wy-menu-vertical li.current a {
+  border-right: none !important;
 }
 
 .wy-menu-vertical li.current,
