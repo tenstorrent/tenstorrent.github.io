@@ -488,9 +488,10 @@ i {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  padding-left: 15px;
 }
 
-.wy-menu-vertical > ul {
+.wy-menu-vertical li.current ul {
   padding-left: 15px;
 }
 
@@ -557,7 +558,7 @@ i {
 }
 
 .wy-menu-vertical .toctree-l3 a {
-  padding-left: 36px !important;
+  padding-left: 0 !important;
   font-size: 13px;
 }
 
