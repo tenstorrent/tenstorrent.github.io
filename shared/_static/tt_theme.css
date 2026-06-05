@@ -61,7 +61,7 @@
   /* navbar */
   --tt-navbar-height: 72px;
   --tt-navbar-bg: #092221;
-  --tt-right-toc-width: 240px;
+  --tt-right-toc-width: 280px;
 
   --color-purple: var(--color-accent);
   --color-dark-purple: #5BBAD5;
@@ -944,16 +944,6 @@ html.writer-html5 .rst-content dl[class]:not(.option-list):not(.field-list):not(
   border-left: 1px solid var(--border);
   box-sizing: border-box;
   z-index: 100;
-}
-
-.tt-page-toc-title {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: var(--widest);
-  text-transform: uppercase;
-  color: #678583;
-  margin: 0 0 12px 0;
 }
 
 .tt-page-toc ul {
