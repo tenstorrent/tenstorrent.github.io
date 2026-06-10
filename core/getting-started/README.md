@@ -12,6 +12,10 @@ This guide assists users who have completed the physical hardware setup of their
 
 ## **Before You Begin**
 
+:::{note}
+Setting up your new TT-QuietBox® 2? Follow the [Setup Guide](../systems/quietbox/quietbox-bh-2/setup.md).
+:::
+
 Before you begin the software installation, ensure your host machine meets the following prerequisites:
 
 * The host machine has an internet connection to download software packages.  
