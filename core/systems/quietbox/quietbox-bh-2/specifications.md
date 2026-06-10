@@ -44,7 +44,7 @@ The Tenstorrent TT-QuietBox 2 (Blackhole) system package includes the following 
 
 ## **Blackhole p300 Card Specifications**
 
-TT-QuietBox 2 is powered by two p300c cards for a total of four Blackhole chips. The table below describes the specifications of a single p300c card for your reference. Please note the p300c card is not sold separately outside of the QuietBox 2. If you are interested in a Blackhole card to add to your existing system, check out the available cards at www.tenstorrent.com/cards
+TT-QuietBox 2 is powered by two p300c cards for a total of four Blackhole chips. The table below describes the specifications of a single p300c card for your reference. Please note the p300c card is not sold separately outside of the QuietBox 2. If you are interested in a Blackhole card to add to your existing system, check out our [available cards](https://www.tenstorrent.com/cards).
 
 | Specification             | Single p300c card                    | QuietBox 2 (two cards)                             |
 | ------------------------- | ------------------------------------ | -------------------------------------------------- |
