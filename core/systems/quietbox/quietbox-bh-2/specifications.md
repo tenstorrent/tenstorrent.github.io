@@ -12,8 +12,6 @@ myst:
 
 # Specifications
 
-*<span style="color: purple;">Note: This product is pre-launch and documentation is subject to change.</span>*
-
 This document provides detailed technical specifications for the TT-QuietBox<sup>™</sup> 2 (Blackhole<sup>®</sup>) workstation. It lists package contents, hardware components, physical dimensions, and operating requirements.
 
 ## **Package Contents**
@@ -24,7 +22,7 @@ The Tenstorrent TT-QuietBox 2 (Blackhole) system package includes the following 
 * 1x Power Supply Cord (C19 to NEMA 5-15P)
 * 1x AnkerWork S500 Speakerphone
 
-## **System Specifications**
+## **TT-QuietBox 2 System Specifications**
 
 | Specification | Details |
 | ----- | ----- |
@@ -34,7 +32,7 @@ The Tenstorrent TT-QuietBox 2 (Blackhole) system package includes the following 
 | Motherboard | ASRock B850M-C, mATX |
 | Memory | 256 GB (4x64 GB) DDR5-5600 UDIMM, CL46 (4 slots, 0 free) |
 | Storage | 4TB (WDS400T4B0E-00BKY0)<br /> 1x Blazing M.2 (PCIe Gen5x4) with WD Blue SN5000 NVMe SSD<br /> 1x Hyper M.2 (PCIe Gen4x4)<br /> 1x M.2 (PCIe Gen3x2 & SATA3) |
-| Tenstorrent Processors | 2x Liquid-Cooled Blackhole™ cards, each equipped with:<br /><ul class="tt-spec-cell-list"><li>2x Blackhole ASICs</li><li>240 Tensix Cores</li><li>64 GB of GDDR6 Memory @ 16 GT/sec (1024 GB/sec memory bandwidth)</li><li>600W of board power</li></ul> |
+| Tenstorrent Processors | 2x Blackhole p300c cards (4 Blackhole chips) |
 | External I/O Ports | 1x HDMI Port<br />1x USB 3.2 Gen 2 Type-A Port<br />1x USB 3.2 Gen 2 Type-C Port (non-video)<br />2x USB 3.2 Gen 1 Ports<br />4x USB 2.0 Ports<br />1 x BIOS Flashback Button<br />HD Audio Jacks: Line in / Front Speaker / Microphone |
 | Connectivity | 1 x RJ45 LAN Port<br /><ul class="tt-spec-cell-list"><li>Gigabit LAN 10/100/1000 Mb/s Base T</li><li>Realtek 8111H</li></ul><br />2x WiFi Antenna<br /><ul class="tt-spec-cell-list"><li>802.11ax WiFi 6 Module</li><li>Supports IEEE 802.11a/b/g/n/ax</li><li>Supports Dual-Band (2.4/5 GHz)</li><li>Supports Bluetooth 5.3</li></ul> |
 | Power Supply | 1600W Cooler Master V Platinum 1600 V2 |
@@ -43,6 +41,32 @@ The Tenstorrent TT-QuietBox 2 (Blackhole) system package includes the following 
 | System Weight | 20 kg (44 lbs) +/- 1.5 lbs   |
 | Shipping Box Dimensions | Height: 20.7” (52.5 cm) Width: 14.4” (36.7 cm) Depth: 25.0” (63.5 cm) |
 | Shipping Box Weight | 23.2 kg (52 lbs)  |
+
+## **Blackhole p300 Card Specifications**
+
+TT-QuietBox 2 is powered by two p300c cards for a total of four Blackhole chips. The table below describes the specifications of a single p300c card for your reference. Please note the p300c card is not sold separately outside of the QuietBox 2. If you are interested in a Blackhole card to add to your existing system, check out our [available cards](https://www.tenstorrent.com/cards).
+
+| Specification             | Single p300c card                    | QuietBox 2 (two cards)                             |
+| ------------------------- | ------------------------------------ | -------------------------------------------------- |
+| Part Number               | TC-03007                             | 2x TC-03007                                        |
+| Tensix Cores              | 240                                  | 480                                                |
+| AI Clock                  | 1.35 GHz                             | 1.35 GHz                                           |
+| SRAM                      | 360 MB (1.5 MB per Tensix core)      | 720 MB (1.5 MB per Tensix core)                    |
+| Memory                    | 64GB GDDR6                           | 128GB GDDR6                                        |
+| Memory Speed              | 16 GT/sec                            | 16 GT/sec                                          |
+| Memory Bandwidth          | 1024 GB/sec                          |  -                                        |
+| TBP (Total Board Power)   | 600W                                 | -                                                  |
+| Cooling                   | Liquid                               | Liquid                                             |
+| Connectivity              |  2x Warp400 (internally connected, diagrams below.)                                   |  - |
+| Dimensions (WxDxH)        | 21.66mm x 307mm x 112.65mm           | -                                                  |
+
+## **Internal Topology**
+
+The workstation's two p300c cards are connected internally with a Samtec ARP6 series High Performance cable. The below topology is pre-installed inside the QuietBox 2 by Tenstorrent and is outlined here for your reference.
+
+```{figure} ./qb2-topology.jpg
+:width: 65%
+```
 
 ## **Supported Models**
 For the most up-to-date list of models supported by TT-QuietBox 2, check the [Developer Hub](https://tenstorrent.com/developers).
@@ -91,14 +115,6 @@ The Power Supply Unit (PSU) on the TT-QuietBox 2 is rated to draw up to 1600W of
 | 9 | 1x RJ45 **TBD GbE** LAN Port |
 | 10 | 2x WiFi Antenna |
 | 11 | HD Audio Jacks: Line in / Front Speaker / Microphone  |
-
-## **Internal Topology**
-
-The TT-QuietBox 2 is enabled by two Tenstorrent {doc}`Blackhole p300c cards </aibs/blackhole/p300>`, which are connected internally with a Samtec ARP6 series High Performance cable. The below topology is pre-installed by Tenstorrent, and is here for your reference. 
-
-```{figure} ./qb2-topology.jpg
-:width: 65%
-```
 
 (safety-warnings)=
 ## **Important Safety Warnings**

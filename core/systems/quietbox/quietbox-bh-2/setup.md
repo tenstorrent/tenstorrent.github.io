@@ -13,8 +13,6 @@ myst:
 
 # Hardware and Software Setup
 
-*<span style="color: purple;">Note: This product is pre-launch and documentation is subject to change.</span>*
-
 This guide shows users how to safely unbox, setup hardware, and install software on a TT-QuietBox<sup>™</sup> 2 (Blackhole<sup>®</sup>) workstation.
 
 ## Before You Begin
@@ -60,7 +58,7 @@ Note: Only use certified HDMI cables with the TT-QuietBox 2. Using non-certified
 :width: 40%
 ```
 
-3. Lift box lid, remove accessories box and styrofoam, then remove internal cardboard case and plastic sleeve.
+3. Lift box lid, remove accessories box and styrofoam, then remove internal cardboard case.
 ```{figure} ./qb2-unboxing-lift-sleeve.jpg
 :width: 40%
 ```
@@ -69,10 +67,6 @@ Note: Only use certified HDMI cables with the TT-QuietBox 2. Using non-certified
 :width: 40%
 ```
 ```{figure} ./qb2-unboxing-lift-inner-box.jpg
-:width: 40%
-```
-
-```{figure} ./qb2-unboxing-lift-plastic-sleeve.jpg
 :width: 40%
 ```
 
