@@ -1,7 +1,5 @@
 # FAQ and Troubleshooting 
 
-*<span style="color: purple;">Note: This product is pre-launch and documentation is subject to change.</span>*
-
 ## Hardware and Software Details
 
 ### What Software Can I Run Out of the Box on My TT-QuietBox 2?
