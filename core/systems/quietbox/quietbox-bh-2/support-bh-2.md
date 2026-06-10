@@ -114,6 +114,42 @@ If you have confirmed the above, and your system has been turned off for a long 
 7. After this time, the connected monitor should prompt you to begin. If it does not, raise a support ticket with us and we'll help troubleshoot.
 
 
+(qb2-add-new-user)=
+### How Do I Add a New User to My TT-QuietBox 2?
+You can add additional users to your TT-QuietBox 2 and install the necessary Tenstorrent software for each one. Follow these steps:
+
+1. Create the new user from **Ubuntu Settings > Users > Add New User**.
+2. Ensure the new user is given **Administrator** privileges.
+3. Log out, then log back in as the new user.
+4. Open a Terminal window by pressing Ctrl+Alt+T and run the following commands, which will install the Tenstorrent software and trigger a system reboot.
+
+```bash
+sudo usermod -aG docker $USER
+newgrp docker
+
+curl -fsSL https://github.com/tenstorrent/tt-installer/releases/latest/download/install.sh -O
+
+chmod +x install.sh
+
+./install.sh --mode-non-interactive --install-container-runtime=no
+```
+5. Upon reboot, log in with the new user, open a Terminal window, and run these commands:
+
+```bash
+cd ~/.local/lib/tt-studio
+git checkout tt_qb2_launch_branch
+git pull
+```
+6. If you'd like to use the pre-downloaded Qwen3-32B model with this new user, copy the model files to their home directory:
+
+```bash
+mkdir -p ~/data/tt-cache
+sudo cp -r /home/ttuser/data/tt-cache/volume_id_tt_transformers-Qwen3-32B-vqb2_launch /home/$USER/data/tt-cache/volume_id_tt_transformers-Qwen3-32B-vqb2_launch
+sudo chown -R $USER:$USER /home/$USER/data/tt-cache/volume_id_tt_transformers-Qwen3-32B-vqb2_launch/
+sudo chmod -R o+rwX /home/$USER/data/tt-cache/volume_id_tt_transformers-Qwen3-32B-vqb2_launch
+```
+7. Continue the software setup in the TT-QuietBox 2 setup guide at [Step 8: Get Access to Model Weights](./setup.md#step-8-get-access-to-model-weights).
+
 ### My Question Wasn’t Answered Here, Where Can I Reach Out?
 For general questions, pre-sales inquiries, or to talk with our team, use the [contact us form](https://tenstorrent.com/contact) on the Tenstorrent website, and we’ll route you to the right expert.
 
