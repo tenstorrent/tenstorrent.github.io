@@ -129,7 +129,14 @@ curl -fsSL https://github.com/tenstorrent/tt-installer/releases/latest/download/
 
 chmod +x install.sh
 
-./install.sh --mode-non-interactive --install-container-runtime=no
+./install.sh \
+  --kmd-version=2.8.0 \
+  --smi-version=5.2.0 \
+  --flash-version=3.8.0 \
+  --fw-version=19.10.0 \
+  --metalium-image-tag=v0.72.0 \
+  --mode-non-interactive \
+  --install-container-runtime=no
 ```
 5. Upon reboot, log in with the new user, open a Terminal window, and run these commands:
 
