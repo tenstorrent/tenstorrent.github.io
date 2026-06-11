@@ -148,6 +148,9 @@ sudo chmod -R o+rwX /home/$USER/data/tt-cache/volume_id_tt_transformers-Qwen3-32
 ```
 7. Continue the software setup in the TT-QuietBox 2 setup guide at [Step 8: Get Access to Model Weights](./setup.md#step-8-get-access-to-model-weights).
 
+### What Should I Do If Docker Crashes on My TT-QuietBox 2?
+Sometimes there are issues with the system-level Docker installation and the Tenstorrent software stack that are most easily solved by uninstalling and reinstalling Docker. While Docker comes pre-installed on your TT-QuietBox 2, you may run into a situation where Docker crashes unexpectedly when running TT-Studio or other applications. The quickest fix is to follow the instructions on the Docker website to [uninstall and reinstall the latest Docker Engine](https://docs.docker.com/engine/install/ubuntu/).
+
 ### My Question Wasn’t Answered Here, Where Can I Reach Out?
 For general questions, pre-sales inquiries, or to talk with our team, use the [contact us form](https://tenstorrent.com/contact) on the Tenstorrent website, and we’ll route you to the right expert.
 
