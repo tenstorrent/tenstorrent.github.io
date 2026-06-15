@@ -1188,4 +1188,51 @@ div[role="navigation"] hr,
   .tt-page-toc {
     display: none !important;
   }
+
+  /* Hero/home page: hamburger opens the top-nav links as a drawer
+     (home has no doc sidebar). Toggled by .tt-mobile-open via docs-toc.js. */
+  .tt-top-nav.tt-mobile-open .tt-nav-links {
+    display: flex !important;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+    position: fixed;
+    top: var(--tt-navbar-height);
+    left: 0;
+    right: 0;
+    max-height: calc(100vh - var(--tt-navbar-height));
+    overflow-y: auto;
+    background: var(--tt-navbar-bg);
+    padding: 8px 16px 20px;
+    border-bottom: 1px solid rgba(199, 217, 216, 0.3);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 290;
+  }
+  .tt-top-nav.tt-mobile-open .tt-nav-links > li { width: 100%; }
+  .tt-top-nav.tt-mobile-open .tt-nav-links > li > a {
+    height: auto;
+    padding: 10px 8px;
+    font-size: 15px;
+  }
+  /* Expand dropdowns inline inside the drawer */
+  .tt-top-nav.tt-mobile-open .tt-nav-dropdown {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    min-width: 0;
+    padding: 0 0 6px 12px;
+  }
+  .tt-top-nav.tt-mobile-open .tt-nav-dropdown a {
+    height: auto;
+    padding: 8px;
+    color: #9bdbf0 !important;
+  }
+  .tt-top-nav.tt-mobile-open .tt-nav-dropdown a:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff !important;
+  }
 }
