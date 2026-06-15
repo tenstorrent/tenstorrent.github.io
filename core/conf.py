@@ -53,6 +53,11 @@ myst_heading_anchors = 3  # or 2, depending on how deep you want anchor links
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = "sphinx_rtd_theme"
+html_theme_options = {
+    "collapse_navigation": True,  # keep unselected subtrees folded (default, explicit)
+    "titles_only": True,          # drop in-page H2/H3 headings from the sidebar
+    "navigation_depth": 2,        # Home -> section -> product; leaf pages reached via page body
+}
 html_logo = "../shared/images/tt_logo.svg"
 html_favicon = "../shared/images/favicon.png"
 html_static_path = ['../shared/_static', '_static/assets', '_static/js']
