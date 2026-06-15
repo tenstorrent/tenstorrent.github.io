@@ -1,6 +1,18 @@
-# Specifications, Requirements, and Setup
+---
+myst:
+  html_meta:
+    document-type: Product Guide
+---
 
-## Package Contents
+# TT-LoudBox (Wormhole)
+
+This page covers everything for the TT-LoudBox (Wormhole) workstation: its full
+hardware specifications and requirements, and where to find support. Use the
+page navigation on the right to jump between sections.
+
+## Specifications, Requirements, and Setup
+
+### Package Contents
 
 The Tenstorrent TT-LoudBox (Wormhole) 4U/Desktop Workstation (aka T3000) system package includes:
 
@@ -9,7 +21,7 @@ The Tenstorrent TT-LoudBox (Wormhole) 4U/Desktop Workstation (aka T3000) system 
 - 4U Rack-Mounting Kit
 - 2x QSFP-DD 400GbE Cable, 0.6m/2ft. (TW-02002 only)
 
-## System Specifications
+### System Specifications
 
 | Specification                     | TT-LoudBox (TW-02001)                                        | TT-LoudBox (TW-02002)                                        |
 | --------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -30,15 +42,15 @@ The Tenstorrent TT-LoudBox (Wormhole) 4U/Desktop Workstation (aka T3000) system 
 
 ![](../bmclabel.png)
 
-## Operating System Requirements
+### Operating System Requirements
 
 The Tenstorrent TT-LoudBox system ships without an operating system installed. We recommend installing Ubuntu 22.04 (Jammy Jellyfish) to properly use the Tenstorrent Tensix Processors.
 
-## 4U Rack-Mounting Instructions
+### 4U Rack-Mounting Instructions
 
 The Tenstorrent TT-LoudBox ships assembled for desktop use. Instructions to rack-mount the system using the included 4U rack-mounting kit are available in Chapter 2 of the Manual for the [SuperMicro SuperServer SYS-740GP-TNRT](https://www.supermicro.com/en/products/system/gpu/4u/sys-740gp-tnrt).
 
-## QSFP-DD Connections and System Topology (TW-02002)
+### QSFP-DD Connections and System Topology (TW-02002)
 
 The Tenstorrent TT-LoudBox configuration in TW-02002 includes four Wormhole™ n300s Tensix Processors and internal Warp 100 bridges and external QSFP-DD cables that enable the Tensix Processor mesh.
 
@@ -57,12 +69,38 @@ One QSFP-DD cable will need to be connected to **Port 2** on the cards in **Slot
 TT-LoudBox (Wormhole) comes with its topology already configured. However, Wormhole cards can be configured for custom Ethernet routing. If you would like to setup a custom topology, please use the [TT-Topology command utility](https://github.com/tenstorrent/tt-topology/blob/main/README.md) for the setup of multi-card configurations.
 :::
 
-## Environment Specifications
+### Environment Specifications
 
-Please visit the Tenstorrent Wormhole n150s and n300s [specification page](../../aibs/wormhole/specifications.md) for environment specifications for those cards.
+Please visit the Tenstorrent Wormhole n150s and n300s [specification page](../../aibs/wormhole/index.md#specificationsrequirements) for environment specifications for those cards.
 
 Please visit the [SuperMicro SuperServer SYS-740GP-TNRT](https://www.supermicro.com/en/products/system/gpu/4u/sys-740gp-tnrt) page for environment specifications for this system.
 
-## Software Setup
+### Software Setup
 
-Instructions on how to set up software on TT-LoudBox are available [here](https://firdovsimammedovk.github.io/tenstorrent-sandbox/getting-started/README.html).
+Instructions on how to set up software on TT-LoudBox are available in the [Software Setup](../../getting-started/README.md) guide.
+
+## Support
+
+### BMC Information
+
+The MAC address and password for the BMC (baseboard management controller) can be found on labels on both the system chassis and the motherboard. A small slide-out tray with the label is hidden behind the front cover, at the bottom of the system. The label will look like this:
+
+![](../bmclabel.png)
+
+### Software Setup Support
+
+For software setup, visit our [software setup](../../getting-started/README.md) page.
+
+### BIOS and Hardware Support
+
+For BIOS updates, non-Tenstorrent drivers, and other hardware support, visit the SuperMicro [product page](https://www.supermicro.com/en/products/system/gpu/4u/sys-740gp-tnrt). 
+
+### Tenstorrent Support
+
+For support with the Tenstorrent n150s, n300s, and related Tenstorrent software, you can visit the Tenstorrent [Discord](https://discord.gg/tvhGzHQwaj) server or contact [support@tenstorrent.com](mailto:support@tenstorrent.com) with additional questions.
+
+## Related pages
+
+* {doc}`Software Setup </getting-started/README>` — install the Tenstorrent software stack.
+</content>
+</invoke>

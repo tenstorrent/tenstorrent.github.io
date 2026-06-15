@@ -30,6 +30,18 @@ extensions = ['myst_parser',
 redirects = {
     "systems/quietbox/quietbox-bh/setup": "index.html#receiving-unboxing-and-setup",
     "systems/quietbox/quietbox-bh/specifications": "index.html#specifications-and-requirements",
+    "systems/quietbox/quietbox-wh/setup": "index.html#receiving-unboxing-and-setup",
+    "systems/quietbox/quietbox-wh/specifications": "index.html#specifications-and-requirements",
+    "systems/quietbox/quietbox-bh-2/setup": "index.html#hardware-and-software-setup",
+    "systems/quietbox/quietbox-bh-2/specifications": "index.html#specifications",
+    "systems/quietbox/quietbox-bh-2/support-bh-2": "index.html#faq-and-troubleshooting",
+    "systems/t3000/specifications": "index.html#specifications-requirements-and-setup",
+    "systems/t3000/support": "index.html#support",
+    "aibs/blackhole/installation": "index.html#hardware-installation",
+    "aibs/blackhole/specifications": "index.html#specifications-and-requirements",
+    "aibs/blackhole/support": "index.html#troubleshooting-common-hardware-issues",
+    "aibs/wormhole/installation": "index.html#hardware-installation",
+    "aibs/wormhole/specifications": "index.html#specifications-requirements",
 }
 
 html_baseurl = "https://firdovsimammedovk.github.io/tenstorrent-sandbox/"
