@@ -10,7 +10,7 @@ templates_path = ['../shared/_templates']
 exclude_patterns = []
 extensions = ['myst_parser', 'sphinx_sitemap']
 
-html_baseurl = "https://docs.tenstorrent.com/syseng/latest/"
+html_baseurl = "https://firdovsimammedovk.github.io/tenstorrent-sandbox/syseng/latest/"
 sitemap_locales = [None]
 sitemap_url_scheme = "{link}"
 

@@ -90,7 +90,7 @@ html_favicon = "../shared/images/favicon.png"
 html_static_path = ['../shared/_static']
 templates_path = ["../shared/_templates"]
 html_last_updated_fmt = "%b %d, %Y"
-html_baseurl = "https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/"
+html_baseurl = "https://firdovsimammedovk.github.io/tt-metal-sandbox/tt-metalium/"
 
 import yaml
 with open("../versions.yml", "r") as yaml_file:
@@ -114,6 +114,6 @@ breathe_projects = {"ttmetaldoxygen": "doxygen_build/xml/"}
 breathe_default_project = "ttmetaldoxygen"
 
 redirects = {
-     "index": "https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/",
-     "get_started/get_started.html": "https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/get_started/get_started.html"
+     "index": "https://firdovsimammedovk.github.io/tt-metal-sandbox/tt-metalium/",
+     "get_started/get_started.html": "https://firdovsimammedovk.github.io/tt-metal-sandbox/tt-metalium/get_started/get_started.html"
 }

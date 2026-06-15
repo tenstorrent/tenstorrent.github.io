@@ -25,7 +25,7 @@ extensions = ['myst_parser',
               'sphinx_sitemap',
               ]
 
-html_baseurl = "https://docs.tenstorrent.com/"
+html_baseurl = "https://firdovsimammedovk.github.io/tenstorrent-sandbox/"
 sitemap_filename = "sitemap_core.xml"
 sitemap_locales = [None]
 sitemap_url_scheme = "{link}"

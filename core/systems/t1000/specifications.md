@@ -37,4 +37,4 @@ Please visit the [SuperMicro SuperServer SYS-E403-12P-FN2T](https://www.supermic
 
 ## Software Setup
 
-Instructions on how to set up software on T1000 are available [here](https://docs.tenstorrent.com/getting-started/README.html).
+Instructions on how to set up software on T1000 are available [here](https://firdovsimammedovk.github.io/tenstorrent-sandbox/getting-started/README.html).

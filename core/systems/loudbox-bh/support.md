@@ -12,7 +12,7 @@ myst:
 
 ## Software Setup Support
 
-For software setup, visit our [software setup](https://docs.tenstorrent.com/getting-started/README.html) page.
+For software setup, visit our [software setup](https://firdovsimammedovk.github.io/tenstorrent-sandbox/getting-started/README.html) page.
 
 ## BIOS and Hardware Support
 

@@ -88,7 +88,7 @@ Next, the installation will start and ask you to grant the script sudo permissio
 :::
 
 ### **3\. Install TT-Metalium Slim Container**
-tt-installer configures necessary packages on your system and installs system-level tools as well as our programming framework, TT-Metalium. By default, TT-Metalium is installed as a container using Podman. This containerized environment is appropriate for most users as explained [here](https://github.com/tenstorrent/tt-installer/wiki/Using-the-tt%E2%80%90metalium-container), but advanced users and developers may wish to install Metalium natively on the host system or use Docker instead of Podman. See [TT-NN / TT-Metalium Installation](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/installing.html#tt-nn-tt-metalium-installation) for manual installation instructions.
+tt-installer configures necessary packages on your system and installs system-level tools as well as our programming framework, TT-Metalium. By default, TT-Metalium is installed as a container using Podman. This containerized environment is appropriate for most users as explained [here](https://github.com/tenstorrent/tt-installer/wiki/Using-the-tt%E2%80%90metalium-container), but advanced users and developers may wish to install Metalium natively on the host system or use Docker instead of Podman. See [TT-NN / TT-Metalium Installation](https://firdovsimammedovk.github.io/tt-metal-sandbox/tt-metalium/installing.html#tt-nn-tt-metalium-installation) for manual installation instructions.
 
 Next, you will be prompted whether to install the TT-Metalium slim container:
 ```

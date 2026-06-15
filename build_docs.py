@@ -19,7 +19,7 @@ def move_dir(src, dst):
     subprocess.run("mv " + src + "* " + dst, shell=True)
 
 
-SITEMAP_BASE = "https://docs.tenstorrent.com"
+SITEMAP_BASE = "https://firdovsimammedovk.github.io/tenstorrent-sandbox"
 
 
 def write_sitemap_index(output_dir, projects):
