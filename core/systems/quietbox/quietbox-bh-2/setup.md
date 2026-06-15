@@ -6,6 +6,51 @@ myst:
     document-type: Task-Based Guide (How-To)
 ---
 
+```{raw} html
+<style>
+/* ===== QB2 setup page — readability + visual polish (scoped to this page) ===== */
+
+/* Comfortable reading rhythm */
+.rst-content p,
+.rst-content li { line-height: 1.7; }
+.rst-content li { margin-bottom: 0.35rem; }
+
+/* Page title: subtle brand accent */
+.rst-content h1 {
+  border-bottom: 3px solid #6454a0;
+  padding-bottom: 0.4rem;
+}
+
+/* Step headings: clear separation between sections */
+.rst-content h2 {
+  margin-top: 2.6rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid #ece9f3;
+  font-weight: 700;
+}
+
+/* Figures: centered, softly framed */
+.rst-content div.figure,
+.rst-content figure {
+  margin: 1.6rem auto;
+  text-align: center;
+}
+.rst-content div.figure img,
+.rst-content figure img {
+  border: 1px solid #e7e4f0;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(38, 38, 46, 0.08);
+}
+
+/* Quieter horizontal rules */
+.rst-content hr {
+  border: 0;
+  border-top: 1px solid #ece9f3;
+  margin: 2rem 0;
+}
+</style>
+```
+
 ```{figure} ./qb2-setup-hero2.jpg
 :width: 65%
 :target: ./qb2-setup-hero2.jpg
@@ -31,7 +76,7 @@ The Tenstorrent TT-QuietBox 2 (Blackhole) (TW-04003) package includes the follow
 
 * 1x TT-QuietBox 2 (Blackhole) workstation
 * 1x Power Supply Cord (C19 to NEMA 5-15P)
-* 1x AnkerWork S500 speakerphone 
+* 1x AnkerWork S500 speakerphone (included for some early customers to develop with text-to-speech (TTS) and speech-to-text (STT) AI models)
 
 For setup, you will also need your own:
 * Keyboard
@@ -97,8 +142,6 @@ Note: Only use certified HDMI cables with the TT-QuietBox 2. Using non-certified
 
 2. **Connect peripherals.** Connect the HDMI monitor, keyboard, and mouse to the back of the workstation. (Please note: video is not supported through the USB-C port). For internet connections, we recommend Ethernet over WiFi for faster downloading of models. If you prefer Ethernet, connect your Ethernet cable to the RJ45 port. 
 
-For sound and interaction with future text-to-speech (TTS) and speech-to-text (STT) AI models, there are a few options. You may either connect the provided speakerphone to the USB-C port or connect your own audio device to the audio jack. 
-
 3. **Power on the workstation.** On the back of the workstation, flip the switch on the PSU to the "I" position.  
 
 4. **On the front of the workstation, press the power button to turn the system on.**
@@ -130,7 +173,7 @@ If you have not done so already during hardware setup, connect your Ethernet cab
 
 If you would prefer to set up a WiFi connection, on your monitor, click on the status icons in the top right corner of the screen. Then, click on "Wi-Fi" (it may say "not connected" or "off"). Select your WiFi network from the drop-down list, enter the password, and click "Connect."
 
-## Step 6. Update Ubuntu Operating System
+## Step 6. Update System Software
 
 TT-QuietBox 2 comes pre-installed with the Ubuntu operating system (24.04.3 LTS). 
 
@@ -142,7 +185,24 @@ TT-QuietBox 2 comes pre-installed with the Ubuntu operating system (24.04.3 LTS)
 sudo apt update && sudo apt upgrade -y
 ```
 
-Wait for any downloads to complete, then proceed to the next step.
+**Step 3:** Install the latest Tenstorrent firmware and system software, which will then trigger a system reboot:
+
+```bash
+curl -fsSL https://github.com/tenstorrent/tt-installer/releases/latest/download/install.sh -O
+
+chmod +x install.sh
+
+./install.sh \
+  --kmd-version=2.8.0 \
+  --smi-version=5.2.0 \
+  --flash-version=3.8.0 \
+  --fw-version=19.10.0 \
+  --metalium-image-tag=v0.72.0 \
+  --mode-non-interactive \
+  --install-container-runtime=no
+```
+
+Log in with `ttuser` and proceed to the next step.
 
 ---
 ## Step 7: Verify System Recognition of Blackhole Cards
@@ -174,77 +234,83 @@ Setting up your TT-QuietBox 2 for more than one person? {ref}`Follow these steps
 
 ## Step 8: Get Access to Model Weights
 
-TT-QuietBox 2 comes pre-installed with TT-Studio, Tenstorrent's simple web interface for running AI models.
+TT-QuietBox 2 comes pre-installed with [TT Studio](https://docs.tenstorrent.com/tt-studio/), Tenstorrent's simple web interface for running AI models.
 
 For the most up-to-date list of models supported by TT-QuietBox 2, check the [Developer Hub](https://tenstorrent.com/developers).
 
-To deploy a model in TT-Studio, first download the model weights from Hugging Face. 
-
-<em>Note: for <strong>Qwen3-32B</strong>, the model weights come pre-downloaded onto your TT-QuietBox 2. However you will still require an access token from Hugging Face to use the model.</em>
-
-Hugging Face is a free, open source community for collaborating on AI models and applications. Hugging Face access tokens are the unique security keys that allow weights from AI models to be downloaded to your machine. Read more about how user access tokens work in the [Hugging Face documentation](https://huggingface.co/docs/hub/en/security-tokens#how-to-manage-user-access-tokens).
+TT Studio uses the Hugging Face API to manage open-source AI model weights and configuration files. Hugging Face is a free, open source community for collaborating on AI models and applications. Hugging Face access tokens are the unique security keys that allow weights from AI models to be downloaded to your machine. Read more about how user access tokens work in the [Hugging Face documentation](https://huggingface.co/docs/hub/en/security-tokens#how-to-manage-user-access-tokens).
 
 To get access to model weights on Hugging Face, follow these steps:
 
 1. Open a new browser window and navigate to [huggingface.co](https://huggingface.co).
 2. Create or log in to your Hugging Face account.
-3. Create your access token at [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens). Copy the access token as it is only displayed once and will be needed in the next step.
-4. On the Hugging Face website, visit the model page of your choice. Depending on your choice of model you may need to click **Request Access** in the upper right corner or you may be prompted to scroll through and sign a community license agreement.
+3. Create your access token at [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens). **Copy and securely store the access token** as it is only displayed once and will be needed in the next step.
+4. Some of the models in TT Studio ([Llama-3.1-8B-Instruct](https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct) and [Llama-3.3-70B-Instruct](https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct)) require access to be granted by the model developer via the Hugging Face website. For these models, click **Request Access** and read and sign any required community license agreements. 
 
+## Step 9: Launch TT Studio
 
-## Step 9: Launch TT-Studio
-
-1. Ensure you have the latest version of TT-Studio from the open source Tenstorrent GitHub repository. To do this, open a Terminal window by pressing Ctrl+Alt+T and run the following command:
+1. Open a terminal window and pull the latest from the TT Studio github repo:
 
 ```bash
 cd ~/.local/lib/tt-studio
 git pull
 ```
-2. When the process is complete, run this command in Terminal to open TT-Studio:
+2. When the process is complete, run this command in Terminal to open TT Studio:
 
 ```bash
 tt-studio
 ```
 
-Your Terminal window will show a "Welcome to TT-Studio" message. See screenshot below for reference.
+3. When prompted, paste in your HuggingFace access token from the previous step.
+4. Choose to install dependencies with Docker by entering "Y". It may take a few minutes to build the docker containers. When prompted, enter your sudo password (this is the same password you use to log in to your workstation). Administrative access is required to set up TT Inference Server, the engine which runs AI models on Tenstorrent hardware.
+5. The TT Studio web app will now launch in your default web browser.
 
-```{figure} ./qb2-screenshot-open-tt-studio.jpg
+```{figure} ./qb2-screenshot-deployment-mode.png
 :width: 80%
 ```
 
-## Step 10: Launch Your First Model
+6. To get a model running as quickly as possible, select "Single / Multi Model Deployments" and then choose "Qwen3-32B" from the Select Model dropdown. Click "next" and "Deploy".
+7. Once the model is ready, click "Chat" or "API" to interact with the model in realtime. 
 
-At the bottom of the Terminal screen, you will be prompted to enter a Hugging Face User Access Token (aka "HF_TOKEN").
+:::{note}
+Downloading other models can take anywhere from a few minutes to a few hours, depending on the model you’ve selected and the speed of your internet connection. WiFi connections will be slower than direct Ethernet.
+:::
 
-1. Paste this Hugging Face token into the Terminal window and run the command.
+## What to do next?
 
-2. If the system asks, “Do you want to install dependencies using Docker?” enter “Y” for “yes.” Installing dependencies may take about 3 minutes.
+```{raw} html
+<style>
+.qb2-next { max-width: 100%; margin: 8px 0 4px; }
 
-```{figure} ./qb2-screenshot-install-docker.jpg
-:width: 80%
+/* hero banner */
+.qb2-next-hero {
+  background: linear-gradient(120deg, #6454a0 0%, #8a6fd6 58%, #b58ad6 100%);
+  border-radius: 12px;
+  padding: 24px 28px;
+  color: #fff;
+  margin-bottom: 22px;
+  box-shadow: 0 8px 24px rgba(100, 84, 160, 0.28);
+}
+.qb2-next-hero h3 { color: #fff !important; margin: 0 0 8px; font-size: 1.4rem; font-weight: 700; display: block; overflow-x: visible; }
+.qb2-next-hero p  { color: rgba(255,255,255,0.93); margin: 0 0 16px; font-size: 0.98rem; line-height: 1.55; }
+.qb2-next-btn {
+  display: inline-block; background: #fff; color: #6454a0 !important;
+  font-weight: 700; padding: 7px 16px; font-size: 0.9rem; border-radius: 8px;
+  text-decoration: none !important; transition: transform .15s ease, box-shadow .15s ease;
+}
+.qb2-next-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.22); }
+</style>
+
+<div class="qb2-next">
+
+  <div class="qb2-next-hero">
+    <h3>&#128640; Your TT-QuietBox 2 is ready. Now the fun begins.</h3>
+    <p>Four Blackhole&trade; chips, 480 Tensix cores, and 128&nbsp;GB of memory are sitting on your desk, with no token quotas or rate limits. We've packed in a boatload of content to put it to work. Start with the welcome guide for hands-on, interactive lessons across the whole Tenstorrent ecosystem.</p>
+    <a class="qb2-next-btn" href="welcome.html">Open the welcome guide &rarr;</a>
+  </div>
+
+</div>
 ```
-
-3. When prompted, enter your sudo password (this is the same password you use to log in to your workstation). TT-Studio runs on top of TT-Inference Server which requires sudo privileges to set up.
-
-```{figure} ./qb2-screenshot-sudo-pw.jpg
-:width: 80%
-```
-4. The TT-Studio web app will now launch in your default web browser. Click on the model of your choice from the drop-down menu and press "NEXT." 
-
-```{figure} ./qb2-screenshot-select-model2.png
-:width: 80%
-```
-
-5. When prompted on the next screen, proceed by hitting "DEPLOY." The model weights will start downloading automatically. 
-
-Downloading a model can take anywhere from a few minutes to a few hours, depending on the model you’ve selected and the speed of your internet connection. WiFi connections will be slower than direct Ethernet. TT-Studio will show the status of "model unavailable" until model download is finished. 
-
-## Other Methods of Running Models
-After your TT-QuietBox 2 is set up, feel free to explore other methods of running models on other layers of Tenstorrent's software stack. You may want to:
-- Run models directly from Terminal using [TT-Inference-Server](https://github.com/tenstorrent/tt-inference-server), the fastest way to deploy and test models for serving inference on Tenstorrent hardware.
-- Run [model demos](https://docs.tenstorrent.com/getting-started/model-demos.html) using TT-Metalium.
-
-Our [**welcome guide** to the TT-QuietBox 2](./welcome.md) covers video generation, interactive lessons with our VSCode extension, and more.
 
 ---
 
