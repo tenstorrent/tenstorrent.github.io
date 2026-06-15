@@ -102,15 +102,15 @@ The **p100a** and **p150a** cards are designed for desktop workstations where ac
 
 ### Card Dimensions
 
-##### p100a
+#### p100a
 
 ![](./images/bh_p100a_dimensions.png)
 
-##### p150a
+#### p150a
 
 ![](./images/bh_p150a_dimensions.png)
 
-##### p150b
+#### p150b
 
 ![](./images/bh_p150b_dimensions.png)
 
