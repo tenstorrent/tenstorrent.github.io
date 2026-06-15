@@ -56,6 +56,10 @@ html_theme = "sphinx_rtd_theme"
 html_logo = "../shared/images/tt_logo.svg"
 html_favicon = "../shared/images/favicon.png"
 html_static_path = ['../shared/_static', '_static/assets', '_static/js']
+# Files copied verbatim to the build output root (no Sphinx processing).
+# `_extra/` holds llms.txt and AGENTS.md so they serve at docs.tenstorrent.com/llms.txt
+# and /AGENTS.md. See core/_extra/AGENTS.md "Maintenance" for how to regenerate them.
+html_extra_path = ['_extra']
 html_js_files = ['custom.js', 'posthog.js']
 html_last_updated_fmt = "%b %d, %Y"
 
