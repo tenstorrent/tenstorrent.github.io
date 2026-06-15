@@ -23,7 +23,14 @@ extensions = ['myst_parser',
               'sphinx_copybutton',
               'sphinx_togglebutton',
               'sphinx_sitemap',
+              'sphinx_reredirects',
               ]
+
+# Preserve old URLs for pages that were merged into a combined product page.
+redirects = {
+    "systems/quietbox/quietbox-bh/setup": "index.html#receiving-unboxing-and-setup",
+    "systems/quietbox/quietbox-bh/specifications": "index.html#specifications-and-requirements",
+}
 
 html_baseurl = "https://firdovsimammedovk.github.io/tenstorrent-sandbox/"
 sitemap_filename = "sitemap_core.xml"
