@@ -403,10 +403,17 @@ i {
 }
 
 @media screen and (max-width: 768px) {
+  /* Navbar: collapse desktop links/search, show hamburger */
   .tt-nav-links { display: none; }
   .tt-nav-search-form { display: none; }
+  .tt-nav-actions { display: none; }
   .tt-nav-hamburger { display: block; }
+  .tt-top-nav { padding: 0 16px; }
+  .tt-top-nav-right { gap: 12px; }
 }
+/* NOTE: mobile layout overrides (content offset, sidebar slide-in) live in
+   the consolidated block at the END of this file so they win by source order
+   over the desktop .wy-nav-side / .wy-nav-content-wrap rules below. */
 
 /* ── Nav layout offsets ─────────────────────────────────────── */
 
@@ -920,6 +927,86 @@ html.writer-html5 .rst-content dl[class]:not(.option-list):not(.field-list):not(
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
+/* ── Doc card grid with thumbnail (Figma: Systems / Cards pages) ─ */
+
+.rst-content .tt-doc-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin: 16px 0 32px;
+}
+
+.rst-content .tt-doc-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  box-sizing: border-box;
+  background: var(--bckground-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  transition: box-shadow 150ms ease, border-color 150ms ease;
+}
+
+.rst-content .tt-doc-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: var(--text-accent);
+}
+
+.tt-doc-card-img {
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: var(--background-2, #E5F2F1);
+  overflow: hidden;
+}
+
+.tt-doc-card-img img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.tt-doc-card-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.rst-content .tt-doc-card .tt-doc-card-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-default) !important;
+  margin: 0;
+  letter-spacing: 0;
+  line-height: 1.3;
+}
+
+.rst-content .tt-doc-card:hover .tt-doc-card-title {
+  color: var(--text-accent) !important;
+}
+
+.rst-content .tt-doc-card .tt-doc-card-desc {
+  font-size: 13px;
+  color: var(--text-secondary) !important;
+  margin: 4px 0 0;
+  line-height: 1.5;
+  letter-spacing: var(--wide);
+}
+
+@media screen and (max-width: 768px) {
+  .rst-content .tt-doc-card-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
 /* Hide loudbox-bh from sidebar and page content unless viewing that section */
 .wy-menu-vertical li:has(> a[href*="loudbox-bh"]):not(.current) {
   display: none;
@@ -1057,4 +1144,48 @@ div[role="navigation"] hr,
   background-color: var(--color-background-alt2) !important;
   background: var(--color-background-alt2) !important;
   color: var(--color-foreground) !important;
+}
+
+/* ── Mobile layout (consolidated, must stay last to win source order) ── */
+
+@media screen and (max-width: 768px) {
+  /* Prevent any stray horizontal scroll on small screens. The RTD grid is
+     position:absolute, so it needs its own overflow clamp — body alone won't
+     clip an overflowing descendant inside it. */
+  html, body { overflow-x: hidden; max-width: 100%; }
+  .wy-grid-for-nav { overflow-x: hidden; }
+
+  /* Drop the desktop sidebar offset so the page is full-width */
+  .wy-nav-content-wrap {
+    margin-left: 0 !important;
+    padding-right: 0 !important;
+    max-width: 100% !important;
+    overflow-x: hidden;
+  }
+  .wy-nav-content {
+    max-width: 100% !important;
+    padding: 1.6rem 1.2rem !important;
+    box-sizing: border-box;
+  }
+  .wy-nav-content-wrap, .wy-nav-content, .rst-content, .rst-content .document {
+    box-sizing: border-box;
+  }
+
+  /* Doc sidebar slides in from the left, below the fixed navbar */
+  .wy-nav-side {
+    left: -308px !important;
+    width: 308px !important;
+    top: var(--tt-navbar-height) !important;
+    height: calc(100% - var(--tt-navbar-height)) !important;
+    transition: left 200ms var(--transition-timing);
+    z-index: 250;
+  }
+  .wy-nav-side.shift {
+    left: 0 !important;
+  }
+
+  /* Right-side page TOC never shows on mobile */
+  .tt-page-toc {
+    display: none !important;
+  }
 }

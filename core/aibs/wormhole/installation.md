@@ -54,4 +54,4 @@ Connect an **4+4-pin EPS12V power cable** to the **8-pin plug**. *(NOTE: Do **no
 
 ## Software Setup
 
-Instructions on how to set up software on your n150d/n150s/n300d/n300s are available [here](https://docs.tenstorrent.com/getting-started/README.html).
+Instructions on how to set up software on your n150d/n150s/n300d/n300s are available [here](https://firdovsimammedovk.github.io/tenstorrent-sandbox/getting-started/README.html).

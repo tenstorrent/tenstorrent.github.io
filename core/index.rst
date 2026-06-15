@@ -46,4 +46,4 @@ Tenstorrent
    :caption: Legal
    :maxdepth: 2
 
-   Bounty Program Terms <https://docs.tenstorrent.com/bounty_terms.html>
+   Bounty Program Terms <https://firdovsimammedovk.github.io/tenstorrent-sandbox/bounty_terms.html>

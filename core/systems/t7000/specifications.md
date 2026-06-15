@@ -37,4 +37,4 @@ Please visit the [SuperMicro A+ Server 4124GS-TNR](https://www.supermicro.com/en
 
 ## Software Setup
 
-Instructions on how to set up software on T7000 are available [here](https://docs.tenstorrent.com/getting-started/README.html).
+Instructions on how to set up software on T7000 are available [here](https://firdovsimammedovk.github.io/tenstorrent-sandbox/getting-started/README.html).

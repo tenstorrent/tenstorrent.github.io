@@ -4,7 +4,7 @@ This section outlines the system requirements, physical installation instruction
 
 - [Specifications/Requirements](./specifications.md)
 - [Hardware Installation](./installation.md)
-- [Software Setup](https://docs.tenstorrent.com/getting-started/README.html)
+- [Software Setup](https://firdovsimammedovk.github.io/tenstorrent-sandbox/getting-started/README.html)
 - [Regulatory Compliance](../compliance.md)
 
 ***NOTE:** Software support for Grayskull has been discontinued. The last supported versions of Tenstorrent's software for Grayskull are as follows:*

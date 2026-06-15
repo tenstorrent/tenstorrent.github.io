@@ -17,5 +17,5 @@ Tools
    :hidden:
    :maxdepth: 2
 
-    TT-Blacksmith <https://docs.tenstorrent.com/tt-blacksmith/>
+    TT-Blacksmith <https://firdovsimammedovk.github.io/tt-blacksmith-sandbox/>
     TT-NPE <https://docs.tenstorrent.com/tt-npe/>

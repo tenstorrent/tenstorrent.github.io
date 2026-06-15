@@ -1,7 +1,7 @@
 # Manual Installation
 
 **Important!**
-At this time, the recommended method for installing Tenstorrent software is [tt-installer](https://github.com/tenstorrent/tt-installer). If you would prefer to install software dependencies and configure your system manually, proceed with the instructions below. When you are done, return to the [Quickstart Guide](https://docs.tenstorrent.com/getting-started/README.html) for next steps.
+At this time, the recommended method for installing Tenstorrent software is [tt-installer](https://github.com/tenstorrent/tt-installer). If you would prefer to install software dependencies and configure your system manually, proceed with the instructions below. When you are done, return to the [Quickstart Guide](https://firdovsimammedovk.github.io/tenstorrent-sandbox/getting-started/README.html) for next steps.
 
 This Starting Guide will reference each software utility where the latest version is available. However, each SDK will have its own compatibility matrix associated with each release. It is strongly recommended to consult each SDK's release compatibility matrix to ensure you are installing the correct versions of the system software packages.
 
