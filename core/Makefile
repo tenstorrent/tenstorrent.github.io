@@ -18,6 +18,11 @@ WEBROOT       = $(BUILDDIR)/html
 HOST          ?= 127.0.0.1
 PORT          ?= 3000
 SERVE_PORT    ?= 8766
+# Base URL the top-nav links are built from (conf.py reads the `homepage` env
+# var). CI sets this to the public base URL; locally the core build is served
+# at the server root, so default to "/". Without it the nav renders "None…"
+# links that 404.
+HOMEPAGE      ?= /
 
 # Put it first so that "make" without argument is like "make help".
 help:
@@ -29,7 +34,7 @@ watch:
 	@echo ""
 	@echo "Preview: http://$(HOST):$(PORT)/forge/index.html"
 	@echo ""
-	@"$(VENV_PY)" -m sphinx_autobuild "$(SOURCEDIR)" "$(WEBROOT)" $(SPHINXOPTS) $(O) \
+	@homepage="$(HOMEPAGE)" "$(VENV_PY)" -m sphinx_autobuild "$(SOURCEDIR)" "$(WEBROOT)" $(SPHINXOPTS) $(O) \
 		--port $(PORT) --host $(HOST) \
 		--watch "$(REPO_ROOT)/shared" \
 		--watch "$(REPO_ROOT)/syseng"
@@ -37,7 +42,7 @@ watch:
 # One-shot HTML build + stdlib HTTP server (no live reload).
 serve:
 	@test -x "$(VENV_PY)" || (echo "Missing $(VENV_PY) — run: cd \"$(REPO_ROOT)\" && python3 -m venv .venv && .venv/bin/pip install -r requirements.txt" >&2; exit 1)
-	@"$(VENV_PY)" -m sphinx -M html "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+	@homepage="$(HOMEPAGE)" "$(VENV_PY)" -m sphinx -M html "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 	@echo ""
 	@echo "Serving: http://$(HOST):$(SERVE_PORT)/forge/index.html"
 	@echo ""

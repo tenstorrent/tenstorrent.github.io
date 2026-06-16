@@ -4,7 +4,7 @@ technology-concepts: Machine Learning, High-Performance Computing, Neural Networ
 document-type: Explanation
 ---
 
-# Understanding the Tenstorrent Software Stack
+# Overview
 
 This document provides developers and researchers with an overview of the main components of the Tenstorrent software stack: TT-Metalium™, TT-NN™, and TT-Forge™. You will learn about each tool's purpose, use cases, and where to find its source code.
 

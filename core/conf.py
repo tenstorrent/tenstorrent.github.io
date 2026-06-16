@@ -23,7 +23,26 @@ extensions = ['myst_parser',
               'sphinx_copybutton',
               'sphinx_togglebutton',
               'sphinx_sitemap',
+              'sphinx_reredirects',
               ]
+
+# Preserve old URLs for pages that were merged into a combined product page.
+redirects = {
+    "systems/quietbox/quietbox-bh/setup": "index.html#receiving-unboxing-and-setup",
+    "systems/quietbox/quietbox-bh/specifications": "index.html#specifications-and-requirements",
+    "systems/quietbox/quietbox-wh/setup": "index.html#receiving-unboxing-and-setup",
+    "systems/quietbox/quietbox-wh/specifications": "index.html#specifications-and-requirements",
+    "systems/quietbox/quietbox-bh-2/setup": "index.html#hardware-and-software-setup",
+    "systems/quietbox/quietbox-bh-2/specifications": "index.html#specifications",
+    "systems/quietbox/quietbox-bh-2/support-bh-2": "index.html#faq-and-troubleshooting",
+    "systems/t3000/specifications": "index.html#specifications-requirements-and-setup",
+    "systems/t3000/support": "index.html#support",
+    "aibs/blackhole/installation": "index.html#hardware-installation",
+    "aibs/blackhole/specifications": "index.html#specifications-and-requirements",
+    "aibs/blackhole/support": "index.html#troubleshooting-common-hardware-issues",
+    "aibs/wormhole/installation": "index.html#hardware-installation",
+    "aibs/wormhole/specifications": "index.html#specifications-requirements",
+}
 
 html_baseurl = "https://firdovsimammedovk.github.io/tenstorrent-sandbox/"
 sitemap_filename = "sitemap_core.xml"
@@ -53,6 +72,11 @@ myst_heading_anchors = 3  # or 2, depending on how deep you want anchor links
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = "sphinx_rtd_theme"
+html_theme_options = {
+    "collapse_navigation": True,  # keep unselected subtrees folded (default, explicit)
+    "titles_only": True,          # drop in-page H2/H3 headings from the sidebar
+    "navigation_depth": 2,        # Home -> section -> product; leaf pages reached via page body
+}
 html_logo = "../shared/images/tt_logo.svg"
 html_favicon = "../shared/images/favicon.png"
 html_static_path = ['../shared/_static', '_static/assets', '_static/js']

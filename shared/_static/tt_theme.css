@@ -312,6 +312,22 @@ i {
   color: #092221 !important;
 }
 
+.tt-nav-dropdown-label {
+  padding: 6px 12px 2px;
+  font-family: "RMMono", "Berkeley Mono", "Courier New", monospace !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.75px;
+  text-transform: uppercase;
+  color: #1e86a9;
+}
+
+.tt-nav-dropdown-label:not(:first-child) {
+  margin-top: 6px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
 .tt-top-nav-right {
   display: flex;
   gap: 24px;
@@ -1234,5 +1250,9 @@ div[role="navigation"] hr,
   .tt-top-nav.tt-mobile-open .tt-nav-dropdown a:hover {
     background: rgba(255, 255, 255, 0.08);
     color: #fff !important;
+  }
+  .tt-top-nav.tt-mobile-open .tt-nav-dropdown-label {
+    color: rgba(255, 255, 255, 0.55);
+    border-color: rgba(255, 255, 255, 0.15);
   }
 }

@@ -194,6 +194,24 @@
       letter-spacing: 0 !important;
     }
 
+    .section h2 a.section-link {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 8px;
+      color: inherit !important;
+      text-decoration: none !important;
+      border-bottom: none !important;
+    }
+
+    .section-link-arrow {
+      color: #1e86a9;
+      font-weight: 400;
+      transition: transform 150ms ease;
+    }
+
+    .section h2 a.section-link:hover .section-link-text { text-decoration: underline; }
+    .section h2 a.section-link:hover .section-link-arrow { transform: translateX(4px); }
+
     .hw-group,
     .group-head {
       margin: 0 !important;
@@ -415,7 +433,7 @@
         <h1 class="hero-title">Tenstorrent<br />Documentation</h1>
         <p class="hero-subtitle">
           No hardware yet? Get access to Tenstorrent silicon right in your browser with
-          <a href="https://console.tenstorrent.com" target="_blank" rel="noopener">Tenstorrent Cloud</a>
+          <a href="https://console.tenstorrent.com" target="_blank" rel="noopener">Tenstorrent Cloud Console</a>
         </p>
         <div class="hero-search">
           <input type="text" placeholder="Search" />
@@ -460,28 +478,10 @@
               <p class="card-desc">Point-and-click web UI for deploying and interacting with models.</p>
             </div>
           </a>
-          <a href="https://github.com/tenstorrent/tt-metal" target="_blank" rel="noopener" class="card">
-            <div class="card-text">
-              <p class="card-title">TT-Metalium</p>
-              <p class="card-desc">Low-level open-source C++ SDK for writing custom kernels directly on Tensix cores.</p>
-            </div>
-          </a>
-          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit" target="_blank" rel="noopener" class="card">
-            <div class="card-text">
-              <p class="card-title">TT Developer Toolkit</p>
-              <p class="card-desc">Guided, hardware-tagged lessons for learning Tenstorrent development in VS Code.</p>
-            </div>
-          </a>
           <a href="https://firdovsimammedovk.github.io/tt-lang-sandbox/" target="_blank" rel="noopener" class="card">
             <div class="card-text">
               <p class="card-title">TT-Lang</p>
               <p class="card-desc">Python DSL for authoring fused custom operations on Tenstorrent hardware.</p>
-            </div>
-          </a>
-          <a href="https://firdovsimammedovk.github.io/tt-blacksmith-sandbox/" target="_blank" rel="noopener" class="card">
-            <div class="card-text">
-              <p class="card-title">TT-Blacksmith</p>
-              <p class="card-desc">Optimized ML training recipes for Tenstorrent hardware using TT-Forge compiler stack.</p>
             </div>
           </a>
         </div>
@@ -491,7 +491,7 @@
 
       <!-- Get Started -->
       <div class="section" id="get-started">
-        <h2>Get Started</h2>
+        <h2><a class="section-link" href="getting-started/tt-software-stack.html"><span class="section-link-text">Get Started</span><span class="section-link-arrow" aria-hidden="true">→</span></a></h2>
         <div class="cards-grid">
           <a href="getting-started/README.html" class="card">
             <div class="card-text">
@@ -518,24 +518,39 @@
 
       <!-- Software -->
       <div class="section" id="software">
-        <h2>Software</h2>
+        <h2><a class="section-link" href="software/index.html"><span class="section-link-text">Software</span><span class="section-link-arrow" aria-hidden="true">→</span></a></h2>
         <div class="cards-grid">
           <a href="forge/index.html" class="card">
-            <div class="card-img">
-              <img src="_static/home/software-utilities.png" alt="TT-Forge" />
-            </div>
             <div class="card-text">
-              <p class="card-title">TT-Forge</p>
+              <p class="card-title">TT-Forge™</p>
               <p class="card-desc">End-to-end MLIR compiler. Compile models from PyTorch, JAX, and ONNX — the recommended entry point.</p>
             </div>
           </a>
           <a href="https://firdovsimammedovk.github.io/tt-metal-sandbox/ttnn/" target="_blank" rel="noopener" class="card">
             <div class="card-img">
-              <img src="_static/home/tt-nn.png" alt="TT-NN" />
+              <img src="_static/home/tt-nn.png" alt="TT-NN™" />
             </div>
             <div class="card-text">
-              <p class="card-title">TT-NN</p>
+              <p class="card-title">TT-NN™</p>
               <p class="card-desc">High-level Python API of pre-optimized neural-network operations.</p>
+            </div>
+          </a>
+          <a href="https://firdovsimammedovk.github.io/tt-lang-sandbox/" target="_blank" rel="noopener" class="card">
+            <div class="card-img">
+              <img src="_static/home/tt-lang.png" alt="TT-Lang™" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">TT-Lang™</p>
+              <p class="card-desc">Python DSL for authoring fused custom operations.</p>
+            </div>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-mlir/" target="_blank" rel="noopener" class="card">
+            <div class="card-img">
+              <img src="_static/home/tt-mlir.png" alt="TT-MLIR™" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">TT-MLIR™</p>
+              <p class="card-desc">MLIR-based backend compiler infrastructure that lowers models onto Tenstorrent hardware.</p>
             </div>
           </a>
           <a href="https://firdovsimammedovk.github.io/tt-metal-sandbox/tt-metalium/" target="_blank" rel="noopener" class="card">
@@ -547,24 +562,6 @@
               <p class="card-desc">Low-level C++ SDK for writing custom kernels on Tensix cores.</p>
             </div>
           </a>
-          <a href="https://firdovsimammedovk.github.io/tt-lang-sandbox/" target="_blank" rel="noopener" class="card">
-            <div class="card-img">
-              <img src="_static/home/tt-lang.png" alt="TT-Lang" />
-            </div>
-            <div class="card-text">
-              <p class="card-title">TT-Lang</p>
-              <p class="card-desc">Python DSL for authoring fused custom operations.</p>
-            </div>
-          </a>
-          <a href="https://firdovsimammedovk.github.io/tt-blacksmith-sandbox/" target="_blank" rel="noopener" class="card">
-            <div class="card-img">
-              <img src="_static/home/tt-metalium.png" alt="TT-Blacksmith" />
-            </div>
-            <div class="card-text">
-              <p class="card-title">TT-Blacksmith</p>
-              <p class="card-desc">Optimized ML training recipes for Tenstorrent hardware.</p>
-            </div>
-          </a>
         </div>
       </div>
 
@@ -572,16 +569,16 @@
 
       <!-- Hardware -->
       <div class="section" id="hardware">
-        <h2>Hardware</h2>
+        <h2><a class="section-link" href="hardware/index.html"><span class="section-link-text">Hardware</span><span class="section-link-arrow" aria-hidden="true">→</span></a></h2>
 
         <h3 class="hw-group">Blackhole</h3>
         <div class="cards-grid">
           <a href="aibs/blackhole/index.html" class="card">
             <div class="card-img">
-              <img src="_static/home/blackhole.png" alt="Blackhole®" />
+              <img src="_static/home/blackhole.png" alt="Blackhole™" />
             </div>
             <div class="card-text">
-              <p class="card-title">Blackhole® PCIe Cards</p>
+              <p class="card-title">Blackhole™ PCIe Cards</p>
               <p class="card-desc">Infinitely scalable, high-performance AI processing.</p>
             </div>
           </a>
@@ -614,7 +611,7 @@
               <img src="_static/home/wormhole.png" alt="Wormhole™" />
             </div>
             <div class="card-text">
-              <p class="card-title">Wormhole™ Cards</p>
+              <p class="card-title">Wormhole™ PCIe Cards</p>
               <p class="card-desc">Flexible, scalable processors built with Tensix Cores™.</p>
             </div>
           </a>
@@ -706,7 +703,7 @@
 
       <!-- Tools -->
       <div class="section" id="tools">
-        <h2>Tools</h2>
+        <h2><a class="section-link" href="tools/index.html"><span class="section-link-text">Tools</span><span class="section-link-arrow" aria-hidden="true">→</span></a></h2>
         <div class="cards-grid">
           <a href="https://github.com/tenstorrent/tt-inference-server" target="_blank" rel="noopener" class="card">
             <div class="card-text">
@@ -750,10 +747,10 @@
               <p class="card-desc">Guided VS Code learning environment — browse tracks in the Learn section above.</p>
             </div>
           </a>
-          <a href="https://docs.tenstorrent.com/tt-awesome" target="_blank" rel="noopener" class="card">
+          <a href="https://firdovsimammedovk.github.io/tt-blacksmith-sandbox/" target="_blank" rel="noopener" class="card">
             <div class="card-text">
-              <p class="card-title">tt-awesome</p>
-              <p class="card-desc">Community-curated catalog of apps, demos, and experiments.</p>
+              <p class="card-title">TT-Blacksmith</p>
+              <p class="card-desc">Optimized ML training recipes for Tenstorrent hardware.</p>
             </div>
           </a>
         </div>
@@ -763,7 +760,7 @@
 
       <!-- Resources -->
       <div class="section" id="support">
-        <h2>Resources</h2>
+        <h2><a class="section-link" href="support/README.html"><span class="section-link-text">Resources</span><span class="section-link-arrow" aria-hidden="true">→</span></a></h2>
         <div class="cards-grid">
           <a href="https://tenstorrent.atlassian.net/servicedesk/customer/portal/1" target="_blank" rel="noopener" class="card">
             <div class="card-img">
