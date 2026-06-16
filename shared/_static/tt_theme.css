@@ -1157,9 +1157,11 @@ div[role="navigation"] hr,
   display: none !important;
 }
 
-/* Inline links — use lighter underline */
+/* Inline links — use a single lighter underline (the border-bottom), not
+   the theme's default text-decoration underline stacked on top of it. */
 .rst-content p a {
   border-bottom: 1px solid var(--color-accent) !important;
+  text-decoration: none !important;
 }
 
 /* Buttons */
