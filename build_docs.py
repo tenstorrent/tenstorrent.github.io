@@ -118,6 +118,12 @@ with open("versions.yml", "r") as yaml_file:
             copy_pdfs(project, f"output/{project}/latest")
         print(f"Built {project}.")
 
+    # Publish the master theme assets at a stable, version-independent CDN path
+    # (output/_static/) so other repos can reference
+    # https://.../tenstorrent-sandbox/_static/tt_theme.css regardless of versioning.
+    shutil.copytree("shared/_static", "output/_static", dirs_exist_ok=True)
+    print("Copied shared/_static to output/_static (global CDN assets).")
+
     # Root index.html redirects to latest/
     with open("output/index.html", "w", encoding="utf-8") as _f:
         _f.write(
