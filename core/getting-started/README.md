@@ -6,7 +6,7 @@ myst:
     document-type: how-to
 ---
 
-# Install Software
+# Installing Tenstorrent Software
 
 This guide assists users who have completed the physical hardware setup of their Tenstorrent system. You will learn how to install the Tenstorrent software stack, including system dependencies, drivers, and the TT-Metalium™ development environment, and how to verify the installation.
 
