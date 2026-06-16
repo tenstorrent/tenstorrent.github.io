@@ -118,7 +118,7 @@
   <label class="tt-version-label">Version</label>
   <select class="tt-version-select" onchange="window.location.href=this.value">
     {%- for vname, vurl in versions %}
-    <option value="{{ vurl }}"{%- if vname == current_version %} selected{%- endif %}>{{ vname }}</option>
+    <option value="{{ vurl }}{{ pagename }}.html"{%- if vname == current_version %} selected{%- endif %}>{{ vname }}</option>
     {%- endfor %}
   </select>
 </div>
