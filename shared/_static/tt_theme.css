@@ -1259,16 +1259,16 @@ div[role="navigation"] hr,
 
 /* ── Version switcher ──────────────────────────────────────────── */
 .tt-version-switcher {
-  padding: 6px 14px 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  margin-top: 2px;
+  padding: 6px 24px 10px;
+  border-top: 1px solid #C7D9D8;
+  margin-top: 4px;
 }
 
 .tt-version-label {
   display: block;
   font-size: 10px;
   font-family: "RMMono", "Berkeley Mono", monospace;
-  color: rgba(255, 255, 255, 0.5);
+  color: #3A5452;
   text-transform: uppercase;
   letter-spacing: 0.07em;
   margin-bottom: 5px;
@@ -1276,28 +1276,34 @@ div[role="navigation"] hr,
 
 .tt-version-select {
   width: 100%;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: #fff;
+  border: 1px solid #C7D9D8;
   border-radius: 5px;
-  color: #e8f4f2;
+  color: #092221;
   padding: 5px 8px;
   font-size: 13px;
   cursor: pointer;
   font-family: inherit;
-  transition: background 0.15s ease;
+  transition: background 0.15s ease, border-color 0.15s ease;
   appearance: auto;
 }
 
 .tt-version-select option {
-  background: #1a2e2d;
-  color: #e8f4f2;
+  background: #fff;
+  color: #092221;
 }
 
 .tt-version-select:hover {
-  background: rgba(255, 255, 255, 0.13);
+  background: #E5F2F1;
+  border-color: #1B8EB1;
 }
 
 .tt-version-select:focus {
-  outline: 1px solid rgba(155, 219, 240, 0.5);
+  outline: 1px solid #1B8EB1;
   outline-offset: 1px;
+}
+
+/* Hide RTD's built-in version flyout — we use our own switcher */
+.rst-versions {
+  display: none !important;
 }

@@ -126,6 +126,9 @@
 
 {%- endblock %}
 
+{#── Suppress RTD built-in version flyout (we have our own switcher) ─#}
+{%- block versions %}{% endblock %}
+
 {#── Content: default + feedback widget ──────────────────────────#}
 {%- block content %}
   {{ super() }}
