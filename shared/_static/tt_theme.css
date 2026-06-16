@@ -1259,9 +1259,10 @@ div[role="navigation"] hr,
 
 /* ── Version switcher ──────────────────────────────────────────── */
 .tt-version-switcher {
-  padding: 6px 24px 10px;
-  border-top: 1px solid #C7D9D8;
+  /* padding: 6px 24px 10px; */
+  /* border-top: 1px solid #C7D9D8; */
   margin-top: 4px;
+  width: 100%;
 }
 
 .tt-version-label {
