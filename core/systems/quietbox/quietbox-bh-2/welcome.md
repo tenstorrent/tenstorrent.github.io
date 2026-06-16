@@ -1,12 +1,12 @@
 ---
 myst:
   html_meta:
-    product-name: TT-QuietBox Blackhole™, Blackhole™ AI Processor, Tensix core
+    product-name: TT-QuietBox Blackhole®, Blackhole AI Processor, Tensix core
     technology-concepts: local AI, inference, agent frameworks, video generation, Tensix architecture, RISC-V, tt-toplike, tt-local-generator, tt-vscode-toolkit
     document-type: Conceptual Guide (What's Next)
 ---
 
-# Welcome to Your TT-QuietBox 2
+# Welcome to Your TT-QuietBox® 2 (Blackhole)
 
 ```{raw} html
 
@@ -368,11 +368,11 @@ canvas.qb2-chip-canvas {
 <div class="qb2-welcome">
 
   <!-- ===== PAGE HEADING ===== -->
-  <h1 class="qb2-page-title">Welcome to Your TT-QuietBox 2</h1>
+  <h1 class="qb2-page-title">Welcome to Your TT-QuietBox® 2</h1>
   <p class="qb2-page-sub">Four Blackhole chips &middot; 480 Tensix cores &middot; 128 GB GDDR6 &middot; no API keys required</p>
 
   <!-- ===== INTRO ===== -->
-  <p class="qb2-intro">From open source models to local agents to custom kernels and infinite generative art. Welcome to your TT-QuietBox 2.</p>
+  <p class="qb2-intro">From open source models to local agents to custom kernels and infinite generative art. Welcome to your TT-QuietBox® 2.</p>
 
   <!-- ===== CTA ROW ===== -->
   <div class="qb2-cta-row">

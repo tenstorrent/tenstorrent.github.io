@@ -185,7 +185,7 @@ Congratulations, you have successfully installed Tenstorrent's system software!
 
 ### No Tenstorrent devices detected! Please check your hardware and try again. Exiting... 
 
-For Blackhole PCIe products such as p100 and p150, you may get an error message after running `tt-smi` that says no devices were detected. When this happens, do the following: 
+For Blackhole® PCIe products such as p100 and p150, you may get an error message after running `tt-smi` that says no devices were detected. When this happens, do the following: 
 
 1. Verify the card is being supplied power by checking when the system boots that the fan spins and the green power LED illuminates. 
 

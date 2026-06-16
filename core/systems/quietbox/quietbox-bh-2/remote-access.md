@@ -1,14 +1,14 @@
 ---
 myst:
   html_meta:
-    product-name: TT-QuietBox Blackhole™, Blackhole™ Networked AI Processor
+    product-name: TT-QuietBox Blackhole®, Blackhole Networked AI Processor
     technology-concepts: Remote Desktop Protocol (RDP), GNOME Remote Desktop, FreeRDP, headless access, macOS
     document-type: Task-Based Guide (How-To)
 ---
 
-# Remote Access to Your TT-QuietBox 2 from macOS
+# Remote Access to Your TT-QuietBox® 2 from macOS
 
-Follow this guide to get headless remote desktop access to your TT-QuietBox<sup>™</sup> 2 from macOS.
+Follow this guide to get headless remote desktop access to your TT-QuietBox 2 from macOS.
 
 ## One-Time TT-QuietBox 2 Setup
 

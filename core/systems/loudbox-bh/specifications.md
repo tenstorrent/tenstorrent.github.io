@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    product-name: TT-LoudBox Blackhole
+    product-name: TT-LoudBox Blackhole®
     technology-concepts: specifications, requirements, hardware
     document-type: Reference
 ---
@@ -10,7 +10,7 @@ myst:
 
 *<span style="color: purple;">Note: This product is pre-launch and specifications are subject to change. This install guide would love your feedback! Please add it to the attached spreadsheet that came with this website package.</span>*
 
-This document provides detailed technical specifications for the Tenstorrent TT-LoudBox™ (Blackhole™) Air-Cooled 4U Server.
+This document provides detailed technical specifications for the Tenstorrent TT-LoudBox™ (Blackhole) Air-Cooled 4U Server.
 
 For rack-mounting, setup, and cabling instructions, refer to the [Setup Guide](./setup.md).
 
@@ -34,11 +34,11 @@ Do not use the TT-LoudBox (Blackhole) in a way that it was not designed to be us
 | Memory | 768 GB (24x32 GB) DDR5 ECC RDIMM |
 | Expansion Slots | Nine PCIe 5.0 x16 FHFL slots |
 | Storage | 2 x 3.8 TB PCIe 4 NVMe |
-| Tensix Processors | 8x Tenstorrent Blackhole™ p150b Tensix Processors |
+| Tensix Processors | 8x Tenstorrent Blackhole p150b Tensix Processors |
 | Power Cables Provided | 4x Quail Electronics IEC-60320-C13 to C14 F-M Universal Power Cords<br><div style="margin-left: 1.25em; margin-top: 0.35em;">Depending on your region, the following series will be provided with your Server<br>*Japan & Taiwan: Quail 1999.079<br>*Korea: TBD<br>*India: TBD<br>*Rest of the World: Quail 3532.110</div> |
 | Host System Connectivity Ports | 2x RJ45 10GbE LAN<br>1x RJ45 1GbE Dedicated BMC/IPMI<br>2x QSFP56 100GbE (NIC)<br>2x USB Type A<br>1x COM<br>1x VGA |
 | Other Cables | 10x QSFP-DD Passive 800G 0.5m for processor mesh (provided)<br>1x Mellanox 100G DAC for networking — optional (not provided)<br>1x Cat 6 for the BMC — optional (not provided)<br>1x RJ45 Standard Ethernet — optional (not provided) |
-| Tensix Processor Connectivity | 32x QSFP-DD Passive 800G (4x per Blackhole™ p150b card). Connects to other Blackhole Tensix Processors only. |
+| Tensix Processor Connectivity | 32x QSFP-DD Passive 800G (4x per Blackhole p150b card). Connects to other Blackhole Tensix Processors only. |
 | Power Supply | 2+2 2000W Titanium Power Supply Units (PSUs). Expected peak consumption of 4kW. |
 | Base System | Supermicro GPU A+ Server AS-4125GS-TNRT |
 | Operating System | None installed; see instructions for installing Ubuntu 22.04 (Jammy Jellyfish) |

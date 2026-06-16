@@ -7,7 +7,7 @@ myst:
 ---
 
 # Troubleshooting Common Hardware Issues
-This guide assists users in diagnosing and resolving common hardware issues with the TT-QuietBox™ system, including system instability, boot failures, and long-term maintenance tasks such as coolant refilling.
+This guide assists users in diagnosing and resolving common hardware issues with the TT-QuietBox® system, including system instability, boot failures, and long-term maintenance tasks such as coolant refilling.
 
 ## **Resolving System Instability or Random Reboots After a BIOS Change**
 
@@ -79,7 +79,7 @@ If the system still fails to boot and displays a `00 POST` code for an extended 
 **Cause:** Over time, a small amount of coolant may evaporate from the liquid cooling loop. This is normal for all liquid-cooled systems.
 
 :::{note}
-Your TT-QuietBox™ system ships with sufficient coolant for immediate and long-term operation. You do not need to add coolant to a new system. This procedure is only for maintenance after extended use.
+Your TT-QuietBox system ships with sufficient coolant for immediate and long-term operation. You do not need to add coolant to a new system. This procedure is only for maintenance after extended use.
 :::
 
 **Solution:** Refill the coolant using the correct mixture.

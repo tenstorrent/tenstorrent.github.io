@@ -568,3 +568,13 @@ html.writer-html5 .rst-content dl[class]:not(.option-list):not(.field-list):not(
 .rst-content .toctree-wrapper li:has(> a[href*="loudbox-bh"]) {
   display: none;
 }
+
+/* Registered trademark — match ™ superscript size and spacing (QuietBox, Blackhole) */
+sup.reg {
+  font-size: 62%;
+  line-height: 0;
+  position: relative;
+  top: -0.5em;
+  vertical-align: baseline;
+  margin-left: -0.35em;
+}

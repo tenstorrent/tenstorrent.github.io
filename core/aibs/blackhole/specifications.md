@@ -1,17 +1,17 @@
 ---
 myst:
   html_meta:
-    product-name: Blackhole™ Tensix Processor, Blackhole™ p100a, Blackhole™ p150a, Blackhole™ p150b, Tenstorrent
+    product-name: Blackhole® Tensix Processor, Blackhole p100a, Blackhole p150a, Blackhole p150b, Tenstorrent
     technology-concepts: PCIe, ATX, ESD, RISC-V, GDDR6, Floating point, Block floating point, Integer, TensorFloat, Vector
     document-type: Reference
 ---
 
 # Specifications and Requirements
-This document provides detailed technical specifications for the Tenstorrent Blackhole™ Tensix Processor and its associated add-in boards. It is intended for users, system integrators, and developers who require precise information about the hardware capabilities and system requirements for deploying Blackhole-based solutions.
+This document provides detailed technical specifications for the Tenstorrent Blackhole Tensix Processor and its associated add-in boards. It is intended for users, system integrators, and developers who require precise information about the hardware capabilities and system requirements for deploying Blackhole-based solutions.
 
 
-## Blackhole™ Tensix Processor Overview
-The Tenstorrent Blackhole™ Tensix Processor powers the Blackhole™ p100a, p150a, and p150b cards. The processor features:
+## Blackhole Tensix Processor Overview
+The Tenstorrent Blackhole Tensix Processor powers the Blackhole p100a, p150a, and p150b cards. The processor features:
 
 * Tensix core count: 120  
 * SiFive x280 "Big RISC-V" cores: 16  
@@ -43,7 +43,7 @@ The **p100a** and **p150a** cards are designed for desktop workstations where ac
 | Cooling                   | Active                      | Active                      | Passive                     |
 | Dimensions (WxDxH)        | 42mm x 270mm x 111mm        | 42mm x 270mm x 111mm        | 42mm x 270mm x 111mm        |
 
-**For connecting to Tenstorrent Blackhole™-based cards only.*
+**For connecting to Tenstorrent Blackhole-based cards only.*
 
 ## Card Dimensions
 
@@ -61,15 +61,15 @@ The **p100a** and **p150a** cards are designed for desktop workstations where ac
 
 ## Connectivity (p150a/p150b)
 
-Blackhole™ PCIe cards feature four QSFP-DD ports for connecting to other cards. *(p150b pictured; p150a will have the same ports.)*
+Blackhole PCIe cards feature four QSFP-DD ports for connecting to other cards. *(p150b pictured; p150a will have the same ports.)*
 
 ![](./images/bh_portspec.png)
 
-Each of the four passive QSFP-DD ports provides 800 Gbps connectivity and supports cable lengths of up to 2 meters (6.5 feet). These ports connect exclusively to other Blackhole™-based add-in cards.
+Each of the four passive QSFP-DD ports provides 800 Gbps connectivity and supports cable lengths of up to 2 meters (6.5 feet). These ports connect exclusively to other Blackhole-based add-in cards.
 
 ## Supported Data Precision Formats
 
-The Blackhole™ Tensix Processor supports the following data precision formats:
+The Blackhole Tensix Processor supports the following data precision formats:
 
 | Format               | Bit Depth (Tensix Cores)                    | Bit Depth (Big RISC-V Cores)    |
 | -------------------- | ------------------------------------------- | ------------------------------- |
@@ -96,7 +96,7 @@ The Blackhole™ Tensix Processor supports the following data precision formats:
 
 ## Environment Specifications
 
-The Blackhole™ Tensix Processor cards are designed to meet these environmental specifications:
+The Blackhole Tensix Processor cards are designed to meet these environmental specifications:
 
 | Specification               | Requirement               |
 | --------------------------- | ------------------------- |

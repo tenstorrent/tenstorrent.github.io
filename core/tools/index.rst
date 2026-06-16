@@ -32,7 +32,7 @@ System Configuration
 
 * `TT-Topology <https://github.com/tenstorrent/tt-topology>`_
 
-  TT-Topology is a command-line utility for configuring Ethernet routing on multi-card systems. Required on TT-QuietBox™ and TT-LoudBox™ Wormhole-based systems before running networked inference.
+  TT-Topology is a command-line utility for configuring Ethernet routing on multi-card systems. Required on TT-QuietBox® and TT-LoudBox™ Wormhole-based systems before running networked inference.
 
 Analysis & Visualization
 ------------------------

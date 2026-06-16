@@ -6,7 +6,11 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 import os
+import sys
 from pathlib import Path
+
+# Allow `from _ext.trademark import setup` when Sphinx loads extensions.
+sys.path.insert(0, str(Path(__file__).parent))
 
 project = 'Home'
 copyright = '2025, Tenstorrent'
@@ -17,12 +21,13 @@ release = '1.0'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 templates_path = ['../shared/_templates']
-exclude_patterns = []
+exclude_patterns = ['_build/**']
 extensions = ['myst_parser',
               'sphinx_substitution_extensions',
               'sphinx_copybutton',
               'sphinx_togglebutton',
               'sphinx_sitemap',
+              '_ext.trademark',
               ]
 
 html_baseurl = "https://docs.tenstorrent.com/"

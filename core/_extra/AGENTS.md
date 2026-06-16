@@ -54,7 +54,7 @@ Tenstorrent ships two current chip families:
 
 - **Wormhole** — N150 (single chip), N300 (dual chip, Ethernet mesh), T3K (8-chip),
   Galaxy (32-chip server).
-- **Blackhole** — P100 (single chip), P150, P300c (single Blackhole chip; treat like
+- **Blackhole®** — P100 (single chip), P150, P300c (single Blackhole chip; treat like
   P100), QuietBox 2 / QB2 (4× P300c exposed as 4 independent single-chip devices).
 
 Grayskull is the first-generation family (legacy).

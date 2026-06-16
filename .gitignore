@@ -3,3 +3,5 @@ _build/
 .DS_Store
 output/
 .superpowers/
+__pycache__/
+*.pyc

@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    product-name: TT-QuietBox, Blackhole
+    product-name: TT-QuietBox, Blackhole®
     technology-concepts: specifications, requirements, hardware
     document-type: Reference
 ---
@@ -12,7 +12,7 @@ myst:
 
 # Specifications
 
-This document provides detailed technical specifications for the TT-QuietBox<sup>™</sup> 2 (Blackhole<sup>®</sup>) workstation. It lists package contents, hardware components, physical dimensions, and operating requirements.
+This document provides detailed technical specifications for the TT-QuietBox® 2 (Blackhole) workstation. It lists package contents, hardware components, physical dimensions, and operating requirements.
 
 ## **Package Contents**
 

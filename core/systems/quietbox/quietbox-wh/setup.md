@@ -8,7 +8,7 @@ myst:
 
 # Receiving, Unboxing, and Setup
 
-This guide provides system administrators, hardware engineers, and users responsible for the initial setup of Tenstorrent hardware with step-by-step instructions. You will learn to safely unbox a TT-QuietBox Wormhole™ workstation, connect all required hardware components, and install the recommended operating system.
+This guide provides system administrators, hardware engineers, and users responsible for the initial setup of Tenstorrent hardware with step-by-step instructions. You will learn to safely unbox a TT-QuietBox® Wormhole™ workstation, connect all required hardware components, and install the recommended operating system.
 
 ## **Before You Begin**
 

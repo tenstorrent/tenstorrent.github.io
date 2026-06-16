@@ -1,6 +1,6 @@
 # Tenstorrent Documentation
 
-> Official documentation for Tenstorrent AI accelerators — hardware, the open-source software stack, compilers, and developer tools. Covers two current chip families: Wormhole (N150 / N300 / T3K / Galaxy) and Blackhole (P100 / P150 / P300c / QuietBox 2). This site (docs.tenstorrent.com) hosts the core hardware and getting-started guides; each software project publishes its own docs under docs.tenstorrent.com/{project}/, all routed through the same domain.
+> Official documentation for Tenstorrent AI accelerators — hardware, the open-source software stack, compilers, and developer tools. Covers two current chip families: Wormhole (N150 / N300 / T3K / Galaxy) and Blackhole® (P100 / P150 / P300c / QuietBox 2). This site (docs.tenstorrent.com) hosts the core hardware and getting-started guides; each software project publishes its own docs under docs.tenstorrent.com/{project}/, all routed through the same domain.
 
 This index maps the entire docs.tenstorrent.com universe. Every link below resolves under the live domain. Agents helping a developer should also read [/AGENTS.md](https://docs.tenstorrent.com/AGENTS.md) — the operating guide with hardware constraints, environment setup, and the doc-site routing map.
 

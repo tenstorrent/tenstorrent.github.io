@@ -1,4 +1,4 @@
-TT-LoudBox (Blackhole)
+TT-LoudBox (Blackhole®)
 =======================================
 
 .. raw:: html

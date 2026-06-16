@@ -45,7 +45,7 @@ pip install git+https://github.com/tenstorrent/tt-flash.git
 **\*NOTE:** If you are not using a Python virtual environment (venv), you may see an error `externally-managed-environment` when installing via `pip`. To resolve this, [create and/or activate a venv](https://docs.python.org/3/tutorial/venv.html) or use a tool like pipx.\*
 
 ### Update Device Firmware
-⚠️ NOTE: Blackhole devices require firmware version 18.3.0 or newer.
+⚠️ NOTE: Blackhole® devices require firmware version 18.3.0 or newer.
 
 To update Tenstorrent device firmware using TT-Flash, run these commands in the terminal:
 
@@ -87,7 +87,7 @@ sudo reboot
 **\*NOTE:** This is a temporary solution for configuring hugepages. If the above fails, please check the latest available release from [TT-System-Tools](https://github.com/tenstorrent/tt-system-tools.git).\*
 
 ## Step 5: (Optional) Multi-Card Configuration (TT-Topology)
-**NOTE:** TT-LoudBox and TT-QuietBox ship with their topology already configured. Use this application *only if you have modified or are trying to modify the topology of your Wormhole-based TT-LoudBox or TT-QuietBox*. If you are not doing so, *skip this step*. TT-Topology is provided as-is.
+**NOTE:** TT-LoudBox and TT-QuietBox® ship with their topology already configured. Use this application *only if you have modified or are trying to modify the topology of your Wormhole-based TT-LoudBox or TT-QuietBox*. If you are not doing so, *skip this step*. TT-Topology is provided as-is.
 
 If you are running on a multi-card Wormhole system such as TT-LoudBox or TT-QuietBox, install the Tenstorrent Topology utility (**[TT-Topology**](https://github.com/tenstorrent/tt-topology)) and configure a mesh topology by running these commands in the terminal:
 
