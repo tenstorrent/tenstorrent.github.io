@@ -14,6 +14,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          fetch-tags: true
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -51,10 +54,11 @@ jobs:
         run: |
           source .docs-env/bin/activate
           python build_docs.py
-      - name: Make root index.html
+      - name: Make root index.html and nojekyll
         run: |
           touch output/index.html
           touch output/.nojekyll
+          echo -n "docs.tenstorrent.com" > output/CNAME
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:

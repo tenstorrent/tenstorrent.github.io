@@ -34,16 +34,26 @@ html_favicon = "../shared/images/favicon.png"
 html_static_path = ['../shared/_static']
 
 with open("../versions.yml", "r") as yaml_file:
-    versions = yaml.safe_load(yaml_file)["syseng"]
+    _syseng_data = yaml.safe_load(yaml_file)["syseng"]
+
+_BASE_SYSENG = "https://firdovsimammedovk.github.io/tenstorrent-sandbox/syseng/"
+_current_version = os.environ.get("current_version", "latest")
+
+if isinstance(_syseng_data, dict) and "versions" in _syseng_data:
+    _syseng_versions = list(_syseng_data["versions"].keys())
+elif isinstance(_syseng_data, list):
+    _syseng_versions = _syseng_data
+else:
+    _syseng_versions = ["latest"]
 
 html_context = {
-    "versions": versions,
+    "versions": [(v, f"{_BASE_SYSENG}{v}/") for v in _syseng_versions],
     "project_code": "syseng",
-    "current_version": os.environ.get("current_version"),
+    "current_version": _current_version,
     "logo_link_url": os.environ.get("homepage")
 }
 
-version = os.environ.get("current_version")
+version = _current_version
 
 def setup(app):
     app.add_css_file("tt_theme.css")

@@ -59,10 +59,23 @@ html_static_path = ['../shared/_static', '_static/assets', '_static/js']
 html_js_files = ['custom.js', 'posthog.js']
 html_last_updated_fmt = "%b %d, %Y"
 
+import yaml as _yaml
+with open("../versions.yml") as _vf:
+    _ver_data = _yaml.safe_load(_vf)
+_core_versions = list(_ver_data.get("core", {}).get("versions", {"latest": {}}).keys())
+_current_version = os.environ.get("current_version", "latest")
+_BASE = "https://firdovsimammedovk.github.io/tenstorrent-sandbox/"
+
+def _core_url(v):
+    return _BASE if v == "latest" else f"{_BASE}{v}/"
+
 html_context = {
-    "versions": None, # Do not render versions
-    "logo_link_url": os.environ.get("homepage")
+    "versions": [(_v, _core_url(_v)) for _v in _core_versions],
+    "current_version": _current_version,
+    "logo_link_url": os.environ.get("homepage", _BASE),
 }
+
+version = _current_version
 
 def setup(app):
     app.add_css_file("tt_theme.css")
