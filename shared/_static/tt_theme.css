@@ -574,6 +574,20 @@ i {
   padding-left: 8px;
 }
 
+/* External links (open in a new tab) get an "open in new tab" icon,
+   pushed to the right like the chevron. Leaf nodes only, so this never
+   collides with the chevron ::after above (which targets parents). */
+.wy-menu-vertical a.reference.external::after {
+  content: "";
+  flex-shrink: 0;
+  margin-left: auto;
+  width: 12px;
+  height: 12px;
+  background-color: #3A5452;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'/%3E%3Cpolyline points='15 3 21 3 21 9'/%3E%3Cline x1='10' y1='14' x2='21' y2='3'/%3E%3C/svg%3E") no-repeat center / contain;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'/%3E%3Cpolyline points='15 3 21 3 21 9'/%3E%3Cline x1='10' y1='14' x2='21' y2='3'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
 /* Sub-items */
 .wy-menu-vertical .toctree-l2 a {
   padding-left: 0 !important;
