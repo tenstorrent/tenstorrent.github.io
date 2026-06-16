@@ -1263,7 +1263,7 @@ div[role="navigation"] hr,
   box-sizing: border-box;
   width: 100%;
   margin-top: 4px;
-  padding: 6px 24px 10px;
+  padding: 0;
 }
 
 .tt-version-label {
