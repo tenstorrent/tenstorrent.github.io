@@ -460,7 +460,7 @@ canvas.qb2-chip-canvas {
       </div>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Models</span>
-        <span class="qb2-intent-val">Llama-3.3-70B <span class="qb2-perf">~14s/response</span> &middot; Llama-3.1-8B <span class="qb2-perf">fast</span> &middot; <a href="https://developer.tenstorrent.com/" target="_blank" rel="noopener">full catalog ↗</a></span>
+        <span class="qb2-intent-val">Llama-3.3-70B <span class="qb2-perf">~14s/response</span> &middot; Llama-3.1-8B <span class="qb2-perf">fast</span> &middot; <a href="https://tenstorrent.com/developers" target="_blank" rel="noopener">full catalog ↗</a></span>
       </div>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">API</span>
@@ -613,12 +613,12 @@ canvas.qb2-chip-canvas {
       <tr>
         <td>TT-SMI</td>
         <td>Hardware status and telemetry snapshot</td>
-        <td>Pre-installed</td>
+        <td>Pre-installed: run <code>tt-smi</code></td>
       </tr>
       <tr>
         <td><a href="https://github.com/tenstorrent/tt-studio">TT-Studio</a></td>
         <td>Web GUI for deploying and chatting with AI models &mdash; handles all setup automatically, deploy models in one click. Gated models (e.g. Llama) require a <a href="https://huggingface.co/settings/tokens" target="_blank" rel="noopener">Hugging Face token</a>.</td>
-        <td>Pre-installed &mdash; run <code>tt-studio</code></td>
+        <td>Pre-installed: run <code>tt-studio</code></td>
       </tr>
       <tr>
         <td>TT-Inference-Server</td>
