@@ -113,6 +113,17 @@
   {%- endif %}
 {%- endif %}
 
+{%- if versions %}
+<div class="tt-version-switcher">
+  <label class="tt-version-label">Version</label>
+  <select class="tt-version-select" onchange="window.location.href=this.value">
+    {%- for vname, vurl in versions %}
+    <option value="{{ vurl }}"{%- if vname == current_version %} selected{%- endif %}>{{ vname }}</option>
+    {%- endfor %}
+  </select>
+</div>
+{%- endif %}
+
 {%- endblock %}
 
 {#── Content: default + feedback widget ──────────────────────────#}
