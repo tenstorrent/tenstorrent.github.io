@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    product-name: TT-LoudBox Blackhole
+    product-name: TT-LoudBox Blackhole®
     technology-concepts: Support, troubleshooting
     document-type: Reference
 ---

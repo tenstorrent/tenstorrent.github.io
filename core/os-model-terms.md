@@ -1,6 +1,6 @@
 # OS Model Terms
 
-## Welcome to TT-QuietBox 2 (Blackhole)!
+## Welcome to TT-QuietBox® 2 (Blackhole®)!
 To get you up and running as quickly as possible, your machine may have come pre-installed with some open-weight AI models: [Qwen3-32B](https://huggingface.co/Qwen/Qwen3-32B), [Whisper-large-v3](https://huggingface.co/openai/whisper-large-v3), [SpeechT5-TTS](https://huggingface.co/microsoft/speecht5_tts), and [Wan2.2-T2V-A14B-Diffusers](https://huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers).
 
 A Quick Note on Usage: To keep things transparent, please acknowledge the following before you begin:

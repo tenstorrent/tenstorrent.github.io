@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    product-name: TT-LoudBox Blackhole
+    product-name: TT-LoudBox Blackhole®
     technology-concepts: Setup, Installation
     document-type: Task-Based Guide (How-To)
 ---

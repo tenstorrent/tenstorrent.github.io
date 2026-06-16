@@ -2,7 +2,7 @@
 
 ## Hardware and Software Details
 
-### What Software Can I Run Out of the Box on My TT-QuietBox 2?
+### What Software Can I Run Out of the Box on My TT-QuietBox® 2?
 TT-QuietBox 2 ships with Ubuntu 24.04 and has the Tenstorrent open source software stack preinstalled. You can run models right away through TT-Studio, our simple web interface, or perform more custom model deployments through the TT-Inference Server, TT-Metalium, and TT-Forge SDKs.
 
 You still have full access to Ubuntu, so you can install your own development tools, libraries, and workflows on top, if you prefer more customization.

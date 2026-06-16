@@ -1,18 +1,18 @@
 ---
 myst:
   html_meta:
-    product-name: TT-QuietBox Blackhole™, Blackhole™ Networked AI Processor, Tensix core  
+    product-name: TT-QuietBox Blackhole®, Blackhole Networked AI Processor, Tensix core  
     technology-concepts: PCIe, QSFP-DD, Installation, Setup, Electrostatic Discharge (ESD), Basic Input/Output System (BIOS)  
     document-type: Task-Based Guide (How-To)
 ---
 
 # Receiving, Unboxing, and Setup
 
-This guide provides system administrators, hardware engineers, and users responsible for the initial setup of Tenstorrent hardware with step-by-step instructions. You will learn to safely unbox a TT-QuietBox Blackhole™ workstation, connect all required hardware components, and install the recommended operating system.
+This guide provides system administrators, hardware engineers, and users responsible for the initial setup of Tenstorrent hardware with step-by-step instructions. You will learn to safely unbox a TT-QuietBox® Blackhole workstation, connect all required hardware components, and install the recommended operating system.
 
 ## **Before You Begin**
 
-Before you begin, choose a clear, stable, and spacious area for the TT-QuietBox Blackhole™ workstation. The system ships in a palletized wooden crate. Ensure you have at least two people and enough room for them to maneuver comfortably and safely around the crate and system. Clear the area where you intend to use the TT-QuietBox Blackhole™ and ensure to use a dedicated 20A circuit and outlet, as specified in the [electrical safety warning](#safety-warnings) linked below. Also, confirm that all vents are clear of obstructions or other objects.
+Before you begin, choose a clear, stable, and spacious area for the TT-QuietBox Blackhole workstation. The system ships in a palletized wooden crate. Ensure you have at least two people and enough room for them to maneuver comfortably and safely around the crate and system. Clear the area where you intend to use the TT-QuietBox Blackhole and ensure to use a dedicated 20A circuit and outlet, as specified in the [electrical safety warning](#safety-warnings) linked below. Also, confirm that all vents are clear of obstructions or other objects.
 
 :::{warning}
 The fully palletized and crated shipment weighs approximately 134 lbs (61 kg), and the workstation itself weighs approximately 80 lbs (36 kg). Unboxing and lifting require at least two people for safe maneuverability.
@@ -39,7 +39,7 @@ For setup, you will need the following:
 
 ## **Step 1: Unboxing the Workstation**
 
-Follow these steps to unbox your TT-QuietBox Blackhole™ workstation:
+Follow these steps to unbox your TT-QuietBox Blackhole workstation:
 
 1. **Position the crate.** Position the crate in your prepared unboxing area, ensuring ample space for two people to work around it.  
 
@@ -66,11 +66,11 @@ Follow these steps to unbox your TT-QuietBox Blackhole™ workstation:
 
 ![](qb_setup_6.jpg)
 
-7. **Remove the workstation from the cardboard box.** Reach into the short sides of the box, secure your hands under the supportive styrofoam, and lift the TT-QuietBox Blackhole™ workstation out of the box. Place it in your workspace.  
+7. **Remove the workstation from the cardboard box.** Reach into the short sides of the box, secure your hands under the supportive styrofoam, and lift the TT-QuietBox Blackhole workstation out of the box. Place it in your workspace.  
 
 ![](qb_setup_7.jpg)
 
-8. **Remove additional packing material.** Remove any remaining packaging from the exterior of the TT-QuietBox Blackhole™ workstation.  
+8. **Remove additional packing material.** Remove any remaining packaging from the exterior of the TT-QuietBox Blackhole workstation.  
 
 ![](qb_setup_8.jpg)
 
@@ -80,13 +80,13 @@ Follow these steps to unbox your TT-QuietBox Blackhole™ workstation:
 
 ## **Step 2: Setting Up the Hardware**
 
-Follow these steps to set up the hardware for your TT-QuietBox Blackhole™ workstation:
+Follow these steps to set up the hardware for your TT-QuietBox Blackhole workstation:
 
 1. **Connect the power cable.** Connect the provided C13 power cable to the workstation and then to a dedicated power outlet.  
 
 ![](qb_setup_power.jpg)
 
-2. **Connect QSFP-DD cables.** The included Quad Small Form-factor Pluggable Double Density (QSFP-DD) cables enable high-speed interconnectivity between the Tenstorrent Tensix cores. Your system includes four Blackhole™ processors and eight external QSFP-DD cables to create the processor mesh. Connect the eight cables according to the system topology diagram below. Ensure each cable is aligned correctly and clicks into place; do not force the connections.  
+2. **Connect QSFP-DD cables.** The included Quad Small Form-factor Pluggable Double Density (QSFP-DD) cables enable high-speed interconnectivity between the Tenstorrent Tensix cores. Your system includes four Blackhole processors and eight external QSFP-DD cables to create the processor mesh. Connect the eight cables according to the system topology diagram below. Ensure each cable is aligned correctly and clicks into place; do not force the connections.  
 
 ![](qb_bh_topology.png)
 

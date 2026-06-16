@@ -121,13 +121,15 @@
       margin-bottom: 1rem;
     }
 
-    .card .reg {
-      font-size: 0.70em;
-      vertical-align: super;
+    /* Tighter ® spacing on card titles — match native ™ (e.g. TT-LoudBox™) */
+    .card h3 sup.reg {
+      display: inline-block;
+      font-size: 65%;
       line-height: 0;
-      margin-left: -0.3em;
       position: relative;
-      top: -0.3em;
+      top: -0.35em;
+      vertical-align: baseline;
+      margin-left: -0.35em;
     }
 
     .small-card h4 {
@@ -245,7 +247,7 @@
       <div class="grid">
         <a href="aibs/blackhole/index.html" class="card">
           <img src="_static/home/blackhole.png" alt="Blackhole" />
-          <h3>Blackhole<span class="reg">®</span></h3>
+          <h3>Blackhole<sup class="reg">®</sup></h3>
         </a>
         <a href="aibs/wormhole/index.html" class="card">
           <img src="_static/home/wormhole.png" alt="Wormhole™" />
@@ -259,7 +261,7 @@
       <div class="grid">
         <a href="systems/index.html" class="card">
           <img src="_static/home/tt-quietbox.png" alt="TT-QuietBox" />
-          <h3>TT-QuietBox™</h3>
+          <h3>TT-QuietBox<sup class="reg">®</sup></h3>
         </a>
         <a href="systems/t3000/index.html" class="card">
           <img src="_static/home/tt-loudbox.png" alt="TT-LoudBox" />

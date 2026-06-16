@@ -8,7 +8,7 @@ myst:
 
 # Specifications and Requirements
 
-This document provides system administrators and engineers with detailed technical specifications for the TT-QuietBox™ Wormhole™ (TW-04001) workstation. It lists package contents, hardware components, physical dimensions, and operating requirements.
+This document provides system administrators and engineers with detailed technical specifications for the TT-QuietBox® Wormhole™ (TW-04001) workstation. It lists package contents, hardware components, physical dimensions, and operating requirements.
 
 ## **Package Contents**
 
@@ -59,7 +59,7 @@ The TT-QuietBox Liquid-Cooled Desktop Workstation is designed to operate at up t
 Failure to follow these electrical safety instructions may result in electric shock, fire, or damage to the equipment.
 :::
 
-* Connect the system to a dedicated AC power circuit with sufficient capacity to support the full power draw of the TT-QuietBox Blackhole™ workstation, including peak loads under heavy AI model execution.  
+* Connect the system to a dedicated AC power circuit with sufficient capacity to support the full power draw of the TT-QuietBox Blackhole® workstation, including peak loads under heavy AI model execution.  
 * Do not share the outlet with other high-power devices. Avoid using household surge strips, extension cords, or multi-outlet power taps; not all are rated for the sustained current of this system.  
 * Use only the provided C13 power cable, and ensure it is plugged into a properly grounded outlet. Do not bypass or disable the grounding pin.  
 * Verify that the circuit wiring and breaker rating meet or exceed the combined system requirements, including liquid-cooling support and all accelerator cards.  
@@ -70,7 +70,7 @@ Failure to follow these electrical safety instructions may result in electric sh
 
 :::{admonition} Important
 :class: warning
-Before opening the TT-QuietBox Blackhole™ workstation or handling any internal components, you must discharge static electricity from your body to avoid damaging sensitive hardware. Electrostatic discharge can permanently damage Tensix cores, memory modules, or other components. Handle with care and always follow ESD-safe practices.
+Before opening the TT-QuietBox Blackhole workstation or handling any internal components, you must discharge static electricity from your body to avoid damaging sensitive hardware. Electrostatic discharge can permanently damage Tensix cores, memory modules, or other components. Handle with care and always follow ESD-safe practices.
 * Touch a grounded metal surface, such as a grounded rack, chassis, or power supply casing, before and during internal handling.  
 * Ideally, wear an ESD wrist strap connected to a verified ground point.  
 * Avoid working on carpeted floors or in low-humidity environments where static buildup is more likely.  

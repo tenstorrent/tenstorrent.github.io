@@ -1,5 +1,5 @@
 
-Blackhole™ PCIe Cards
+Blackhole® PCIe Cards
 =======================================
 
 

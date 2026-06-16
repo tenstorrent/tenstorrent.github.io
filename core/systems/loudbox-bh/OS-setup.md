@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    product-name: TT-LoudBox Blackhole
+    product-name: TT-LoudBox Blackhole®
     technology-concepts: Software, Setup, Installation
     document-type: Task-Based Guide (How-To)
 ---
@@ -10,7 +10,7 @@ myst:
 
 *<span style="color: purple;">Note: This product is pre-launch and specifications are subject to change. This install guide would love your feedback! Please add it to the attached spreadsheet that came with this website package.</span>*
 
-This document provides first-time operating system and firmware setup for the Tenstorrent TT-LoudBox™ (Blackhole™) Air-Cooled 4U Server.
+This document provides first-time operating system and firmware setup for the Tenstorrent TT-LoudBox™ (Blackhole) Air-Cooled 4U Server.
 
 :::{admonition} Important
 :class: important
