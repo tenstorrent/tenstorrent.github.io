@@ -1256,3 +1256,48 @@ div[role="navigation"] hr,
     border-color: rgba(255, 255, 255, 0.15);
   }
 }
+
+/* ── Version switcher ──────────────────────────────────────────── */
+.tt-version-switcher {
+  padding: 6px 14px 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 2px;
+}
+
+.tt-version-label {
+  display: block;
+  font-size: 10px;
+  font-family: "RMMono", "Berkeley Mono", monospace;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 5px;
+}
+
+.tt-version-select {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 5px;
+  color: #e8f4f2;
+  padding: 5px 8px;
+  font-size: 13px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s ease;
+  appearance: auto;
+}
+
+.tt-version-select option {
+  background: #1a2e2d;
+  color: #e8f4f2;
+}
+
+.tt-version-select:hover {
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.tt-version-select:focus {
+  outline: 1px solid rgba(155, 219, 240, 0.5);
+  outline-offset: 1px;
+}
