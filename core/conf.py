@@ -96,7 +96,8 @@ def _core_url(v):
 html_context = {
     "versions": [(_v, _core_url(_v)) for _v in _core_versions],
     "current_version": _current_version,
-    "logo_link_url": os.environ.get("homepage", _BASE),
+    # version-aware so navbar/logo links stay within /latest/ or /v1.0/
+    "logo_link_url": _core_url(_current_version),
 }
 
 version = _current_version

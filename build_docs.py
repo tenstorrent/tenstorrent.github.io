@@ -93,7 +93,7 @@ def generate_versions_json(docs, output_dir):
     print(f"Wrote {json_path}")
 
 
-os.environ["homepage"] = "https://firdovsimammedovk.github.io/tenstorrent-sandbox/"
+os.environ["homepage"] = "https://firdovsimammedovk.github.io/tenstorrent-sandbox/latest/"
 
 with open("versions.yml", "r") as yaml_file:
     subprocess.run("rm -rf output", shell=True)
