@@ -91,7 +91,7 @@ _current_version = os.environ.get("current_version", "latest")
 _BASE = "https://firdovsimammedovk.github.io/tenstorrent-sandbox/"
 
 def _core_url(v):
-    return _BASE if v == "latest" else f"{_BASE}{v}/"
+    return f"{_BASE}{v}/"
 
 html_context = {
     "versions": [(_v, _core_url(_v)) for _v in _core_versions],

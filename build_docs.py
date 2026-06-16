@@ -28,8 +28,8 @@ def write_sitemap_index(output_dir, projects):
     sitemaps = []
     for project in projects:
         if project == "core":
-            path = os.path.join(output_dir, "sitemap_core.xml")
-            loc = f"{SITEMAP_BASE}/sitemap_core.xml"
+            path = os.path.join(output_dir, "latest", "sitemap.xml")
+            loc = f"{SITEMAP_BASE}/latest/sitemap.xml"
         else:
             path = os.path.join(output_dir, project, "latest", "sitemap.xml")
             loc = f"{SITEMAP_BASE}/{project}/latest/sitemap.xml"
@@ -76,10 +76,10 @@ def generate_versions_json(docs, output_dir):
             ver_list = ["latest"]
 
         if project == "core":
-            versions_with_urls = []
-            for v in ver_list:
-                url = f"{BASE_URL}/{v}/" if v != "latest" else f"{BASE_URL}/"
-                versions_with_urls.append({"name": v, "url": url})
+            versions_with_urls = [
+                {"name": v, "url": f"{BASE_URL}/{v}/"}
+                for v in ver_list
+            ]
         else:
             versions_with_urls = [
                 {"name": v, "url": f"{BASE_URL}/{project}/{v}/"}
@@ -108,18 +108,23 @@ with open("versions.yml", "r") as yaml_file:
         for version in ver_list:
             build_doc(project, version)
             if project == "core":
-                if version == "latest":
-                    move_dir(f"{project}/_build/html/", f"output/")
-                else:
-                    move_dir(f"{project}/_build/html/", f"output/{version}/")
+                move_dir(f"{project}/_build/html/", f"output/{version}/")
             else:
                 move_dir(f"{project}/_build/html/", f"output/{project}/{version}/")
 
         if project == "core":
-            copy_pdfs(project, "output")
+            copy_pdfs(project, "output/latest")
         else:
             copy_pdfs(project, f"output/{project}/latest")
         print(f"Built {project}.")
+
+    # Root index.html redirects to latest/
+    with open("output/index.html", "w", encoding="utf-8") as _f:
+        _f.write(
+            '<!DOCTYPE html><html><head>'
+            '<meta http-equiv="refresh" content="0; url=latest/" />'
+            '</head><body><a href="latest/">latest</a></body></html>\n'
+        )
 
     generate_versions_json(docs, "output")
     write_sitemap_index("output", list(docs.keys()))
