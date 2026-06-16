@@ -22,7 +22,7 @@ sudo ufw allow 3389/tcp
 sudo grdctl --system status     # expect: RDP enabled, port 3389
 ```
 
-Now get the local IP address of your TT-QuietBox 2 (usually `192.168.1.XXX`). You will need this when connecting via RDP:
+You will see some warnings that are safe to ignore. Now get the local IP address of your TT-QuietBox 2 (usually `192.168.1.XXX`). You will need this when connecting via RDP:
 
 ```bash
 hostname -I
@@ -56,7 +56,7 @@ Go to **System Settings → Privacy & Security → Local Network** and enable yo
 sdl-freerdp /v:<box-ip> /u:<rdp-user> /p:'<rdp-password>' /cert:tofu /dynamic-resolution
 ```
 
-`/cert:tofu` trusts GNOME's self-signed certificate on first use. If everything worked correctly, you should see an Ubuntu login screen. Log in with your QuietBox credentials to begin the session, and quit the `sdl-freerdp` app to end it.
+`/cert:tofu` trusts GNOME's self-signed certificate on first use. If everything worked correctly, you should see an Ubuntu login screen. If you get a blank screen, close **sdl-freerdp** and try again. If the problem persists, see the "Debugging" section below. Log in with your QuietBox credentials to begin the session, and quit the **sdl-freerdp** app to end it.
 
 See the [FreeRDP manual](https://man.archlinux.org/man/extra/freerdp/sdl-freerdp3.1.en) for convenient flags and plugins. We often use this alias to begin a remote session with clipboard access and sound turned on:
 
