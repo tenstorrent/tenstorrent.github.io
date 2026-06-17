@@ -267,7 +267,7 @@ i {
 
 .tt-nav-dropdown {
   position: absolute;
-  top: calc(100% + 4px);
+  top: calc(100% + 0px);
   left: 0;
   background: #fff;
   border: 1px solid var(--border);
