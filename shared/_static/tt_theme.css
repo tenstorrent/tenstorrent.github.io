@@ -490,11 +490,11 @@ i {
   line-height: 1.2;
   letter-spacing: var(--wide);
   border-bottom: none !important;
-  padding: 12px 10px;
+  padding: 9px 10px;
 }
 
 .wy-side-nav-search a:hover {
-  background-color: #f5f5f5;
+  background-color: transparent;
 }
 
 .wy-side-nav-search .wy-dropdown>a,
@@ -1349,7 +1349,7 @@ div[role="navigation"] hr,
   gap: 8px;
   box-sizing: border-box;
   width: 100%;
-  padding: 4px 10px;
+  padding: 7px 10px;
   background: var(--background-1, #F1F8F8);
   border: 1px solid var(--border, #C7D9D8);
   border-radius: var(--Half, 2px);
