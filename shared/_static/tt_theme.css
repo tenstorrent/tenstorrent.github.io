@@ -1349,7 +1349,7 @@ div[role="navigation"] hr,
   gap: 8px;
   box-sizing: border-box;
   width: 100%;
-  padding: 7px 10px;
+  padding: 4px 10px;
   background: var(--background-1, #F1F8F8);
   border: 1px solid var(--border, #C7D9D8);
   border-radius: var(--Half, 2px);
@@ -1420,7 +1420,7 @@ div[role="navigation"] hr,
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  padding: 7px 10px;
+  padding: 4px 10px;
   border-radius: 4px;
   color: var(--text-default, #092221) !important;
   font-size: var(--text-sm, 14px);
