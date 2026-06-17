@@ -1,19 +1,23 @@
 core:
   versions:
     latest: {}
+    v1.1: {}
     v1.0: {}
 
 ttnn:
   versions:
     latest: {}
+    v1.1: {}
     v1.0: {}
 
 tt-metalium:
   versions:
     latest: {}
+    v1.1: {}
     v1.0: {}
 
 syseng:
   versions:
     latest: {}
+    v1.1: {}
     v1.0: {}
