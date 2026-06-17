@@ -1285,41 +1285,42 @@ div[role="navigation"] hr,
 .tt-version-label {
   display: block;
   font-size: 10px;
-  font-family: "RMMono", "Berkeley Mono", monospace;
-  color: #3A5452;
+  font-family: var(--font-mono, "Berkeley Mono", monospace);
+  color: var(--text-secondary, #3A5452);
   text-transform: uppercase;
-  letter-spacing: 0.07em;
+  letter-spacing: var(--widest, 0.75px);
   margin-bottom: 5px;
 }
 
+/* Matches Figma form Input: --background-1 bg, --border, --Half (2px) radius, text-sm */
 .tt-version-select {
   display: block;
   box-sizing: border-box;
   width: 100%;
-  background: #fff;
-  border: 1px solid #C7D9D8;
-  border-radius: 5px;
-  color: #092221;
-  padding: 6px 10px;
-  font-size: 13px;
+  background: var(--background-1, #f1f8f8);
+  border: 1px solid var(--border, #c7d9d8);
+  border-radius: var(--Half, 2px);
+  color: var(--text-default, #092221);
+  padding: 7px 8px;
+  font-size: var(--text-sm, 14px);
   cursor: pointer;
-  font-family: inherit;
+  font-family: var(--font-main, inherit);
   transition: background 0.15s ease, border-color 0.15s ease;
   appearance: auto;
 }
 
 .tt-version-select option {
-  background: #fff;
-  color: #092221;
+  background: var(--background-1, #f1f8f8);
+  color: var(--text-default, #092221);
 }
 
 .tt-version-select:hover {
-  background: #E5F2F1;
-  border-color: #1B8EB1;
+  background: var(--background-2, #E5F2F1);
+  border-color: var(--button-primary-background, #1B8EB1);
 }
 
 .tt-version-select:focus {
-  outline: 1px solid #1B8EB1;
+  outline: 1px solid var(--button-primary-background, #1B8EB1);
   outline-offset: 1px;
 }
 
