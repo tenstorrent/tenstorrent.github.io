@@ -14,6 +14,7 @@ Tenstorrent
    getting-started/README
    getting-started/manual-software-install
    getting-started/vLLM-servers
+   Learn by Building <https://docs.tenstorrent.com/tt-vscode-toolkit/>
 
 .. toctree::
    :hidden:
@@ -30,10 +31,10 @@ Tenstorrent
 
    Overview <software/index>
    forge/index
-   TT-Metalium <https://firdovsimammedovk.github.io/tt-metal-sandbox/tt-metalium/>
-   TT-Lang <https://firdovsimammedovk.github.io/tt-lang-sandbox/>
-   TT-Blacksmith <https://firdovsimammedovk.github.io/tt-blacksmith-sandbox/>
-   TT-NN <https://firdovsimammedovk.github.io/tt-metal-sandbox/ttnn/>
+   TT-NN™ <https://firdovsimammedovk.github.io/tt-metal-sandbox/ttnn/>
+   TT-Lang™ <https://firdovsimammedovk.github.io/tt-lang-sandbox/>
+   TT-MLIR™ <https://docs.tenstorrent.com/tt-mlir/>
+   TT-Metalium™ <https://firdovsimammedovk.github.io/tt-metal-sandbox/tt-metalium/>
    tools/index
 
 .. toctree::

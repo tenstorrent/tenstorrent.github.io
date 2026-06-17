@@ -21,15 +21,8 @@ Compiler Stack
 .. toctree::
    :maxdepth: 1
 
-   forge-frontend-compiler/index
-   forge-backend-compiler/index
-   tools/index
-
-Cookbook
---------
-
-.. toctree::
-   :maxdepth: 1
-
+   TT-Torch <https://docs.tenstorrent.com/tt-torch/>
+   TT-XLA <https://docs.tenstorrent.com/tt-xla/>
+   TT-Forge-ONNX <https://docs.tenstorrent.com/tt-forge-onnx/>
    TT-Blacksmith <https://firdovsimammedovk.github.io/tt-blacksmith-sandbox/>
 

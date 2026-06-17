@@ -60,6 +60,11 @@ Analysis & Visualization
 
        Model Explorer provides a hierarchical view of model graphs, organizing operations into nested layers that you can expand or collapse.
 
+   * - `TT-NPE <https://docs.tenstorrent.com/tt-npe/>`_
+
+       Used to validate compiled ops, simulate op execution at the tile or kernel level, and help debug hardware/compiler mismatches.
+     -
+
 Learning
 --------
 
