@@ -24,6 +24,10 @@ Before you begin the installation process, complete the following steps:
      An **ATX 3.1 Certified power supply** or better is required. Using an older or inadequate power supply may result in system instability.  
      :::
    * One (1) **12+4-pin 12V-2x6 power connector**.  
+     :::{note}
+     If your PSU does not have this connector available, see the [FAQ and Troubleshooting guide](./support.md) to determine which adapter to use.
+     :::
+
 3. Discharge static electricity from your body by wearing an **ESD wrist strap** (*recommended*) or by touching a grounded surface before touching system components or the add-in board.
 
 ## Desktop Workstation Installation (p100a/p150a)

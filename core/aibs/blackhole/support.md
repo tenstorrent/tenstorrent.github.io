@@ -3,10 +3,10 @@ myst:
   html_meta:
     product-name: Blackhole™ AI Processor
     technology-concepts: PCIe, QSFP-DD, active cooling, passive cooling, GDDR6, ASIC, firmware
-    document-type: Troubleshooting
+    document-type: FAQ and Troubleshooting
 ---
 
-# Troubleshooting Common Hardware Issues
+# FAQ and Troubleshooting
 This document assists Tenstorrent users in resolving common issues encountered with Blackhole™ AI Processors. It provides solutions and directs users to appropriate support resources.
 
 ## **How do I choose between the Tenstorrent Blackhole™ p100a/p150a/p150b?**
@@ -15,14 +15,27 @@ This document assists Tenstorrent users in resolving common issues encountered w
 - **p150a:** This card provides additional local memory (32 GB) compared to p100a and slightly higher compute density. It also features four passive 800 Gbps QSFP-DD ports used for networking with other Tenstorrent Blackhole™ p150a/p150b cards.  It features an **active cooling solution** that conforms to industry PCI specifications, and is intended for **single- or multi-card operation** in **conventional desktop systems**.
 - **p150b:** This card features identical specifications to p150a, but features a **passive cooling solution** that conforms to industry PCI specifications, and is intended for **single- or multi-card operation** in **rack-mounted servers** with **existing high static pressure, forced air cooling**.
 
+## **What PSU and Connector should I use to connect my Blackhole card?**
+
+Tenstorrent Blackhole cards use a 12V-2x6 (12+4-pin) power connector and are designed for use with ATX 3.1-certified or newer Power Supply Units (PSUs). Native PSU support via a 12V-2x6 connector is the recommended configuration.
+
+Never use an ATX 2.0 or older PSU.
+
+## **My PSU doesn't have a 12V-2x6 (12+4-pin) power connector available. What adapter should I get for my Blackhole card?**
+
+If a native 12V-2x6 connector is not available, Blackhole cards may be powered using a PSU-manufacturer-approved adapter that combines standard 8-pin PCIe and/or EPS 4+4-pin connectors, provided the combined power delivery meets the card's total power requirements and the PSU is ATX 3.1 certified or better. Each input cable must be connected to a separate PSU output.
+
+The Blackhole cards require 300W of power to function. Ensure that the combination of PSU outputs meets this requirement, and that the total load on your PSU does not exceed the total PSU output power.
+
+To ensure electrical compatibility and prevent hardware damage, only power cables and adapters supplied or explicitly approved by the PSU manufacturer should be used. Many PSU manufacturers key the connectors so that only their power connector works. The power connector must be fully seated, and tight bends near the connector should be avoided.
+
+Use of older 12VHPWR cables is not recommended, even though they are physically compatible with the 12V-2x6 connector. The 12V-2x6 standard replaced 12VHPWR to reduce the risk of overheating (and melting) associated with improper connector seating.
+
 ## **Which QSFP cable(s) should I purchase for my Tenstorrent Blackhole™ cards?**
 
-We plan to offer internally validated QSFP cables for sale in the future, but in the meantime, the following models have been validated for use with your Blackhole™ cards:
+For standard short-reach setups, validated 0.5m QSFP cables are available directly on the Tenstorrent store [hardware cards page](https://tenstorrent.com/hardware/cards).
 
-- [Amphenol 0.5m (1.6 ft.) 800G Passive QSFP-DD (SF-NJYYER0006-000.5M)](https://cablesondemand.com/amphenol-sf-njyyer0006-000-5m-0-5m-1-6-800g-qsfp-dd-112g-cable-800-gigabit-ethernet-passive-direct-attach-qsfp-double-density-112g-cable-dual-entry-32-awg-qsfp-dd-112g-to-qsfp-dd-112g-sf-njyyer0006-000-5m)
-- [Amphenol 1m (3.3 ft.) 800G Passive QSFP-DD (SF-NJYYEK0001-001M)](https://cablesondemand.com/qsfp-dd-direct-attach-cables-200g-400g-800g-dac-1/amphenol-sf-njyyek0001-001m-1m-3-3-800g-qsfp-dd-112g-cable-800-gigabit-ethernet-passive-direct-attach-qsfp-double-density-112g-cable-dual-entry-32-awg-qsfp-dd-112g-to-qsfp-dd-112g-sf-njyyek0001-001m)
-- [FS 0.5m (2 ft.) 800G Passive QSFP-DD (QDD-800G-PC005)](https://www.fs.com/products/154258.html?attribute=36925&id=3871095)
-- [FS 1m (3 ft.) 800G Passive QSFP-DD (QDD-800G-PC01)](https://www.fs.com/products/154259.html?attribute=36923&id=3720628)
+If you need 1m cables, we recommend either [Amphenol 1m (3.3 ft.) 800G Passive QSFP-DD (SF-NJYYEK0001-001M)](https://cablesondemand.com/qsfp-dd-direct-attach-cables-200g-400g-800g-dac-1/amphenol-sf-njyyek0001-001m-1m-3-3-800g-qsfp-dd-112g-cable-800-gigabit-ethernet-passive-direct-attach-qsfp-double-density-112g-cable-dual-entry-32-awg-qsfp-dd-112g-to-qsfp-dd-112g-sf-njyyek0001-001m) or [FS 1m (3 ft.) 800G Passive QSFP-DD (QDD-800G-PC01)](https://www.fs.com/products/154259.html?attribute=36923&id=3720628).
 
 ## **The idle power consumption of my Tenstorrent Blackhole™ card seems high**
 
