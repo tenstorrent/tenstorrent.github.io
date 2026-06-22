@@ -222,6 +222,6 @@
         data-search-url="{{ pathto('search') }}"
         data-search-api-base="{{ search_api_base | default('https://csl860x2oj.execute-api.us-east-2.amazonaws.com/prod', true) }}"
         data-search-source="{{ search_source_id | default('docs-tenstorrent', true) }}"
-        data-site-base-url="{{ search_site_base_url | default('https://docs.tenstorrent.com/', true) }}"></script>
-<script defer src="{{ pathto('_static/kapa.js', 1) }}"></script>
+        data-site-base-url="{{ search_site_base_url | default('https://docs.tenstorrent.com/', true) }}"
+        data-kapa-src="{{ pathto('_static/kapa.js', 1) }}"></script>
 {%- endblock %}
