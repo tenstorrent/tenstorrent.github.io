@@ -24,8 +24,9 @@
     script.setAttribute('data-hyperlink-color', '#7d00fa');
     script.setAttribute('data-mcp-enabled', 'true');
     script.setAttribute('data-mcp-server-url', 'https://tenstorrent.mcp.kapa.ai');
-    // Hide Kapa's own floating launcher — we open it from our modal instead.
-    script.setAttribute('data-button-hide', 'true');
+    // Render inline inside #tt-kapa-container (inside the Ask AI tab panel).
+    script.setAttribute('data-render-mode', 'inline');
+    script.setAttribute('data-attach-to', 'tt-kapa-container');
     script.async = true;
     document.head.appendChild(script);
   }
