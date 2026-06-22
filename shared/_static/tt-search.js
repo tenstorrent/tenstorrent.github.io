@@ -69,7 +69,7 @@
     input.addEventListener('keydown', onKeydown);
 
     var ask = document.getElementById('tt-search-ask');
-    if (ask) ask.addEventListener('click', submitSearch);
+    if (ask) ask.addEventListener('click', openKapa);
 
     document.addEventListener('keydown', function (e) {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
@@ -124,9 +124,13 @@
   function onKeydown(e) {
     if (e.key === 'Enter') {
       e.preventDefault();
+      if (!panelHidden('ai')) {
+        openKapa();
+        return;
+      }
       var first = results.querySelector('a');
       // On the Search tab, jump straight to the top hit if there is one.
-      if (first && !panelHidden('search')) {
+      if (first) {
         window.location.href = first.href;
       } else {
         submitSearch();
@@ -144,6 +148,15 @@
     var q = input.value.trim();
     if (!q) return;
     window.location.href = SEARCH_URL + '?q=' + encodeURIComponent(q);
+  }
+
+  // Close our modal and open the Kapa.ai widget with the current query pre-filled.
+  function openKapa() {
+    var q = input.value.trim();
+    close();
+    if (window.Kapa && typeof window.Kapa.open === 'function') {
+      window.Kapa.open({ mode: 'ai', query: q || undefined });
+    }
   }
 
   function cancelInFlight() {

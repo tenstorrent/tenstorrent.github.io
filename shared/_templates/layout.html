@@ -126,21 +126,20 @@
         <ul class="tt-search-results" id="tt-search-results"></ul>
         <div class="tt-search-empty" id="tt-search-empty">Start typing to search the documentation.</div>
       </div>
-      {#- Ask AI tab: "Ask about" → start conversation -#}
+      {#- Ask AI tab: opens Kapa.ai with the current query pre-filled -#}
       <div class="tt-search-panel" data-panel="ai" hidden>
         <button type="button" class="tt-search-ask" id="tt-search-ask">
           <span class="tt-search-ask-left">
             <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M8 3.5C6.5 2.5 4 2.5 2 3v9c2-.5 4.5-.5 6 .5 1.5-1 4-1 6-.5V3c-2-.5-4.5-.5-6 .5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
-              <path d="M8 3.5v9" stroke="currentColor" stroke-width="1.2"/>
+              <path d="M8 1.5l1.4 3.6L13 6.5 9.4 7.9 8 11.5 6.6 7.9 3 6.5l3.6-1.4L8 1.5Z" fill="currentColor"/>
+              <path d="M12.5 10.5l.6 1.5 1.5.6-1.5.6-.6 1.5-.6-1.5-1.5-.6 1.5-.6.6-1.5Z" fill="currentColor"/>
             </svg>
             <span class="tt-search-ask-label">Ask about <em id="tt-search-ask-query">anything</em></span>
           </span>
           <span class="tt-search-ask-right">
-            Start conversation
+            Ask Kapa AI
             <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M13 4v3a2 2 0 0 1-2 2H4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M6 7L4 9l2 2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </button>
@@ -238,4 +237,5 @@
         data-search-api-base="{{ search_api_base | default('https://csl860x2oj.execute-api.us-east-2.amazonaws.com/prod', true) }}"
         data-search-source="{{ search_source_id | default('docs-tenstorrent', true) }}"
         data-site-base-url="{{ search_site_base_url | default('https://docs.tenstorrent.com/', true) }}"></script>
+<script defer src="{{ pathto('_static/kapa.js', 1) }}"></script>
 {%- endblock %}
