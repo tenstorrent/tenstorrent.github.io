@@ -21,7 +21,7 @@
   var DEBOUNCE_MS = 180;
   var MAX_HITS = 8;
 
-  var modal, input, results, empty, askQuery;
+  var modal, input, results, empty, searchBody;
   var debounceTimer = null;
   var activeController = null;   // AbortController for the in-flight request
   var seq = 0;                   // guards against out-of-order responses
@@ -51,7 +51,7 @@
     input = document.getElementById('tt-search-input');
     results = document.getElementById('tt-search-results');
     empty = document.getElementById('tt-search-empty');
-    askQuery = document.getElementById('tt-search-ask-query');
+    searchBody = modal.querySelector('.tt-search-body');
 
     document.querySelectorAll('.tt-search-trigger').forEach(function (el) {
       el.addEventListener('click', open);
@@ -67,9 +67,6 @@
 
     input.addEventListener('input', onInput);
     input.addEventListener('keydown', onKeydown);
-
-    var ask = document.getElementById('tt-search-ask');
-    if (ask) ask.addEventListener('click', openKapa);
 
     document.addEventListener('keydown', function (e) {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
@@ -107,12 +104,13 @@
     modal.querySelectorAll('.tt-search-panel').forEach(function (panel) {
       panel.hidden = panel.dataset.panel !== name;
     });
+    // Remove padding and scroll on the body when Kapa fills the AI panel.
+    if (searchBody) searchBody.classList.toggle('is-kapa', name === 'ai');
     input.focus();
   }
 
   function onInput() {
     var q = input.value.trim();
-    askQuery.textContent = q || 'anything';
 
     if (debounceTimer) clearTimeout(debounceTimer);
 
@@ -128,15 +126,11 @@
   function onKeydown(e) {
     if (e.key === 'Enter') {
       e.preventDefault();
-      if (!panelHidden('ai')) {
-        openKapa();
-        return;
-      }
       var first = results.querySelector('a');
-      // On the Search tab, jump straight to the top hit if there is one.
-      if (first) {
+      // Jump to the top hit if there is one, otherwise fall back to Sphinx search.
+      if (first && !panelHidden('search')) {
         window.location.href = first.href;
-      } else {
+      } else if (!panelHidden('search')) {
         submitSearch();
       }
     }
@@ -152,15 +146,6 @@
     var q = input.value.trim();
     if (!q) return;
     window.location.href = SEARCH_URL + '?q=' + encodeURIComponent(q);
-  }
-
-  // Close our modal and open the Kapa.ai widget with the current query pre-filled.
-  function openKapa() {
-    var q = input.value.trim();
-    close();
-    if (window.Kapa && typeof window.Kapa.open === 'function') {
-      window.Kapa.open({ mode: 'ai', query: q || undefined });
-    }
   }
 
   function cancelInFlight() {

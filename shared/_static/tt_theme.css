@@ -490,6 +490,17 @@ body.tt-search-locked { overflow: hidden; }
   padding: 10px;
 }
 
+.tt-search-body.is-kapa {
+  padding: 0;
+  overflow: hidden;
+  max-height: none;
+}
+
+#tt-kapa-container {
+  height: 520px;
+  max-height: 60vh;
+}
+
 .tt-search-empty {
   padding: 20px 12px;
   font-family: var(--font-main);
