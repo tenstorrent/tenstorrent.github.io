@@ -18,6 +18,7 @@
   // Remote (OpenSearch) config — overridable via data-* attributes on the
   // script tag or a window.TT_DOCS_REMOTE_SEARCH object.
   var REMOTE = getRemoteConfig();
+  var KAPA_SRC = (script && script.dataset.kapaSrc) || '';
   var DEBOUNCE_MS = 180;
   var MAX_HITS = 8;
 
@@ -26,6 +27,9 @@
   var activeController = null;   // AbortController for the in-flight request
   var seq = 0;                   // guards against out-of-order responses
   var remoteDown = false;        // flips true once the remote API errors out
+
+  // Kapa lazy-load state.
+  var kapaLoaded = false;
 
   // Sphinx-index fallback state (loaded lazily, only if the remote API fails).
   var records = null;
@@ -92,10 +96,6 @@
   }
 
   function switchTab(name) {
-    if (name === 'ai') {
-      openKapa();
-      return;
-    }
     modal.querySelectorAll('.tt-search-tab').forEach(function (tab) {
       var active = tab.dataset.tab === name;
       tab.classList.toggle('is-active', active);
@@ -104,9 +104,19 @@
     modal.querySelectorAll('.tt-search-panel').forEach(function (panel) {
       panel.hidden = panel.dataset.panel !== name;
     });
-    // Remove padding and scroll on the body when Kapa fills the AI panel.
+    // Remove padding/scroll on the body when Kapa fills the AI panel.
     if (searchBody) searchBody.classList.toggle('is-kapa', name === 'ai');
+    // Lazy-load Kapa after the container is visible.
+    if (name === 'ai') loadKapa();
     input.focus();
+  }
+
+  function loadKapa() {
+    if (kapaLoaded || !KAPA_SRC) return;
+    kapaLoaded = true;
+    var s = document.createElement('script');
+    s.src = KAPA_SRC;
+    document.head.appendChild(s);
   }
 
   function onInput() {
