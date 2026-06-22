@@ -18,6 +18,7 @@ Reference Materials
    :maxdepth: 1
    
    specifications
+   support
    /aibs/compliance
 
 Accessories

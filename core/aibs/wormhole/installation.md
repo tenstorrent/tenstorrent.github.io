@@ -18,6 +18,10 @@ Follow these instructions to install your Tenstorrent Wormhole™ n150d/n150s/n3
       2. The n150s and n300s are dual-slot width cards and will require the adjacent expansion slot to be vacant if you're using the Active Cooling Kit.
       3. The n150d and n300d are 2.5-slot width cards with axial fan coolers. Please ensure your chassis has sufficient airflow to exhaust the heat from these cards.
    2. One (1) **EPS12V 4+4-pin power connector**
+      :::{note}
+      If your PSU does not have this connector available, see the [FAQ and Troubleshooting guide](./support.md) to determine which adapter to use.
+      :::
+
 3. Discharge your body's static electricity by wearing an **ESD wrist strap** *(recommended)* or touching a grounded surface before touching system components or the add-in card.
 
 ## Desktop Workstation Installation
