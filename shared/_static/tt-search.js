@@ -104,18 +104,34 @@
     modal.querySelectorAll('.tt-search-panel').forEach(function (panel) {
       panel.hidden = panel.dataset.panel !== name;
     });
-    // Remove padding/scroll on the body when Kapa fills the AI panel.
-    if (searchBody) searchBody.classList.toggle('is-kapa', name === 'ai');
-    // Lazy-load Kapa after the container is visible.
-    if (name === 'ai') loadKapa();
-    input.focus();
+    if (name === 'ai') {
+      openKapaModal();
+    } else {
+      input.focus();
+    }
   }
 
-  function loadKapa() {
+  function openKapaModal() {
+    if (window.Kapa && typeof window.Kapa.open === 'function') {
+      window.Kapa.open();
+      return;
+    }
     if (kapaLoaded || !KAPA_SRC) return;
     kapaLoaded = true;
     var s = document.createElement('script');
     s.src = KAPA_SRC;
+    // Once the Kapa bundle is ready, open its modal.
+    s.onload = function () {
+      var attempts = 0;
+      var poll = setInterval(function () {
+        if (window.Kapa && typeof window.Kapa.open === 'function') {
+          clearInterval(poll);
+          window.Kapa.open();
+        } else if (++attempts > 20) {
+          clearInterval(poll);
+        }
+      }, 100);
+    };
     document.head.appendChild(s);
   }
 

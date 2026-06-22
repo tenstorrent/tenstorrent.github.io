@@ -490,16 +490,18 @@ body.tt-search-locked { overflow: hidden; }
   padding: 10px;
 }
 
-.tt-search-body.is-kapa {
-  padding: 0;
-  overflow: hidden;
-  max-height: none;
+.tt-kapa-loading {
+  padding: 20px 12px;
+  font-family: var(--font-main);
+  font-size: 14px;
+  color: var(--text-secondary);
 }
 
-#tt-kapa-container {
-  height: 520px;
-  max-height: 60vh;
-}
+/* Kapa modal: above our search modal (z-index 1000), below nothing else */
+#kapa-widget-container { z-index: 1100 !important; }
+.mantine-Modal-root    { z-index: 1100 !important; }
+/* Push Kapa's dialog below our fixed nav bar */
+.mantine-Modal-inner   { padding-top: var(--tt-navbar-height, 72px) !important; }
 
 .tt-search-empty {
   padding: 20px 12px;

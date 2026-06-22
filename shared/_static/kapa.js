@@ -1,6 +1,6 @@
-/* Kapa.ai widget loader — attached to the Ask AI tab in the search modal.
- * The floating launcher is hidden; the widget is opened programmatically
- * via window.Kapa.open() when the user clicks "Start conversation". */
+/* Kapa.ai widget loader.
+ * Loaded lazily on first Ask AI tab click. The floating launcher button is
+ * hidden; the modal is opened programmatically via window.Kapa.open(). */
 (function () {
   function boot() {
     var script = document.createElement('script');
@@ -24,9 +24,7 @@
     script.setAttribute('data-hyperlink-color', '#7d00fa');
     script.setAttribute('data-mcp-enabled', 'true');
     script.setAttribute('data-mcp-server-url', 'https://tenstorrent.mcp.kapa.ai');
-    // Render inline inside #tt-kapa-container (inside the Ask AI tab panel).
-    script.setAttribute('data-render-mode', 'inline');
-    script.setAttribute('data-attach-to', 'tt-kapa-container');
+    script.setAttribute('data-button-hide', 'true');
     script.async = true;
     document.head.appendChild(script);
   }
