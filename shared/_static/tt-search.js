@@ -95,6 +95,10 @@
   }
 
   function switchTab(name) {
+    if (name === 'ai') {
+      openKapa();
+      return;
+    }
     modal.querySelectorAll('.tt-search-tab').forEach(function (tab) {
       var active = tab.dataset.tab === name;
       tab.classList.toggle('is-active', active);
