@@ -70,9 +70,14 @@
     </ul>
   </div>
   <div class="tt-top-nav-right">
-    <form class="tt-nav-search-form" action="{{ pathto('search') }}" method="get" role="search">
-      <input type="text" name="q" placeholder="Search" aria-label="Search docs" />
-    </form>
+    <button type="button" class="tt-nav-search-form tt-search-trigger" aria-label="Search docs" aria-haspopup="dialog">
+      <svg class="tt-search-glyph" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      <span class="tt-nav-search-placeholder">Search</span>
+      <kbd class="tt-nav-search-kbd">⌘K</kbd>
+    </button>
     <div class="tt-nav-actions">
       <a href="https://docs.tenstorrent.com/tt-awesome/" class="tt-nav-btn-cta" target="_blank" rel="noopener">Explore</a>
       <a href="https://github.com/tenstorrent" class="tt-nav-btn-github" target="_blank" rel="noopener">
@@ -85,6 +90,64 @@
     <i data-toggle="wy-nav-top" class="fa fa-bars tt-nav-hamburger" aria-hidden="true"></i>
   </div>
 </nav>
+
+{#── Search / Ask AI command modal ───────────────────────────────#}
+<div class="tt-search-modal" id="tt-search-modal" hidden>
+  <div class="tt-search-backdrop" data-search-close></div>
+  <div class="tt-search-dialog" role="dialog" aria-modal="true" aria-label="Search documentation">
+    <div class="tt-search-head">
+      <svg class="tt-search-glyph" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      <input type="text" class="tt-search-input" id="tt-search-input"
+             placeholder="Search for anything…" aria-label="Search for anything"
+             autocomplete="off" spellcheck="false" />
+      <div class="tt-search-tabs" role="tablist">
+        <button type="button" class="tt-search-tab is-active" data-tab="search" role="tab" aria-selected="true">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          Search
+        </button>
+        <button type="button" class="tt-search-tab" data-tab="ai" role="tab" aria-selected="false">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M8 1.5l1.4 3.6L13 6.5 9.4 7.9 8 11.5 6.6 7.9 3 6.5l3.6-1.4L8 1.5Z" fill="currentColor"/>
+            <path d="M12.5 10.5l.6 1.5 1.5.6-1.5.6-.6 1.5-.6-1.5-1.5-.6 1.5-.6.6-1.5Z" fill="currentColor"/>
+          </svg>
+          Ask AI
+        </button>
+      </div>
+    </div>
+    <div class="tt-search-body">
+      {#- Search tab: live results from the Sphinx index -#}
+      <div class="tt-search-panel" data-panel="search">
+        <ul class="tt-search-results" id="tt-search-results"></ul>
+        <div class="tt-search-empty" id="tt-search-empty">Start typing to search the documentation.</div>
+      </div>
+      {#- Ask AI tab: "Ask about" → start conversation -#}
+      <div class="tt-search-panel" data-panel="ai" hidden>
+        <button type="button" class="tt-search-ask" id="tt-search-ask">
+          <span class="tt-search-ask-left">
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M8 3.5C6.5 2.5 4 2.5 2 3v9c2-.5 4.5-.5 6 .5 1.5-1 4-1 6-.5V3c-2-.5-4.5-.5-6 .5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+              <path d="M8 3.5v9" stroke="currentColor" stroke-width="1.2"/>
+            </svg>
+            <span class="tt-search-ask-label">Ask about <em id="tt-search-ask-query">anything</em></span>
+          </span>
+          <span class="tt-search-ask-right">
+            Start conversation
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M13 4v3a2 2 0 0 1-2 2H4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 7L4 9l2 2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 {%- endblock %}
 
 {#── Sidebar title: logo, project name, version, search ──────────#}
@@ -102,6 +165,15 @@
 <a href="{{ pathto(_root_doc) }}">
     {{ project }}
 </a>
+
+<button type="button" class="tt-side-search tt-search-trigger" aria-label="Search docs" aria-haspopup="dialog">
+  <svg class="tt-search-glyph" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+    <circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.4"/>
+    <path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+  </svg>
+  <span class="tt-side-search-placeholder">Search</span>
+  <kbd class="tt-side-search-kbd">⌘K</kbd>
+</button>
 
 {%- if theme_display_version %}
   {%- set nav_version = version %}
@@ -161,4 +233,6 @@
 {#── Footer: inject right-TOC script ─────────────────────────────#}
 {%- block footer %}
 <script src="{{ pathto('_static/docs-toc.js', 1) }}"></script>
+<script id="tt-search-script" src="{{ pathto('_static/tt-search.js', 1) }}"
+        data-search-url="{{ pathto('search') }}"></script>
 {%- endblock %}

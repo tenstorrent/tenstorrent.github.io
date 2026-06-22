@@ -338,22 +338,249 @@ i {
   display: flex;
   width: 220px;
   height: 32px;
+  padding: 0 10px;
+  gap: 8px;
   align-items: center;
-  border-radius: 2px;
+  border-radius: 4px;
   border: 1px solid rgba(199, 217, 216, 0.5);
   background: rgba(241, 248, 248, 0.1);
+  cursor: text;
+  transition: border-color 150ms ease, background 150ms ease;
 }
 
-.tt-nav-search-form input {
-  width: 100%;
+.tt-nav-search-form:hover {
+  border-color: rgba(199, 217, 216, 0.8);
+  background: rgba(241, 248, 248, 0.16);
+}
+
+.tt-nav-search-form .tt-search-glyph {
+  width: 15px;
+  height: 15px;
+  color: #678583;
+  flex-shrink: 0;
+}
+
+.tt-nav-search-placeholder {
+  flex: 1;
+  text-align: left;
   font-family: var(--font-main);
   font-size: 14px;
-  color: #D9E8E5;
+  color: #678583;
   letter-spacing: var(--wide);
 }
 
-.tt-nav-search-form input::placeholder {
+.tt-nav-search-kbd {
+  font-family: var(--font-main);
+  font-size: 11px;
+  line-height: 1;
   color: #678583;
+  border: 1px solid rgba(199, 217, 216, 0.4);
+  border-radius: 3px;
+  padding: 3px 5px;
+  background: transparent;
+}
+
+/* ── Search / Ask AI modal ──────────────────────────────────── */
+
+body.tt-search-locked { overflow: hidden; }
+
+.tt-search-modal[hidden] { display: none; }
+
+.tt-search-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 96px 16px 16px;
+}
+
+.tt-search-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(9, 34, 33, 0.45);
+  backdrop-filter: blur(2px);
+}
+
+.tt-search-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 24px 60px rgba(9, 34, 33, 0.28);
+  overflow: hidden;
+  animation: tt-search-in 120ms ease-out;
+}
+
+@keyframes tt-search-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.tt-search-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.tt-search-head .tt-search-glyph {
+  width: 20px;
+  height: 20px;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.tt-search-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-main);
+  font-size: 20px;
+  color: var(--text-default);
+  letter-spacing: var(--wide);
+}
+
+.tt-search-input::placeholder { color: #9bb0ad; }
+
+.tt-search-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 3px;
+  background: var(--background-1);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.tt-search-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  font-family: var(--font-main);
+  font-size: 14px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 120ms ease, color 120ms ease;
+}
+
+.tt-search-tab svg { width: 14px; height: 14px; }
+
+.tt-search-tab:hover { color: var(--text-default); }
+
+.tt-search-tab.is-active {
+  background: #fff;
+  color: var(--text-default);
+  font-weight: 600;
+  box-shadow: 0 1px 2px rgba(9, 34, 33, 0.12);
+}
+
+.tt-search-body {
+  max-height: 50vh;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.tt-search-empty {
+  padding: 20px 12px;
+  font-family: var(--font-main);
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.tt-search-results {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tt-search-results li { margin: 0; }
+
+.tt-search-result {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-family: var(--font-main);
+  font-size: 16px;
+  color: var(--text-default) !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+.tt-search-result svg {
+  width: 18px;
+  height: 18px;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.tt-search-result:hover { background: var(--background-1); }
+
+.tt-search-ask {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px 18px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+  transition: background 120ms ease, border-color 120ms ease;
+}
+
+.tt-search-ask:hover {
+  background: var(--background-1);
+  border-color: var(--text-accent);
+}
+
+.tt-search-ask-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.tt-search-ask-left svg { width: 22px; height: 22px; color: var(--text-default); flex-shrink: 0; }
+
+.tt-search-ask-label {
+  font-family: var(--font-main);
+  font-size: 20px;
+  color: var(--text-default);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tt-search-ask-label em { font-style: normal; color: var(--text-accent); }
+
+.tt-search-ask-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-main);
+  font-size: 15px;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.tt-search-ask-right svg { width: 16px; height: 16px; }
+
+@media screen and (max-width: 768px) {
+  .tt-search-modal { padding: 64px 12px 12px; }
+  .tt-search-input { font-size: 17px; }
+  .tt-search-tabs { display: none; }
 }
 
 .tt-nav-actions {
@@ -500,6 +727,54 @@ i {
 .wy-side-nav-search .wy-dropdown>a,
 .wy-side-nav-search>a {
   margin-bottom: 0;
+}
+
+/* Sidebar search bar — opens the same Search / Ask AI modal */
+.tt-side-search {
+  display: flex;
+  width: 100%;
+  height: 36px;
+  margin: 8px 0 4px;
+  padding: 0 10px;
+  gap: 8px;
+  align-items: center;
+  border-radius: 6px;
+  border: 1px solid var(--border-subtle);
+  background: #fff;
+  cursor: text;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.tt-side-search:hover {
+  border-color: var(--text-accent);
+  box-shadow: 0 1px 3px rgba(9, 34, 33, 0.1);
+}
+
+.tt-side-search .tt-search-glyph {
+  width: 15px;
+  height: 15px;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.tt-side-search-placeholder {
+  flex: 1;
+  text-align: left;
+  font-family: var(--font-main);
+  font-size: 14px;
+  color: var(--text-secondary);
+  letter-spacing: var(--wide);
+}
+
+.tt-side-search-kbd {
+  font-family: var(--font-main);
+  font-size: 11px;
+  line-height: 1;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 3px;
+  padding: 3px 5px;
+  background: var(--background-1);
 }
 
 .wy-menu-vertical {
