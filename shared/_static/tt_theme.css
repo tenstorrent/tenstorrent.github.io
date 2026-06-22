@@ -525,6 +525,27 @@ body.tt-search-locked { overflow: hidden; }
   flex-shrink: 0;
 }
 
+.tt-search-result-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.tt-search-result-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tt-search-result-path {
+  font-size: 12px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .tt-search-result:hover { background: var(--background-1); }
 
 .tt-search-ask {

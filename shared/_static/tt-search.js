@@ -1,8 +1,11 @@
 /* Tenstorrent docs — Search / Ask AI command modal.
  *
- * Opens from the navbar search button (or ⌘K / Ctrl+K). The Search tab does
- * live filtering over Sphinx's own search index; the Ask AI tab mirrors the
- * "Ask about …" prompt. Both fall back to Sphinx's /search page on Enter. */
+ * Opens from the navbar / sidebar search buttons (or ⌘K / Ctrl+K). The Search
+ * tab does live, full-text search against the OpenSearch-backed docs search
+ * service; if that service is unreachable it falls back to filtering Sphinx's
+ * own local search index so the modal still works offline / on previews.
+ * The Ask AI tab mirrors the "Ask about …" prompt. Enter jumps to the top hit,
+ * or falls back to Sphinx's /search page. */
 (function () {
   'use strict';
 
@@ -12,11 +15,35 @@
   // Everything before "search.html" is the docs root the index is relative to.
   var ROOT = SEARCH_URL.replace(/search\.html$/, '');
 
+  // Remote (OpenSearch) config — overridable via data-* attributes on the
+  // script tag or a window.TT_DOCS_REMOTE_SEARCH object.
+  var REMOTE = getRemoteConfig();
+  var DEBOUNCE_MS = 180;
+  var MAX_HITS = 8;
+
   var modal, input, results, empty, askQuery;
-  var records = null;      // [{title, url}] built lazily from the index
+  var debounceTimer = null;
+  var activeController = null;   // AbortController for the in-flight request
+  var seq = 0;                   // guards against out-of-order responses
+  var remoteDown = false;        // flips true once the remote API errors out
+
+  // Sphinx-index fallback state (loaded lazily, only if the remote API fails).
+  var records = null;
   var indexLoading = false;
 
   document.addEventListener('DOMContentLoaded', init);
+
+  function getRemoteConfig() {
+    var ds = (script && script.dataset) || {};
+    var runtime = window.TT_DOCS_REMOTE_SEARCH || {};
+    var apiBase = runtime.apiBase || ds.searchApiBase ||
+      'https://csl860x2oj.execute-api.us-east-2.amazonaws.com/prod';
+    return {
+      apiBase: apiBase.replace(/\/+$/, ''),
+      sourceId: runtime.sourceId || ds.searchSource || 'docs-tenstorrent',
+      siteBaseUrl: runtime.siteBaseUrl || ds.siteBaseUrl || 'https://docs.tenstorrent.com/'
+    };
+  }
 
   function init() {
     modal = document.getElementById('tt-search-modal');
@@ -57,8 +84,9 @@
   function open() {
     modal.hidden = false;
     document.body.classList.add('tt-search-locked');
-    loadIndex();
     setTimeout(function () { input.focus(); }, 0);
+    // Re-run the current query so re-opening keeps showing results.
+    if (input.value.trim()) onInput();
   }
 
   function close() {
@@ -81,7 +109,16 @@
   function onInput() {
     var q = input.value.trim();
     askQuery.textContent = q || 'anything';
-    renderResults(q);
+
+    if (debounceTimer) clearTimeout(debounceTimer);
+
+    if (!q) {
+      cancelInFlight();
+      showEmpty('Start typing to search the documentation.');
+      return;
+    }
+
+    debounceTimer = setTimeout(function () { runSearch(q); }, DEBOUNCE_MS);
   }
 
   function onKeydown(e) {
@@ -109,33 +146,69 @@
     window.location.href = SEARCH_URL + '?q=' + encodeURIComponent(q);
   }
 
-  function renderResults(q) {
-    results.innerHTML = '';
-    if (!q) {
-      empty.textContent = 'Start typing to search the documentation.';
-      empty.hidden = false;
-      return;
+  function cancelInFlight() {
+    if (activeController) {
+      activeController.abort();
+      activeController = null;
     }
-    if (!records) {
-      empty.textContent = 'Loading search index…';
-      empty.hidden = false;
+  }
+
+  // ── Live search ─────────────────────────────────────────────────────────
+  function runSearch(q) {
+    if (remoteDown) {
+      renderLocal(q);
       return;
     }
 
-    var needle = q.toLowerCase();
-    var hits = [];
-    for (var i = 0; i < records.length && hits.length < 8; i++) {
-      if (records[i].title.toLowerCase().indexOf(needle) !== -1) hits.push(records[i]);
-    }
+    cancelInFlight();
+    var mySeq = ++seq;
+    var controller = (typeof AbortController !== 'undefined') ? new AbortController() : null;
+    activeController = controller;
 
+    fetch(remoteSearchUrl(q), { method: 'GET', signal: controller && controller.signal })
+      .then(function (response) {
+        if (!response.ok) throw new Error('Search request failed (' + response.status + ').');
+        return response.json();
+      })
+      .then(function (payload) {
+        if (mySeq !== seq) return;   // a newer query already superseded this one
+        var hits = Array.isArray(payload && payload.hits) ? payload.hits : [];
+        renderRemoteHits(q, hits);
+      })
+      .catch(function (err) {
+        if (err && err.name === 'AbortError') return;
+        // Remote service is unreachable — degrade to the local Sphinx index.
+        remoteDown = true;
+        loadIndex();
+        renderLocal(q);
+      });
+  }
+
+  function remoteSearchUrl(q) {
+    return REMOTE.apiBase + '/v1/search?q=' + encodeURIComponent(q) +
+      '&source=' + encodeURIComponent(REMOTE.sourceId);
+  }
+
+  function renderRemoteHits(q, hits) {
     if (!hits.length) {
-      empty.textContent = 'No matches. Press Enter to search all documentation.';
-      empty.hidden = false;
+      showEmpty('No matches. Press Enter to search all documentation.');
       return;
     }
+    var rendered = hits.slice(0, MAX_HITS).map(function (hit) {
+      var url = normalizeUrl(hit && hit.url, REMOTE.siteBaseUrl);
+      return {
+        url: url,
+        title: cleanTitle(hit && hit.title) || pathLabel(url) || 'Untitled result',
+        path: pathLabel(url)
+      };
+    });
+    renderList(rendered);
+  }
 
+  function renderList(items) {
+    results.innerHTML = '';
     empty.hidden = true;
-    hits.forEach(function (rec) {
+    items.forEach(function (rec) {
       var li = document.createElement('li');
       var a = document.createElement('a');
       a.href = rec.url;
@@ -144,11 +217,74 @@
         '<svg viewBox="0 0 16 16" fill="none" aria-hidden="true">' +
         '<path d="M4 2.5h6l2.5 2.5v8.5H4V2.5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>' +
         '<path d="M9.5 2.5V5H12" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>' +
-        '<span></span>';
-      a.querySelector('span').textContent = rec.title;
+        '<span class="tt-search-result-main">' +
+        '<span class="tt-search-result-title"></span>' +
+        '<span class="tt-search-result-path"></span></span>';
+      a.querySelector('.tt-search-result-title').textContent = rec.title;
+      var pathEl = a.querySelector('.tt-search-result-path');
+      if (rec.path) { pathEl.textContent = rec.path; } else { pathEl.remove(); }
       li.appendChild(a);
       results.appendChild(li);
     });
+  }
+
+  function showEmpty(message) {
+    results.innerHTML = '';
+    empty.textContent = message;
+    empty.hidden = false;
+  }
+
+  // ── URL / title helpers (match the remote payload shape) ─────────────────
+  function normalizeUrl(rawUrl, siteBaseUrl) {
+    if (!rawUrl) return '#';
+    try {
+      var parsed = new URL(rawUrl, siteBaseUrl);
+      // Rewrite canonical docs.tenstorrent.com links onto the current origin so
+      // results resolve on previews / local builds too.
+      if (parsed.hostname === 'docs.tenstorrent.com') {
+        return window.location.origin + parsed.pathname + parsed.search + parsed.hash;
+      }
+      return parsed.toString();
+    } catch (_err) {
+      return rawUrl;
+    }
+  }
+
+  function cleanTitle(title) {
+    var raw = (title || '').trim();
+    if (!raw) return '';
+    return raw.replace(/\s+[—-]\s+.*documentation$/i, '').trim() || raw;
+  }
+
+  function pathLabel(url) {
+    try {
+      var u = new URL(url, REMOTE.siteBaseUrl);
+      var path = u.pathname.replace(/^\/+/, '');
+      if (!path || path === 'index.html') return 'Home';
+      return decodeURIComponent(path);
+    } catch (_err) {
+      return '';
+    }
+  }
+
+  // ── Sphinx-index fallback (only used when the remote API is down) ─────────
+  function renderLocal(q) {
+    if (!records) {
+      showEmpty('Loading search index…');
+      return;
+    }
+    var needle = q.toLowerCase();
+    var hits = [];
+    for (var i = 0; i < records.length && hits.length < MAX_HITS; i++) {
+      if (records[i].title.toLowerCase().indexOf(needle) !== -1) {
+        hits.push({ url: records[i].url, title: records[i].title, path: pathLabel(records[i].url) });
+      }
+    }
+    if (!hits.length) {
+      showEmpty('No matches. Press Enter to search all documentation.');
+      return;
+    }
+    renderList(hits);
   }
 
   // Lazily pull Sphinx's searchindex.js. It calls Search.setIndex(obj); we shim
@@ -162,7 +298,7 @@
       setIndex: function (idx) {
         try { records = buildRecords(idx); } catch (err) { records = []; }
         window.Search = prev;
-        if (!modal.hidden && input.value.trim()) renderResults(input.value.trim());
+        if (!modal.hidden && input.value.trim()) renderLocal(input.value.trim());
       }
     };
 
