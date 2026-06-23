@@ -20,6 +20,10 @@
   var REMOTE = getRemoteConfig();
   var KAPA_SRC            = (script && script.dataset.kapaSrc) || '';
   var KAPA_INTEGRATION_ID = (script && script.dataset.kapaIntegrationId) || '';
+  // The bundled inline-chat lives next to tt-search.js on the CDN.
+  var KAPA_CHAT_SRC = (script && script.src)
+    ? script.src.replace(/tt-search\.js(\?.*)?$/, 'tt-kapa-chat.js')
+    : '';
   var DEBOUNCE_MS = 180;
   var MAX_HITS = 8;
 
@@ -30,8 +34,14 @@
   var seq = 0;                   // guards against out-of-order responses
   var remoteDown = false;        // reset each open so stale failures don't block remote
 
-  // Kapa lazy-load state.
+  // Kapa widget lazy-load state (fallback when no integration id).
   var kapaLoaded = false;
+
+  // Inline chat (bundled Kapa SDK) state.
+  var aiIntro, aiExamples, aiEmbed;
+  var aiChatActive = false;
+  var chatBundleLoading = false;
+  var chatMounted = false;
 
   // Sphinx-index fallback state (loaded lazily, only if the remote API fails).
   var records = null;
@@ -59,6 +69,9 @@
     results     = document.getElementById('tt-search-results');
     empty       = document.getElementById('tt-search-empty');
     searchBody  = modal.querySelector('.tt-search-body');
+    aiIntro    = document.getElementById('tt-ai-intro')    || modal.querySelector('.tt-ai-intro');
+    aiExamples = document.getElementById('tt-ai-examples') || modal.querySelector('.tt-ai-examples');
+    aiEmbed    = ensureEmbed();
 
     document.querySelectorAll('.tt-search-trigger').forEach(function (el) {
       el.addEventListener('click', open);
@@ -77,6 +90,10 @@
         startAiChat(btn.textContent.trim());
       });
     });
+
+    var newChatBtn = document.getElementById('tt-ai-new-chat') ||
+                     (aiEmbed && aiEmbed.querySelector('.tt-ai-new-chat'));
+    if (newChatBtn) newChatBtn.addEventListener('click', resetAiChat);
 
     searchInput.addEventListener('input', onInput);
     searchInput.addEventListener('keydown', onSearchKeydown);
@@ -119,9 +136,9 @@
     if (name === 'ai') {
       searchInput.hidden = true;
       aiInput.hidden = false;
-      aiInput.placeholder = 'Ask about the docs…';
+      aiInput.placeholder = aiChatActive ? 'Ask a follow-up question…' : 'Ask about the docs…';
       aiInput.focus();
-      preloadKapa();
+      if (KAPA_INTEGRATION_ID) preloadChat();   // warm the bundle up front
     } else {
       aiInput.hidden = true;
       searchInput.hidden = false;
@@ -130,17 +147,101 @@
     }
   }
 
-  // Eagerly load the Kapa script without opening the modal.
-  function preloadKapa() {
-    if (kapaLoaded || !KAPA_SRC) return;
-    kapaLoaded = true;
+  // ── Ask AI — inline chat (bundled Kapa SDK) ──────────────────────────────
+
+  // Make sure #tt-kapa-embed exists; create it if the HTML predates the template
+  // change (so the chat works without a Sphinx rebuild).
+  function ensureEmbed() {
+    var embed = document.getElementById('tt-kapa-embed');
+    if (embed) return embed;
+    var aiPanel = modal.querySelector('.tt-search-panel[data-panel="ai"]');
+    if (!aiPanel) return null;
+    embed = document.createElement('div');
+    embed.id = 'tt-kapa-embed';
+    embed.hidden = true;
+    embed.innerHTML =
+      '<div class="tt-chat-toolbar">' +
+        '<button type="button" class="tt-ai-new-chat" id="tt-ai-new-chat">' +
+          '<svg viewBox="0 0 16 16" fill="none" aria-hidden="true">' +
+            '<path d="M5 8h6M8 5l-3 3 3 3" stroke="currentColor" stroke-width="1.4"' +
+            ' stroke-linecap="round" stroke-linejoin="round"/>' +
+          '</svg>' +
+          ' New conversation' +
+        '</button>' +
+      '</div>' +
+      '<div id="tt-kapa-mount"></div>';
+    aiPanel.appendChild(embed);
+    return embed;
+  }
+
+  // Load the bundled chat (React + Kapa SDK) once, then mount it.
+  function preloadChat(cb) {
+    if (chatMounted) { if (cb) cb(); return; }
+    if (!KAPA_CHAT_SRC || !KAPA_INTEGRATION_ID) { if (cb) cb(); return; }
+
+    function doMount() {
+      if (!chatMounted && window.ttKapaChat) {
+        window.ttKapaChat.mount('tt-kapa-mount', KAPA_INTEGRATION_ID);
+        chatMounted = true;
+      }
+      if (cb) cb();
+    }
+
+    if (window.ttKapaChat) { doMount(); return; }
+    if (chatBundleLoading) {
+      var attempts = 0;
+      var poll = setInterval(function () {
+        if (window.ttKapaChat) { clearInterval(poll); doMount(); }
+        else if (++attempts > 100) { clearInterval(poll); }
+      }, 100);
+      return;
+    }
+    chatBundleLoading = true;
     var s = document.createElement('script');
-    s.src = KAPA_SRC;
+    s.src = KAPA_CHAT_SRC;
+    s.onload = doMount;
+    s.onerror = function () {
+      console.error('[tt-search] failed to load chat bundle:', KAPA_CHAT_SRC);
+      // Fall back to the Kapa widget modal if the bundle can't load.
+      loadAndOpenKapa();
+    };
     document.head.appendChild(s);
   }
 
-  // Load Kapa (if needed) then open its modal with an optional pre-filled query.
-  // Closes our search modal first so both modals never overlap.
+  function startAiChat(query) {
+    if (!KAPA_INTEGRATION_ID) { loadAndOpenKapa(query); return; }
+
+    aiChatActive = true;
+    if (aiIntro)    aiIntro.hidden    = true;
+    if (aiExamples) aiExamples.hidden = true;
+    if (aiEmbed)    aiEmbed.hidden    = false;
+    aiInput.value = '';
+    aiInput.placeholder = 'Ask a follow-up question…';
+
+    // Queue the query so it fires the moment the SDK is ready (handles the
+    // first-load race before window.ttKapaSubmit exists).
+    if (query) window.__ttKapaPending = query;
+    preloadChat(function () {
+      if (query && window.ttKapaSubmit) {
+        window.__ttKapaPending = null;
+        window.ttKapaSubmit(query);
+      }
+    });
+  }
+
+  function resetAiChat() {
+    aiChatActive = false;
+    if (window.ttKapaReset) window.ttKapaReset();
+    if (aiEmbed)    aiEmbed.hidden    = true;
+    if (aiIntro)    aiIntro.hidden    = false;
+    if (aiExamples) aiExamples.hidden = false;
+    aiInput.value = '';
+    aiInput.placeholder = 'Ask about the docs…';
+    aiInput.focus();
+  }
+
+  // Kapa widget modal — only used as a fallback (no integration id, or bundle
+  // failed to load). Closes our modal so the two never overlap.
   function loadAndOpenKapa(query) {
     var opts = {};
     if (query) { opts.query = query; opts.submitQuery = true; }
@@ -167,13 +268,6 @@
         clearInterval(poll);
       }
     }, 100);
-  }
-
-  // ── Ask AI ──────────────────────────────────────────────────────────────
-
-  function startAiChat(query) {
-    aiInput.value = '';
-    loadAndOpenKapa(query);
   }
 
   function onInput() {

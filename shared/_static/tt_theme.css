@@ -706,6 +706,105 @@ body.tt-search-locked { overflow: hidden; }
   40%            { transform: translateY(-5px); opacity: 1; }
 }
 
+/* Markdown-rendered answer body (overrides the pre-wrap plain-text default) */
+.tt-chat-md {
+  white-space: normal;
+}
+.tt-chat-md > *:first-child { margin-top: 0; }
+.tt-chat-md > *:last-child  { margin-bottom: 0; }
+.tt-chat-md p { margin: 0 0 10px; }
+.tt-chat-md ul,
+.tt-chat-md ol { margin: 0 0 10px; padding-left: 20px; }
+.tt-chat-md li { margin: 2px 0; }
+.tt-chat-md a { color: #7aa2ff; text-decoration: none; }
+.tt-chat-md a:hover { text-decoration: underline; }
+.tt-chat-md code {
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+  font-size: 12px;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.08);
+  color: #e8eaed;
+}
+.tt-chat-md pre {
+  margin: 0 0 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: rgba(0,0,0,0.32);
+  overflow-x: auto;
+}
+.tt-chat-md pre code {
+  padding: 0;
+  background: none;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.tt-chat-md h1,
+.tt-chat-md h2,
+.tt-chat-md h3,
+.tt-chat-md h4 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #e8eaed;
+  margin: 12px 0 6px;
+}
+.tt-chat-md blockquote {
+  margin: 0 0 10px;
+  padding-left: 12px;
+  border-left: 2px solid rgba(255,255,255,0.15);
+  color: #9099a8;
+}
+.tt-chat-md table {
+  border-collapse: collapse;
+  margin: 0 0 10px;
+  font-size: 12px;
+}
+.tt-chat-md th,
+.tt-chat-md td {
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 4px 8px;
+  text-align: left;
+}
+
+/* Citation source chips under an answer */
+.tt-chat-sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+}
+.tt-chat-source {
+  display: inline-block;
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 3px 9px;
+  font-size: 11px;
+  line-height: 1.3;
+  color: #9099a8;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 999px;
+  text-decoration: none;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.tt-chat-source:hover {
+  color: #fff;
+  border-color: rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.08);
+}
+
+.tt-chat-error {
+  font-size: 12.5px;
+  color: #ff8d8d;
+  background: rgba(255,80,80,0.08);
+  border: 1px solid rgba(255,80,80,0.2);
+  border-radius: 8px;
+  padding: 8px 11px;
+  line-height: 1.5;
+}
+
 .tt-search-empty {
   padding: 20px 12px;
   font-family: var(--font-main);
