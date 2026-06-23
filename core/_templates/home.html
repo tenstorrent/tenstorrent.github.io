@@ -85,6 +85,12 @@
       border: 1px solid #c7d9d8;
       background: #f1f8f8;
       width: 100%;
+      cursor: pointer;
+      transition: border-color 150ms ease, box-shadow 150ms ease;
+    }
+
+    .hero-search:hover {
+      border-color: #1E86A9;
     }
 
     .hero-search input {
@@ -96,6 +102,8 @@
       font-size: 14px;
       color: #092221;
       letter-spacing: 0.25px;
+      cursor: pointer;
+      pointer-events: none;
     }
 
     .hero-search input::placeholder { color: #678583; }
@@ -435,8 +443,8 @@
           No hardware yet? Get access to Tenstorrent silicon right in your browser with
           <a href="https://console.tenstorrent.com" target="_blank" rel="noopener">Tenstorrent Cloud Console</a>
         </p>
-        <div class="hero-search">
-          <input type="text" placeholder="Search" />
+        <div class="hero-search tt-search-trigger" role="button" aria-haspopup="dialog" aria-label="Search docs">
+          <input type="text" placeholder="Search" readonly tabindex="-1" aria-hidden="true" />
         </div>
       </div>
       <div class="hero-right">
