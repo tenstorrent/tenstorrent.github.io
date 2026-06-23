@@ -30,13 +30,8 @@
   var seq = 0;                   // guards against out-of-order responses
   var remoteDown = false;        // reset each open so stale failures don't block remote
 
-  // Kapa lazy-load state (widget fallback).
+  // Kapa lazy-load state.
   var kapaLoaded = false;
-
-  // Ask AI embedded chat state.
-  var aiEmbed, aiIntro, aiExamples;
-  var aiChatActive    = false;
-  var kapaReactMounted = false;
 
   // Sphinx-index fallback state (loaded lazily, only if the remote API fails).
   var records = null;
@@ -64,32 +59,6 @@
     results     = document.getElementById('tt-search-results');
     empty       = document.getElementById('tt-search-empty');
     searchBody  = modal.querySelector('.tt-search-body');
-    aiIntro    = document.getElementById('tt-ai-intro')    || modal.querySelector('.tt-ai-intro');
-    aiExamples = document.getElementById('tt-ai-examples') || modal.querySelector('.tt-ai-examples');
-    aiEmbed    = document.getElementById('tt-kapa-embed');
-
-    // If the HTML was built before the embed block was added to the template,
-    // create it dynamically so the chat UI still works without a Sphinx rebuild.
-    if (!aiEmbed) {
-      var aiPanel = modal.querySelector('.tt-search-panel[data-panel="ai"]');
-      if (aiPanel) {
-        aiEmbed = document.createElement('div');
-        aiEmbed.id = 'tt-kapa-embed';
-        aiEmbed.hidden = true;
-        aiEmbed.innerHTML =
-          '<div class="tt-chat-toolbar">' +
-            '<button type="button" class="tt-ai-new-chat" id="tt-ai-new-chat">' +
-              '<svg viewBox="0 0 16 16" fill="none" aria-hidden="true">' +
-                '<path d="M5 8h6M8 5l-3 3 3 3" stroke="currentColor" stroke-width="1.4"' +
-                ' stroke-linecap="round" stroke-linejoin="round"/>' +
-              '</svg>' +
-              ' New conversation' +
-            '</button>' +
-          '</div>' +
-          '<div id="tt-kapa-mount"></div>';
-        aiPanel.appendChild(aiEmbed);
-      }
-    }
 
     document.querySelectorAll('.tt-search-trigger').forEach(function (el) {
       el.addEventListener('click', open);
@@ -108,10 +77,6 @@
         startAiChat(btn.textContent.trim());
       });
     });
-
-    var newChatBtn = document.getElementById('tt-ai-new-chat') ||
-                     (aiEmbed && aiEmbed.querySelector('.tt-ai-new-chat'));
-    if (newChatBtn) newChatBtn.addEventListener('click', resetAiChat);
 
     searchInput.addEventListener('input', onInput);
     searchInput.addEventListener('keydown', onSearchKeydown);
@@ -154,9 +119,9 @@
     if (name === 'ai') {
       searchInput.hidden = true;
       aiInput.hidden = false;
-      aiInput.placeholder = aiChatActive ? 'Ask a follow-up question…' : 'Ask about the docs…';
+      aiInput.placeholder = 'Ask about the docs…';
       aiInput.focus();
-      if (!KAPA_INTEGRATION_ID) preloadKapa();
+      preloadKapa();
     } else {
       aiInput.hidden = true;
       searchInput.hidden = false;
@@ -204,110 +169,12 @@
     }, 100);
   }
 
-  // ── Ask AI inline chat (Kapa React SDK) ─────────────────────────────────
+  // ── Ask AI ──────────────────────────────────────────────────────────────
 
   function startAiChat(query) {
-    aiChatActive = true;
-    if (aiIntro)    aiIntro.hidden    = true;
-    if (aiExamples) aiExamples.hidden = true;
-    if (aiEmbed)    aiEmbed.hidden    = false;
     aiInput.value = '';
-    aiInput.placeholder = 'Ask a follow-up question…';
-
-    if (KAPA_INTEGRATION_ID) {
-      mountKapaReact(query);
-    } else {
-      loadAndOpenKapa(query);
-    }
+    loadAndOpenKapa(query);
   }
-
-  function mountKapaReact(query) {
-    if (!kapaReactMounted) {
-      kapaReactMounted = true;
-      window.KAPA_INTEGRATION_ID = KAPA_INTEGRATION_ID;
-      if (aiEmbed) aiEmbed.dataset.initialQuery = query;
-
-      // Inject importmap before the module so bare specifiers ('react', 'react-dom/client')
-      // resolve to esm.sh — required for ?external=react,react-dom to share one instance.
-      // This is a no-op if the rebuilt HTML already has the importmap in <head>.
-      if (!document.querySelector('script[type="importmap"]')) {
-        var imap = document.createElement('script');
-        imap.type = 'importmap';
-        imap.textContent = '{"imports":{"react":"https://esm.sh/react@18","react/jsx-runtime":"https://esm.sh/react@18/jsx-runtime","react-dom":"https://esm.sh/react-dom@18","react-dom/client":"https://esm.sh/react-dom@18/client"}}';
-        document.head.appendChild(imap);
-      }
-
-      var s = document.createElement('script');
-      s.type = 'module';
-      s.textContent = KAPA_REACT_MODULE;
-      document.head.appendChild(s);
-    } else if (window.ttKapaSubmit) {
-      window.ttKapaSubmit(query);
-    } else {
-      var attempts = 0;
-      var poll = setInterval(function () {
-        if (window.ttKapaSubmit) { clearInterval(poll); window.ttKapaSubmit(query); }
-        else if (++attempts > 50) { clearInterval(poll); }
-      }, 100);
-    }
-  }
-
-  function resetAiChat() {
-    aiChatActive = false;
-    if (window.ttKapaReset) window.ttKapaReset();
-    if (aiEmbed)    aiEmbed.hidden    = true;
-    if (aiIntro)    aiIntro.hidden    = false;
-    if (aiExamples) aiExamples.hidden = false;
-    aiInput.value = '';
-    aiInput.placeholder = 'Ask about the docs…';
-    aiInput.focus();
-  }
-
-  // Inline ES-module: mounts the Kapa React SDK chat inside #tt-kapa-mount.
-  // Loaded once, lazily, when the user first submits an AI question.
-  var KAPA_REACT_MODULE = [
-    "(async function(){",
-    "try{",
-    // ?external=react,react-dom tells esm.sh not to bundle React — use the importmap instead.
-    "var m=await import('https://esm.sh/@kapaai/react-sdk?external=react,react-dom');",
-    "var KapaProvider=m.KapaProvider,useChat=m.useChat;",
-    // 'react' and 'react-dom/client' resolve via the importmap declared in <head>.
-    "var r=await import('react');",
-    "var h=r.createElement,useEffect=r.useEffect,useRef=r.useRef;",
-    "var createRoot=(await import('react-dom/client')).createRoot;",
-    "function Turn(props){",
-    "  var ans=props.qa.answer;",
-    "  return h('div',{className:'tt-chat-turn'},",
-    "    h('div',{className:'tt-chat-q'},props.qa.question),",
-    "    h('div',{className:'tt-chat-a'+(ans?'':' tt-chat-a--loading')},",
-    "      ans||h('span',{className:'tt-chat-dots'},h('span'),h('span'),h('span'))",
-    "    )",
-    "  );",
-    "}",
-    "function Chat(){",
-    "  var ref=useChat();",
-    "  var conversation=ref.conversation,submitQuery=ref.submitQuery,resetConversation=ref.resetConversation;",
-    "  var endRef=useRef(null);",
-    "  useEffect(function(){",
-    "    window.ttKapaSubmit=function(q){if(q)submitQuery(q);};",
-    "    window.ttKapaReset=function(){resetConversation();};",
-    "  },[submitQuery,resetConversation]);",
-    "  useEffect(function(){if(endRef.current)endRef.current.scrollIntoView({behavior:'smooth'});},[conversation]);",
-    "  return h('div',{className:'tt-chat-messages'},",
-    "    conversation.map(function(qa,i){return h(Turn,{key:i,qa:qa});}),",
-    "    h('div',{ref:endRef})",
-    "  );",
-    "}",
-    "var el=document.getElementById('tt-kapa-mount');",
-    "if(!el){console.error('[tt-search] #tt-kapa-mount not found');return;}",
-    "var root=createRoot(el);",
-    "root.render(h(KapaProvider,{integrationId:window.KAPA_INTEGRATION_ID},h(Chat)));",
-    "var embedEl=document.getElementById('tt-kapa-embed');",
-    "var initQ=embedEl&&embedEl.dataset.initialQuery;",
-    "if(initQ){var t=setInterval(function(){if(window.ttKapaSubmit){clearInterval(t);window.ttKapaSubmit(initQ);}},50);}",
-    "}catch(e){console.error('[tt-search] Kapa React SDK error:',e);}",
-    "})();"
-  ].join('\n');
 
   function onInput() {
     var q = searchInput.value.trim();
@@ -341,11 +208,6 @@
       var q = aiInput.value.trim();
       if (q) startAiChat(q);
     }
-  }
-
-  function panelHidden(name) {
-    var panel = modal.querySelector('.tt-search-panel[data-panel="' + name + '"]');
-    return !panel || panel.hidden;
   }
 
   function cancelInFlight() {
