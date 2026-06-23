@@ -522,6 +522,11 @@ body.tt-search-locked { overflow: hidden; }
 
 /* ── Ask AI panel ───────────────────────────────────────────── */
 
+/* Author display:flex (0,0,1,0) beats the UA [hidden] rule, so JS-set hidden
+   wouldn't hide these without !important — same gotcha as the search inputs. */
+.tt-ai-intro[hidden],
+.tt-ai-examples[hidden] { display: none !important; }
+
 .tt-ai-intro {
   display: flex;
   align-items: center;
