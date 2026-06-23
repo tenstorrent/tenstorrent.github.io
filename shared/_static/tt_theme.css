@@ -725,7 +725,7 @@ body.tt-search-locked { overflow: hidden; }
 .tt-chat-md > *:last-child  { margin-bottom: 0; }
 .tt-chat-md p { margin: 0 0 10px; }
 .tt-chat-md ul,
-.tt-chat-md ol { margin: 0 0 10px; padding-left: 20px; }
+.tt-chat-md ol { margin: 0 0 10px; padding-left: 0; list-style-position: inside; }
 .tt-chat-md li { margin: 3px 0; }
 .tt-chat-md a {
   color: var(--text-accent);
@@ -758,6 +758,31 @@ body.tt-search-locked { overflow: hidden; }
   line-height: 1.55;
   color: var(--text-default);
 }
+
+.tt-chat-copy-btn {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  background: var(--background-1);
+  border: 1px solid var(--border-subtle);
+  border-radius: 5px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s, color 0.15s, border-color 0.15s;
+}
+.tt-chat-md pre:hover .tt-chat-copy-btn { opacity: 1; }
+.tt-chat-copy-btn:hover {
+  color: var(--text-accent);
+  border-color: var(--text-accent);
+}
+
 .tt-chat-md h1,
 .tt-chat-md h2,
 .tt-chat-md h3,

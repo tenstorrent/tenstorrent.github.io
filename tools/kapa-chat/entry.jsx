@@ -16,13 +16,43 @@ import DOMPurify from "dompurify";
 
 marked.setOptions({ breaks: true, gfm: true });
 
+const SVG_COPY =
+  '<svg width="14" height="14" viewBox="0 0 20 20" fill="none">' +
+  '<rect x="7" y="7" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/>' +
+  '<path d="M13 7V5.5A1.5 1.5 0 0 0 11.5 4h-7A1.5 1.5 0 0 0 3 5.5v7A1.5 1.5 0 0 0 4.5 14H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>' +
+  "</svg>";
+
+const SVG_DONE =
+  '<svg width="14" height="14" viewBox="0 0 20 20" fill="none">' +
+  '<path d="M4 10l4 4 8-8" stroke="#1e86a9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>' +
+  "</svg>";
+
+function addCopyButtons(container) {
+  if (!container) return;
+  container.querySelectorAll("pre").forEach((pre) => {
+    if (pre.querySelector(".tt-chat-copy-btn")) return; // already added
+    const btn = document.createElement("button");
+    btn.className = "tt-chat-copy-btn";
+    btn.title = "Copy code";
+    btn.innerHTML = SVG_COPY;
+    btn.addEventListener("click", function () {
+      const code = pre.querySelector("code");
+      const text = code ? code.textContent : pre.textContent;
+      navigator.clipboard && navigator.clipboard.writeText(text);
+      btn.innerHTML = SVG_DONE;
+      setTimeout(function () { btn.innerHTML = SVG_COPY; }, 1500);
+    });
+    pre.style.position = "relative";
+    pre.appendChild(btn);
+  });
+}
+
 function renderMarkdown(md) {
   return DOMPurify.sanitize(marked.parse(md || "", { async: false }));
 }
 
 function Sources({ sources }) {
   if (!sources || !sources.length) return null;
-  // De-dupe by URL, keep first title seen.
   const seen = new Map();
   for (const s of sources) {
     const url = s && (s.source_url || s.url);
@@ -47,9 +77,17 @@ function Sources({ sources }) {
 function Turn({ qa }) {
   const streaming = qa.status === "streaming";
   const hasAnswer = qa.answer && qa.answer.length > 0;
+  const answerRef = useRef(null);
+
+  // Inject Copy buttons into <pre> blocks after each render.
+  useEffect(() => {
+    if (answerRef.current) addCopyButtons(answerRef.current);
+  });
+
   let answerNode;
   if (hasAnswer) {
     answerNode = React.createElement("div", {
+      ref: answerRef,
       className: "tt-chat-a tt-chat-md",
       dangerouslySetInnerHTML: { __html: renderMarkdown(qa.answer) },
     });
@@ -82,7 +120,6 @@ function Chat() {
   useEffect(() => {
     window.ttKapaSubmit = (q) => { if (q) submitQuery(q); };
     window.ttKapaReset = () => { resetConversation(); };
-    // Flush any query queued before the bundle finished loading.
     if (window.__ttKapaPending) {
       const q = window.__ttKapaPending;
       window.__ttKapaPending = null;
@@ -99,7 +136,6 @@ function Chat() {
     React.createElement(Turn, { key: qa.id || "t" + i, qa })
   );
 
-  // Show a leading loader if a query is in flight but no turn exists yet.
   const preparing =
     isPreparingAnswer && conversation.length === 0
       ? React.createElement(
