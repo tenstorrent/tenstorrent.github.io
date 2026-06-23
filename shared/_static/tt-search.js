@@ -226,6 +226,17 @@
       kapaReactMounted = true;
       window.KAPA_INTEGRATION_ID = KAPA_INTEGRATION_ID;
       if (aiEmbed) aiEmbed.dataset.initialQuery = query;
+
+      // Inject importmap before the module so bare specifiers ('react', 'react-dom/client')
+      // resolve to esm.sh — required for ?external=react,react-dom to share one instance.
+      // This is a no-op if the rebuilt HTML already has the importmap in <head>.
+      if (!document.querySelector('script[type="importmap"]')) {
+        var imap = document.createElement('script');
+        imap.type = 'importmap';
+        imap.textContent = '{"imports":{"react":"https://esm.sh/react@18","react/jsx-runtime":"https://esm.sh/react@18/jsx-runtime","react-dom":"https://esm.sh/react-dom@18","react-dom/client":"https://esm.sh/react-dom@18/client"}}';
+        document.head.appendChild(imap);
+      }
+
       var s = document.createElement('script');
       s.type = 'module';
       s.textContent = KAPA_REACT_MODULE;
