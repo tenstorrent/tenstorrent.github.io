@@ -18,18 +18,25 @@
   // Remote (OpenSearch) config — overridable via data-* attributes on the
   // script tag or a window.TT_DOCS_REMOTE_SEARCH object.
   var REMOTE = getRemoteConfig();
-  var KAPA_SRC = (script && script.dataset.kapaSrc) || '';
+  var KAPA_SRC            = (script && script.dataset.kapaSrc) || '';
+  var KAPA_INTEGRATION_ID = (script && script.dataset.kapaIntegrationId) || '';
   var DEBOUNCE_MS = 180;
   var MAX_HITS = 8;
 
-  var modal, input, results, empty, searchBody;
+  var modal, searchInput, aiInput, results, empty, searchBody;
+  var activeTab = 'search';
   var debounceTimer = null;
   var activeController = null;   // AbortController for the in-flight request
   var seq = 0;                   // guards against out-of-order responses
-  var remoteDown = false;        // flips true once the remote API errors out
+  var remoteDown = false;        // reset each open so stale failures don't block remote
 
-  // Kapa lazy-load state.
+  // Kapa lazy-load state (widget fallback).
   var kapaLoaded = false;
+
+  // Ask AI embedded chat state.
+  var aiEmbed, aiIntro, aiExamples;
+  var aiChatActive    = false;
+  var kapaReactMounted = false;
 
   // Sphinx-index fallback state (loaded lazily, only if the remote API fails).
   var records = null;
@@ -52,10 +59,37 @@
   function init() {
     modal = document.getElementById('tt-search-modal');
     if (!modal) return;
-    input = document.getElementById('tt-search-input');
-    results = document.getElementById('tt-search-results');
-    empty = document.getElementById('tt-search-empty');
-    searchBody = modal.querySelector('.tt-search-body');
+    searchInput = document.getElementById('tt-search-input');
+    aiInput     = document.getElementById('tt-ai-input');
+    results     = document.getElementById('tt-search-results');
+    empty       = document.getElementById('tt-search-empty');
+    searchBody  = modal.querySelector('.tt-search-body');
+    aiIntro    = document.getElementById('tt-ai-intro')    || modal.querySelector('.tt-ai-intro');
+    aiExamples = document.getElementById('tt-ai-examples') || modal.querySelector('.tt-ai-examples');
+    aiEmbed    = document.getElementById('tt-kapa-embed');
+
+    // If the HTML was built before the embed block was added to the template,
+    // create it dynamically so the chat UI still works without a Sphinx rebuild.
+    if (!aiEmbed) {
+      var aiPanel = modal.querySelector('.tt-search-panel[data-panel="ai"]');
+      if (aiPanel) {
+        aiEmbed = document.createElement('div');
+        aiEmbed.id = 'tt-kapa-embed';
+        aiEmbed.hidden = true;
+        aiEmbed.innerHTML =
+          '<div class="tt-chat-toolbar">' +
+            '<button type="button" class="tt-ai-new-chat" id="tt-ai-new-chat">' +
+              '<svg viewBox="0 0 16 16" fill="none" aria-hidden="true">' +
+                '<path d="M5 8h6M8 5l-3 3 3 3" stroke="currentColor" stroke-width="1.4"' +
+                ' stroke-linecap="round" stroke-linejoin="round"/>' +
+              '</svg>' +
+              ' New conversation' +
+            '</button>' +
+          '</div>' +
+          '<div id="tt-kapa-mount"></div>';
+        aiPanel.appendChild(aiEmbed);
+      }
+    }
 
     document.querySelectorAll('.tt-search-trigger').forEach(function (el) {
       el.addEventListener('click', open);
@@ -69,8 +103,19 @@
       tab.addEventListener('click', function () { switchTab(tab.dataset.tab); });
     });
 
-    input.addEventListener('input', onInput);
-    input.addEventListener('keydown', onKeydown);
+    modal.querySelectorAll('.tt-ai-example').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        startAiChat(btn.textContent.trim());
+      });
+    });
+
+    var newChatBtn = document.getElementById('tt-ai-new-chat') ||
+                     (aiEmbed && aiEmbed.querySelector('.tt-ai-new-chat'));
+    if (newChatBtn) newChatBtn.addEventListener('click', resetAiChat);
+
+    searchInput.addEventListener('input', onInput);
+    searchInput.addEventListener('keydown', onSearchKeydown);
+    aiInput.addEventListener('keydown', onAiKeydown);
 
     document.addEventListener('keydown', function (e) {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
@@ -85,9 +130,10 @@
   function open() {
     modal.hidden = false;
     document.body.classList.add('tt-search-locked');
-    setTimeout(function () { input.focus(); }, 0);
-    // Re-run the current query so re-opening keeps showing results.
-    if (input.value.trim()) onInput();
+    remoteDown = false;
+    var active = activeTab === 'ai' ? aiInput : searchInput;
+    setTimeout(function () { active.focus(); }, 0);
+    if (activeTab === 'search' && searchInput.value.trim()) onInput();
   }
 
   function close() {
@@ -96,6 +142,7 @@
   }
 
   function switchTab(name) {
+    activeTab = name;
     modal.querySelectorAll('.tt-search-tab').forEach(function (tab) {
       var active = tab.dataset.tab === name;
       tab.classList.toggle('is-active', active);
@@ -105,38 +152,154 @@
       panel.hidden = panel.dataset.panel !== name;
     });
     if (name === 'ai') {
-      openKapaModal();
+      searchInput.hidden = true;
+      aiInput.hidden = false;
+      aiInput.placeholder = aiChatActive ? 'Ask a follow-up question…' : 'Ask about the docs…';
+      aiInput.focus();
+      if (!KAPA_INTEGRATION_ID) preloadKapa();
     } else {
-      input.focus();
+      aiInput.hidden = true;
+      searchInput.hidden = false;
+      searchInput.focus();
+      if (searchInput.value.trim()) onInput();
     }
   }
 
-  function openKapaModal() {
-    if (window.Kapa && typeof window.Kapa.open === 'function') {
-      window.Kapa.open();
-      return;
-    }
+  // Eagerly load the Kapa script without opening the modal.
+  function preloadKapa() {
     if (kapaLoaded || !KAPA_SRC) return;
     kapaLoaded = true;
     var s = document.createElement('script');
     s.src = KAPA_SRC;
-    // Once the Kapa bundle is ready, open its modal.
-    s.onload = function () {
-      var attempts = 0;
-      var poll = setInterval(function () {
-        if (window.Kapa && typeof window.Kapa.open === 'function') {
-          clearInterval(poll);
-          window.Kapa.open();
-        } else if (++attempts > 20) {
-          clearInterval(poll);
-        }
-      }, 100);
-    };
     document.head.appendChild(s);
   }
 
+  // Load Kapa (if needed) then open its modal with an optional pre-filled query.
+  // Closes our search modal first so both modals never overlap.
+  function loadAndOpenKapa(query) {
+    var opts = {};
+    if (query) { opts.query = query; opts.submitQuery = true; }
+
+    close();
+
+    if (window.Kapa && typeof window.Kapa.open === 'function') {
+      window.Kapa.open(opts);
+      return;
+    }
+    if (!KAPA_SRC) return;
+    if (!kapaLoaded) {
+      kapaLoaded = true;
+      var s = document.createElement('script');
+      s.src = KAPA_SRC;
+      document.head.appendChild(s);
+    }
+    var attempts = 0;
+    var poll = setInterval(function () {
+      if (window.Kapa && typeof window.Kapa.open === 'function') {
+        clearInterval(poll);
+        window.Kapa.open(opts);
+      } else if (++attempts > 30) {
+        clearInterval(poll);
+      }
+    }, 100);
+  }
+
+  // ── Ask AI inline chat (Kapa React SDK) ─────────────────────────────────
+
+  function startAiChat(query) {
+    aiChatActive = true;
+    if (aiIntro)    aiIntro.hidden    = true;
+    if (aiExamples) aiExamples.hidden = true;
+    if (aiEmbed)    aiEmbed.hidden    = false;
+    aiInput.value = '';
+    aiInput.placeholder = 'Ask a follow-up question…';
+
+    if (KAPA_INTEGRATION_ID) {
+      mountKapaReact(query);
+    } else {
+      loadAndOpenKapa(query);
+    }
+  }
+
+  function mountKapaReact(query) {
+    if (!kapaReactMounted) {
+      kapaReactMounted = true;
+      window.KAPA_INTEGRATION_ID = KAPA_INTEGRATION_ID;
+      if (aiEmbed) aiEmbed.dataset.initialQuery = query;
+      var s = document.createElement('script');
+      s.type = 'module';
+      s.textContent = KAPA_REACT_MODULE;
+      document.head.appendChild(s);
+    } else if (window.ttKapaSubmit) {
+      window.ttKapaSubmit(query);
+    } else {
+      var attempts = 0;
+      var poll = setInterval(function () {
+        if (window.ttKapaSubmit) { clearInterval(poll); window.ttKapaSubmit(query); }
+        else if (++attempts > 50) { clearInterval(poll); }
+      }, 100);
+    }
+  }
+
+  function resetAiChat() {
+    aiChatActive = false;
+    if (window.ttKapaReset) window.ttKapaReset();
+    if (aiEmbed)    aiEmbed.hidden    = true;
+    if (aiIntro)    aiIntro.hidden    = false;
+    if (aiExamples) aiExamples.hidden = false;
+    aiInput.value = '';
+    aiInput.placeholder = 'Ask about the docs…';
+    aiInput.focus();
+  }
+
+  // Inline ES-module: mounts the Kapa React SDK chat inside #tt-kapa-mount.
+  // Loaded once, lazily, when the user first submits an AI question.
+  var KAPA_REACT_MODULE = [
+    "(async function(){",
+    "try{",
+    // ?external=react,react-dom tells esm.sh not to bundle React — use the importmap instead.
+    "var m=await import('https://esm.sh/@kapaai/react-sdk?external=react,react-dom');",
+    "var KapaProvider=m.KapaProvider,useChat=m.useChat;",
+    // 'react' and 'react-dom/client' resolve via the importmap declared in <head>.
+    "var r=await import('react');",
+    "var h=r.createElement,useEffect=r.useEffect,useRef=r.useRef;",
+    "var createRoot=(await import('react-dom/client')).createRoot;",
+    "function Turn(props){",
+    "  var ans=props.qa.answer;",
+    "  return h('div',{className:'tt-chat-turn'},",
+    "    h('div',{className:'tt-chat-q'},props.qa.question),",
+    "    h('div',{className:'tt-chat-a'+(ans?'':' tt-chat-a--loading')},",
+    "      ans||h('span',{className:'tt-chat-dots'},h('span'),h('span'),h('span'))",
+    "    )",
+    "  );",
+    "}",
+    "function Chat(){",
+    "  var ref=useChat();",
+    "  var conversation=ref.conversation,submitQuery=ref.submitQuery,resetConversation=ref.resetConversation;",
+    "  var endRef=useRef(null);",
+    "  useEffect(function(){",
+    "    window.ttKapaSubmit=function(q){if(q)submitQuery(q);};",
+    "    window.ttKapaReset=function(){resetConversation();};",
+    "  },[submitQuery,resetConversation]);",
+    "  useEffect(function(){if(endRef.current)endRef.current.scrollIntoView({behavior:'smooth'});},[conversation]);",
+    "  return h('div',{className:'tt-chat-messages'},",
+    "    conversation.map(function(qa,i){return h(Turn,{key:i,qa:qa});}),",
+    "    h('div',{ref:endRef})",
+    "  );",
+    "}",
+    "var el=document.getElementById('tt-kapa-mount');",
+    "if(!el){console.error('[tt-search] #tt-kapa-mount not found');return;}",
+    "var root=createRoot(el);",
+    "root.render(h(KapaProvider,{integrationId:window.KAPA_INTEGRATION_ID},h(Chat)));",
+    "var embedEl=document.getElementById('tt-kapa-embed');",
+    "var initQ=embedEl&&embedEl.dataset.initialQuery;",
+    "if(initQ){var t=setInterval(function(){if(window.ttKapaSubmit){clearInterval(t);window.ttKapaSubmit(initQ);}},50);}",
+    "}catch(e){console.error('[tt-search] Kapa React SDK error:',e);}",
+    "})();"
+  ].join('\n');
+
   function onInput() {
-    var q = input.value.trim();
+    var q = searchInput.value.trim();
 
     if (debounceTimer) clearTimeout(debounceTimer);
 
@@ -146,32 +309,32 @@
       return;
     }
 
+    // Immediate visual feedback while debounce + network round-trip is pending.
+    showEmpty('Searching…');
+
     debounceTimer = setTimeout(function () { runSearch(q); }, DEBOUNCE_MS);
   }
 
-  function onKeydown(e) {
+  function onSearchKeydown(e) {
     if (e.key === 'Enter') {
       e.preventDefault();
       var first = results.querySelector('a');
-      // Jump to the top hit if there is one, otherwise fall back to Sphinx search.
-      if (first && !panelHidden('search')) {
-        window.location.href = first.href;
-      } else if (!panelHidden('search')) {
-        submitSearch();
-      }
+      if (first) window.location.href = first.href;
+      // No fallback redirect — stay in the modal if results aren't ready yet.
+    }
+  }
+
+  function onAiKeydown(e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      var q = aiInput.value.trim();
+      if (q) startAiChat(q);
     }
   }
 
   function panelHidden(name) {
     var panel = modal.querySelector('.tt-search-panel[data-panel="' + name + '"]');
     return !panel || panel.hidden;
-  }
-
-  // Send the query to Sphinx's built-in search page (works without a backend).
-  function submitSearch() {
-    var q = input.value.trim();
-    if (!q) return;
-    window.location.href = SEARCH_URL + '?q=' + encodeURIComponent(q);
   }
 
   function cancelInFlight() {
@@ -205,8 +368,7 @@
       })
       .catch(function (err) {
         if (err && err.name === 'AbortError') return;
-        // Remote service is unreachable — degrade to the local Sphinx index.
-        remoteDown = true;
+        // Remote failed for this query — show local results but retry remote next keystroke.
         loadIndex();
         renderLocal(q);
       });
@@ -219,7 +381,7 @@
 
   function renderRemoteHits(q, hits) {
     if (!hits.length) {
-      showEmpty('No matches. Press Enter to search all documentation.');
+      showEmpty('No results found.');
       return;
     }
     var rendered = hits.slice(0, MAX_HITS).map(function (hit) {
@@ -309,7 +471,7 @@
       }
     }
     if (!hits.length) {
-      showEmpty('No matches. Press Enter to search all documentation.');
+      showEmpty('No results found.');
       return;
     }
     renderList(hits);
@@ -326,7 +488,7 @@
       setIndex: function (idx) {
         try { records = buildRecords(idx); } catch (err) { records = []; }
         window.Search = prev;
-        if (!modal.hidden && input.value.trim()) renderLocal(input.value.trim());
+        if (!modal.hidden && searchInput.value.trim()) renderLocal(searchInput.value.trim());
       }
     };
 
