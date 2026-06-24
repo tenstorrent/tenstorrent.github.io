@@ -195,6 +195,9 @@
 
 {#── Footer: inject right-TOC script ─────────────────────────────#}
 {%- block footer %}
+{#- Loaded after RTD's Navigation.enable()/reset() so it can keep the left
+    sidebar from jumping to the top on every page navigation. -#}
+<script src="{{ pathto('_static/sidebar-scroll.js', 1) }}"></script>
 <script src="{{ pathto('_static/docs-toc.js', 1) }}"></script>
 <script id="tt-search-script" src="{{ pathto('_static/tt-search.js', 1) }}"
         data-search-url="{{ pathto('search') }}"
