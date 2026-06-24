@@ -1253,12 +1253,6 @@ body.tt-search-locked { overflow: hidden; }
   color: #3A5452 !important;
 }
 
-/* Hide RTD's default expand toggle (span and button variants) */
-.wy-menu-vertical li span.toctree-expand,
-.wy-menu-vertical li button.toctree-expand {
-  display: none !important;
-}
-
 /* Nav items — Figma: Neue Haas Unica Pro 14px, padding 8px 8px 8px 12px, border-radius 4px */
 .wy-menu-vertical a {
   color: var(--color-foreground);
@@ -1273,15 +1267,41 @@ body.tt-search-locked { overflow: hidden; }
   align-items: center;
 }
 
-/* Chevron › pushed to the right via margin-left: auto */
-.wy-menu-vertical li:has(> ul) > a::after {
-  content: "›";
-  font-size: 18px;
+/* RTD's toctree-expand is added to ALL items with children (even collapsed),
+   so we style it as our › chevron instead of hiding it. This ensures the
+   caret is always visible, not only after navigating into the section. */
+.wy-menu-vertical li span.toctree-expand,
+.wy-menu-vertical li button.toctree-expand {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  padding: 0 0 0 8px;
+  flex-shrink: 0;
+  font-size: 0;
   line-height: 1;
   color: #3A5452;
-  flex-shrink: 0;
-  margin-left: auto;
-  padding-left: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 150ms ease;
+}
+
+.wy-menu-vertical li span.toctree-expand::after,
+.wy-menu-vertical li button.toctree-expand::after {
+  content: "›";
+  font-size: 18px;
+}
+
+/* Rotate chevron when section is expanded/current */
+.wy-menu-vertical li.current > a span.toctree-expand,
+.wy-menu-vertical li.current > a button.toctree-expand {
+  transform: rotate(90deg);
+}
+
+/* li:has(> ul) fallback for items already expanded in the DOM */
+.wy-menu-vertical li:has(> ul) > a::after {
+  display: none;
 }
 
 /* External links (open in a new tab) get an "open in new tab" icon,
