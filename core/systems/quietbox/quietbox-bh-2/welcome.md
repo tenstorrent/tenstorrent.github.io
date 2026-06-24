@@ -460,7 +460,7 @@ canvas.qb2-chip-canvas {
       </div>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Models</span>
-        <span class="qb2-intent-val">Llama-3.3-70B <span class="qb2-perf">~14s/response</span> &middot; Llama-3.1-8B <span class="qb2-perf">fast</span> &middot; <a href="https://developer.tenstorrent.com/" target="_blank" rel="noopener">full catalog ↗</a></span>
+        <span class="qb2-intent-val">Llama-3.3-70B <span class="qb2-perf">~14s/response</span> &middot; Llama-3.1-8B <span class="qb2-perf">fast</span> &middot; <a href="https://tenstorrent.com/developers" target="_blank" rel="noopener">full catalog ↗</a></span>
       </div>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">API</span>
