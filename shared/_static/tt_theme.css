@@ -517,7 +517,6 @@ body.tt-search-locked { overflow: hidden; }
 .tt-search-body {
   max-height: 50vh;
   overflow-y: auto;
-  scrollbar-gutter: stable;
   padding: 10px;
 }
 
@@ -618,10 +617,14 @@ body.tt-search-locked { overflow: hidden; }
 }
 
 /* Reserve height upfront so the dialog doesn't grow/shake as Kapa's React
-   SDK renders its chat UI incrementally. */
+   SDK renders its chat UI incrementally.
+   No overflow:hidden — Kapa SDK must own its internal scroll container;
+   blocking it forces scroll to bubble to .tt-search-body, which causes
+   layout-recalculation oscillation in Safari. */
 #tt-kapa-mount {
   min-height: 380px;
-  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
 
 .tt-chat-toolbar {
