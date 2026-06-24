@@ -1153,6 +1153,7 @@ body.tt-search-locked { overflow: hidden; }
   letter-spacing: var(--wide);
   border-bottom: none !important;
   padding: 9px 10px;
+  padding-left: 0;
 }
 
 .wy-side-nav-search a:hover {
@@ -1267,42 +1268,14 @@ body.tt-search-locked { overflow: hidden; }
   align-items: center;
 }
 
-/* RTD's toctree-expand is added to ALL items with children (even collapsed),
-   so we style it as our › chevron instead of hiding it. This ensures the
-   caret is always visible, not only after navigating into the section. */
+/* Hide RTD's default expand toggle */
 .wy-menu-vertical li span.toctree-expand,
 .wy-menu-vertical li button.toctree-expand {
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-  margin-left: auto;
-  padding: 0 0 0 8px;
-  flex-shrink: 0;
-  font-size: 0;
-  line-height: 1;
-  color: #3A5452;
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: transform 150ms ease;
+  display: none !important;
 }
 
-.wy-menu-vertical li span.toctree-expand::after,
-.wy-menu-vertical li button.toctree-expand::after {
-  content: "›";
-  font-size: 18px;
-}
-
-/* Rotate chevron when section is expanded/current */
-.wy-menu-vertical li.current > a span.toctree-expand,
-.wy-menu-vertical li.current > a button.toctree-expand {
-  transform: rotate(90deg);
-}
-
-/* Fallback chevron via ::after for items where RTD didn't inject .toctree-expand
-   (e.g. current-path items whose ul is in the DOM but no button was added).
-   :not(:has(.toctree-expand)) prevents a double chevron when both exist. */
-.wy-menu-vertical li:has(> ul) > a:not(:has(.toctree-expand))::after {
+/* Chevron › pushed to the right via margin-left: auto */
+.wy-menu-vertical li:has(> ul) > a::after {
   content: "›";
   font-size: 18px;
   line-height: 1;
