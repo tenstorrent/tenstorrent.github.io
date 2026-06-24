@@ -976,7 +976,6 @@ html.writer-html5 .rst-content dl[class]:not(.option-list):not(.field-list):not(
   border: 1px solid var(--border);
   border-radius: 8px;
   text-decoration: none !important;
-  border-bottom: none !important;
   transition: box-shadow 150ms ease, border-color 150ms ease;
 }
 
