@@ -1221,7 +1221,7 @@ body.tt-search-locked { overflow: hidden; }
   display: flex;
   flex-direction: column;
   gap: 4px;
-  padding-left: 15px;
+  padding-left: 5px;
 }
 
 .wy-menu-vertical li.current ul {
@@ -1266,7 +1266,7 @@ body.tt-search-locked { overflow: hidden; }
   font-weight: 400;
   line-height: 1.35;
   letter-spacing: var(--wide);
-  padding: 8px 8px 8px 0 !important;
+  padding: 8px 8px 8px 8px !important;
   margin: 0;
   border-radius: 4px;
   display: flex !important;
