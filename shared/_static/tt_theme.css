@@ -1299,9 +1299,17 @@ body.tt-search-locked { overflow: hidden; }
   transform: rotate(90deg);
 }
 
-/* li:has(> ul) fallback for items already expanded in the DOM */
-.wy-menu-vertical li:has(> ul) > a::after {
-  display: none;
+/* Fallback chevron via ::after for items where RTD didn't inject .toctree-expand
+   (e.g. current-path items whose ul is in the DOM but no button was added).
+   :not(:has(.toctree-expand)) prevents a double chevron when both exist. */
+.wy-menu-vertical li:has(> ul) > a:not(:has(.toctree-expand))::after {
+  content: "›";
+  font-size: 18px;
+  line-height: 1;
+  color: #3A5452;
+  flex-shrink: 0;
+  margin-left: auto;
+  padding-left: 8px;
 }
 
 /* External links (open in a new tab) get an "open in new tab" icon,
@@ -1320,18 +1328,15 @@ body.tt-search-locked { overflow: hidden; }
 
 /* Sub-items */
 .wy-menu-vertical .toctree-l2 a {
-  padding-left: 0 !important;
   font-size: 13px;
 }
 
 .wy-menu-vertical .toctree-l3 a {
-  padding-left: 0 !important;
   font-size: 13px;
 }
 
 .wy-menu-vertical .toctree-l4 a,
 .wy-menu-vertical .toctree-l5 a {
-  padding-left: 0 !important;
   font-size: 12px;
 }
 
