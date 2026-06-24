@@ -517,6 +517,7 @@ body.tt-search-locked { overflow: hidden; }
 .tt-search-body {
   max-height: 50vh;
   overflow-y: auto;
+  scrollbar-gutter: stable;
   padding: 10px;
 }
 
@@ -614,6 +615,13 @@ body.tt-search-locked { overflow: hidden; }
 /* ── Inline Kapa chat embed (React SDK) ───────────────────────────── */
 #tt-kapa-embed {
   padding: 4px 0 0;
+}
+
+/* Reserve height upfront so the dialog doesn't grow/shake as Kapa's React
+   SDK renders its chat UI incrementally. */
+#tt-kapa-mount {
+  min-height: 380px;
+  overflow: hidden;
 }
 
 .tt-chat-toolbar {
