@@ -78,35 +78,55 @@
 
     .hero-search {
       display: flex;
-      height: 40px;
-      padding: 0 8px;
+      height: 44px;
+      padding: 0 12px;
       align-items: center;
+      gap: 8px;
       border-radius: 2px;
       border: 1px solid #c7d9d8;
       background: #f1f8f8;
       width: 100%;
       cursor: pointer;
-      transition: border-color 150ms ease, box-shadow 150ms ease;
+      transition: border-color 150ms ease;
     }
 
     .hero-search:hover {
       border-color: #1E86A9;
     }
 
-    .hero-search input {
-      flex: 1;
-      background: transparent;
-      border: none;
-      outline: none;
-      font-family: inherit;
-      font-size: 14px;
-      color: #092221;
-      letter-spacing: 0.25px;
-      cursor: pointer;
-      pointer-events: none;
+    .hero-search svg {
+      width: 16px;
+      height: 16px;
+      color: #678583;
+      flex-shrink: 0;
     }
 
-    .hero-search input::placeholder { color: #678583; }
+    .hero-search-placeholder {
+      flex: 1;
+      font-family: inherit;
+      font-size: 14px;
+      color: #678583;
+      letter-spacing: 0.25px;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .hero-search-kbd {
+      font-family: inherit;
+      font-size: 11px;
+      line-height: 1;
+      color: #678583;
+      border: 1px solid #c7d9d8;
+      border-radius: 3px;
+      padding: 3px 6px;
+      background: transparent;
+      flex-shrink: 0;
+    }
+
+    /* Kill RTD box-shadow on the hidden readonly input */
+    .hero-search input[type="text"] {
+      display: none;
+    }
 
     .hero-right {
       display: flex;
@@ -444,7 +464,12 @@
           <a href="https://console.tenstorrent.com" target="_blank" rel="noopener">Tenstorrent Cloud Console</a>
         </p>
         <div class="hero-search tt-search-trigger" role="button" aria-haspopup="dialog" aria-label="Search docs">
-          <input type="text" placeholder="Search" readonly tabindex="-1" aria-hidden="true" />
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          <span class="hero-search-placeholder">Search</span>
+          <kbd class="hero-search-kbd">⌘K</kbd>
         </div>
       </div>
       <div class="hero-right">
