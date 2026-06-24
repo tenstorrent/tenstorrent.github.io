@@ -725,7 +725,7 @@ body.tt-search-locked { overflow: hidden; }
 .tt-chat-md > *:last-child  { margin-bottom: 0; }
 .tt-chat-md p { margin: 0 0 13px; }
 .tt-chat-md ul,
-.tt-chat-md ol { margin: 0 0 13px; padding-left: 22px; }
+.tt-chat-md ol { margin: 0 0 13px; padding-left: 0; list-style-position: inside; }
 .tt-chat-md li { margin: 5px 0; padding-left: 2px; }
 .tt-chat-md li::marker { color: var(--text-secondary); }
 .tt-chat-md a {
