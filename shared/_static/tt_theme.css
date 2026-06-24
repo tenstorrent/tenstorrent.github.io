@@ -655,36 +655,36 @@ body.tt-search-locked { overflow: hidden; }
 .tt-chat-messages {
   display: flex;
   flex-direction: column;
-  gap: 22px;
-  padding: 6px 4px 12px;
+  gap: 26px;
+  padding: 8px 4px 14px;
   font-family: var(--font-main);
 }
 
 .tt-chat-turn {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
 }
 
 /* User question — right-aligned pill bubble */
 .tt-chat-q {
   align-self: flex-end;
   max-width: 85%;
-  padding: 9px 13px;
-  font-size: 13.5px;
+  padding: 10px 15px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--text-default);
   background: var(--background-1);
   border: 1px solid var(--border-subtle);
-  border-radius: 12px 12px 3px 12px;
+  border-radius: 16px 16px 4px 16px;
   line-height: 1.45;
 }
 
 /* AI answer — flowing text, left-aligned */
 .tt-chat-a {
-  font-size: 13.5px;
+  font-size: 14px;
   color: var(--text-default);
-  line-height: 1.62;
+  line-height: 1.68;
   white-space: pre-wrap;
 }
 
@@ -723,17 +723,20 @@ body.tt-search-locked { overflow: hidden; }
 }
 .tt-chat-md > *:first-child { margin-top: 0; }
 .tt-chat-md > *:last-child  { margin-bottom: 0; }
-.tt-chat-md p { margin: 0 0 10px; }
+.tt-chat-md p { margin: 0 0 13px; }
 .tt-chat-md ul,
-.tt-chat-md ol { margin: 0 0 10px; padding-left: 0; list-style-position: inside; }
-.tt-chat-md li { margin: 3px 0; }
+.tt-chat-md ol { margin: 0 0 13px; padding-left: 22px; }
+.tt-chat-md li { margin: 5px 0; padding-left: 2px; }
+.tt-chat-md li::marker { color: var(--text-secondary); }
 .tt-chat-md a {
   color: var(--text-accent);
   text-decoration: none;
   border-bottom: 1px solid transparent;
 }
 .tt-chat-md a:hover { border-bottom-color: var(--text-accent); }
-.tt-chat-md code {
+
+/* Inline code */
+.tt-chat-md :not(pre) > code {
   font-family: var(--font-mono);
   font-size: 12px;
   padding: 1.5px 5px;
@@ -742,71 +745,112 @@ body.tt-search-locked { overflow: hidden; }
   border: 1px solid var(--border-subtle);
   color: var(--text-default);
 }
-.tt-chat-md pre {
-  margin: 0 0 10px;
-  padding: 11px 13px;
-  border-radius: 8px;
-  background: var(--background-1);
+
+/* ── Code block card (ChatGPT-style: header + body) ── */
+.tt-chat-code {
+  margin: 0 0 14px;
   border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--background-1);
+}
+.tt-chat-code-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 10px 7px 13px;
+  border-bottom: 1px solid var(--border-subtle);
+  background: rgba(199, 217, 216, 0.22);
+}
+.tt-chat-code-lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-main);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  line-height: 1;
+}
+.tt-chat-code-lang svg { flex-shrink: 0; opacity: 0.8; }
+
+.tt-chat-md .tt-chat-code pre {
+  margin: 0;
+  padding: 13px 14px;
+  border: none;
+  border-radius: 0;
+  background: transparent;
   overflow-x: auto;
 }
-.tt-chat-md pre code {
+.tt-chat-md .tt-chat-code pre code {
   padding: 0;
   background: none;
   border: none;
-  font-size: 12px;
-  line-height: 1.55;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.6;
   color: var(--text-default);
 }
 
 .tt-chat-copy-btn {
-  position: absolute;
-  top: 7px;
-  right: 7px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   padding: 0;
-  background: var(--background-1);
-  border: 1px solid var(--border-subtle);
-  border-radius: 5px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
   color: var(--text-secondary);
   cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.15s, color 0.15s, border-color 0.15s;
+  flex-shrink: 0;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
 }
-.tt-chat-md pre:hover .tt-chat-copy-btn { opacity: 1; }
 .tt-chat-copy-btn:hover {
   color: var(--text-accent);
-  border-color: var(--text-accent);
+  border-color: var(--border-subtle);
+  background: #fff;
 }
 
+/* Headings — clear hierarchy, generous top spacing */
 .tt-chat-md h1,
-.tt-chat-md h2,
-.tt-chat-md h3,
-.tt-chat-md h4 {
-  font-size: 13.5px;
+.tt-chat-md h2 {
+  font-size: 16px;
   font-weight: 600;
   color: var(--text-default);
-  margin: 14px 0 6px;
+  margin: 22px 0 10px;
+  line-height: 1.35;
+}
+.tt-chat-md h3,
+.tt-chat-md h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-default);
+  margin: 18px 0 7px;
+  line-height: 1.4;
+}
+.tt-chat-md hr {
+  border: none;
+  border-top: 1px solid var(--border-subtle);
+  margin: 18px 0;
 }
 .tt-chat-md blockquote {
-  margin: 0 0 10px;
-  padding-left: 12px;
-  border-left: 2px solid var(--border-subtle);
+  margin: 0 0 13px;
+  padding: 2px 0 2px 13px;
+  border-left: 3px solid var(--border-subtle);
   color: var(--text-secondary);
 }
 .tt-chat-md table {
   border-collapse: collapse;
-  margin: 0 0 10px;
-  font-size: 12px;
+  margin: 0 0 13px;
+  font-size: 12.5px;
+  width: 100%;
 }
 .tt-chat-md th,
 .tt-chat-md td {
   border: 1px solid var(--border-subtle);
-  padding: 5px 9px;
+  padding: 6px 10px;
   text-align: left;
 }
 .tt-chat-md th { background: var(--background-1); font-weight: 600; }
