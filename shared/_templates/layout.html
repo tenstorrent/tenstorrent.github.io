@@ -103,20 +103,20 @@
         </svg>
         <input type="text" class="tt-search-input" id="tt-search-input"
                placeholder="Search for anything…" aria-label="Search for anything"
-               autocomplete="off" spellcheck="false" />
-        <input type="text" class="tt-search-input" id="tt-ai-input"
-               placeholder="Ask about the docs…" aria-label="Ask about the docs"
                autocomplete="off" spellcheck="false" hidden />
+        <input type="text" class="tt-search-input" id="tt-ai-input"
+               placeholder="Ask anything about Tenstorrent hardware and software" aria-label="Ask about the docs"
+               autocomplete="off" spellcheck="false" />
       </div>
       <div class="tt-search-tabs" role="tablist">
-        <button type="button" class="tt-search-tab is-active" data-tab="search" role="tab" aria-selected="true">
+        <button type="button" class="tt-search-tab" data-tab="search" role="tab" aria-selected="false">
           <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.4"/>
             <path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
           </svg>
           Search
         </button>
-        <button type="button" class="tt-search-tab" data-tab="ai" role="tab" aria-selected="false">
+        <button type="button" class="tt-search-tab is-active" data-tab="ai" role="tab" aria-selected="true">
           <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M8 1.5l1.4 3.6L13 6.5 9.4 7.9 8 11.5 6.6 7.9 3 6.5l3.6-1.4L8 1.5Z" fill="currentColor"/>
             <path d="M12.5 10.5l.6 1.5 1.5.6-1.5.6-.6 1.5-.6-1.5-1.5-.6 1.5-.6.6-1.5Z" fill="currentColor"/>
@@ -127,12 +127,12 @@
     </div>
     <div class="tt-search-body">
       {#- Search tab: live results from the OpenSearch / Sphinx index -#}
-      <div class="tt-search-panel" data-panel="search">
+      <div class="tt-search-panel" data-panel="search" hidden>
         <ul class="tt-search-results" id="tt-search-results"></ul>
         <div class="tt-search-empty" id="tt-search-empty">Start typing to search the documentation.</div>
       </div>
       {#- Ask AI tab: type a question or click an example, then press Enter -#}
-      <div class="tt-search-panel" data-panel="ai" hidden>
+      <div class="tt-search-panel" data-panel="ai">
         <div class="tt-ai-intro" id="tt-ai-intro">
           <svg class="tt-ai-intro-star" viewBox="0 0 20 20" fill="none" aria-hidden="true">
             <path d="M10 1.5 12 7l5.5 1-4 3.9 1.2 5.6L10 14.4 5.3 17l1.2-5.6L2.5 7.5 8 7z" fill="currentColor"/>

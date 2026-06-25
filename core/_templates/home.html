@@ -2,26 +2,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    @font-face {
-      font-family: "Degular";
-      src: url("./fonts/DegularText-Medium.woff") format("woff"),
-        url("./fonts/DegularText-Medium.woff2") format("woff2");
-    }
-    @font-face {
-      font-family: "DegularDisplay";
-      src: url("./fonts/DegularDisplay-Light.woff") format("woff"),
-        url("./fonts/DegularDisplay-Light.woff2") format("woff2");
-    }
-    @font-face {
-      font-family: "RMMono";
-      src: url("./fonts/RMMono-Regular.woff") format("woff"),
-        url("./fonts/RMMono-Regular.woff2") format("woff2");
-    }
-
     *, *::before, *::after { box-sizing: border-box; }
 
     body {
-      font-family: "Neue Haas Unica Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-family: "Neue Haas Unica Pro", "Degular", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
       margin: 0;
       padding: 0;
       background-color: #f1f8f8;
@@ -51,7 +35,7 @@
 
     .hero-title {
       color: #d9e8e5;
-      font-family: "DegularDisplay", "Degular Display", sans-serif;
+      font-family: "Degular Display", "DegularDisplay", sans-serif;
       font-size: 64px;
       font-weight: 300;
       line-height: 1.1;
@@ -78,25 +62,26 @@
 
     .hero-search {
       display: flex;
-      height: 44px;
-      padding: 0 12px;
+      height: 56px;
+      padding: 0 16px;
       align-items: center;
-      gap: 8px;
-      border-radius: 2px;
-      border: 1px solid #c7d9d8;
+      gap: 12px;
+      border-radius: 8px;
+      border: 1.5px solid #c7d9d8;
       background: #f1f8f8;
       width: 100%;
       cursor: pointer;
-      transition: border-color 150ms ease;
+      transition: border-color 150ms ease, box-shadow 150ms ease;
     }
 
     .hero-search:hover {
-      border-color: #1E86A9;
+      border-color: #92b8b6;
+      box-shadow: 0 0 0 3px rgba(199,217,216,0.45);
     }
 
     .hero-search svg {
-      width: 16px;
-      height: 16px;
+      width: 18px;
+      height: 18px;
       color: #678583;
       flex-shrink: 0;
     }
@@ -104,22 +89,25 @@
     .hero-search-placeholder {
       flex: 1;
       font-family: inherit;
-      font-size: 14px;
+      font-size: 15px;
       color: #678583;
       letter-spacing: 0.25px;
       pointer-events: none;
       user-select: none;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .hero-search-kbd {
       font-family: inherit;
-      font-size: 11px;
+      font-size: 12px;
       line-height: 1;
       color: #678583;
       border: 1px solid #c7d9d8;
-      border-radius: 3px;
-      padding: 3px 6px;
-      background: transparent;
+      border-radius: 4px;
+      padding: 3px 7px;
+      background: #fff;
       flex-shrink: 0;
     }
 
@@ -468,7 +456,7 @@
             <circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.4"/>
             <path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
           </svg>
-          <span class="hero-search-placeholder">Search</span>
+          <span class="hero-search-placeholder">Ask anything about Tenstorrent hardware and software</span>
           <kbd class="hero-search-kbd">⌘K</kbd>
         </div>
       </div>

@@ -28,7 +28,7 @@
   var MAX_HITS = 8;
 
   var modal, searchInput, aiInput, results, empty, searchBody;
-  var activeTab = 'search';
+  var activeTab = 'ai';
   var debounceTimer = null;
   var activeController = null;   // AbortController for the in-flight request
   var seq = 0;                   // guards against out-of-order responses
