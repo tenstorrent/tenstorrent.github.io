@@ -80,7 +80,7 @@ html_theme_options = {
 html_logo = "../shared/images/tt_logo.svg"
 html_favicon = "../shared/images/favicon.png"
 html_static_path = ['../shared/_static', '_static/assets', '_static/js']
-html_js_files = ['custom.js', 'posthog.js']
+html_js_files = ['custom.js']  # posthog.js now loaded site-wide via shared/_templates/layout.html
 html_last_updated_fmt = "%b %d, %Y"
 
 import yaml as _yaml
