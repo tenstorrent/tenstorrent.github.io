@@ -136,7 +136,7 @@
     if (name === 'ai') {
       searchInput.hidden = true;
       aiInput.hidden = false;
-      aiInput.placeholder = aiChatActive ? 'Ask a follow-up question…' : 'Ask about the docs…';
+      aiInput.placeholder = aiChatActive ? 'Ask a follow-up question…' : 'Ask anything about Tenstorrent hardware and software';
       aiInput.focus();
       if (KAPA_INTEGRATION_ID) preloadChat();   // warm the bundle up front
     } else {
@@ -236,7 +236,7 @@
     if (aiIntro)    aiIntro.hidden    = false;
     if (aiExamples) aiExamples.hidden = false;
     aiInput.value = '';
-    aiInput.placeholder = 'Ask about the docs…';
+    aiInput.placeholder = 'Ask anything about Tenstorrent hardware and software';
     aiInput.focus();
   }
 
