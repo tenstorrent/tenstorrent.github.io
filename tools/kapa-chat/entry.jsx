@@ -158,7 +158,18 @@ function Turn({ qa }) {
 
 function Chat() {
   const { conversation, submitQuery, resetConversation, error, isPreparingAnswer } = useChat();
-  const endRef = useRef(null);
+  const rootRef = useRef(null);
+  // Whether the view is pinned to the bottom. Starts true; flips to false the
+  // moment the user scrolls up to read, so streaming doesn't yank them back.
+  const stickRef = useRef(true);
+  const rafRef = useRef(0);
+
+  // The element that actually scrolls is the modal body (.tt-search-body); our
+  // chat renders into it without an inner scroller.
+  const scrollEl = () => {
+    const root = rootRef.current;
+    return root ? root.closest(".tt-search-body") || root.parentElement : null;
+  };
 
   useEffect(() => {
     window.ttKapaSubmit = (q) => { if (q) submitQuery(q); };
@@ -171,8 +182,29 @@ function Chat() {
     return () => { window.ttKapaSubmit = null; window.ttKapaReset = null; };
   }, [submitQuery, resetConversation]);
 
+  // Track stick-to-bottom intent from the user's own scrolling.
   useEffect(() => {
-    if (endRef.current) endRef.current.scrollIntoView({ behavior: "smooth", block: "end" });
+    const el = scrollEl();
+    if (!el) return;
+    const onScroll = () => {
+      stickRef.current = el.scrollHeight - el.scrollTop - el.clientHeight < 48;
+    };
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => el.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Follow the stream. Tokens arrive many times per second; a smooth
+  // scrollIntoView per token stacks a fresh animation each time and is what
+  // caused the lag. Instead scroll instantly, coalesced to one write per
+  // animation frame, and only while pinned to the bottom.
+  useEffect(() => {
+    if (!stickRef.current) return;
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    rafRef.current = requestAnimationFrame(() => {
+      const el = scrollEl();
+      if (el) el.scrollTop = el.scrollHeight;
+    });
+    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
   }, [conversation]);
 
   const turns = conversation.map((qa, i) =>
@@ -200,11 +232,10 @@ function Chat() {
 
   return React.createElement(
     "div",
-    { className: "tt-chat-messages" },
+    { className: "tt-chat-messages", ref: rootRef },
     turns,
     preparing,
-    errNode,
-    React.createElement("div", { ref: endRef })
+    errNode
   );
 }
 

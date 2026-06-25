@@ -520,6 +520,15 @@ body.tt-search-locked { overflow: hidden; }
   padding: 10px;
 }
 
+/* While the inline Ask AI chat is streaming, lock the body to a stable height.
+   Otherwise it grows token-by-token (≈333px → 518px) and the dialog re-flows on
+   every chunk — that resizing plus auto-scroll is what made streaming lag. With
+   a fixed height the dialog stays put and only the inner content scrolls. */
+.tt-search-dialog.tt-ai-chat-active .tt-search-body {
+  height: 50vh;
+  max-height: 50vh;
+}
+
 /* ── Ask AI panel ───────────────────────────────────────────── */
 
 /* Author display:flex (0,0,1,0) beats the UA [hidden] rule, so JS-set hidden

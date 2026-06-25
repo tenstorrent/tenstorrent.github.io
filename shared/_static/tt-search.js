@@ -27,7 +27,7 @@
   var DEBOUNCE_MS = 180;
   var MAX_HITS = 8;
 
-  var modal, searchInput, aiInput, results, empty, searchBody;
+  var modal, dialog, searchInput, aiInput, results, empty, searchBody;
   var activeTab = 'ai';
   var debounceTimer = null;
   var activeController = null;   // AbortController for the in-flight request
@@ -64,6 +64,7 @@
   function init() {
     modal = document.getElementById('tt-search-modal');
     if (!modal) return;
+    dialog = modal.querySelector('.tt-search-dialog');
     searchInput = document.getElementById('tt-search-input');
     aiInput     = document.getElementById('tt-ai-input');
     results     = document.getElementById('tt-search-results');
@@ -212,6 +213,7 @@
     if (!KAPA_INTEGRATION_ID) { loadAndOpenKapa(query); return; }
 
     aiChatActive = true;
+    if (dialog) dialog.classList.add('tt-ai-chat-active');
     if (aiIntro)    aiIntro.hidden    = true;
     if (aiExamples) aiExamples.hidden = true;
     if (aiEmbed)    aiEmbed.hidden    = false;
@@ -231,6 +233,7 @@
 
   function resetAiChat() {
     aiChatActive = false;
+    if (dialog) dialog.classList.remove('tt-ai-chat-active');
     if (window.ttKapaReset) window.ttKapaReset();
     if (aiEmbed)    aiEmbed.hidden    = true;
     if (aiIntro)    aiIntro.hidden    = false;
