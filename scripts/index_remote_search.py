@@ -18,7 +18,10 @@ from pathlib import Path
 from typing import Iterable
 
 
-MAX_BATCH_SIZE = 200
+# Keep batches small: the indexer Lambda fans each batch out to an OpenSearch
+# _bulk call, and API Gateway caps the request at ~29s. 200 docs in one POST
+# times out (HTTP 504) on the larger catalogs; 50 stays comfortably under it.
+MAX_BATCH_SIZE = 50
 TIMEOUT_SECONDS = 30
 
 

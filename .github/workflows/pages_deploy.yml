@@ -75,6 +75,8 @@ jobs:
           echo "::warning::Skipping OpenSearch indexing because DOCS_SEARCH_INGEST_API_KEY_DOCS_TENSTORRENT is not set."
       - name: Index docs into OpenSearch
         if: ${{ env.DOCS_SEARCH_INGEST_API_KEY != '' }}
+        # Best-effort: a search-API hiccup must never block the docs deploy.
+        continue-on-error: true
         run: |
           source .docs-env/bin/activate
           python scripts/index_remote_search.py
