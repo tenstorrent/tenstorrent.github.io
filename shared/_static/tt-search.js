@@ -396,17 +396,7 @@
     if (!rawUrl) return '#';
     try {
       var parsed = new URL(rawUrl, siteBaseUrl);
-      // Rewrite canonical docs.tenstorrent.com links onto the current origin so
-      // results resolve on previews / local builds too.
-      if (parsed.hostname === 'docs.tenstorrent.com') {
-        return window.location.origin + parsed.pathname + parsed.search + parsed.hash;
-      }
-      // Temp: rewrite old repo URLs to current sandbox equivalents.
-      var s = parsed.toString();
-      s = s.replace(/github\.io\/tt-metal\/(tt-metalium|ttnn)\//, 'github.io/tt-metal-sandbox/$1/latest/');
-      s = s.replace(/github\.io\/tt-blacksmith\/(?:src\/)?/, 'github.io/tt-blacksmith-sandbox/latest/');
-      s = s.replace(/github\.io\/tt-lang\/(?:[^/]+\/)?/, 'github.io/tt-lang-sandbox/latest/');
-      return s;
+      return parsed.toString();
     } catch (_err) {
       return rawUrl;
     }

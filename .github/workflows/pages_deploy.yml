@@ -14,10 +14,6 @@ jobs:
       # OpenSearch-backed docs search service (see scripts/index_remote_search.py).
       SEARCH_API_BASE: https://csl860x2oj.execute-api.us-east-2.amazonaws.com/prod
       DOC_CATALOG_SOURCE_ID: docs-tenstorrent
-      # Base URL of the live sandbox site. The indexer builds hit URLs as
-      # "{DOC_SITE_BASE_URL}/{rel}", where rel already includes the version
-      # segment (e.g. "latest/forge/index.html"). Pointing this at the GitHub
-      # Pages sandbox keeps search results inside the sandbox environment.
       DOC_SITE_BASE_URL: https://firdovsimammedovk.github.io/tenstorrent-sandbox
       DOCS_ID_NAMESPACE: tenstorrent
       DOCS_INDEX_VERSION: latest

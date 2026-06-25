@@ -100,6 +100,9 @@ html_context = {
     # sets the public URL in CI). Falls back to the version-aware core URL so
     # navbar/logo links stay within /latest/ or /v1.0/.
     "logo_link_url": os.environ.get("homepage") or _core_url(_current_version),
+    # Base URL passed to the search modal for resolving relative hit URLs and
+    # displaying clean path labels.
+    "search_site_base_url": _BASE,
 }
 
 version = _current_version
