@@ -1,5 +1,10 @@
 {%- extends "!layout.html" %}
 
+{#── PostHog analytics: loaded site-wide (all projects share this layout) ─#}
+{%- block extrahead %}{{ super() }}
+  <script src="{{ pathto('_static/posthog.js', 1) }}"></script>
+{%- endblock %}
+
 {#── Top navbar injected before the RTD grid ─────────────────────#}
 {%- block extrabody %}
 {%- set _logo_url = logo_url|default(pathto('_static/' + (logo or ""), 1)) %}

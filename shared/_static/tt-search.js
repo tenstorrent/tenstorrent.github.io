@@ -47,6 +47,43 @@
   var records = null;
   var indexLoading = false;
 
+  // ── PostHog tracking ──────────────────────────────────────────────────────
+  // Settled-term tracking: log one docs_search_performed after the user pauses
+  // (not one per keystroke), so `tensix core` is logged once rather than once
+  // per prefix. currentQuery/currentSource feed result-click events.
+  var SEARCH_TRACK_MS = 1200;
+  var searchTrackTimer = null, pendingTrack = null, lastTracked = '';
+  var currentQuery = '', currentSource = '';
+
+  function ttTrack(event, props) {
+    try {
+      if (window.posthog && typeof window.posthog.capture === 'function') {
+        window.posthog.capture(event, props);
+      }
+    } catch (_e) {}
+  }
+  function capTerm(s) { return (s || '').trim().slice(0, 200); }  // trim + length cap
+
+  function scheduleSearchTrack(query, count, source) {
+    pendingTrack = { query: capTerm(query), count: count, source: source };
+    if (searchTrackTimer) clearTimeout(searchTrackTimer);
+    searchTrackTimer = setTimeout(flushSearchTrack, SEARCH_TRACK_MS);
+  }
+  function flushSearchTrack() {
+    searchTrackTimer = null;
+    var t = pendingTrack;
+    pendingTrack = null;
+    if (!t || !t.query || t.query === lastTracked) return;  // skip empties + repeats
+    lastTracked = t.query;
+    ttTrack('docs_search_performed', {
+      query: t.query,
+      query_length: t.query.length,
+      results_count: t.count,
+      has_results: t.count > 0,
+      source: t.source
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', init);
 
   function getRemoteConfig() {
@@ -88,7 +125,7 @@
 
     modal.querySelectorAll('.tt-ai-example').forEach(function (btn) {
       btn.addEventListener('click', function () {
-        startAiChat(btn.textContent.trim());
+        startAiChat(btn.textContent.trim(), 'example');
       });
     });
 
@@ -114,6 +151,7 @@
     modal.hidden = false;
     document.body.classList.add('tt-search-locked');
     remoteDown = false;
+    lastTracked = '';   // reopening the modal re-logs the same term
     var active = activeTab === 'ai' ? aiInput : searchInput;
     setTimeout(function () { active.focus(); }, 0);
     if (activeTab === 'search' && searchInput.value.trim()) onInput();
@@ -209,7 +247,14 @@
     document.head.appendChild(s);
   }
 
-  function startAiChat(query) {
+  function startAiChat(query, origin) {
+    if (query) {
+      ttTrack('docs_ai_question_asked', {
+        question: capTerm(query),
+        question_length: capTerm(query).length,
+        origin: origin || 'typed'
+      });
+    }
     if (!KAPA_INTEGRATION_ID) { loadAndOpenKapa(query); return; }
 
     aiChatActive = true;
@@ -294,7 +339,17 @@
     if (e.key === 'Enter') {
       e.preventDefault();
       var first = results.querySelector('a');
-      if (first) window.location.href = first.href;
+      if (first) {
+        var titleEl = first.querySelector('.tt-search-result-title');
+        ttTrack('docs_search_result_clicked', {
+          query: currentQuery,
+          result_url: first.href,
+          result_title: titleEl ? titleEl.textContent : '',
+          result_rank: 0,
+          source: currentSource
+        });
+        window.location.href = first.href;
+      }
       // No fallback redirect — stay in the modal if results aren't ready yet.
     }
   }
@@ -303,7 +358,7 @@
     if (e.key === 'Enter') {
       e.preventDefault();
       var q = aiInput.value.trim();
-      if (q) startAiChat(q);
+      if (q) startAiChat(q, aiChatActive ? 'followup' : 'typed');
     }
   }
 
@@ -350,6 +405,9 @@
   }
 
   function renderRemoteHits(q, hits) {
+    currentQuery = q;
+    currentSource = 'opensearch';
+    scheduleSearchTrack(q, hits.length, 'opensearch');
     if (!hits.length) {
       showEmpty('No results found.');
       return;
@@ -368,11 +426,20 @@
   function renderList(items) {
     results.innerHTML = '';
     empty.hidden = true;
-    items.forEach(function (rec) {
+    items.forEach(function (rec, idx) {
       var li = document.createElement('li');
       var a = document.createElement('a');
       a.href = rec.url;
       a.className = 'tt-search-result';
+      a.addEventListener('click', function () {
+        ttTrack('docs_search_result_clicked', {
+          query: currentQuery,
+          result_url: rec.url,
+          result_title: rec.title,
+          result_rank: idx,
+          source: currentSource
+        });
+      });
       a.innerHTML =
         '<svg viewBox="0 0 16 16" fill="none" aria-hidden="true">' +
         '<path d="M4 2.5h6l2.5 2.5v8.5H4V2.5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>' +
@@ -426,8 +493,10 @@
   function renderLocal(q) {
     if (!records) {
       showEmpty('Loading search index…');
-      return;
+      return;   // index not ready yet — don't log a misleading zero-result event
     }
+    currentQuery = q;
+    currentSource = 'sphinx_fallback';
     var needle = q.toLowerCase();
     var hits = [];
     for (var i = 0; i < records.length && hits.length < MAX_HITS; i++) {
@@ -435,6 +504,7 @@
         hits.push({ url: records[i].url, title: records[i].title, path: pathLabel(records[i].url) });
       }
     }
+    scheduleSearchTrack(q, hits.length, 'sphinx_fallback');
     if (!hits.length) {
       showEmpty('No results found.');
       return;
