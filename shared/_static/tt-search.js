@@ -129,10 +129,6 @@
       });
     });
 
-    var newChatBtn = document.getElementById('tt-ai-new-chat') ||
-                     (aiEmbed && aiEmbed.querySelector('.tt-ai-new-chat'));
-    if (newChatBtn) newChatBtn.addEventListener('click', resetAiChat);
-
     searchInput.addEventListener('input', onInput);
     searchInput.addEventListener('keydown', onSearchKeydown);
     aiInput.addEventListener('keydown', onAiKeydown);
@@ -201,17 +197,7 @@
     embed = document.createElement('div');
     embed.id = 'tt-kapa-embed';
     embed.hidden = true;
-    embed.innerHTML =
-      '<div class="tt-chat-toolbar">' +
-        '<button type="button" class="tt-ai-new-chat" id="tt-ai-new-chat">' +
-          '<svg viewBox="0 0 16 16" fill="none" aria-hidden="true">' +
-            '<path d="M5 8h6M8 5l-3 3 3 3" stroke="currentColor" stroke-width="1.4"' +
-            ' stroke-linecap="round" stroke-linejoin="round"/>' +
-          '</svg>' +
-          ' New conversation' +
-        '</button>' +
-      '</div>' +
-      '<div id="tt-kapa-mount"></div>';
+    embed.innerHTML = '<div id="tt-kapa-mount"></div>';
     aiPanel.appendChild(embed);
     return embed;
   }
@@ -277,18 +263,6 @@
         window.ttKapaSubmit(query);
       }
     });
-  }
-
-  function resetAiChat() {
-    aiChatActive = false;
-    if (dialog) dialog.classList.remove('tt-ai-chat-active');
-    if (window.ttKapaReset) window.ttKapaReset();
-    if (aiEmbed)    aiEmbed.hidden    = true;
-    if (aiIntro)    aiIntro.hidden    = false;
-    if (aiExamples) aiExamples.hidden = false;
-    aiInput.value = '';
-    aiInput.placeholder = 'Ask anything about Tenstorrent hardware and software';
-    aiInput.focus();
   }
 
   // Kapa widget modal — only used as a fallback (no integration id, or bundle
