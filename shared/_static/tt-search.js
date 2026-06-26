@@ -155,6 +155,9 @@
     var active = activeTab === 'ai' ? aiInput : searchInput;
     setTimeout(function () { active.focus(); }, 0);
     if (activeTab === 'search' && searchInput.value.trim()) onInput();
+    // Warm the chat bundle (and its reCAPTCHA load) as soon as the modal opens
+    // on the AI tab, so the first question isn't racing the bot-protection init.
+    if (activeTab === 'ai' && KAPA_INTEGRATION_ID) preloadChat();
   }
 
   function close() {
