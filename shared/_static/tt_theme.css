@@ -1221,9 +1221,12 @@ body.tt-search-locked { overflow: hidden; }
    lets the chevron (li:has(> ul)) show on every item with children. Fold every
    subtree by default; expansion is driven by a .tt-open class that tt-search.js
    toggles on caret click and seeds from the active path on load. Per-item and
-   independent: opening one branch never closes another. */
-.wy-menu-vertical li > ul {
-  display: none;
+   independent: opening one branch never closes another.
+   The :not(.tt-open) + !important is needed to beat RTD's own
+   `li.current > ul { display: block }`, which would otherwise keep the active
+   branch open and stop the caret from collapsing it. */
+.wy-menu-vertical li:not(.tt-open) > ul {
+  display: none !important;
 }
 .wy-menu-vertical li.tt-open > ul {
   display: flex;

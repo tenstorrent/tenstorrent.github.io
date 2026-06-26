@@ -184,7 +184,7 @@ function onCaptchaReady(cb) {
 }
 
 function Chat() {
-  const { conversation, submitQuery, resetConversation, error, isPreparingAnswer, isGeneratingAnswer } = useChat();
+  const { conversation, submitQuery, resetConversation, error, isPreparingAnswer } = useChat();
   const rootRef = useRef(null);
   // Whether the view is pinned to the bottom. Starts true; flips to false the
   // moment the user scrolls up to read, so streaming doesn't yank them back.
@@ -193,15 +193,24 @@ function Chat() {
   // instant first click shows progress instead of an error.
   const [pendingQ, setPendingQ] = useState(null);
 
-  // The element that actually scrolls is the modal body (.tt-search-body); our
-  // chat renders into it without an inner scroller.
+  // Find the element that actually scrolls. Normally it's the modal body
+  // (.tt-search-body), but resolve it by walking up and checking for a real
+  // overflow container so we never scroll the wrong (non-scrolling) node.
   const scrollEl = () => {
-    const root = rootRef.current;
-    return root ? root.closest(".tt-search-body") || root.parentElement : null;
+    let el = rootRef.current;
+    while (el && el !== document.body) {
+      const oy = getComputedStyle(el).overflowY;
+      if ((oy === "auto" || oy === "scroll") && el.scrollHeight > el.clientHeight + 1) {
+        return el;
+      }
+      el = el.parentElement;
+    }
+    return rootRef.current ? rootRef.current.closest(".tt-search-body") : null;
   };
 
   const gatedSubmit = useCallback((q) => {
     if (!q) return;
+    stickRef.current = true; // a new question always follows from the bottom
     setPendingQ(q);
     onCaptchaReady(() => {
       setPendingQ(null);
@@ -231,25 +240,28 @@ function Chat() {
     return () => el.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Follow the stream. While the answer is being prepared or generated, keep the
-  // view pinned to the bottom with a continuous requestAnimationFrame loop:
-  // re-pinning to the bottom every frame as tokens arrive reads as smooth 60fps
-  // following with no lag and no stacked animations. A per-render effect proved
-  // unreliable (it depends on React's streaming cadence and stalled mid-answer);
-  // the loop follows regardless. Respects the user scrolling up to read.
+  // Follow the stream. Watch the messages container for DOM changes — every
+  // streamed token mutates it — and pin to the bottom on each change. This is
+  // independent of React's render cadence and the SDK's status flags (both of
+  // which proved unreliable triggers). Coalesced to one scroll per animation
+  // frame so it stays smooth with no lag, and only while the user is at the
+  // bottom (scrolling up to read releases the pin).
   useEffect(() => {
-    if (!isPreparingAnswer && !isGeneratingAnswer) return;
-    let raf = 0;
-    const tick = () => {
-      if (stickRef.current) {
+    const messages = rootRef.current;
+    if (!messages || typeof MutationObserver === "undefined") return;
+    let pending = false;
+    const obs = new MutationObserver(() => {
+      if (!stickRef.current || pending) return;
+      pending = true;
+      requestAnimationFrame(() => {
+        pending = false;
         const el = scrollEl();
         if (el) el.scrollTop = el.scrollHeight;
-      }
-      raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [isPreparingAnswer, isGeneratingAnswer]);
+      });
+    });
+    obs.observe(messages, { childList: true, subtree: true, characterData: true });
+    return () => obs.disconnect();
+  }, []);
 
   const turns = conversation.map((qa, i) =>
     React.createElement(Turn, { key: qa.id || "t" + i, qa })
