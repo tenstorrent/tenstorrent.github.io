@@ -1218,12 +1218,15 @@ body.tt-search-locked { overflow: hidden; }
 }
 
 /* collapse_navigation is False, so every subtree is in the DOM — that's what
-   lets the chevron (li:has(> ul)) show on every item with children. But the
-   base rule above renders all <ul>s, so fold the branches the reader isn't in:
-   keep only the active path (RTD tags the current page + its ancestors with
-   .current) expanded, like before. */
-.wy-menu-vertical li:not(.current) > ul {
+   lets the chevron (li:has(> ul)) show on every item with children. Fold every
+   subtree by default; expansion is driven by a .tt-open class that tt-search.js
+   toggles on caret click and seeds from the active path on load. Per-item and
+   independent: opening one branch never closes another. */
+.wy-menu-vertical li > ul {
   display: none;
+}
+.wy-menu-vertical li.tt-open > ul {
+  display: flex;
 }
 
 /* Section group headers (captions) — Figma: Berkeley Mono 12px, #3A5452, py-12px */
@@ -1284,9 +1287,9 @@ body.tt-search-locked { overflow: hidden; }
   transition: transform 0.15s ease;
 }
 
-/* Expanded (active path) items point the caret down. RTD tags the current page
-   and all its ancestors with .current, i.e. exactly the branches that are open. */
-.wy-menu-vertical li.current:has(> ul) > a::after {
+/* Expanded items point the caret down; collapsed point right. Driven by the
+   same .tt-open class as the subtree visibility above. */
+.wy-menu-vertical li.tt-open:has(> ul) > a::after {
   transform: rotate(90deg);
 }
 

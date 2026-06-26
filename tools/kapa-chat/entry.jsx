@@ -184,12 +184,11 @@ function onCaptchaReady(cb) {
 }
 
 function Chat() {
-  const { conversation, submitQuery, resetConversation, error, isPreparingAnswer } = useChat();
+  const { conversation, submitQuery, resetConversation, error, isPreparingAnswer, isGeneratingAnswer } = useChat();
   const rootRef = useRef(null);
   // Whether the view is pinned to the bottom. Starts true; flips to false the
   // moment the user scrolls up to read, so streaming doesn't yank them back.
   const stickRef = useRef(true);
-  const rafRef = useRef(0);
   // Question awaiting reCAPTCHA readiness — rendered as a loading turn so an
   // instant first click shows progress instead of an error.
   const [pendingQ, setPendingQ] = useState(null);
@@ -232,23 +231,25 @@ function Chat() {
     return () => el.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Follow the stream. Tokens arrive many times per second; a smooth
-  // scrollIntoView per token stacks a fresh animation each time and is what
-  // caused the lag. Instead scroll instantly, coalesced to one write per
-  // animation frame, and only while pinned to the bottom.
-  //
-  // Runs after every render (no deps) so it follows the streaming answer text,
-  // not just new turns. Coalesce by skipping when a frame is already pending —
-  // do NOT cancel it, or back-to-back tokens keep cancelling the pending frame
-  // and the view only catches up once the stream pauses.
+  // Follow the stream. While the answer is being prepared or generated, keep the
+  // view pinned to the bottom with a continuous requestAnimationFrame loop:
+  // re-pinning to the bottom every frame as tokens arrive reads as smooth 60fps
+  // following with no lag and no stacked animations. A per-render effect proved
+  // unreliable (it depends on React's streaming cadence and stalled mid-answer);
+  // the loop follows regardless. Respects the user scrolling up to read.
   useEffect(() => {
-    if (!stickRef.current || rafRef.current) return;
-    rafRef.current = requestAnimationFrame(() => {
-      rafRef.current = 0;
-      const el = scrollEl();
-      if (el) el.scrollTop = el.scrollHeight;
-    });
-  });
+    if (!isPreparingAnswer && !isGeneratingAnswer) return;
+    let raf = 0;
+    const tick = () => {
+      if (stickRef.current) {
+        const el = scrollEl();
+        if (el) el.scrollTop = el.scrollHeight;
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [isPreparingAnswer, isGeneratingAnswer]);
 
   const turns = conversation.map((qa, i) =>
     React.createElement(Turn, { key: qa.id || "t" + i, qa })
