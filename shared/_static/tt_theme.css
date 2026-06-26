@@ -529,6 +529,12 @@ body.tt-search-locked { overflow: hidden; }
   max-height: 60vh;
   overflow-y: auto;
   padding: 18px 20px;
+  /* Disable the browser's scroll anchoring: while the Ask AI answer streams in,
+     anchoring keeps re-adjusting scrollTop to "hold" the visible content, which
+     fights our programmatic scroll-to-bottom and makes it glitch/stall. Also
+     pin scroll-behavior to instant so JS scrollTop writes aren't animated. */
+  overflow-anchor: none;
+  scroll-behavior: auto;
 }
 
 /* While the inline Ask AI chat is streaming, lock the body to a stable height.

@@ -229,38 +229,56 @@ function Chat() {
     return () => { window.ttKapaSubmit = null; window.ttKapaReset = null; };
   }, [gatedSubmit, resetConversation]);
 
-  // Track stick-to-bottom intent from the user's own scrolling.
+  // Keep the view pinned to the bottom as the answer streams. Done once, here,
+  // because piecemeal triggers proved unreliable. Three pieces:
+  //  • a scroll listener tracks whether the user is at the bottom (stickRef);
+  //    scrolling up to read releases the pin, scrolling back re-engages it;
+  //  • a ResizeObserver on the messages fires whenever their rendered height
+  //    changes — every token, plus late-rendering code blocks / images — and is
+  //    the reliable "content grew, re-pin" signal that render/status triggers
+  //    missed;
+  //  • a MutationObserver covers structural changes (new turns).
+  // Both observers funnel through one rAF-coalesced scroll-to-bottom. Combined
+  // with `overflow-anchor: none` on the scroller (so the browser stops fighting
+  // the write), this follows smoothly with no lag and no glitching.
   useEffect(() => {
-    const el = scrollEl();
-    if (!el) return;
-    const onScroll = () => {
-      stickRef.current = el.scrollHeight - el.scrollTop - el.clientHeight < 48;
-    };
-    el.addEventListener("scroll", onScroll, { passive: true });
-    return () => el.removeEventListener("scroll", onScroll);
-  }, []);
+    const content = rootRef.current;
+    if (!content) return;
+    const scroller = scrollEl();
 
-  // Follow the stream. Watch the messages container for DOM changes — every
-  // streamed token mutates it — and pin to the bottom on each change. This is
-  // independent of React's render cadence and the SDK's status flags (both of
-  // which proved unreliable triggers). Coalesced to one scroll per animation
-  // frame so it stays smooth with no lag, and only while the user is at the
-  // bottom (scrolling up to read releases the pin).
-  useEffect(() => {
-    const messages = rootRef.current;
-    if (!messages || typeof MutationObserver === "undefined") return;
-    let pending = false;
-    const obs = new MutationObserver(() => {
-      if (!stickRef.current || pending) return;
-      pending = true;
-      requestAnimationFrame(() => {
-        pending = false;
+    let raf = 0;
+    const pin = () => {
+      if (!stickRef.current || raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
         const el = scrollEl();
         if (el) el.scrollTop = el.scrollHeight;
       });
-    });
-    obs.observe(messages, { childList: true, subtree: true, characterData: true });
-    return () => obs.disconnect();
+    };
+    const onScroll = () => {
+      const el = scrollEl();
+      if (el) stickRef.current = el.scrollHeight - el.scrollTop - el.clientHeight < 60;
+    };
+
+    if (scroller) scroller.addEventListener("scroll", onScroll, { passive: true });
+    let ro;
+    if (typeof ResizeObserver !== "undefined") {
+      ro = new ResizeObserver(pin);
+      ro.observe(content);
+    }
+    let mo;
+    if (typeof MutationObserver !== "undefined") {
+      mo = new MutationObserver(pin);
+      mo.observe(content, { childList: true, subtree: true, characterData: true });
+    }
+    pin();
+
+    return () => {
+      if (scroller) scroller.removeEventListener("scroll", onScroll);
+      if (ro) ro.disconnect();
+      if (mo) mo.disconnect();
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, []);
 
   const turns = conversation.map((qa, i) =>
