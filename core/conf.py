@@ -70,7 +70,7 @@ myst_heading_anchors = 3  # or 2, depending on how deep you want anchor links
 
 html_theme = "sphinx_rtd_theme"
 html_theme_options = {
-    "collapse_navigation": True,  # keep unselected subtrees folded (default, explicit)
+    "collapse_navigation": False,  # render every subtree so items with children show a caret
     "titles_only": True,          # drop in-page H2/H3 headings from the sidebar
     "navigation_depth": 2,        # Home -> section -> product; leaf pages reached via page body
 }

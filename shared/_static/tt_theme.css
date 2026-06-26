@@ -1238,6 +1238,15 @@ body.tt-search-locked { overflow: hidden; }
   padding-left: 15px;
 }
 
+/* collapse_navigation is False, so every subtree is in the DOM — that's what
+   lets the chevron (li:has(> ul)) show on every item with children. But the
+   base rule above renders all <ul>s, so fold the branches the reader isn't in:
+   keep only the active path (RTD tags the current page + its ancestors with
+   .current) expanded, like before. */
+.wy-menu-vertical li:not(.current) > ul {
+  display: none;
+}
+
 /* Section group headers (captions) — Figma: Berkeley Mono 12px, #3A5452, py-12px */
 .wy-menu-vertical header,
 .wy-menu-vertical p.caption {

@@ -22,7 +22,7 @@ html_theme_options = {
     'display_version': True,
     'style_external_links': True,
     # Toc options
-    'collapse_navigation': True,
+    'collapse_navigation': False,
     'sticky_navigation': True,
     'navigation_depth': 4,
     'includehidden': True,
