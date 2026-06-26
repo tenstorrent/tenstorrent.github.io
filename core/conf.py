@@ -83,29 +83,16 @@ html_static_path = ['../shared/_static', '_static/assets', '_static/js']
 html_js_files = ['custom.js']  # posthog.js now loaded site-wide via shared/_templates/layout.html
 html_last_updated_fmt = "%b %d, %Y"
 
-import yaml as _yaml
-with open("../versions.yml") as _vf:
-    _ver_data = _yaml.safe_load(_vf)
-_core_versions = list(_ver_data.get("core", {}).get("versions", {"latest": {}}).keys())
-_current_version = os.environ.get("current_version", "latest")
 _BASE = "https://firdovsimammedovk.github.io/tenstorrent-sandbox/"
 
-def _core_url(v):
-    return f"{_BASE}{v}/"
-
 html_context = {
-    "versions": [(_v, _core_url(_v)) for _v in _core_versions],
-    "current_version": _current_version,
     # Respect the `homepage` env var (Makefile sets "/" locally; build_docs.py
-    # sets the public URL in CI). Falls back to the version-aware core URL so
-    # navbar/logo links stay within /latest/ or /v1.0/.
-    "logo_link_url": os.environ.get("homepage") or _core_url(_current_version),
+    # sets the public URL in CI). Single-version site — no version switcher.
+    "logo_link_url": os.environ.get("homepage") or _BASE,
     # Base URL passed to the search modal for resolving relative hit URLs and
     # displaying clean path labels.
     "search_site_base_url": _BASE,
 }
-
-version = _current_version
 
 def setup(app):
     app.add_css_file("tt_theme.css")

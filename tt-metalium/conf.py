@@ -92,22 +92,15 @@ templates_path = ["../shared/_templates"]
 html_last_updated_fmt = "%b %d, %Y"
 html_baseurl = "https://firdovsimammedovk.github.io/tt-metal-sandbox/tt-metalium/"
 
-import yaml
-with open("../versions.yml", "r") as yaml_file:
-    versions = yaml.safe_load(yaml_file)["tt-metalium"]
-
 _BASE_METALIUM = "https://firdovsimammedovk.github.io/tenstorrent-sandbox/tt-metalium/"
-_current_version = os.environ.get("current_version", "latest")
 
 html_context = {
-    "versions": [(v, f"{_BASE_METALIUM}{v}/") for v in versions["versions"].keys()],
     "project_code": metal_sphinx_config.shortname,
-    "current_version": _current_version,
     "logo_link_url": os.environ.get("homepage")
 }
 
-version = _current_version
-html_baseurl = f"{_BASE_METALIUM}{_current_version}/"
+# Single-version site: published at a flat path, no version switcher.
+html_baseurl = _BASE_METALIUM
 
 def setup(app):
     app.add_css_file("tt_theme.css")
