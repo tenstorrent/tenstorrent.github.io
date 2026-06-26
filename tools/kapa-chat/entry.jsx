@@ -229,18 +229,20 @@ function Chat() {
     return () => { window.ttKapaSubmit = null; window.ttKapaReset = null; };
   }, [gatedSubmit, resetConversation]);
 
-  // Keep the view pinned to the bottom as the answer streams. Done once, here,
-  // because piecemeal triggers proved unreliable. Three pieces:
-  //  • a scroll listener tracks whether the user is at the bottom (stickRef);
-  //    scrolling up to read releases the pin, scrolling back re-engages it;
-  //  • a ResizeObserver on the messages fires whenever their rendered height
-  //    changes — every token, plus late-rendering code blocks / images — and is
-  //    the reliable "content grew, re-pin" signal that render/status triggers
-  //    missed;
-  //  • a MutationObserver covers structural changes (new turns).
-  // Both observers funnel through one rAF-coalesced scroll-to-bottom. Combined
-  // with `overflow-anchor: none` on the scroller (so the browser stops fighting
-  // the write), this follows smoothly with no lag and no glitching.
+  // Keep the view pinned to the bottom as the answer streams.
+  //
+  // Pin trigger: a ResizeObserver on the messages (fires on every rendered-height
+  // change — each token plus late code blocks/images) and a MutationObserver for
+  // new turns, both funnelled into one rAF-coalesced scroll-to-bottom. With
+  // `overflow-anchor: none` on the scroller the browser stops fighting the write.
+  //
+  // Stick detection: release the pin ONLY on a real user gesture (wheel /
+  // touchmove) — those never fire for programmatic scrolls or content growth.
+  // Using the `scroll` event for release was the bug: while streaming, scrollHeight
+  // jumps ahead of scrollTop and the handler misread it as "user scrolled up",
+  // flipping the flag off after ~1s and freezing the view near the top. The
+  // `scroll` event is now only used to RE-ENGAGE the pin when the view is back at
+  // the bottom, never to release it.
   useEffect(() => {
     const content = rootRef.current;
     if (!content) return;
@@ -255,12 +257,18 @@ function Chat() {
         if (el) el.scrollTop = el.scrollHeight;
       });
     };
-    const onScroll = () => {
+    const atBottom = () => {
       const el = scrollEl();
-      if (el) stickRef.current = el.scrollHeight - el.scrollTop - el.clientHeight < 60;
+      return !el || el.scrollHeight - el.scrollTop - el.clientHeight < 80;
     };
+    const onUserScroll = () => { stickRef.current = atBottom(); };  // wheel/touch
+    const onScroll = () => { if (atBottom()) stickRef.current = true; };  // re-engage only
 
-    if (scroller) scroller.addEventListener("scroll", onScroll, { passive: true });
+    if (scroller) {
+      scroller.addEventListener("wheel", onUserScroll, { passive: true });
+      scroller.addEventListener("touchmove", onUserScroll, { passive: true });
+      scroller.addEventListener("scroll", onScroll, { passive: true });
+    }
     let ro;
     if (typeof ResizeObserver !== "undefined") {
       ro = new ResizeObserver(pin);
@@ -274,7 +282,11 @@ function Chat() {
     pin();
 
     return () => {
-      if (scroller) scroller.removeEventListener("scroll", onScroll);
+      if (scroller) {
+        scroller.removeEventListener("wheel", onUserScroll);
+        scroller.removeEventListener("touchmove", onUserScroll);
+        scroller.removeEventListener("scroll", onScroll);
+      }
       if (ro) ro.disconnect();
       if (mo) mo.disconnect();
       if (raf) cancelAnimationFrame(raf);
