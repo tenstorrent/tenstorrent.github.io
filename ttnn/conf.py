@@ -95,20 +95,13 @@ html_last_updated_fmt = "%b %d, %Y"
 redirect_html_template_file = "../shared/_templates/redirect_template.html"
 
 
-import yaml
-
-with open("../versions.yml", "r") as yaml_file:
-    versions = yaml.safe_load(yaml_file)["ttnn"]
-
 _BASE_TTNN = "https://firdovsimammedovk.github.io/tenstorrent-sandbox/ttnn/"
-_current_version = os.environ.get("current_version", "latest")
 
-html_baseurl = f"{_BASE_TTNN}{_current_version}/"
+# Single-version site: published at a flat path, no version switcher.
+html_baseurl = _BASE_TTNN
 
 html_context = {
-    "versions": [(v, f"{_BASE_TTNN}{v}/") for v in versions["versions"].keys()],
     "project_code": metal_sphinx_config.shortname,
-    "current_version": _current_version,
     "logo_link_url": os.environ.get("homepage")
 }
 

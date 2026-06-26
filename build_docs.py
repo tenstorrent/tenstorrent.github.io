@@ -1,4 +1,3 @@
-import json
 import os
 import subprocess
 import yaml
@@ -6,9 +5,10 @@ import glob
 import shutil
 
 
-def build_doc(project, version="latest"):
-    print(f"Building {project} @ {version}.")
-    os.environ["current_version"] = version
+def build_doc(project):
+    print(f"Building {project}.")
+    # Kept for templates/conf that still read it; the site is single-version now.
+    os.environ["current_version"] = "latest"
     command = f"cd {project} && make html\n"
     print("Full command to execute", command)
     subprocess.run(command, shell=True)
@@ -17,34 +17,6 @@ def build_doc(project, version="latest"):
 def move_dir(src, dst):
     subprocess.run(["mkdir", "-p", dst])
     subprocess.run("mv " + src + "* " + dst, shell=True)
-
-
-SITEMAP_BASE = "https://firdovsimammedovk.github.io/tenstorrent-sandbox"
-BASE_URL = "https://firdovsimammedovk.github.io/tenstorrent-sandbox"
-
-
-def write_sitemap_index(output_dir, projects):
-    """Write a sitemap index at output/sitemap.xml linking all project sitemaps."""
-    sitemaps = []
-    for project in projects:
-        if project == "core":
-            path = os.path.join(output_dir, "latest", "sitemap.xml")
-            loc = f"{SITEMAP_BASE}/latest/sitemap.xml"
-        else:
-            path = os.path.join(output_dir, project, "latest", "sitemap.xml")
-            loc = f"{SITEMAP_BASE}/{project}/latest/sitemap.xml"
-        if os.path.isfile(path):
-            sitemaps.append(loc)
-    if not sitemaps:
-        return
-    index_path = os.path.join(output_dir, "sitemap.xml")
-    with open(index_path, "w", encoding="utf-8") as f:
-        f.write('<?xml version="1.0" encoding="UTF-8"?>\n')
-        f.write('<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
-        for loc in sitemaps:
-            f.write(f"  <sitemap>\n    <loc>{loc}</loc>\n  </sitemap>\n")
-        f.write("</sitemapindex>\n")
-    print(f"Wrote sitemap index to {index_path} with {len(sitemaps)} sitemap(s).")
 
 
 def copy_pdfs(project, output_dir):
@@ -66,71 +38,27 @@ def copy_pdfs(project, output_dir):
             print(f"  Error copying {pdf_file}: {e}")
 
 
-def generate_versions_json(docs, output_dir):
-    """Generate versions.json consumed by the JS version switcher."""
-    result = {}
-    for project, config in docs.items():
-        if isinstance(config, dict) and "versions" in config:
-            ver_list = list(config["versions"].keys())
-        else:
-            ver_list = ["latest"]
+os.environ["homepage"] = "https://firdovsimammedovk.github.io/tenstorrent-sandbox/"
 
-        if project == "core":
-            versions_with_urls = [
-                {"name": v, "url": f"{BASE_URL}/{v}/"}
-                for v in ver_list
-            ]
-        else:
-            versions_with_urls = [
-                {"name": v, "url": f"{BASE_URL}/{project}/{v}/"}
-                for v in ver_list
-            ]
-        result[project] = versions_with_urls
-
-    json_path = os.path.join(output_dir, "versions.json")
-    with open(json_path, "w", encoding="utf-8") as f:
-        json.dump(result, f, indent=2)
-    print(f"Wrote {json_path}")
-
-
-os.environ["homepage"] = "https://firdovsimammedovk.github.io/tenstorrent-sandbox/latest/"
-
+# Single-version site: versions.yml is just the list of projects to build. Each
+# project is built once and published at a flat path — `core` at the site root,
+# every other project under output/<project>/ (no /latest/, no version dirs).
 with open("versions.yml", "r") as yaml_file:
     subprocess.run("rm -rf output", shell=True)
     docs = yaml.safe_load(yaml_file)
 
-    for project, config in docs.items():
-        if isinstance(config, dict) and "versions" in config:
-            ver_list = list(config["versions"].keys())
-        else:
-            ver_list = ["latest"]
-
-        for version in ver_list:
-            build_doc(project, version)
-            if project == "core":
-                move_dir(f"{project}/_build/html/", f"output/{version}/")
-            else:
-                move_dir(f"{project}/_build/html/", f"output/{project}/{version}/")
-
+    for project in docs.keys():
+        build_doc(project)
         if project == "core":
-            copy_pdfs(project, "output/latest")
+            move_dir(f"{project}/_build/html/", "output/")
+            copy_pdfs(project, "output")
         else:
-            copy_pdfs(project, f"output/{project}/latest")
+            move_dir(f"{project}/_build/html/", f"output/{project}/")
+            copy_pdfs(project, f"output/{project}")
         print(f"Built {project}.")
 
     # Publish the master theme assets at a stable, version-independent CDN path
     # (output/_static/) so other repos can reference
-    # https://.../tenstorrent-sandbox/_static/tt_theme.css regardless of versioning.
+    # https://.../tenstorrent-sandbox/_static/tt_theme.css.
     shutil.copytree("shared/_static", "output/_static", dirs_exist_ok=True)
     print("Copied shared/_static to output/_static (global CDN assets).")
-
-    # Root index.html redirects to latest/
-    with open("output/index.html", "w", encoding="utf-8") as _f:
-        _f.write(
-            '<!DOCTYPE html><html><head>'
-            '<meta http-equiv="refresh" content="0; url=latest/" />'
-            '</head><body><a href="latest/">latest</a></body></html>\n'
-        )
-
-    generate_versions_json(docs, "output")
-    write_sitemap_index("output", list(docs.keys()))
