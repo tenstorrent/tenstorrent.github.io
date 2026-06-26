@@ -2,7 +2,7 @@ TT-Forge™
 =======================================
 
 TT-Forge™ is Tenstorrent's end-to-end compiler stack.
-It consists of frontends (TT-Torch, TT-XLA, TT-Forge-ONNX), a middle and backend compiler (TT-MLIR),
+It consists of frontends (TT-XLA, TT-Forge-ONNX), a middle and backend compiler (TT-MLIR),
 and a cookbook for model fine-tuning and training experiments on Tenstorrent hardware (TT-Blacksmith).
 
 Supported models are tracked in the `tt-forge-models <https://github.com/tenstorrent/tt-forge-models>`_
@@ -21,7 +21,6 @@ Compiler Stack
 .. toctree::
    :maxdepth: 1
 
-   TT-Torch <https://docs.tenstorrent.com/tt-torch/>
    TT-XLA <https://docs.tenstorrent.com/tt-xla/>
    TT-Forge-ONNX <https://docs.tenstorrent.com/tt-forge-onnx/>
    TT-Blacksmith <https://firdovsimammedovk.github.io/tt-blacksmith-sandbox/>

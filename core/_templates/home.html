@@ -198,6 +198,10 @@
       display: flex;
       flex-direction: column;
       gap: 24px;
+      /* Offset hash-jump landing (e.g. top-nav "Software" → #software) so the
+         fixed 72px navbar doesn't cover the title. ~128px stops at the section
+         divider above, keeping the divider + title in view. */
+      scroll-margin-top: 128px;
     }
 
     .section h2 {
