@@ -1301,6 +1301,14 @@ body.tt-search-locked { overflow: hidden; }
   flex-shrink: 0;
   margin-left: auto;
   padding-left: 8px;
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
+
+/* Expanded (active path) items point the caret down. RTD tags the current page
+   and all its ancestors with .current, i.e. exactly the branches that are open. */
+.wy-menu-vertical li.current:has(> ul) > a::after {
+  transform: rotate(90deg);
 }
 
 /* External links (open in a new tab) get an "open in new tab" icon,
