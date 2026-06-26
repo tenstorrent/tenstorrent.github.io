@@ -1,23 +1,6 @@
+# Projects to build, in order. Single-version site: no per-project version
+# lists — each is built once and published at a flat path (see build_docs.py).
 core:
-  versions:
-    latest: {}
-    v1.1: {}
-    v1.0: {}
-
 ttnn:
-  versions:
-    latest: {}
-    v1.1: {}
-    v1.0: {}
-
 tt-metalium:
-  versions:
-    latest: {}
-    v1.1: {}
-    v1.0: {}
-
 syseng:
-  versions:
-    latest: {}
-    v1.1: {}
-    v1.0: {}

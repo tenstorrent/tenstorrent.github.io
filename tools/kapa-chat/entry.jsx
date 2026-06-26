@@ -8,7 +8,7 @@
  * Exposes window.ttKapaChat.mount(el, integrationId). Once mounted, the chat
  * component wires window.ttKapaSubmit(query) / window.ttKapaReset() so the
  * vanilla tt-search.js can drive it. */
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import { createRoot } from "react-dom/client";
 import { KapaProvider, useChat } from "@kapaai/react-sdk";
 import { marked } from "marked";
@@ -156,6 +156,33 @@ function Turn({ qa }) {
   );
 }
 
+// Wait until reCAPTCHA Enterprise is loaded and ready before invoking `cb`.
+//
+// The Kapa SDK runs grecaptcha.enterprise.execute() inside submitQuery for bot
+// protection. If a user opens the docs and clicks "Ask AI" instantly — before
+// the reCAPTCHA script has finished loading — that execute() throws and the
+// answer comes back as an error (which is why it "fixed itself" on retry once
+// the script had loaded). Gating the submit on readiness turns that race into a
+// brief loading state instead of an error.
+function onCaptchaReady(cb) {
+  let fired = false;
+  const fire = () => { if (!fired) { fired = true; cb(); } };
+  const start = Date.now();
+  (function poll() {
+    const g = window.grecaptcha && window.grecaptcha.enterprise;
+    if (g && typeof g.ready === "function") {
+      try { g.ready(fire); } catch (e) { fire(); }
+      // ready() can fail to call back if misconfigured/blocked — submit anyway
+      // after a short grace period rather than hanging forever.
+      setTimeout(fire, 5000);
+      return;
+    }
+    // Script not on the page yet; keep polling, but don't wait indefinitely.
+    if (Date.now() - start > 8000) { fire(); return; }
+    setTimeout(poll, 150);
+  })();
+}
+
 function Chat() {
   const { conversation, submitQuery, resetConversation, error, isPreparingAnswer } = useChat();
   const rootRef = useRef(null);
@@ -163,6 +190,9 @@ function Chat() {
   // moment the user scrolls up to read, so streaming doesn't yank them back.
   const stickRef = useRef(true);
   const rafRef = useRef(0);
+  // Question awaiting reCAPTCHA readiness — rendered as a loading turn so an
+  // instant first click shows progress instead of an error.
+  const [pendingQ, setPendingQ] = useState(null);
 
   // The element that actually scrolls is the modal body (.tt-search-body); our
   // chat renders into it without an inner scroller.
@@ -171,16 +201,25 @@ function Chat() {
     return root ? root.closest(".tt-search-body") || root.parentElement : null;
   };
 
+  const gatedSubmit = useCallback((q) => {
+    if (!q) return;
+    setPendingQ(q);
+    onCaptchaReady(() => {
+      setPendingQ(null);
+      submitQuery(q);
+    });
+  }, [submitQuery]);
+
   useEffect(() => {
-    window.ttKapaSubmit = (q) => { if (q) submitQuery(q); };
-    window.ttKapaReset = () => { resetConversation(); };
+    window.ttKapaSubmit = gatedSubmit;
+    window.ttKapaReset = () => { setPendingQ(null); resetConversation(); };
     if (window.__ttKapaPending) {
       const q = window.__ttKapaPending;
       window.__ttKapaPending = null;
-      submitQuery(q);
+      gatedSubmit(q);
     }
     return () => { window.ttKapaSubmit = null; window.ttKapaReset = null; };
-  }, [submitQuery, resetConversation]);
+  }, [gatedSubmit, resetConversation]);
 
   // Track stick-to-bottom intent from the user's own scrolling.
   useEffect(() => {
@@ -197,19 +236,32 @@ function Chat() {
   // scrollIntoView per token stacks a fresh animation each time and is what
   // caused the lag. Instead scroll instantly, coalesced to one write per
   // animation frame, and only while pinned to the bottom.
+  //
+  // Runs after every render (no deps) so it follows the streaming answer text,
+  // not just new turns. Coalesce by skipping when a frame is already pending —
+  // do NOT cancel it, or back-to-back tokens keep cancelling the pending frame
+  // and the view only catches up once the stream pauses.
   useEffect(() => {
-    if (!stickRef.current) return;
-    if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    if (!stickRef.current || rafRef.current) return;
     rafRef.current = requestAnimationFrame(() => {
+      rafRef.current = 0;
       const el = scrollEl();
       if (el) el.scrollTop = el.scrollHeight;
     });
-    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
-  }, [conversation]);
+  });
 
   const turns = conversation.map((qa, i) =>
     React.createElement(Turn, { key: qa.id || "t" + i, qa })
   );
+
+  // A question waiting on reCAPTCHA: show it as a turn with the loading dots,
+  // so the user sees their question land immediately rather than an error.
+  const pendingTurn = pendingQ
+    ? React.createElement(Turn, {
+        key: "pending",
+        qa: { question: pendingQ, answer: "", status: "streaming" },
+      })
+    : null;
 
   const preparing =
     isPreparingAnswer && conversation.length === 0
@@ -234,6 +286,7 @@ function Chat() {
     "div",
     { className: "tt-chat-messages", ref: rootRef },
     turns,
+    pendingTurn,
     preparing,
     errNode
   );
