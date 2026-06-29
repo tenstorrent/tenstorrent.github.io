@@ -23,23 +23,7 @@ extensions = ['myst_parser',
               'sphinx_copybutton',
               'sphinx_togglebutton',
               'sphinx_sitemap',
-              'sphinx_reredirects',
               ]
-
-# Redirects for pages that were consolidated — preserves incoming links.
-redirects = {
-    "systems/quietbox/quietbox-bh/setup": "index.html#receiving-unboxing-and-setup",
-    "systems/quietbox/quietbox-bh/specifications": "index.html#specifications-and-requirements",
-    "systems/quietbox/quietbox-wh/setup": "index.html#receiving-unboxing-and-setup",
-    "systems/quietbox/quietbox-wh/specifications": "index.html#specifications-and-requirements",
-    "systems/t3000/specifications": "index.html#specifications-requirements-and-setup",
-    "systems/t3000/support": "index.html#support",
-    "aibs/blackhole/installation": "index.html#hardware-installation",
-    "aibs/blackhole/specifications": "index.html#specifications-and-requirements",
-    "aibs/blackhole/support": "index.html#troubleshooting-common-hardware-issues",
-    "aibs/wormhole/installation": "index.html#hardware-installation",
-    "aibs/wormhole/specifications": "index.html#specifications-requirements",
-}
 
 html_baseurl = "https://docs.tenstorrent.com/"
 sitemap_filename = "sitemap_core.xml"
@@ -69,11 +53,6 @@ myst_heading_anchors = 3  # or 2, depending on how deep you want anchor links
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = "sphinx_rtd_theme"
-html_theme_options = {
-    "collapse_navigation": False,
-    "titles_only": True,
-    "navigation_depth": 2,
-}
 html_logo = "../shared/images/tt_logo.svg"
 html_favicon = "../shared/images/favicon.png"
 html_static_path = ['../shared/_static', '_static/assets', '_static/js']
@@ -81,13 +60,12 @@ html_static_path = ['../shared/_static', '_static/assets', '_static/js']
 # `_extra/` holds llms.txt and AGENTS.md so they serve at docs.tenstorrent.com/llms.txt
 # and /AGENTS.md. See core/_extra/AGENTS.md "Maintenance" for how to regenerate them.
 html_extra_path = ['_extra']
-html_js_files = ['custom.js']  # posthog.js loaded site-wide via shared/_templates/layout.html extrahead
+html_js_files = ['custom.js', 'posthog.js']
 html_last_updated_fmt = "%b %d, %Y"
 
 html_context = {
-    "versions": None,
-    "logo_link_url": os.environ.get("homepage") or "https://docs.tenstorrent.com/",
-    "search_site_base_url": "https://docs.tenstorrent.com/",
+    "versions": None, # Do not render versions
+    "logo_link_url": os.environ.get("homepage")
 }
 
 def setup(app):
