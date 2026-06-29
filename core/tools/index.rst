@@ -53,7 +53,7 @@ Analysis & Visualization
    :class: tt-index-cards
    :widths: 50 50
 
-   * - `TT-NN Visualizer <https://docs.tenstorrent.com/tt-nn-visualizer/latest/>`_
+   * - `TT-NN Visualizer <https://docs.tenstorrent.com/ttnn-visualizer/latest/>`_
 
        TT-NN Visualizer is an interactive tool for analyzing model execution on Tenstorrent hardware: graphs, memory plots, tensor and buffer views, operation flow diagrams, and multi-instance support via file or SSH report loading.
      - `Model-Explorer <https://github.com/tenstorrent/model-explorer>`_
@@ -95,5 +95,5 @@ Community
 .. important::
    For tools specific to individual components of the Tenstorrent software stack, see:
 
-   * TT-Metalium tools: https://docs.tenstorrent.com/tt-metalium/tools/index.html
-   * TT-NN tools: https://docs.tenstorrent.com/ttnn/tools/index.html
+   * TT-Metalium tools: https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/tools/index.html
+   * TT-NN tools: https://docs.tenstorrent.com/tt-metal/latest/ttnn/tools/index.html

@@ -38,7 +38,7 @@ redirects = {
     "aibs/blackhole/specifications": "index.html#specifications-and-requirements",
     "aibs/blackhole/support": "index.html#faq-and-troubleshooting",
     "aibs/wormhole/installation": "index.html#hardware-installation",
-    "aibs/wormhole/specifications": "index.html#specifications-requirements",
+    "aibs/wormhole/specifications": "index.html#specificationsrequirements",
 }
 
 html_baseurl = "https://docs.tenstorrent.com/"

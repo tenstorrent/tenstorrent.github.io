@@ -648,7 +648,7 @@ canvas.qb2-chip-canvas {
       <tr>
         <td>TT-Metalium</td>
         <td>Low-level Tensix programming &mdash; C++ kernels on RISC-V cores</td>
-        <td><a href="https://docs.tenstorrent.com/tt-metalium/">docs.tenstorrent.com/tt-metalium</a></td>
+        <td><a href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/">docs.tenstorrent.com/tt-metal/latest/tt-metalium</a></td>
       </tr>
       <tr>
         <td><a href="https://docs.tenstorrent.com/tt-blacksmith/">TT-Blacksmith</a></td>
