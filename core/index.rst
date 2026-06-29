@@ -8,17 +8,19 @@ Tenstorrent
 
 .. toctree::
    :hidden:
-   :caption: Software Guides
+   :caption: Get Started
 
+   Overview <getting-started/tt-software-stack>
    getting-started/README
-   getting-started/model-demos
+   getting-started/manual-software-install
    getting-started/vLLM-servers
-   getting-started/tt-software-stack
+   Learn by Building <https://docs.tenstorrent.com/tt-vscode-toolkit/>
 
 .. toctree::
    :hidden:
-   :caption: Hardware Guides
+   :caption: Hardware
 
+   Overview <hardware/index>
    aibs/index
    systems/index
 
@@ -27,11 +29,12 @@ Tenstorrent
    :caption: Software
    :maxdepth: 2
 
+   Overview <software/index>
    forge/index
-   TT-Metalium <https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/index.html>
-   TT-Lang <https://docs.tenstorrent.com/tt-lang/>
-   TT-NN <https://docs.tenstorrent.com/tt-metal/latest/ttnn/index.html>
-   Manual Software Installation <getting-started/manual-software-install>
+   TT-NN™ <https://docs.tenstorrent.com/tt-metal/latest/ttnn/>
+   TT-Lang™ <https://docs.tenstorrent.com/tt-lang/>
+   TT-MLIR™ <https://docs.tenstorrent.com/tt-mlir/>
+   TT-Metalium™ <https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/>
    tools/index
 
 .. toctree::
@@ -46,4 +49,4 @@ Tenstorrent
    :caption: Legal
    :maxdepth: 2
 
-   Bounty Program Terms <https://docs.tenstorrent.com/bounty_terms.html>
+   Bounty Program Terms <bounty_terms>

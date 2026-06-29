@@ -95,17 +95,13 @@ html_last_updated_fmt = "%b %d, %Y"
 redirect_html_template_file = "../shared/_templates/redirect_template.html"
 
 
-html_baseurl = "https://docs.tenstorrent.com/tt-metal/latest/ttnn/"
+_BASE_TTNN = "https://docs.tenstorrent.com/tt-metal/latest/ttnn/"
 
-import yaml
-
-with open("../versions.yml", "r") as yaml_file:
-    versions = yaml.safe_load(yaml_file)["ttnn"]
+# Single-version site: published at a flat path, no version switcher.
+html_baseurl = _BASE_TTNN
 
 html_context = {
-    "versions": list(versions["versions"].keys()),
     "project_code": metal_sphinx_config.shortname,
-    "current_version": os.environ.get("current_version"),
     "logo_link_url": os.environ.get("homepage")
 }
 

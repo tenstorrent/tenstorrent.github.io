@@ -31,7 +31,7 @@ The Tenstorrent T1000 system ships without an operating system installed. We rec
 
 ## Environment Specifications
 
-Please visit the Tenstorrent Wormhole n150s and n300s [specification page](../../aibs/wormhole/specifications.md) for environment specifications for those cards.
+Please visit the Tenstorrent Wormhole n150s and n300s [specification page](../../aibs/wormhole/index.md#specificationsrequirements) for environment specifications for those cards.
 
 Please visit the [SuperMicro SuperServer SYS-E403-12P-FN2T](https://www.supermicro.com/en/products/system/IoT/Box_PC/SYS-E403-12P-FN2T) page for environment specifications for this system.
 
