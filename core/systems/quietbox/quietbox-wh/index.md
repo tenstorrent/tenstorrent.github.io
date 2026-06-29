@@ -101,7 +101,7 @@ Follow these steps to set up the hardware for your TT-QuietBox Wormhole™ works
 
 2. **Connect QSFP-DD cables.** The included Quad Small Form-factor Pluggable Double Density (QSFP-DD) cables and internal Warp 100 bridges enable high-speed interconnectivity between the Tenstorrent Tensix cores. Your system includes four Wormhole™ n300 Accelerators, internal Warp 100 bridges and two external QSFP-DD cables to create the processor mesh. 
 
-![](https://firdovsimammedovk.github.io/tenstorrent-sandbox/_images/wh_portspec.png)
+![](https://docs.tenstorrent.com/_images/wh_portspec.png)
 
 The TT-QuietBox ships with the Warp 100 bridges connected, but the two QSFP-DD cables will need to be connected. Connect them according to the system topology diagram below. Ensure each cable is aligned correctly and clicks into place; do not force the connections.
 

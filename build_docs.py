@@ -38,7 +38,7 @@ def copy_pdfs(project, output_dir):
             print(f"  Error copying {pdf_file}: {e}")
 
 
-os.environ["homepage"] = "https://firdovsimammedovk.github.io/tenstorrent-sandbox/"
+os.environ["homepage"] = "https://docs.tenstorrent.com/"
 
 # Single-version site: versions.yml is just the list of projects to build. Each
 # project is built once and published at a flat path — `core` at the site root,

@@ -1,0 +1,199 @@
+# Tenstorrent Documentation
+
+> Official documentation for Tenstorrent AI accelerators — hardware, the open-source software stack, compilers, and developer tools. Covers two current chip families: Wormhole (N150 / N300 / T3K / Galaxy) and Blackhole (P100 / P150 / P300c / QuietBox 2). This site (docs.tenstorrent.com) hosts the core hardware and getting-started guides; each software project publishes its own docs under docs.tenstorrent.com/{project}/, all routed through the same domain.
+
+This index maps the entire docs.tenstorrent.com universe. Every link below resolves under the live domain. Agents helping a developer should also read [/AGENTS.md](https://docs.tenstorrent.com/AGENTS.md) — the operating guide with hardware constraints, environment setup, and the doc-site routing map.
+
+## Getting Started
+
+- [Getting Started](https://docs.tenstorrent.com/getting-started/README.html): First steps — set up hardware and run your first model on Tenstorrent silicon
+- [Model Demos](https://docs.tenstorrent.com/getting-started/model-demos.html): Ready-to-run model demonstrations across TT hardware
+- [vLLM Servers](https://docs.tenstorrent.com/getting-started/vLLM-servers.html): Stand up an OpenAI-compatible inference server with the TT vLLM fork
+- [TT Software Stack](https://docs.tenstorrent.com/getting-started/tt-software-stack.html): Overview of the layered software stack from kernels to high-level APIs
+- [Manual Software Installation](https://docs.tenstorrent.com/getting-started/manual-software-install.html): Step-by-step manual install of drivers, firmware, and the Python stack
+- [TT Developer Toolkit](https://docs.tenstorrent.com/tt-vscode-toolkit/): VS Code extension + companion lessons covering first boot through custom training; the most guided on-ramp (full lesson catalog in the section below)
+  - [Lesson Catalog](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/): Browsable catalog of all lessons with hardware-filter chips
+  - [Step Zero](https://docs.tenstorrent.com/tt-vscode-toolkit/step-zero/): Pre-flight checklist before any hardware work — OS, drivers, firmware
+  - [FAQ & Environment Reference](https://docs.tenstorrent.com/tt-vscode-toolkit/faq/): Common errors, env vars, venv map, and hardware-specific gotchas
+  - [Version Compatibility](https://docs.tenstorrent.com/tt-vscode-toolkit/version-compat/): tt-metal, TTNN, vLLM, and driver version matrix
+  - [RISC-V Guide](https://docs.tenstorrent.com/tt-vscode-toolkit/riscv-guide/): Programming the embedded RISC-V cores inside each Tensix processor
+  - [Tensix Grid Playground](https://docs.tenstorrent.com/tt-vscode-toolkit/tensix-playground/): Browser-based interactive tt-lang kernel playground (no hardware needed)
+
+## TT Developer Toolkit Lessons
+
+Self-contained, hands-on lessons from the [TT Developer Toolkit](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/). Each runs step-by-step inside VS Code or reads as a standalone web page. Grouped by track.
+
+**Your First Inference**
+
+- [Modern Setup with tt-installer 2.0](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/tt-installer/): One-command full-stack install for all TT hardware
+- [Hardware Detection](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/hardware-detection/): Detect devices, verify PCI/driver status with tt-smi
+- [Verify Your Setup](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/verify-installation/): Diagnostic checkpoint for TTNN, tt-metal source, and hardware readiness
+- [Download Model and Run Inference](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/download-model/): Download Qwen3-0.6B or Llama-3.1-8B via the `hf` CLI
+- [Interactive Chat with Direct API](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/interactive-chat/): Build a chat loop with tt-metal's Generator API; N150-compatible
+- [HTTP API Server with Direct API](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/api-server/): Production Flask server, model in memory, OpenAI-compatible endpoint
+- [Build tt-metal from Source](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/build-tt-metal/): Clone and compile tt-metal; required for Direct API lessons
+
+**Serving Models**
+
+- [Production Inference with tt-inference-server](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/tt-inference-server/): Deploy on any TT hardware in minutes — Docker, one command, OpenAI-compatible
+- [Production Inference with vLLM](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/vllm-production/): Direct vLLM deployment with continuous batching and OpenAI API
+- [Image Generation with Stable Diffusion XL](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/image-generation/): Generate 1024×1024 images with SDXL Base natively on TT silicon
+- [Video Generation via Frame-by-Frame Diffusion](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/video-generation-ttmetal/): Per-frame Stable Diffusion; demonstrates N150→T3K scaling
+
+**Compilers & Tools**
+
+- [Image Classification with TT-Forge](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/forge-image-classification/): Compile a PyTorch MobileNetV2 with `forge.compile()` — no tt-metal build
+- [JAX and PyTorch/XLA on Tenstorrent](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/tt-xla-jax/): Run JAX and torch-xla via the PJRT plugin
+- [Introduction to tt-lang](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/tt-lang-intro/): Write your first concurrent compute + data-movement kernel
+
+**Applications**
+
+- [Coding Assistant with Aider](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/coding-assistant/): Pair-program with an on-device LLM via a local vLLM server
+- [Native Video Animation with AnimateDiff](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/animatediff-video-generation/): SD 1.4 video generation on Blackhole using the TTNN UNet
+- [OpenClaw AI Assistant on QuietBox 2](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/qb2-openclaw-assistant/): Local assistant with TT expertise, memory search, and 70B reasoning on QB2
+- [Generating Video on QuietBox 2](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/qb2-video-generation/): Wan2.2-T2V-A14B on 4× Blackhole chips with a GTK4 GUI
+- [Local AI Agents on QuietBox 2](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/qb2-local-agents/): Web-research, codebase-navigation, and multi-agent pipelines running locally
+
+**Advanced Topics**
+
+- [Bounty Program: Model Bring-Up](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/bounty-program/): Contribute models to the TT ecosystem; Phi-3 bring-up case study
+- [Exploring TT-Metalium](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/explore-metalium/): TTNN ops, the model zoo, and architecture from first script to custom kernels
+
+**Custom Training**
+
+- [Understanding Custom Training](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/ct1-understanding-training/): Fine-tuning vs. training from scratch; the tt-train framework
+- [Dataset Fundamentals](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/ct2-dataset-fundamentals/): JSONL format, quality, tokenization, HuggingFace integration
+- [Configuration Patterns](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/ct3-configuration-patterns/): YAML-driven training with tt-blacksmith; hyperparameters, checkpointing
+- [Fine-tuning Basics](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/ct4-finetuning-basics/): Train a character-level NanoGPT on Shakespeare
+- [Multi-Device Training](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/ct5-multi-device-training/): Data Parallel (DDP) across N300/T3K/Galaxy; device mesh configuration
+- [Experiment Tracking](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/ct6-experiment-tracking/): File-based logging and Weights & Biases integration
+- [Model Architecture Basics](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/ct7-architecture-basics/): Transformer internals — embeddings, attention, FFN
+- [Training from Scratch](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/ct8-training-from-scratch/): Build and train nano-trickster (11M params) from random init
+
+**Deployment**
+
+- [Deploy tt-vscode-toolkit to Koyeb](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/deploy-vscode-to-koyeb/): Cloud VS Code IDE with the TT extension pre-installed, N300 access
+- [Deploy Your Work to Koyeb](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/deploy-to-koyeb/): Deploy any Python app to Koyeb with TT N300 hardware
+
+**Tenstorrent Cookbook** (hands-on TTNN projects)
+
+- [Cookbook Overview](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cookbook-overview/): Index of all five recipes and the concepts each teaches
+- [Conway's Game of Life](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cookbook-game-of-life/): TTNN convolution, cellular automata
+- [Audio Signal Processing](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cookbook-audio-processor/): Mel-spectrograms, beat detection, pitch extraction
+- [Mandelbrot Fractal Explorer](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cookbook-mandelbrot/): Complex-number parallel computation; interactive zoom
+- [Custom Image Filters](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cookbook-image-filters/): 2D convolution library from edge detection to artistic effects
+- [Particle Life Simulator](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cookbook-particle-life/): N² force calculations, multi-species dynamics, multi-device on QB2
+
+**CS Fundamentals on Real Hardware** (computer architecture on Tensix silicon)
+
+- [Module 1: RISC-V & Computer Architecture](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cs-fundamentals-01-computer/): Von Neumann model, fetch-decode-execute
+- [Module 2: The Memory Hierarchy](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cs-fundamentals-02-memory/): Cache locality, bandwidth tradeoffs, near-memory compute
+- [Module 3: Parallel Computing](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cs-fundamentals-03-parallelism/): Amdahl's Law, SPMD patterns, scaling to 880 cores
+- [Module 4: Networks and Communication](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cs-fundamentals-04-networks/): Message passing, NoC topologies, routing
+- [Module 5: Synchronization](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cs-fundamentals-05-synchronization/): Race conditions, barriers, coordination without cache coherence
+- [Module 6: Abstraction Layers](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cs-fundamentals-06-abstraction/): Python to RISC-V machine code; when abstractions help and hurt
+- [Module 7: Computational Complexity in Practice](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cs-fundamentals-07-complexity/): Big-O on real hardware; Flash Attention as a case study
+
+## Hardware
+
+- [AI Accelerators (AIBs)](https://docs.tenstorrent.com/aibs/index.html): Add-in board families — specs, installation, and support
+  - [Blackhole Cards](https://docs.tenstorrent.com/aibs/blackhole/index.html): P100 / P150 / P300 board specifications and installation
+  - [Wormhole Cards](https://docs.tenstorrent.com/aibs/wormhole/index.html): N150 / N300 board specifications and installation
+  - [Grayskull Cards](https://docs.tenstorrent.com/aibs/grayskull/index.html): First-generation board specifications (legacy)
+- [Systems](https://docs.tenstorrent.com/systems/index.html): Pre-built desktop and server systems — setup, specs, support
+  - [TT-LoudBox (Blackhole)](https://docs.tenstorrent.com/systems/loudbox-bh/index.html): LoudBox workstation setup, OS setup, and specifications
+  - [TT-QuietBox 2 (Blackhole)](https://docs.tenstorrent.com/systems/quietbox/quietbox-bh-2/index.html): QuietBox 2 — 4× P300c, welcome guide, setup, and specs
+  - [T3000](https://docs.tenstorrent.com/systems/t3000/index.html): T3000 server system specifications and support
+  - [T1000](https://docs.tenstorrent.com/systems/t1000/index.html): T1000 system specifications and support
+  - [T7000](https://docs.tenstorrent.com/systems/t7000/index.html): T7000 system specifications and support
+
+## Software Stack & Compilers
+
+- [TT-Metalium](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/index.html): Low-level Tensix kernel programming model — RISC-V kernels, data movement, compute engines
+  - [Getting Started](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/get_started/get_started.html)
+  - [Programming Model](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/tt_metal/programming_model/index.html)
+  - [Programming Examples](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/tt_metal/examples/index.html)
+  - [API Reference](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/tt_metal/apis/index.html)
+- [TT-NN](https://docs.tenstorrent.com/tt-metal/latest/ttnn/index.html): High-level tensor op library and primary Python API, built on Metalium
+  - [What is TT-NN?](https://docs.tenstorrent.com/tt-metal/latest/ttnn/ttnn/about.html)
+  - [Install](https://docs.tenstorrent.com/tt-metal/latest/ttnn/ttnn/installing.html)
+  - [API](https://docs.tenstorrent.com/tt-metal/latest/ttnn/ttnn/api.html)
+  - [Tutorials](https://docs.tenstorrent.com/tt-metal/latest/ttnn/ttnn/tutorials.html)
+- [TT-Forge](https://docs.tenstorrent.com/tt-forge/): MLIR-based compiler umbrella — run AI models on all TT hardware configurations
+  - [Model Bring-Up Guide](https://docs.tenstorrent.com/tt-forge/model-bring-up-guide.html)
+- [tt-mlir](https://docs.tenstorrent.com/tt-mlir/): MLIR compiler infrastructure underpinning the TT-Forge stack
+  - [Overview](https://docs.tenstorrent.com/tt-mlir/overview.html)
+  - [Getting Started](https://docs.tenstorrent.com/tt-mlir/getting-started.html)
+  - [Dialects Overview](https://docs.tenstorrent.com/tt-mlir/dialects-overview.html)
+  - [Adding an Op](https://docs.tenstorrent.com/tt-mlir/adding-an-op.html)
+- [TT-XLA](https://docs.tenstorrent.com/tt-xla/): JAX and PyTorch/XLA backend for TT hardware via the PJRT plugin
+  - [Getting Started](https://docs.tenstorrent.com/tt-xla/getting_started.html)
+  - [Performance Tuning](https://docs.tenstorrent.com/tt-xla/performance.html)
+  - [Mixed Precision](https://docs.tenstorrent.com/tt-xla/mixed_precision.html)
+- [TT-Forge-ONNX](https://docs.tenstorrent.com/tt-forge-onnx/): ONNX graph compiler built on the tt-mlir backend
+  - [Getting Started](https://docs.tenstorrent.com/tt-forge-onnx/getting_started.html)
+  - [Architecture Overview](https://docs.tenstorrent.com/tt-forge-onnx/architecture_overview.html)
+  - [Operations Reference](https://docs.tenstorrent.com/tt-forge-onnx/operations.html)
+- [tt-torch](https://docs.tenstorrent.com/tt-torch/): PyTorch 2.0 / torch-mlir front-end for tt-mlir (deprecated; prefer TT-Forge or TT-XLA)
+  - [Getting Started](https://docs.tenstorrent.com/tt-torch/getting_started.html)
+  - [Supported Models](https://docs.tenstorrent.com/tt-torch/models/supported_models.html)
+- [tt-lang](https://docs.tenstorrent.com/tt-lang/): Python DSL for expressing data-movement + compute concurrency on the Tensix grid
+  - [Getting Started](https://docs.tenstorrent.com/tt-lang/getting-started.html)
+  - [Programming Guide](https://docs.tenstorrent.com/tt-lang/programming-guide.html)
+  - [Language Specification](https://docs.tenstorrent.com/tt-lang/specs/TTLangSpecification.html)
+  - [Matmul Tutorial](https://docs.tenstorrent.com/tt-lang/matmul-tutorial/index.html)
+
+## Inference & Serving
+
+- [vLLM Servers Guide](https://docs.tenstorrent.com/getting-started/vLLM-servers.html): Run the TT vLLM fork for OpenAI-compatible serving with continuous batching
+- [TT-Studio](https://docs.tenstorrent.com/tt-studio/): Web GUI to deploy and chat with LLMs, voice agents, and image/video models locally — no cloud token costs
+- [tt-inference-server](https://github.com/tenstorrent/tt-inference-server): One-command Docker deployment wrapping vLLM with automated model download (GitHub)
+- [vLLM (TT fork)](https://github.com/tenstorrent/vllm): OpenAI-compatible inference server optimized for TT hardware (GitHub)
+
+## Training
+
+- [TT-Blacksmith](https://docs.tenstorrent.com/tt-blacksmith/): Optimized training and fine-tuning recipes on TT hardware, powered by the TT-Forge stack
+  - [Introduction](https://docs.tenstorrent.com/tt-blacksmith/src/introduction.html)
+  - [Getting Started](https://docs.tenstorrent.com/tt-blacksmith/src/getting-started.html)
+  - [Experiments](https://docs.tenstorrent.com/tt-blacksmith/src/experiments.html)
+
+## Tools & Utilities
+
+- [Software & Utilities (syseng)](https://docs.tenstorrent.com/syseng/latest/index.html): System software setup, firmware/KMD versions, and developer utilities
+- [Tools](https://docs.tenstorrent.com/tools/index.html): Core docs index of supporting developer tools
+- [tt-toplike](https://docs.tenstorrent.com/tt-toplike/): Real-time terminal UI monitor — Tensix activity, DRAM, NoC traffic, chip topology (Rust)
+- [TTNN Visualizer](https://docs.tenstorrent.com/ttnn-visualizer/): Visualize model execution, memory, and operation graphs for TTNN models
+  - [Installing](https://docs.tenstorrent.com/ttnn-visualizer/src/installing.html)
+  - [Running the Application](https://docs.tenstorrent.com/ttnn-visualizer/src/running-the-application.html)
+- [tt-CableGen](https://docs.tenstorrent.com/tt-CableGen/): Generate and visualize cabling for scale-out / multi-host TT systems
+- [tt-system-firmware](https://docs.tenstorrent.com/tt-system-firmware/): System firmware architecture, development, services, and supported boards
+  - [Firmware Architecture](https://docs.tenstorrent.com/tt-system-firmware/architecture/index.html)
+  - [Supported Boards](https://docs.tenstorrent.com/tt-system-firmware/boards/index.html)
+- [RiESCUE](https://docs.tenstorrent.com/riescue/): RISC-V directed test framework and compliance suite for CPU validation
+  - [Getting Started](https://docs.tenstorrent.com/riescue/tutorials/index.html)
+  - [User Guide](https://docs.tenstorrent.com/riescue/user_guides/index.html)
+- [riscv-coretp](https://docs.tenstorrent.com/riscv-coretp/): RISC-V core test-plan documentation
+
+## Demos & Examples
+
+- [tt-awesome](https://docs.tenstorrent.com/tt-awesome/): Curated list of community and official projects, models, kernels, and resources for the TT ecosystem
+- [tt-animatediff](https://docs.tenstorrent.com/tt-animatediff/): AnimateDiff GIF generation demo running natively on Blackhole hardware
+  - [Gallery](https://docs.tenstorrent.com/tt-animatediff/gallery.html)
+- [tt-local-generator](https://docs.tenstorrent.com/tt-local-generator/): Local AI video & image generation (FLUX, AnimateDiff, Wan2.2) on QuietBox 2
+  - [Workflows](https://docs.tenstorrent.com/tt-local-generator/workflows.html)
+  - [Plugins](https://docs.tenstorrent.com/tt-local-generator/plugins.html)
+
+## Reference & Legal
+
+- [Support](https://docs.tenstorrent.com/support/README.html): Getting help, community channels, and support resources
+- [Bounty Program Terms](https://docs.tenstorrent.com/bounty_terms.html): Terms and conditions for the Tenstorrent open-source bounty program
+- [OS & Model Terms](https://docs.tenstorrent.com/os-model-terms.html): Operating-system and model licensing terms
+- [Trademarked Assets](https://docs.tenstorrent.com/tt-tm-assets/): Tenstorrent brand assets and usage/licensing terms
+
+## External Resources
+
+- [Tenstorrent GitHub Organization](https://github.com/tenstorrent): All public source repositories
+- [tt-metal](https://github.com/tenstorrent/tt-metal): TT-NN operator library and TT-Metalium kernel programming model — source, model zoo, demos
+- [tt-forge](https://github.com/tenstorrent/tt-forge): MLIR-based compiler source
+- [TT Developer Toolkit (VS Code Marketplace)](https://marketplace.visualstudio.com/items?itemName=tenstorrent.tt-vscode-toolkit): Install the extension
+- [Tenstorrent (company site)](https://tenstorrent.com): Products, news, and company information

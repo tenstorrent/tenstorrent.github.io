@@ -10,7 +10,7 @@ templates_path = ['../shared/_templates']
 exclude_patterns = []
 extensions = ['myst_parser', 'sphinx_sitemap']
 
-html_baseurl = "https://firdovsimammedovk.github.io/tenstorrent-sandbox/syseng/"
+html_baseurl = "https://docs.tenstorrent.com/syseng/latest/"
 sitemap_locales = [None]
 sitemap_url_scheme = "{link}"
 
@@ -33,7 +33,7 @@ html_logo = "../shared/images/tt_logo.svg"
 html_favicon = "../shared/images/favicon.png"
 html_static_path = ['../shared/_static']
 
-_BASE_SYSENG = "https://firdovsimammedovk.github.io/tenstorrent-sandbox/syseng/"
+_BASE_SYSENG = "https://docs.tenstorrent.com/syseng/latest/"
 
 # Single-version site: published at a flat path, no version switcher.
 html_context = {

@@ -95,7 +95,7 @@ html_last_updated_fmt = "%b %d, %Y"
 redirect_html_template_file = "../shared/_templates/redirect_template.html"
 
 
-_BASE_TTNN = "https://firdovsimammedovk.github.io/tenstorrent-sandbox/ttnn/"
+_BASE_TTNN = "https://docs.tenstorrent.com/tt-metal/latest/ttnn/"
 
 # Single-version site: published at a flat path, no version switcher.
 html_baseurl = _BASE_TTNN
@@ -112,11 +112,11 @@ breathe_projects = {"ttmetaldoxygen": "doxygen_build/xml/"}
 breathe_default_project = "ttmetaldoxygen"
 
 redirects = {
-     "index": "https://firdovsimammedovk.github.io/tt-metal-sandbox/ttnn/",
-     "ttnn/about.html": "https://firdovsimammedovk.github.io/tt-metal-sandbox/ttnn/ttnn/about.html",
-     "ttnn/tensor.html": "https://firdovsimammedovk.github.io/tt-metal-sandbox/ttnn/ttnn/tensor.html",
-     "ttnn/get_started.html": "https://firdovsimammedovk.github.io/tt-metal-sandbox/ttnn/ttnn/get_started.html",
-     "ttnn/profiling_ttnn_operations.html": "https://firdovsimammedovk.github.io/tt-metal-sandbox/ttnn/ttnn/profiling_ttnn_operations.html",
-     "ttnn/tutorials.html": "https://firdovsimammedovk.github.io/tt-metal-sandbox/ttnn/ttnn/tutorials.html",
-     "ttnn/api/ttnn.synchronize_device.html": "https://firdovsimammedovk.github.io/tt-metal-sandbox/ttnn/ttnn/api/ttnn.synchronize_device.html",
+     "index": "https://docs.tenstorrent.com/tt-metal/latest/ttnn/",
+     "ttnn/about.html": "https://docs.tenstorrent.com/tt-metal/latest/ttnn/ttnn/about.html",
+     "ttnn/tensor.html": "https://docs.tenstorrent.com/tt-metal/latest/ttnn/ttnn/tensor.html",
+     "ttnn/get_started.html": "https://docs.tenstorrent.com/tt-metal/latest/ttnn/ttnn/get_started.html",
+     "ttnn/profiling_ttnn_operations.html": "https://docs.tenstorrent.com/tt-metal/latest/ttnn/ttnn/profiling_ttnn_operations.html",
+     "ttnn/tutorials.html": "https://docs.tenstorrent.com/tt-metal/latest/ttnn/ttnn/tutorials.html",
+     "ttnn/api/ttnn.synchronize_device.html": "https://docs.tenstorrent.com/tt-metal/latest/ttnn/ttnn/api/ttnn.synchronize_device.html",
 }

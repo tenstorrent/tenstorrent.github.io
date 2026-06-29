@@ -36,12 +36,12 @@ redirects = {
     "systems/t3000/support": "index.html#support",
     "aibs/blackhole/installation": "index.html#hardware-installation",
     "aibs/blackhole/specifications": "index.html#specifications-and-requirements",
-    "aibs/blackhole/support": "index.html#troubleshooting-common-hardware-issues",
+    "aibs/blackhole/support": "index.html#faq-and-troubleshooting",
     "aibs/wormhole/installation": "index.html#hardware-installation",
-    "aibs/wormhole/specifications": "index.html#specifications-requirements",
+    "aibs/wormhole/specifications": "index.html#specificationsrequirements",
 }
 
-html_baseurl = "https://firdovsimammedovk.github.io/tenstorrent-sandbox/"
+html_baseurl = "https://docs.tenstorrent.com/"
 sitemap_filename = "sitemap_core.xml"
 sitemap_locales = [None]
 sitemap_url_scheme = "{link}"
@@ -77,10 +77,14 @@ html_theme_options = {
 html_logo = "../shared/images/tt_logo.svg"
 html_favicon = "../shared/images/favicon.png"
 html_static_path = ['../shared/_static', '_static/assets', '_static/js']
+# Files copied verbatim to the build output root (no Sphinx processing).
+# `_extra/` holds llms.txt and AGENTS.md so they serve at docs.tenstorrent.com/llms.txt
+# and /AGENTS.md. See core/_extra/AGENTS.md "Maintenance" for how to regenerate them.
+html_extra_path = ['_extra']
 html_js_files = ['custom.js']  # posthog.js now loaded site-wide via shared/_templates/layout.html
 html_last_updated_fmt = "%b %d, %Y"
 
-_BASE = "https://firdovsimammedovk.github.io/tenstorrent-sandbox/"
+_BASE = "https://docs.tenstorrent.com/"
 
 html_context = {
     # Respect the `homepage` env var (Makefile sets "/" locally; build_docs.py

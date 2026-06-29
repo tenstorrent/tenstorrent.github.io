@@ -14,14 +14,14 @@ the lower layers are available when you need finer control.
          <span class="tt-doc-card-desc">End-to-end MLIR compiler. Compile models from PyTorch, JAX, and ONNX — the recommended entry point.</span>
        </span>
      </a>
-     <a class="tt-doc-card" href="https://firdovsimammedovk.github.io/tt-metal-sandbox/ttnn/" target="_blank" rel="noopener">
+     <a class="tt-doc-card" href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/" target="_blank" rel="noopener">
        <span class="tt-doc-card-img"><img src="../_static/home/tt-nn.png" alt="TT-NN" /></span>
        <span class="tt-doc-card-text">
          <span class="tt-doc-card-title">TT-NN&trade;</span>
          <span class="tt-doc-card-desc">High-level Python API of pre-optimized neural-network operations.</span>
        </span>
      </a>
-     <a class="tt-doc-card" href="https://firdovsimammedovk.github.io/tt-lang-sandbox/" target="_blank" rel="noopener">
+     <a class="tt-doc-card" href="https://docs.tenstorrent.com/tt-lang/" target="_blank" rel="noopener">
        <span class="tt-doc-card-img"><img src="../_static/home/tt-lang.png" alt="TT-Lang" /></span>
        <span class="tt-doc-card-text">
          <span class="tt-doc-card-title">TT-Lang&trade;</span>
@@ -35,7 +35,7 @@ the lower layers are available when you need finer control.
          <span class="tt-doc-card-desc">MLIR-based backend compiler infrastructure that lowers models onto Tenstorrent hardware.</span>
        </span>
      </a>
-     <a class="tt-doc-card" href="https://firdovsimammedovk.github.io/tt-metal-sandbox/tt-metalium/" target="_blank" rel="noopener">
+     <a class="tt-doc-card" href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/" target="_blank" rel="noopener">
        <span class="tt-doc-card-img"><img src="../_static/home/tt-metalium.png" alt="TT-Metalium" /></span>
        <span class="tt-doc-card-text">
          <span class="tt-doc-card-title">TT-Metalium&trade;</span>

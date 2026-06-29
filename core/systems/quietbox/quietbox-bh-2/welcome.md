@@ -589,7 +589,7 @@ canvas.qb2-chip-canvas {
       </div>
       <div class="qb2-intent-row">
         <span class="qb2-intent-label">Train</span>
-        <span class="qb2-intent-val"><a href="https://firdovsimammedovk.github.io/tt-blacksmith-sandbox/" target="_blank" rel="noopener">TT-Blacksmith</a> &mdash; fine-tune or train from scratch on 4&times; Blackhole</span>
+        <span class="qb2-intent-val"><a href="https://docs.tenstorrent.com/tt-blacksmith/" target="_blank" rel="noopener">TT-Blacksmith</a> &mdash; fine-tune or train from scratch on 4&times; Blackhole</span>
       </div>
       <div class="qb2-lesson-area">
         <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cs-fundamentals-01-computer/">&#8594; CS Fundamentals</a>
@@ -648,12 +648,12 @@ canvas.qb2-chip-canvas {
       <tr>
         <td>TT-Metalium</td>
         <td>Low-level Tensix programming &mdash; C++ kernels on RISC-V cores</td>
-        <td><a href="https://firdovsimammedovk.github.io/tt-metal-sandbox/tt-metalium/">firdovsimammedovk.github.io/tt-metal-sandbox/tt-metalium</a></td>
+        <td><a href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/">docs.tenstorrent.com/tt-metal/latest/tt-metalium</a></td>
       </tr>
       <tr>
-        <td><a href="https://firdovsimammedovk.github.io/tt-blacksmith-sandbox/">TT-Blacksmith</a></td>
+        <td><a href="https://docs.tenstorrent.com/tt-blacksmith/">TT-Blacksmith</a></td>
         <td>Optimized training recipes &mdash; fine-tune and train models from scratch on QB2</td>
-        <td><a href="https://firdovsimammedovk.github.io/tt-blacksmith-sandbox/">firdovsimammedovk.github.io/tt-blacksmith-sandbox</a></td>
+        <td><a href="https://docs.tenstorrent.com/tt-blacksmith/">docs.tenstorrent.com/tt-blacksmith</a></td>
       </tr>
     </tbody>
   </table>

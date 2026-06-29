@@ -23,5 +23,5 @@ Compiler Stack
 
    TT-XLA <https://docs.tenstorrent.com/tt-xla/>
    TT-Forge-ONNX <https://docs.tenstorrent.com/tt-forge-onnx/>
-   TT-Blacksmith <https://firdovsimammedovk.github.io/tt-blacksmith-sandbox/>
+   TT-Blacksmith <https://docs.tenstorrent.com/tt-blacksmith/>
 

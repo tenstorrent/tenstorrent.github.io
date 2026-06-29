@@ -90,9 +90,9 @@ html_favicon = "../shared/images/favicon.png"
 html_static_path = ['../shared/_static']
 templates_path = ["../shared/_templates"]
 html_last_updated_fmt = "%b %d, %Y"
-html_baseurl = "https://firdovsimammedovk.github.io/tt-metal-sandbox/tt-metalium/"
+html_baseurl = "https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/"
 
-_BASE_METALIUM = "https://firdovsimammedovk.github.io/tenstorrent-sandbox/tt-metalium/"
+_BASE_METALIUM = "https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/"
 
 html_context = {
     "project_code": metal_sphinx_config.shortname,
@@ -111,6 +111,6 @@ breathe_projects = {"ttmetaldoxygen": "doxygen_build/xml/"}
 breathe_default_project = "ttmetaldoxygen"
 
 redirects = {
-     "index": "https://firdovsimammedovk.github.io/tt-metal-sandbox/tt-metalium/",
-     "get_started/get_started.html": "https://firdovsimammedovk.github.io/tt-metal-sandbox/tt-metalium/get_started/get_started.html"
+     "index": "https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/",
+     "get_started/get_started.html": "https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/get_started/get_started.html"
 }

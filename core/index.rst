@@ -31,10 +31,10 @@ Tenstorrent
 
    Overview <software/index>
    forge/index
-   TT-NN™ <https://firdovsimammedovk.github.io/tt-metal-sandbox/ttnn/>
-   TT-Lang™ <https://firdovsimammedovk.github.io/tt-lang-sandbox/>
+   TT-NN™ <https://docs.tenstorrent.com/tt-metal/latest/ttnn/>
+   TT-Lang™ <https://docs.tenstorrent.com/tt-lang/>
    TT-MLIR™ <https://docs.tenstorrent.com/tt-mlir/>
-   TT-Metalium™ <https://firdovsimammedovk.github.io/tt-metal-sandbox/tt-metalium/>
+   TT-Metalium™ <https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/>
    tools/index
 
 .. toctree::

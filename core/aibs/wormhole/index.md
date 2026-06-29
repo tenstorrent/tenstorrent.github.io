@@ -9,8 +9,9 @@ myst:
 # Wormhole™ PCIe Cards
 
 This page covers everything for the Tenstorrent Wormhole™ n150d/n150s/n300d/n300s
-PCIe add-in boards: how to install them and their full hardware specifications.
-Use the page navigation on the right to jump between sections.
+PCIe add-in boards: how to install them, their full hardware specifications, and
+answers to common hardware questions. Use the page navigation on the right to jump
+between sections.
 
 ## Hardware Installation
 
@@ -32,6 +33,10 @@ Follow these instructions to install your Tenstorrent Wormhole™ n150d/n150s/n3
       2. The n150s and n300s are dual-slot width cards and will require the adjacent expansion slot to be vacant if you're using the Active Cooling Kit.
       3. The n150d and n300d are 2.5-slot width cards with axial fan coolers. Please ensure your chassis has sufficient airflow to exhaust the heat from these cards.
    2. One (1) **EPS12V 4+4-pin power connector**
+      :::{note}
+      If your PSU does not have this connector available, see the [FAQ and Troubleshooting](#faq-and-troubleshooting) section to determine which adapter to use.
+      :::
+
 3. Discharge your body's static electricity by wearing an **ESD wrist strap** *(recommended)* or touching a grounded surface before touching system components or the add-in card.
 
 ### Desktop Workstation Installation
@@ -163,6 +168,25 @@ The Wormhole™ Tensix Processor add-in boards are designed to meet these enviro
 | Storage Temperature Range             | -40°C/-40°F - 75°C/167°F  |
 | Elevation                             | -5 ft. to 10,000 ft.      |
 | Air Flow (without Active Cooling Kit) | ≥30 CFM @ up to 35°C/95°F |
+
+## FAQ and Troubleshooting
+This document assists Tenstorrent users in resolving common issues encountered with Wormhole™ AI Processors. It provides solutions and directs users to appropriate support resources.
+
+### **What PSU and Connector should I use to connect my Wormhole card?**
+
+Tenstorrent Wormhole cards use 4+4-pin EPS12V power connectors and are designed for use with ATX 3.0 and 3.1-compliant Power Supply Units (PSUs) capable of supplying sufficient total power for the card and system configuration. Native PSU support via a 4+4-pin EPS12V connector is the recommended configuration.
+
+### **My PSU doesn't have an EPS12V power connector available. What adapter should I get for my Wormhole card?**
+
+If a native EPS12V connector is not available, the card may be powered using a PSU-manufacturer-approved adapter, including PCIe 6+2-pin to EPS12V adapters, provided the combined power delivery meets the card's total power requirements. Each input cable must be connected to a separate PSU output.
+
+Many PSU manufacturers use proprietary power cable kits to prevent incorrect connections. 8-pin EPS12V and 8-pin PCIe power connectors are not interchangeable and must not be substituted for one another, as they use different grounding and pin assignments.
+
+The Wormhole cards require 160W (n150)/300W (n300) of power to function. Ensure that the combination of PSU outputs meets this requirement, and that the total load on your PSU does not exceed the total PSU output power.
+
+Do not use 12VHPWR cables, even with an adapter, for Wormhole cards. The 12VHPWR connector is physically incompatible and electrically unsafe for EPS12V devices. Only PSU-manufacturer-supplied or approved EPS12V cables or adapters should be used to avoid overheating, connector damage, or other hardware failure.
+
+For safe operation, the EPS12V connector must be fully seated, and tight bends near the connector should be avoided.
 
 ## Accessories
 

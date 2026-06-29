@@ -79,7 +79,7 @@ If you don’t see all eight accelerators listed, please raise a support request
 
 ## Step 4: Installing the Tenstorrent Software Stack
 
-After completing the operating system installation and firmware update, proceed with [Installing the Tenstorrent Software Stack](https://firdovsimammedovk.github.io/tenstorrent-sandbox/getting-started/README.html).
+After completing the operating system installation and firmware update, proceed with [Installing the Tenstorrent Software Stack](https://docs.tenstorrent.com/getting-started/README.html).
 
 ## Need Additional Support?
 
