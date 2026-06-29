@@ -1,0 +1,19 @@
+{
+  "name": "tt-kapa-chat",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bundled inline Ask AI chat (Kapa SDK + React) for the docs search modal.",
+  "scripts": {
+    "build": "esbuild entry.jsx --bundle --format=iife --minify --target=es2019 --jsx=automatic --define:process.env.NODE_ENV='\"production\"' --outfile=../../shared/_static/tt-kapa-chat.js"
+  },
+  "dependencies": {
+    "@kapaai/react-sdk": "^0.10.4",
+    "dompurify": "^3.4.11",
+    "marked": "^18.0.5",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.1"
+  }
+}

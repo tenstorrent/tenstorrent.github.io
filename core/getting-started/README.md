@@ -6,7 +6,7 @@ myst:
     document-type: how-to
 ---
 
-# Installing the Tenstorrent Software Stack
+# Installing Tenstorrent Software
 
 This guide assists users who have completed the physical hardware setup of their Tenstorrent system. You will learn how to install the Tenstorrent software stack, including system dependencies, drivers, and the TT-Metalium™ development environment, and how to verify the installation.
 
@@ -92,7 +92,7 @@ Next, the installation will start and ask you to grant the script sudo permissio
 :::
 
 ### **3\. Install TT-Metalium Slim Container**
-tt-installer configures necessary packages on your system and installs system-level tools as well as our programming framework, TT-Metalium. By default, TT-Metalium is installed as a container using Podman. This containerized environment is appropriate for most users as explained [here](https://github.com/tenstorrent/tt-installer/wiki/Using-the-tt%E2%80%90metalium-container), but advanced users and developers may wish to install Metalium natively on the host system or use Docker instead of Podman. See [TT-NN / TT-Metalium Installation](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/installing.html#tt-nn-tt-metalium-installation) for manual installation instructions.
+tt-installer configures necessary packages on your system and installs system-level tools as well as our programming framework, TT-Metalium. By default, TT-Metalium is installed as a container using Podman. This containerized environment is appropriate for most users as explained [here](https://github.com/tenstorrent/tt-installer/wiki/Using-the-tt%E2%80%90metalium-container), but advanced users and developers may wish to install Metalium natively on the host system or use Docker instead of Podman. See [TT-NN / TT-Metalium Installation](https://docs.tenstorrent.com/tt-metalium/installing.html#tt-nn-tt-metalium-installation) for manual installation instructions.
 
 Next, you will be prompted whether to install the TT-Metalium slim container:
 ```
@@ -205,7 +205,6 @@ For advanced users or developers who prefer alternative installation methods for
 After tt-installer finishes successfully and you have restarted your system, you can proceed how you like. You may want to:
 
 * [Deploy and serve models with TT-Inference-Server](./vLLM-servers.md) — the recommended path for running LLMs. The [tt-inference-server repository](https://github.com/tenstorrent/tt-inference-server) is the authoritative source for which models are validated on your hardware.
-* [Run model demos](./model-demos.md) — pre-built demonstrations of popular models like Llama, Whisper, Stable Diffusion and ResNet.
 * [Monitor your hardware with TT-SMI and TT-Toplike](https://docs.tenstorrent.com/tt-toplike/) — run `tt-smi` for a status snapshot, or `tt-toplike` for a live view of power, temperature, and core activity while a model serves requests.
 * [Use TT-Studio](https://github.com/tenstorrent/tt-studio) for a point-and-click web interface over TT-Inference-Server.
 * Understand the [Tenstorrent software stack](./tt-software-stack.md) — how TT-Forge™, TT-NN™, and TT-Metalium™ relate to each other.

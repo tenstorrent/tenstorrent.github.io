@@ -10,7 +10,7 @@ templates_path = ['../shared/_templates']
 exclude_patterns = []
 extensions = ['myst_parser', 'sphinx_sitemap']
 
-html_baseurl = "https://docs.tenstorrent.com/syseng/latest/"
+html_baseurl = "https://docs.tenstorrent.com/syseng/"
 sitemap_locales = [None]
 sitemap_url_scheme = "{link}"
 
@@ -22,7 +22,7 @@ html_theme_options = {
     'display_version': True,
     'style_external_links': True,
     # Toc options
-    'collapse_navigation': True,
+    'collapse_navigation': False,
     'sticky_navigation': True,
     'navigation_depth': 4,
     'includehidden': True,
@@ -33,17 +33,13 @@ html_logo = "../shared/images/tt_logo.svg"
 html_favicon = "../shared/images/favicon.png"
 html_static_path = ['../shared/_static']
 
-with open("../versions.yml", "r") as yaml_file:
-    versions = yaml.safe_load(yaml_file)["syseng"]
+_BASE_SYSENG = "https://docs.tenstorrent.com/syseng/"
 
+# Single-version site: published at a flat path, no version switcher.
 html_context = {
-    "versions": versions,
     "project_code": "syseng",
-    "current_version": os.environ.get("current_version"),
     "logo_link_url": os.environ.get("homepage")
 }
-
-version = os.environ.get("current_version")
 
 def setup(app):
     app.add_css_file("tt_theme.css")

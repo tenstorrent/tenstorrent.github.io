@@ -10,10 +10,23 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-24.04
+    environment: github-pages
+    env:
+      # OpenSearch-backed docs search service (see scripts/index_remote_search.py).
+      SEARCH_API_BASE: https://csl860x2oj.execute-api.us-east-2.amazonaws.com/prod
+      DOC_CATALOG_SOURCE_ID: docs-tenstorrent
+      DOC_SITE_BASE_URL: https://docs.tenstorrent.com
+      DOCS_ID_NAMESPACE: tenstorrent
+      DOCS_INDEX_VERSION: latest
+      DOCS_OUTPUT_DIR: output
+      DOCS_SEARCH_INGEST_API_KEY: ${{ secrets.DOCS_SEARCH_INGEST_API_KEY_DOCS_TENSTORRENT }}
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          fetch-tags: true
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -51,10 +64,22 @@ jobs:
         run: |
           source .docs-env/bin/activate
           python build_docs.py
-      - name: Make root index.html
+      - name: Make root index.html and nojekyll
         run: |
           touch output/index.html
+          touch output/.nojekyll
           echo -n "docs.tenstorrent.com" > output/CNAME
+      - name: Warn if remote search ingest key is missing
+        if: ${{ env.DOCS_SEARCH_INGEST_API_KEY == '' }}
+        run: |
+          echo "::warning::Skipping OpenSearch indexing because DOCS_SEARCH_INGEST_API_KEY_DOCS_TENSTORRENT is not set."
+      - name: Index docs into OpenSearch
+        if: ${{ env.DOCS_SEARCH_INGEST_API_KEY != '' }}
+        # Best-effort: a search-API hiccup must never block the docs deploy.
+        continue-on-error: true
+        run: |
+          source .docs-env/bin/activate
+          python scripts/index_remote_search.py
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
