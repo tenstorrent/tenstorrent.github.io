@@ -166,6 +166,12 @@ The Blackhole™ Tensix Processor cards are designed to meet these environmental
 ## FAQ and Troubleshooting
 This document assists Tenstorrent users in resolving common issues encountered with Blackhole™ AI Processors. It provides solutions and directs users to appropriate support resources.
 
+### **How do I choose between the Tenstorrent Blackhole™ p100a/p150a/p150b?**
+
+- **p100a:** This card is the economical entry point in the Blackhole™ product stack and exists for users looking to evaluate Tenstorrent technology. It features 28 GB of GDDR6 and an **active cooling solution** that conforms to industry PCI specifications, and is intended for **single card operation** in **conventional desktop systems**.
+- **p150a:** This card provides additional local memory (32 GB) compared to p100a and slightly higher compute density. It also features four passive 800 Gbps QSFP-DD ports used for networking with other Tenstorrent Blackhole™ p150a/p150b cards.  It features an **active cooling solution** that conforms to industry PCI specifications, and is intended for **single- or multi-card operation** in **conventional desktop systems**.
+- **p150b:** This card features identical specifications to p150a, but features a **passive cooling solution** that conforms to industry PCI specifications, and is intended for **single- or multi-card operation** in **rack-mounted servers** with **existing high static pressure, forced air cooling**.
+
 ### **What PSU and Connector should I use to connect my Blackhole card?**
 
 Tenstorrent Blackhole cards use a 12V-2x6 (12+4-pin) power connector and are designed for use with ATX 3.1-certified or newer Power Supply Units (PSUs). Native PSU support via a 12V-2x6 connector is the recommended configuration.
@@ -181,12 +187,6 @@ The Blackhole cards require 300W of power to function. Ensure that the combinati
 To ensure electrical compatibility and prevent hardware damage, only power cables and adapters supplied or explicitly approved by the PSU manufacturer should be used. Many PSU manufacturers key the connectors so that only their power connector works. The power connector must be fully seated, and tight bends near the connector should be avoided.
 
 Use of older 12VHPWR cables is not recommended, even though they are physically compatible with the 12V-2x6 connector. The 12V-2x6 standard replaced 12VHPWR to reduce the risk of overheating (and melting) associated with improper connector seating.
-
-### **How do I choose between the Tenstorrent Blackhole™ p100a/p150a/p150b?**
-
-- **p100a:** This card is the economical entry point in the Blackhole™ product stack and exists for users looking to evaluate Tenstorrent technology. It features 28 GB of GDDR6 and an **active cooling solution** that conforms to industry PCI specifications, and is intended for **single card operation** in **conventional desktop systems**.
-- **p150a:** This card provides additional local memory (32 GB) compared to p100a and slightly higher compute density. It also features four passive 800 Gbps QSFP-DD ports used for networking with other Tenstorrent Blackhole™ p150a/p150b cards.  It features an **active cooling solution** that conforms to industry PCI specifications, and is intended for **single- or multi-card operation** in **conventional desktop systems**.
-- **p150b:** This card features identical specifications to p150a, but features a **passive cooling solution** that conforms to industry PCI specifications, and is intended for **single- or multi-card operation** in **rack-mounted servers** with **existing high static pressure, forced air cooling**.
 
 ### **Which QSFP cable(s) should I purchase for my Tenstorrent Blackhole™ cards?**
 
