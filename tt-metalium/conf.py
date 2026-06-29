@@ -85,6 +85,11 @@ exclude_patterns = []
 # a list of builtin themes.
 #
 html_theme = "sphinx_rtd_theme"
+html_theme_options = {
+    "collapse_navigation": False,
+    "titles_only": True,
+    "navigation_depth": 2,
+}
 html_logo = "../shared/images/tt_logo.svg"
 html_favicon = "../shared/images/favicon.png"
 html_static_path = ['../shared/_static']
@@ -100,7 +105,8 @@ html_context = {
     "versions": list(versions["versions"].keys()),
     "project_code": metal_sphinx_config.shortname,
     "current_version": os.environ.get("current_version"),
-    "logo_link_url": os.environ.get("homepage")
+    "logo_link_url": os.environ.get("homepage") or "https://docs.tenstorrent.com/",
+    "search_site_base_url": "https://docs.tenstorrent.com/",
 }
 
 version = os.environ.get("current_version")
