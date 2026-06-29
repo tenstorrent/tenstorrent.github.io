@@ -21,11 +21,12 @@ html_theme = "sphinx_rtd_theme"
 html_theme_options = {
     'display_version': True,
     'style_external_links': True,
-    'collapse_navigation': False,
+    # Toc options
+    'collapse_navigation': True,
     'sticky_navigation': True,
-    'navigation_depth': 2,
+    'navigation_depth': 4,
     'includehidden': True,
-    'titles_only': True,
+    'titles_only': False
 }
 
 html_logo = "../shared/images/tt_logo.svg"
@@ -39,8 +40,7 @@ html_context = {
     "versions": versions,
     "project_code": "syseng",
     "current_version": os.environ.get("current_version"),
-    "logo_link_url": os.environ.get("homepage") or "https://docs.tenstorrent.com/",
-    "search_site_base_url": "https://docs.tenstorrent.com/",
+    "logo_link_url": os.environ.get("homepage")
 }
 
 version = os.environ.get("current_version")
