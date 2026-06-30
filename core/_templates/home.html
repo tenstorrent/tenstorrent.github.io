@@ -123,8 +123,12 @@
     .hero-right {
       display: flex;
       gap: 40px;
+      /* width acts as the preferred size; allow shrinking so the cards don't
+         overflow the hero's side padding in the ~1281–1383px range, where the
+         fixed 663px width + the 520px hero-left no longer both fit. */
       width: 663px;
-      flex-shrink: 0;
+      flex-shrink: 1;
+      min-width: 0;
       align-self: center;
     }
 
@@ -248,8 +252,12 @@
     }
 
     .cards-grid {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      /* Auto-fill responsive columns: cards stretch to fill their row and only
+         drop a column once they'd shrink below ~320px. This keeps 3-up across a
+         wide viewport range instead of snapping to 2-up the moment a rigid
+         360px card no longer fits. min(100%, …) prevents overflow on phones. */
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
       gap: 32px;
     }
 
@@ -257,13 +265,11 @@
     .card {
       display: flex;
       gap: 16px;
-      width: 360px;
       padding: 16px;
       border-radius: 8px;
       border: 1px solid #c7d9d8;
       background: #fff;
       text-decoration: none;
-      flex-shrink: 0;
       transition: box-shadow 150ms ease;
     }
 
@@ -432,7 +438,6 @@
       .hero-right { width: 100%; }
       .hero-search { width: 100%; }
       .page-wrap { padding: 60px 40px; }
-      .card { width: calc(50% - 16px); }
     }
 
     @media (max-width: 768px) {
@@ -446,7 +451,6 @@
       .hero-right { flex-direction: column; gap: 16px; }
       .page-wrap { padding: 40px 24px; }
       .sections-list { gap: 32px; }
-      .card { width: 100%; }
     }
   </style>
 </head>
