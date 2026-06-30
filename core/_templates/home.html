@@ -99,6 +99,10 @@
       text-overflow: ellipsis;
     }
 
+    /* On narrow viewports the full prompt overflows the box, so swap it for a
+       short "Search" label (toggled in the max-width: 768px block below). */
+    .hero-search-text-short { display: none; }
+
     .hero-search-kbd {
       font-family: inherit;
       font-size: 12px;
@@ -434,8 +438,11 @@
     @media (max-width: 768px) {
       .navbar-links { display: none; }
       .navbar-right { gap: 12px; }
-      .hero-inner { padding: 60px 24px; }
+      /* Top padding must clear the 72px fixed navbar (was 60px → title overlapped). */
+      .hero-inner { padding: 96px 24px 60px; }
       .hero-title { font-size: 40px; }
+      .hero-search-text-full { display: none; }
+      .hero-search-text-short { display: inline; }
       .hero-right { flex-direction: column; gap: 16px; }
       .page-wrap { padding: 40px 24px; }
       .sections-list { gap: 32px; }
@@ -460,7 +467,10 @@
             <circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.4"/>
             <path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
           </svg>
-          <span class="hero-search-placeholder">Ask anything about Tenstorrent hardware and software</span>
+          <span class="hero-search-placeholder">
+            <span class="hero-search-text-full">Ask anything about Tenstorrent hardware and software</span>
+            <span class="hero-search-text-short">Search</span>
+          </span>
           <kbd class="hero-search-kbd">⌘K</kbd>
         </div>
       </div>

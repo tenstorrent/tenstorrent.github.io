@@ -1074,11 +1074,20 @@ body.tt-search-locked { overflow: hidden; }
   padding: 4px 8px;
 }
 
-@media screen and (max-width: 768px) {
-  /* Navbar: collapse desktop links/search, show hamburger */
-  .tt-nav-links { display: none; }
+/* Between the mobile breakpoint and ~1100px the fixed-width search box and the
+   nav links run out of room and overlap (the right group shrinks but the 220px
+   search box doesn't). Drop the navbar search here — ⌘K still opens it, and the
+   homepage keeps its own hero search. */
+@media screen and (max-width: 1100px) {
   .tt-nav-search-form { display: none; }
-  .tt-nav-actions { display: none; }
+}
+
+/* Below ~900px the desktop top-nav links crowd the Explore CTA, so collapse them
+   into the hamburger here — earlier than the ≤768px content/sidebar breakpoint.
+   Explore stays visible; the secondary Github link drops to make room. */
+@media screen and (max-width: 900px) {
+  .tt-nav-links { display: none; }
+  .tt-nav-btn-github { display: none; }
   .tt-nav-hamburger { display: block; }
   .tt-top-nav { padding: 0 16px; }
   .tt-top-nav-right { gap: 12px; }
