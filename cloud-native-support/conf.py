@@ -5,7 +5,7 @@ import os
 from pathlib import Path
 
 project = "Cloud-Native Support"
-copyright = "2025, Tenstorrent"
+copyright = "2026, Tenstorrent"
 author = "Tenstorrent"
 html_title = "Cloud-Native Support"
 

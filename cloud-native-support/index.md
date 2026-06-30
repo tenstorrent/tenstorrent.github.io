@@ -2,7 +2,7 @@
 
 Run Tenstorrent accelerators on Kubernetes. `tt-operator` is the umbrella Helm
 chart that installs and coordinates the components below. Each component
-maintains and publishes its own documentation; follow a link to get started.
+maintains and publishes its own documentation. Follow a link to get started.
 
 ```{toctree}
 :hidden:
