@@ -103,6 +103,7 @@ Self-contained, hands-on lessons from the [TT Developer Toolkit](https://docs.te
 - [Systems](https://docs.tenstorrent.com/systems/index.html): Pre-built desktop and server systems — setup, specs, support
   - [TT-LoudBox (Blackhole)](https://docs.tenstorrent.com/systems/loudbox-bh/index.html): LoudBox workstation setup, OS setup, and specifications
   - [TT-QuietBox 2 (Blackhole)](https://docs.tenstorrent.com/systems/quietbox/quietbox-bh-2/index.html): QuietBox 2 — 4× P300c, welcome guide, setup, and specs
+    - [TT-QuietBox 2 Guide (handbook)](https://docs.tenstorrent.com/tt-quietbox2-guide/): The complete QuietBox 2 handbook — first boot to confident daily use: setup & first run, system access & management, workloads & development, troubleshooting & recovery, and reference
   - [T3000](https://docs.tenstorrent.com/systems/t3000/index.html): T3000 server system specifications and support
   - [T1000](https://docs.tenstorrent.com/systems/t1000/index.html): T1000 system specifications and support
   - [T7000](https://docs.tenstorrent.com/systems/t7000/index.html): T7000 system specifications and support

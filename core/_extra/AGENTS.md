@@ -43,6 +43,7 @@ project's own docs, trust the project's docs and treat this as orientation.
 | `/tt-CableGen/` | `tt-CableGen` | Scale-out cabling generator |
 | `/tt-system-firmware/` | `tt-system-firmware` | System firmware docs |
 | `/tt-vscode-toolkit/` | `tt-vscode-toolkit` | VS Code extension + lessons |
+| `/tt-quietbox2-guide/` | `tt-quietbox2-guide` | Complete QuietBox 2 handbook (setup → daily use) |
 | `/riescue/`, `/riscv-coretp/` | `riescue`, `riscv-coretp` | RISC-V test framework / core test plan |
 | `/tt-animatediff/`, `/tt-local-generator/` | (same names) | Generative-AI demos |
 | `/tt-awesome/` | `tt-awesome` | Curated ecosystem list |
