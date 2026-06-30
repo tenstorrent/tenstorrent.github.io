@@ -191,9 +191,13 @@
 </a>
 {%- endif %}
 
+{%- if cns_component is defined and cns_component %}
+<a href="https://docs.tenstorrent.com/cloud-native-support/">Cloud-Native Support</a>
+{%- else %}
 <a href="{{ pathto(_root_doc) }}">
     {{ project }}
 </a>
+{%- endif %}
 
 {%- endblock %}
 
@@ -235,7 +239,6 @@
       | replace('toctree-l3', 'toctree-l4')
       | replace('toctree-l2', 'toctree-l3')
       | replace('toctree-l1', 'toctree-l2') %}
-<p class="caption" role="heading"><span class="caption-text">Cloud-Native Support</span></p>
 <ul>
 {%- for c in cns_items %}
 {%- set primary_current = (c.code == cns_component and c.primary and not ns.subpage_active) %}
