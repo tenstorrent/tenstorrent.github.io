@@ -2,20 +2,8 @@
 
 Run Tenstorrent accelerators on Kubernetes. `tt-operator` is the umbrella Helm
 chart that installs and coordinates the components below. Each component
-maintains and publishes its own documentation. Follow a link to get started.
-
-```{toctree}
-:hidden:
-
-TT-Operator <https://docs.tenstorrent.com/tt-operator/>
-Node Feature Discovery <https://docs.tenstorrent.com/tt-operator/components/node-feature-discovery.html>
-Driver Manager <https://docs.tenstorrent.com/tt-k8s-driver-manager/>
-Firmware <https://docs.tenstorrent.com/tt-k8s-driver-manager/firmware.html>
-Telemetry <https://docs.tenstorrent.com/tt-telemetry/>
-Fabric Manager (beta) <https://docs.tenstorrent.com/tt-fabric-manager/>
-Device Allocation (beta) <https://docs.tenstorrent.com/tt-dra-driver/>
-Multi-Node Scheduling (beta) <https://docs.tenstorrent.com/tt-operator/components/multi-node.html>
-```
+maintains and publishes its own documentation. Use the sidebar or a link below
+to get started.
 
 ## Get started
 

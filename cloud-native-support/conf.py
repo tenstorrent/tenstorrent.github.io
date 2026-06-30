@@ -31,6 +31,9 @@ html_last_updated_fmt = "%b %d, %Y"
 
 _BASE = "https://docs.tenstorrent.com/"
 html_context = {
+    # Sentinel: renders the CNS switcher with no component expanded (the hub
+    # is not one of the components).
+    "cns_component": "cloud-native-support",
     "logo_link_url": os.environ.get("homepage") or _BASE,
     "search_site_base_url": _BASE,
 }
