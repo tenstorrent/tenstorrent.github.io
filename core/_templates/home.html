@@ -304,6 +304,26 @@
       min-width: 0;
     }
 
+    /* Software section: icon inline with title on top, description full-width below */
+    #software .card {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    #software .card-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    #software .card-icon {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+      object-fit: contain;
+      pointer-events: none;
+    }
+
     .card-title {
       color: #092221;
       font-size: 16px !important;
@@ -572,58 +592,46 @@
         <h2><a class="section-link" href="software/index.html"><span class="section-link-text">Software</span><span class="section-link-arrow" aria-hidden="true">→</span></a></h2>
         <div class="cards-grid">
           <a href="forge/index.html" class="card">
-            <div class="card-img">
-              <img src="_static/home/tt-forge.png" alt="TT-Forge™" />
-            </div>
-            <div class="card-text">
+            <div class="card-head">
+              <img class="card-icon" src="_static/svg/tt-forge.svg" alt="TT-Forge™" />
               <p class="card-title">TT-Forge™</p>
-              <p class="card-desc">End-to-end MLIR compiler. Compile models from PyTorch, JAX, and ONNX — the recommended entry point.</p>
             </div>
+            <p class="card-desc">End-to-end MLIR compiler. Compile models from PyTorch, JAX, and ONNX.</p>
           </a>
           <a href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/" target="_blank" rel="noopener" class="card">
-            <div class="card-img">
-              <img src="_static/home/tt-nn.png" alt="TT-NN™" />
-            </div>
-            <div class="card-text">
+            <div class="card-head">
+              <img class="card-icon" src="_static/svg/tt-nn.svg" alt="TT-NN™" />
               <p class="card-title">TT-NN™</p>
-              <p class="card-desc">High-level Python API of pre-optimized neural-network operations.</p>
             </div>
+            <p class="card-desc">High-level Python API of pre-optimized neural-network operations.</p>
           </a>
           <a href="https://docs.tenstorrent.com/tt-lang/" target="_blank" rel="noopener" class="card">
-            <div class="card-img">
-              <img src="_static/home/tt-lang.png" alt="TT-Lang™" />
-            </div>
-            <div class="card-text">
+            <div class="card-head">
+              <img class="card-icon" src="_static/svg/tt-lang.svg" alt="TT-Lang™" />
               <p class="card-title">TT-Lang™</p>
-              <p class="card-desc">Python DSL for authoring fused custom operations.</p>
             </div>
+            <p class="card-desc">Python DSL for authoring fused custom operations.</p>
           </a>
           <a href="https://docs.tenstorrent.com/tt-mlir/" target="_blank" rel="noopener" class="card">
-            <div class="card-img">
-              <img src="_static/home/tt-mlir.png" alt="TT-MLIR™" />
-            </div>
-            <div class="card-text">
+            <div class="card-head">
+              <img class="card-icon" src="_static/svg/tt-mlir.svg" alt="TT-MLIR™" />
               <p class="card-title">TT-MLIR™</p>
-              <p class="card-desc">MLIR-based backend compiler infrastructure that lowers models onto Tenstorrent hardware.</p>
             </div>
+            <p class="card-desc">MLIR-based backend compiler infrastructure that lowers models onto Tenstorrent hardware.</p>
           </a>
           <a href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/" target="_blank" rel="noopener" class="card">
-            <div class="card-img">
-              <img src="_static/home/tt-metalium.png" alt="TT-Metalium™" />
-            </div>
-            <div class="card-text">
+            <div class="card-head">
+              <img class="card-icon" src="_static/svg/tt-metalium.svg" alt="TT-Metalium™" />
               <p class="card-title">TT-Metalium™</p>
-              <p class="card-desc">Low-level C++ SDK for writing custom kernels on Tensix cores.</p>
             </div>
+            <p class="card-desc">Low-level C++ SDK for writing custom kernels on Tensix cores.</p>
           </a>
           <a href="https://docs.tenstorrent.com/cloud-native-support/" target="_blank" rel="noopener" class="card">
-            <div class="card-img">
-              <img src="_static/home/cloud-native-support.svg" alt="Cloud-Native Support" />
-            </div>
-            <div class="card-text">
+            <div class="card-head">
+              <img class="card-icon" src="_static/home/cloud-native-support.svg" alt="Cloud-Native Support" />
               <p class="card-title">Cloud-Native Support</p>
-              <p class="card-desc">Run Tenstorrent accelerators on Kubernetes — install, configure, and operate the device stack.</p>
             </div>
+            <p class="card-desc">Run Tenstorrent accelerators on Kubernetes — install, configure, and operate the device stack.</p>
           </a>
         </div>
       </div>
