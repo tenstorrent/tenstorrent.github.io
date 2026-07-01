@@ -1,6 +1,6 @@
 # Tenstorrent Galaxy (Blackhole)
 
-Download the Tenstorrent Galaxy<sup class="tm">™</sup> (Blackhole<sup>®</sup>) complete user guide here:
+Download the Tenstorrent Galaxy<sup class="tm">™</sup> (Blackhole<sup class="reg">®</sup>) complete user guide here:
 
 [Tenstorrent Galaxy (Blackhole) User Guide (PDF)](galaxy-blackhole.pdf) - Version 1.4. Last Updated: June 30, 2026
 
