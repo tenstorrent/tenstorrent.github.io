@@ -87,12 +87,12 @@
   document.addEventListener('DOMContentLoaded', init);
   document.addEventListener('DOMContentLoaded', initSidebarCarets);
 
-  // ── Sidebar carets: independent expand/collapse ───────────────────────────
+  // ── Sidebar carets: in-place expand/collapse ──────────────────────────────
   // collapse_navigation is False, so every parent's subtree is in the DOM and
-  // CSS folds them (.tt-open expands). Seed the active path open, then toggle
-  // .tt-open when the caret zone (right edge of a parent row) is clicked — each
-  // branch independent, click again to collapse, opening one never closes
-  // another. Clicks on the rest of the row still navigate as normal.
+  // CSS folds them (.tt-open expands). Clicking a parent row toggles its branch
+  // in place with no navigation, so the tree never reloads. Each branch is
+  // independent; opening one never closes another. Leaf items (real page links)
+  // navigate as normal.
   function initSidebarCarets() {
     var menu = document.querySelector('.wy-menu-vertical');
     if (!menu) return;
@@ -104,23 +104,25 @@
       return false;
     }
 
-    // Seed: expand the active path (RTD marks the current page + its ancestors).
+    // Seed the active path (RTD marks the current page + its ancestors) with
+    // caret transitions suppressed, so seeded carets snap to their angle instead
+    // of animating 0->90deg when a leaf-link navigation reloads the page (which
+    // reads as the caret rotating away and back).
+    menu.classList.add('tt-seeding');
     menu.querySelectorAll('li.current').forEach(function (li) {
       if (hasChildUl(li)) li.classList.add('tt-open');
     });
+    void menu.offsetWidth; // force reflow so the snapped state commits
+    menu.classList.remove('tt-seeding');
 
-    // The caret is the ::after on the parent <a>; treat the right 34px as its
-    // hit zone so the rest of the label still navigates.
+    // Parent rows toggle their branch in place; no navigation, no reload.
     menu.querySelectorAll('li > a').forEach(function (a) {
       var li = a.parentElement;
       if (!hasChildUl(li)) return;
       a.addEventListener('click', function (e) {
-        var rect = a.getBoundingClientRect();
-        if (e.clientX >= rect.right - 34) {
-          e.preventDefault();
-          e.stopPropagation();
-          li.classList.toggle('tt-open');
-        }
+        e.preventDefault();
+        e.stopPropagation();
+        li.classList.toggle('tt-open');
       });
     });
   }
