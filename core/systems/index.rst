@@ -24,9 +24,8 @@ Blackhole
      <a class="tt-doc-card" href="galaxy-blackhole/index.html">
        <span class="tt-doc-card-img"><img src="../_static/home/galaxy-blackhole.png" alt="Galaxy (Blackhole)" /></span>
        <span class="tt-doc-card-text">
-         <span class="tt-doc-card-title">Tenstorret Galaxy (Blackhole)</span>
+         <span class="tt-doc-card-title">Tenstorrent Galaxy (Blackhole)</span>
          <span class="tt-doc-card-desc">Scalable, enterprise-class AI server.</span>
-       </span>
      </a>
    </div>
 
