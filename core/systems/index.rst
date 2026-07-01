@@ -53,7 +53,7 @@ Wormhole
      <a class="tt-doc-card" href="galaxy-wormhole/index.html">
        <span class="tt-doc-card-img"><img src="../_static/home/galaxy-wormhole.png" alt="Galaxy (Wormhole)" /></span>
        <span class="tt-doc-card-text">
-         <span class="tt-doc-card-title">TenstorrentGalaxy (Wormhole)</span>
+         <span class="tt-doc-card-title">Tenstorrent Galaxy (Wormhole)</span>
          <span class="tt-doc-card-desc">Scalable, enterprise-class AI server.</span>
        </span>
      </a>
