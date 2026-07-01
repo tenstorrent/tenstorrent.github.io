@@ -29,7 +29,9 @@ Physical and software setup for Tenstorrent workstation and server solutions:
 
 - [**QuietBox Workstation**](./systems/quietbox/README.md)
 
-- [**Galaxy Wormhole 4U Server**](./galaxy4U/README.md)
+- [**Galaxy (Blackhole) 4U Server**](./systems/galaxy-blackhole/index.md)
+
+- [**Galaxy (Wormhole) 4U Server**](./systems/galaxy-wormhole/index.md)
 
   
 

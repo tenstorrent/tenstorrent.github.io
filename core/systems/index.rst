@@ -21,6 +21,12 @@ Blackhole
          <span class="tt-doc-card-desc">Dead-quiet, liquid-cooled desktop AI.</span>
        </span>
      </a>
+     <a class="tt-doc-card" href="galaxy-blackhole/index.html">
+       <span class="tt-doc-card-img"><img src="../_static/home/galaxy-blackhole.png" alt="Galaxy (Blackhole)" /></span>
+       <span class="tt-doc-card-text">
+         <span class="tt-doc-card-title">Tenstorrent Galaxy (Blackhole)</span>
+         <span class="tt-doc-card-desc">Scalable, enterprise-class AI server.</span>
+     </a>
    </div>
 
 Wormhole
@@ -43,6 +49,13 @@ Wormhole
          <span class="tt-doc-card-desc">High-throughput workstation AI.</span>
        </span>
      </a>
+     <a class="tt-doc-card" href="galaxy-wormhole/index.html">
+       <span class="tt-doc-card-img"><img src="../_static/home/galaxy-wormhole.png" alt="Galaxy (Wormhole)" /></span>
+       <span class="tt-doc-card-text">
+         <span class="tt-doc-card-title">Tenstorrent Galaxy (Wormhole)</span>
+         <span class="tt-doc-card-desc">Scalable, enterprise-class AI server.</span>
+       </span>
+     </a>
    </div>
 
 .. toctree::
@@ -52,3 +65,5 @@ Wormhole
    quietbox/quietbox-bh/index
    quietbox/quietbox-wh/index
    t3000/index
+   galaxy-blackhole/index
+   galaxy-wormhole/index

@@ -7,3 +7,5 @@ This section contains the specifications, requirements, and initial set-up for T
 - [TT-LoudBox (T3000) Desktop/4U Workstation](./t3000/index.md)
 - [T1000 Desktop Workstation](./t1000/README.md)
 - [T7000 4U Workstation](./t7000/README.md)
+- [Galaxy (Blackhole) 4U Server](./galaxy-blackhole/index.md)
+- [Galaxy (Wormhole) 4U Server](./galaxy-wormhole/index.md)

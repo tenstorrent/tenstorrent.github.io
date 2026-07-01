@@ -2202,3 +2202,14 @@ input[type="url"]:focus,
 input[type="week"]:focus {
   box-shadow: none;
 }
+
+/* Trademark superscripts (®, ™) in prose */
+sup.reg,
+sup.tm {
+  font-size: 62%;
+  line-height: 0;
+  position: relative;
+  top: -0.5em;
+  vertical-align: baseline;
+  margin-left: -0.35em;
+}
