@@ -1292,7 +1292,9 @@ body.tt-search-locked { overflow: hidden; }
   display: none !important;
 }
 
-/* Chevron › pushed to the right via margin-left: auto */
+/* Chevron › pushed to the right via margin-left: auto. Rendered in a tight
+   square box with the glyph centered so it rotates around its own center
+   (not a corner) when the item expands. */
 .wy-menu-vertical li:has(> ul) > a::after {
   content: "›";
   font-size: 18px;
@@ -1300,8 +1302,12 @@ body.tt-search-locked { overflow: hidden; }
   color: #3A5452;
   flex-shrink: 0;
   margin-left: auto;
-  padding-left: 8px;
-  display: inline-block;
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center center;
   transition: transform 0.15s ease;
 }
 
@@ -1309,6 +1315,13 @@ body.tt-search-locked { overflow: hidden; }
    same .tt-open class as the subtree visibility above. */
 .wy-menu-vertical li.tt-open:has(> ul) > a::after {
   transform: rotate(90deg);
+}
+
+/* While the active path is being seeded on page load, snap carets to their
+   angle without animating (JS removes .tt-seeding after a reflow). Prevents
+   the caret from visibly rotating on every navigation. */
+.wy-menu-vertical.tt-seeding li:has(> ul) > a::after {
+  transition: none;
 }
 
 /* External links (open in a new tab) get an "open in new tab" icon,
