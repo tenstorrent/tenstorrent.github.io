@@ -46,7 +46,7 @@ project's own docs, trust the project's docs and treat this as orientation.
 | `/tt-quietbox2-guide/` | `tt-quietbox2-guide` | Complete QuietBox 2 handbook (setup → daily use) |
 | `/riescue/`, `/riscv-coretp/` | `riescue`, `riscv-coretp` | RISC-V test framework / core test plan |
 | `/tt-animatediff/`, `/tt-local-generator/` | (same names) | Generative-AI demos |
-| `/tt-awesome/` | `tt-awesome` | Curated ecosystem list |
+| `/tt-awesome/`, `/tt-awesome/planet/` | `tt-awesome` | Curated ecosystem directory (115+ projects) + Planet feed of the latest releases, papers, talks, and demos |
 | `/tt-tm-assets/` | `tt-tm-assets` | Brand / trademark assets |
 
 ## Hardware families
@@ -146,6 +146,10 @@ export LD_LIBRARY_PATH=$TT_METAL_HOME/build/lib:$LD_LIBRARY_PATH
 - **"On a QuietBox 2"** → [QB2 setup](https://docs.tenstorrent.com/systems/quietbox/quietbox-bh-2/index.html)
   → vLLM serving (no tt-metal source on QB2 images).
 - **"Want a guided, lesson-based path"** → [TT Developer Toolkit](https://docs.tenstorrent.com/tt-vscode-toolkit/).
+- **"Want to see what others have built / find the latest ecosystem activity"** →
+  [tt-awesome](https://docs.tenstorrent.com/tt-awesome/) (curated directory of 115+
+  projects) and [Planet Tenstorrent](https://docs.tenstorrent.com/tt-awesome/planet/)
+  (aggregated releases, papers, talks, videos, and demos).
 
 ## Key environment variables
 

@@ -177,7 +177,8 @@ Self-contained, hands-on lessons from the [TT Developer Toolkit](https://docs.te
 
 ## Demos & Examples
 
-- [tt-awesome](https://docs.tenstorrent.com/tt-awesome/): Curated list of community and official projects, models, kernels, and resources for the TT ecosystem
+- [tt-awesome](https://docs.tenstorrent.com/tt-awesome/): The Tenstorrent ecosystem index — a curated directory of 115+ community and official projects, models, kernels, and research across 12 categories. The best starting point for discovering what has been built on TT hardware
+  - [Planet Tenstorrent](https://docs.tenstorrent.com/tt-awesome/planet/): Aggregated feed of the latest ecosystem activity — releases, papers, articles, talks, videos, lessons, and demos in one chronological stream
 - [tt-animatediff](https://docs.tenstorrent.com/tt-animatediff/): AnimateDiff GIF generation demo running natively on Blackhole hardware
   - [Gallery](https://docs.tenstorrent.com/tt-animatediff/gallery.html)
 - [tt-local-generator](https://docs.tenstorrent.com/tt-local-generator/): Local AI video & image generation (FLUX, AnimateDiff, Wan2.2) on QuietBox 2
