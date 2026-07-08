@@ -668,11 +668,6 @@ canvas.qb2-chip-canvas {
     <a href="setup.html">setup guide</a> &mdash; unboxing, first login, verifying chips with tt-smi, and launching your first model.
     Need help? <a href="https://tenstorrent.com/support">Raise a support request.</a>
   </div>
-  <div class="qb2-note-bar" style="margin-top:8px">
-    <strong>Want the complete handbook?</strong> The
-    <a href="https://docs.tenstorrent.com/tt-quietbox2-guide/">TT-QuietBox 2 Guide</a>
-    covers everything from first boot to daily operation &mdash; setup, system access &amp; management, workloads &amp; development, and troubleshooting &amp; recovery.
-  </div>
   <div class="qb2-note-bar" style="margin-top:8px;opacity:.8">
     <strong>Want to try before you install?</strong>
     <a href="https://console.tenstorrent.com" target="_blank" rel="noopener">console.tenstorrent.com</a>

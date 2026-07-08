@@ -60,10 +60,6 @@ myst:
 
 This guide shows users how to safely unbox, setup hardware, and install software on a TT-QuietBox<sup>™</sup> 2 (Blackhole<sup>®</sup>) workstation.
 
-```{tip}
-For the complete handbook — system access & management, workloads & development, troubleshooting & recovery, and reference material beyond first setup — see the [**TT-QuietBox 2 Guide**](https://docs.tenstorrent.com/tt-quietbox2-guide/).
-```
-
 ## Before You Begin
 
 Choose a suitable location for your System:

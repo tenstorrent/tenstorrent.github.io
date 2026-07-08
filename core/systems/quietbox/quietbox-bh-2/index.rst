@@ -10,11 +10,6 @@ TT-QuietBox 2 (Blackhole)
 
    <div class="tt-float-clear" aria-hidden="true"></div>
 
-.. seealso::
-
-   For the complete handbook — from first boot to confident daily use — see the
-   `TT-QuietBox 2 Guide <https://docs.tenstorrent.com/tt-quietbox2-guide/>`_.
-
 Getting Started
 ---------------
 
@@ -23,6 +18,7 @@ Getting Started
 
    setup
    welcome
+   TT-QuietBox 2 Guide (full handbook) <https://docs.tenstorrent.com/tt-quietbox2-guide/>
 
 Reference Materials
 -------------------
