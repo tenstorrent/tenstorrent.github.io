@@ -350,6 +350,46 @@
       line-height: 0;
     }
 
+    /* ── Recent releases feed (populated from the tt-awesome JSON feed) ── */
+
+    .releases-block { display: flex; flex-direction: column; gap: 20px; }
+
+    /* The [hidden] attribute must win over the flex display above so the block
+       stays invisible until the client-side fetch succeeds. class+attribute
+       out-specifies the bare class rule, so no !important is needed. */
+    .releases-block[hidden] { display: none; }
+
+    .release-date {
+      color: #1e86a9;
+      font-family: "RMMono", "Berkeley Mono", "Courier New", monospace;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      margin: 0;
+    }
+
+    /* Clamp release summaries to three lines so cards stay uniform height. */
+    .release-summary {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .releases-more {
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #1e86a9;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .releases-more:hover .releases-more-text { text-decoration: underline; }
+    .releases-more:hover .section-link-arrow { transform: translateX(4px); }
+
     /* ── Sphinx RTD overrides ─────────────────────────────────── */
 
     html, body {
@@ -847,6 +887,45 @@
 
       <div class="divider"></div>
 
+      <!-- Explore the Ecosystem -->
+      <div class="section" id="ecosystem">
+        <h2><a class="section-link" href="https://docs.tenstorrent.com/tt-awesome/" target="_blank" rel="noopener"><span class="section-link-text">Explore the Ecosystem</span><span class="section-link-arrow" aria-hidden="true">→</span></a></h2>
+        <div class="cards-grid">
+          <a href="https://docs.tenstorrent.com/tt-awesome/" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">TT-Awesome</p>
+              <p class="card-desc">A curated directory of 115+ community and official projects, models, kernels, and research across 12 categories.</p>
+            </div>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-awesome/planet/" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">🪐 Planet Tenstorrent</p>
+              <p class="card-desc">The latest across the ecosystem — releases, papers, talks, videos, and demos, aggregated in one feed.</p>
+            </div>
+          </a>
+          <a href="https://github.com/tenstorrent" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">Tenstorrent on GitHub</p>
+              <p class="card-desc">All public source repositories — the software stack, compilers, tools, and demos.</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- Latest official releases — populated client-side from the tt-awesome
+             JSON feed (docs.tenstorrent.com/tt-awesome/feeds/feed.json, same
+             origin in production). Starts hidden and is revealed only when the
+             fetch succeeds AND returns official-affiliation releases; on any
+             failure it stays hidden so the page never shows a broken or empty
+             state. See the script at the end of <body>. -->
+        <div id="recent-releases" class="releases-block" hidden>
+          <h3 class="group-head">Latest Releases from Tenstorrent</h3>
+          <div class="cards-grid" id="recent-releases-grid"></div>
+          <a class="releases-more" href="https://docs.tenstorrent.com/tt-awesome/planet/" target="_blank" rel="noopener"><span class="releases-more-text">More releases on Planet Tenstorrent</span><span class="section-link-arrow" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
       <!-- Resources -->
       <div class="section" id="support">
         <h2><a class="section-link" href="support/README.html"><span class="section-link-text">Resources</span><span class="section-link-arrow" aria-hidden="true">→</span></a></h2>
@@ -943,5 +1022,83 @@
       </div>
     </div>
   </footer>
+
+  <!-- Recent-releases feed loader.
+       Fetches the tt-awesome JSON feed, keeps only items tagged both "release"
+       and "official" (i.e. Tenstorrent-owned-and-operated repos), and renders
+       the newest few into the ecosystem section. Every failure path leaves the
+       #recent-releases block hidden, so the home page degrades gracefully when
+       the feed is unreachable (e.g. a core-only local build with no
+       /tt-awesome/ deployed). -->
+  <script>
+    (function () {
+      var FEED = "/tt-awesome/feeds/feed.json";
+      var MAX = 6;
+
+      var block = document.getElementById("recent-releases");
+      var grid = document.getElementById("recent-releases-grid");
+      if (!block || !grid) return;
+
+      function esc(s) {
+        return String(s == null ? "" : s)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+
+      // Locale-independent short date, e.g. "Jun 30, 2026". UTC so the label is
+      // stable regardless of the viewer's timezone.
+      function fmtDate(iso) {
+        var d = new Date(iso);
+        if (isNaN(d.getTime())) return "";
+        var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+        return months[d.getUTCMonth()] + " " + d.getUTCDate() + ", " + d.getUTCFullYear();
+      }
+
+      fetch(FEED, { credentials: "omit" })
+        .then(function (r) {
+          if (!r.ok) throw new Error("HTTP " + r.status);
+          return r.json();
+        })
+        .then(function (feed) {
+          var items = (feed && feed.items) || [];
+          var releases = items.filter(function (it) {
+            var tags = it.tags || [];
+            return tags.indexOf("release") !== -1 && tags.indexOf("official") !== -1;
+          });
+
+          // Feed is already newest-first, but sort defensively.
+          releases.sort(function (a, b) {
+            return new Date(b.date_published) - new Date(a.date_published);
+          });
+          releases = releases.slice(0, MAX);
+
+          // Graceful fallback: nothing official to show → leave block hidden.
+          if (!releases.length) return;
+
+          grid.innerHTML = releases.map(function (it) {
+            var title = esc(it.title || "Release");
+            var url = esc(it.url || "#");
+            var date = fmtDate(it.date_published);
+            var summary = esc(it.summary || "");
+            return (
+              '<a href="' + url + '" target="_blank" rel="noopener" class="card">' +
+                '<div class="card-text">' +
+                  '<p class="card-title">' + title + "</p>" +
+                  (date ? '<p class="release-date">' + esc(date) + "</p>" : "") +
+                  '<p class="card-desc release-summary">' + summary + "</p>" +
+                "</div>" +
+              "</a>"
+            );
+          }).join("");
+
+          block.hidden = false;
+        })
+        .catch(function () {
+          // Feed unreachable or malformed — keep the block hidden.
+        });
+    })();
+  </script>
 
 </body>
