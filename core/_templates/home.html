@@ -372,6 +372,7 @@
     .release-summary {
       display: -webkit-box;
       -webkit-line-clamp: 3;
+      line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
@@ -1079,14 +1080,18 @@
 
           grid.innerHTML = releases.map(function (it) {
             var title = esc(it.title || "Release");
-            var url = esc(it.url || "#");
+            // Allowlist the scheme before it lands in an href: esc() stops HTML
+            // injection but not a javascript:/data: URL. The feed is trusted,
+            // so this is defense-in-depth (and mirrors tt-awesome's own
+            // http(s)-only link rendering).
+            var url = /^https?:\/\//i.test(it.url) ? esc(it.url) : "#";
             var date = fmtDate(it.date_published);
             var summary = esc(it.summary || "");
             return (
               '<a href="' + url + '" target="_blank" rel="noopener" class="card">' +
                 '<div class="card-text">' +
                   '<p class="card-title">' + title + "</p>" +
-                  (date ? '<p class="release-date">' + esc(date) + "</p>" : "") +
+                  (date ? '<p class="release-date">' + date + "</p>" : "") +
                   '<p class="card-desc release-summary">' + summary + "</p>" +
                 "</div>" +
               "</a>"
@@ -1095,8 +1100,12 @@
 
           block.hidden = false;
         })
-        .catch(function () {
-          // Feed unreachable or malformed — keep the block hidden.
+        .catch(function (e) {
+          // Feed unreachable or malformed — keep the block hidden. Log at debug
+          // level so a broken feed is diagnosable without affecting the page.
+          if (window.console && console.debug) {
+            console.debug("recent-releases feed unavailable", e);
+          }
         });
     })();
   </script>
