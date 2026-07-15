@@ -15,6 +15,13 @@ the lower layers are available when you need finer control.
          <span class="tt-doc-card-desc">End-to-end MLIR compiler. Compile models from PyTorch, JAX, and ONNX — the recommended entry point.</span>
        </span>
      </a>
+     <a class="tt-doc-card" href="https://docs.tenstorrent.com/tt-xla/" target="_blank" rel="noopener">
+       <span class="tt-doc-card-img"><img src="../_static/svg/tt-xla.svg" alt="TT-XLA" /></span>
+       <span class="tt-doc-card-text">
+         <span class="tt-doc-card-title">TT-XLA</span>
+         <span class="tt-doc-card-desc">PJRT-based frontend for running JAX and OpenXLA models on Tenstorrent hardware.</span>
+       </span>
+     </a>
      <a class="tt-doc-card" href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/" target="_blank" rel="noopener">
        <span class="tt-doc-card-img"><img src="../_static/svg/tt-nn.svg" alt="TT-NN" /></span>
        <span class="tt-doc-card-text">

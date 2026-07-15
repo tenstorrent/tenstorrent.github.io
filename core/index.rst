@@ -31,6 +31,7 @@ Tenstorrent
 
    Overview <software/index>
    forge/index
+   TT-XLA <https://docs.tenstorrent.com/tt-xla/>
    TT-NN™ <https://docs.tenstorrent.com/tt-metal/latest/ttnn/>
    TT-Lang™ <https://docs.tenstorrent.com/tt-lang/>
    TT-MLIR™ <https://docs.tenstorrent.com/tt-mlir/>
