@@ -18,10 +18,13 @@ Demos
 Compiler Stack
 --------------
 
+.. rst-class:: toctree-no-underline
+
+* `TT-XLA <https://docs.tenstorrent.com/tt-xla/>`_
+
 .. toctree::
    :maxdepth: 1
 
-   TT-XLA <https://docs.tenstorrent.com/tt-xla/>
    TT-Forge-ONNX <https://docs.tenstorrent.com/tt-forge-onnx/>
    TT-Blacksmith <https://docs.tenstorrent.com/tt-blacksmith/>
 
