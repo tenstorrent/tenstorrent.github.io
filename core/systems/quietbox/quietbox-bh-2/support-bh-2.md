@@ -56,21 +56,7 @@ You may return a Product purchased directly on the Site within fourteen (14) day
 ### Where Do You Ship To?
 We ship TT-QuietBox 2 (Blackhole) to countries where we are certified and permitted under local import and export regulations.
 
-**Where we can ship:**
-
-- **6-8 week lead time**
-  - **NA:** USA, Canada
-  - **APAC:** Japan
-- **10-12 week lead time**
-  - **EMEA:** EU, UK, Switzerland, Iceland, Norway
-  - **APAC:** Australia, New Zealand
-
-**Countries in progress:**
-
-We are working towards certifications in the following countries. Contact sales for more information.
-
-- **EMEA:** Serbia, Ethiopia, Saudi Arabia, Qatar, UAE, Turkey, Cyprus
-- **APAC:** India, Singapore, Korea, Taiwan
+For the most current list of permitted countries and lead times, please see [the shipping section of our website FAQ](https://tenstorrent.com/faq#where-we-ship).
 
 **Where we cannot ship:**
 
