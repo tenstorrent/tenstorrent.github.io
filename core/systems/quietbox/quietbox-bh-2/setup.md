@@ -177,6 +177,10 @@ If you have not done so already during hardware setup, connect your Ethernet cab
 
 If you would prefer to set up a WiFi connection, on your monitor, click on the status icons in the top right corner of the screen. Then, click on "Wi-Fi" (it may say "not connected" or "off"). Select your WiFi network from the drop-down list, enter the password, and click "Connect."
 
+:::{note}
+Network bandwidth is significantly better over wired Ethernet than WiFi, which makes it the better choice for downloading large open-source AI models.
+:::
+
 ## Step 6. Update System Software
 
 TT-QuietBox 2 comes pre-installed with the Ubuntu operating system (24.04.3 LTS). 
@@ -192,18 +196,7 @@ sudo apt update && sudo apt upgrade -y
 **Step 3:** Install the latest Tenstorrent firmware and system software, which will then trigger a system reboot:
 
 ```bash
-curl -fsSL https://github.com/tenstorrent/tt-installer/releases/latest/download/install.sh -O
-
-chmod +x install.sh
-
-./install.sh \
-  --kmd-version=2.8.0 \
-  --smi-version=5.2.0 \
-  --flash-version=3.8.0 \
-  --fw-version=19.10.0 \
-  --metalium-image-tag=v0.72.0 \
-  --mode-non-interactive \
-  --install-container-runtime=no
+/bin/bash <(curl -fsSL https://github.com/tenstorrent/tt-installer/releases/latest/download/install.sh) --mode-non-interactive
 ```
 
 Log in with `ttuser` and proceed to the next step.
@@ -244,6 +237,10 @@ For the most up-to-date list of models supported by TT-QuietBox 2, check the [De
 
 TT Studio uses the Hugging Face API to manage open-source AI model weights and configuration files. Hugging Face is a free, open source community for collaborating on AI models and applications. Hugging Face access tokens are the unique security keys that allow weights from AI models to be downloaded to your machine. Read more about how user access tokens work in the [Hugging Face documentation](https://huggingface.co/docs/hub/en/security-tokens#how-to-manage-user-access-tokens).
 
+:::{note}
+For [Qwen3-32B](https://huggingface.co/Qwen/Qwen3-32B), the model weights come pre-downloaded onto your TT-QuietBox 2. However, you will still require an access token from Hugging Face to use the model.
+:::
+
 To get access to model weights on Hugging Face, follow these steps:
 
 1. Open a new browser window and navigate to [huggingface.co](https://huggingface.co).
@@ -277,7 +274,7 @@ tt-studio
 7. Once the model is ready, click "Chat" or "API" to interact with the model in realtime. 
 
 :::{note}
-Downloading other models can take anywhere from a few minutes to a few hours, depending on the model you’ve selected and the speed of your internet connection. WiFi connections will be slower than direct Ethernet.
+Qwen3-32B comes pre-loaded on your TT-QuietBox 2. Downloading other models can take anywhere from a few minutes to a few hours, depending on the size of the model you’ve selected and the speed of your internet connection.
 :::
 
 ## What to do next?
