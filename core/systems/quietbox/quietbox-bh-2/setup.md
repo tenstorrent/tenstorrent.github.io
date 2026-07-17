@@ -274,7 +274,7 @@ tt-studio
 7. Once the model is ready, click "Chat" or "API" to interact with the model in realtime. 
 
 :::{note}
-Downloading other models can take anywhere from a few minutes to a few hours, depending on the model you’ve selected and the speed of your internet connection. WiFi connections will be slower than direct Ethernet.
+Qwen3-32B comes pre-loaded on your TT-QuietBox 2. Downloading other models can take anywhere from a few minutes to a few hours, depending on the size of the model you’ve selected and the speed of your internet connection.
 :::
 
 ## What to do next?
