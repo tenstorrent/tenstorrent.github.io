@@ -1,0 +1,1455 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="true" name="hide_feedback" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tenstorrent &mdash; Home 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="_static/tt_theme.css?v=78736722" />
+      <link rel="stylesheet" type="text/css" href="_static/home.css?v=e04b094a" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+    <link rel="canonical" href="https://docs.tenstorrent.com/index.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=fd3dd8dd"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="_static/togglebutton.js?v=b8b12719"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="_static/custom.js?v=0ccd5bc4"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Overview" href="getting-started/tt-software-stack.html" /> 
+  <script src="_static/posthog.js"></script>
+</head>
+
+<body class="wy-body-for-nav">
+<nav class="tt-top-nav" role="navigation" aria-label="Top navigation">
+  <div class="tt-top-nav-left">
+    <a href="https://docs.tenstorrent.com/" class="tt-nav-logo">
+      <img src="_static/logotype.png" alt="Tenstorrent" />
+      <span>DOCUMENTATION</span>
+    </a>
+    <ul class="tt-nav-links">
+      <li class="has-dropdown">
+        <a href="https://docs.tenstorrent.com/#get-started">Get Started</a>
+        <div class="tt-nav-dropdown">
+          <a href="https://docs.tenstorrent.com/getting-started/tt-software-stack.html">Overview</a>
+          <a href="https://docs.tenstorrent.com/getting-started/README.html">Installing Tenstorrent Software</a>
+          <a href="https://docs.tenstorrent.com/getting-started/manual-software-install.html">Manual Installation</a>
+          <a href="https://docs.tenstorrent.com/getting-started/vLLM-servers.html">Deploy LLMs</a>
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/" target="_blank" rel="noopener">Learn by Building</a>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <a href="https://docs.tenstorrent.com/#software">Software</a>
+        <div class="tt-nav-dropdown">
+          <a href="https://docs.tenstorrent.com/forge/index.html">TT-Forge</a>
+          <a href="https://docs.tenstorrent.com/tt-xla/" target="_blank" rel="noopener">TT-XLA</a>
+          <a href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/" target="_blank" rel="noopener">TT-NN</a>
+          <a href="https://docs.tenstorrent.com/tt-lang/" target="_blank" rel="noopener">TT-Lang</a>
+          <a href="https://docs.tenstorrent.com/tt-mlir/" target="_blank" rel="noopener">TT-MLIR</a>
+          <a href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/" target="_blank" rel="noopener">TT-Metalium</a>
+          <a href="https://docs.tenstorrent.com/cloud-native-support/" target="_blank" rel="noopener">Cloud-Native Support</a>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <a href="https://docs.tenstorrent.com/#hardware">Hardware</a>
+        <div class="tt-nav-dropdown">
+          <span class="tt-nav-dropdown-label">Blackhole</span>
+          <a href="https://docs.tenstorrent.com/aibs/blackhole/index.html">Blackhole™ PCIe Cards</a>
+          <a href="https://docs.tenstorrent.com/systems/quietbox/quietbox-bh/index.html">TT-QuietBox</a>
+          <a href="https://docs.tenstorrent.com/systems/quietbox/quietbox-bh-2/index.html">TT-QuietBox 2</a>
+          <a href="https://docs.tenstorrent.com/systems/galaxy-blackhole/index.html">Galaxy™ (Blackhole)</a>
+          <span class="tt-nav-dropdown-label">Wormhole</span>
+          <a href="https://docs.tenstorrent.com/aibs/wormhole/index.html">Wormhole™ PCIe Cards</a>
+          <a href="https://docs.tenstorrent.com/systems/quietbox/quietbox-wh/index.html">TT-QuietBox</a>
+          <a href="https://docs.tenstorrent.com/systems/t3000/index.html">TT-LoudBox™</a>
+          <a href="https://docs.tenstorrent.com/systems/galaxy-wormhole/index.html">Galaxy™ (Wormhole)</a>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <a href="https://docs.tenstorrent.com/#tools">Tools</a>
+        <div class="tt-nav-dropdown">
+          <a href="https://github.com/tenstorrent/tt-inference-server" target="_blank" rel="noopener">TT-Inference-Server</a>
+          <a href="https://github.com/tenstorrent/tt-studio" target="_blank" rel="noopener">TT-Studio</a>
+          <a href="https://github.com/tenstorrent/tt-smi" target="_blank" rel="noopener">TT-SMI</a>
+          <a href="https://docs.tenstorrent.com/tt-toplike/" target="_blank" rel="noopener">TT-Toplike</a>
+          <a href="https://docs.tenstorrent.com/ttnn-visualizer/" target="_blank" rel="noopener">TT-NN Visualizer</a>
+          <a href="https://github.com/tenstorrent/tt-topology" target="_blank" rel="noopener">TT-Topology</a>
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit" target="_blank" rel="noopener">TT-VSCode-Toolkit</a>
+          <a href="https://docs.tenstorrent.com/tt-blacksmith/" target="_blank" rel="noopener">TT-Blacksmith</a>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <a href="https://docs.tenstorrent.com/#resources">Resources</a>
+        <div class="tt-nav-dropdown">
+          <a href="https://tenstorrent.atlassian.net/servicedesk/customer/portal/1" target="_blank" rel="noopener">Request Support</a>
+          <a href="https://tenstorrent.com/developers" target="_blank" rel="noopener">Developer Hub</a>
+          <a href="https://discord.com/invite/tenstorrent" target="_blank" rel="noopener">Join our Discord</a>
+          <a href="https://tenstorrent.com/faq" target="_blank" rel="noopener">FAQ</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tt-top-nav-right">
+    <button type="button" class="tt-nav-search-form tt-search-trigger" aria-label="Search docs" aria-haspopup="dialog">
+      <svg class="tt-search-glyph" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      <span class="tt-nav-search-placeholder">Search</span>
+      <kbd class="tt-nav-search-kbd">⌘K</kbd>
+    </button>
+    <div class="tt-nav-actions">
+      <a href="https://docs.tenstorrent.com/tt-awesome/" class="tt-nav-btn-cta" target="_blank" rel="noopener">Explore</a>
+      <a href="https://github.com/tenstorrent" class="tt-nav-btn-github" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+        </svg>
+        Github
+      </a>
+    </div>
+    <i data-toggle="wy-nav-top" class="fa fa-bars tt-nav-hamburger" aria-hidden="true"></i>
+  </div>
+</nav>
+
+
+<div class="tt-search-modal" id="tt-search-modal" hidden>
+  <div class="tt-search-backdrop" data-search-close></div>
+  <div class="tt-search-dialog" role="dialog" aria-modal="true" aria-label="Search documentation">
+    <div class="tt-search-head">
+      <div class="tt-search-box">
+        <svg class="tt-search-glyph" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+        <input type="text" class="tt-search-input" id="tt-search-input"
+               placeholder="Search for anything…" aria-label="Search for anything"
+               autocomplete="off" spellcheck="false" hidden />
+        <input type="text" class="tt-search-input" id="tt-ai-input"
+               placeholder="Ask anything about Tenstorrent hardware and software" aria-label="Ask about the docs"
+               autocomplete="off" spellcheck="false" />
+      </div>
+      <div class="tt-search-tabs" role="tablist">
+        <button type="button" class="tt-search-tab is-active" data-tab="ai" role="tab" aria-selected="true">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M8 1.5l1.4 3.6L13 6.5 9.4 7.9 8 11.5 6.6 7.9 3 6.5l3.6-1.4L8 1.5Z" fill="currentColor"/>
+            <path d="M12.5 10.5l.6 1.5 1.5.6-1.5.6-.6 1.5-.6-1.5-1.5-.6 1.5-.6.6-1.5Z" fill="currentColor"/>
+          </svg>
+          Ask AI
+        </button>
+        <button type="button" class="tt-search-tab" data-tab="search" role="tab" aria-selected="false">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          Search
+        </button>
+      </div>
+    </div>
+    <div class="tt-search-body"><div class="tt-search-panel" data-panel="search" hidden>
+        <ul class="tt-search-results" id="tt-search-results"></ul>
+        <div class="tt-search-empty" id="tt-search-empty">Start typing to search the documentation.</div>
+      </div><div class="tt-search-panel" data-panel="ai">
+        <div class="tt-ai-intro" id="tt-ai-intro">
+          <svg class="tt-ai-intro-star" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M10 1.5 12 7l5.5 1-4 3.9 1.2 5.6L10 14.4 5.3 17l1.2-5.6L2.5 7.5 8 7z" fill="currentColor"/>
+            <path d="M15.5 12l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z" fill="currentColor"/>
+          </svg>
+          <span class="tt-ai-intro-hint">Type a question above and press <kbd>Enter</kbd> — or jump right in:</span>
+        </div>
+        <ul class="tt-ai-examples" id="tt-ai-examples">
+          <li><button type="button" class="tt-ai-example">How to debug TT-Forge compile errors?</button></li>
+          <li><button type="button" class="tt-ai-example">How to set up Tenstorrent Cloud SSH?</button></li>
+          <li><button type="button" class="tt-ai-example">TT-Metalium vs TT-NN: what's the difference?</button></li>
+          <li><button type="button" class="tt-ai-example">How to daisy-chain Wormhole devices?</button></li>
+        </ul>
+        <div id="tt-kapa-embed" hidden>
+          <div id="tt-kapa-mount"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<a href="https://docs.tenstorrent.com/">
+    <img src="_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+<a href="#">
+    Home
+</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/tt-software-stack.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/README.html">Installing Tenstorrent Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/manual-software-install.html">Manual Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/vLLM-servers.html">Deploy LLMs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-vscode-toolkit/">Learn by Building</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Hardware</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hardware/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aibs/index.html">Cards</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aibs/blackhole/index.html">Blackhole™ PCIe Cards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aibs/wormhole/index.html">Wormhole™ PCIe Cards</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="systems/index.html">Systems</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="systems/quietbox/quietbox-bh-2/index.html">TT-QuietBox 2 (Blackhole)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="systems/quietbox/quietbox-bh/index.html">TT-QuietBox (Blackhole)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="systems/quietbox/quietbox-wh/index.html">TT-QuietBox (Wormhole)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="systems/t3000/index.html">TT-LoudBox (Wormhole)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="systems/galaxy-blackhole/index.html">Tenstorrent Galaxy (Blackhole)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="systems/galaxy-wormhole/index.html">Tenstorrent Galaxy (Wormhole)</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="software/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="forge/index.html">TT-Forge™</a><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.tenstorrent.com/tt-forge-onnx/">TT-Forge-ONNX</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.tenstorrent.com/tt-blacksmith/">TT-Blacksmith</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-xla/">TT-XLA</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/">TT-NN™</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-lang/">TT-Lang™</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-mlir/">TT-MLIR™</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/">TT-Metalium™</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/cloud-native-support/">Cloud-Native Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/index.html">Tools</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="support/README.html">Support &amp; FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Legal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bounty_terms.html">Bounty Program Terms</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Home</a>
+      </nav>
+
+      <div class="wy-nav-content">
+  
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Tenstorrent</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tenstorrent">
+<h1>Tenstorrent<a class="headerlink" href="#tenstorrent" title="Link to this heading"></a></h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      font-family: "Neue Haas Unica Pro", "Degular", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f1f8f8;
+      color: #092221;
+    }
+
+    /* ── Hero ────────────────────────────────────────────────── */
+
+    .hero { background: #092221; }
+
+    .hero-inner {
+      display: flex;
+      height: 600px;
+      padding: 160px 80px;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      flex-shrink: 0;
+      max-width: 520px;
+    }
+
+    .hero-title {
+      color: #d9e8e5;
+      font-family: "Degular Display", "DegularDisplay", sans-serif;
+      font-size: 64px;
+      font-weight: 300;
+      line-height: 1.1;
+      margin: 0;
+    }
+
+    .hero-subtitle {
+      color: #d9e8e5;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: 0.25px;
+      margin: 0;
+      width: 100%;
+    }
+
+    .hero-subtitle a {
+      color: #5cbcdb;
+      font-weight: 500;
+      text-decoration: underline;
+    }
+
+    .hero-subtitle a:hover { color: #74c5df; }
+
+    .hero-search {
+      display: flex;
+      height: 56px;
+      padding: 0 16px;
+      align-items: center;
+      gap: 12px;
+      border-radius: 8px;
+      border: 1.5px solid #c7d9d8;
+      background: #f1f8f8;
+      width: 100%;
+      cursor: pointer;
+      transition: border-color 150ms ease, box-shadow 150ms ease;
+    }
+
+    .hero-search:hover {
+      border-color: #92b8b6;
+      box-shadow: 0 0 0 3px rgba(199,217,216,0.45);
+    }
+
+    .hero-search svg {
+      width: 18px;
+      height: 18px;
+      color: #678583;
+      flex-shrink: 0;
+    }
+
+    .hero-search-placeholder {
+      flex: 1;
+      font-family: inherit;
+      font-size: 15px;
+      color: #678583;
+      letter-spacing: 0.25px;
+      pointer-events: none;
+      user-select: none;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* On narrow viewports the full prompt overflows the box, so swap it for a
+       short "Search" label (toggled in the max-width: 768px block below). */
+    .hero-search-text-short { display: none; }
+
+    .hero-search-kbd {
+      font-family: inherit;
+      font-size: 12px;
+      line-height: 1;
+      color: #678583;
+      border: 1px solid #c7d9d8;
+      border-radius: 4px;
+      padding: 3px 7px;
+      background: #fff;
+      flex-shrink: 0;
+    }
+
+    /* Kill RTD box-shadow on the hidden readonly input */
+    .hero-search input[type="text"] {
+      display: none;
+    }
+
+    .hero-right {
+      display: flex;
+      gap: 40px;
+      /* width acts as the preferred size; allow shrinking so the cards don't
+         overflow the hero's side padding in the ~1281–1383px range, where the
+         fixed 663px width + the 520px hero-left no longer both fit. */
+      width: 663px;
+      flex-shrink: 1;
+      min-width: 0;
+      align-self: center;
+    }
+
+    .quick-card {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      gap: 16px;
+      padding: 24px;
+      border-radius: 8px;
+      border: 1px solid #c7d9d8;
+      background: #fff;
+      box-shadow: 0 4px 5px rgba(0,0,0,0.15);
+      text-decoration: none;
+      align-self: stretch;
+      transition: box-shadow 150ms ease;
+    }
+
+    .quick-card:hover { box-shadow: 0 6px 16px rgba(0,0,0,0.2); }
+
+    .quick-card-label {
+      color: #1e86a9;
+      font-family: "RMMono", "Berkeley Mono", "Courier New", monospace;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: 0.75px;
+      text-transform: uppercase;
+    }
+
+    .quick-card-body {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .quick-card h4 {
+      color: #092221;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.3;
+      margin: 0;
+    }
+
+    .quick-card p {
+      color: #3a5452;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.35;
+      letter-spacing: 0.25px;
+      margin: 0;
+    }
+
+    /* ── Page content ────────────────────────────────────────── */
+
+    .page-wrap {
+      padding: 80px 120px;
+      background: #f1f8f8;
+    }
+
+    .sections-list {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .divider {
+      height: 1px;
+      background: #c7d9d8;
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    .section {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      /* Offset hash-jump landing (e.g. top-nav "Software" → #software) so the
+         fixed 72px navbar doesn't cover the title. ~128px stops at the section
+         divider above, keeping the divider + title in view. */
+      scroll-margin-top: 128px;
+    }
+
+    .section h2 {
+      margin: 0 !important;
+      font-family: "Neue Haas Unica Pro", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+      font-size: 22px !important;
+      font-weight: 500 !important;
+      line-height: 1.3 !important;
+      color: #000 !important;
+      letter-spacing: 0 !important;
+    }
+
+    .section h2 a.section-link {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 8px;
+      color: inherit !important;
+      text-decoration: none !important;
+      border-bottom: none !important;
+    }
+
+    .section-link-arrow {
+      color: #1e86a9;
+      font-weight: 400;
+      transition: transform 150ms ease;
+    }
+
+    .section h2 a.section-link:hover .section-link-text { text-decoration: underline; }
+    .section h2 a.section-link:hover .section-link-arrow { transform: translateX(4px); }
+
+    .hw-group,
+    .group-head {
+      margin: 0 !important;
+      font-family: "RMMono", "Berkeley Mono", "Courier New", monospace !important;
+      font-size: 13px !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.75px !important;
+      text-transform: uppercase !important;
+      color: #1e86a9 !important;
+    }
+
+    .cards-grid {
+      display: grid;
+      /* Auto-fill responsive columns: cards stretch to fill their row and only
+         drop a column once they'd shrink below ~320px. This keeps 3-up across a
+         wide viewport range instead of snapping to 2-up the moment a rigid
+         360px card no longer fits. min(100%, …) prevents overflow on phones. */
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+      gap: 32px;
+    }
+
+    /* Horizontal card */
+    .card {
+      display: flex;
+      gap: 16px;
+      padding: 16px;
+      border-radius: 8px;
+      border: 1px solid #c7d9d8;
+      background: #fff;
+      text-decoration: none;
+      transition: box-shadow 150ms ease;
+    }
+
+    .card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+
+    .card-img {
+      width: 80px;
+      height: 80px;
+      flex-shrink: 0;
+      border-radius: 4px;
+      overflow: hidden;
+      background: #e5f2f1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 4px;
+      pointer-events: none;
+    }
+
+    .card-text {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      justify-content: center;
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* Software section: icon inline with title on top, description full-width below */
+    #software .card {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    #software .card-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    #software .card-icon {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+      object-fit: contain;
+      pointer-events: none;
+    }
+
+    .card-title {
+      color: #092221;
+      font-size: 16px !important;
+      font-weight: 500 !important;
+      line-height: 1.2 !important;
+      letter-spacing: 0 !important;
+      margin: 0 !important;
+      font-family: "Neue Haas Unica Pro", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    }
+
+    .card-desc {
+      color: #3a5452;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.35;
+      letter-spacing: 0.25px;
+      margin: 0;
+    }
+
+    /* sup/TM in card titles */
+    .card-title sup {
+      font-size: 0.6em;
+      vertical-align: super;
+      line-height: 0;
+    }
+
+    /* ── Recent releases feed (populated from the tt-awesome JSON feed) ── */
+
+    .releases-block { display: flex; flex-direction: column; gap: 20px; }
+
+    /* The [hidden] attribute must win over the flex display above so the block
+       stays invisible until the client-side fetch succeeds. class+attribute
+       out-specifies the bare class rule, so no !important is needed. */
+    .releases-block[hidden] { display: none; }
+
+    .release-date {
+      color: #1e86a9;
+      font-family: "RMMono", "Berkeley Mono", "Courier New", monospace;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      margin: 0;
+    }
+
+    /* Clamp release summaries to three lines so cards stay uniform height. */
+    .release-summary {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .releases-more {
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #1e86a9;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .releases-more:hover .releases-more-text { text-decoration: underline; }
+    .releases-more:hover .section-link-arrow { transform: translateX(4px); }
+
+    /* ── Sphinx RTD overrides ─────────────────────────────────── */
+
+    html, body {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .wy-body-for-nav,
+    .wy-grid-for-nav       { margin: 0 !important; padding: 0 !important; }
+    .wy-breadcrumbs        { display: none !important; height: 0 !important; }
+    .wy-breadcrumbs-aside  { display: none !important; height: 0 !important; }
+    .rst-content .section > .headerlink { display: none !important; }
+    .wy-nav-side           { display: none !important; }
+    .wy-nav-top            { display: none !important; height: 0 !important; }
+    .wy-nav-content-wrap   { margin: 0 !important; padding: 0 !important; background: transparent !important; }
+    .wy-nav-content        { max-width: 100% !important; padding: 0 !important; margin: 0 !important; min-height: 0 !important; }
+    .rst-content,
+    .document              { padding: 0 !important; margin: 0 !important; }
+    .rst-content .section > h1:first-child { display: none !important; }
+    .rst-footer-buttons    { display: none !important; }
+    .wy-nav-content > .rst-content > .document > .section { padding: 0 !important; margin: 0 !important; }
+    .document * h1,
+    .document * h2,
+    .document * h3,
+    .document * h4 { overflow: hidden; }
+
+    /* ── Sphinx footer override ───────────────────────────────── */
+
+    .rst-content footer,
+    footer[role="contentinfo"],
+    div[role="contentinfo"] {
+      display: none !important;
+    }
+
+    /* ── Site footer ──────────────────────────────────────────── */
+
+    .site-footer {
+      background: #092221;
+      border-top: 1px solid rgba(199,217,216,0.25);
+      padding: 32px 120px;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .footer-logo img {
+      height: 20px;
+      width: auto;
+      opacity: 0.8;
+    }
+
+    .footer-logo span {
+      color: #d9e8e5;
+      font-family: "RMMono", "Berkeley Mono", "Courier New", monospace;
+      font-size: 13px;
+      letter-spacing: 0;
+    }
+
+    .footer-copy {
+      color: #678583;
+      font-size: 13px;
+      margin: 0;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      color: #678583;
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 150ms ease;
+    }
+
+    .footer-links a:hover { color: #d9e8e5; }
+
+    @media (max-width: 768px) {
+      .site-footer { padding: 24px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+    }
+
+    /* ── Responsive ──────────────────────────────────────────── */
+
+    @media (max-width: 1280px) {
+      .hero-inner { gap: 32px; }
+      .hero-right { width: auto; flex: 1; }
+      .page-wrap { padding: 80px 60px; }
+    }
+
+    @media (max-width: 1024px) {
+      .hero-inner { height: auto; padding: 80px 40px; flex-direction: column; align-items: flex-start; }
+      .hero-title { font-size: 48px; white-space: normal; }
+      .hero-right { width: 100%; }
+      .hero-search { width: 100%; }
+      .page-wrap { padding: 60px 40px; }
+    }
+
+    @media (max-width: 768px) {
+      .navbar-links { display: none; }
+      .navbar-right { gap: 12px; }
+      /* Top padding must clear the 72px fixed navbar (was 60px → title overlapped). */
+      .hero-inner { padding: 96px 24px 60px; }
+      .hero-title { font-size: 40px; }
+      .hero-search-text-full { display: none; }
+      .hero-search-text-short { display: inline; }
+      .hero-right { flex-direction: column; gap: 16px; }
+      .page-wrap { padding: 40px 24px; }
+      .sections-list { gap: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <h1 class="hero-title">Tenstorrent<br />Documentation</h1>
+        <p class="hero-subtitle">
+          No hardware yet? Get access to Tenstorrent silicon right in your browser with
+          <a href="https://console.tenstorrent.com" target="_blank" rel="noopener">Tenstorrent Cloud Console</a>
+        </p>
+        <div class="hero-search tt-search-trigger" role="button" aria-haspopup="dialog" aria-label="Search docs">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          <span class="hero-search-placeholder">
+            <span class="hero-search-text-full">Ask anything about Tenstorrent hardware and software</span>
+            <span class="hero-search-text-short">Search</span>
+          </span>
+          <kbd class="hero-search-kbd">⌘K</kbd>
+        </div>
+      </div>
+      <div class="hero-right">
+        <a href="getting-started/README.html" class="quick-card">
+          <span class="quick-card-label">Get Started</span>
+          <div class="quick-card-body">
+            <h4>Installing Tenstorrent Software</h4>
+            <p>Set up drivers, firmware, and the TT-Metalium environment on your Tenstorrent hardware, then verify your install.</p>
+          </div>
+        </a>
+        <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/" target="_blank" rel="noopener" class="quick-card">
+          <span class="quick-card-label">TT-VSCode-Toolkit</span>
+          <div class="quick-card-body">
+            <h4>Learn by Building</h4>
+            <p>Get hands-on with a guided learning path — from making your first inference to building full applications with LLMs.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content sections -->
+  <div class="page-wrap">
+    <div class="sections-list">
+
+      <!-- Popular Destinations -->
+      <div class="section" id="popular-destinations">
+        <h2>Popular Destinations</h2>
+        <div class="cards-grid">
+          <a href="https://docs.tenstorrent.com/tt-studio/" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">TT-Studio</p>
+              <p class="card-desc">Point-and-click web UI for deploying and interacting with models.</p>
+            </div>
+          </a>
+          <a href="https://github.com/tenstorrent/tt-inference-server" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">TT-Inference-Server</p>
+              <p class="card-desc">Deploy and serve models — the canonical source for validated model support.</p>
+            </div>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">TT-Metalium</p>
+              <p class="card-desc">Low-level C++ SDK for writing custom kernels on Tensix cores.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Get Started -->
+      <div class="section" id="get-started">
+        <h2><a class="section-link" href="getting-started/tt-software-stack.html"><span class="section-link-text">Get Started</span><span class="section-link-arrow" aria-hidden="true">→</span></a></h2>
+        <div class="cards-grid">
+          <a href="getting-started/tt-software-stack.html" class="card">
+            <div class="card-text">
+              <p class="card-title">Overview</p>
+              <p class="card-desc">How TT-Forge, TT-NN, and TT-Metalium fit together — and which to use when.</p>
+            </div>
+          </a>
+          <a href="getting-started/README.html" class="card">
+            <div class="card-text">
+              <p class="card-title">Installing Tenstorrent Software</p>
+              <p class="card-desc">Install drivers, firmware, and the TT-Metalium environment, then verify your setup.</p>
+            </div>
+          </a>
+          <a href="getting-started/manual-software-install.html" class="card">
+            <div class="card-text">
+              <p class="card-title">Manual Installation</p>
+              <p class="card-desc">Manually install system dependencies, drivers, and the software stack step by step.</p>
+            </div>
+          </a>
+          <a href="getting-started/vLLM-servers.html" class="card">
+            <div class="card-text">
+              <p class="card-title">Deploy LLMs</p>
+              <p class="card-desc">Stand up an OpenAI-compatible inference server for high-throughput LLM serving.</p>
+            </div>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">Learn by Building</p>
+              <p class="card-desc">Get hands-on with guided, end-to-end lessons in the TT-VSCode-Toolkit.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Software -->
+      <div class="section" id="software">
+        <h2><a class="section-link" href="software/index.html"><span class="section-link-text">Software</span><span class="section-link-arrow" aria-hidden="true">→</span></a></h2>
+        <div class="cards-grid">
+          <a href="forge/index.html" class="card">
+            <div class="card-head">
+              <img class="card-icon" src="_static/svg/tt-forge.svg" alt="TT-Forge™" />
+              <p class="card-title">TT-Forge™</p>
+            </div>
+            <p class="card-desc">End-to-end MLIR compiler. Compile models from PyTorch, JAX, and ONNX.</p>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-xla/" target="_blank" rel="noopener" class="card">
+            <div class="card-head">
+              <img class="card-icon" src="_static/svg/tt-xla.svg" alt="TT-XLA" />
+              <p class="card-title">TT-XLA</p>
+            </div>
+            <p class="card-desc">PJRT-based frontend for running JAX and OpenXLA models on Tenstorrent hardware.</p>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/" target="_blank" rel="noopener" class="card">
+            <div class="card-head">
+              <img class="card-icon" src="_static/svg/tt-nn.svg" alt="TT-NN™" />
+              <p class="card-title">TT-NN™</p>
+            </div>
+            <p class="card-desc">High-level Python API of pre-optimized neural-network operations.</p>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-lang/" target="_blank" rel="noopener" class="card">
+            <div class="card-head">
+              <img class="card-icon" src="_static/svg/tt-lang.svg" alt="TT-Lang™" />
+              <p class="card-title">TT-Lang™</p>
+            </div>
+            <p class="card-desc">Python DSL for authoring fused custom operations.</p>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-mlir/" target="_blank" rel="noopener" class="card">
+            <div class="card-head">
+              <img class="card-icon" src="_static/svg/tt-mlir.svg" alt="TT-MLIR™" />
+              <p class="card-title">TT-MLIR™</p>
+            </div>
+            <p class="card-desc">MLIR-based backend compiler infrastructure that lowers models onto Tenstorrent hardware.</p>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/" target="_blank" rel="noopener" class="card">
+            <div class="card-head">
+              <img class="card-icon" src="_static/svg/tt-metalium.svg" alt="TT-Metalium™" />
+              <p class="card-title">TT-Metalium™</p>
+            </div>
+            <p class="card-desc">Low-level C++ SDK for writing custom kernels on Tensix cores.</p>
+          </a>
+          <a href="https://docs.tenstorrent.com/cloud-native-support/" target="_blank" rel="noopener" class="card">
+            <div class="card-head">
+              <img class="card-icon" src="_static/home/cloud-native-support.svg" alt="Cloud-Native Support" />
+              <p class="card-title">Cloud-Native Support</p>
+            </div>
+            <p class="card-desc">Run Tenstorrent accelerators on Kubernetes — install, configure, and operate the device stack.</p>
+          </a>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Hardware -->
+      <div class="section" id="hardware">
+        <h2><a class="section-link" href="hardware/index.html"><span class="section-link-text">Hardware</span><span class="section-link-arrow" aria-hidden="true">→</span></a></h2>
+
+        <h3 class="hw-group">Blackhole</h3>
+        <div class="cards-grid">
+          <a href="systems/quietbox/quietbox-bh-2/index.html" class="card">
+            <div class="card-img">
+              <img src="_static/home/qb2-setup-hero.jpg" alt="TT-QuietBox™ 2 (Blackhole)" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">TT-QuietBox™ 2 (Blackhole)</p>
+              <p class="card-desc">Next-generation liquid-cooled Blackhole workstation.</p>
+            </div>
+          </a>
+          <a href="aibs/blackhole/index.html" class="card">
+            <div class="card-img">
+              <img src="_static/home/blackhole.png" alt="Blackhole™" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">Blackhole™ PCIe Cards</p>
+              <p class="card-desc">Infinitely scalable, high-performance AI processing.</p>
+            </div>
+          </a>
+          <a href="systems/quietbox/quietbox-bh/index.html" class="card">
+            <div class="card-img">
+              <img src="_static/home/tt-quietbox-bh.png" alt="TT-QuietBox™ (Blackhole)" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">TT-QuietBox™ (Blackhole)</p>
+              <p class="card-desc">Dead-quiet, liquid-cooled desktop AI.</p>
+            </div>
+          </a>
+          <a href="systems/galaxy-blackhole/index.html" class="card">
+            <div class="card-img">
+              <img src="_static/home/galaxy-blackhole.png" alt="Galaxy (Blackhole)" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">Tenstorrent Galaxy™ (Blackhole)</p>
+              <p class="card-desc">Scalable, enterprise-class AI server.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="divider"></div>
+
+        <h3 class="hw-group">Wormhole</h3>
+        <div class="cards-grid">
+          <a href="aibs/wormhole/index.html" class="card">
+            <div class="card-img">
+              <img src="_static/home/wormhole.png" alt="Wormhole™" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">Wormhole™ PCIe Cards</p>
+              <p class="card-desc">Flexible, scalable processors built with Tensix Cores™.</p>
+            </div>
+          </a>
+          <a href="systems/quietbox/quietbox-wh/index.html" class="card">
+            <div class="card-img">
+              <img src="_static/home/tt-quietbox.png" alt="TT-QuietBox™ (Wormhole)" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">TT-QuietBox™ (Wormhole)</p>
+              <p class="card-desc">Dead-quiet desktop AI.</p>
+            </div>
+          </a>
+          <a href="systems/t3000/index.html" class="card">
+            <div class="card-img">
+              <img src="_static/home/tt-loudbox.png" alt="TT-LoudBox™ (Wormhole)" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">TT-LoudBox™ (Wormhole)</p>
+              <p class="card-desc">High-throughput workstation AI.</p>
+            </div>
+          </a>
+          <a href="systems/galaxy-wormhole/index.html" class="card">
+            <div class="card-img">
+              <img src="_static/home/galaxy-wormhole.png" alt="Galaxy (Wormhole)" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">Tenstorrent Galaxy™ (Wormhole)</p>
+              <p class="card-desc">Scalable, enterprise-class AI server.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Learn -->
+      <div class="section" id="learn">
+        <h2><a class="section-link" href="https://docs.tenstorrent.com/tt-vscode-toolkit/" target="_blank" rel="noopener"><span class="section-link-text">Learn End-to-End through TT-VSCode-Toolkit</span><span class="section-link-arrow" aria-hidden="true">→</span></a></h2>
+        <div class="cards-grid">
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/tt-installer/" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">Your First Inference</p>
+              <p class="card-desc">Set up the toolkit, detect hardware, and run your first model end-to-end.</p>
+            </div>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/tt-inference-server/" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">Serving &amp; APIs</p>
+              <p class="card-desc">Production inference with tt-inference-server and vLLM, plus image and video generation.</p>
+            </div>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/coding-assistant/" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">Applications</p>
+              <p class="card-desc">Real-world apps: coding assistants, AI agents, and video generation on QuietBox 2.</p>
+            </div>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/ct1-understanding-training/" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">Custom Training</p>
+              <p class="card-desc">Datasets, fine-tuning, multi-device training, and training from scratch.</p>
+            </div>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cookbook-overview/" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">Cookbook</p>
+              <p class="card-desc">Hands-on projects: Game of Life, audio processing, fractals, and particle sims.</p>
+            </div>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/forge-image-classification/" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">Compilers &amp; Frameworks</p>
+              <p class="card-desc">Image classification with TT-Forge, JAX and PyTorch/XLA, and an intro to TT-Lang.</p>
+            </div>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cs-fundamentals-01-computer/" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">CS Fundamentals</p>
+              <p class="card-desc">RISC-V architecture, memory hierarchy, parallelism, synchronization, and complexity.</p>
+            </div>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/bounty-program/" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">Advanced</p>
+              <p class="card-desc">Model bring-up bounties and exploring TT-Metalium at the kernel level.</p>
+            </div>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/deploy-vscode-to-koyeb/" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">Deployment</p>
+              <p class="card-desc">Deploy the toolkit and your work to the cloud with Koyeb.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Tools -->
+      <div class="section" id="tools">
+        <h2><a class="section-link" href="tools/index.html"><span class="section-link-text">Tools</span><span class="section-link-arrow" aria-hidden="true">→</span></a></h2>
+        <div class="cards-grid">
+          <a href="https://github.com/tenstorrent/tt-inference-server" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">TT-Inference-Server</p>
+              <p class="card-desc">Deploy and serve models — the canonical source for validated model support.</p>
+            </div>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-studio/" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">TT-Studio</p>
+              <p class="card-desc">Point-and-click web UI for deploying a model — the fastest path for new users.</p>
+            </div>
+          </a>
+          <a href="https://github.com/tenstorrent/tt-smi" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">TT-SMI</p>
+              <p class="card-desc">Command-line device telemetry and firmware info — ships with the software stack.</p>
+            </div>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-toplike/" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">TT-Toplike</p>
+              <p class="card-desc">Real-time terminal monitor: power, temperature, current, and core activity.</p>
+            </div>
+          </a>
+          <a href="https://docs.tenstorrent.com/ttnn-visualizer/" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">TT-NN Visualizer</p>
+              <p class="card-desc">Inspect model execution: graphs, memory plots, tensor and buffer views.</p>
+            </div>
+          </a>
+          <a href="https://github.com/tenstorrent/tt-topology" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">TT-Topology</p>
+              <p class="card-desc">Configure Ethernet routing on multi-card QuietBox and LoudBox systems.</p>
+            </div>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">TT-VSCode-Toolkit</p>
+              <p class="card-desc">Guided VS Code learning environment — browse tracks in the Learn section above.</p>
+            </div>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-blacksmith/" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">TT-Blacksmith</p>
+              <p class="card-desc">Optimized ML training recipes for Tenstorrent hardware.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Explore the Ecosystem -->
+      <div class="section" id="ecosystem">
+        <h2><a class="section-link" href="https://docs.tenstorrent.com/tt-awesome/" target="_blank" rel="noopener"><span class="section-link-text">Explore the Ecosystem</span><span class="section-link-arrow" aria-hidden="true">→</span></a></h2>
+        <div class="cards-grid">
+          <a href="https://docs.tenstorrent.com/tt-awesome/" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">TT-Awesome</p>
+              <p class="card-desc">A curated directory of 115+ community and official projects, models, kernels, and research across 12 categories.</p>
+            </div>
+          </a>
+          <a href="https://docs.tenstorrent.com/tt-awesome/planet/" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">🪐 Planet Tenstorrent</p>
+              <p class="card-desc">The latest across the ecosystem — releases, papers, talks, videos, and demos, aggregated in one feed.</p>
+            </div>
+          </a>
+          <a href="https://github.com/tenstorrent" target="_blank" rel="noopener" class="card">
+            <div class="card-text">
+              <p class="card-title">Tenstorrent on GitHub</p>
+              <p class="card-desc">All public source repositories — the software stack, compilers, tools, and demos.</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- Latest official releases — populated client-side from the tt-awesome
+             JSON feed (docs.tenstorrent.com/tt-awesome/feeds/feed.json, same
+             origin in production). Starts hidden and is revealed only when the
+             fetch succeeds AND returns official-affiliation releases; on any
+             failure it stays hidden so the page never shows a broken or empty
+             state. See the script at the end of <body>. -->
+        <div id="recent-releases" class="releases-block" hidden>
+          <h3 class="group-head">Latest Releases from Tenstorrent</h3>
+          <div class="cards-grid" id="recent-releases-grid"></div>
+          <a class="releases-more" href="https://docs.tenstorrent.com/tt-awesome/planet/" target="_blank" rel="noopener"><span class="releases-more-text">More releases on Planet Tenstorrent</span><span class="section-link-arrow" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Resources -->
+      <div class="section" id="support">
+        <h2><a class="section-link" href="support/README.html"><span class="section-link-text">Resources</span><span class="section-link-arrow" aria-hidden="true">→</span></a></h2>
+        <div class="cards-grid">
+          <a href="https://tenstorrent.atlassian.net/servicedesk/customer/portal/1" target="_blank" rel="noopener" class="card">
+            <div class="card-img">
+              <img src="_static/home/compliance.png" alt="Request Support" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">Request Support</p>
+              <p class="card-desc">Submit a support ticket and our team will help.</p>
+            </div>
+          </a>
+          <a href="https://tenstorrent.com/faq" target="_blank" rel="noopener" class="card">
+            <div class="card-img">
+              <img src="_static/home/faq.png" alt="FAQ" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">FAQ</p>
+              <p class="card-desc">Learn more about our hardware and software.</p>
+            </div>
+          </a>
+          <a href="https://tenstorrent.com/contact" target="_blank" rel="noopener" class="card">
+            <div class="card-img">
+              <img src="_static/home/contact-us.png" alt="Contact Us" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">Contact Us</p>
+              <p class="card-desc">Get in touch with the Tenstorrent team.</p>
+            </div>
+          </a>
+          <a href="https://discord.com/invite/tenstorrent" target="_blank" rel="noopener" class="card">
+            <div class="card-img">
+              <img src="_static/home/discord.svg" alt="Join Our Discord" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">Join Our Discord</p>
+              <p class="card-desc">Join the Tenstorrent developer community.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Legacy -->
+      <div class="section" id="legacy">
+        <h2>Legacy</h2>
+        <div class="cards-grid">
+          <a href="aibs/grayskull/index.html" class="card">
+            <div class="card-img">
+              <img src="_static/home/grayskull.png" alt="Grayskull™" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">Grayskull™</p>
+              <p class="card-desc">Tenstorrent's first-generation Tensix processor.</p>
+            </div>
+          </a>
+          <a href="systems/t7000/index.html" class="card">
+            <div class="card-img">
+              <img src="_static/home/t7000.png" alt="T7000" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">T7000</p>
+              <p class="card-desc">Earlier-generation Tenstorrent system.</p>
+            </div>
+          </a>
+          <a href="systems/t1000/index.html" class="card">
+            <div class="card-img">
+              <img src="_static/home/t1000.png" alt="T1000" />
+            </div>
+            <div class="card-text">
+              <p class="card-title">T1000</p>
+              <p class="card-desc">Earlier-generation Tenstorrent system.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a href="/" class="footer-logo">
+        <img src="_static/tt_logo.svg" alt="Tenstorrent" />
+        <span>DOCUMENTATION</span>
+      </a>
+      <p class="footer-copy">© 2025 Tenstorrent Inc. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="https://tenstorrent.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>
+        <a href="https://github.com/tenstorrent" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://discord.com/invite/tenstorrent" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Recent-releases feed loader.
+       Fetches the tt-awesome JSON feed, keeps only items tagged both "release"
+       and "official" (i.e. Tenstorrent-owned-and-operated repos), and renders
+       the newest few into the ecosystem section. Every failure path leaves the
+       #recent-releases block hidden, so the home page degrades gracefully when
+       the feed is unreachable (e.g. a core-only local build with no
+       /tt-awesome/ deployed). -->
+  <script>
+    (function () {
+      var FEED = "/tt-awesome/feeds/feed.json";
+      var MAX = 6;
+
+      var block = document.getElementById("recent-releases");
+      var grid = document.getElementById("recent-releases-grid");
+      if (!block || !grid) return;
+
+      function esc(s) {
+        return String(s == null ? "" : s)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+
+      // Locale-independent short date, e.g. "Jun 30, 2026". UTC so the label is
+      // stable regardless of the viewer's timezone.
+      function fmtDate(iso) {
+        var d = new Date(iso);
+        if (isNaN(d.getTime())) return "";
+        var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+        return months[d.getUTCMonth()] + " " + d.getUTCDate() + ", " + d.getUTCFullYear();
+      }
+
+      fetch(FEED, { credentials: "omit" })
+        .then(function (r) {
+          if (!r.ok) throw new Error("HTTP " + r.status);
+          return r.json();
+        })
+        .then(function (feed) {
+          var items = (feed && feed.items) || [];
+          var releases = items.filter(function (it) {
+            var tags = it.tags || [];
+            return tags.indexOf("release") !== -1 && tags.indexOf("official") !== -1;
+          });
+
+          // Feed is already newest-first, but sort defensively.
+          releases.sort(function (a, b) {
+            return new Date(b.date_published) - new Date(a.date_published);
+          });
+          releases = releases.slice(0, MAX);
+
+          // Graceful fallback: nothing official to show → leave block hidden.
+          if (!releases.length) return;
+
+          grid.innerHTML = releases.map(function (it) {
+            var title = esc(it.title || "Release");
+            // Allowlist the scheme before it lands in an href: esc() stops HTML
+            // injection but not a javascript:/data: URL. The feed is trusted,
+            // so this is defense-in-depth (and mirrors tt-awesome's own
+            // http(s)-only link rendering).
+            var url = /^https?:\/\//i.test(it.url) ? esc(it.url) : "#";
+            var date = fmtDate(it.date_published);
+            var summary = esc(it.summary || "");
+            return (
+              '<a href="' + url + '" target="_blank" rel="noopener" class="card">' +
+                '<div class="card-text">' +
+                  '<p class="card-title">' + title + "</p>" +
+                  (date ? '<p class="release-date">' + date + "</p>" : "") +
+                  '<p class="card-desc release-summary">' + summary + "</p>" +
+                "</div>" +
+              "</a>"
+            );
+          }).join("");
+
+          block.hidden = false;
+        })
+        .catch(function (e) {
+          // Feed unreachable or malformed — keep the block hidden. Log at debug
+          // level so a broken feed is diagnosable without affecting the page.
+          if (window.console && console.debug) {
+            console.debug("recent-releases feed unavailable", e);
+          }
+        });
+    })();
+  </script>
+
+</body>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="getting-started/tt-software-stack.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tenstorrent.
+      <span class="lastupdated">Last updated on Jul 24, 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+  
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><script src="_static/sidebar-scroll.js"></script>
+<script src="_static/external-nav-links.js"></script>
+<script src="_static/docs-toc.js"></script>
+<script id="tt-search-script" src="_static/tt-search.js"
+        data-search-url="search.html"
+        data-search-api-base="https://csl860x2oj.execute-api.us-east-2.amazonaws.com/prod"
+        data-search-source="docs-tenstorrent"
+        data-site-base-url="https://docs.tenstorrent.com/"
+        data-kapa-src="_static/kapa.js"
+        data-kapa-integration-id="c37e0bab-7623-43d7-bff1-daa52e901bbe"></script>
+
+</body>
+</html>

@@ -1,0 +1,843 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="TT-QuietBox Blackhole™, Blackhole™ Networked AI Processor, Tensix core" name="product-name" />
+<meta content="PCIe, QSFP-DD, Installation, Setup, Electrostatic Discharge (ESD), Basic Input/Output System (BIOS)" name="technology-concepts" />
+<meta content="Task-Based Guide (How-To)" name="document-type" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hardware and Software Setup &mdash; Home 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/tt_theme.css?v=78736722" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/home.css?v=e04b094a" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/>
+    <link rel="canonical" href="https://docs.tenstorrent.com/systems/quietbox/quietbox-bh-2/setup.html" />
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=fd3dd8dd"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../../_static/togglebutton.js?v=b8b12719"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../../../_static/custom.js?v=0ccd5bc4"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Welcome to Your TT-QuietBox 2" href="welcome.html" />
+    <link rel="prev" title="TT-QuietBox 2 (Blackhole)" href="index.html" /> 
+  <script src="../../../_static/posthog.js"></script>
+</head>
+
+<body class="wy-body-for-nav">
+<nav class="tt-top-nav" role="navigation" aria-label="Top navigation">
+  <div class="tt-top-nav-left">
+    <a href="https://docs.tenstorrent.com/" class="tt-nav-logo">
+      <img src="../../../_static/logotype.png" alt="Tenstorrent" />
+      <span>DOCUMENTATION</span>
+    </a>
+    <ul class="tt-nav-links">
+      <li class="has-dropdown">
+        <a href="https://docs.tenstorrent.com/#get-started">Get Started</a>
+        <div class="tt-nav-dropdown">
+          <a href="https://docs.tenstorrent.com/getting-started/tt-software-stack.html">Overview</a>
+          <a href="https://docs.tenstorrent.com/getting-started/README.html">Installing Tenstorrent Software</a>
+          <a href="https://docs.tenstorrent.com/getting-started/manual-software-install.html">Manual Installation</a>
+          <a href="https://docs.tenstorrent.com/getting-started/vLLM-servers.html">Deploy LLMs</a>
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/" target="_blank" rel="noopener">Learn by Building</a>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <a href="https://docs.tenstorrent.com/#software">Software</a>
+        <div class="tt-nav-dropdown">
+          <a href="https://docs.tenstorrent.com/forge/index.html">TT-Forge</a>
+          <a href="https://docs.tenstorrent.com/tt-xla/" target="_blank" rel="noopener">TT-XLA</a>
+          <a href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/" target="_blank" rel="noopener">TT-NN</a>
+          <a href="https://docs.tenstorrent.com/tt-lang/" target="_blank" rel="noopener">TT-Lang</a>
+          <a href="https://docs.tenstorrent.com/tt-mlir/" target="_blank" rel="noopener">TT-MLIR</a>
+          <a href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/" target="_blank" rel="noopener">TT-Metalium</a>
+          <a href="https://docs.tenstorrent.com/cloud-native-support/" target="_blank" rel="noopener">Cloud-Native Support</a>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <a href="https://docs.tenstorrent.com/#hardware">Hardware</a>
+        <div class="tt-nav-dropdown">
+          <span class="tt-nav-dropdown-label">Blackhole</span>
+          <a href="https://docs.tenstorrent.com/aibs/blackhole/index.html">Blackhole™ PCIe Cards</a>
+          <a href="https://docs.tenstorrent.com/systems/quietbox/quietbox-bh/index.html">TT-QuietBox</a>
+          <a href="https://docs.tenstorrent.com/systems/quietbox/quietbox-bh-2/index.html">TT-QuietBox 2</a>
+          <a href="https://docs.tenstorrent.com/systems/galaxy-blackhole/index.html">Galaxy™ (Blackhole)</a>
+          <span class="tt-nav-dropdown-label">Wormhole</span>
+          <a href="https://docs.tenstorrent.com/aibs/wormhole/index.html">Wormhole™ PCIe Cards</a>
+          <a href="https://docs.tenstorrent.com/systems/quietbox/quietbox-wh/index.html">TT-QuietBox</a>
+          <a href="https://docs.tenstorrent.com/systems/t3000/index.html">TT-LoudBox™</a>
+          <a href="https://docs.tenstorrent.com/systems/galaxy-wormhole/index.html">Galaxy™ (Wormhole)</a>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <a href="https://docs.tenstorrent.com/#tools">Tools</a>
+        <div class="tt-nav-dropdown">
+          <a href="https://github.com/tenstorrent/tt-inference-server" target="_blank" rel="noopener">TT-Inference-Server</a>
+          <a href="https://github.com/tenstorrent/tt-studio" target="_blank" rel="noopener">TT-Studio</a>
+          <a href="https://github.com/tenstorrent/tt-smi" target="_blank" rel="noopener">TT-SMI</a>
+          <a href="https://docs.tenstorrent.com/tt-toplike/" target="_blank" rel="noopener">TT-Toplike</a>
+          <a href="https://docs.tenstorrent.com/ttnn-visualizer/" target="_blank" rel="noopener">TT-NN Visualizer</a>
+          <a href="https://github.com/tenstorrent/tt-topology" target="_blank" rel="noopener">TT-Topology</a>
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit" target="_blank" rel="noopener">TT-VSCode-Toolkit</a>
+          <a href="https://docs.tenstorrent.com/tt-blacksmith/" target="_blank" rel="noopener">TT-Blacksmith</a>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <a href="https://docs.tenstorrent.com/#resources">Resources</a>
+        <div class="tt-nav-dropdown">
+          <a href="https://tenstorrent.atlassian.net/servicedesk/customer/portal/1" target="_blank" rel="noopener">Request Support</a>
+          <a href="https://tenstorrent.com/developers" target="_blank" rel="noopener">Developer Hub</a>
+          <a href="https://discord.com/invite/tenstorrent" target="_blank" rel="noopener">Join our Discord</a>
+          <a href="https://tenstorrent.com/faq" target="_blank" rel="noopener">FAQ</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tt-top-nav-right">
+    <button type="button" class="tt-nav-search-form tt-search-trigger" aria-label="Search docs" aria-haspopup="dialog">
+      <svg class="tt-search-glyph" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      <span class="tt-nav-search-placeholder">Search</span>
+      <kbd class="tt-nav-search-kbd">⌘K</kbd>
+    </button>
+    <div class="tt-nav-actions">
+      <a href="https://docs.tenstorrent.com/tt-awesome/" class="tt-nav-btn-cta" target="_blank" rel="noopener">Explore</a>
+      <a href="https://github.com/tenstorrent" class="tt-nav-btn-github" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+        </svg>
+        Github
+      </a>
+    </div>
+    <i data-toggle="wy-nav-top" class="fa fa-bars tt-nav-hamburger" aria-hidden="true"></i>
+  </div>
+</nav>
+
+
+<div class="tt-search-modal" id="tt-search-modal" hidden>
+  <div class="tt-search-backdrop" data-search-close></div>
+  <div class="tt-search-dialog" role="dialog" aria-modal="true" aria-label="Search documentation">
+    <div class="tt-search-head">
+      <div class="tt-search-box">
+        <svg class="tt-search-glyph" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+        <input type="text" class="tt-search-input" id="tt-search-input"
+               placeholder="Search for anything…" aria-label="Search for anything"
+               autocomplete="off" spellcheck="false" hidden />
+        <input type="text" class="tt-search-input" id="tt-ai-input"
+               placeholder="Ask anything about Tenstorrent hardware and software" aria-label="Ask about the docs"
+               autocomplete="off" spellcheck="false" />
+      </div>
+      <div class="tt-search-tabs" role="tablist">
+        <button type="button" class="tt-search-tab is-active" data-tab="ai" role="tab" aria-selected="true">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M8 1.5l1.4 3.6L13 6.5 9.4 7.9 8 11.5 6.6 7.9 3 6.5l3.6-1.4L8 1.5Z" fill="currentColor"/>
+            <path d="M12.5 10.5l.6 1.5 1.5.6-1.5.6-.6 1.5-.6-1.5-1.5-.6 1.5-.6.6-1.5Z" fill="currentColor"/>
+          </svg>
+          Ask AI
+        </button>
+        <button type="button" class="tt-search-tab" data-tab="search" role="tab" aria-selected="false">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          Search
+        </button>
+      </div>
+    </div>
+    <div class="tt-search-body"><div class="tt-search-panel" data-panel="search" hidden>
+        <ul class="tt-search-results" id="tt-search-results"></ul>
+        <div class="tt-search-empty" id="tt-search-empty">Start typing to search the documentation.</div>
+      </div><div class="tt-search-panel" data-panel="ai">
+        <div class="tt-ai-intro" id="tt-ai-intro">
+          <svg class="tt-ai-intro-star" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M10 1.5 12 7l5.5 1-4 3.9 1.2 5.6L10 14.4 5.3 17l1.2-5.6L2.5 7.5 8 7z" fill="currentColor"/>
+            <path d="M15.5 12l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z" fill="currentColor"/>
+          </svg>
+          <span class="tt-ai-intro-hint">Type a question above and press <kbd>Enter</kbd> — or jump right in:</span>
+        </div>
+        <ul class="tt-ai-examples" id="tt-ai-examples">
+          <li><button type="button" class="tt-ai-example">How to debug TT-Forge compile errors?</button></li>
+          <li><button type="button" class="tt-ai-example">How to set up Tenstorrent Cloud SSH?</button></li>
+          <li><button type="button" class="tt-ai-example">TT-Metalium vs TT-NN: what's the difference?</button></li>
+          <li><button type="button" class="tt-ai-example">How to daisy-chain Wormhole devices?</button></li>
+        </ul>
+        <div id="tt-kapa-embed" hidden>
+          <div id="tt-kapa-mount"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<a href="https://docs.tenstorrent.com/">
+    <img src="../../../_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+<a href="../../../index.html">
+    Home
+</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started/tt-software-stack.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started/README.html">Installing Tenstorrent Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started/manual-software-install.html">Manual Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started/vLLM-servers.html">Deploy LLMs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-vscode-toolkit/">Learn by Building</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Hardware</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../aibs/index.html">Cards</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../aibs/blackhole/index.html">Blackhole™ PCIe Cards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../aibs/wormhole/index.html">Wormhole™ PCIe Cards</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Systems</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">TT-QuietBox 2 (Blackhole)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quietbox-bh/index.html">TT-QuietBox (Blackhole)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quietbox-wh/index.html">TT-QuietBox (Wormhole)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../t3000/index.html">TT-LoudBox (Wormhole)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../galaxy-blackhole/index.html">Tenstorrent Galaxy (Blackhole)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../galaxy-wormhole/index.html">Tenstorrent Galaxy (Wormhole)</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../software/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../forge/index.html">TT-Forge™</a><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.tenstorrent.com/tt-forge-onnx/">TT-Forge-ONNX</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.tenstorrent.com/tt-blacksmith/">TT-Blacksmith</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-xla/">TT-XLA</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/">TT-NN™</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-lang/">TT-Lang™</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-mlir/">TT-MLIR™</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/">TT-Metalium™</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/cloud-native-support/">Cloud-Native Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools/index.html">Tools</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../support/README.html">Support &amp; FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Legal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../bounty_terms.html">Bounty Program Terms</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Home</a>
+      </nav>
+
+      <div class="wy-nav-content">
+  
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Systems</a></li>
+          <li class="breadcrumb-item"><a href="index.html">TT-QuietBox 2 (Blackhole)</a></li>
+      <li class="breadcrumb-item active">Hardware and Software Setup</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/systems/quietbox/quietbox-bh-2/setup.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <style>
+/* ===== QB2 setup page — readability + visual polish (scoped to this page) ===== */
+
+/* Comfortable reading rhythm */
+.rst-content p,
+.rst-content li { line-height: 1.7; }
+.rst-content li { margin-bottom: 0.35rem; }
+
+/* Page title: subtle brand accent */
+.rst-content h1 {
+  border-bottom: 3px solid #6454a0;
+  padding-bottom: 0.4rem;
+}
+
+/* Step headings: clear separation between sections */
+.rst-content h2 {
+  margin-top: 2.6rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid #ece9f3;
+  font-weight: 700;
+}
+
+/* Figures: centered, softly framed */
+.rst-content div.figure,
+.rst-content figure {
+  margin: 1.6rem auto;
+  text-align: center;
+}
+.rst-content div.figure img,
+.rst-content figure img {
+  border: 1px solid #e7e4f0;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(38, 38, 46, 0.08);
+}
+
+/* Quieter horizontal rules */
+.rst-content hr {
+  border: 0;
+  border-top: 1px solid #ece9f3;
+  margin: 2rem 0;
+}
+</style><figure class="align-default">
+<a class="reference external image-reference" href="./qb2-setup-hero2.jpg"><img alt="../../../_images/qb2-setup-hero2.jpg" src="../../../_images/qb2-setup-hero2.jpg" style="width: 65%;" />
+</a>
+</figure>
+<section id="hardware-and-software-setup">
+<h1>Hardware and Software Setup<a class="headerlink" href="#hardware-and-software-setup" title="Link to this heading"></a></h1>
+<p>This guide shows users how to safely unbox, setup hardware, and install software on a TT-QuietBox<sup>™</sup> 2 (Blackhole<sup>®</sup>) workstation.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For the complete handbook — system access &amp; management, workloads &amp; development, troubleshooting &amp; recovery, and reference material beyond first setup — see the <a class="reference external" href="https://docs.tenstorrent.com/tt-quietbox2-guide/"><strong>TT-QuietBox 2 Guide</strong></a>.</p>
+</div>
+<section id="before-you-begin">
+<h2>Before You Begin<a class="headerlink" href="#before-you-begin" title="Link to this heading"></a></h2>
+<p>Choose a suitable location for your System:</p>
+<ul class="simple">
+<li><p>Choose a stable area for the TT-QuietBox 2 where it will not need to be moved regularly. To ensure proper airflow intake, allow for 10 inches (25 cm) of clearance around the body of the workstation. Also avoid placing items on top of the workstation, as this can block the heat exhaust.</p></li>
+<li><p>The Power Supply Unit (PSU) on the TT-QuietBox 2 is rated to draw up to 1600W of power and has demonstrated drawing 1200W of power running image generation models. A standard 15A circuit can handle up to 1800W. When choosing the location of your TT-QuietBox 2, be mindful of the other electronics which may draw power from the same circuit. We recommend putting the TT-QuietBox 2 on a dedicated circuit, if not you may trip a breaker.</p></li>
+<li><p>Review the <a class="reference internal" href="specifications.html#safety-warnings"><span class="std std-ref">safety warnings</span></a>.</p></li>
+<li><p>Inspect your package for signs of damage. Do not proceed with unboxing or installation if you suspect shipping damage to the system. Contact Tenstorrent support by <a class="reference external" href="https://tenstorrent.atlassian.net/servicedesk/customer/portal/1">raising a support request.</a> Our team will review your request and provide assistance.</p></li>
+</ul>
+<section id="required-tools">
+<h3>Required Tools<a class="headerlink" href="#required-tools" title="Link to this heading"></a></h3>
+<p>Ensure you have everything you need to get started.</p>
+<p>The Tenstorrent TT-QuietBox 2 (Blackhole) (TW-04003) package includes the following items:</p>
+<ul class="simple">
+<li><p>1x TT-QuietBox 2 (Blackhole) workstation</p></li>
+<li><p>1x Power Supply Cord (C19 to NEMA 5-15P)</p></li>
+<li><p>1x AnkerWork S500 speakerphone (included for some early customers to develop with text-to-speech (TTS) and speech-to-text (STT) AI models)</p></li>
+</ul>
+<p>For setup, you will also need your own:</p>
+<ul class="simple">
+<li><p>Keyboard</p></li>
+<li><p>Mouse</p></li>
+<li><p>HDMI cable + monitor</p></li>
+</ul>
+<p>Note: Only use certified HDMI cables with the TT-QuietBox 2. Using non-certified HDMI cables may result in device damage, or non-compliant video operation.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="step-1-unbox-the-workstation">
+<h2>Step 1: Unbox the Workstation<a class="headerlink" href="#step-1-unbox-the-workstation" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Position the box in your prepared unboxing area, ensuring ample space to work around it.</p></li>
+</ol>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../../_images/qb2-unboxing-box.jpg"><img alt="../../../_images/qb2-unboxing-box.jpg" src="../../../_images/qb2-unboxing-box.jpg" style="width: 40%;" />
+</a>
+</figure>
+<ol class="arabic simple" start="2">
+<li><p>Remove the white side clips near the bottom of the packaging. Squeeze the tabs on the clip and pull to release.</p></li>
+</ol>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../../_images/qb2-unboxing-clips.jpg"><img alt="../../../_images/qb2-unboxing-clips.jpg" src="../../../_images/qb2-unboxing-clips.jpg" style="width: 40%;" />
+</a>
+</figure>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../../_images/qb2-unboxing-clip-release.jpg"><img alt="../../../_images/qb2-unboxing-clip-release.jpg" src="../../../_images/qb2-unboxing-clip-release.jpg" style="width: 40%;" />
+</a>
+</figure>
+<ol class="arabic simple" start="3">
+<li><p>Lift box lid, remove accessories box and styrofoam, then remove internal cardboard case.</p></li>
+</ol>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../../_images/qb2-unboxing-lift-sleeve.jpg"><img alt="../../../_images/qb2-unboxing-lift-sleeve.jpg" src="../../../_images/qb2-unboxing-lift-sleeve.jpg" style="width: 40%;" />
+</a>
+</figure>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../../_images/qb2-unboxing-remove-accessories.jpg"><img alt="../../../_images/qb2-unboxing-remove-accessories.jpg" src="../../../_images/qb2-unboxing-remove-accessories.jpg" style="width: 40%;" />
+</a>
+</figure>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../../_images/qb2-unboxing-lift-inner-box.jpg"><img alt="../../../_images/qb2-unboxing-lift-inner-box.jpg" src="../../../_images/qb2-unboxing-lift-inner-box.jpg" style="width: 40%;" />
+</a>
+</figure>
+<ol class="arabic simple" start="4">
+<li><p>Lift the TT-QuietBox 2 out of the package using the handles.</p></li>
+</ol>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../../_images/qb2-unboxing-lift-workstation.jpg"><img alt="../../../_images/qb2-unboxing-lift-workstation.jpg" src="../../../_images/qb2-unboxing-lift-workstation.jpg" style="width: 40%;" />
+</a>
+</figure>
+<ol class="arabic simple" start="5">
+<li><p>Remove protective wrapping on all sides.</p></li>
+</ol>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../../_images/qb2-remove-plastic-front.jpg"><img alt="../../../_images/qb2-remove-plastic-front.jpg" src="../../../_images/qb2-remove-plastic-front.jpg" style="width: 40%;" />
+</a>
+</figure>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../../_images/qb2-remove-plastic-side.jpg"><img alt="../../../_images/qb2-remove-plastic-side.jpg" src="../../../_images/qb2-remove-plastic-side.jpg" style="width: 40%;" />
+</a>
+</figure>
+</section>
+<hr class="docutils" />
+<section id="step-2-set-up-the-hardware">
+<h2>Step 2: Set Up the Hardware<a class="headerlink" href="#step-2-set-up-the-hardware" title="Link to this heading"></a></h2>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../../_images/qb2-rear-view.jpg"><img alt="../../../_images/qb2-rear-view.jpg" src="../../../_images/qb2-rear-view.jpg" style="width: 60%;" />
+</a>
+</figure>
+<ol class="arabic simple">
+<li><p><strong>Connect the power cable.</strong> Connect the provided C19 power cable to the workstation and then to a dedicated power outlet. See the Electrical Safety section for the full list of power requirements.</p></li>
+<li><p><strong>Connect peripherals.</strong> Connect the HDMI monitor, keyboard, and mouse to the back of the workstation. (Please note: video is not supported through the USB-C port). For internet connections, we recommend Ethernet over WiFi for faster downloading of models. If you prefer Ethernet, connect your Ethernet cable to the RJ45 port.</p></li>
+<li><p><strong>Power on the workstation.</strong> On the back of the workstation, flip the switch on the PSU to the “I” position.</p></li>
+<li><p><strong>On the front of the workstation, press the power button to turn the system on.</strong></p></li>
+</ol>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../../_images/qb2-power-button.jpg"><img alt="../../../_images/qb2-power-button.jpg" src="../../../_images/qb2-power-button.jpg" style="width: 40%;" />
+</a>
+</figure>
+</section>
+<hr class="docutils" />
+<section id="step-3-first-time-log-in">
+<h2>Step 3. First-Time Log In<a class="headerlink" href="#step-3-first-time-log-in" title="Link to this heading"></a></h2>
+<p>Once your system is booted up, the login prompt will appear.</p>
+<p>Enter the default password: <strong>ttuser</strong></p>
+</section>
+<section id="step-4-change-default-password">
+<h2>Step 4. Change Default Password<a class="headerlink" href="#step-4-change-default-password" title="Link to this heading"></a></h2>
+<p>After logging in, open a Terminal window by pressing Ctrl+Alt+T and follow these steps to change your password from the public default:</p>
+<ol class="arabic simple">
+<li><p>Run command: <code class="docutils literal notranslate"><span class="pre">passwd</span></code></p></li>
+<li><p>Enter current password: <strong>ttuser</strong></p></li>
+<li><p>Enter new password of your choosing and hit enter to confirm the change.</p></li>
+</ol>
+</section>
+<section id="step-5-setup-and-confirm-internet-connection">
+<h2>Step 5. Setup and Confirm Internet Connection<a class="headerlink" href="#step-5-setup-and-confirm-internet-connection" title="Link to this heading"></a></h2>
+<p>TT-QuietBox 2 can be connected to the internet via WiFi or Ethernet cable. For faster model downloads, we recommend a direct Ethernet connection.</p>
+<p>If you have not done so already during hardware setup, connect your Ethernet cable to the standard RJ45 port on the back of the workstation. Then, verify your internet connection by clicking on the status icons in the upper right corner of the screen. Confirm the internet connection reads “Wired.”</p>
+<p>If you would prefer to set up a WiFi connection, on your monitor, click on the status icons in the top right corner of the screen. Then, click on “Wi-Fi” (it may say “not connected” or “off”). Select your WiFi network from the drop-down list, enter the password, and click “Connect.”</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Network bandwidth is significantly better over wired Ethernet than WiFi, which makes it the better choice for downloading large open-source AI models.</p>
+</div>
+</section>
+<section id="step-6-update-system-software">
+<h2>Step 6. Update System Software<a class="headerlink" href="#step-6-update-system-software" title="Link to this heading"></a></h2>
+<p>TT-QuietBox 2 comes pre-installed with the Ubuntu operating system (24.04.3 LTS).</p>
+<p><strong>Step 1:</strong> Upon logging in, a Ubuntu Software Updater may offer a prompt that new software has been issued since the latest release. If this prompt appears, click “Install Now” to download the latest Ubuntu updates.</p>
+<p><strong>Step 2:</strong> To ensure you have the latest system package updates, open a Terminal window by pressing Ctrl+Alt+T and run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
+</pre></div>
+</div>
+<p><strong>Step 3:</strong> Install the latest Tenstorrent firmware and system software, which will then trigger a system reboot:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/bin/bash<span class="w"> </span>&lt;<span class="o">(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://github.com/tenstorrent/tt-installer/releases/latest/download/install.sh<span class="o">)</span><span class="w"> </span>--mode-non-interactive
+</pre></div>
+</div>
+<p>Log in with <code class="docutils literal notranslate"><span class="pre">ttuser</span></code> and proceed to the next step.</p>
+</section>
+<hr class="docutils" />
+<section id="step-7-verify-system-recognition-of-blackhole-cards">
+<h2>Step 7: Verify System Recognition of Blackhole Cards<a class="headerlink" href="#step-7-verify-system-recognition-of-blackhole-cards" title="Link to this heading"></a></h2>
+<p>To verify all cards are up and running in your TT-QuietBox, launch TT-SMI. This is Tenstorrent’s simple command line utility that displays devices, device telemetry and other system information.</p>
+<ol class="arabic simple">
+<li><p>In the terminal your shell prompt should read: <code class="docutils literal notranslate"><span class="pre">(.tenstorrent-venv)</span> <span class="pre">ttuser&#64;tt-quietbox:~$</span></code></p></li>
+<li><p>Run command <code class="docutils literal notranslate"><span class="pre">tt-smi</span></code></p></li>
+<li><p>Under the “Device Information” pane, you should see an output which lists four recognized accelerators. See the screenshot below for reference.</p></li>
+</ol>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../../_images/screencap-tt-smi-qb2.jpg"><img alt="../../../_images/screencap-tt-smi-qb2.jpg" src="../../../_images/screencap-tt-smi-qb2.jpg" style="width: 80%;" />
+</a>
+</figure>
+<div class="caution admonition">
+<p class="admonition-title">Important</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">.tenstorrent-venv</span></code> is not active, or you don’t see all four accelerators listed in the Device Information pane of TT-SMI, please <a class="reference internal" href="support-bh-2.html"><span class="std std-doc">visit the troubleshooting page.</span></a></p>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Once all cards have been verified, close TT-SMI by pressing Q on your keyboard.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Setting up your TT-QuietBox 2 for more than one person? <a class="reference internal" href="support-bh-2.html#qb2-add-new-user"><span class="std std-ref">Follow these steps to set up another user on your TT-QuietBox 2</span></a>.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="step-8-get-access-to-model-weights">
+<h2>Step 8: Get Access to Model Weights<a class="headerlink" href="#step-8-get-access-to-model-weights" title="Link to this heading"></a></h2>
+<p>TT-QuietBox 2 comes pre-installed with <a class="reference external" href="https://docs.tenstorrent.com/tt-studio/">TT Studio</a>, Tenstorrent’s simple web interface for running AI models.</p>
+<p>For the most up-to-date list of models supported by TT-QuietBox 2, check the <a class="reference external" href="https://tenstorrent.com/developers">Developer Hub</a>.</p>
+<p>TT Studio uses the Hugging Face API to manage open-source AI model weights and configuration files. Hugging Face is a free, open source community for collaborating on AI models and applications. Hugging Face access tokens are the unique security keys that allow weights from AI models to be downloaded to your machine. Read more about how user access tokens work in the <a class="reference external" href="https://huggingface.co/docs/hub/en/security-tokens#how-to-manage-user-access-tokens">Hugging Face documentation</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For <a class="reference external" href="https://huggingface.co/Qwen/Qwen3-32B">Qwen3-32B</a>, the model weights come pre-downloaded onto your TT-QuietBox 2. However, you will still require an access token from Hugging Face to use the model.</p>
+</div>
+<p>To get access to model weights on Hugging Face, follow these steps:</p>
+<ol class="arabic simple">
+<li><p>Open a new browser window and navigate to <a class="reference external" href="https://huggingface.co">huggingface.co</a>.</p></li>
+<li><p>Create or log in to your Hugging Face account.</p></li>
+<li><p>Create your access token at <a class="reference external" href="https://huggingface.co/settings/tokens">huggingface.co/settings/tokens</a>. <strong>Copy and securely store the access token</strong> as it is only displayed once and will be needed in the next step.</p></li>
+<li><p>Some of the models in TT Studio (<a class="reference external" href="https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct">Llama-3.1-8B-Instruct</a> and <a class="reference external" href="https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct">Llama-3.3-70B-Instruct</a>) require access to be granted by the model developer via the Hugging Face website. For these models, click <strong>Request Access</strong> and read and sign any required community license agreements.</p></li>
+</ol>
+</section>
+<section id="step-9-launch-tt-studio">
+<h2>Step 9: Launch TT Studio<a class="headerlink" href="#step-9-launch-tt-studio" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Open a terminal window and pull the latest from the TT Studio github repo:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/.local/lib/tt-studio
+git<span class="w"> </span>pull
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>When the process is complete, run this command in Terminal to open TT Studio:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tt-studio
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>When prompted, paste in your HuggingFace access token from the previous step.</p></li>
+<li><p>Choose to install dependencies with Docker by entering “Y”. It may take a few minutes to build the docker containers. When prompted, enter your sudo password (this is the same password you use to log in to your workstation). Administrative access is required to set up TT Inference Server, the engine which runs AI models on Tenstorrent hardware.</p></li>
+<li><p>The TT Studio web app will now launch in your default web browser.</p></li>
+</ol>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../../_images/qb2-screenshot-deployment-mode.png"><img alt="../../../_images/qb2-screenshot-deployment-mode.png" src="../../../_images/qb2-screenshot-deployment-mode.png" style="width: 80%;" />
+</a>
+</figure>
+<ol class="arabic simple" start="6">
+<li><p>To get a model running as quickly as possible, select “Single / Multi Model Deployments” and then choose “Qwen3-32B” from the Select Model dropdown. Click “next” and “Deploy”.</p></li>
+<li><p>Once the model is ready, click “Chat” or “API” to interact with the model in realtime.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Qwen3-32B comes pre-loaded on your TT-QuietBox 2. Downloading other models can take anywhere from a few minutes to a few hours, depending on the size of the model you’ve selected and the speed of your internet connection.</p>
+</div>
+</section>
+<section id="what-to-do-next">
+<h2>What to do next?<a class="headerlink" href="#what-to-do-next" title="Link to this heading"></a></h2>
+<style>
+.qb2-next { max-width: 100%; margin: 8px 0 4px; }
+
+/* hero banner */
+.qb2-next-hero {
+  background: linear-gradient(120deg, #6454a0 0%, #8a6fd6 58%, #b58ad6 100%);
+  border-radius: 12px;
+  padding: 24px 28px;
+  color: #fff;
+  margin-bottom: 22px;
+  box-shadow: 0 8px 24px rgba(100, 84, 160, 0.28);
+}
+.qb2-next-hero h3 { color: #fff !important; margin: 0 0 8px; font-size: 1.4rem; font-weight: 700; display: block; overflow-x: visible; }
+.qb2-next-hero p  { color: rgba(255,255,255,0.93); margin: 0 0 16px; font-size: 0.98rem; line-height: 1.55; }
+.qb2-next-btn {
+  display: inline-block; background: #fff; color: #6454a0 !important;
+  font-weight: 700; padding: 7px 16px; font-size: 0.9rem; border-radius: 8px;
+  text-decoration: none !important; transition: transform .15s ease, box-shadow .15s ease;
+}
+.qb2-next-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.22); }
+</style>
+
+<div class="qb2-next">
+
+  <div class="qb2-next-hero">
+    <h3>&#128640; Your TT-QuietBox 2 is ready. Now the fun begins.</h3>
+    <p>Four Blackhole&trade; chips, 480 Tensix cores, and 128&nbsp;GB of memory are sitting on your desk, with no token quotas or rate limits. We've packed in a boatload of content to put it to work. Start with the welcome guide for hands-on, interactive lessons across the whole Tenstorrent ecosystem.</p>
+    <a class="qb2-next-btn" href="welcome.html">Open the welcome guide &rarr;</a>
+  </div>
+
+</div></section>
+<hr class="docutils" />
+<section id="need-additional-support">
+<h2>Need Additional Support?<a class="headerlink" href="#need-additional-support" title="Link to this heading"></a></h2>
+<p>If you encounter any issues, or have a question that isn’t covered in this guide, please <a class="reference external" href="https://tenstorrent.atlassian.net/servicedesk/customer/portal/1">raise a support request.</a> Our team will review your request and provide assistance.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="TT-QuietBox 2 (Blackhole)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="welcome.html" class="btn btn-neutral float-right" title="Welcome to Your TT-QuietBox 2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tenstorrent.
+      <span class="lastupdated">Last updated on Jul 24, 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+  <div class="feedback-widget" id="tt-feedback">
+  <div class="ttfb-card">
+    <div id="ttfb-initial" class="ttfb-initial">
+      <p class="ttfb-question">Was this article helpful?</p>
+      <div class="ttfb-actions">
+        <button id="ttfb-up" class="ttfb-icon-btn" aria-label="Yes" title="Yes">
+          <span>👍</span>
+        </button>
+        <button id="ttfb-down" class="ttfb-icon-btn" aria-label="No" title="No">
+          <span>👎</span>
+        </button>
+      </div>
+    </div>
+
+    <form id="ttfb-form" class="ttfb-hidden" novalidate>
+      <p id="ttfb-prompt" class="ttfb-prompt"></p>
+
+      <div id="ttfb-reasons" class="ttfb-hidden">
+        <p class="ttfb-reasons-title">How would you describe this article?</p>
+        <div class="ttfb-reasons-grid">
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="inaccurate"> <b>Inaccurate:</b> it doesn’t reflect what I see in the product</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="unclear"> <b>Unclear:</b> it’s difficult to understand</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="missing"> <b>Missing information:</b> it’s not comprehensive enough</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="irrelevant"> <b>Irrelevant:</b> it doesn’t match what I searched for</label>
+        </div>
+      </div>
+
+      <textarea id="ttfb-text" rows="3" class="ttfb-text" placeholder="Please let us know what was or wasn't helpful about this page."></textarea>
+
+      <div class="ttfb-contact">
+        <input id="ttfb-can-contact" type="checkbox"> <label for="ttfb-can-contact">Allow Tenstorrent to contact me about my documentation feedback.</label>
+      </div>
+      <div id="ttfb-email-wrap" class="ttfb-hidden">
+        <input id="ttfb-email" type="email" class="ttfb-email" placeholder="Enter your email address">
+      </div>
+
+      <button id="ttfb-submit" type="submit" class="ttfb-submit">Submit</button>
+    </form>
+
+    <div id="ttfb-thanks" class="ttfb-hidden ttfb-center"><p class="ttfb-thanks-text">Thank you for your feedback!</p></div>
+    <div id="ttfb-error" class="ttfb-hidden ttfb-center"><p class="ttfb-error-text">Sorry, something went wrong. Please try again later.</p></div>
+  </div>
+</div>
+
+<style>
+.feedback-widget { margin: 2rem 0; }
+.ttfb-card {
+  background: #fff;
+  border: 1px solid var(--color-background-40, #d7dbeb66);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+.ttfb-initial { display: flex; flex-direction: row; gap: .75rem; align-items: center; flex-wrap: wrap; justify-content: flex-start; }
+.ttfb-question { margin: 0; font-weight: 600; color: var(--color-foreground, #202020); }
+.ttfb-actions { display: flex; gap: .5rem; }
+.ttfb-icon-btn {
+  padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; background: #fff; cursor: pointer;
+  transition: background var(--transition-duration, 150ms) var(--transition-timing, ease), border-color var(--transition-duration, 150ms) var(--transition-timing, ease);
+}
+.ttfb-icon-btn:hover { background: #f3f4f6; }
+
+.ttfb-hidden { display: none; }
+.ttfb-prompt { margin: .5rem 0 1rem 0; color: var(--color-foreground, #202020); font-weight: 600; }
+.ttfb-reasons-title { margin: 0 0 .5rem 0; color: var(--color-foreground, #202020); font-weight: 500; }
+.ttfb-reasons-grid { display: grid; grid-template-columns: 1fr; gap: .25rem; }
+@media (min-width: 768px) { .ttfb-reasons-grid { grid-template-columns: 1fr 1fr; } }
+.ttfb-radio { display: flex; align-items: flex-start; gap: .5rem; }
+.ttfb-radio input { margin-top: .2rem; }
+
+.ttfb-text {
+  width: 100%; padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; font-family: inherit; resize: vertical;
+}
+.ttfb-contact { display: flex; align-items: center; gap: .5rem; margin-top: .5rem; }
+.ttfb-email { width: 100%; padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; margin-top: .5rem; }
+.ttfb-submit { margin-top: .75rem; padding: .5rem 1rem; background: var(--color-purple, #5164e0); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; }
+.ttfb-submit:hover { background: var(--color-dark-purple, #7584e6); }
+.ttfb-center { text-align: center; padding: 1rem; }
+.ttfb-thanks-text { color: var(--color-purple, #5164e0); font-weight: 600; }
+.ttfb-error-text { color: #dc2626; font-weight: 600; }
+
+/* Hide widget when page sets meta hide_feedback=true */
+html:has(meta[name="hide_feedback"][content="true"]) .feedback-widget { display: none !important; }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const root = document.getElementById('tt-feedback');
+  if (!root) return;
+
+  // Reposition widget: place it just above the Previous/Next buttons
+  try {
+    const footerButtons = document.querySelector('.rst-footer-buttons');
+    if (footerButtons && footerButtons.parentNode) {
+      footerButtons.parentNode.insertBefore(root, footerButtons);
+    }
+  } catch (e) {
+    // no-op if structure not present
+  }
+
+  const initial = root.querySelector('#ttfb-initial');
+  const form = root.querySelector('#ttfb-form');
+  const prompt = root.querySelector('#ttfb-prompt');
+  const reasonsWrap = root.querySelector('#ttfb-reasons');
+  const text = root.querySelector('#ttfb-text');
+  const thanks = root.querySelector('#ttfb-thanks');
+  const error = root.querySelector('#ttfb-error');
+  const upBtn = root.querySelector('#ttfb-up');
+  const downBtn = root.querySelector('#ttfb-down');
+  const canContact = root.querySelector('#ttfb-can-contact');
+  const emailWrap = root.querySelector('#ttfb-email-wrap');
+  const emailInput = root.querySelector('#ttfb-email');
+
+  let sentiment = null; // 'up' | 'down'
+
+  function show(el) { el.classList.remove('ttfb-hidden'); }
+  function hide(el) { el.classList.add('ttfb-hidden'); }
+
+  function setPromptForSentiment() {
+    if (sentiment === 'down') {
+      prompt.textContent = 'We\'re sorry to hear that. Can you tell us more?';
+      show(reasonsWrap);
+    } else {
+      prompt.textContent = 'Thanks! Anything to add? (optional)';
+      hide(reasonsWrap);
+    }
+  }
+
+  function validateEmail(email) {
+    return /.+@.+\..+/.test(email);
+  }
+
+  function submitPayload(payload) {
+    try {
+      if (window.posthog && typeof window.posthog.capture === 'function') {
+        window.posthog.capture('docs_feedback', payload);
+      } else {
+        console.log('Feedback submitted:', payload);
+      }
+      return true;
+    } catch (e) {
+      console.error('Feedback submit error', e);
+      return false;
+    }
+  }
+
+  upBtn.addEventListener('click', function () {
+    sentiment = 'up';
+    hide(initial);
+    setPromptForSentiment();
+    show(form);
+    text.focus();
+  });
+
+  downBtn.addEventListener('click', function () {
+    sentiment = 'down';
+    hide(initial);
+    setPromptForSentiment();
+    show(form);
+  });
+
+  canContact.addEventListener('change', function () {
+    if (canContact.checked) {
+      show(emailWrap);
+      emailInput.focus();
+    } else {
+      hide(emailWrap);
+    }
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const page = window.location.pathname;
+    const ts = new Date().toISOString();
+    const feedbackText = text.value.trim();
+    const canContactVal = !!canContact.checked;
+    const emailVal = emailInput.value.trim();
+    const reasonEl = root.querySelector('input[name="down_reason"]:checked');
+    const reason = reasonEl ? reasonEl.value : null;
+
+    if (canContactVal && emailVal && !validateEmail(emailVal)) {
+      emailInput.setCustomValidity('Please enter a valid email.');
+      emailInput.reportValidity();
+      return;
+    } else {
+      emailInput.setCustomValidity('');
+    }
+
+    const payload = {
+      sentiment,
+      reason,
+      text: feedbackText,
+      can_contact: canContactVal,
+      email: canContactVal ? emailVal || null : null,
+      page,
+      timestamp: ts
+    };
+
+    const ok = submitPayload(payload);
+    hide(form);
+    if (ok) {
+      show(thanks);
+      setTimeout(() => { root.style.display = 'none'; }, 3000);
+    } else {
+      show(error);
+    }
+  });
+});
+</script>
+
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><script src="../../../_static/sidebar-scroll.js"></script>
+<script src="../../../_static/external-nav-links.js"></script>
+<script src="../../../_static/docs-toc.js"></script>
+<script id="tt-search-script" src="../../../_static/tt-search.js"
+        data-search-url="../../../search.html"
+        data-search-api-base="https://csl860x2oj.execute-api.us-east-2.amazonaws.com/prod"
+        data-search-source="docs-tenstorrent"
+        data-site-base-url="https://docs.tenstorrent.com/"
+        data-kapa-src="../../../_static/kapa.js"
+        data-kapa-integration-id="c37e0bab-7623-43d7-bff1-daa52e901bbe"></script>
+
+</body>
+</html>

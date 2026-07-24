@@ -1,0 +1,1332 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="TT-QuietBox Blackhole™, Blackhole™ AI Processor, Tensix core" name="product-name" />
+<meta content="local AI, inference, agent frameworks, video generation, Tensix architecture, RISC-V, tt-toplike, tt-local-generator, tt-vscode-toolkit" name="technology-concepts" />
+<meta content="Conceptual Guide (What's Next)" name="document-type" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to Your TT-QuietBox 2 &mdash; Home 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/tt_theme.css?v=78736722" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/home.css?v=e04b094a" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/>
+    <link rel="canonical" href="https://docs.tenstorrent.com/systems/quietbox/quietbox-bh-2/welcome.html" />
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=fd3dd8dd"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../../_static/togglebutton.js?v=b8b12719"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../../../_static/custom.js?v=0ccd5bc4"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Specifications" href="specifications.html" />
+    <link rel="prev" title="Hardware and Software Setup" href="setup.html" /> 
+  <script src="../../../_static/posthog.js"></script>
+</head>
+
+<body class="wy-body-for-nav">
+<nav class="tt-top-nav" role="navigation" aria-label="Top navigation">
+  <div class="tt-top-nav-left">
+    <a href="https://docs.tenstorrent.com/" class="tt-nav-logo">
+      <img src="../../../_static/logotype.png" alt="Tenstorrent" />
+      <span>DOCUMENTATION</span>
+    </a>
+    <ul class="tt-nav-links">
+      <li class="has-dropdown">
+        <a href="https://docs.tenstorrent.com/#get-started">Get Started</a>
+        <div class="tt-nav-dropdown">
+          <a href="https://docs.tenstorrent.com/getting-started/tt-software-stack.html">Overview</a>
+          <a href="https://docs.tenstorrent.com/getting-started/README.html">Installing Tenstorrent Software</a>
+          <a href="https://docs.tenstorrent.com/getting-started/manual-software-install.html">Manual Installation</a>
+          <a href="https://docs.tenstorrent.com/getting-started/vLLM-servers.html">Deploy LLMs</a>
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/" target="_blank" rel="noopener">Learn by Building</a>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <a href="https://docs.tenstorrent.com/#software">Software</a>
+        <div class="tt-nav-dropdown">
+          <a href="https://docs.tenstorrent.com/forge/index.html">TT-Forge</a>
+          <a href="https://docs.tenstorrent.com/tt-xla/" target="_blank" rel="noopener">TT-XLA</a>
+          <a href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/" target="_blank" rel="noopener">TT-NN</a>
+          <a href="https://docs.tenstorrent.com/tt-lang/" target="_blank" rel="noopener">TT-Lang</a>
+          <a href="https://docs.tenstorrent.com/tt-mlir/" target="_blank" rel="noopener">TT-MLIR</a>
+          <a href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/" target="_blank" rel="noopener">TT-Metalium</a>
+          <a href="https://docs.tenstorrent.com/cloud-native-support/" target="_blank" rel="noopener">Cloud-Native Support</a>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <a href="https://docs.tenstorrent.com/#hardware">Hardware</a>
+        <div class="tt-nav-dropdown">
+          <span class="tt-nav-dropdown-label">Blackhole</span>
+          <a href="https://docs.tenstorrent.com/aibs/blackhole/index.html">Blackhole™ PCIe Cards</a>
+          <a href="https://docs.tenstorrent.com/systems/quietbox/quietbox-bh/index.html">TT-QuietBox</a>
+          <a href="https://docs.tenstorrent.com/systems/quietbox/quietbox-bh-2/index.html">TT-QuietBox 2</a>
+          <a href="https://docs.tenstorrent.com/systems/galaxy-blackhole/index.html">Galaxy™ (Blackhole)</a>
+          <span class="tt-nav-dropdown-label">Wormhole</span>
+          <a href="https://docs.tenstorrent.com/aibs/wormhole/index.html">Wormhole™ PCIe Cards</a>
+          <a href="https://docs.tenstorrent.com/systems/quietbox/quietbox-wh/index.html">TT-QuietBox</a>
+          <a href="https://docs.tenstorrent.com/systems/t3000/index.html">TT-LoudBox™</a>
+          <a href="https://docs.tenstorrent.com/systems/galaxy-wormhole/index.html">Galaxy™ (Wormhole)</a>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <a href="https://docs.tenstorrent.com/#tools">Tools</a>
+        <div class="tt-nav-dropdown">
+          <a href="https://github.com/tenstorrent/tt-inference-server" target="_blank" rel="noopener">TT-Inference-Server</a>
+          <a href="https://github.com/tenstorrent/tt-studio" target="_blank" rel="noopener">TT-Studio</a>
+          <a href="https://github.com/tenstorrent/tt-smi" target="_blank" rel="noopener">TT-SMI</a>
+          <a href="https://docs.tenstorrent.com/tt-toplike/" target="_blank" rel="noopener">TT-Toplike</a>
+          <a href="https://docs.tenstorrent.com/ttnn-visualizer/" target="_blank" rel="noopener">TT-NN Visualizer</a>
+          <a href="https://github.com/tenstorrent/tt-topology" target="_blank" rel="noopener">TT-Topology</a>
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit" target="_blank" rel="noopener">TT-VSCode-Toolkit</a>
+          <a href="https://docs.tenstorrent.com/tt-blacksmith/" target="_blank" rel="noopener">TT-Blacksmith</a>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <a href="https://docs.tenstorrent.com/#resources">Resources</a>
+        <div class="tt-nav-dropdown">
+          <a href="https://tenstorrent.atlassian.net/servicedesk/customer/portal/1" target="_blank" rel="noopener">Request Support</a>
+          <a href="https://tenstorrent.com/developers" target="_blank" rel="noopener">Developer Hub</a>
+          <a href="https://discord.com/invite/tenstorrent" target="_blank" rel="noopener">Join our Discord</a>
+          <a href="https://tenstorrent.com/faq" target="_blank" rel="noopener">FAQ</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tt-top-nav-right">
+    <button type="button" class="tt-nav-search-form tt-search-trigger" aria-label="Search docs" aria-haspopup="dialog">
+      <svg class="tt-search-glyph" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      <span class="tt-nav-search-placeholder">Search</span>
+      <kbd class="tt-nav-search-kbd">⌘K</kbd>
+    </button>
+    <div class="tt-nav-actions">
+      <a href="https://docs.tenstorrent.com/tt-awesome/" class="tt-nav-btn-cta" target="_blank" rel="noopener">Explore</a>
+      <a href="https://github.com/tenstorrent" class="tt-nav-btn-github" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+        </svg>
+        Github
+      </a>
+    </div>
+    <i data-toggle="wy-nav-top" class="fa fa-bars tt-nav-hamburger" aria-hidden="true"></i>
+  </div>
+</nav>
+
+
+<div class="tt-search-modal" id="tt-search-modal" hidden>
+  <div class="tt-search-backdrop" data-search-close></div>
+  <div class="tt-search-dialog" role="dialog" aria-modal="true" aria-label="Search documentation">
+    <div class="tt-search-head">
+      <div class="tt-search-box">
+        <svg class="tt-search-glyph" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+        <input type="text" class="tt-search-input" id="tt-search-input"
+               placeholder="Search for anything…" aria-label="Search for anything"
+               autocomplete="off" spellcheck="false" hidden />
+        <input type="text" class="tt-search-input" id="tt-ai-input"
+               placeholder="Ask anything about Tenstorrent hardware and software" aria-label="Ask about the docs"
+               autocomplete="off" spellcheck="false" />
+      </div>
+      <div class="tt-search-tabs" role="tablist">
+        <button type="button" class="tt-search-tab is-active" data-tab="ai" role="tab" aria-selected="true">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M8 1.5l1.4 3.6L13 6.5 9.4 7.9 8 11.5 6.6 7.9 3 6.5l3.6-1.4L8 1.5Z" fill="currentColor"/>
+            <path d="M12.5 10.5l.6 1.5 1.5.6-1.5.6-.6 1.5-.6-1.5-1.5-.6 1.5-.6.6-1.5Z" fill="currentColor"/>
+          </svg>
+          Ask AI
+        </button>
+        <button type="button" class="tt-search-tab" data-tab="search" role="tab" aria-selected="false">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          Search
+        </button>
+      </div>
+    </div>
+    <div class="tt-search-body"><div class="tt-search-panel" data-panel="search" hidden>
+        <ul class="tt-search-results" id="tt-search-results"></ul>
+        <div class="tt-search-empty" id="tt-search-empty">Start typing to search the documentation.</div>
+      </div><div class="tt-search-panel" data-panel="ai">
+        <div class="tt-ai-intro" id="tt-ai-intro">
+          <svg class="tt-ai-intro-star" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M10 1.5 12 7l5.5 1-4 3.9 1.2 5.6L10 14.4 5.3 17l1.2-5.6L2.5 7.5 8 7z" fill="currentColor"/>
+            <path d="M15.5 12l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z" fill="currentColor"/>
+          </svg>
+          <span class="tt-ai-intro-hint">Type a question above and press <kbd>Enter</kbd> — or jump right in:</span>
+        </div>
+        <ul class="tt-ai-examples" id="tt-ai-examples">
+          <li><button type="button" class="tt-ai-example">How to debug TT-Forge compile errors?</button></li>
+          <li><button type="button" class="tt-ai-example">How to set up Tenstorrent Cloud SSH?</button></li>
+          <li><button type="button" class="tt-ai-example">TT-Metalium vs TT-NN: what's the difference?</button></li>
+          <li><button type="button" class="tt-ai-example">How to daisy-chain Wormhole devices?</button></li>
+        </ul>
+        <div id="tt-kapa-embed" hidden>
+          <div id="tt-kapa-mount"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<a href="https://docs.tenstorrent.com/">
+    <img src="../../../_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+<a href="../../../index.html">
+    Home
+</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started/tt-software-stack.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started/README.html">Installing Tenstorrent Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started/manual-software-install.html">Manual Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started/vLLM-servers.html">Deploy LLMs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-vscode-toolkit/">Learn by Building</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Hardware</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../aibs/index.html">Cards</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../aibs/blackhole/index.html">Blackhole™ PCIe Cards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../aibs/wormhole/index.html">Wormhole™ PCIe Cards</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Systems</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">TT-QuietBox 2 (Blackhole)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quietbox-bh/index.html">TT-QuietBox (Blackhole)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quietbox-wh/index.html">TT-QuietBox (Wormhole)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../t3000/index.html">TT-LoudBox (Wormhole)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../galaxy-blackhole/index.html">Tenstorrent Galaxy (Blackhole)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../galaxy-wormhole/index.html">Tenstorrent Galaxy (Wormhole)</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../software/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../forge/index.html">TT-Forge™</a><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.tenstorrent.com/tt-forge-onnx/">TT-Forge-ONNX</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.tenstorrent.com/tt-blacksmith/">TT-Blacksmith</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-xla/">TT-XLA</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/">TT-NN™</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-lang/">TT-Lang™</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-mlir/">TT-MLIR™</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/">TT-Metalium™</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/cloud-native-support/">Cloud-Native Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools/index.html">Tools</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../support/README.html">Support &amp; FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Legal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../bounty_terms.html">Bounty Program Terms</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Home</a>
+      </nav>
+
+      <div class="wy-nav-content">
+  
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Systems</a></li>
+          <li class="breadcrumb-item"><a href="index.html">TT-QuietBox 2 (Blackhole)</a></li>
+      <li class="breadcrumb-item active">Welcome to Your TT-QuietBox 2</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/systems/quietbox/quietbox-bh-2/welcome.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="welcome-to-your-tt-quietbox-2">
+<h1>Welcome to Your TT-QuietBox 2<a class="headerlink" href="#welcome-to-your-tt-quietbox-2" title="Link to this heading"></a></h1>
+<script src="https://cdn.jsdelivr.net/gh/tsingletaryTT/tensix-viz@main/tensix-viz.js" crossorigin="anonymous"></script>
+
+<style>
+/* ============================================================
+   QB2 Welcome page — scoped to .qb2-welcome
+   Light-first defaults. Chip widget is always dark (hardware
+   panel aesthetic). Dark-mode overrides at the bottom.
+   ============================================================ */
+
+/* Sphinx generates an h1 from the doc title for <title> and TOC;
+   hide it here since the page renders its own custom heading */
+#welcome-to-your-tt-quietbox-2 > h1 { display: none; }
+
+/* ---------- layout container ---------- */
+.qb2-welcome {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* ---------- page heading ---------- */
+.qb2-welcome h1.qb2-page-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+  color: inherit;
+}
+.qb2-welcome .qb2-page-sub {
+  margin: 0 0 16px 0;
+  font-size: 1.05rem;
+  color: #3a4d60;
+}
+
+/* ---------- CTA row ---------- */
+.qb2-cta-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.qb2-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+}
+.qb2-cta-btn-primary {
+  background: #007acc;
+  color: #fff !important;
+  border: 1.5px solid #007acc;
+}
+.qb2-cta-btn-primary:hover { background: #005fa3; border-color: #005fa3; }
+.qb2-cta-btn-outline {
+  background: transparent;
+  color: #2a3a4a !important;
+  border: 1.5px solid #d0d8e4;
+}
+.qb2-cta-btn-outline:hover { border-color: #6a8aaa; background: #f0f4f8; }
+
+/* ---------- chip widget ---------- */
+.qb2-chip-widget {
+  background: #EEF4F8;
+  border: 1px solid #B8D4E0;
+  border-radius: 10px;
+  padding: 18px 20px 14px;
+  margin-bottom: 28px;
+  position: relative;
+  transition: border-color 0.4s ease;
+}
+.qb2-chip-widget-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: center;
+}
+
+/* card rows */
+.qb2-card-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+}
+.qb2-card-side-label {
+  font-family: "Ubuntu Mono", "Fira Mono", monospace;
+  font-size: 10px;
+  color: #4A6878;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  width: 14px;
+}
+.qb2-chip-pair {
+  display: flex;
+  gap: 6px;
+  flex: 0 0 auto;
+}
+.qb2-chip-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+.qb2-chip-label {
+  font-family: "Ubuntu Mono", "Fira Mono", monospace;
+  font-size: 9px;
+  color: #4A6878;
+  letter-spacing: 0.08em;
+}
+canvas.qb2-chip-canvas {
+  display: block;
+  border-radius: 3px;
+  border: 1px solid #B8D4E0;
+}
+
+/* samtec divider */
+.qb2-samtec-divider {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  justify-content: center;
+  padding: 8px 0;
+}
+.qb2-samtec-line {
+  flex: 1;
+  height: 1px;
+  background: #B8D4E0;
+  max-width: 180px;
+}
+.qb2-samtec-label {
+  font-family: "Ubuntu Mono", "Fira Mono", monospace;
+  font-size: 9px;
+  color: #4A6878;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+/* widget footer */
+.qb2-chip-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid #B8D4E0;
+  width: 100%;
+}
+.qb2-chip-specs {
+  font-family: "Ubuntu Mono", "Fira Mono", monospace;
+  font-size: 10px;
+  color: #4A6878;
+  letter-spacing: 0.06em;
+}
+.qb2-chip-mode-label {
+  font-family: "Ubuntu Mono", "Fira Mono", monospace;
+  font-size: 10px;
+  color: #4A6878;
+  letter-spacing: 0.08em;
+  transition: color 0.4s ease;
+  min-width: 140px;
+  text-align: right;
+}
+.qb2-chip-mode-label.mode-chat    { color: #0D9488; }
+.qb2-chip-mode-label.mode-video   { color: #ec96b8; }
+.qb2-chip-mode-label.mode-agents  { color: #9370db; }
+.qb2-chip-mode-label.mode-hack    { color: #fb923c; }
+.qb2-chip-mode-label.mode-explore { color: #f4c471; }
+
+/* widget border highlight on active card */
+.qb2-chip-widget.mode-chat    { border-color: #0D9488; }
+.qb2-chip-widget.mode-video   { border-color: #ec96b8; }
+.qb2-chip-widget.mode-agents  { border-color: #9370db; }
+.qb2-chip-widget.mode-hack    { border-color: #fb923c; }
+.qb2-chip-widget.mode-explore { border-color: #f4c471; }
+
+/* ---------- intent cards ---------- */
+.qb2-intent-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+/* Explore spans full width — it has more rows and gets the extra room */
+.qb2-intent-card.card-explore {
+  grid-column: 1 / -1;
+}
+@media (max-width: 640px) {
+  .qb2-intent-grid { grid-template-columns: 1fr; }
+  .qb2-intent-card.card-explore { grid-column: auto; }
+}
+
+.qb2-intent-card {
+  background: #f5f7fa;
+  border: 1.5px solid #d0d8e4;
+  border-radius: 8px;
+  padding: 16px;
+  cursor: pointer;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  user-select: none;
+}
+.qb2-intent-card:hover {
+  border-color: #6a8aaa;
+}
+
+/* accent borders — active state */
+.qb2-intent-card.active.card-chat    { border-color: #4fd1c5; box-shadow: 0 0 12px rgba(79,209,197,0.15); }
+.qb2-intent-card.active.card-video   { border-color: #ec96b8; box-shadow: 0 0 12px rgba(236,150,184,0.15); }
+.qb2-intent-card.active.card-agents  { border-color: #9370db; box-shadow: 0 0 12px rgba(147,112,219,0.15); }
+.qb2-intent-card.active.card-hack    { border-color: #fb923c; box-shadow: 0 0 12px rgba(251,146,60,0.15); }
+.qb2-intent-card.active.card-explore { border-color: #f4c471; box-shadow: 0 0 12px rgba(244,196,113,0.15); }
+
+.qb2-intent-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.qb2-intent-title {
+  font-size: 1.0rem;
+  font-weight: 700;
+  margin: 0 0 2px 0;
+  color: #1e2a3a;
+}
+.qb2-intent-tagline {
+  font-size: 0.8rem;
+  color: #546070;
+  margin: 0 0 10px 0;
+}
+.qb2-intent-row {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 6px 0;
+}
+.qb2-intent-row + .qb2-intent-row {
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+.qb2-intent-label {
+  font-size: 0.67rem;
+  font-weight: 700;
+  color: #8a9bb0;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+.qb2-intent-val {
+  font-size: 0.8rem;
+  color: #2a3a4a;
+  line-height: 1.4;
+}
+/* subtle deep links — inherit color, dotted underline that strengthens on hover */
+.qb2-intent-val a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(0,0,0,0.22);
+}
+.qb2-intent-val a:hover {
+  text-decoration-color: rgba(0,0,0,0.55);
+}
+.qb2-perf {
+  font-family: "Ubuntu Mono", "Fira Mono", monospace;
+  font-size: 0.72rem;
+  background: rgba(0,0,0,0.06);
+  border-radius: 3px;
+  padding: 1px 5px;
+  color: #6a7888;
+  white-space: nowrap;
+}
+.qb2-lesson-area {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.qb2-lesson-btn {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 5px;
+  text-decoration: none !important;
+  transition: opacity 0.2s ease;
+}
+.qb2-lesson-btn:hover { opacity: 0.8; }
+/* Lesson button colors: darker accent shades for contrast on light card bg (#f5f7fa) */
+.card-chat    .qb2-lesson-btn { background: rgba(79,209,197,0.15);  color: #0e7c74; }
+.card-video   .qb2-lesson-btn { background: rgba(236,150,184,0.15); color: #b03468; }
+.card-agents  .qb2-lesson-btn { background: rgba(147,112,219,0.15); color: #5a2dbb; }
+.card-hack    .qb2-lesson-btn { background: rgba(251,146,60,0.15);  color: #7c2d12; }
+.card-explore .qb2-lesson-btn { background: rgba(244,196,113,0.15); color: #876200; }
+
+/* ---------- reference table ---------- */
+.qb2-ref-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+}
+.qb2-ref-table th {
+  text-align: left;
+  padding: 6px 10px;
+  border-bottom: 2px solid #d0d8e4;
+  color: #6a7888;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.qb2-ref-table td {
+  padding: 7px 10px;
+  border-bottom: 1px solid #e8ecf0;
+  color: #2a3a4a;
+  vertical-align: top;
+}
+.qb2-ref-table td:first-child {
+  font-family: "Ubuntu Mono", "Fira Mono", monospace;
+  font-weight: 600;
+  white-space: nowrap;
+  color: #7a50c8;
+}
+.qb2-ref-table a { color: inherit; text-decoration: underline; }
+
+/* ---------- note bar ---------- */
+.qb2-note-bar {
+  margin-top: 24px;
+  padding: 12px 16px;
+  background: #eef2f7;
+  border-left: 3px solid #4a7a9b;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.83rem;
+  color: #546070;
+}
+.qb2-note-bar a { color: #2a6a9b; }
+
+/* ---------- intro paragraph ---------- */
+.qb2-welcome .qb2-intro {
+  font-size: 0.95rem;
+  color: #2a3a4a;
+  line-height: 1.65;
+  margin: 0 0 20px 0;
+}
+.qb2-welcome .qb2-intro a { color: #007acc; }
+</style>
+
+<div class="qb2-welcome">
+
+  <!-- ===== PAGE HEADING ===== -->
+  <h1 class="qb2-page-title">Welcome to Your TT-QuietBox 2</h1>
+  <p class="qb2-page-sub">Four Blackhole chips &middot; 480 Tensix cores &middot; 128 GB GDDR6 &middot; no API keys required</p>
+
+  <!-- ===== INTRO ===== -->
+  <p class="qb2-intro">From open source models to local agents to custom kernels and infinite generative art. Welcome to your TT-QuietBox 2.</p>
+
+  <!-- ===== CTA ROW ===== -->
+  <div class="qb2-cta-row">
+    <a class="qb2-cta-btn qb2-cta-btn-primary"
+       href="https://github.com/tenstorrent/tt-studio"
+       target="_blank" rel="noopener">
+      &#128187; Open TT-Studio
+    </a>
+    <a class="qb2-cta-btn qb2-cta-btn-outline"
+       href="https://marketplace.visualstudio.com/items?itemName=Tenstorrent.tt-vscode-toolkit"
+       target="_blank" rel="noopener">
+      &#9889; Install VS&thinsp;Code Toolkit
+    </a>
+    <a class="qb2-cta-btn qb2-cta-btn-outline"
+       href="https://docs.tenstorrent.com/tt-vscode-toolkit">
+      &#128218; Browse all lessons
+    </a>
+    <a class="qb2-cta-btn qb2-cta-btn-outline"
+       href="setup.html">
+      &#128203; Setup guide
+    </a>
+    <a class="qb2-cta-btn qb2-cta-btn-outline"
+       href="https://docs.tenstorrent.com/tt-quietbox2-guide/">
+      &#128214; Full QuietBox 2 Guide
+    </a>
+  </div>
+
+  <!-- ===== CHIP WIDGET ===== -->
+  <div class="qb2-chip-widget tv-light" id="qb2ChipWidget">
+    <div class="qb2-chip-widget-inner">
+
+      <!-- CARD 0 (top row) -->
+      <div class="qb2-card-row">
+        <span class="qb2-card-side-label">CARD 0</span>
+        <div class="qb2-chip-pair">
+          <div class="qb2-chip-wrap">
+            <span class="qb2-chip-label">BH&middot;0</span>
+            <canvas class="qb2-chip-canvas" id="qb2Canvas0" width="248" height="168"></canvas>
+          </div>
+          <div class="qb2-chip-wrap">
+            <span class="qb2-chip-label">BH&middot;1</span>
+            <canvas class="qb2-chip-canvas" id="qb2Canvas1" width="248" height="168"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- SAMTEC divider -->
+      <div class="qb2-samtec-divider">
+        <div class="qb2-samtec-line"></div>
+        <span class="qb2-samtec-label">Samtec cable &middot; inter-card link</span>
+        <div class="qb2-samtec-line"></div>
+      </div>
+
+      <!-- CARD 1 (bottom row) -->
+      <div class="qb2-card-row">
+        <span class="qb2-card-side-label">CARD 1</span>
+        <div class="qb2-chip-pair">
+          <div class="qb2-chip-wrap">
+            <span class="qb2-chip-label">BH&middot;2</span>
+            <canvas class="qb2-chip-canvas" id="qb2Canvas2" width="248" height="168"></canvas>
+          </div>
+          <div class="qb2-chip-wrap">
+            <span class="qb2-chip-label">BH&middot;3</span>
+            <canvas class="qb2-chip-canvas" id="qb2Canvas3" width="248" height="168"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- widget footer -->
+      <div class="qb2-chip-footer">
+        <span class="qb2-chip-specs">480 cores &middot; 128 GB GDDR6 &middot; 2 TB/s bandwidth</span>
+        <span class="qb2-chip-mode-label" id="qb2ModeLabel">&#9679; idle</span>
+      </div>
+
+    </div>
+  </div><!-- end chip widget -->
+
+  <!-- ===== INTENT CARDS (2x2 grid) ===== -->
+  <div class="qb2-intent-grid">
+
+    <!-- CHAT -->
+    <div class="qb2-intent-card card-chat" id="cardChat" onclick="qb2ActivateCard('chat')">
+      <div class="qb2-intent-icon">&#128488;&#65039;</div>
+      <p class="qb2-intent-title">Chat with AI</p>
+      <p class="qb2-intent-tagline">Private LLM inference &mdash; 32B &amp; 70B scale</p>
+      <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Start here</span>
+        <span class="qb2-intent-val"><a href="https://github.com/tenstorrent/tt-studio" target="_blank" rel="noopener">TT-Studio</a> &mdash; browser UI, one-click model deploy, pre-installed</span>
+      </div>
+      <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Models</span>
+        <span class="qb2-intent-val">Llama-3.3-70B <span class="qb2-perf">~14s/response</span> &middot; Llama-3.1-8B <span class="qb2-perf">fast</span> &middot; <a href="https://tenstorrent.com/developers" target="_blank" rel="noopener">full catalog ↗</a></span>
+      </div>
+      <div class="qb2-intent-row">
+        <span class="qb2-intent-label">API</span>
+        <span class="qb2-intent-val"><a href="https://github.com/tenstorrent/tt-inference-server" target="_blank" rel="noopener">TT-Inference-Server</a> &mdash; OpenAI-compatible endpoint, pre-installed</span>
+      </div>
+      <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Monitor</span>
+        <span class="qb2-intent-val"><a href="https://docs.tenstorrent.com/tt-toplike/" target="_blank" rel="noopener">TT-Toplike</a> &mdash; watch cores during inference</span>
+      </div>
+      <div class="qb2-lesson-area">
+        <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/coding-assistant/">&#8594; Coding Assistant with Aider</a>
+      </div>
+    </div>
+
+    <!-- VIDEO -->
+    <div class="qb2-intent-card card-video" id="cardVideo" onclick="qb2ActivateCard('video')">
+      <div class="qb2-intent-icon">&#127916;</div>
+      <p class="qb2-intent-title">Generate Video &amp; Images</p>
+      <p class="qb2-intent-tagline">Text-to-video, image-to-video, stills</p>
+      <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Start here</span>
+        <span class="qb2-intent-val"><a href="https://github.com/tenstorrent/tt-inference-server" target="_blank" rel="noopener">TT-Inference-Server</a> &mdash; deploy and serve generation models, pre-installed</span>
+      </div>
+      <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Gallery</span>
+        <span class="qb2-intent-val"><a href="https://docs.tenstorrent.com/tt-local-generator/" target="_blank" rel="noopener">TT-Local-Generator</a> &mdash; queue, gallery, TT-TV kiosk mode</span>
+      </div>
+      <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Video</span>
+        <span class="qb2-intent-val">Wan 2.2-14B <span class="qb2-perf">~6 min/5-sec clip</span></span>
+      </div>
+      <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Image</span>
+        <span class="qb2-intent-val">FLUX.1-dev <span class="qb2-perf">high-quality stills</span></span>
+      </div>
+      <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Prompts</span>
+        <span class="qb2-intent-val">&#10024; Inspire me &mdash; prompt ideas from a small on-device model</span>
+      </div>
+      <div class="qb2-lesson-area">
+        <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/qb2-video-generation/">&#8594; Video Generation on QB2</a>
+      </div>
+    </div>
+
+    <!-- AGENTS -->
+    <div class="qb2-intent-card card-agents" id="cardAgents" onclick="qb2ActivateCard('agents')">
+      <div class="qb2-intent-icon">&#129302;</div>
+      <p class="qb2-intent-title">Build AI Agents</p>
+      <p class="qb2-intent-tagline">Tool calling, multi-agent, stateful pipelines</p>
+      <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Best model</span>
+        <span class="qb2-intent-val">Llama-3.3-70B &mdash; best for agents</span>
+      </div>
+      <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Frameworks</span>
+        <span class="qb2-intent-val">smolagents &middot; CrewAI &middot; OpenAI Agents SDK</span>
+      </div>
+      <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Demos</span>
+        <span class="qb2-intent-val">Web research &middot; codebase nav &middot; multi-role pipelines &middot; stateful dungeon master</span>
+      </div>
+      <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Privacy</span>
+        <span class="qb2-intent-val">Data never leaves the machine &mdash; architecture, not policy</span>
+      </div>
+      <div class="qb2-lesson-area">
+        <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/qb2-local-agents/">&#8594; Local AI Agents on QB2</a>
+      </div>
+    </div>
+
+    <!-- HACK -->
+    <div class="qb2-intent-card card-hack" id="cardHack" onclick="qb2ActivateCard('hack')">
+      <div class="qb2-intent-icon">&#9889;</div>
+      <p class="qb2-intent-title">Hack the Hardware</p>
+      <p class="qb2-intent-tagline">There&rsquo;s a real computer in here &mdash; boot Linux, write kernels</p>
+      <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Boot</span>
+        <span class="qb2-intent-val"><a href="https://github.com/tenstorrent/tt-bh-linux" target="_blank" rel="noopener">tt-bh-linux</a> &mdash; run Linux on 16 RISC-V cores inside the chip</span>
+      </div>
+      <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Demos</span>
+        <span class="qb2-intent-val">Conway&rsquo;s Game of Life &middot; <a href="https://github.com/tsingletaryTT/tt-zork-and-more" target="_blank" rel="noopener">Zork on TT hardware</a></span>
+      </div>
+      <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Kernels</span>
+        <span class="qb2-intent-val"><a href="https://github.com/tenstorrent/tt-lang" target="_blank" rel="noopener">tt-lang</a> &mdash; Python DSL for Tensix kernels &middot; <a href="https://github.com/tenstorrent/tt-metal" target="_blank" rel="noopener">TT-Metalium</a> &mdash; C++ dispatch</span>
+      </div>
+      <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Explore</span>
+        <span class="qb2-intent-val"><a href="https://github.com/geohot/tt-tiny" target="_blank" rel="noopener">tt-tiny</a> &mdash; George Hotz&rsquo;s minimal bare-metal Python exploration</span>
+      </div>
+      <div class="qb2-lesson-area">
+        <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cookbook-game-of-life/">&#8594; Cookbook: Game of Life</a>
+        <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/tt-lang-intro/">&#8594; Intro to tt-lang</a>
+      </div>
+    </div>
+
+    <!-- EXPLORE -->
+    <div class="qb2-intent-card card-explore" id="cardExplore" onclick="qb2ActivateCard('explore')">
+      <div class="qb2-intent-icon">&#128300;</div>
+      <p class="qb2-intent-title">Explore the Architecture</p>
+      <p class="qb2-intent-tagline">TT-Toplike, Particle Life, TT-Metalium</p>
+      <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Watch</span>
+        <span class="qb2-intent-val"><a href="https://docs.tenstorrent.com/tt-toplike/" target="_blank" rel="noopener">TT-Toplike</a> &mdash; Starfield, Memory Castle, Memory Flow, Arcade</span>
+      </div>
+      <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Run</span>
+        <span class="qb2-intent-val">Particle Life Simulator on 4&times; chips &mdash; emergent complexity</span>
+      </div>
+      <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Compile</span>
+        <span class="qb2-intent-val"><a href="https://github.com/tenstorrent/tt-forge" target="_blank" rel="noopener">TT-Forge</a> &mdash; bring any PyTorch or ONNX model to the hardware, 100+ supported</span>
+      </div>
+      <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Program</span>
+        <span class="qb2-intent-val"><a href="https://github.com/tenstorrent/tt-metal" target="_blank" rel="noopener">TT-Metalium</a> &mdash; C++ kernels on RISC-V cores in the 2D mesh</span>
+      </div>
+      <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Discover</span>
+        <span class="qb2-intent-val"><a href="https://docs.tenstorrent.com/tt-awesome" target="_blank" rel="noopener">TT-Awesome</a> &mdash; community apps, demos, libraries, and write-ups</span>
+      </div>
+      <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Lessons</span>
+        <span class="qb2-intent-val">CS Fundamentals series &middot; Particle Life walkthrough</span>
+      </div>
+      <div class="qb2-intent-row">
+        <span class="qb2-intent-label">Train</span>
+        <span class="qb2-intent-val"><a href="https://docs.tenstorrent.com/tt-blacksmith/" target="_blank" rel="noopener">TT-Blacksmith</a> &mdash; fine-tune or train from scratch on 4&times; Blackhole</span>
+      </div>
+      <div class="qb2-lesson-area">
+        <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cs-fundamentals-01-computer/">&#8594; CS Fundamentals</a>
+        <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/cookbook-particle-life/">&#8594; Particle Life</a>
+        <a class="qb2-lesson-btn" href="https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/ct1-understanding-training/">&#8594; Custom Training</a>
+      </div>
+    </div>
+
+  </div><!-- end intent grid -->
+
+  <!-- ===== REFERENCE TABLE ===== -->
+  <table class="qb2-ref-table">
+    <thead>
+      <tr>
+        <th>Tool</th>
+        <th>What it does</th>
+        <th>Where</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>TT-SMI</td>
+        <td>Hardware status and telemetry snapshot</td>
+        <td>Pre-installed: run <code>tt-smi</code></td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/tenstorrent/tt-studio">TT-Studio</a></td>
+        <td>Web GUI for deploying and chatting with AI models &mdash; handles all setup automatically, deploy models in one click. Gated models (e.g. Llama) require a <a href="https://huggingface.co/settings/tokens" target="_blank" rel="noopener">Hugging Face token</a>.</td>
+        <td>Pre-installed: run <code>tt-studio</code></td>
+      </tr>
+      <tr>
+        <td>TT-Inference-Server</td>
+        <td>OpenAI-compatible model serving endpoint</td>
+        <td>Pre-installed at <code>~/.local/lib/tt-inference-server</code></td>
+      </tr>
+      <tr>
+        <td>TT-Toplike</td>
+        <td>Real-time hardware visualization &mdash; power, temperature, core activity</td>
+        <td><a href="https://docs.tenstorrent.com/tt-toplike">docs.tenstorrent.com/tt-toplike</a></td>
+      </tr>
+      <tr>
+        <td>TT-Local-Generator</td>
+        <td>Local video and image generation queue and gallery</td>
+        <td><a href="https://docs.tenstorrent.com/tt-local-generator">docs.tenstorrent.com/tt-local-generator</a></td>
+      </tr>
+      <tr>
+        <td>TT-VSCode-Toolkit</td>
+        <td>Guided lessons and architecture walkthroughs, validated on QB2</td>
+        <td><a href="https://docs.tenstorrent.com/tt-vscode-toolkit">docs.tenstorrent.com/tt-vscode-toolkit</a></td>
+      </tr>
+      <tr>
+        <td><a href="https://docs.tenstorrent.com/tt-forge">TT-Forge</a></td>
+        <td>MLIR compiler frontend &mdash; run PyTorch, ONNX, and JAX models on QB2 hardware, 100+ models supported</td>
+        <td><a href="https://docs.tenstorrent.com/tt-forge">docs.tenstorrent.com/tt-forge</a></td>
+      </tr>
+      <tr>
+        <td>TT-Metalium</td>
+        <td>Low-level Tensix programming &mdash; C++ kernels on RISC-V cores</td>
+        <td><a href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/">docs.tenstorrent.com/tt-metal/latest/tt-metalium</a></td>
+      </tr>
+      <tr>
+        <td><a href="https://docs.tenstorrent.com/tt-blacksmith/">TT-Blacksmith</a></td>
+        <td>Optimized training recipes &mdash; fine-tune and train models from scratch on QB2</td>
+        <td><a href="https://docs.tenstorrent.com/tt-blacksmith/">docs.tenstorrent.com/tt-blacksmith</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ===== NOTE BAR ===== -->
+  <div class="qb2-note-bar">
+    <strong>Hardware setup not finished?</strong> Start with the
+    <a href="setup.html">setup guide</a> &mdash; unboxing, first login, verifying chips with tt-smi, and launching your first model.
+    Need help? <a href="https://tenstorrent.com/support">Raise a support request.</a>
+  </div>
+  <div class="qb2-note-bar" style="margin-top:8px">
+    <strong>Want the complete handbook?</strong> The
+    <a href="https://docs.tenstorrent.com/tt-quietbox2-guide/">TT-QuietBox 2 Guide</a>
+    covers everything from first boot to daily operation &mdash; setup, system access &amp; management, workloads &amp; development, and troubleshooting &amp; recovery.
+  </div>
+  <div class="qb2-note-bar" style="margin-top:8px;opacity:.8">
+    <strong>Want to try before you install?</strong>
+    <a href="https://console.tenstorrent.com" target="_blank" rel="noopener">console.tenstorrent.com</a>
+    &mdash; run LLM inference, image and video generation in-browser, backed by Tenstorrent hardware.
+  </div>
+
+</div><!-- end .qb2-welcome -->
+
+<script>
+(function() {
+  'use strict';
+
+  /* ------------------------------------------------------------------
+     QB2 Welcome — TensixViz initialization + idle animation
+
+     Waits for window.TensixViz (loaded via Sphinx html_js_files as
+     tensix-viz.js) then initializes 4 Blackhole chip instances and
+     starts the idle animation via the tensix-viz activate() API.
+  ------------------------------------------------------------------ */
+
+  var CHIP_IDS = ['qb2Canvas0', 'qb2Canvas1', 'qb2Canvas2', 'qb2Canvas3'];
+  var vizInstances = [];
+  var currentMode = 'idle';
+
+  /* ----- init: poll for TensixViz then create instances ----- */
+  function initViz() {
+    if (typeof window.TensixViz === 'undefined') {
+      setTimeout(initViz, 80);
+      return;
+    }
+    CHIP_IDS.forEach(function(id, i) {
+      var canvas = document.getElementById(id);
+      if (!canvas) return;
+      vizInstances[i] = new window.TensixViz(canvas, { arch: 'blackhole', speed: 1.0 });
+    });
+    vizInstances.forEach(function(viz) { if (viz) viz.activate('idle'); });
+  }
+
+  document.addEventListener('DOMContentLoaded', initViz);
+
+  /* Expose shared state for the card click handler defined below */
+  window._qb2Viz = {
+    activate: function(mode) {
+      vizInstances.forEach(function(viz, i) {
+        if (!viz) return;
+        try { viz.activate(mode); }
+        catch (err) { console.error('[qb2] chip ' + i + ' activate("' + mode + '") failed:', err); }
+      });
+    },
+    getMode: function() { return currentMode; },
+    setMode: function(m) { currentMode = m; }
+  };
+
+})();
+</script>
+
+<script>
+(function() {
+  'use strict';
+
+  /* ------------------------------------------------------------------
+     QB2 Welcome — workload animation modes + card click handler
+
+     Depends on window._qb2Viz set by the init script above.
+     Uses the tensix-viz activate(mode) API — continuous RAF loops
+     replace the previous hand-written step arrays.
+
+     Mode mapping:
+       chat    → 'inference'        teal column sweep (token generation)
+       video   → 'diffusion'        pink expanding ring (denoising timestep)
+       agents  → 'agents'           purple burst clusters (tool-call dispatch)
+       hack    → 'kernel_dispatch'  orange rect grids lighting up across the mesh
+       explore → 'explore'          gold sinusoidal field (Particle Life)
+  ------------------------------------------------------------------ */
+
+  /* tensix-viz activate() mode names for each intent card */
+  var MODE_MAP = {
+    chat:    'inference',
+    video:   'diffusion',
+    agents:  'agents',
+    hack:    'kernel_dispatch',
+    explore: 'explore'
+  };
+
+  /* UI labels and CSS class suffixes */
+  var MODE_META = {
+    chat:    { label: '\u25cf chat inference',  cls: 'mode-chat'    },
+    video:   { label: '\u25cf video diffusion', cls: 'mode-video'   },
+    agents:  { label: '\u25cf agent dispatch',  cls: 'mode-agents'  },
+    hack:    { label: '\u25cf kernel dispatch',  cls: 'mode-hack'   },
+    explore: { label: '\u25cf particle life',   cls: 'mode-explore' }
+  };
+
+  /* ----- card click handler ----- */
+  window.qb2ActivateCard = function(mode) {
+    var v = window._qb2Viz;
+    if (!v) return;
+
+    var widget    = document.getElementById('qb2ChipWidget');
+    var modeLabel = document.getElementById('qb2ModeLabel');
+    var cards     = document.querySelectorAll('.qb2-intent-card');
+
+    /* clicking the active card toggles back to idle */
+    if (v.getMode() === mode) {
+      v.setMode('idle');
+      widget.className    = 'qb2-chip-widget tv-light';
+      modeLabel.className = 'qb2-chip-mode-label';
+      modeLabel.textContent = '\u25cf idle';
+      cards.forEach(function(c) { c.classList.remove('active'); });
+      v.activate('idle');
+      return;
+    }
+
+    /* activate the chosen workload mode */
+    v.setMode(mode);
+    var meta = MODE_META[mode];
+    widget.className    = 'qb2-chip-widget tv-light ' + meta.cls;
+    modeLabel.className = 'qb2-chip-mode-label ' + meta.cls;
+    modeLabel.textContent = meta.label;
+
+    cards.forEach(function(c) { c.classList.remove('active'); });
+    var id = 'card' + mode.charAt(0).toUpperCase() + mode.slice(1);
+    var activeCard = document.getElementById(id);
+    if (activeCard) activeCard.classList.add('active');
+
+    v.activate(MODE_MAP[mode]);
+  };
+
+})();
+</script></section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="setup.html" class="btn btn-neutral float-left" title="Hardware and Software Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="specifications.html" class="btn btn-neutral float-right" title="Specifications" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tenstorrent.
+      <span class="lastupdated">Last updated on Jul 24, 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+  <div class="feedback-widget" id="tt-feedback">
+  <div class="ttfb-card">
+    <div id="ttfb-initial" class="ttfb-initial">
+      <p class="ttfb-question">Was this article helpful?</p>
+      <div class="ttfb-actions">
+        <button id="ttfb-up" class="ttfb-icon-btn" aria-label="Yes" title="Yes">
+          <span>👍</span>
+        </button>
+        <button id="ttfb-down" class="ttfb-icon-btn" aria-label="No" title="No">
+          <span>👎</span>
+        </button>
+      </div>
+    </div>
+
+    <form id="ttfb-form" class="ttfb-hidden" novalidate>
+      <p id="ttfb-prompt" class="ttfb-prompt"></p>
+
+      <div id="ttfb-reasons" class="ttfb-hidden">
+        <p class="ttfb-reasons-title">How would you describe this article?</p>
+        <div class="ttfb-reasons-grid">
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="inaccurate"> <b>Inaccurate:</b> it doesn’t reflect what I see in the product</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="unclear"> <b>Unclear:</b> it’s difficult to understand</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="missing"> <b>Missing information:</b> it’s not comprehensive enough</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="irrelevant"> <b>Irrelevant:</b> it doesn’t match what I searched for</label>
+        </div>
+      </div>
+
+      <textarea id="ttfb-text" rows="3" class="ttfb-text" placeholder="Please let us know what was or wasn't helpful about this page."></textarea>
+
+      <div class="ttfb-contact">
+        <input id="ttfb-can-contact" type="checkbox"> <label for="ttfb-can-contact">Allow Tenstorrent to contact me about my documentation feedback.</label>
+      </div>
+      <div id="ttfb-email-wrap" class="ttfb-hidden">
+        <input id="ttfb-email" type="email" class="ttfb-email" placeholder="Enter your email address">
+      </div>
+
+      <button id="ttfb-submit" type="submit" class="ttfb-submit">Submit</button>
+    </form>
+
+    <div id="ttfb-thanks" class="ttfb-hidden ttfb-center"><p class="ttfb-thanks-text">Thank you for your feedback!</p></div>
+    <div id="ttfb-error" class="ttfb-hidden ttfb-center"><p class="ttfb-error-text">Sorry, something went wrong. Please try again later.</p></div>
+  </div>
+</div>
+
+<style>
+.feedback-widget { margin: 2rem 0; }
+.ttfb-card {
+  background: #fff;
+  border: 1px solid var(--color-background-40, #d7dbeb66);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+.ttfb-initial { display: flex; flex-direction: row; gap: .75rem; align-items: center; flex-wrap: wrap; justify-content: flex-start; }
+.ttfb-question { margin: 0; font-weight: 600; color: var(--color-foreground, #202020); }
+.ttfb-actions { display: flex; gap: .5rem; }
+.ttfb-icon-btn {
+  padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; background: #fff; cursor: pointer;
+  transition: background var(--transition-duration, 150ms) var(--transition-timing, ease), border-color var(--transition-duration, 150ms) var(--transition-timing, ease);
+}
+.ttfb-icon-btn:hover { background: #f3f4f6; }
+
+.ttfb-hidden { display: none; }
+.ttfb-prompt { margin: .5rem 0 1rem 0; color: var(--color-foreground, #202020); font-weight: 600; }
+.ttfb-reasons-title { margin: 0 0 .5rem 0; color: var(--color-foreground, #202020); font-weight: 500; }
+.ttfb-reasons-grid { display: grid; grid-template-columns: 1fr; gap: .25rem; }
+@media (min-width: 768px) { .ttfb-reasons-grid { grid-template-columns: 1fr 1fr; } }
+.ttfb-radio { display: flex; align-items: flex-start; gap: .5rem; }
+.ttfb-radio input { margin-top: .2rem; }
+
+.ttfb-text {
+  width: 100%; padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; font-family: inherit; resize: vertical;
+}
+.ttfb-contact { display: flex; align-items: center; gap: .5rem; margin-top: .5rem; }
+.ttfb-email { width: 100%; padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; margin-top: .5rem; }
+.ttfb-submit { margin-top: .75rem; padding: .5rem 1rem; background: var(--color-purple, #5164e0); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; }
+.ttfb-submit:hover { background: var(--color-dark-purple, #7584e6); }
+.ttfb-center { text-align: center; padding: 1rem; }
+.ttfb-thanks-text { color: var(--color-purple, #5164e0); font-weight: 600; }
+.ttfb-error-text { color: #dc2626; font-weight: 600; }
+
+/* Hide widget when page sets meta hide_feedback=true */
+html:has(meta[name="hide_feedback"][content="true"]) .feedback-widget { display: none !important; }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const root = document.getElementById('tt-feedback');
+  if (!root) return;
+
+  // Reposition widget: place it just above the Previous/Next buttons
+  try {
+    const footerButtons = document.querySelector('.rst-footer-buttons');
+    if (footerButtons && footerButtons.parentNode) {
+      footerButtons.parentNode.insertBefore(root, footerButtons);
+    }
+  } catch (e) {
+    // no-op if structure not present
+  }
+
+  const initial = root.querySelector('#ttfb-initial');
+  const form = root.querySelector('#ttfb-form');
+  const prompt = root.querySelector('#ttfb-prompt');
+  const reasonsWrap = root.querySelector('#ttfb-reasons');
+  const text = root.querySelector('#ttfb-text');
+  const thanks = root.querySelector('#ttfb-thanks');
+  const error = root.querySelector('#ttfb-error');
+  const upBtn = root.querySelector('#ttfb-up');
+  const downBtn = root.querySelector('#ttfb-down');
+  const canContact = root.querySelector('#ttfb-can-contact');
+  const emailWrap = root.querySelector('#ttfb-email-wrap');
+  const emailInput = root.querySelector('#ttfb-email');
+
+  let sentiment = null; // 'up' | 'down'
+
+  function show(el) { el.classList.remove('ttfb-hidden'); }
+  function hide(el) { el.classList.add('ttfb-hidden'); }
+
+  function setPromptForSentiment() {
+    if (sentiment === 'down') {
+      prompt.textContent = 'We\'re sorry to hear that. Can you tell us more?';
+      show(reasonsWrap);
+    } else {
+      prompt.textContent = 'Thanks! Anything to add? (optional)';
+      hide(reasonsWrap);
+    }
+  }
+
+  function validateEmail(email) {
+    return /.+@.+\..+/.test(email);
+  }
+
+  function submitPayload(payload) {
+    try {
+      if (window.posthog && typeof window.posthog.capture === 'function') {
+        window.posthog.capture('docs_feedback', payload);
+      } else {
+        console.log('Feedback submitted:', payload);
+      }
+      return true;
+    } catch (e) {
+      console.error('Feedback submit error', e);
+      return false;
+    }
+  }
+
+  upBtn.addEventListener('click', function () {
+    sentiment = 'up';
+    hide(initial);
+    setPromptForSentiment();
+    show(form);
+    text.focus();
+  });
+
+  downBtn.addEventListener('click', function () {
+    sentiment = 'down';
+    hide(initial);
+    setPromptForSentiment();
+    show(form);
+  });
+
+  canContact.addEventListener('change', function () {
+    if (canContact.checked) {
+      show(emailWrap);
+      emailInput.focus();
+    } else {
+      hide(emailWrap);
+    }
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const page = window.location.pathname;
+    const ts = new Date().toISOString();
+    const feedbackText = text.value.trim();
+    const canContactVal = !!canContact.checked;
+    const emailVal = emailInput.value.trim();
+    const reasonEl = root.querySelector('input[name="down_reason"]:checked');
+    const reason = reasonEl ? reasonEl.value : null;
+
+    if (canContactVal && emailVal && !validateEmail(emailVal)) {
+      emailInput.setCustomValidity('Please enter a valid email.');
+      emailInput.reportValidity();
+      return;
+    } else {
+      emailInput.setCustomValidity('');
+    }
+
+    const payload = {
+      sentiment,
+      reason,
+      text: feedbackText,
+      can_contact: canContactVal,
+      email: canContactVal ? emailVal || null : null,
+      page,
+      timestamp: ts
+    };
+
+    const ok = submitPayload(payload);
+    hide(form);
+    if (ok) {
+      show(thanks);
+      setTimeout(() => { root.style.display = 'none'; }, 3000);
+    } else {
+      show(error);
+    }
+  });
+});
+</script>
+
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><script src="../../../_static/sidebar-scroll.js"></script>
+<script src="../../../_static/external-nav-links.js"></script>
+<script src="../../../_static/docs-toc.js"></script>
+<script id="tt-search-script" src="../../../_static/tt-search.js"
+        data-search-url="../../../search.html"
+        data-search-api-base="https://csl860x2oj.execute-api.us-east-2.amazonaws.com/prod"
+        data-search-source="docs-tenstorrent"
+        data-site-base-url="https://docs.tenstorrent.com/"
+        data-kapa-src="../../../_static/kapa.js"
+        data-kapa-integration-id="c37e0bab-7623-43d7-bff1-daa52e901bbe"></script>
+
+</body>
+</html>

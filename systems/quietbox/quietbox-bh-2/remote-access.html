@@ -1,0 +1,594 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="TT-QuietBox Blackhole™, Blackhole™ Networked AI Processor" name="product-name" />
+<meta content="Remote Desktop Protocol (RDP), GNOME Remote Desktop, FreeRDP, headless access, macOS" name="technology-concepts" />
+<meta content="Task-Based Guide (How-To)" name="document-type" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Remote Access to Your TT-QuietBox 2 from macOS &mdash; Home 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/tt_theme.css?v=78736722" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/home.css?v=e04b094a" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/>
+    <link rel="canonical" href="https://docs.tenstorrent.com/systems/quietbox/quietbox-bh-2/remote-access.html" />
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=fd3dd8dd"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../../_static/togglebutton.js?v=b8b12719"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../../../_static/custom.js?v=0ccd5bc4"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="TT-QuietBox (Blackhole)" href="../quietbox-bh/index.html" />
+    <link rel="prev" title="FAQ and Troubleshooting" href="support-bh-2.html" /> 
+  <script src="../../../_static/posthog.js"></script>
+</head>
+
+<body class="wy-body-for-nav">
+<nav class="tt-top-nav" role="navigation" aria-label="Top navigation">
+  <div class="tt-top-nav-left">
+    <a href="https://docs.tenstorrent.com/" class="tt-nav-logo">
+      <img src="../../../_static/logotype.png" alt="Tenstorrent" />
+      <span>DOCUMENTATION</span>
+    </a>
+    <ul class="tt-nav-links">
+      <li class="has-dropdown">
+        <a href="https://docs.tenstorrent.com/#get-started">Get Started</a>
+        <div class="tt-nav-dropdown">
+          <a href="https://docs.tenstorrent.com/getting-started/tt-software-stack.html">Overview</a>
+          <a href="https://docs.tenstorrent.com/getting-started/README.html">Installing Tenstorrent Software</a>
+          <a href="https://docs.tenstorrent.com/getting-started/manual-software-install.html">Manual Installation</a>
+          <a href="https://docs.tenstorrent.com/getting-started/vLLM-servers.html">Deploy LLMs</a>
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/" target="_blank" rel="noopener">Learn by Building</a>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <a href="https://docs.tenstorrent.com/#software">Software</a>
+        <div class="tt-nav-dropdown">
+          <a href="https://docs.tenstorrent.com/forge/index.html">TT-Forge</a>
+          <a href="https://docs.tenstorrent.com/tt-xla/" target="_blank" rel="noopener">TT-XLA</a>
+          <a href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/" target="_blank" rel="noopener">TT-NN</a>
+          <a href="https://docs.tenstorrent.com/tt-lang/" target="_blank" rel="noopener">TT-Lang</a>
+          <a href="https://docs.tenstorrent.com/tt-mlir/" target="_blank" rel="noopener">TT-MLIR</a>
+          <a href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/" target="_blank" rel="noopener">TT-Metalium</a>
+          <a href="https://docs.tenstorrent.com/cloud-native-support/" target="_blank" rel="noopener">Cloud-Native Support</a>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <a href="https://docs.tenstorrent.com/#hardware">Hardware</a>
+        <div class="tt-nav-dropdown">
+          <span class="tt-nav-dropdown-label">Blackhole</span>
+          <a href="https://docs.tenstorrent.com/aibs/blackhole/index.html">Blackhole™ PCIe Cards</a>
+          <a href="https://docs.tenstorrent.com/systems/quietbox/quietbox-bh/index.html">TT-QuietBox</a>
+          <a href="https://docs.tenstorrent.com/systems/quietbox/quietbox-bh-2/index.html">TT-QuietBox 2</a>
+          <a href="https://docs.tenstorrent.com/systems/galaxy-blackhole/index.html">Galaxy™ (Blackhole)</a>
+          <span class="tt-nav-dropdown-label">Wormhole</span>
+          <a href="https://docs.tenstorrent.com/aibs/wormhole/index.html">Wormhole™ PCIe Cards</a>
+          <a href="https://docs.tenstorrent.com/systems/quietbox/quietbox-wh/index.html">TT-QuietBox</a>
+          <a href="https://docs.tenstorrent.com/systems/t3000/index.html">TT-LoudBox™</a>
+          <a href="https://docs.tenstorrent.com/systems/galaxy-wormhole/index.html">Galaxy™ (Wormhole)</a>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <a href="https://docs.tenstorrent.com/#tools">Tools</a>
+        <div class="tt-nav-dropdown">
+          <a href="https://github.com/tenstorrent/tt-inference-server" target="_blank" rel="noopener">TT-Inference-Server</a>
+          <a href="https://github.com/tenstorrent/tt-studio" target="_blank" rel="noopener">TT-Studio</a>
+          <a href="https://github.com/tenstorrent/tt-smi" target="_blank" rel="noopener">TT-SMI</a>
+          <a href="https://docs.tenstorrent.com/tt-toplike/" target="_blank" rel="noopener">TT-Toplike</a>
+          <a href="https://docs.tenstorrent.com/ttnn-visualizer/" target="_blank" rel="noopener">TT-NN Visualizer</a>
+          <a href="https://github.com/tenstorrent/tt-topology" target="_blank" rel="noopener">TT-Topology</a>
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit" target="_blank" rel="noopener">TT-VSCode-Toolkit</a>
+          <a href="https://docs.tenstorrent.com/tt-blacksmith/" target="_blank" rel="noopener">TT-Blacksmith</a>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <a href="https://docs.tenstorrent.com/#resources">Resources</a>
+        <div class="tt-nav-dropdown">
+          <a href="https://tenstorrent.atlassian.net/servicedesk/customer/portal/1" target="_blank" rel="noopener">Request Support</a>
+          <a href="https://tenstorrent.com/developers" target="_blank" rel="noopener">Developer Hub</a>
+          <a href="https://discord.com/invite/tenstorrent" target="_blank" rel="noopener">Join our Discord</a>
+          <a href="https://tenstorrent.com/faq" target="_blank" rel="noopener">FAQ</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tt-top-nav-right">
+    <button type="button" class="tt-nav-search-form tt-search-trigger" aria-label="Search docs" aria-haspopup="dialog">
+      <svg class="tt-search-glyph" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      <span class="tt-nav-search-placeholder">Search</span>
+      <kbd class="tt-nav-search-kbd">⌘K</kbd>
+    </button>
+    <div class="tt-nav-actions">
+      <a href="https://docs.tenstorrent.com/tt-awesome/" class="tt-nav-btn-cta" target="_blank" rel="noopener">Explore</a>
+      <a href="https://github.com/tenstorrent" class="tt-nav-btn-github" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+        </svg>
+        Github
+      </a>
+    </div>
+    <i data-toggle="wy-nav-top" class="fa fa-bars tt-nav-hamburger" aria-hidden="true"></i>
+  </div>
+</nav>
+
+
+<div class="tt-search-modal" id="tt-search-modal" hidden>
+  <div class="tt-search-backdrop" data-search-close></div>
+  <div class="tt-search-dialog" role="dialog" aria-modal="true" aria-label="Search documentation">
+    <div class="tt-search-head">
+      <div class="tt-search-box">
+        <svg class="tt-search-glyph" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+        <input type="text" class="tt-search-input" id="tt-search-input"
+               placeholder="Search for anything…" aria-label="Search for anything"
+               autocomplete="off" spellcheck="false" hidden />
+        <input type="text" class="tt-search-input" id="tt-ai-input"
+               placeholder="Ask anything about Tenstorrent hardware and software" aria-label="Ask about the docs"
+               autocomplete="off" spellcheck="false" />
+      </div>
+      <div class="tt-search-tabs" role="tablist">
+        <button type="button" class="tt-search-tab is-active" data-tab="ai" role="tab" aria-selected="true">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M8 1.5l1.4 3.6L13 6.5 9.4 7.9 8 11.5 6.6 7.9 3 6.5l3.6-1.4L8 1.5Z" fill="currentColor"/>
+            <path d="M12.5 10.5l.6 1.5 1.5.6-1.5.6-.6 1.5-.6-1.5-1.5-.6 1.5-.6.6-1.5Z" fill="currentColor"/>
+          </svg>
+          Ask AI
+        </button>
+        <button type="button" class="tt-search-tab" data-tab="search" role="tab" aria-selected="false">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          Search
+        </button>
+      </div>
+    </div>
+    <div class="tt-search-body"><div class="tt-search-panel" data-panel="search" hidden>
+        <ul class="tt-search-results" id="tt-search-results"></ul>
+        <div class="tt-search-empty" id="tt-search-empty">Start typing to search the documentation.</div>
+      </div><div class="tt-search-panel" data-panel="ai">
+        <div class="tt-ai-intro" id="tt-ai-intro">
+          <svg class="tt-ai-intro-star" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M10 1.5 12 7l5.5 1-4 3.9 1.2 5.6L10 14.4 5.3 17l1.2-5.6L2.5 7.5 8 7z" fill="currentColor"/>
+            <path d="M15.5 12l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z" fill="currentColor"/>
+          </svg>
+          <span class="tt-ai-intro-hint">Type a question above and press <kbd>Enter</kbd> — or jump right in:</span>
+        </div>
+        <ul class="tt-ai-examples" id="tt-ai-examples">
+          <li><button type="button" class="tt-ai-example">How to debug TT-Forge compile errors?</button></li>
+          <li><button type="button" class="tt-ai-example">How to set up Tenstorrent Cloud SSH?</button></li>
+          <li><button type="button" class="tt-ai-example">TT-Metalium vs TT-NN: what's the difference?</button></li>
+          <li><button type="button" class="tt-ai-example">How to daisy-chain Wormhole devices?</button></li>
+        </ul>
+        <div id="tt-kapa-embed" hidden>
+          <div id="tt-kapa-mount"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<a href="https://docs.tenstorrent.com/">
+    <img src="../../../_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+<a href="../../../index.html">
+    Home
+</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started/tt-software-stack.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started/README.html">Installing Tenstorrent Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started/manual-software-install.html">Manual Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started/vLLM-servers.html">Deploy LLMs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-vscode-toolkit/">Learn by Building</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Hardware</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../aibs/index.html">Cards</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../aibs/blackhole/index.html">Blackhole™ PCIe Cards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../aibs/wormhole/index.html">Wormhole™ PCIe Cards</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Systems</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">TT-QuietBox 2 (Blackhole)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quietbox-bh/index.html">TT-QuietBox (Blackhole)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quietbox-wh/index.html">TT-QuietBox (Wormhole)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../t3000/index.html">TT-LoudBox (Wormhole)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../galaxy-blackhole/index.html">Tenstorrent Galaxy (Blackhole)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../galaxy-wormhole/index.html">Tenstorrent Galaxy (Wormhole)</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../software/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../forge/index.html">TT-Forge™</a><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.tenstorrent.com/tt-forge-onnx/">TT-Forge-ONNX</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.tenstorrent.com/tt-blacksmith/">TT-Blacksmith</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-xla/">TT-XLA</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/">TT-NN™</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-lang/">TT-Lang™</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-mlir/">TT-MLIR™</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/">TT-Metalium™</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/cloud-native-support/">Cloud-Native Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools/index.html">Tools</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../support/README.html">Support &amp; FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Legal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../bounty_terms.html">Bounty Program Terms</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Home</a>
+      </nav>
+
+      <div class="wy-nav-content">
+  
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Systems</a></li>
+          <li class="breadcrumb-item"><a href="index.html">TT-QuietBox 2 (Blackhole)</a></li>
+      <li class="breadcrumb-item active">Remote Access to Your TT-QuietBox 2 from macOS</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/systems/quietbox/quietbox-bh-2/remote-access.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="remote-access-to-your-tt-quietbox-2-from-macos">
+<h1>Remote Access to Your TT-QuietBox 2 from macOS<a class="headerlink" href="#remote-access-to-your-tt-quietbox-2-from-macos" title="Link to this heading"></a></h1>
+<p>Follow this guide to get headless remote desktop access to your TT-QuietBox<sup>™</sup> 2 from macOS.</p>
+<section id="one-time-tt-quietbox-2-setup">
+<h2>One-Time TT-QuietBox 2 Setup<a class="headerlink" href="#one-time-tt-quietbox-2-setup" title="Link to this heading"></a></h2>
+<p>Log in to your TT-QuietBox 2, open a terminal, and run these commands to enable Ubuntu’s remote desktop service:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>grdctl<span class="w"> </span>--system<span class="w"> </span>rdp<span class="w"> </span><span class="nb">enable</span>
+sudo<span class="w"> </span>grdctl<span class="w"> </span>--system<span class="w"> </span>rdp<span class="w"> </span>set-credentials<span class="w"> </span><span class="s1">&#39;&lt;rdp-user&gt;&#39;</span><span class="w"> </span><span class="s1">&#39;&lt;rdp-password&gt;&#39;</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>gnome-remote-desktop.service
+sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">3389</span>/tcp
+sudo<span class="w"> </span>grdctl<span class="w"> </span>--system<span class="w"> </span>status<span class="w">     </span><span class="c1"># expect: RDP enabled, port 3389</span>
+</pre></div>
+</div>
+<p>You will see some warnings that are safe to ignore. Now get the local IP address of your TT-QuietBox 2 (usually <code class="docutils literal notranslate"><span class="pre">192.168.1.XXX</span></code>). You will need this when connecting via RDP:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>hostname<span class="w"> </span>-I
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Remote Desktop Protocol (RDP) credentials are arbitrary and separate from your <code class="docutils literal notranslate"><span class="pre">&lt;ttuser&gt;</span></code> login. By design, you authenticate twice (RDP credentials, then Ubuntu login).</p>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Do not reuse a valuable password</p>
+<p>The warning <code class="docutils literal notranslate"><span class="pre">Init</span> <span class="pre">TPM</span> <span class="pre">credentials</span> <span class="pre">failed</span> <span class="pre">...</span> <span class="pre">using</span> <span class="pre">GKeyFile</span> <span class="pre">as</span> <span class="pre">fallback</span></code> is benign, but note that the credential is stored on disk under <code class="docutils literal notranslate"><span class="pre">/var/lib/gnome-remote-desktop/</span></code>, so <strong>do not reuse a valuable password</strong>.</p>
+</div>
+</section>
+<section id="one-time-macos-setup">
+<h2>One-Time macOS Setup<a class="headerlink" href="#one-time-macos-setup" title="Link to this heading"></a></h2>
+<p>Install <a class="reference external" href="https://www.freerdp.com/">FreeRDP</a>, an open source remote desktop client, on your Mac. It can be installed directly from source or via Homebrew:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>install<span class="w"> </span>freerdp
+</pre></div>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Required on macOS 15+</p>
+<p>Go to <strong>System Settings → Privacy &amp; Security → Local Network</strong> and enable your terminal app. This can be stubborn, so it is a good idea to toggle it off/on and restart your terminal client. If the following steps still fail, you may need a reboot.</p>
+</div>
+</section>
+<section id="connect">
+<h2>Connect<a class="headerlink" href="#connect" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sdl-freerdp<span class="w"> </span>/v:&lt;box-ip&gt;<span class="w"> </span>/u:&lt;rdp-user&gt;<span class="w"> </span>/p:<span class="s1">&#39;&lt;rdp-password&gt;&#39;</span><span class="w"> </span>/cert:tofu<span class="w"> </span>/dynamic-resolution
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">/cert:tofu</span></code> trusts GNOME’s self-signed certificate on first use. If everything worked correctly, you should see an Ubuntu login screen. If you get a blank screen, close <strong>sdl-freerdp</strong> and try again. If the problem persists, see the “Debugging” section below. Log in with your QuietBox credentials to begin the session, and quit the <strong>sdl-freerdp</strong> app to end it.</p>
+<p>See the <a class="reference external" href="https://man.archlinux.org/man/extra/freerdp/sdl-freerdp3.1.en">FreeRDP manual</a> for convenient flags and plugins. We often use this alias to begin a remote session with clipboard access and sound turned on:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">alias</span><span class="w"> </span><span class="nv">qb2</span><span class="o">=</span><span class="s2">&quot;sdl-freerdp /v:&lt;box-ip&gt; /u:&lt;rdp-user&gt; /p:&#39;&lt;rdp-password&gt;&#39; /cert:tofu /dynamic-resolution /sound +clipboard&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="debugging">
+<h2>Debugging<a class="headerlink" href="#debugging" title="Link to this heading"></a></h2>
+<p>On your QuietBox (or via SSH), run the following to tail the RDP logs:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>journalctl<span class="w"> </span>-u<span class="w"> </span>gnome-remote-desktop<span class="w"> </span>-f
+</pre></div>
+</div>
+<p>New lines represent TCP requests reaching the box and should be debugged on the QuietBox. If no new lines are created upon login requests, that points to a network or macOS problem.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="support-bh-2.html" class="btn btn-neutral float-left" title="FAQ and Troubleshooting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../quietbox-bh/index.html" class="btn btn-neutral float-right" title="TT-QuietBox (Blackhole)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tenstorrent.
+      <span class="lastupdated">Last updated on Jul 24, 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+  <div class="feedback-widget" id="tt-feedback">
+  <div class="ttfb-card">
+    <div id="ttfb-initial" class="ttfb-initial">
+      <p class="ttfb-question">Was this article helpful?</p>
+      <div class="ttfb-actions">
+        <button id="ttfb-up" class="ttfb-icon-btn" aria-label="Yes" title="Yes">
+          <span>👍</span>
+        </button>
+        <button id="ttfb-down" class="ttfb-icon-btn" aria-label="No" title="No">
+          <span>👎</span>
+        </button>
+      </div>
+    </div>
+
+    <form id="ttfb-form" class="ttfb-hidden" novalidate>
+      <p id="ttfb-prompt" class="ttfb-prompt"></p>
+
+      <div id="ttfb-reasons" class="ttfb-hidden">
+        <p class="ttfb-reasons-title">How would you describe this article?</p>
+        <div class="ttfb-reasons-grid">
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="inaccurate"> <b>Inaccurate:</b> it doesn’t reflect what I see in the product</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="unclear"> <b>Unclear:</b> it’s difficult to understand</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="missing"> <b>Missing information:</b> it’s not comprehensive enough</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="irrelevant"> <b>Irrelevant:</b> it doesn’t match what I searched for</label>
+        </div>
+      </div>
+
+      <textarea id="ttfb-text" rows="3" class="ttfb-text" placeholder="Please let us know what was or wasn't helpful about this page."></textarea>
+
+      <div class="ttfb-contact">
+        <input id="ttfb-can-contact" type="checkbox"> <label for="ttfb-can-contact">Allow Tenstorrent to contact me about my documentation feedback.</label>
+      </div>
+      <div id="ttfb-email-wrap" class="ttfb-hidden">
+        <input id="ttfb-email" type="email" class="ttfb-email" placeholder="Enter your email address">
+      </div>
+
+      <button id="ttfb-submit" type="submit" class="ttfb-submit">Submit</button>
+    </form>
+
+    <div id="ttfb-thanks" class="ttfb-hidden ttfb-center"><p class="ttfb-thanks-text">Thank you for your feedback!</p></div>
+    <div id="ttfb-error" class="ttfb-hidden ttfb-center"><p class="ttfb-error-text">Sorry, something went wrong. Please try again later.</p></div>
+  </div>
+</div>
+
+<style>
+.feedback-widget { margin: 2rem 0; }
+.ttfb-card {
+  background: #fff;
+  border: 1px solid var(--color-background-40, #d7dbeb66);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+.ttfb-initial { display: flex; flex-direction: row; gap: .75rem; align-items: center; flex-wrap: wrap; justify-content: flex-start; }
+.ttfb-question { margin: 0; font-weight: 600; color: var(--color-foreground, #202020); }
+.ttfb-actions { display: flex; gap: .5rem; }
+.ttfb-icon-btn {
+  padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; background: #fff; cursor: pointer;
+  transition: background var(--transition-duration, 150ms) var(--transition-timing, ease), border-color var(--transition-duration, 150ms) var(--transition-timing, ease);
+}
+.ttfb-icon-btn:hover { background: #f3f4f6; }
+
+.ttfb-hidden { display: none; }
+.ttfb-prompt { margin: .5rem 0 1rem 0; color: var(--color-foreground, #202020); font-weight: 600; }
+.ttfb-reasons-title { margin: 0 0 .5rem 0; color: var(--color-foreground, #202020); font-weight: 500; }
+.ttfb-reasons-grid { display: grid; grid-template-columns: 1fr; gap: .25rem; }
+@media (min-width: 768px) { .ttfb-reasons-grid { grid-template-columns: 1fr 1fr; } }
+.ttfb-radio { display: flex; align-items: flex-start; gap: .5rem; }
+.ttfb-radio input { margin-top: .2rem; }
+
+.ttfb-text {
+  width: 100%; padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; font-family: inherit; resize: vertical;
+}
+.ttfb-contact { display: flex; align-items: center; gap: .5rem; margin-top: .5rem; }
+.ttfb-email { width: 100%; padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; margin-top: .5rem; }
+.ttfb-submit { margin-top: .75rem; padding: .5rem 1rem; background: var(--color-purple, #5164e0); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; }
+.ttfb-submit:hover { background: var(--color-dark-purple, #7584e6); }
+.ttfb-center { text-align: center; padding: 1rem; }
+.ttfb-thanks-text { color: var(--color-purple, #5164e0); font-weight: 600; }
+.ttfb-error-text { color: #dc2626; font-weight: 600; }
+
+/* Hide widget when page sets meta hide_feedback=true */
+html:has(meta[name="hide_feedback"][content="true"]) .feedback-widget { display: none !important; }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const root = document.getElementById('tt-feedback');
+  if (!root) return;
+
+  // Reposition widget: place it just above the Previous/Next buttons
+  try {
+    const footerButtons = document.querySelector('.rst-footer-buttons');
+    if (footerButtons && footerButtons.parentNode) {
+      footerButtons.parentNode.insertBefore(root, footerButtons);
+    }
+  } catch (e) {
+    // no-op if structure not present
+  }
+
+  const initial = root.querySelector('#ttfb-initial');
+  const form = root.querySelector('#ttfb-form');
+  const prompt = root.querySelector('#ttfb-prompt');
+  const reasonsWrap = root.querySelector('#ttfb-reasons');
+  const text = root.querySelector('#ttfb-text');
+  const thanks = root.querySelector('#ttfb-thanks');
+  const error = root.querySelector('#ttfb-error');
+  const upBtn = root.querySelector('#ttfb-up');
+  const downBtn = root.querySelector('#ttfb-down');
+  const canContact = root.querySelector('#ttfb-can-contact');
+  const emailWrap = root.querySelector('#ttfb-email-wrap');
+  const emailInput = root.querySelector('#ttfb-email');
+
+  let sentiment = null; // 'up' | 'down'
+
+  function show(el) { el.classList.remove('ttfb-hidden'); }
+  function hide(el) { el.classList.add('ttfb-hidden'); }
+
+  function setPromptForSentiment() {
+    if (sentiment === 'down') {
+      prompt.textContent = 'We\'re sorry to hear that. Can you tell us more?';
+      show(reasonsWrap);
+    } else {
+      prompt.textContent = 'Thanks! Anything to add? (optional)';
+      hide(reasonsWrap);
+    }
+  }
+
+  function validateEmail(email) {
+    return /.+@.+\..+/.test(email);
+  }
+
+  function submitPayload(payload) {
+    try {
+      if (window.posthog && typeof window.posthog.capture === 'function') {
+        window.posthog.capture('docs_feedback', payload);
+      } else {
+        console.log('Feedback submitted:', payload);
+      }
+      return true;
+    } catch (e) {
+      console.error('Feedback submit error', e);
+      return false;
+    }
+  }
+
+  upBtn.addEventListener('click', function () {
+    sentiment = 'up';
+    hide(initial);
+    setPromptForSentiment();
+    show(form);
+    text.focus();
+  });
+
+  downBtn.addEventListener('click', function () {
+    sentiment = 'down';
+    hide(initial);
+    setPromptForSentiment();
+    show(form);
+  });
+
+  canContact.addEventListener('change', function () {
+    if (canContact.checked) {
+      show(emailWrap);
+      emailInput.focus();
+    } else {
+      hide(emailWrap);
+    }
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const page = window.location.pathname;
+    const ts = new Date().toISOString();
+    const feedbackText = text.value.trim();
+    const canContactVal = !!canContact.checked;
+    const emailVal = emailInput.value.trim();
+    const reasonEl = root.querySelector('input[name="down_reason"]:checked');
+    const reason = reasonEl ? reasonEl.value : null;
+
+    if (canContactVal && emailVal && !validateEmail(emailVal)) {
+      emailInput.setCustomValidity('Please enter a valid email.');
+      emailInput.reportValidity();
+      return;
+    } else {
+      emailInput.setCustomValidity('');
+    }
+
+    const payload = {
+      sentiment,
+      reason,
+      text: feedbackText,
+      can_contact: canContactVal,
+      email: canContactVal ? emailVal || null : null,
+      page,
+      timestamp: ts
+    };
+
+    const ok = submitPayload(payload);
+    hide(form);
+    if (ok) {
+      show(thanks);
+      setTimeout(() => { root.style.display = 'none'; }, 3000);
+    } else {
+      show(error);
+    }
+  });
+});
+</script>
+
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><script src="../../../_static/sidebar-scroll.js"></script>
+<script src="../../../_static/external-nav-links.js"></script>
+<script src="../../../_static/docs-toc.js"></script>
+<script id="tt-search-script" src="../../../_static/tt-search.js"
+        data-search-url="../../../search.html"
+        data-search-api-base="https://csl860x2oj.execute-api.us-east-2.amazonaws.com/prod"
+        data-search-source="docs-tenstorrent"
+        data-site-base-url="https://docs.tenstorrent.com/"
+        data-kapa-src="../../../_static/kapa.js"
+        data-kapa-integration-id="c37e0bab-7623-43d7-bff1-daa52e901bbe"></script>
+
+</body>
+</html>

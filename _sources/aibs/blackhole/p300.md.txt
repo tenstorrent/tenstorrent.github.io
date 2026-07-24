@@ -1,0 +1,40 @@
+---
+myst:
+  html_meta:
+    product-name: Blackhole™ Tensix Processor, Blackhole™ p300c, Tenstorrent
+    technology-concepts: PCIe, ATX, ESD, RISC-V, GDDR6, Floating point, Block floating point, Integer, TensorFloat, Vector
+    document-type: Reference
+---
+
+```{eval-rst}
+:orphan:
+```
+
+# Blackhole p300c Card — Specifications and Requirements
+
+:::{admonition} Note
+The Blackhole<sup>®</sup> p300c card powers the TT-QuietBox 2 workstation, and is not sold separately. This page is for reference only. If you are interested in a Blackhole card to add to your existing system, see the availabe cards at [Tenstorrent.com](https://tenstorrent.com/hardware/cards).
+:::
+
+This document provides technical specifications for the Tenstorrent Blackhole p300c card inside of the TT-QuietBox 2.
+
+## Blackhole Tensix Processor Overview
+
+The p300c card features two of Tenstorrent’s high performance Blackhole ASICs, which each contain 120 Tensix Cores and 32 GB of GDDR6. The cards are supported by Tenstorrent’s fully open source software stack, granting developers full access to the metal. Inside the TT-QuietBox 2, two p300c cards connect internally with a Samtec ARP6 series High Performance cable, enabling pooled memory and improved performance.
+
+## Full Card Specifications
+
+| Specification             | p300c             |
+| ------------------------- | --------------------------- |
+| Part Number               | TC-03007                    |
+| Tensix Cores              | 240                         |
+| AI Clock                  | 1.35 GHz                        |
+| "Big RISC-V" Cores        | 32 TBD                      |
+| SRAM                      | 360 MB (1.5 MB per Tensix core)                     |
+| Memory                    | 64GB GDDR6                  |
+| Memory Speed              | 16 GT/sec                   |
+| Memory Bandwidth          | 1024 GB/sec                 |
+| TBP (Total Board Power)   | 600W                         |
+| Cooling                   | Liquid                         |
+| Dimensions (WxDxH)        | 21.66mm x 307mm x 112.65mm                        |
+
