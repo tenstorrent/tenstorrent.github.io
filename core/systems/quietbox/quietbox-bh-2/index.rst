@@ -26,7 +26,7 @@ Tutorials
    :maxdepth: 1
 
    First Things to Do <welcome>
-   Remote Access to your QuietBox2 from MacOS <remote-access>
+   Remote Access from macOS <remote-access>
 
 
 Reference Materials
