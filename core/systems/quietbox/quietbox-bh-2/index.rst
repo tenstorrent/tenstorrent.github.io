@@ -20,7 +20,7 @@ Getting Started
 
 
 Tutorials
----------
+---------------
 
 .. toctree::
    :maxdepth: 1
@@ -30,13 +30,13 @@ Tutorials
 
 
 Reference Materials
--------------------
+---------------
 .. toctree::
    :maxdepth: 1
    
    specifications
    support-bh-2
-   QuietBox 2 Reference Guide <https://docs.tenstorrent.com/tt-quietbox2-guide/>
+   TT-QuietBox 2 Reference Guide <https://docs.tenstorrent.com/tt-quietbox2-guide/>
    Supported Models <https://tenstorrent.com/developers>
    
 
