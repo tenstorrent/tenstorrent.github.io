@@ -51,7 +51,7 @@ the lower layers are available when you need finer control.
        </span>
      </a>
      <a class="tt-doc-card" href="https://docs.tenstorrent.com/cloud-native-support/" target="_blank" rel="noopener">
-       <span class="tt-doc-card-img"><img src="../_static/home/cloud-native-support.svg" alt="Cloud-Native Support" /></span>
+       <span class="tt-doc-card-img"><img src="../_static/svg/tt-operator.svg" alt="Cloud-Native Support" /></span>
        <span class="tt-doc-card-text">
          <span class="tt-doc-card-title">Cloud-Native Support</span>
          <span class="tt-doc-card-desc">Run Tenstorrent accelerators on Kubernetes — install, configure, and operate the device stack.</span>
