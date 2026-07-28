@@ -10,11 +10,6 @@ TT-QuietBox 2 (Blackhole)
 
    <div class="tt-float-clear" aria-hidden="true"></div>
 
-.. seealso::
-
-   For the complete handbook — from first boot to confident daily use — see the
-   `TT-QuietBox 2 Guide <https://docs.tenstorrent.com/tt-quietbox2-guide/>`_.
-
 Getting Started
 ---------------
 
@@ -22,15 +17,27 @@ Getting Started
    :maxdepth: 1
 
    setup
-   welcome
+
+
+Tutorials
+---------------
+
+.. toctree::
+   :maxdepth: 1
+
+   First Things to Do <welcome>
+   Remote Access from macOS <remote-access>
+
 
 Reference Materials
--------------------
+---------------
 .. toctree::
    :maxdepth: 1
    
    specifications
    support-bh-2
-   remote-access
+   TT-QuietBox 2 Reference Guide <https://docs.tenstorrent.com/tt-quietbox2-guide/>
+   Supported Models <https://tenstorrent.com/developers>
+   
 
 
