@@ -20,7 +20,7 @@ Getting Started
 
 
 Tutorials
----------------
+---------
 
 .. toctree::
    :maxdepth: 1
