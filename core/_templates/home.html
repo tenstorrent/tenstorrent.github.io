@@ -304,18 +304,22 @@
       min-width: 0;
     }
 
-    /* Software section: icon inline with title on top, description full-width below */
+    /* Get Started + Software sections: icon inline with title on top,
+       description full-width below */
+    #get-started .card,
     #software .card {
       flex-direction: column;
       gap: 12px;
     }
 
+    #get-started .card-head,
     #software .card-head {
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
+    #get-started .card-icon,
     #software .card-icon {
       width: 28px;
       height: 28px;
@@ -594,34 +598,39 @@
         <h2><a class="section-link" href="getting-started/tt-software-stack.html"><span class="section-link-text">Get Started</span><span class="section-link-arrow" aria-hidden="true">→</span></a></h2>
         <div class="cards-grid">
           <a href="getting-started/tt-software-stack.html" class="card">
-            <div class="card-text">
+            <div class="card-head">
+              <img class="card-icon" src="_static/svg/learn.svg" alt="" />
               <p class="card-title">Overview</p>
-              <p class="card-desc">How TT-Forge, TT-NN, and TT-Metalium fit together — and which to use when.</p>
             </div>
+            <p class="card-desc">How TT-Forge, TT-NN, and TT-Metalium fit together — and which to use when.</p>
           </a>
           <a href="getting-started/README.html" class="card">
-            <div class="card-text">
+            <div class="card-head">
+              <img class="card-icon" src="_static/svg/install.svg" alt="" />
               <p class="card-title">Installing Tenstorrent Software</p>
-              <p class="card-desc">Install drivers, firmware, and the TT-Metalium environment, then verify your setup.</p>
             </div>
+            <p class="card-desc">Install drivers, firmware, and the TT-Metalium environment, then verify your setup.</p>
           </a>
           <a href="getting-started/manual-software-install.html" class="card">
-            <div class="card-text">
+            <div class="card-head">
+              <img class="card-icon" src="_static/svg/install-manual.svg" alt="" />
               <p class="card-title">Manual Installation</p>
-              <p class="card-desc">Manually install system dependencies, drivers, and the software stack step by step.</p>
             </div>
+            <p class="card-desc">Manually install system dependencies, drivers, and the software stack step by step.</p>
           </a>
           <a href="getting-started/vLLM-servers.html" class="card">
-            <div class="card-text">
+            <div class="card-head">
+              <img class="card-icon" src="_static/svg/software.svg" alt="" />
               <p class="card-title">Deploy LLMs</p>
-              <p class="card-desc">Stand up an OpenAI-compatible inference server for high-throughput LLM serving.</p>
             </div>
+            <p class="card-desc">Stand up an OpenAI-compatible inference server for high-throughput LLM serving.</p>
           </a>
           <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/" target="_blank" rel="noopener" class="card">
-            <div class="card-text">
+            <div class="card-head">
+              <img class="card-icon" src="_static/svg/tutorial.svg" alt="" />
               <p class="card-title">Learn by Building</p>
-              <p class="card-desc">Get hands-on with guided, end-to-end lessons in the TT-VSCode-Toolkit.</p>
             </div>
+            <p class="card-desc">Get hands-on with guided, end-to-end lessons in the TT-VSCode-Toolkit.</p>
           </a>
         </div>
       </div>
@@ -676,7 +685,7 @@
           </a>
           <a href="https://docs.tenstorrent.com/cloud-native-support/" target="_blank" rel="noopener" class="card">
             <div class="card-head">
-              <img class="card-icon" src="_static/home/cloud-native-support.svg" alt="Cloud-Native Support" />
+              <img class="card-icon" src="_static/svg/tt-operator.svg" alt="Cloud-Native Support" />
               <p class="card-title">Cloud-Native Support</p>
             </div>
             <p class="card-desc">Run Tenstorrent accelerators on Kubernetes — install, configure, and operate the device stack.</p>
