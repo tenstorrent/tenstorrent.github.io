@@ -26,3 +26,16 @@ to get started.
   publishes devices as schedulable resources (Dynamic Resource Allocation).
 - **[Multi-Node Scheduling](https://docs.tenstorrent.com/tt-operator/latest/components/multi-node.html)**
   — JobSet and PMIx wiring for multi-node jobs.
+
+## Guides
+
+- **[Factory System Descriptor (FSD)](factory-system-descriptor.md)** — how a
+  multi-host system's as-built topology is recorded and how Fabric Manager
+  reads it on Kubernetes.
+
+```{toctree}
+:maxdepth: 1
+:hidden:
+
+factory-system-descriptor
+```
