@@ -13,8 +13,11 @@ extensions = [
     "myst_parser",
     "sphinx_copybutton",
     "sphinx_togglebutton",
+    "sphinxcontrib.mermaid",
 ]
 myst_enable_extensions = ["colon_fence", "deflist"]
+myst_heading_anchors = 3
+mermaid_version = "10.9.0"
 source_suffix = {".md": "markdown", ".rst": "restructuredtext"}
 
 html_theme = "sphinx_rtd_theme"
