@@ -50,9 +50,13 @@ eth_connections {
 }
 ```
 
+Hosts carry no ID field of their own — the `host_id` in `board_types` and
+`eth_connections` is a host's zero-based index into the `hosts` list, which is why
+host order is significant.
+
 Host entries can also carry an `instance_path`: the chain of enclosures from the
 root of the system down to that host, so hosts inside the same enclosure share a
-path prefix. Fabric Manager uses it to recognise repeating hardware units — see
+path prefix. Fabric Manager uses it to recognize repeating hardware units — see
 [Deriving topology shapes](#deriving-topology-shapes).
 
 The schema is defined in tt-metal, which is authoritative for field names and
