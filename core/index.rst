@@ -37,6 +37,7 @@ Tenstorrent
    TT-MLIR™ <https://docs.tenstorrent.com/tt-mlir/>
    TT-Metalium™ <https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/>
    Cloud-Native Support <https://docs.tenstorrent.com/cloud-native-support/>
+   TT-Studio <https://docs.tenstorrent.com/tt-studio/>
    tools/index
 
 .. toctree::
