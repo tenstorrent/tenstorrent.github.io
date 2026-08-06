@@ -161,8 +161,11 @@ You can either enter the system's BIOS/UEFI setup to adjust the boot order or en
 This section describes an optional process to access the Base Management Controller (BMC) included with the system. To log in using the system's BMC, complete these steps:
 
 1.  Connect an additional Ethernet cable to the BMC management port on the rear panel of your system, shown in **Step 2: Setting Up the Hardware** above.
-2.  On another computer connected to the same network, open a web browser.
-3.  When prompted, enter the following default credentials:
+2.  Find the address the BMC obtained over DHCP, using either method:
+    *   **From the host operating system**, run `sudo ipmitool lan print 1` and note the **IP Address** field. If the command is unavailable, install it with `sudo apt install ipmitool`.
+    *   **From the BIOS**, restart the system, press the `F2` or `Delete` key during Power-On-Self-Test (POST), and go to **Server Management** → **BMC Network Configuration**. The address is listed as **Station IP Address**.
+3.  On another computer connected to the same network, open a web browser and go to `https://<bmc-ip-address>`, replacing the placeholder with the address from the previous step.
+4.  When prompted, enter the following default credentials:
     *   **Username**: **admin**
     *   **Password**: **ZTSI-00024**
 
