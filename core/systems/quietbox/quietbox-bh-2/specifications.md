@@ -76,7 +76,7 @@ For the most up-to-date list of models supported by TT-QuietBox 2, check the [De
 
 | Topic | Specification |
 | --- | --- |
-| Peak Power Consumption | 1500kW |
+| Peak Power Consumption | 1500W |
 | Operating Temperature | 50°F to 95°F (10°C to 35°C) |
 | Operating Relative Humidity | 10% to 90% (non-condensing) |
 | Non-Operating Temperature | -4°F to 140°F (-20°C to 60°C) |
