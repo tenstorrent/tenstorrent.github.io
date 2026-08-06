@@ -180,15 +180,15 @@ Network bandwidth is significantly better over wired Ethernet than WiFi, which m
 
 TT-QuietBox 2 comes pre-installed with the Ubuntu operating system (24.04).
 
-**Step 1:** After logging in, Ubuntu Software Updater may prompt you to install updates. If prompted, select Install Now.
+**Step 1:** Upon logging in, a Ubuntu Software Updater may offer a prompt that new software has been issued since the latest release. If this prompt appears, click “Install Now” to download the latest Ubuntu updates.
 
-**Step 2:** To update the Ubuntu system packages, open a Terminal window by pressing Ctrl+Alt+T and run:
+**Step 2:** To ensure you have the latest system package updates, open a Terminal window by pressing Ctrl+Alt+T and run:
 
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
 
-**Step 3:** Install the latest validated Tenstorrent firmware and system software. The installer selects the compatible, known-good software stack and automatically reboots the system:
+**Step 3:** Install the latest Tenstorrent firmware and system software, which will then trigger a system reboot:
 
 ```bash
 /bin/bash <(curl -fsSL https://github.com/tenstorrent/tt-installer/releases/latest/download/install.sh) --mode-non-interactive --use-uv
