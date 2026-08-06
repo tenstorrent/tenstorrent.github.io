@@ -8,11 +8,11 @@ myst:
 
 # Regulatory Compliance Statements
 
-This document provides regulatory compliance information for the Tenstorrent TT-QuietBox<sup>™</sup> 2 (Blackhole<sup>®</sup>) workstation (model TW-04003). It outlines the standards and regulations with which this device complies in various regions, assisting users in understanding compliance requirements for proper installation and operation.
+This document provides regulatory compliance information for the Tenstorrent TT-QuietBox<sup>®</sup> 2 (Blackhole<sup>®</sup>) workstation (model TW-04003). It outlines the standards and regulations with which this device complies in various regions, assisting users in understanding compliance requirements for proper installation and operation.
 
 ## Compliance
 
-The TT-QuietBox<sup>™</sup> 2 (Blackhole<sup>®</sup>) complies with requirements of:
+The TT-QuietBox<sup>®</sup> 2 (Blackhole<sup>®</sup>) complies with requirements of:
 
 \-       USA CFR Title 47, FCC Part 15, Subpart B, Class B
 
@@ -52,7 +52,7 @@ FCC Warning: The FCC requires that you be notified that any changes or modificat
 
 ### English
 
-The TT-QuietBox<sup>™</sup> 2 (Blackhole<sup>®</sup>) has been tested to comply with the Interference Causing Equipment Standard, ICES-003 Issue 7, CAN ICES-003(B)/NMB-003(B)
+The TT-QuietBox<sup>®</sup> 2 (Blackhole<sup>®</sup>) has been tested to comply with the Interference Causing Equipment Standard, ICES-003 Issue 7, CAN ICES-003(B)/NMB-003(B)
 
 This device complies with Innovation, Science and Economic Development Canada (ISED) license-exempt RSS Standard(s). Operation is subject to the following two conditions: (1) this device may not cause interference, and (2) this device must accept any interference, including interference that may cause undesired operation of the device.
 
@@ -64,7 +64,7 @@ Le présent appareil est conforme aux CNR D’Innovation, Sciences et Développe
 
 ## United Kingdom
 
-The TT-QuietBox<sup>™</sup> 2 (Blackhole<sup>®</sup>) complies with the following UK Regulations.
+The TT-QuietBox<sup>®</sup> 2 (Blackhole<sup>®</sup>) complies with the following UK Regulations.
 
 Electromagnetic Compatibility Regulations 2016 (S.I, 2016/1091)
 
@@ -74,7 +74,7 @@ Restrictions of the Use of Certain Hazardous Substances in Electrical and Electr
 
 ## Europe - CE Marking
 
-The TT-QuietBox<sup>™</sup> 2 (Blackhole<sup>®</sup>) bears the CE mark in compliance with the following EU Directives.
+The TT-QuietBox<sup>®</sup> 2 (Blackhole<sup>®</sup>) bears the CE mark in compliance with the following EU Directives.
 
 EMC Directive 2014/30/EU
 

@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    product-name: tt-inference-server, TT-QuietBox™, TT-LoudBox, Wormhole™ Networked AI Processor, Blackhole™ Networked AI Processor, n150s, n150d, n300s, n300d, p100a, p150a, p150b
+    product-name: tt-inference-server, TT-QuietBox®, TT-LoudBox, Wormhole™ Networked AI Processor, Blackhole® Networked AI Processor, n150s, n150d, n300s, n300d, p100a, p150a, p150b
     technology-concepts: LLM, vLLM, Hugging Face, Llama 3, deployment
     document-type: how-to
 ---
@@ -24,7 +24,7 @@ Before beginning this procedure, ensure that you have completed the base softwar
 
 ### **(Wormhole™ only)**
 
-:::{admonition} If you are using a TT-QuietBox™ or TT-LoudBox™ you must complete the following step
+:::{admonition} If you are using a TT-QuietBox® or TT-LoudBox™ you must complete the following step
 :class: warning
 
 For these systems you must configure a system-level mesh topology between the Wormhole™ Networked AI Processors. Run the following script to install `tt-topology` and configure the mesh.
@@ -63,7 +63,7 @@ The recommended large language models are gated and require a Hugging Face accou
 
 Visit the model's page on Hugging Face and follow the instructions to request access.
 
-* For TT-QuietBox™ and TT-LoudBox™ systems, we recommend [meta-llama/Llama-3.3-70B-Instruct](https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct)
+* For TT-QuietBox® and TT-LoudBox™ systems, we recommend [meta-llama/Llama-3.3-70B-Instruct](https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct)
 * For add-in-card products (n-series, p-series), we recommend [meta-llama/Llama-3.1-8B-Instruct](https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct)
 
 For a full list of the currently available and tested models, please visit the [tt-inference-server GitHub page](https://github.com/tenstorrent/tt-inference-server).
@@ -205,8 +205,8 @@ Now that your model endpoint is running:
 * **Add a browser UI** — [TT-Studio](https://github.com/tenstorrent/tt-studio) wraps TT-Inference-Server with a point-and-click deployment and chat interface. Run `tt-studio` in the terminal to start it.
 * **Check supported models** — the [tt-inference-server repository](https://github.com/tenstorrent/tt-inference-server) is the authoritative source for which models are validated on each hardware generation.
 * **Use it as a coding assistant** — the [Coding Assistant with Aider](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/coding-assistant/) lesson walks through pairing a local vLLM endpoint with Aider for on-device pair programming.
-* **Build agents on top of it** — if you have a TT-QuietBox™ 2, the [Local AI Agents on QuietBox 2](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/qb2-local-agents/) lesson covers tool-calling pipelines and multi-agent workflows against your local endpoint.
-* **Try image and video generation** — if you have a TT-QuietBox™ 2, [TT-Local-Generator](https://docs.tenstorrent.com/tt-local-generator/) runs alongside inference with its own queue and gallery.
+* **Build agents on top of it** — if you have a TT-QuietBox® 2, the [Local AI Agents on QuietBox 2](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/qb2-local-agents/) lesson covers tool-calling pipelines and multi-agent workflows against your local endpoint.
+* **Try image and video generation** — if you have a TT-QuietBox® 2, [TT-Local-Generator](https://docs.tenstorrent.com/tt-local-generator/) runs alongside inference with its own queue and gallery.
 
 ---
 

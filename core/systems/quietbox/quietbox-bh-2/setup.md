@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    product-name: TT-QuietBox Blackhole™, Blackhole™ Networked AI Processor, Tensix core  
+    product-name: TT-QuietBox Blackhole®, Blackhole® Networked AI Processor, Tensix core  
     technology-concepts: PCIe, QSFP-DD, Installation, Setup, Electrostatic Discharge (ESD), Basic Input/Output System (BIOS)  
     document-type: Task-Based Guide (How-To)
 ---
@@ -58,7 +58,7 @@ myst:
 
 # Hardware and Software Setup
 
-This guide shows users how to safely unbox, setup hardware, and install software on a TT-QuietBox<sup>™</sup> 2 (Blackhole<sup>®</sup>) workstation.
+This guide shows users how to safely unbox, setup hardware, and install software on a TT-QuietBox<sup>®</sup> 2 (Blackhole<sup>®</sup>) workstation.
 
 ## Before You Begin
 
