@@ -156,6 +156,23 @@ You can either enter the system's BIOS/UEFI setup to adjust the boot order or en
 - Select your USB flash drive
 - Follow the on-screen Ubuntu installation prompts
 
+#### **Optional: Accessing the Base Management Controller (BMC)**
+
+This section describes an optional process to access the Base Management Controller (BMC) included with the system. The BMC runs independently of the host operating system, so you can reach it from any computer on the management network, including while the workstation is powered off or has no operating system installed. To log in using the system's BMC, complete these steps:
+
+1.  Connect an additional Ethernet cable to the BMC management port on the rear panel of your system, shown in **Step 2: Setting Up the Hardware** above.
+2.  Find the address the BMC obtained over DHCP, using either method:
+    *   **From the host operating system**, run `sudo ipmitool lan print 1` and note the **IP Address** field. If the command is unavailable, install it with `sudo apt install ipmitool`.
+    *   **From the BIOS**, restart the system, press the `F2` or `Delete` key during Power-On-Self-Test (POST), and go to **Server Management** → **BMC Network Configuration**. The address is listed as **Station IP Address**.
+3.  From a computer on the same network as the BMC management port, open a web browser and go to `https://<bmc-ip-address>`, replacing the placeholder with the address from the previous step.
+4.  When prompted, enter the following default credentials:
+    *   **Username**: **admin**
+    *   **Password**: **ZTSI-00024**
+
+:::{note}
+These are the BMC credentials set for TT-QuietBox. Do not use the manufacturer default credentials listed in the ASRock Rack SIENAD8-2L2T motherboard manual.
+:::
+
 ### **Step 4: Verifying System Recognition of Wormhole n300 Accelerators**
 
 Once logged into the system, execute these commands in a terminal to download the latest list of PCI device IDs and list the recognized devices:
