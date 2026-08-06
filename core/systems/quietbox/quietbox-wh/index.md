@@ -156,6 +156,20 @@ You can either enter the system's BIOS/UEFI setup to adjust the boot order or en
 - Select your USB flash drive
 - Follow the on-screen Ubuntu installation prompts
 
+#### **Optional: Accessing the Base Management Controller (BMC)**
+
+This section describes an optional process to access the Base Management Controller (BMC) included with the system. To log in using the system's BMC, complete these steps:
+
+1.  Connect an additional Ethernet cable to the BMC management port on the rear panel of your system, shown in **Step 2: Setting Up the Hardware** above.
+2.  On another computer connected to the same network, open a web browser.
+3.  When prompted, enter the following default credentials:
+    *   **Username**: **admin**
+    *   **Password**: **ZTSI-00024**
+
+:::{note}
+These are the BMC credentials set for TT-QuietBox. Do not use the manufacturer default credentials listed in the ASRock Rack SIENAD8-2L2T motherboard manual.
+:::
+
 ### **Step 4: Verifying System Recognition of Wormhole n300 Accelerators**
 
 Once logged into the system, execute these commands in a terminal to download the latest list of PCI device IDs and list the recognized devices:
