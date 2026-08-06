@@ -20,7 +20,7 @@ The Tenstorrent TT-QuietBox 2 (Blackhole) system package includes the following 
 
 * 1x TT-QuietBox 2 (Blackhole) workstation
 * 1x Power Supply Cord (C19 to country-specific wall outlet)
-* 1x eMeet Luna Plus
+* 1x eMeet Luna Plus speakerphone
 
 ## **TT-QuietBox 2 System Specifications**
 
@@ -124,6 +124,11 @@ This is especially relevant to users in 120V countries, such as the USA, Canada,
 
 (safety-warnings)=
 ## **Important Safety Warnings**
+
+:::{admonition} Caution: Hot Surface
+:class: caution
+The interior of the workstation can become extremely hot when running. Do not touch any interior components of the workstation without turning the power off, letting the PSU fully drain, and allowing interior components to cool.
+:::
 
 ### **Electrical Safety** 
 

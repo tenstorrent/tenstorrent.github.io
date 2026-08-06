@@ -24,13 +24,13 @@ TT-QuietBox 2 is designed to operate in a typical office, lab, or home-office en
 For detailed information on power draw and circuit breaker requirements, see the [Specifications page of the TT-QuietBox 2 documentation](./specifications.md).
 
 ### Does My TT-QuietBox 2 Require Maintenance?
-Yes. Like any liquid-cooled desktop workstation, TT-QuietBox 2 will require periodic coolant top-ups. Under typical development workloads, you can expect to do this approximately every year. Exact intervals depend on usage, environment, and duty cycle.
+Yes. Like any liquid-cooled desktop workstation, TT-QuietBox 2 will require periodic coolant top-ups. Under typical development workloads, you can expect to do this approximately every year. 
 
-Maintenance procedures and recommended coolant/service guidelines will be documented in the TT-QuietBox 2 hardware documentation.
+Maintenance procedures and recommended coolant/service guidelines will be documented in the TT-QuietBox 2 Field Replacable Unit (FRU) documentation
 
 ### How Loud Is the TT-QuietBox 2?
 
-TT-QuietBox 2 is liquid-cooled and engineered to run quietly enough for office or home-office use. Actual noise levels depend on workload and ambient conditions, but the system is intended to be comfortable to use at a desk compared to traditional air-cooled workstations. Our lab tests measured 39.8 dBA sound pressure under maximum operating load (for reference, a typical front-load washing machine operates between 40-50 dBA).
+TT-QuietBox 2 is liquid-cooled and engineered to run quietly enough for office or home-office use. Actual noise levels depend on workload and ambient conditions, but the system is intended to be comfortable to use at a desk compared to traditional air-cooled workstations. Our lab tests measured less than 40 dBA sound pressure under maximum operating load.
 
 ### What Kind of Power Outlet Do I Need? How Much Power Does It Draw?
 
