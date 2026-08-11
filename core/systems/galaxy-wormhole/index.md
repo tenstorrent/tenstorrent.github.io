@@ -1,6 +1,6 @@
 # Tenstorrent Galaxy (Wormhole)
 
-Download the Tenstorrent Galaxy<sup>™</sup> (Wormhole<sup>™</sup>) complete user guide here:
+Download the Tenstorrent Galaxy<sup>®</sup> (Wormhole<sup>™</sup>) complete user guide here:
 
 [Tenstorrent Galaxy (Wormhole) User Guide (PDF)](galaxy-wormhole.pdf) - Version 1.6. Last Updated: August 4, 2026
 
