@@ -136,7 +136,7 @@ The interior of the workstation can become extremely hot when running. Do not to
 Failure to follow these electrical safety instructions may result in electric shock, fire, or damage to the workstation.
 
 * Do not share the workstation's electrical outlet with other high-power devices. Do not use household surge strips, extension cords, or multi-outlet power taps.
-* Use only the provided C19 power cable provided, and ensure it is plugged into a properly grounded outlet. Do not bypass the grounding pin. Using a non-Tenstorrent approved power cable may result in equipment damage, electric shock, or fire hazard.
+* Use only the provided C19 power cable, and ensure it is plugged into a properly grounded outlet. Do not bypass the grounding pin. Using a non-Tenstorrent approved power cable may result in equipment damage, electric shock, or fire hazard.
 * If the circuit becomes overloaded and if the breaker trips, immediately disconnect and remove the power cord. Tenstorrent recommends a qualified electrician inspect and verify the circuit’s capacity before resuming setup.  
 * Never attempt to reset or bypass a tripped breaker without first confirming the circuit integrity; failure to do so may result in overheating, voltage drop, or irreversible damage.
 :::

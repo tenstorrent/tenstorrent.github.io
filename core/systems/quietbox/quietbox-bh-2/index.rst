@@ -30,7 +30,7 @@ Tutorials
 
 
 Reference Materials
----------------
+-------------------
 .. toctree::
    :maxdepth: 1
    
