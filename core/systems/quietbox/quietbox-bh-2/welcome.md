@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    product-name: TT-QuietBox Blackhole™, Blackhole™ AI Processor, Tensix core
+    product-name: TT-QuietBox Blackhole®, Blackhole® AI Processor, Tensix core
     technology-concepts: local AI, inference, agent frameworks, video generation, Tensix architecture, RISC-V, tt-toplike, tt-local-generator, tt-vscode-toolkit
     document-type: Conceptual Guide (What's Next)
 ---

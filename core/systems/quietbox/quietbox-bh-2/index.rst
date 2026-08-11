@@ -30,7 +30,7 @@ Tutorials
 
 
 Reference Materials
----------------
+-------------------
 .. toctree::
    :maxdepth: 1
    
@@ -38,6 +38,7 @@ Reference Materials
    support-bh-2
    TT-QuietBox 2 Reference Guide <https://docs.tenstorrent.com/tt-quietbox2-guide/>
    Supported Models <https://tenstorrent.com/developers>
+   Compliance <compliance-qb2>
    
 
 

@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    product-name: TT-QuietBox Blackhole™, Blackhole™ Networked AI Processor, Tensix core  
+    product-name: TT-QuietBox Blackhole®, Blackhole® Networked AI Processor, Tensix core  
     technology-concepts: PCIe, QSFP-DD, Installation, Setup, Electrostatic Discharge (ESD), Basic Input/Output System (BIOS)  
     document-type: Task-Based Guide (How-To)
 ---
@@ -58,17 +58,12 @@ myst:
 
 # Hardware and Software Setup
 
-This guide shows users how to safely unbox, setup hardware, and install software on a TT-QuietBox<sup>™</sup> 2 (Blackhole<sup>®</sup>) workstation.
-
-```{tip}
-For the complete handbook — system access & management, workloads & development, troubleshooting & recovery, and reference material beyond first setup — see the [**TT-QuietBox 2 Guide**](https://docs.tenstorrent.com/tt-quietbox2-guide/).
-```
+This guide shows users how to safely unbox, setup hardware, and install software on a TT-QuietBox<sup>®</sup> 2 (Blackhole<sup>®</sup>) workstation.
 
 ## Before You Begin
 
-Choose a suitable location for your System:
-* Choose a stable area for the TT-QuietBox 2 where it will not need to be moved regularly. To ensure proper airflow intake, allow for 10 inches (25 cm) of clearance around the body of the workstation. Also avoid placing items on top of the workstation, as this can block the heat exhaust.
-* The Power Supply Unit (PSU) on the TT-QuietBox 2 is rated to draw up to 1600W of power and has demonstrated drawing 1200W of power running image generation models. A standard 15A circuit can handle up to 1800W. When choosing the location of your TT-QuietBox 2, be mindful of the other electronics which may draw power from the same circuit. We recommend putting the TT-QuietBox 2 on a dedicated circuit, if not you may trip a breaker.
+* Choose a stable area for the TT-QuietBox 2 where it will not need to be moved regularly. To ensure proper airflow intake, allow for 10 inches (25 cm) of clearance around the body of the workstation. Do not place items on top of the workstation, as this can block the heat exhaust.
+* The Power Supply Unit (PSU) on the TT-QuietBox 2 may draw up to 1300W of power while running high-load models like image generation. In 120V regions **(North America, South America, Japan, Taiwan)**, a standard residential 15A circuit supports a maximum continuous load of 1440W. If you are in one of these regions, avoid plugging the workstation into the same power circuit as other high-power devices. We recommend connecting the TT-QuietBox 2 to a dedicated circuit whenever possible. 
 * Review the {ref}`safety warnings <safety-warnings>`.
 * Inspect your package for signs of damage. Do not proceed with unboxing or installation if you suspect shipping damage to the system. Contact Tenstorrent support by [raising a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1) Our team will review your request and provide assistance.
 
@@ -79,8 +74,8 @@ Ensure you have everything you need to get started.
 The Tenstorrent TT-QuietBox 2 (Blackhole) (TW-04003) package includes the following items:
 
 * 1x TT-QuietBox 2 (Blackhole) workstation
-* 1x Power Supply Cord (C19 to NEMA 5-15P)
-* 1x AnkerWork S500 speakerphone (included for some early customers to develop with text-to-speech (TTS) and speech-to-text (STT) AI models)
+* 1x Power Supply Cord (C19)
+* 1x eMeet Luna Plus speakerphone
 
 For setup, you will also need your own:
 * Keyboard
@@ -144,9 +139,9 @@ Note: Only use certified HDMI cables with the TT-QuietBox 2. Using non-certified
 
 1. **Connect the power cable.** Connect the provided C19 power cable to the workstation and then to a dedicated power outlet. See the Electrical Safety section for the full list of power requirements. 
 
-2. **Connect peripherals.** Connect the HDMI monitor, keyboard, and mouse to the back of the workstation. (Please note: video is not supported through the USB-C port). For internet connections, we recommend Ethernet over WiFi for faster downloading of models. If you prefer Ethernet, connect your Ethernet cable to the RJ45 port. 
+2. **Connect peripherals.** Connect the HDMI monitor, keyboard, and mouse to the back of the workstation. (Please note: video is not supported through the USB-C port). For internet connections, we recommend Ethernet over WiFi for faster downloading of models.
 
-3. **Power on the workstation.** On the back of the workstation, flip the switch on the PSU to the "I" position.  
+3. **Power on the workstation.** On the back of the workstation, flip the switch on the PSU to the "ON" position.  
 
 4. **On the front of the workstation, press the power button to turn the system on.**
 
@@ -183,9 +178,9 @@ Network bandwidth is significantly better over wired Ethernet than WiFi, which m
 
 ## Step 6. Update System Software
 
-TT-QuietBox 2 comes pre-installed with the Ubuntu operating system (24.04.3 LTS). 
+TT-QuietBox 2 comes pre-installed with the Ubuntu operating system (24.04).
 
-**Step 1:** Upon logging in, a Ubuntu Software Updater may offer a prompt that new software has been issued since the latest release. If this prompt appears, click "Install Now" to download the latest Ubuntu updates.
+**Step 1:** Upon logging in, a Ubuntu Software Updater may offer a prompt that new software has been issued since the latest release. If this prompt appears, click “Install Now” to download the latest Ubuntu updates.
 
 **Step 2:** To ensure you have the latest system package updates, open a Terminal window by pressing Ctrl+Alt+T and run:
 
@@ -199,7 +194,7 @@ sudo apt update && sudo apt upgrade -y
 /bin/bash <(curl -fsSL https://github.com/tenstorrent/tt-installer/releases/latest/download/install.sh) --mode-non-interactive --use-uv
 ```
 
-Log in with `ttuser` and proceed to the next step.
+After the system reboots, log in with `ttuser` and continue to the next step.
 
 ---
 ## Step 7: Verify System Recognition of Blackhole Cards
