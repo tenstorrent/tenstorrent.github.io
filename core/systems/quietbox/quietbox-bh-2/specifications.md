@@ -56,7 +56,8 @@ The TT-QuietBox 2 is powered by two p300c cards, for a total of four Blackhole c
 | SRAM                      | 360 + 360 MB (1.5 MB per Tensix core)                   |
 | Memory                    | 128GB GDDR6                                      |
 | Memory Speed              | 16 GT/sec                                          |
-| Memory Bandwidth          |  1024 GB/sec chip to chip                                    |
+| Memory Bandwidth          |  2x 1024GB/s = 2048GB/s         |
+| Ethernet Bandwidth        |  2x 800Gbps = 1.6Tbps        |
 | TBP (Total Board Power)   | 600W + 600W                                                 |
 | Cooling                   | Liquid                                             |
 | Dimensions (WxDxH)        | 21.66mm x 307mm x 112.65mm (each card)   |
@@ -76,13 +77,13 @@ For the most up-to-date list of models supported by TT-QuietBox 2, check the [De
 
 | Topic | Specification |
 | --- | --- |
-| Peak Power Consumption | 1500W |
+| Peak Power Consumption | 1300W |
 | Operating Temperature | 50°F to 95°F (10°C to 35°C) |
 | Operating Relative Humidity | 10% to 90% (non-condensing) |
 | Non-Operating Temperature | -4°F to 140°F (-20°C to 60°C) |
 | Non-Operating Relative Humidity |  5% to 95% (non-condensing) |
 
-The TT-QuietBox 2 draws up to 1,300W at peak load. To prevent overloading the power circuit or tripping your electrical panel, avoid sharing the circuit with other high-power devices, or connect it to a dedicated circuit.
+The TT-QuietBox 2 draws up to 1300W at peak load. To prevent overloading the power circuit or tripping your electrical panel, avoid sharing the circuit with other high-power devices, or connect it to a dedicated circuit.
 This is especially relevant to users in 120V countries, such as the USA, Canada, and Japan.
 
 
