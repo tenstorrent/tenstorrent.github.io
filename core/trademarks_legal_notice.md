@@ -1,4 +1,4 @@
-# Legal Notice
+# Trademarks and Legal Notice
 
 **© 2025-2026 Tenstorrent Holdings Inc. and its subsidiaries.**
 
