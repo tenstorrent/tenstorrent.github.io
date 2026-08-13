@@ -6,7 +6,9 @@ myst:
     document-type: Reference
 ---
 
-# Regulatory Compliance Statements
+# Compliance and Legal
+
+© 2025-2026 Tenstorrent Holdings Inc. and its subsidiaries. Please see the [Legal Notice](../trademarks_legal_notice.md) page for full trademark and disclaimer information.
 
 This document provides regulatory compliance information for specific Tenstorrent products, including models e75, e150, n150d, n150s, n300d, n300s, p100a, and p150b. It outlines the standards and regulations with which these devices comply in various regions, assisting users in understanding compliance requirements for proper installation and operation.
 

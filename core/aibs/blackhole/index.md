@@ -237,6 +237,6 @@ If you encounter any issues, or have a question that isn't covered in the docume
 ## Related pages
 
 * {doc}`Software Setup </getting-started/README>` — install the Tenstorrent software stack.
-* {doc}`Compliance </aibs/compliance>` — regulatory and compliance information.
+* {doc}`Compliance and Legal </aibs/compliance>` — regulatory and compliance information.
 </content>
 </invoke>
