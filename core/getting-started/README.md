@@ -54,7 +54,7 @@ sudo apt update && sudo apt install -y curl jq
 Now, to begin the installation, execute the following command in your terminal:
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://github.com/tenstorrent/tt-installer/releases/latest/download/install.sh)"
+/bin/bash -c "$(curl -fsSL https://tenstorrent.ai/install.sh)"
 ```
 
 You will be prompted to select which software you wish to install. The first thing you will see looks like:

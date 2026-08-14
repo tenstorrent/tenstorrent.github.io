@@ -191,7 +191,7 @@ sudo apt update && sudo apt upgrade -y
 **Step 3:** Install the latest Tenstorrent firmware and system software, which will then trigger a system reboot:
 
 ```bash
-/bin/bash <(curl -fsSL https://github.com/tenstorrent/tt-installer/releases/latest/download/install.sh) --mode-non-interactive --use-uv
+/bin/bash -c "$(curl -fsSL https://tenstorrent.ai/install.sh)"
 ```
 
 After the system reboots, log in with `ttuser` and continue to the next step.
