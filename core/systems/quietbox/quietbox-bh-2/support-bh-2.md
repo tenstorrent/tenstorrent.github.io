@@ -105,32 +105,15 @@ You can add additional users to your TT-QuietBox 2 and install the necessary Ten
 1. Create the new user from **Ubuntu Settings > Users > Add New User**.
 2. Ensure the new user is given **Administrator** privileges.
 3. Log out, then log back in as the new user.
-4. Open a Terminal window by pressing Ctrl+Alt+T and run the following commands, which will install the Tenstorrent software and trigger a system reboot.
+4. Open a Terminal window by pressing Ctrl+Alt+T and run the following commands, which will install the Tenstorrent software stack.
 
 ```bash
 sudo usermod -aG docker $USER
 newgrp docker
 
-curl -fsSL https://github.com/tenstorrent/tt-installer/releases/latest/download/install.sh -O
-
-chmod +x install.sh
-
-./install.sh \
-  --kmd-version=2.8.0 \
-  --smi-version=5.2.0 \
-  --flash-version=3.8.0 \
-  --fw-version=19.10.0 \
-  --metalium-image-tag=v0.72.0 \
-  --mode-non-interactive \
-  --install-container-runtime=no
+/bin/bash -c "$(curl -fsSL https://tenstorrent.ai/install.sh)"
 ```
-5. Upon reboot, log in with the new user, open a Terminal window, and run these commands:
-
-```bash
-cd ~/.local/lib/tt-studio
-git checkout tt_qb2_launch_branch
-git pull
-```
+5. Reboot the machine to ensure the user has been added to the docker group.
 6. If you'd like to use the pre-downloaded Qwen3-32B model with this new user, copy the model files to their home directory:
 
 ```bash
