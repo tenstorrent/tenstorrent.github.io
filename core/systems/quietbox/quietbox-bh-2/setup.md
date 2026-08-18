@@ -29,17 +29,25 @@ myst:
   font-weight: 700;
 }
 
-/* Figures: centered, softly framed */
+/* Figures: left-aligned with the text, softly framed */
 .rst-content div.figure,
 .rst-content figure {
-  margin: 1.6rem auto;
-  text-align: center;
+  margin: 1.6rem 0;
+  text-align: left;
 }
 .rst-content div.figure img,
 .rst-content figure img {
   border: 1px solid #e7e4f0;
   border-radius: 8px;
   box-shadow: 0 4px 14px rgba(38, 38, 46, 0.08);
+}
+
+/* Space the rear-view diagram so callout labels aren't flush with the frame */
+.rst-content img.qb2-rear-view {
+  padding: 2.75rem 3.5rem;
+  background: #fff;
+  box-sizing: border-box;
+  margin: 2rem 0;
 }
 
 /* Quieter horizontal rules */
@@ -135,6 +143,7 @@ Note: Only use certified HDMI cables with the TT-QuietBox 2. Using non-certified
 
 ```{figure} ./qb2-rear-view.jpg
 :width: 60%
+:class: qb2-rear-view
 ```
 
 1. **Connect the power cable.** Connect the provided C19 power cable to the workstation and then to a dedicated power outlet. See the Electrical Safety section for the full list of power requirements. 
