@@ -56,7 +56,7 @@ The TT-QuietBox 2 is powered by two p300c cards, for a total of four Blackhole c
 | SRAM                      | 360 + 360 MB (1.5 MB per Tensix core)                   |
 | Memory                    | 128GB GDDR6                                      |
 | Memory Speed              | 16 GT/sec                                          |
-| Memory Bandwidth          |  2x 1024GB/s = 2048GB/s         |
+| Memory Bandwidth          |  1024 + 1024 GB/sec (2048 GB/sec total)    |
 | Ethernet Bandwidth        |  2x 800Gbps = 1.6Tbps        |
 | TBP (Total Board Power)   | 600W + 600W                                                 |
 | Cooling                   | Liquid                                             |

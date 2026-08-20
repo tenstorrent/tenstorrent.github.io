@@ -6,6 +6,6 @@ The information contained herein is for informational purposes only and is subje
 
 **Trademarks**
 
-A list of Tenstorrent’s trademarks can be found at https://tenstorrent.com/trademarks. Other product names and links to external sites used in this publication are for identification purposes only and may be trademarks of their respective companies.
+A list of Tenstorrent’s trademarks can be found at [tenstorrent.com/trademarks](https://tenstorrent.com/trademarks). Other product names and links to external sites used in this publication are for identification purposes only and may be trademarks of their respective companies.
 
 Links to third party sites are provided for convenience and unless explicitly stated, Tenstorrent is not responsible for the contents of such linked sites and no endorsement is implied.

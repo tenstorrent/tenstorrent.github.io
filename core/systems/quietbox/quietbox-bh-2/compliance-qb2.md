@@ -8,8 +8,6 @@ myst:
 
 # Compliance and Legal
 
-© 2025-2026 Tenstorrent Holdings Inc. and its subsidiaries. Please see the [Legal Notice](../../../trademarks_legal_notice.md) page for full trademark and disclaimer information.
-
 This document provides regulatory compliance information for the Tenstorrent TT-QuietBox<sup>®</sup> 2 (Blackhole<sup>®</sup>) workstation (model TW-04003). It outlines the standards and regulations with which this device complies in various regions, assisting users in understanding compliance requirements for proper installation and operation.
 
 ## Compliance
