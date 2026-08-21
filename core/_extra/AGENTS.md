@@ -15,7 +15,7 @@ project's own docs, trust the project's docs and treat this as orientation.
 `docs.tenstorrent.com` is a single domain stitched together from many GitHub Pages sites:
 
 - The **root** (`/`, `/getting-started/`, `/aibs/`, `/systems/`, `/forge/`, `/tools/`,
-  `/support/`, `/bounty_terms.html`) is built from the
+  `/support/`, `/bounty_terms.html`, `/os-model-terms.html`, `/trademarks_legal_notice.html`) is built from the
   [`tenstorrent/tenstorrent.github.io`](https://github.com/tenstorrent/tenstorrent.github.io)
   repo (the core Sphinx site).
 - Each **software project** publishes its own Pages site, routed by the org's custom
@@ -27,7 +27,7 @@ project's own docs, trust the project's docs and treat this as orientation.
 |---|---|---|
 | `/`, `/getting-started/`, `/aibs/`, `/systems/`, `/forge/`, `/tools/`, `/support/` | `tenstorrent.github.io` | Core: hardware, getting started, support |
 | `/syseng/latest/` | `tenstorrent.github.io` | Software & utilities (syseng) |
-| `/bounty_terms.html`, `/os-model-terms.html` | `tenstorrent.github.io` | Legal / program terms |
+| `/bounty_terms.html`, `/os-model-terms.html`, `/trademarks_legal_notice.html` | `tenstorrent.github.io` | Legal / program terms |
 | `/tt-metal/latest/ttnn/` | `tt-metal` | TT-NN tensor-op library + Python API |
 | `/tt-metal/latest/tt-metalium/` | `tt-metal` | TT-Metalium low-level kernel model |
 | `/tt-forge/` | `tt-forge` | MLIR-based compiler umbrella |

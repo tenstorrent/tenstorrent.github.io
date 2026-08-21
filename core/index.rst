@@ -52,4 +52,5 @@ Tenstorrent
    :maxdepth: 2
 
    Bounty Program Terms <bounty_terms>
+   OS & Model Terms <os-model-terms>
    Trademarks and Legal Notice <trademarks_legal_notice>
