@@ -71,7 +71,7 @@ This guide shows users how to safely unbox, setup hardware, and install software
 ## Before You Begin
 
 * Choose a stable area for the TT-QuietBox 2 where it will not need to be moved regularly. To ensure proper airflow intake, allow for 10 inches (25 cm) of clearance around the body of the workstation. Do not place items on top of the workstation, as this can block the heat exhaust.
-* The Power Supply Unit (PSU) on the TT-QuietBox 2 may draw up to 1300W of power while running high-load models like image generation. In 120V regions **(North America, South America, Japan, Taiwan)**, a standard residential 15A circuit supports a maximum continuous load of 1440W. If you are in one of these regions, avoid plugging the workstation into the same power circuit as other high-power devices. We recommend connecting the TT-QuietBox 2 to a dedicated circuit whenever possible. 
+* The Power Supply Unit (PSU) on the TT-QuietBox 2 may draw up to 1500W of power while running high-load models like image generation. In 120V regions **(North America, South America, Japan, Taiwan)**, a standard residential 15A circuit supports a maximum continuous load of 1440W. If you are in one of these regions, avoid plugging the workstation into the same power circuit as other high-power devices. We recommend connecting the TT-QuietBox 2 to a dedicated circuit whenever possible. 
 * Review the {ref}`safety warnings <safety-warnings>`.
 * Inspect your package for signs of damage. Do not proceed with unboxing or installation if you suspect shipping damage to the system. Contact Tenstorrent support by [raising a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1) Our team will review your request and provide assistance.
 

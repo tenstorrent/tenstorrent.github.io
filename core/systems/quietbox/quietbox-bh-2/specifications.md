@@ -78,13 +78,13 @@ For the most up-to-date list of models supported by TT-QuietBox 2, check the [De
 
 | Topic | Specification |
 | --- | --- |
-| Peak Power Consumption | 1500W |
+| Maximum Power Draw | 1500W |
 | Operating Temperature | 50°F to 95°F (10°C to 35°C) |
 | Operating Relative Humidity | 10% to 90% (non-condensing) |
 | Non-Operating Temperature | -4°F to 140°F (-20°C to 60°C) |
 | Non-Operating Relative Humidity |  5% to 95% (non-condensing) |
 
-The TT-QuietBox 2 draws up to 1300W at peak load. To prevent overloading the power circuit or tripping your electrical panel, avoid sharing the circuit with other high-power devices, or connect it to a dedicated circuit.
+The TT-QuietBox 2 can draw up to 1500W. To prevent overloading the power circuit or tripping your electrical panel, avoid sharing the circuit with other high-power devices, or connect it to a dedicated circuit.
 This is especially relevant to users in 120V countries, such as the USA, Canada, and Japan.
 
 
