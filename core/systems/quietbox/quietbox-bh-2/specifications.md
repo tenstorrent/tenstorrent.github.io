@@ -35,7 +35,8 @@ The Tenstorrent TT-QuietBox 2 (Blackhole) system package includes the following 
 | Tenstorrent Processors | 2x Blackhole p300c cards (4 Blackhole chips) |
 | Rear I/O Panel | 1x HDMI Port<br />1x USB 3.2 Gen 2 Type-A Port<br />1x USB 3.2 Gen 2 Type-C Port (non-video)<br />2x USB 3.2 Gen 1 Ports<br />4x USB 2.0 Ports<br />1 x BIOS Flashback Button<br />HD Audio Jacks: Line in / Front Speaker / Microphone |
 | Network Controller | Gigabit LAN 10/100/1000 Mb/s Base T<br />Realtek 8111H |
-| Wireless LAN | 802.11ax WiFi 6 Module<br />Supports IEEE 802.11a/b/g/n/ax<br />Supports Dual-Band (2.4/5 GHz)<br />Supports Bluetooth 5.3 |
+| Wireless and Networking | Wi-Fi 6 (802.11a/b/g/n/ax), Dual-Band (2.4 GHz / 5 GHz), Bluetooth 5.3 |
+| RF Output Power | • Bluetooth (2.4 GHz): 13 dBm<br />• Wi-Fi 2.4 GHz: 23 dBm<br />• Wi-Fi 5 GHz (5.15–5.35 GHz): 23 dBm<br />• Wi-Fi 5 GHz (5.47–5.725 GHz): 22 dBm<br />• Wi-Fi 5 GHz (5.725–5.825 GHz): 23 dBm<br />• Wi-Fi 6 (5.825–5.925 GHz): 24 dBm |
 | Power Supply | 1600W Cooler Master V Platinum 1600 V2 |
 | Idle Power | 750W |
 | Sound Pressure | 38 dBA (under max operating load) |

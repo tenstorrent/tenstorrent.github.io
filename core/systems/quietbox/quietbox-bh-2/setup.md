@@ -150,9 +150,15 @@ Note: Only use certified HDMI cables with the TT-QuietBox 2. Using non-certified
 
 2. **Connect peripherals.** Connect the HDMI monitor, keyboard, and mouse to the back of the workstation. (Please note: video is not supported through the USB-C port). For internet connections, we recommend Ethernet over WiFi for faster downloading of models.
 
-3. **Power on the workstation.** On the back of the workstation, flip the switch on the PSU to the "ON" position.  
+3. **Confirm WiFi Antenna are Installed.** Two WiFi antenna come pre-installed on your TT-QuietBox 2. If needed, turn the antenna clockwise until they are securely connected, and ensure they are pointed upwards. You may need to adjust the direction of the antenna for stronger WiFi signal. However, for faster downloads, we recommend connecting your workstation directly to Ethernet.
 
-4. **On the front of the workstation, press the power button to turn the system on.**
+```{figure} ./qb2-wifi-pair.png
+:width: 35%
+```
+
+4. **Power on the workstation.** On the back of the workstation, flip the switch on the PSU to the "ON" position.  
+
+5. **On the front of the workstation, press the power button to turn the system on.**
 
 ```{figure} ./qb2-power-button.jpg
 :width: 40%
