@@ -45,23 +45,26 @@ The Tenstorrent TT-QuietBox 2 (Blackhole) system package includes the following 
 | Shipping Box Dimensions | Height: 20.7” (52.5 cm) Width: 14.4” (36.7 cm) Depth: 25.0” (63.5 cm) |
 | Shipping Box Weight | 23.2 kg (52 lbs)  |
 
-## **Blackhole p300 Card Specifications**
+## **Blackhole p300c Card Specifications**
 
 The TT-QuietBox 2 is powered by two p300c cards, for a total of four Blackhole chips. The table below describes the combined specifications of the two cards for your reference. Please note the p300c card is not sold separately outside of the TT-QuietBox 2. If you are interested in a Blackhole card to add to your existing system, check out our [available cards](https://www.tenstorrent.com/cards).
 
-| Specification             | Two p300c Cards (inside TT-QuietBox 2)                             |
+| Specification | Two p300c Cards |
 | ------------------------- | -------------------------------------------------- |
-| Part Number               | 2x TC-03007                                        |
-| Tensix Cores              | 240 + 240                                              |
-| AI Clock                  | 1.35 GHz                                           |
-| SRAM                      | 360 + 360 MB (1.5 MB per Tensix core)                   |
-| Memory                    | 128GB GDDR6                                      |
-| Memory Speed              | 16 GT/sec                                          |
-| Memory Bandwidth          |  1024 + 1024 GB/sec (2048 GB/sec total)    |
-| Ethernet Bandwidth        |  2x 800Gbps = 1.6Tbps        |
-| TBP (Total Board Power)   | 600W + 600W                                                 |
-| Cooling                   | Liquid                                             |
-| Dimensions (WxDxH)        | 21.66mm x 307mm x 112.65mm (each card)   |
+| SKU | TC-03007 + TC-03007 |
+| Tensix Cores | 240 + 240 |
+| AI Clock | 1.35 GHz |
+| Static Random Access Memory [SRAM] | 360MB + 360MB (1.5MB per Tensix core) |
+| Dynamic Random Access Memory [DRAM] | 128GB (64GB + 64GB) GDDR6 |
+| Memory Bandwidth | 2,048 GB/s total (1,024 GB/s per card); 512 GB/s per Blackhole ASIC (8 channels × 32 bits per channel at 16 Gb/s) |
+| Ethernet Bandwidth<br />(Between any Two ASICs) | 800Gbps |
+| Total Ethernet Bandwidth<br />(Between p300c Cards per Topology) | 1.6Tbps (800Gbps + 800Gbps) |
+| Total Board Power | Up to 1100W (550W + 550W) |
+| Cooling | Liquid + Forced air |
+| Dimensions (WxDxH)<br />(per p300c Card) | 12.10” x 0.86” x 4.44” (30.7 x 2.17 x 11.27 cm) |
+
+<small><em>Note:</em></small>
+<small><em>Memory bandwidth references Blackhole ASIC to GDDR6 and is GB/s (Giga bytes per second). Ethernet bandwidth references ASIC-to-ASIC or card-to-card and is Gbps (Giga bits per second)</em></small>
 
 ## **Internal Topology**
 
@@ -78,13 +81,13 @@ For the most up-to-date list of models supported by TT-QuietBox 2, check the [De
 
 | Topic | Specification |
 | --- | --- |
-| Maximum Power Draw | 1500W |
+| Maximum Power Draw | 1300W |
 | Operating Temperature | 50°F to 95°F (10°C to 35°C) |
 | Operating Relative Humidity | 10% to 90% (non-condensing) |
 | Non-Operating Temperature | -4°F to 140°F (-20°C to 60°C) |
 | Non-Operating Relative Humidity |  5% to 95% (non-condensing) |
 
-The TT-QuietBox 2 can draw up to 1500W. To prevent overloading the power circuit or tripping your electrical panel, avoid sharing the circuit with other high-power devices, or connect it to a dedicated circuit.
+The TT-QuietBox 2 can draw up to 1300W. To prevent overloading the power circuit or tripping your electrical panel, avoid sharing the circuit with other high-power devices, or connect it to a dedicated circuit.
 This is especially relevant to users in 120V countries, such as the USA, Canada, and Japan.
 
 
