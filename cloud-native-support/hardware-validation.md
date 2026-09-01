@@ -367,21 +367,28 @@ On a Kubernetes cluster, the mpirun-over-SSH launch above has a native
 equivalent:
 [Multi-Node Scheduling](https://docs.tenstorrent.com/tt-operator/latest/components/multi-node.html)
 pairs **JobSet** (one object that creates, co-schedules, and cleans up the
-whole multi-node run) with the **kubepmix** webhook, which injects PMIx
-wiring into pods labeled `kubepmix.dev/enabled: "true"`. Each pod then runs
-one rank directly — there is no `mpirun` and no SSH; the injected PMIx
-environment is what lets the ranks find each other.
+whole multi-node run) with **[KubePMIx](https://github.com/kubepmix/kubepmix)**,
+an OpenPMIx server wrapped in an admission webhook. Each rank runs directly
+as its container's entrypoint — there is no `mpirun` and no SSH. The webhook
+injects the PMIx environment (`PMIX_SERVER_URI2`, `PMIX_NAMESPACE`,
+`PMIX_RANK`) into labeled Jobs, and `MPI_Init()` in each rank rendezvouses
+through the central PMIx server exactly as it would through a launcher-spawned
+`prted`.
 
-```{important}
-The Multi-Node Scheduling docs describe end-to-end co-scheduled runs as
-**maturing**, and no upstream worked example exists yet. Treat this recipe as
-a starting point to validate on a non-production cluster; the mpirun sequence
-above is the proven path today.
-```
+The [KubePMIx JobSet contract](https://github.com/kubepmix/kubepmix/blob/main/docs/jobsets.md)
+is one replicated Job per rank, labeled on the **child Job**, not the pod:
 
-The cabling-validation stage as a JobSet, one rank on each of four Galaxy
-hosts, with the descriptors mounted the same way the
-[FSD guide](factory-system-descriptor.md) delivers them to Fabric Manager:
+- every child Job sets `kubepmix.dev/enabled: "true"` and
+  `kubepmix.dev/containerRanks` (the rank its container holds), with
+  `replicas: 1` and `parallelism: 1`;
+- exactly one Job additionally sets `kubepmix.dev/create: "true"` and
+  `kubepmix.dev/size` (the world size) to create the PMIx namespace.
+
+For cluster validation you want one rank on each specific host, so pin each
+Job to its node rather than letting the scheduler choose. The
+cabling-validation stage across four Galaxy hosts, with the descriptors
+mounted the same way the [FSD guide](factory-system-descriptor.md) delivers
+them to Fabric Manager:
 
 ```yaml
 apiVersion: jobset.x-k8s.io/v1alpha2
@@ -390,28 +397,33 @@ metadata:
   name: cluster-validation
 spec:
   replicatedJobs:
-    - name: rank
+    - name: host-1
+      replicas: 1
       template:
+        metadata:
+          labels:
+            kubepmix.dev/enabled: "true"
+            kubepmix.dev/containerRanks: "0"
+            kubepmix.dev/create: "true"   # rank 0's Job creates the PMIx namespace
+            kubepmix.dev/size: "4"        # total ranks in the world
         spec:
-          completionMode: Indexed
-          completions: 4        # one rank per host
-          parallelism: 4
           backoffLimit: 0
+          parallelism: 1
+          completions: 1
           template:
-            metadata:
-              labels:
-                kubepmix.dev/enabled: "true"   # opt in to PMIx injection
             spec:
               restartPolicy: Never
-              nodeSelector:
-                tenstorrent.com/device.present: "true"
+              # The TCP byte-transfer layer runs over a host NIC, which does
+              # not exist inside a CNI pod network namespace:
+              hostNetwork: true
               affinity:
-                podAntiAffinity:               # spread ranks across hosts
+                nodeAffinity:
                   requiredDuringSchedulingIgnoredDuringExecution:
-                    - topologyKey: kubernetes.io/hostname
-                      labelSelector:
-                        matchLabels:
-                          jobset.sigs.k8s.io/jobset-name: cluster-validation
+                    nodeSelectorTerms:
+                      - matchExpressions:
+                          - key: kubernetes.io/hostname
+                            operator: In
+                            values: ["host-1"]
               containers:
                 - name: rank
                   image: ghcr.io/tenstorrent/tt-metal/upstream-tests-bh:<tag>
@@ -428,6 +440,8 @@ spec:
                       value: /home/user/tt-metal
                     - name: LD_LIBRARY_PATH
                       value: /home/user/tt-metal/build/lib
+                    - name: OMPI_MCA_btl_tcp_if_include
+                      value: <host-nic>   # the NIC MPI should use, e.g. eno1
                   securityContext:
                     privileged: true
                   volumeMounts:
@@ -443,6 +457,8 @@ spec:
                 - name: scaleout-configs
                   hostPath:
                     path: /data/scaleout_configs
+    # host-2 .. host-4: identical Jobs pinned to their node, with
+    # containerRanks "1".."3" and WITHOUT the create/size labels.
 ```
 
 ```bash
@@ -451,13 +467,21 @@ kubectl wait --for=condition=Completed jobset/cluster-validation --timeout=15m
 kubectl logs -l jobset.sigs.k8s.io/jobset-name=cluster-validation --prefix
 ```
 
-The same pattern fits the physical-discovery stage — swap the command for
-`test_physical_discovery`. The pods are privileged with host `/dev` for the
-same reason as the single-host Job: validation needs raw access to every
-device on the node, so run it on drained nodes, not alongside workloads. The
-`tt-run` stages (dispatch and fabric tests) additionally need per-rank mesh
-bindings that `tt-run` normally computes; keep those on the mpirun path until
-the JobSet flow matures.
+```{note}
+KubePMIx warns of a race if a rank calls `MPI_Init()` before the
+namespace-creating Job is admitted, and recommends gang-scheduling
+enforcement. The pods here are privileged with host `/dev` for the same
+reason as the single-host Job — validation wants raw access to every device
+on the node — so run on drained nodes; per-rank
+[DRA ResourceClaims](https://docs.tenstorrent.com/tt-dra-driver/) are the
+non-privileged alternative for device access.
+```
+
+The same shape fits the physical-discovery stage — swap the command for
+`test_physical_discovery`. The dispatch and fabric stages can run this way
+too: what `tt-run` computes per rank (mesh id, mesh host rank, and the mesh
+graph descriptor path) is delivered as ordinary per-rank container
+environment instead of a rank-bindings file.
 
 ## Going deeper
 
@@ -489,6 +513,8 @@ On Kubernetes:
   — the `tenstorrent.com/*` node labels used to target nodes.
 - [JobSet](https://github.com/kubernetes-sigs/jobset) — the upstream API the
   multi-node recipe uses.
+- [KubePMIx](https://github.com/kubepmix/kubepmix) — architecture, Job and
+  JobSet patterns, and ULFM fault-tolerance notes.
 
 On this site:
 
