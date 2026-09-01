@@ -34,7 +34,7 @@ to get started.
   reads it on Kubernetes.
 - **[Hardware Validation (Blackhole Galaxy)](hardware-validation.md)** —
   single-host health checks and multi-host physical validation with
-  tt-metal's scaleout tooling.
+  tt-metal's scaleout tooling, run directly or as Kubernetes Jobs.
 
 ```{toctree}
 :maxdepth: 1
