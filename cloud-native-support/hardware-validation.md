@@ -102,7 +102,8 @@ On a cluster managed by
 can run as a Job instead of over SSH, using the same public image the
 [Device Allocation](https://docs.tenstorrent.com/tt-dra-driver/) docs use for
 workloads — `ghcr.io/tenstorrent/tt-metal/upstream-tests-bh` ships the
-tt-metal tree with the test binaries built at `/home/user/tt-metal`.
+tt-metal tree with the test binaries built at `/home/user/tt-metal`. Its tags
+track tt-metal releases; the examples below pin `v0.77.0`.
 
 Because the check resets the devices, take the node out of service first:
 
@@ -133,7 +134,7 @@ spec:
           effect: NoSchedule
       containers:
         - name: diag
-          image: ghcr.io/tenstorrent/tt-metal/upstream-tests-bh:<tag>
+          image: ghcr.io/tenstorrent/tt-metal/upstream-tests-bh:v0.77.0
           workingDir: /home/user/tt-metal
           command: ["/bin/bash", "-c"]
           args:
@@ -426,7 +427,7 @@ spec:
                             values: ["host-1"]
               containers:
                 - name: rank
-                  image: ghcr.io/tenstorrent/tt-metal/upstream-tests-bh:<tag>
+                  image: ghcr.io/tenstorrent/tt-metal/upstream-tests-bh:v0.77.0
                   command:
                     - /home/user/tt-metal/build/tools/scaleout/run_cluster_validation
                     - --cabling-descriptor-path
