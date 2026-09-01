@@ -32,10 +32,14 @@ to get started.
 - **[Factory System Descriptor (FSD)](factory-system-descriptor.md)** — how a
   multi-host system's as-built topology is recorded and how Fabric Manager
   reads it on Kubernetes.
+- **[Hardware Validation (Blackhole Galaxy)](hardware-validation.md)** —
+  single-host health checks and multi-host physical validation with
+  tt-metal's scaleout tooling.
 
 ```{toctree}
 :maxdepth: 1
 :hidden:
 
 factory-system-descriptor
+hardware-validation
 ```
