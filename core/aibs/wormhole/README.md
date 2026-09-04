@@ -6,4 +6,4 @@ This section outlines the system requirements, physical installation instruction
 - [Hardware Installation](./index.md#hardware-installation)
 - [Software Setup](https://docs.tenstorrent.com/getting-started/README.html)
 - [FAQ and Troubleshooting](./support.md)
-- [Regulatory Compliance](../compliance.md)
+- [Compliance and Legal](../compliance.md)

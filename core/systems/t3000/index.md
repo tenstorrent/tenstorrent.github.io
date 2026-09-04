@@ -102,5 +102,3 @@ For support with the Tenstorrent n150s, n300s, and related Tenstorrent software,
 ## Related pages
 
 * {doc}`Software Setup </getting-started/README>` — install the Tenstorrent software stack.
-</content>
-</invoke>

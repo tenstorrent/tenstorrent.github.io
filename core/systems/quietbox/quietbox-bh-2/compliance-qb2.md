@@ -6,7 +6,7 @@ myst:
     document-type: Reference
 ---
 
-# Regulatory Compliance Statements
+# Compliance and Legal
 
 This document provides regulatory compliance information for the Tenstorrent TT-QuietBox<sup>®</sup> 2 (Blackhole<sup>®</sup>) workstation (model TW-04003). It outlines the standards and regulations with which this device complies in various regions, assisting users in understanding compliance requirements for proper installation and operation.
 
