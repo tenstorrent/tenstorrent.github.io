@@ -1,0 +1,1235 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Factory System Descriptor (FSD) &mdash; Cloud-Native Support</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="_static/tt_theme.css?v=43b7b912" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="_static/togglebutton.js?v=b8b12719"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.esm.min.mjs";
+
+
+
+
+
+const initStyles = () => {
+    const defaultStyle = document.createElement('style');
+    defaultStyle.textContent = "pre.mermaid {\n    /* Same as .mermaid-container > pre */\n    display: block;\n    width: 100%;\n}\n\npre.mermaid > svg {\n    /* Same as .mermaid-container > pre > svg */\n    height: 500px;\n    width: 100%;\n    max-width: 100% !important;\n}";
+    document.head.appendChild(defaultStyle);
+
+    const fullscreenStyle = document.createElement('style');
+    fullscreenStyle.textContent = ".mermaid-container {\n    position: relative;\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n}\n\n.mermaid-container > pre {\n    display: block;\n    width: 100%;\n}\n\n.mermaid-container > pre > svg {\n    height: 500px;\n    width: 100%;\n    max-width: 100% !important;\n}\n\n.mermaid-fullscreen-btn {\n    position: absolute;\n    width: 28px;\n    height: 28px;\n    background: rgba(255, 255, 255, 0.95);\n    border: 1px solid rgba(0, 0, 0, 0.3);\n    border-radius: 4px;\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    transition: all 0.2s;\n    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);\n    font-size: 14px;\n    line-height: 1;\n    padding: 0;\n    color: #333;\n}\n\n.mermaid-fullscreen-btn:hover {\n    opacity: 100% !important;\n    background: rgba(255, 255, 255, 1);\n    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);\n    transform: scale(1.1);\n}\n\n.mermaid-fullscreen-btn.dark-theme {\n    background: rgba(50, 50, 50, 0.95);\n    border: 1px solid rgba(255, 255, 255, 0.3);\n    color: #e0e0e0;\n}\n\n.mermaid-fullscreen-btn.dark-theme:hover {\n    background: rgba(60, 60, 60, 1);\n    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);\n}\n\n.mermaid-fullscreen-modal {\n    display: none;\n    position: fixed !important;\n    top: 0 !important;\n    left: 0 !important;\n    width: 95vw;\n    height: 100vh;\n    background: rgba(255, 255, 255, 0.98);\n    z-index: 9999;\n    padding: 20px;\n    overflow: auto;\n}\n\n.mermaid-fullscreen-modal.dark-theme {\n    background: rgba(0, 0, 0, 0.98);\n}\n\n.mermaid-fullscreen-modal.active {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen {\n    position: relative;\n    width: 95vw;\n    height: 90vh;\n    max-width: 95vw;\n    max-height: 90vh;\n    background: white;\n    border-radius: 8px;\n    padding: 20px;\n    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);\n    overflow: auto;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen.dark-theme {\n    background: #1a1a1a;\n    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);\n}\n\n.mermaid-container-fullscreen pre.mermaid {\n    width: 100%;\n    height: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen .mermaid svg {\n    height: 100% !important;\n    width: 100% !important;\n    cursor: grab;\n}\n\n.mermaid-fullscreen-close {\n    position: fixed !important;\n    top: 20px !important;\n    right: 20px !important;\n    width: 40px;\n    height: 40px;\n    background: rgba(255, 255, 255, 0.95);\n    border: 1px solid rgba(0, 0, 0, 0.2);\n    border-radius: 50%;\n    cursor: pointer;\n    z-index: 10000;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);\n    transition: all 0.2s;\n    font-size: 24px;\n    line-height: 1;\n    color: #333;\n}\n\n.mermaid-fullscreen-close:hover {\n    background: white;\n    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);\n    transform: scale(1.1);\n}\n\n.mermaid-fullscreen-close.dark-theme {\n    background: rgba(50, 50, 50, 0.95);\n    border: 1px solid rgba(255, 255, 255, 0.2);\n    color: #e0e0e0;\n}\n\n.mermaid-fullscreen-close.dark-theme:hover {\n    background: rgba(60, 60, 60, 1);\n    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);\n}\n\n.mermaid-fullscreen-modal .mermaid-fullscreen-btn {\n    display: none !important;\n}";
+    document.head.appendChild(fullscreenStyle);
+}
+
+// Detect if page has dark background
+const isDarkTheme = () => {
+    // We use a set of heuristics:
+    // 1. Check for common dark mode classes or attributes
+    // 2. Check computed background color brightness
+    if (document.documentElement.classList.contains('dark') ||
+        document.documentElement.getAttribute('data-theme') === 'dark' ||
+        document.body.classList.contains('dark') ||
+        document.body.getAttribute('data-theme') === 'dark') {
+        // console.log("Dark theme detected via class/attribute");
+        return true;
+    }
+    if (document.documentElement.classList.contains('light') ||
+        document.documentElement.getAttribute('data-theme') === 'light' ||
+        document.body.classList.contains('light') ||
+        document.body.getAttribute('data-theme') === 'light') {
+        // console.log("Light theme detected via class/attribute");
+        return false;
+    }
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // console.log("Dark theme detected via prefers-color-scheme");
+        return true;
+    }
+    const bgColor = window.getComputedStyle(document.body).backgroundColor;
+    const match = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)/);
+    if (match) {
+        const r = parseInt(match[1]);
+        const g = parseInt(match[2]);
+        const b = parseInt(match[3]);
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+        // console.log("Background color brightness:", brightness);
+        return brightness < 128;
+    }
+    // console.log("No dark or light theme detected, defaulting to light theme");
+    return false;
+};
+
+let darkTheme = isDarkTheme();
+let modal = null;
+let modalContent = null;
+let previousScrollOffset = [window.scrollX, window.scrollY];
+let _lazyObserver = null;
+let _renderQueue = Promise.resolve();
+let closeModal = () => {};
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.classList.contains('active')) {
+        closeModal();
+    }
+});
+
+// Apply d3 zoom to each SVG. Idempotent: an SVG already wrapped is skipped,
+// so this is safe to call both for the initial batch and for diagrams that
+// render lazily once they become visible.
+const addZoomToSvgs = (svgs) => {
+    svgs.each(function() {
+        if (this.getAttribute('data-zoom-applied') === 'true') return;
+        var svg = d3.select(this);
+        svg.html("<g class='wrapper'>" + svg.html() + "</g>");
+        var inner = svg.select("g");
+        var zoom = d3.zoom().on("zoom", function(event) {
+            inner.attr("transform", event.transform);
+        });
+        svg.call(zoom);
+        this.setAttribute('data-zoom-applied', 'true');
+    });
+};
+
+const runMermaid = async (rerun) => {
+    console.log("Running mermaid diagrams, rerun =", rerun);
+    // clear all existing mermaid charts
+    let all_mermaids = document.querySelectorAll(".mermaid");
+
+    if (rerun) {
+        // Disconnect any previous lazy rendering observer
+        if (_lazyObserver) {
+            _lazyObserver.disconnect();
+            _lazyObserver = null;
+        }
+
+        all_mermaids.forEach((el) => {
+            el.removeAttribute('data-mermaid-deferred');
+            el.removeAttribute('data-mermaid-render-failed');
+            if(!el.hasAttribute("data-original-code")) {
+                // store original code
+                // console.log(`Storing original code for first run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+            if(el.getAttribute("data-processed") === "true") {
+                // remove and restore original
+                el.removeAttribute("data-processed");
+                // console.log(`Restoring original code for re-run: `, el.getAttribute('data-original-code'));
+                el.innerHTML = el.getAttribute('data-original-code');
+            } else {
+                // store original code
+                // console.log(`Storing original code for re-run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+        });
+
+        // Separate visible and hidden elements. Mermaid's layout engine measures
+        // text dimensions via the DOM, which fails for elements hidden by a parent
+        // (e.g., Reveal.js non-active slides, sphinx-design unopened tabs),
+        // producing broken SVGs. Render visible elements now, defer hidden ones.
+        const visible = [];
+        const hidden = [];
+        all_mermaids.forEach((el) => {
+            // offsetParent is null for display:none ancestors.
+            // getClientRects().length > 0 catches position:fixed elements
+            // (which also have null offsetParent but are still visible).
+            if (el.offsetParent !== null || el.getClientRects().length > 0) {
+                visible.push(el);
+            } else {
+                hidden.push(el);
+                el.setAttribute('data-mermaid-deferred', 'true');
+            }
+        });
+
+        if (visible.length > 0) {
+            try {
+                await mermaid.run({ nodes: visible });
+            } catch (e) {
+                console.error("Mermaid rendering failed:", e);
+            }
+        }
+
+        // Lazily render hidden elements when they become visible.
+        // Uses a promise chain (_renderQueue) to serialize rendering,
+        // since IntersectionObserver may report multiple entries at once
+        // and mermaid.run() is not safe to call concurrently.
+        if (hidden.length > 0) {
+            if (typeof IntersectionObserver === 'undefined') {
+                console.warn("IntersectionObserver not available; hidden mermaid diagrams will not render.");
+            } else {
+                _renderQueue = Promise.resolve();
+                _lazyObserver = new IntersectionObserver((entries) => {
+                    for (const entry of entries) {
+                        if (entry.isIntersecting && entry.target.getAttribute("data-processed") !== "true") {
+                            _lazyObserver.unobserve(entry.target);
+                            const el = entry.target;
+                            _renderQueue = _renderQueue.then(async () => {
+                                try {
+                                    await mermaid.run({ nodes: [el] });
+                                    el.removeAttribute('data-mermaid-deferred');
+                                    // Apply zoom to the now-rendered diagram, matching
+                                    // the decoration visible diagrams receive.
+                                    if (false) {
+                                        addZoomToSvgs(d3.selectAll("").select(function() {
+                                            return this.querySelector("svg");
+                                        }));
+                                    }
+                                } catch (e) {
+                                    console.error("Mermaid deferred rendering failed:", e);
+                                    el.removeAttribute('data-mermaid-deferred');
+                                    el.setAttribute('data-mermaid-render-failed', 'true');
+                                }
+                            });
+                        }
+                    }
+                });
+                hidden.forEach((el) => _lazyObserver.observe(el));
+            }
+        }
+    }
+
+    all_mermaids = document.querySelectorAll(".mermaid");
+    // Exclude deferred (hidden) and render-failed elements from completion checks
+    const mermaids_active = document.querySelectorAll(".mermaid:not([data-mermaid-deferred]):not([data-mermaid-render-failed])");
+    const mermaids_processed = document.querySelectorAll(".mermaid:not([data-mermaid-deferred]):not([data-mermaid-render-failed])[data-processed='true']");
+
+    if (false) {
+        const mermaids_to_add_zoom = 0 === -1 ? mermaids_active.length : 0;
+        if(mermaids_to_add_zoom > 0) {
+            var svgs = d3.selectAll("").select(function() {
+                return this.querySelector("svg");
+            });
+            // Wait until every active (visible) diagram has rendered. Deferred
+            // diagrams are excluded, so a fixed d3_node_count that counts a
+            // hidden diagram no longer loops forever waiting for its SVG.
+            if(mermaids_active.length !== mermaids_processed.length) {
+                setTimeout(() => runMermaid(false), 200);
+                return;
+            }
+            addZoomToSvgs(svgs);
+        }
+    } else if(mermaids_active.length !== mermaids_processed.length) {
+        // Wait for mermaid to process all diagrams
+        setTimeout(() => runMermaid(false), 200);
+        return;
+    }
+
+    // Stop here if not adding fullscreen capability
+    if (!true) return;
+
+    if (modal !== null ) {
+        // Destroy existing modal
+        modal.remove();
+        modal = null;
+        modalContent = null;
+    }
+
+    modal = document.createElement('div');
+    modal.className = 'mermaid-fullscreen-modal' + (darkTheme ? ' dark-theme' : '');
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Fullscreen diagram viewer');
+    modal.innerHTML = `
+        <button class="mermaid-fullscreen-close${darkTheme ? ' dark-theme' : ''}" aria-label="Close fullscreen">✕</button>
+        <div class="mermaid-container-fullscreen${darkTheme ? ' dark-theme' : ''}"></div>
+    `;
+    document.body.appendChild(modal);
+
+    modalContent = modal.querySelector('.mermaid-container-fullscreen');
+    const closeBtn = modal.querySelector('.mermaid-fullscreen-close');
+
+    closeModal = () => {
+        modal.classList.remove('active');
+        modalContent.innerHTML = '';
+        document.body.style.overflow = ''
+        window.scrollTo({left: previousScrollOffset[0], top: previousScrollOffset[1], behavior: 'instant'});
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    document.querySelectorAll('.mermaid').forEach((mermaidDiv) => {
+        if (mermaidDiv.parentNode.classList.contains('mermaid-container') ||
+            mermaidDiv.closest('.mermaid-fullscreen-modal')) {
+            // Already processed, adjust button class if needed
+            const existingBtn = mermaidDiv.parentNode.querySelector('.mermaid-fullscreen-btn');
+            if (existingBtn) {
+                existingBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+            }
+            return;
+        }
+
+        const container = document.createElement('div');
+        container.className = 'mermaid-container';
+        mermaidDiv.parentNode.insertBefore(container, mermaidDiv);
+        container.appendChild(mermaidDiv);
+
+        const fullscreenBtn = document.createElement('button');
+        fullscreenBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+        fullscreenBtn.setAttribute('aria-label', 'View diagram in fullscreen');
+        fullscreenBtn.textContent = "\u26f6";
+        fullscreenBtn.style.opacity = "50%";
+
+        // Calculate dynamic position based on diagram's margin and padding
+        const diagramStyle = window.getComputedStyle(mermaidDiv);
+        const marginTop = parseFloat(diagramStyle.marginTop) || 0;
+        const marginRight = parseFloat(diagramStyle.marginRight) || 0;
+        const paddingTop = parseFloat(diagramStyle.paddingTop) || 0;
+        const paddingRight = parseFloat(diagramStyle.paddingRight) || 0;
+        fullscreenBtn.style.top = `${marginTop + paddingTop + 4}px`;
+        fullscreenBtn.style.right = `${marginRight + paddingRight + 4}px`;
+
+        fullscreenBtn.addEventListener('click', () => {
+            previousScrollOffset = [window.scrollX, window.scrollY];
+            const clone = mermaidDiv.cloneNode(true);
+            modalContent.innerHTML = '';
+            modalContent.appendChild(clone);
+
+            const svg = clone.querySelector('svg');
+            if (svg) {
+                svg.removeAttribute('width');
+                svg.removeAttribute('height');
+                svg.style.width = '100%';
+                svg.style.height = 'auto';
+                svg.style.maxWidth = '100%';
+                svg.style.display = 'block';
+
+                if (false) {
+                    setTimeout(() => {
+                        const g = svg.querySelector('g');
+                        if (g) {
+                            var svgD3 = d3.select(svg);
+                            svgD3.html("<g class='wrapper'>" + svgD3.html() + "</g>");
+                            var inner = svgD3.select("g");
+                            var zoom = d3.zoom().on("zoom", function(event) {
+                                inner.attr("transform", event.transform);
+                            });
+                            svgD3.call(zoom);
+                        }
+                    }, 100);
+                }
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        container.appendChild(fullscreenBtn);
+    });
+};
+
+
+
+const load = async () => {
+    initStyles();
+
+
+    await runMermaid(true);
+
+    const reRunIfThemeChanges = async () => {
+        const newDarkTheme = isDarkTheme();
+        if (newDarkTheme !== darkTheme) {
+            darkTheme = newDarkTheme;
+            console.log("Theme change detected, re-running mermaid with", darkTheme ? "dark" : "default", "theme");
+            await mermaid.initialize(
+                {...{"startOnLoad": false},
+                ...{ darkMode: darkTheme, theme: darkTheme ? "dark" : "default" },
+                }
+            );
+            await runMermaid(true);
+        }
+    };
+
+    // Update theme classes when theme changes
+    const themeObserver = new MutationObserver(reRunIfThemeChanges);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+    themeObserver.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+};
+
+
+
+
+
+console.log("Initializing mermaid with", darkTheme ? "dark" : "default", "theme");
+mermaid.initialize(
+    {...{"startOnLoad": false},
+    ...{ darkMode: darkTheme, theme: darkTheme ? "dark" : "default" },
+    }
+);
+
+window.addEventListener("load", load);
+window.runMermaid = runMermaid;</script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Hardware Validation (Blackhole Galaxy)" href="hardware-validation.html" />
+    <link rel="prev" title="Cloud-Native Support" href="index.html" /> 
+  <script src="_static/posthog.js"></script>
+  <style>
+  /* Nested section captions read as sub-headings, out-dented ~8px left of items. */
+  .wy-menu-vertical li.cns-current > p.caption { padding-left: 15px; margin-top: .6em; font-size: .8em; opacity: .8; }
+  /* Same-origin cross-links open in the same tab (see sidebar-carets.js); drop the new-tab icon. */
+  .wy-menu-vertical a.reference.external.tt-same-origin::after { content: none; }
+  /* Caret: tight, centered box (no asymmetric padding) so the rotated "down" state stays vertically centered. */
+  .wy-menu-vertical li:has(> ul) > a::after { padding-left: 0; width: 1em; text-align: center; }
+  /* Highlight only the current page, not every descendant of an expanded section,
+     so the row spacing reads consistently across all levels. */
+  .wy-menu-vertical li.toctree-l2.current li.toctree-l3:not(.current) > a,
+  .wy-menu-vertical li.toctree-l3.current li.toctree-l4:not(.current) > a,
+  .wy-menu-vertical li.toctree-l4.current li.toctree-l5:not(.current) > a { background-color: transparent !important; }
+  /* Flex `gap` only applies between siblings, not before the first child, so a
+     parent's first nested item sits flush against it — add the same 4px gap. */
+  .wy-menu-vertical a + ul { margin-top: 4px; }
+  </style>
+</head>
+
+<body class="wy-body-for-nav">
+<nav class="tt-top-nav" role="navigation" aria-label="Top navigation">
+  <div class="tt-top-nav-left">
+    <a href="https://docs.tenstorrent.com/" class="tt-nav-logo">
+      <img src="_static/logotype.png" alt="Tenstorrent" />
+      <span>DOCUMENTATION</span>
+    </a>
+    <ul class="tt-nav-links">
+      <li class="has-dropdown">
+        <a href="https://docs.tenstorrent.com/#get-started">Get Started</a>
+        <div class="tt-nav-dropdown">
+          <a href="https://docs.tenstorrent.com/getting-started/tt-software-stack.html">Overview</a>
+          <a href="https://docs.tenstorrent.com/getting-started/README.html">Installing Tenstorrent Software</a>
+          <a href="https://docs.tenstorrent.com/getting-started/manual-software-install.html">Manual Installation</a>
+          <a href="https://docs.tenstorrent.com/getting-started/vLLM-servers.html">Deploy LLMs</a>
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/" target="_blank" rel="noopener">Learn by Building</a>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <a href="https://docs.tenstorrent.com/#software">Software</a>
+        <div class="tt-nav-dropdown">
+          <a href="https://docs.tenstorrent.com/forge/index.html">TT-Forge</a>
+          <a href="https://docs.tenstorrent.com/tt-xla/" target="_blank" rel="noopener">TT-XLA</a>
+          <a href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/" target="_blank" rel="noopener">TT-NN</a>
+          <a href="https://docs.tenstorrent.com/tt-lang/" target="_blank" rel="noopener">TT-Lang</a>
+          <a href="https://docs.tenstorrent.com/tt-mlir/" target="_blank" rel="noopener">TT-MLIR</a>
+          <a href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/" target="_blank" rel="noopener">TT-Metalium</a>
+          <a href="https://docs.tenstorrent.com/cloud-native-support/" target="_blank" rel="noopener">Cloud-Native Support</a>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <a href="https://docs.tenstorrent.com/#hardware">Hardware</a>
+        <div class="tt-nav-dropdown">
+          <span class="tt-nav-dropdown-label">Blackhole</span>
+          <a href="https://docs.tenstorrent.com/aibs/blackhole/index.html">Blackhole® PCIe Cards</a>
+          <a href="https://docs.tenstorrent.com/systems/quietbox/quietbox-bh/index.html">TT-QuietBox</a>
+          <a href="https://docs.tenstorrent.com/systems/quietbox/quietbox-bh-2/index.html">TT-QuietBox 2</a>
+          <a href="https://docs.tenstorrent.com/systems/galaxy-blackhole/index.html">Galaxy® (Blackhole)</a>
+          <span class="tt-nav-dropdown-label">Wormhole</span>
+          <a href="https://docs.tenstorrent.com/aibs/wormhole/index.html">Wormhole™ PCIe Cards</a>
+          <a href="https://docs.tenstorrent.com/systems/quietbox/quietbox-wh/index.html">TT-QuietBox</a>
+          <a href="https://docs.tenstorrent.com/systems/t3000/index.html">TT-LoudBox™</a>
+          <a href="https://docs.tenstorrent.com/systems/galaxy-wormhole/index.html">Galaxy® (Wormhole)</a>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <a href="https://docs.tenstorrent.com/#tools">Tools</a>
+        <div class="tt-nav-dropdown">
+          <a href="https://github.com/tenstorrent/tt-inference-server" target="_blank" rel="noopener">TT-Inference-Server</a>
+          <a href="https://github.com/tenstorrent/tt-studio" target="_blank" rel="noopener">TT-Studio</a>
+          <a href="https://github.com/tenstorrent/tt-smi" target="_blank" rel="noopener">TT-SMI</a>
+          <a href="https://docs.tenstorrent.com/tt-toplike/" target="_blank" rel="noopener">TT-Toplike</a>
+          <a href="https://docs.tenstorrent.com/ttnn-visualizer/" target="_blank" rel="noopener">TT-NN Visualizer</a>
+          <a href="https://github.com/tenstorrent/tt-topology" target="_blank" rel="noopener">TT-Topology</a>
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit" target="_blank" rel="noopener">TT-VSCode-Toolkit</a>
+          <a href="https://docs.tenstorrent.com/tt-blacksmith/" target="_blank" rel="noopener">TT-Blacksmith</a>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <a href="https://docs.tenstorrent.com/#resources">Resources</a>
+        <div class="tt-nav-dropdown">
+          <a href="https://tenstorrent.atlassian.net/servicedesk/customer/portal/1" target="_blank" rel="noopener">Request Support</a>
+          <a href="https://tenstorrent.com/developers" target="_blank" rel="noopener">Developer Hub</a>
+          <a href="https://discord.com/invite/tenstorrent" target="_blank" rel="noopener">Join our Discord</a>
+          <a href="https://tenstorrent.com/faq" target="_blank" rel="noopener">FAQ</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tt-top-nav-right">
+    <button type="button" class="tt-nav-search-form tt-search-trigger" aria-label="Search docs" aria-haspopup="dialog">
+      <svg class="tt-search-glyph" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      <span class="tt-nav-search-placeholder">Search</span>
+      <kbd class="tt-nav-search-kbd">⌘K</kbd>
+    </button>
+    <div class="tt-nav-actions">
+      <a href="https://docs.tenstorrent.com/tt-awesome/" class="tt-nav-btn-cta" target="_blank" rel="noopener">Explore</a>
+      <a href="https://github.com/tenstorrent" class="tt-nav-btn-github" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+        </svg>
+        Github
+      </a>
+    </div>
+    <i data-toggle="wy-nav-top" class="fa fa-bars tt-nav-hamburger" aria-hidden="true"></i>
+  </div>
+</nav>
+
+
+<div class="tt-search-modal" id="tt-search-modal" hidden>
+  <div class="tt-search-backdrop" data-search-close></div>
+  <div class="tt-search-dialog" role="dialog" aria-modal="true" aria-label="Search documentation">
+    <div class="tt-search-head">
+      <div class="tt-search-box">
+        <svg class="tt-search-glyph" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+        <input type="text" class="tt-search-input" id="tt-search-input"
+               placeholder="Search for anything…" aria-label="Search for anything"
+               autocomplete="off" spellcheck="false" hidden />
+        <input type="text" class="tt-search-input" id="tt-ai-input"
+               placeholder="Ask anything about Tenstorrent hardware and software" aria-label="Ask about the docs"
+               autocomplete="off" spellcheck="false" />
+      </div>
+      <div class="tt-search-tabs" role="tablist">
+        <button type="button" class="tt-search-tab is-active" data-tab="ai" role="tab" aria-selected="true">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M8 1.5l1.4 3.6L13 6.5 9.4 7.9 8 11.5 6.6 7.9 3 6.5l3.6-1.4L8 1.5Z" fill="currentColor"/>
+            <path d="M12.5 10.5l.6 1.5 1.5.6-1.5.6-.6 1.5-.6-1.5-1.5-.6 1.5-.6.6-1.5Z" fill="currentColor"/>
+          </svg>
+          Ask AI
+        </button>
+        <button type="button" class="tt-search-tab" data-tab="search" role="tab" aria-selected="false">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          Search
+        </button>
+      </div>
+    </div>
+    <div class="tt-search-body"><div class="tt-search-panel" data-panel="search" hidden>
+        <ul class="tt-search-results" id="tt-search-results"></ul>
+        <div class="tt-search-empty" id="tt-search-empty">Start typing to search the documentation.</div>
+      </div><div class="tt-search-panel" data-panel="ai">
+        <div class="tt-ai-intro" id="tt-ai-intro">
+          <svg class="tt-ai-intro-star" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M10 1.5 12 7l5.5 1-4 3.9 1.2 5.6L10 14.4 5.3 17l1.2-5.6L2.5 7.5 8 7z" fill="currentColor"/>
+            <path d="M15.5 12l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z" fill="currentColor"/>
+          </svg>
+          <span class="tt-ai-intro-hint">Type a question above and press <kbd>Enter</kbd> — or jump right in:</span>
+        </div>
+        <ul class="tt-ai-examples" id="tt-ai-examples">
+          <li><button type="button" class="tt-ai-example">How to debug TT-Forge compile errors?</button></li>
+          <li><button type="button" class="tt-ai-example">How to set up Tenstorrent Cloud SSH?</button></li>
+          <li><button type="button" class="tt-ai-example">TT-Metalium vs TT-NN: what's the difference?</button></li>
+          <li><button type="button" class="tt-ai-example">How to daisy-chain Wormhole devices?</button></li>
+        </ul>
+        <div id="tt-kapa-embed" hidden>
+          <div id="tt-kapa-mount"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<a href="https://docs.tenstorrent.com/">
+    <img src="_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+<a href="https://docs.tenstorrent.com/cloud-native-support/">Cloud-Native Support</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+<ul>
+  <li class="toctree-l1"><a class="reference internal" href="https://docs.tenstorrent.com/tt-operator/">TT-Operator</a></li>
+  <li class="toctree-l1"><a class="reference internal" href="https://docs.tenstorrent.com/tt-operator/latest/components/node-feature-discovery.html">Node Feature Discovery</a></li>
+  <li class="toctree-l1"><a class="reference internal" href="https://docs.tenstorrent.com/tt-k8s-driver-manager/">Driver Manager</a></li>
+  <li class="toctree-l1"><a class="reference internal" href="https://docs.tenstorrent.com/tt-telemetry/">Telemetry</a></li>
+  <li class="toctree-l1"><a class="reference internal" href="https://docs.tenstorrent.com/tt-fabric-manager/">Fabric Manager</a></li>
+  <li class="toctree-l1"><a class="reference internal" href="https://docs.tenstorrent.com/tt-dra-driver/">Device Allocation</a></li>
+  <li class="toctree-l1"><a class="reference internal" href="https://docs.tenstorrent.com/tt-operator/latest/components/multi-node.html">Multi-Node Scheduling</a></li>
+</ul>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Cloud-Native Support</a>
+      </nav>
+
+      <div class="wy-nav-content">
+  
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Factory System Descriptor (FSD)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/factory-system-descriptor.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="factory-system-descriptor-fsd">
+<h1>Factory System Descriptor (FSD)<a class="headerlink" href="#factory-system-descriptor-fsd" title="Link to this heading"></a></h1>
+<p>The Factory System Descriptor (FSD) is a file that records a multi-host
+Tenstorrent system <strong>as it was physically built</strong>: which hosts make up the
+system, where each host sits in the datacenter, which boards occupy which tray of
+each host, and how those boards are cabled to each other.</p>
+<p>Fabric Manager reads the FSD to learn what the system is <em>supposed</em> to look like.
+Without it, Fabric Manager still reports the topology it discovers at runtime, but
+it cannot tell you whether that matches the machine you bought.</p>
+<p>This page covers what the FSD contains, how it is produced, and how it reaches
+Fabric Manager in a Kubernetes deployment. If you are running a single-node or
+non-scaleout system, you do not need an FSD.</p>
+<section id="what-an-fsd-contains">
+<h2>What an FSD contains<a class="headerlink" href="#what-an-fsd-contains" title="Link to this heading"></a></h2>
+<p>An FSD is a Protocol Buffers text file (<code class="docutils literal notranslate"><span class="pre">.textproto</span></code>) with three parts:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Part</p></th>
+<th class="head"><p>Records</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hosts</span></code></p></td>
+<td><p>Each host: hostname, motherboard, and physical location — <code class="docutils literal notranslate"><span class="pre">hall</span></code>, <code class="docutils literal notranslate"><span class="pre">aisle</span></code>, <code class="docutils literal notranslate"><span class="pre">rack</span></code>, <code class="docutils literal notranslate"><span class="pre">shelf_u</span></code>. Optionally an <code class="docutils literal notranslate"><span class="pre">instance_path</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">board_types</span></code></p></td>
+<td><p>Which board type (for example <code class="docutils literal notranslate"><span class="pre">N300</span></code>) occupies which <code class="docutils literal notranslate"><span class="pre">tray_id</span></code> of which host.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">eth_connections</span></code></p></td>
+<td><p>Every Ethernet link as a pair of endpoints. An endpoint is a host, a tray, an ASIC location, and a channel.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Abbreviated, an FSD reads like this:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>hosts {
+  hostname: "host-01"
+  hall: "hall-1"
+  aisle: "A"
+  rack: 1
+  shelf_u: 32
+}
+
+board_types {
+  board_locations {
+    host_id: 1
+    tray_id: 1
+    board_type: "N300"
+  }
+}
+
+eth_connections {
+  connection {
+    endpoint_a { host_id: 1  tray_id: 2  chan_id: 6 }
+    endpoint_b { host_id: 8  tray_id: 2  chan_id: 6 }
+  }
+}
+</pre></div>
+</div>
+<p>Hosts carry no ID field of their own — the <code class="docutils literal notranslate"><span class="pre">host_id</span></code> in <code class="docutils literal notranslate"><span class="pre">board_types</span></code> and
+<code class="docutils literal notranslate"><span class="pre">eth_connections</span></code> is a host’s zero-based index into the <code class="docutils literal notranslate"><span class="pre">hosts</span></code> list, which is why
+host order is significant.</p>
+<p>Host entries can also carry an <code class="docutils literal notranslate"><span class="pre">instance_path</span></code>: the chain of enclosures from the
+root of the system down to that host, so hosts inside the same enclosure share a
+path prefix. Fabric Manager uses it to recognize repeating hardware units — see
+<a class="reference internal" href="#deriving-topology-shapes">Deriving topology shapes</a>.</p>
+<p>The schema is defined in tt-metal, which is authoritative for field names and
+numbering. See <a class="reference internal" href="#going-deeper">Going deeper</a>.</p>
+</section>
+<section id="what-it-is-for">
+<h2>What it is for<a class="headerlink" href="#what-it-is-for" title="Link to this heading"></a></h2>
+<p>Fabric Manager works with two descriptions of the same hardware:</p>
+<ul class="simple">
+<li><p>The <strong>Physical System Descriptor (PSD)</strong> is discovered live. A Fabric Manager
+agent runs on every Tenstorrent node, enumerates the local devices and links,
+and reports them to the controller.</p></li>
+<li><p>The <strong>Factory System Descriptor (FSD)</strong> is the as-built record, read from a
+file. It describes the system as it was assembled and cabled.</p></li>
+</ul>
+<p>Having both is the point. The PSD tells you what the cluster <em>is</em>; the FSD tells
+you what it <em>should</em> be. Fabric Manager serves each of them, and a combined view,
+through its topology API.</p>
+<p>Supplying an FSD gets you:</p>
+<ul class="simple">
+<li><p><strong>Physical location for every host.</strong> Hall, aisle, rack, and shelf cannot be
+read from the hardware. Only the FSD carries them, so only the FSD lets you turn
+a failing device into a rack elevation an engineer can walk to.</p></li>
+<li><p><strong>Expected cabling.</strong> Because the FSD records the links the system was built
+with, a link that is missing at runtime is distinguishable from a link that was
+never meant to exist. This is what makes miscabling and dead links detectable
+rather than merely invisible.</p></li>
+<li><p><strong>Correct metric attribution.</strong> Telemetry uses FSD-derived topology to attribute
+Ethernet metrics to the right tray, chip, and link. Without it, every Ethernet
+channel is monitored indiscriminately and redundant links can produce misleading
+link-failure metrics.</p></li>
+<li><p><strong>Topology shapes.</strong> Named, addressable hardware units derived from host
+instance paths.</p></li>
+</ul>
+<p>Without an FSD, Fabric Manager starts normally and serves discovered topology.
+FSD-backed queries return a “not configured” error, and physical location data is
+unavailable.</p>
+</section>
+<section id="fsd-mgd-and-pgd">
+<h2>FSD, MGD, and PGD<a class="headerlink" href="#fsd-mgd-and-pgd" title="Link to this heading"></a></h2>
+<p>Several descriptors appear together in Fabric Manager configuration and are easy
+to confuse. They describe different things and arrive by different routes.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Describes</p></th>
+<th class="head"><p>Produced by</p></th>
+<th class="head"><p>Consumed by</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>FSD</strong><br>Factory System Descriptor</p></td>
+<td><p>The system as physically built: hosts, their rack location, boards per tray, and the Ethernet cabling between them.</p></td>
+<td><p>Generated from the cluster’s cabling and deployment descriptors when the system is built or recabled.</p></td>
+<td><p>The Fabric Manager controller, read from a configured path. Telemetry, for metric attribution.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>MGD</strong><br>Mesh Graph Descriptor</p></td>
+<td><p>A <em>logical</em> mesh a workload wants: architecture, device dimensions, host dimensions, channel count. Refers to no real hardware.</p></td>
+<td><p>The workload or the orchestrator submitting it. Generated from a cabling descriptor, or hand-written.</p></td>
+<td><p>The Fabric Manager placement solver, passed in with each placement request rather than read from a file.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>PGD</strong><br>Physical Grouping Descriptor</p></td>
+<td><p>The hierarchy of physical resources — meshes, pods, superpods, clusters — declared as allowed carve-outs over the flat PSD graph, without naming explicit ASIC IDs.</p></td>
+<td><p>The cluster administrator, per hardware design. Tray orientation differs between board layouts.</p></td>
+<td><p>The Fabric Manager placement solver, read from a configured path.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PSD</strong><br>Physical System Descriptor</p></td>
+<td><p>The flat graph of all ASICs and links actually present, discovered at runtime.</p></td>
+<td><p>The Fabric Manager agents, from live device enumeration.</p></td>
+<td><p>The Fabric Manager controller.</p></td>
+</tr>
+</tbody>
+</table>
+<p>The short version: the <strong>FSD</strong> is the inventory of what was built, the <strong>PSD</strong> is
+what is actually there now, the <strong>PGD</strong> says which subsets of it are legal meshes,
+and the <strong>MGD</strong> is the shape a job is asking for. Fabric Manager uses the first
+three to satisfy the fourth.</p>
+<pre  class="mermaid">
+        flowchart LR
+    FSD[FSD file&lt;br/&gt;as-built system] --&gt; CTL[Fabric Manager&lt;br/&gt;controller]
+    PGD[PGD file&lt;br/&gt;allowed groupings] --&gt; CTL
+    AG[Agents on each node&lt;br/&gt;live discovery] --&gt;|PSD| CTL
+    MGD[MGD&lt;br/&gt;requested mesh shape] --&gt;|per request| CTL
+    CTL --&gt;|placement| WL[Workload]
+    FSD --&gt; TEL[Telemetry]
+    </pre><section id="deriving-topology-shapes">
+<h3>Deriving topology shapes<a class="headerlink" href="#deriving-topology-shapes" title="Link to this heading"></a></h3>
+<p>When hosts carry an <code class="docutils literal notranslate"><span class="pre">instance_path</span></code>, Fabric Manager can group them into named
+topology shapes. You supply a regular expression that matches one complete path
+segment; every host whose path passes through a matching segment belongs to the
+same instance of that shape:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">tt-fabric-manager</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">controller</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">supportedTopologyShapes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">canonical_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2x4</span>
+<span class="w">        </span><span class="nt">aliases</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">quad</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">8-chip</span><span class="p p-Indicator">]</span>
+<span class="w">        </span><span class="nt">instance_path_segment_pattern</span><span class="p">:</span><span class="w"> </span><span class="s">'^example_node_[0-9]+$'</span>
+</pre></div>
+</div>
+<p>This is how a large system is reported as a set of addressable units rather than
+one flat list of hosts.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">supportedTopologyShapes</span></code> is not present in the Fabric Manager version that
+tt-operator currently pins, so this setting has no effect on a default install.
+Check the <a class="reference external" href="https://docs.tenstorrent.com/tt-fabric-manager/">Fabric Manager documentation</a>
+for the version you are running.</p>
+</div>
+</section>
+</section>
+<section id="how-an-fsd-is-generated">
+<h2>How an FSD is generated<a class="headerlink" href="#how-an-fsd-is-generated" title="Link to this heading"></a></h2>
+<p>An FSD is <strong>generated, not discovered</strong>. No tool builds one by inspecting live
+hardware, and you should not hand-edit one — it is a derived artifact. Two of its
+three parts could not be discovered anyway: rack location and intended cabling are
+facts about how the system was installed, not about the silicon.</p>
+<p>The FSD is computed from two hand-maintained inputs:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Input</p></th>
+<th class="head"><p>Describes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Cabling descriptor</strong></p></td>
+<td><p>The logical topology — which port connects to which — described hierarchically so repeated wiring is expressed once.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Deployment descriptor</strong></p></td>
+<td><p>The physical placement of each host: hall, aisle, rack, shelf, and node type. Host order is significant.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Both are usually derived from a <strong>cutsheet</strong>: the CSV cabling instruction sheet a
+technician works from, one row per cable. You typically start from a standard
+cutsheet for a supported topology and substitute your own hostnames and locations.</p>
+<p>The generation flow is:</p>
+<ol class="arabic simple">
+<li><p><strong>Author or adapt the cutsheet</strong> for your deployment.</p></li>
+<li><p><strong>Produce the cabling and deployment descriptors.</strong> The
+<a class="reference external" href="https://github.com/tenstorrent/tt-CableGen">tt-CableGen</a> web tool imports a
+cutsheet and exports both descriptors, and can visualize the topology. It is
+self-hostable via its bundled Docker Compose setup.</p></li>
+<li><p><strong>Generate the FSD</strong> with <code class="docutils literal notranslate"><span class="pre">run_cabling_generator</span></code> from tt-metal, which takes
+the cabling and deployment descriptors and emits the FSD plus a cabling guide
+CSV. Point <code class="docutils literal notranslate"><span class="pre">--cabling</span></code> at a directory to merge several cabling files in one
+pass.</p></li>
+<li><p><strong>Validate against the real hardware</strong> with <code class="docutils literal notranslate"><span class="pre">run_cluster_validation</span></code>. It
+performs live discovery across the hosts and reports connections that the FSD
+expects but discovery did not find. This is the check <em>against</em> the FSD, not a
+source for it.</p></li>
+<li><p><strong>Store and deliver.</strong> Keep the descriptors in version control with schema
+validation, and deliver them to a stable path on every node.</p></li>
+</ol>
+<p>Both tools are part of tt-metal and require a tt-metal build. See
+<a class="reference internal" href="#going-deeper">Going deeper</a> for the source paths and their own documentation.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>For Tenstorrent-supplied clusters, the FSD is produced and maintained by
+Tenstorrent as part of cluster integration and delivered with the cluster. If you
+are bringing up a new cluster, obtain its FSD through your Tenstorrent support
+contact rather than generating one yourself. The tooling above is public and
+documents the process, but it is intended for whoever owns the physical build
+record.</p>
+</div>
+</section>
+<section id="how-the-cloud-native-stack-consumes-it">
+<h2>How the cloud-native stack consumes it<a class="headerlink" href="#how-the-cloud-native-stack-consumes-it" title="Link to this heading"></a></h2>
+<p>Fabric Manager takes the FSD as a <strong>file on a read-only volume</strong>, never as
+descriptor content embedded in a ConfigMap. Real FSDs for large systems exceed
+1 MiB, which is past the Kubernetes ConfigMap size limit, so a volume is the only
+workable source.</p>
+<p>Two things have to line up:</p>
+<ol class="arabic simple">
+<li><p>A volume providing the descriptors, mounted read-only at the fixed in-pod path
+<code class="docutils literal notranslate"><span class="pre">/scaleout_configs</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">controller.factorySystemDescriptorSearchPath</span></code>, naming the FSD <em>within</em> that
+mount. The controller’s ConfigMap carries only this path — the pointer, not the
+descriptor bytes.</p></li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><code class="docutils literal notranslate"><span class="pre">factorySystemDescriptorSearchPath</span></code> must be the <strong>in-pod</strong> path under
+<code class="docutils literal notranslate"><span class="pre">/scaleout_configs</span></code>, not the host directory you mounted from. Setting the host
+path is the most common misconfiguration and produces a “path not found” error.</p>
+</div>
+<p>Despite its name, the setting accepts either a single <code class="docutils literal notranslate"><span class="pre">.textproto</span></code> file or a
+directory that is searched recursively. <strong>Prefer naming a single file.</strong> Files in
+a directory that do not parse as an FSD are skipped silently, so a directory
+holding other descriptors yields a confusing partial result instead of an error.</p>
+<section id="supplying-the-volume">
+<h3>Supplying the volume<a class="headerlink" href="#supplying-the-volume" title="Link to this heading"></a></h3>
+<p>Choose one of two sources.</p>
+<p><strong>A host directory.</strong> The chart default is <code class="docutils literal notranslate"><span class="pre">/data/scaleout_configs</span></code>. Place the
+descriptors on each node and point the chart at the directory:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">tt-fabric-manager</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">scaleoutConfigsHostPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/data/scaleout_configs</span>
+<span class="w">  </span><span class="nt">controller</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">factorySystemDescriptorSearchPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/scaleout_configs/my-cluster/factory_system_descriptor.textproto</span>
+</pre></div>
+</div>
+<p><strong>An OCI image.</strong> Package the descriptors into a container image and let
+Kubernetes mount its filesystem directly. This keeps them versioned and pulled
+like any other artifact, with nothing to stage on the nodes:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">tt-fabric-manager</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">imagePullSecrets</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-registry-pull-secret</span>
+<span class="w">  </span><span class="nt">scaleoutConfigsImage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">registry.example.com/my-org/my-cluster-config:v1.0.0</span>
+<span class="w">  </span><span class="nt">controller</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">factorySystemDescriptorSearchPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/scaleout_configs/my-cluster/factory_system_descriptor.textproto</span>
+</pre></div>
+</div>
+<p>Setting <code class="docutils literal notranslate"><span class="pre">scaleoutConfigsImage</span></code> overrides <code class="docutils literal notranslate"><span class="pre">scaleoutConfigsHostPath</span></code>. Image pulls
+reuse the pod’s <code class="docutils literal notranslate"><span class="pre">imagePullSecrets</span></code>, so a private registry needs that secret to
+exist in the install namespace.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The OCI image source uses the Kubernetes <code class="docutils literal notranslate"><span class="pre">image</span></code> volume type, available from
+Kubernetes 1.33. On earlier versions use a host directory.</p>
+</div>
+<p>Both settings are optional and unset by default, so Fabric Manager installs and
+runs without an FSD.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Physical Grouping Descriptor is configured separately via
+<code class="docutils literal notranslate"><span class="pre">controller.physicalGroupingDescriptorPath</span></code>. It defaults to a descriptor shipped
+inside the Fabric Manager image and is not read from your <code class="docutils literal notranslate"><span class="pre">/scaleout_configs</span></code>
+mount, so do not conflate the two paths.</p>
+</div>
+</section>
+<section id="telemetry">
+<h3>Telemetry<a class="headerlink" href="#telemetry" title="Link to this heading"></a></h3>
+<p>Telemetry needs the same topology and takes it one of two ways. Pick exactly one —
+the chart fails the render if both are configured.</p>
+<p><strong>From Fabric Manager over gRPC.</strong> Preferred, because there is one copy of the
+FSD in the cluster:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">tt-telemetry</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">fabric_manager_address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tt-fabric-manager-controller.tt-operator.svc.cluster.local:50052</span>
+</pre></div>
+</div>
+<p><strong>From local files</strong>, using <code class="docutils literal notranslate"><span class="pre">systemDescriptors</span></code> with either <code class="docutils literal notranslate"><span class="pre">scaleoutConfigsDir</span></code>
+or <code class="docutils literal notranslate"><span class="pre">scaleoutConfigsImage</span></code>, mirroring the Fabric Manager options above.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Telemetry re-reads the FSD periodically and restarts itself when the content
+changes, so that it picks up the new topology. Restarts after an FSD update are
+expected. A stale or unreachable <code class="docutils literal notranslate"><span class="pre">fabric_manager_address</span></code> is worse than none at
+all — leave it unset if Fabric Manager is disabled.</p>
+</div>
+</section>
+<section id="verify">
+<h3>Verify<a class="headerlink" href="#verify" title="Link to this heading"></a></h3>
+<p>Confirm the descriptors are visible inside the controller pod and that the
+configured path resolves to something that exists:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>-n<span class="w"> </span>tt-operator<span class="w"> </span>get<span class="w"> </span>configmap<span class="w"> </span>tt-fabric-manager-controller<span class="w"> </span>-o<span class="w"> </span>yaml
+
+kubectl<span class="w"> </span>-n<span class="w"> </span>tt-operator<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>deploy/tt-fabric-manager-controller<span class="w"> </span>--<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>ls<span class="w"> </span>-R<span class="w"> </span>/scaleout_configs
+</pre></div>
+</div>
+<p>The controller starts and serves discovered topology even when the path is wrong,
+so check the path explicitly rather than relying on pod readiness. See
+<a class="reference external" href="https://docs.tenstorrent.com/tt-operator/latest/troubleshooting.html">Troubleshooting</a>.</p>
+</section>
+</section>
+<section id="going-deeper">
+<h2>Going deeper<a class="headerlink" href="#going-deeper" title="Link to this heading"></a></h2>
+<p>The descriptor schemas and the generation tooling live in
+<a class="reference external" href="https://github.com/tenstorrent/tt-metal">tt-metal</a>.</p>
+<p>Schemas:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/tenstorrent/tt-metal/blob/main/tools/scaleout/factory_system_descriptor/schemas/factory_system_descriptor.proto"><code class="docutils literal notranslate"><span class="pre">factory_system_descriptor.proto</span></code></a>
+— the FSD.</p></li>
+<li><p><a class="reference external" href="https://github.com/tenstorrent/tt-metal/blob/main/tt_metal/fabric/protobuf/mesh_graph_descriptor.proto"><code class="docutils literal notranslate"><span class="pre">mesh_graph_descriptor.proto</span></code></a>
+— the MGD.</p></li>
+<li><p><a class="reference external" href="https://github.com/tenstorrent/tt-metal/blob/main/tt_metal/fabric/protobuf/physical_grouping_descriptor.proto"><code class="docutils literal notranslate"><span class="pre">physical_grouping_descriptor.proto</span></code></a>
+— the PGD, with a
+<a class="reference external" href="https://github.com/tenstorrent/tt-metal/blob/main/tt_metal/fabric/PHYSICAL_GROUPING_DESCRIPTOR_README.md">written guide</a>.</p></li>
+<li><p><a class="reference external" href="https://github.com/tenstorrent/tt-metal/blob/main/tt_metal/fabric/protobuf/physical_system_descriptor.proto"><code class="docutils literal notranslate"><span class="pre">physical_system_descriptor.proto</span></code></a>
+— the PSD.</p></li>
+<li><p><a class="reference external" href="https://github.com/tenstorrent/tt-metal/blob/main/tools/scaleout/cabling_descriptor/schemas/cluster_config.proto"><code class="docutils literal notranslate"><span class="pre">cluster_config.proto</span></code></a>
+and
+<a class="reference external" href="https://github.com/tenstorrent/tt-metal/blob/main/tools/scaleout/deployment_descriptor/schemas/deployment.proto"><code class="docutils literal notranslate"><span class="pre">deployment.proto</span></code></a>
+— the cabling and deployment descriptors an FSD is generated from.</p></li>
+</ul>
+<p>Tooling:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/tenstorrent/tt-metal/blob/main/tools/scaleout/README.md">Scaleout tools overview</a>
+— the descriptors and how they relate.</p></li>
+<li><p><a class="reference external" href="https://github.com/tenstorrent/tt-metal/blob/main/tools/scaleout/src/run_cabling_generator.cpp"><code class="docutils literal notranslate"><span class="pre">run_cabling_generator</span></code></a>
+— generates an FSD and a cabling guide.</p></li>
+<li><p><a class="reference external" href="https://github.com/tenstorrent/tt-metal/blob/main/tools/scaleout/validation/run_cluster_validation.cpp"><code class="docutils literal notranslate"><span class="pre">run_cluster_validation</span></code></a>
+— checks live hardware against an FSD.</p></li>
+<li><p><a class="reference external" href="https://github.com/tenstorrent/tt-CableGen">tt-CableGen</a> — visual cabling
+editor that imports cutsheets and exports descriptors.</p></li>
+</ul>
+<p>Fabric Manager itself:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.tenstorrent.com/tt-fabric-manager/">Fabric Manager documentation</a></p></li>
+<li><p><a class="reference external" href="https://docs.tenstorrent.com/tt-fabric-manager/latest/architecture.html">Fabric Manager architecture</a></p></li>
+<li><p><a class="reference external" href="https://docs.tenstorrent.com/tt-fabric-manager/latest/api-overview.html">Fabric Manager API overview</a></p></li>
+</ul>
+<p>In the TT-Operator docs:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.tenstorrent.com/tt-operator/latest/configuration.html">Configuration reference</a>
+for the full set of Helm values.</p></li>
+<li><p><a class="reference external" href="https://docs.tenstorrent.com/tt-operator/latest/components/index.html">Components</a>
+for how Fabric Manager relates to the rest of the stack.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Cloud-Native Support" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hardware-validation.html" class="btn btn-neutral float-right" title="Hardware Validation (Blackhole Galaxy)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Tenstorrent.
+      <span class="lastupdated">Last updated on Sep 05, 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+  <div class="feedback-widget" id="tt-feedback">
+  <div class="ttfb-card">
+    <div id="ttfb-initial" class="ttfb-initial">
+      <p class="ttfb-question">Was this article helpful?</p>
+      <div class="ttfb-actions">
+        <button id="ttfb-up" class="ttfb-icon-btn" aria-label="Yes" title="Yes">
+          <span>👍</span>
+        </button>
+        <button id="ttfb-down" class="ttfb-icon-btn" aria-label="No" title="No">
+          <span>👎</span>
+        </button>
+      </div>
+    </div>
+
+    <form id="ttfb-form" class="ttfb-hidden" novalidate>
+      <p id="ttfb-prompt" class="ttfb-prompt"></p>
+
+      <div id="ttfb-reasons" class="ttfb-hidden">
+        <p class="ttfb-reasons-title">How would you describe this article?</p>
+        <div class="ttfb-reasons-grid">
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="inaccurate"> <b>Inaccurate:</b> it doesn’t reflect what I see in the product</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="unclear"> <b>Unclear:</b> it’s difficult to understand</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="missing"> <b>Missing information:</b> it’s not comprehensive enough</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="irrelevant"> <b>Irrelevant:</b> it doesn’t match what I searched for</label>
+        </div>
+      </div>
+
+      <textarea id="ttfb-text" rows="3" class="ttfb-text" placeholder="Please let us know what was or wasn't helpful about this page."></textarea>
+
+      <div class="ttfb-contact">
+        <input id="ttfb-can-contact" type="checkbox"> <label for="ttfb-can-contact">Allow Tenstorrent to contact me about my documentation feedback.</label>
+      </div>
+      <div id="ttfb-email-wrap" class="ttfb-hidden">
+        <input id="ttfb-email" type="email" class="ttfb-email" placeholder="Enter your email address">
+      </div>
+
+      <button id="ttfb-submit" type="submit" class="ttfb-submit">Submit</button>
+    </form>
+
+    <div id="ttfb-thanks" class="ttfb-hidden ttfb-center"><p class="ttfb-thanks-text">Thank you for your feedback!</p></div>
+    <div id="ttfb-error" class="ttfb-hidden ttfb-center"><p class="ttfb-error-text">Sorry, something went wrong. Please try again later.</p></div>
+  </div>
+</div>
+
+<style>
+.feedback-widget { margin: 2rem 0; }
+.ttfb-card {
+  background: #fff;
+  border: 1px solid var(--color-background-40, #d7dbeb66);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+.ttfb-initial { display: flex; flex-direction: row; gap: .75rem; align-items: center; flex-wrap: wrap; justify-content: flex-start; }
+.ttfb-question { margin: 0; font-weight: 600; color: var(--color-foreground, #202020); }
+.ttfb-actions { display: flex; gap: .5rem; }
+.ttfb-icon-btn {
+  padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; background: #fff; cursor: pointer;
+  transition: background var(--transition-duration, 150ms) var(--transition-timing, ease), border-color var(--transition-duration, 150ms) var(--transition-timing, ease);
+}
+.ttfb-icon-btn:hover { background: #f3f4f6; }
+
+.ttfb-hidden { display: none; }
+.ttfb-prompt { margin: .5rem 0 1rem 0; color: var(--color-foreground, #202020); font-weight: 600; }
+.ttfb-reasons-title { margin: 0 0 .5rem 0; color: var(--color-foreground, #202020); font-weight: 500; }
+.ttfb-reasons-grid { display: grid; grid-template-columns: 1fr; gap: .25rem; }
+@media (min-width: 768px) { .ttfb-reasons-grid { grid-template-columns: 1fr 1fr; } }
+.ttfb-radio { display: flex; align-items: flex-start; gap: .5rem; }
+.ttfb-radio input { margin-top: .2rem; }
+
+.ttfb-text {
+  width: 100%; padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; font-family: inherit; resize: vertical;
+}
+.ttfb-contact { display: flex; align-items: center; gap: .5rem; margin-top: .5rem; }
+.ttfb-email { width: 100%; padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; margin-top: .5rem; }
+.ttfb-submit { margin-top: .75rem; padding: .5rem 1rem; background: var(--color-purple, #5164e0); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; }
+.ttfb-submit:hover { background: var(--color-dark-purple, #7584e6); }
+.ttfb-center { text-align: center; padding: 1rem; }
+.ttfb-thanks-text { color: var(--color-purple, #5164e0); font-weight: 600; }
+.ttfb-error-text { color: #dc2626; font-weight: 600; }
+
+/* Hide widget when page sets meta hide_feedback=true */
+html:has(meta[name="hide_feedback"][content="true"]) .feedback-widget { display: none !important; }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const root = document.getElementById('tt-feedback');
+  if (!root) return;
+
+  // Reposition widget: place it just above the Previous/Next buttons
+  try {
+    const footerButtons = document.querySelector('.rst-footer-buttons');
+    if (footerButtons && footerButtons.parentNode) {
+      footerButtons.parentNode.insertBefore(root, footerButtons);
+    }
+  } catch (e) {
+    // no-op if structure not present
+  }
+
+  const initial = root.querySelector('#ttfb-initial');
+  const form = root.querySelector('#ttfb-form');
+  const prompt = root.querySelector('#ttfb-prompt');
+  const reasonsWrap = root.querySelector('#ttfb-reasons');
+  const text = root.querySelector('#ttfb-text');
+  const thanks = root.querySelector('#ttfb-thanks');
+  const error = root.querySelector('#ttfb-error');
+  const upBtn = root.querySelector('#ttfb-up');
+  const downBtn = root.querySelector('#ttfb-down');
+  const canContact = root.querySelector('#ttfb-can-contact');
+  const emailWrap = root.querySelector('#ttfb-email-wrap');
+  const emailInput = root.querySelector('#ttfb-email');
+
+  let sentiment = null; // 'up' | 'down'
+
+  function show(el) { el.classList.remove('ttfb-hidden'); }
+  function hide(el) { el.classList.add('ttfb-hidden'); }
+
+  function setPromptForSentiment() {
+    if (sentiment === 'down') {
+      prompt.textContent = 'We\'re sorry to hear that. Can you tell us more?';
+      show(reasonsWrap);
+    } else {
+      prompt.textContent = 'Thanks! Anything to add? (optional)';
+      hide(reasonsWrap);
+    }
+  }
+
+  function validateEmail(email) {
+    return /.+@.+\..+/.test(email);
+  }
+
+  function submitPayload(payload) {
+    try {
+      if (window.posthog && typeof window.posthog.capture === 'function') {
+        window.posthog.capture('docs_feedback', payload);
+      } else {
+        console.log('Feedback submitted:', payload);
+      }
+      return true;
+    } catch (e) {
+      console.error('Feedback submit error', e);
+      return false;
+    }
+  }
+
+  upBtn.addEventListener('click', function () {
+    sentiment = 'up';
+    hide(initial);
+    setPromptForSentiment();
+    show(form);
+    text.focus();
+  });
+
+  downBtn.addEventListener('click', function () {
+    sentiment = 'down';
+    hide(initial);
+    setPromptForSentiment();
+    show(form);
+  });
+
+  canContact.addEventListener('change', function () {
+    if (canContact.checked) {
+      show(emailWrap);
+      emailInput.focus();
+    } else {
+      hide(emailWrap);
+    }
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const page = window.location.pathname;
+    const ts = new Date().toISOString();
+    const feedbackText = text.value.trim();
+    const canContactVal = !!canContact.checked;
+    const emailVal = emailInput.value.trim();
+    const reasonEl = root.querySelector('input[name="down_reason"]:checked');
+    const reason = reasonEl ? reasonEl.value : null;
+
+    if (canContactVal && emailVal && !validateEmail(emailVal)) {
+      emailInput.setCustomValidity('Please enter a valid email.');
+      emailInput.reportValidity();
+      return;
+    } else {
+      emailInput.setCustomValidity('');
+    }
+
+    const payload = {
+      sentiment,
+      reason,
+      text: feedbackText,
+      can_contact: canContactVal,
+      email: canContactVal ? emailVal || null : null,
+      page,
+      timestamp: ts
+    };
+
+    const ok = submitPayload(payload);
+    hide(form);
+    if (ok) {
+      show(thanks);
+      setTimeout(() => { root.style.display = 'none'; }, 3000);
+    } else {
+      show(error);
+    }
+  });
+});
+</script>
+
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><script src="_static/sidebar-scroll.js"></script>
+<script src="_static/external-nav-links.js"></script>
+<script src="_static/docs-toc.js"></script>
+<script id="tt-search-script" src="_static/tt-search.js"
+        data-search-url="search.html"
+        data-search-api-base="https://csl860x2oj.execute-api.us-east-2.amazonaws.com/prod"
+        data-search-source="docs-tenstorrent"
+        data-site-base-url="https://docs.tenstorrent.com/"
+        data-kapa-src="_static/kapa.js"
+        data-kapa-integration-id="c37e0bab-7623-43d7-bff1-daa52e901bbe"></script>
+
+</body>
+</html>
