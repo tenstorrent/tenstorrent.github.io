@@ -190,6 +190,7 @@ Self-contained, hands-on lessons from the [TT Developer Toolkit](https://docs.te
 - [Support](https://docs.tenstorrent.com/support/README.html): Getting help, community channels, and support resources
 - [Bounty Program Terms](https://docs.tenstorrent.com/bounty_terms.html): Terms and conditions for the Tenstorrent open-source bounty program
 - [OS & Model Terms](https://docs.tenstorrent.com/os-model-terms.html): Operating-system and model licensing terms
+- [Trademarks and Legal Notice](https://docs.tenstorrent.com/trademarks_legal_notice.html): Tenstorrent trademark list and legal disclaimer
 - [Trademarked Assets](https://docs.tenstorrent.com/tt-tm-assets/): Tenstorrent brand assets and usage/licensing terms
 
 ## External Resources

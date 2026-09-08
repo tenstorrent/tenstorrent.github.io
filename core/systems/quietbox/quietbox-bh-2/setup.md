@@ -29,17 +29,25 @@ myst:
   font-weight: 700;
 }
 
-/* Figures: centered, softly framed */
+/* Figures: left-aligned with the text, softly framed */
 .rst-content div.figure,
 .rst-content figure {
-  margin: 1.6rem auto;
-  text-align: center;
+  margin: 1.6rem 0;
+  text-align: left;
 }
 .rst-content div.figure img,
 .rst-content figure img {
   border: 1px solid #e7e4f0;
   border-radius: 8px;
   box-shadow: 0 4px 14px rgba(38, 38, 46, 0.08);
+}
+
+/* Space the rear-view diagram so callout labels aren't flush with the frame */
+.rst-content img.qb2-rear-view {
+  padding: 2.75rem 3.5rem;
+  background: #fff;
+  box-sizing: border-box;
+  margin: 2rem 0;
 }
 
 /* Quieter horizontal rules */
@@ -135,15 +143,22 @@ Note: Only use certified HDMI cables with the TT-QuietBox 2. Using non-certified
 
 ```{figure} ./qb2-rear-view.jpg
 :width: 60%
+:class: qb2-rear-view
 ```
 
 1. **Connect the power cable.** Connect the provided C19 power cable to the workstation and then to a dedicated power outlet. See the Electrical Safety section for the full list of power requirements. 
 
 2. **Connect peripherals.** Connect the HDMI monitor, keyboard, and mouse to the back of the workstation. (Please note: video is not supported through the USB-C port). For internet connections, we recommend Ethernet over WiFi for faster downloading of models.
 
-3. **Power on the workstation.** On the back of the workstation, flip the switch on the PSU to the "ON" position.  
+3. **Confirm WiFi antenna are installed.** Two WiFi antenna come pre-installed on your TT-QuietBox 2. If needed, turn the antenna clockwise until they are securely connected, and ensure they are pointed upwards. You may need to adjust the direction of the antenna for stronger WiFi signal. However, for faster downloads, we recommend connecting your workstation directly to Ethernet.
 
-4. **On the front of the workstation, press the power button to turn the system on.**
+```{figure} ./qb2-wifi-antenna-position.jpg
+:width: 40%
+```
+
+4. **Power on the workstation.** On the back of the workstation, flip the switch on the PSU to the "ON" position.  
+
+5. **On the front of the workstation, press the power button to turn the system on.**
 
 ```{figure} ./qb2-power-button.jpg
 :width: 40%
@@ -226,11 +241,11 @@ Setting up your TT-QuietBox 2 for more than one person? {ref}`Follow these steps
 
 ## Step 8: Get Access to Model Weights
 
-TT-QuietBox 2 comes pre-installed with [TT Studio](https://docs.tenstorrent.com/tt-studio/), Tenstorrent's simple web interface for running AI models.
+TT-QuietBox 2 comes pre-installed with [TT-Studio](https://docs.tenstorrent.com/tt-studio/), Tenstorrent's simple web interface for running AI models.
 
 For the most up-to-date list of models supported by TT-QuietBox 2, check the [Developer Hub](https://tenstorrent.com/developers).
 
-TT Studio uses the Hugging Face API to manage open-source AI model weights and configuration files. Hugging Face is a free, open source community for collaborating on AI models and applications. Hugging Face access tokens are the unique security keys that allow weights from AI models to be downloaded to your machine. Read more about how user access tokens work in the [Hugging Face documentation](https://huggingface.co/docs/hub/en/security-tokens#how-to-manage-user-access-tokens).
+TT-Studio uses the Hugging Face API to manage open-source AI model weights and configuration files. Hugging Face is a free, open source community for collaborating on AI models and applications. Hugging Face access tokens are the unique security keys that allow weights from AI models to be downloaded to your machine. Read more about how user access tokens work in the [Hugging Face documentation](https://huggingface.co/docs/hub/en/security-tokens#how-to-manage-user-access-tokens).
 
 :::{note}
 For [Qwen3-32B](https://huggingface.co/Qwen/Qwen3-32B), the model weights come pre-downloaded onto your TT-QuietBox 2. However, you will still require an access token from Hugging Face to use the model.
@@ -241,25 +256,25 @@ To get access to model weights on Hugging Face, follow these steps:
 1. Open a new browser window and navigate to [huggingface.co](https://huggingface.co).
 2. Create or log in to your Hugging Face account.
 3. Create your access token at [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens). **Copy and securely store the access token** as it is only displayed once and will be needed in the next step.
-4. Some of the models in TT Studio ([Llama-3.1-8B-Instruct](https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct) and [Llama-3.3-70B-Instruct](https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct)) require access to be granted by the model developer via the Hugging Face website. For these models, click **Request Access** and read and sign any required community license agreements. 
+4. Some of the models in TT-Studio ([Llama-3.1-8B-Instruct](https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct) and [Llama-3.3-70B-Instruct](https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct)) require access to be granted by the model developer via the Hugging Face website. For these models, click **Request Access** and read and sign any required community license agreements. 
 
-## Step 9: Launch TT Studio
+## Step 9: Launch TT-Studio
 
-1. Open a terminal window and pull the latest from the TT Studio github repo:
+1. Open a terminal window and pull the latest from the TT-Studio github repo:
 
 ```bash
 cd ~/.local/lib/tt-studio
 git pull
 ```
-2. When the process is complete, run this command in Terminal to open TT Studio:
+2. When the process is complete, run this command in Terminal to open TT-Studio:
 
 ```bash
 tt-studio
 ```
 
 3. When prompted, paste in your HuggingFace access token from the previous step.
-4. Choose to install dependencies with Docker by entering "Y". It may take a few minutes to build the docker containers. When prompted, enter your sudo password (this is the same password you use to log in to your workstation). Administrative access is required to set up TT Inference Server, the engine which runs AI models on Tenstorrent hardware.
-5. The TT Studio web app will now launch in your default web browser.
+4. Choose to install dependencies with Docker by entering "Y". It may take a few minutes to build the docker containers. When prompted, enter your sudo password (this is the same password you use to log in to your workstation). Administrative access is required to set up TT-Inference-Server, the engine which runs AI models on Tenstorrent hardware.
+5. The TT-Studio web app will now launch in your default web browser.
 
 ```{figure} ./qb2-screenshot-deployment-mode.png
 :width: 80%
@@ -272,7 +287,7 @@ tt-studio
 Qwen3-32B comes pre-loaded on your TT-QuietBox 2. Downloading other models can take anywhere from a few minutes to a few hours, depending on the size of the model you’ve selected and the speed of your internet connection.
 :::
 
-## What to do next?
+## What to do Next
 
 ```{raw} html
 <style>
@@ -300,7 +315,7 @@ Qwen3-32B comes pre-loaded on your TT-QuietBox 2. Downloading other models can t
 <div class="qb2-next">
 
   <div class="qb2-next-hero">
-    <h3>&#128640; Your TT-QuietBox 2 is ready. Now the fun begins.</h3>
+    <h3>&#128640; Your TT-QuietBox 2 is Ready. Now the Fun Begins.</h3>
     <p>Four Blackhole&trade; chips, 480 Tensix cores, and 128&nbsp;GB of memory are sitting on your desk, with no token quotas or rate limits. We've packed in a boatload of content to put it to work. Start with the welcome guide for hands-on, interactive lessons across the whole Tenstorrent ecosystem.</p>
     <a class="qb2-next-btn" href="welcome.html">Open the welcome guide &rarr;</a>
   </div>

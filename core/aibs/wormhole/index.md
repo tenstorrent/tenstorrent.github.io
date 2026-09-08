@@ -183,7 +183,5 @@ support
 ## Related pages
 
 * {doc}`Software Setup </getting-started/README>` — install the Tenstorrent software stack.
-* {doc}`Compliance </aibs/compliance>` — regulatory and compliance information.
+* {doc}`Compliance and Legal </aibs/compliance>` — regulatory and compliance information.
 * [FAQ and Troubleshooting](./support.md) — PSU adapter guidance and common hardware issues.
-</content>
-</invoke>

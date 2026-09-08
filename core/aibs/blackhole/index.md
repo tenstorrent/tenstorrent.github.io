@@ -94,6 +94,7 @@ The **p100a** and **p150a** cards are designed for desktop workstations where ac
 | Memory Bandwidth          | 448 GB/sec                  | 512 GB/sec                  | 512 GB/sec                  |
 | TeraFLOPS (BLOCKFP8)      | 664                         | 664                         | 664                         |
 | TBP (Total Board Power)   | 300W                        | 300W                        | 300W                        |
+| Idle Power                | 75W                         | 75W                         | 75W                         |
 | External Power            | 1x 12+4-pin 12V-2x6         | 1x 12+4-pin 12V-2x6         | 1x 12+4-pin 12V-2x6         |
 | Power Supply Requirements | ATX 3.1 Certified or better | ATX 3.1 Certified or better | ATX 3.1 Certified or better |
 | Connectivity              | -                           | 4x QSFP-DD 800G (Passive)*  | 4x QSFP-DD 800G (Passive)*  |
@@ -196,7 +197,7 @@ If you need 1m cables, we recommend either [Amphenol 1m (3.3 ft.) 800G Passive Q
 
 ### **The idle power consumption of my Tenstorrent Blackhole® card seems high**
 
-Blackhole® AI Processors typically consume approximately 120W at idle. When measuring power at the wall, you might observe a higher power draw because the power supply converts AC current from the wall to DC current within the system, resulting in some expected loss.
+Blackhole® AI Processors typically consume approximately 75W at idle. When measuring power at the wall, you might observe a higher power draw because the power supply converts AC current from the wall to DC current within the system, resulting in some expected loss.
 
 Tenstorrent is exploring methods to further optimize idle power consumption through firmware updates and in future products.
 
@@ -237,6 +238,4 @@ If you encounter any issues, or have a question that isn't covered in the docume
 ## Related pages
 
 * {doc}`Software Setup </getting-started/README>` — install the Tenstorrent software stack.
-* {doc}`Compliance </aibs/compliance>` — regulatory and compliance information.
-</content>
-</invoke>
+* {doc}`Compliance and Legal </aibs/compliance>` — regulatory and compliance information.

@@ -9,7 +9,7 @@ import os
 from pathlib import Path
 
 project = 'Home'
-copyright = '2025, Tenstorrent'
+copyright = '2026, Tenstorrent Holdings Inc.'
 author = 'Tenstorrent'
 release = '1.0'
 
