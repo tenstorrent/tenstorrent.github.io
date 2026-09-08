@@ -57,6 +57,13 @@ the lower layers are available when you need finer control.
          <span class="tt-doc-card-desc">Run Tenstorrent accelerators on Kubernetes — install, configure, and operate the device stack.</span>
        </span>
      </a>
+     <a class="tt-doc-card" href="https://docs.tenstorrent.com/tt-studio/" target="_blank" rel="noopener">
+       <span class="tt-doc-card-img"><img src="../_static/svg/tt-studio.svg" alt="TT-Studio" /></span>
+       <span class="tt-doc-card-text">
+         <span class="tt-doc-card-title">TT-Studio</span>
+         <span class="tt-doc-card-desc">Point-and-click web GUI to deploy, chat with, and build on models — a browser front-end over TT-Inference-Server.</span>
+       </span>
+     </a>
    </div>
 
 Choosing your entry point
