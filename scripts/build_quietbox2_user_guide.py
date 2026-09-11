@@ -23,7 +23,7 @@ from docx.text.paragraph import Paragraph
 
 REPO = Path(__file__).resolve().parents[1]
 SRC = REPO / "core" / "systems" / "quietbox" / "quietbox-bh-2"
-# Polished "make it look like this" reference — also used as the style shell.
+# Approved style shell — regenerate content into this look going forward.
 GOLDEN = SRC / "for-cursor-tt-quietbox-2-user-guide.docx"
 TEMPLATE = SRC / "_product-doc-template.docx"
 OUT_DOCX = SRC / "tt-quietbox-2-user-guide.docx"
