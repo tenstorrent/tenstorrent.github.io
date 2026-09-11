@@ -37,7 +37,7 @@ jobs:
       - name: Install the wheel
         run: |
           sudo apt-get update -y
-          sudo apt-get install -y pandoc
+          sudo apt-get install -y pandoc libreoffice-writer
           sudo apt install software-properties-common build-essential python3.12-venv libhwloc-dev graphviz
       - name: Install dependencies
         run: |

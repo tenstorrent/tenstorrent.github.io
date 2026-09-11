@@ -39,6 +39,7 @@ Reference Materials
    TT-QuietBox 2 Reference Guide <https://docs.tenstorrent.com/tt-quietbox2-guide/>
    Supported Models <https://tenstorrent.com/developers>
    Compliance and Legal <compliance-qb2>
-   
 
 
+*The TT-QuietBox 2 (Blackhole) user guide is also available as a PDF.*
+`Click here to download it. <tt-quietbox-2-user-guide.pdf>`__

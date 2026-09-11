@@ -98,3 +98,44 @@ html_context = {
 def setup(app):
     app.add_css_file("tt_theme.css")
     app.add_css_file("home.css")
+
+    def _maybe_rebuild_quietbox2_pdf(app_):  # noqa: ARG001
+        """Regenerate the QuietBox 2 user-guide PDF when its sources change."""
+        import sys
+        from pathlib import Path
+
+        repo = Path(__file__).resolve().parents[1]
+        script = repo / "scripts" / "build_quietbox2_user_guide.py"
+        if not script.exists():
+            return
+        sys.path.insert(0, str(script.parent))
+        try:
+            import build_quietbox2_user_guide as qb2
+
+            qb2.ensure_user_guide()
+        except Exception as exc:  # noqa: BLE001
+            # Never block the rest of the docs site on QuietBox PDF problems.
+            print(f"[quietbox2-user-guide] WARNING: PDF regen failed; continuing docs build: {exc}")
+
+    def _copy_quietbox2_pdf(app_, exception):
+        """Ship the PDF next to the QuietBox 2 index so the relative link works."""
+        if exception:
+            return
+        import shutil
+        from pathlib import Path
+
+        src = (
+            Path(__file__).resolve().parent
+            / "systems"
+            / "quietbox"
+            / "quietbox-bh-2"
+            / "tt-quietbox-2-user-guide.pdf"
+        )
+        if not src.exists():
+            return
+        dst_dir = Path(app_.outdir) / "systems" / "quietbox" / "quietbox-bh-2"
+        dst_dir.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(src, dst_dir / src.name)
+
+    app.connect("builder-inited", _maybe_rebuild_quietbox2_pdf)
+    app.connect("build-finished", _copy_quietbox2_pdf)
