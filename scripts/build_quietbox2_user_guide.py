@@ -929,42 +929,68 @@ def render_blocks(doc: Document, blocks: list[tuple], skip_first_h1: bool = True
             add_admonition(doc, block[1], block[2])
 
 
+ONLINE_NOTE = (
+    "Note: the most recent version of this user guide may be online. "
+    "Please visit docs.tenstorrent.com"
+)
+
+
 def prepare_front_matter(doc: Document) -> None:
     """Keep golden cover layout; refresh date; ensure Blackhole® on the title."""
     today = date.today()
-    for para in doc.paragraphs:
+    date_idx = None
+    paras = list(doc.paragraphs)
+    for i, para in enumerate(paras):
         text = para.text.strip()
         if re.match(
             r"^(January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},\s+\d{4}$",
             text,
         ):
             set_runs_text(para, today.strftime("%B %d, %Y"))
+            date_idx = i
         elif text.startswith("Month, Date") or text == "Month, Date Year":
             set_runs_text(para, today.strftime("%B %d, %Y"))
+            date_idx = i
+
+    # Place the online-note directly under the revision date.
+    if date_idx is not None:
+        note_para = None
+        for candidate in paras[date_idx + 1 : date_idx + 4]:
+            text = candidate.text.strip()
+            if text == "" or text.startswith("Note:"):
+                note_para = candidate
+                break
+        if note_para is not None:
+            set_runs_text(note_para, ONLINE_NOTE)
+            for run in note_para.runs:
+                if run.text:
+                    run.italic = True
+            # A little breathing room under the date line.
+            note_para.paragraph_format.space_before = Pt(12)
+            note_para.paragraph_format.space_after = Pt(0)
 
     # Title line 2 should read (Blackhole®) with a distinct ® run like QuietBox®.
     titles = [p for p in doc.paragraphs if p.style and p.style.name == "Title"]
     if len(titles) >= 2:
         para = titles[1]
-        if "®" in para.text:
-            return
-        # Prefer inserting ® after the "Blackhole" run (mirrors QuietBox® title runs).
-        for run in para.runs:
-            if run.text.strip() == "Blackhole":
-                r_reg = para.add_run("®")
-                # Move ® run immediately after the Blackhole run in XML order.
-                run._element.addnext(r_reg._element)
-                r_reg.font.superscript = True
-                if run.font.size:
-                    r_reg.font.size = run.font.size
-                if run.font.name:
-                    r_reg.font.name = run.font.name
-                r_reg.bold = run.bold
-                return
-        # Fallback: rewrite the whole subtitle.
-        set_runs_text(para, "")
-        append_text_with_trademarks(para, "(Blackhole®)")
-
+        if "®" not in para.text:
+            # Prefer inserting ® after the "Blackhole" run (mirrors QuietBox® title runs).
+            for run in para.runs:
+                if run.text.strip() == "Blackhole":
+                    r_reg = para.add_run("®")
+                    # Move ® run immediately after the Blackhole run in XML order.
+                    run._element.addnext(r_reg._element)
+                    r_reg.font.superscript = True
+                    if run.font.size:
+                        r_reg.font.size = run.font.size
+                    if run.font.name:
+                        r_reg.font.name = run.font.name
+                    r_reg.bold = run.bold
+                    break
+            else:
+                # Fallback: rewrite the whole subtitle.
+                set_runs_text(para, "")
+                append_text_with_trademarks(para, "(Blackhole®)")
 def clear_chapter_body(doc: Document) -> None:
     """Keep cover + legal + trademarks + TOC heading; remove chapter content."""
     # Body tables live in the chapters — remove them all before cutting paragraphs.
