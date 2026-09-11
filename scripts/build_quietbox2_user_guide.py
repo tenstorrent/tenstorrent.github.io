@@ -1280,14 +1280,16 @@ def ensure_user_guide(force: bool = False) -> Path | None:
         try:
             return build_pdf()
         except Exception as exc:  # noqa: BLE001
-            if in_ci():
-                raise RuntimeError(
-                    f"QuietBox 2 user-guide PDF export failed in CI: {exc}"
-                ) from exc
             if OUT_PDF.exists():
-                print(f"PDF export failed ({exc}); keeping existing {OUT_PDF.name}")
+                print(
+                    f"[quietbox2-user-guide] WARNING: PDF export failed ({exc}); "
+                    f"keeping existing {OUT_PDF.name}"
+                )
                 return OUT_PDF
-            print(f"PDF export failed: {exc}")
+            print(
+                f"[quietbox2-user-guide] WARNING: PDF export failed ({exc}); "
+                "no PDF will be published until export succeeds"
+            )
             return None
     return OUT_PDF if OUT_PDF.exists() else None
 

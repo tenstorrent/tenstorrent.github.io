@@ -4,3 +4,6 @@ _build/
 output/
 .superpowers/
 ~$*
+
+__pycache__/
+*.pyc
