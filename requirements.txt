@@ -11,3 +11,5 @@ sphinx-sitemap
 sphinx-copybutton
 sphinx-togglebutton
 sphinxcontrib-mermaid
+python-docx
+Pillow

@@ -7,12 +7,12 @@ preserving template title styles, legal/trademark front matter, and footers.
 
 from __future__ import annotations
 
+import os
 import re
 import sys
+from copy import deepcopy
 from datetime import date
 from pathlib import Path
-
-from copy import deepcopy
 
 from docx import Document
 from docx.enum.text import WD_BREAK
@@ -27,11 +27,19 @@ SRC = REPO / "core" / "systems" / "quietbox" / "quietbox-bh-2"
 GOLDEN = SRC / "for-cursor-tt-quietbox-2-user-guide.docx"
 TEMPLATE = SRC / "_product-doc-template.docx"
 OUT_DOCX = SRC / "tt-quietbox-2-user-guide.docx"
+OUT_PDF = SRC / "tt-quietbox-2-user-guide.pdf"
 
 CHAPTERS = [
     ("specifications.md", "Specifications"),
     ("setup.md", "Hardware and Software Setup"),
     ("compliance-qb2.md", "Compliance and Legal"),
+]
+
+SOURCE_MD = [SRC / name for name, _ in CHAPTERS]
+BUILD_INPUTS = [
+    *SOURCE_MD,
+    GOLDEN,
+    Path(__file__).resolve(),
 ]
 
 IMG_WIDTH = Inches(4.5)
@@ -934,15 +942,56 @@ ONLINE_NOTE = (
     "Please visit docs.tenstorrent.com"
 )
 
+REVISION_PATHS = [
+    *SOURCE_MD,
+    GOLDEN,
+    Path(__file__).resolve(),
+]
+
+
+def compute_revision() -> str:
+    """Deterministic revision from git history of guide sources.
+
+    Format: 1.<N> where N is the number of commits that touched the guide
+    inputs. Same commit ⇒ same revision (safe for repeated CI rebuilds);
+    content commits bump N automatically.
+    """
+    import subprocess
+
+    try:
+        result = subprocess.run(
+            [
+                "git",
+                "-C",
+                str(REPO),
+                "rev-list",
+                "--count",
+                "HEAD",
+                "--",
+                *[str(p.relative_to(REPO)) if p.is_relative_to(REPO) else str(p) for p in REVISION_PATHS],
+            ],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        if result.returncode == 0 and result.stdout.strip().isdigit():
+            return f"1.{int(result.stdout.strip())}"
+    except Exception:  # noqa: BLE001
+        pass
+    return "1.0"
+
 
 def prepare_front_matter(doc: Document) -> None:
-    """Keep golden cover layout; refresh date; ensure Blackhole® on the title."""
+    """Keep golden cover layout; refresh date/revision; ensure Blackhole® on the title."""
     today = date.today()
+    revision = compute_revision()
     date_idx = None
     paras = list(doc.paragraphs)
     for i, para in enumerate(paras):
         text = para.text.strip()
-        if re.match(
+        if re.match(r"^Revision\s+[\d.]+$", text, flags=re.IGNORECASE):
+            set_runs_text(para, f"Revision {revision}")
+        elif re.match(
             r"^(January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},\s+\d{4}$",
             text,
         ):
@@ -1062,5 +1111,191 @@ def build() -> Path:
     return OUT_DOCX
 
 
+def inputs_newer_than(target: Path) -> bool:
+    """True if any build input is missing-target or newer than target."""
+    if not target.exists():
+        return True
+    target_mtime = target.stat().st_mtime
+    for path in BUILD_INPUTS:
+        if path.exists() and path.stat().st_mtime > target_mtime:
+            return True
+    # Also rebuild PDF when the DOCX itself is newer.
+    if target == OUT_PDF and OUT_DOCX.exists() and OUT_DOCX.stat().st_mtime > target_mtime:
+        return True
+    return False
+
+
+def export_pdf_via_word(docx_path: Path, pdf_path: Path) -> None:
+    """Export DOCX → PDF with Microsoft Word (best fidelity on macOS)."""
+    import subprocess
+
+    docx_path = docx_path.resolve()
+    pdf_path = pdf_path.resolve()
+    if pdf_path.exists():
+        pdf_path.unlink()
+
+    script = f'''
+tell application "Microsoft Word"
+  activate
+  set docPath to POSIX file "{docx_path}"
+  open docPath
+  delay 2
+  set theDoc to active document
+
+  set n to count of fields of theDoc
+  repeat with i from 1 to n
+    try
+      update field field i of theDoc
+    end try
+  end repeat
+  try
+    set sec to section 1 of theDoc
+    set hf to get footer sec index header footer primary
+    set tr to text object of hf
+    repeat with j from 1 to (count of fields of tr)
+      update field field j of tr
+    end repeat
+  end try
+
+  set pdfPOSIX to "{pdf_path}"
+  save as theDoc file name pdfPOSIX file format format PDF
+  close theDoc saving no
+end tell
+'''
+    result = subprocess.run(
+        ["osascript", "-e", script],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if result.returncode != 0 or not pdf_path.exists():
+        err = (result.stderr or result.stdout or "unknown error").strip()
+        raise RuntimeError(f"Word PDF export failed: {err}")
+
+
+def _find_libreoffice() -> str | None:
+    import shutil
+
+    for name in ("soffice", "libreoffice"):
+        path = shutil.which(name)
+        if path:
+            return path
+    for candidate in (
+        "/Applications/LibreOffice.app/Contents/MacOS/soffice",
+        "/usr/local/bin/soffice",
+        "/opt/homebrew/bin/soffice",
+    ):
+        if Path(candidate).exists():
+            return candidate
+    return None
+
+
+def export_pdf_via_libreoffice(docx_path: Path, pdf_path: Path) -> None:
+    """Export DOCX → PDF with LibreOffice (CI / headless fallback)."""
+    import shutil
+    import subprocess
+    import tempfile
+
+    soffice = _find_libreoffice()
+    if not soffice:
+        raise RuntimeError(
+            "LibreOffice (soffice) not found. Install libreoffice-writer "
+            "for headless PDF export."
+        )
+
+    docx_path = docx_path.resolve()
+    pdf_path = pdf_path.resolve()
+    pdf_path.parent.mkdir(parents=True, exist_ok=True)
+
+    with tempfile.TemporaryDirectory(prefix="qb2-pdf-") as tmp:
+        tmp_dir = Path(tmp)
+        cmd = [
+            soffice,
+            "--headless",
+            "--nologo",
+            "--nofirststartwizard",
+            "--norestore",
+            "--convert-to",
+            "pdf",
+            "--outdir",
+            str(tmp_dir),
+            str(docx_path),
+        ]
+        result = subprocess.run(cmd, capture_output=True, text=True, check=False)
+        produced = tmp_dir / f"{docx_path.stem}.pdf"
+        if result.returncode != 0 or not produced.exists():
+            err = (result.stderr or result.stdout or "unknown error").strip()
+            raise RuntimeError(f"LibreOffice PDF export failed: {err}")
+        if pdf_path.exists():
+            pdf_path.unlink()
+        shutil.move(str(produced), str(pdf_path))
+
+
+def export_pdf(docx_path: Path, pdf_path: Path) -> str:
+    """Export PDF via Word when available, otherwise LibreOffice."""
+    if (
+        sys.platform == "darwin"
+        and not os.environ.get("CI")
+        and not os.environ.get("GITHUB_ACTIONS")
+    ):
+        try:
+            export_pdf_via_word(docx_path, pdf_path)
+            return "word"
+        except Exception as word_exc:  # noqa: BLE001
+            print(f"Word PDF export unavailable ({word_exc}); trying LibreOffice…")
+    export_pdf_via_libreoffice(docx_path, pdf_path)
+    return "libreoffice"
+
+
+def build_pdf(docx_path: Path | None = None) -> Path:
+    """Export the user guide PDF next to the DOCX."""
+    docx_path = docx_path or OUT_DOCX
+    if not docx_path.exists():
+        raise SystemExit(f"Missing DOCX to export: {docx_path}")
+    engine = export_pdf(docx_path, OUT_PDF)
+    print(f"Wrote {OUT_PDF} ({OUT_PDF.stat().st_size // 1024} KB) via {engine}")
+    return OUT_PDF
+
+
+def in_ci() -> bool:
+    return bool(os.environ.get("CI") or os.environ.get("GITHUB_ACTIONS"))
+
+
+def ensure_user_guide(force: bool = False) -> Path | None:
+    """Rebuild DOCX/PDF when sources change. Returns PDF path if available.
+
+    In CI, always rebuild so deploys never depend on a human regenerating the PDF.
+    """
+    force = force or in_ci()
+    need_docx = force or inputs_newer_than(OUT_DOCX)
+    need_pdf = force or inputs_newer_than(OUT_PDF)
+
+    if need_docx:
+        build()
+        need_pdf = True
+    elif need_pdf and not OUT_DOCX.exists():
+        build()
+
+    if need_pdf or not OUT_PDF.exists():
+        try:
+            return build_pdf()
+        except Exception as exc:  # noqa: BLE001
+            if in_ci():
+                raise RuntimeError(
+                    f"QuietBox 2 user-guide PDF export failed in CI: {exc}"
+                ) from exc
+            if OUT_PDF.exists():
+                print(f"PDF export failed ({exc}); keeping existing {OUT_PDF.name}")
+                return OUT_PDF
+            print(f"PDF export failed: {exc}")
+            return None
+    return OUT_PDF if OUT_PDF.exists() else None
+
+
 if __name__ == "__main__":
-    build()
+    force = "--force" in sys.argv
+    pdf_only = "--pdf-only" in sys.argv
+    if pdf_only:
+        build_pdf()
+    else:
+        ensure_user_guide(force=force)
