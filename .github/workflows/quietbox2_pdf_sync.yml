@@ -1,0 +1,26 @@
+name: QuietBox 2 PDF sync check
+
+on:
+  pull_request:
+    paths:
+      - "core/systems/quietbox/quietbox-bh-2/specifications.md"
+      - "core/systems/quietbox/quietbox-bh-2/setup.md"
+      - "core/systems/quietbox/quietbox-bh-2/compliance-qb2.md"
+      - "core/systems/quietbox/quietbox-bh-2/tt-quietbox-2-user-guide.pdf"
+      - "core/systems/quietbox/quietbox-bh-2/index.rst"
+      - "scripts/check_quietbox2_pdf_sync.sh"
+      - ".github/workflows/quietbox2_pdf_sync.yml"
+
+jobs:
+  check-pdf-sync:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify PDF updated when source pages change
+        run: |
+          chmod +x scripts/check_quietbox2_pdf_sync.sh
+          scripts/check_quietbox2_pdf_sync.sh "${{ github.event.pull_request.base.sha }}"
