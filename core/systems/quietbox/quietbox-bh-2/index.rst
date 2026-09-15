@@ -41,5 +41,5 @@ Reference Materials
    Compliance and Legal <compliance-qb2>
 
 
-*The TT-QuietBox 2 (Blackhole) user guide is also available as a PDF.*
-`Click here to download it. <tt-quietbox-2-user-guide.pdf>`__
+The TT-QuietBox 2 (Blackhole) user guide is also available as a PDF:
+`TT-QuietBox 2 (Blackhole) User Guide (PDF) <tt-quietbox-2-user-guide.pdf>`__ — Version 1.65. Last Updated: September 11, 2026.
