@@ -42,4 +42,4 @@ Reference Materials
 
 
 The TT-QuietBox 2 (Blackhole) user guide is also available as a PDF:
-`TT-QuietBox 2 (Blackhole) User Guide (PDF) <tt-quietbox-2-user-guide.pdf>`__ — Version 1.65. Last Updated: September 11, 2026.
+`Download it here <tt-quietbox-2-user-guide.pdf>`__ — Version 1.65. Last Updated: September 11, 2026.
