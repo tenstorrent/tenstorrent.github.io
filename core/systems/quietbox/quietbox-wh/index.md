@@ -95,7 +95,7 @@ Follow these steps to unbox your TT-QuietBox Wormhole™ workstation:
 
 Follow these steps to set up the hardware for your TT-QuietBox Wormhole™ workstation:
 
-1. **Connect the power cable.** Connect the provided C13 power cable to the workstation and then to a dedicated power outlet.  
+1. **Connect the power cable.** Connect the provided C19 power cable to the workstation and then to a dedicated power outlet.  
 
 ![](qb_setup_power.jpg)
 
@@ -215,7 +215,7 @@ This document provides system administrators and engineers with detailed technic
 The Tenstorrent TT-QuietBox Wormhole (TW-04001) system package includes the following items:
 
 * Tenstorrent TT-QuietBox Wormhole System  
-* C13 Power Cable, 1.8m/6ft.  
+* C19 Power Cable, 1.8m/6ft.  
 * 2x QSFP-DD 400GbE Cable, 0.6m/2ft.  
 * VGA-to-HDMI Adapter
 
@@ -261,7 +261,7 @@ Failure to follow these electrical safety instructions may result in electric sh
 
 * Connect the system to a dedicated AC power circuit with sufficient capacity to support the full power draw of the TT-QuietBox Blackhole® workstation, including peak loads under heavy AI model execution.  
 * Do not share the outlet with other high-power devices. Avoid using household surge strips, extension cords, or multi-outlet power taps; not all are rated for the sustained current of this system.  
-* Use only the provided C13 power cable, and ensure it is plugged into a properly grounded outlet. Do not bypass or disable the grounding pin.  
+* Use only the provided C19 power cable, and ensure it is plugged into a properly grounded outlet. Do not bypass or disable the grounding pin.  
 * Verify that the circuit wiring and breaker rating meet or exceed the combined system requirements, including liquid-cooling support and all accelerator cards.  
 * If the circuit becomes overloaded or if the breaker trips during power-up or operation, immediately disconnect and remove power. Then, have a qualified electrician inspect and verify the circuit’s capacity before resuming setup.  
 * Never attempt to reset or bypass a tripped breaker without first confirming the circuit integrity; failure to do so may result in overheating, voltage drop, or irreversible damage.
