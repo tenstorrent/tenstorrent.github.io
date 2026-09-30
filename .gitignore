@@ -7,3 +7,5 @@ output/
 
 __pycache__/
 *.pyc
+
+core/systems/quietbox/quietbox-bh-2/tt-quietbox-2-user-guide.docx
