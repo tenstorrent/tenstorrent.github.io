@@ -12,7 +12,7 @@ From the generator folder:
 python build_quietbox2_user_guide.py --force
 ```
 
-That reads the QuietBox 2 web pages (specifications, setup, compliance, and their figures), writes `core/systems/quietbox/quietbox-bh-2/tt-quietbox-2-user-guide.pdf`, and sets the index download line to the same revision and date as the PDF cover.
+That reads the QuietBox 2 web pages (specifications, setup, compliance, and their figures) and writes one version and one date into both places: the PDF cover (`Version 1.<N>`) and the index download line. Do not edit either by hand. The PR check reads both files and fails if those strings differ.
 
 The revision is `1.<N>`, where `<N>` is the number of git commits that touch those source pages. Do not type the version by hand.
 

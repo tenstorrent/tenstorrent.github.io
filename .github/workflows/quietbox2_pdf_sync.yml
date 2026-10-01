@@ -25,6 +25,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Install poppler
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+
       - name: Verify PDF updated when QuietBox 2 sources change
         run: |
           chmod +x scripts/check_quietbox2_pdf_sync.sh
