@@ -8,79 +8,36 @@ myst:
 
 # Blackhole® PCIe Cards
 
-This page covers everything for Tenstorrent Blackhole® PCIe cards: how to
-install and connect them, their full hardware specifications, and answers to
-common hardware questions. Use the page navigation on the right to jump between
-sections.
+This section covers Tenstorrent Blackhole® p100a, p150a, and p150b PCIe cards: how to choose a host system, install the cards, connect multiple cards into a mesh, and [troubleshoot common problems](faq.md).
 
-## Hardware Installation
-This document guides system administrators and users through the process of physically installing and connecting Tenstorrent Blackhole® p100a, Blackhole® p150a, and Blackhole® p150b add-in boards into a host system. You will learn the necessary pre-installation steps, installation procedures for desktop workstations, and how to connect power.
+```{toctree}
+:maxdepth: 1
 
----
+host-hardware
+installation
+multi-card-topologies
+faq
+```
 
-### Pre-Installation
+| If you want to... | Go to |
+| --- | --- |
+| Review ideal host system components, including motherboards, CPUs, cases, and power supplies before setup | <a href="host-hardware.html">Choosing Host Hardware</a> |
+| Install a card and connect power | <a href="installation.html">Installing a Card</a> |
+| Link 2, 4, or 8 cards together | <a href="multi-card-topologies.html">Multi-Card Topologies</a> |
+| Fix enumeration, power, thermal, or cabling problems | {doc}`FAQ and Troubleshooting <faq>` |
+| Install drivers, firmware, and TT-Metalium™ | {doc}`Installing Tenstorrent Software </getting-started/README>` |
 
-Before you begin the installation process, complete the following steps:
+## Choosing a Card
 
-1. Disconnect power from the host computer.  
-2. Verify that your system meets the following requirements:  
-   * **PCI Express 5.0 x16 slot**: For optimal performance, the board requires a x16 configuration without bifurcation.  
-     * Blackhole® p100a and Blackhole® p150a products are dual-slot width boards with active coolers. Tenstorrent recommends leaving the adjacent slot unoccupied to ensure optimal airflow.  
-     * Blackhole® p150b is a dual-slot width board with a passive heatsink, designed for rack-mounted systems with sufficient active airflow.
-     :::{warning}
-     An **ATX 3.1 Certified power supply** or better is required. Using an older or inadequate power supply may result in system instability.  
-     :::
-   * One (1) **12+4-pin 12V-2x6 power connector**.  
-     :::{note}
-     If your PSU does not have this connector available, see the [FAQ and Troubleshooting](#faq-and-troubleshooting) section to determine which adapter to use.
-     :::
-3. Discharge static electricity from your body by wearing an **ESD wrist strap** (*recommended*) or by touching a grounded surface before touching system components or the add-in board.
-
-### Desktop Workstation Installation (p100a/p150a)
-
-:::{note}
-Images shown might not fully represent your specific system configuration.
+:::{Note}
+For a desktop build, do not use the p150b card. The p150a has an active cooler for conventional desktop systems. The p150b has a passive heatsink and requires the high static pressure, forced air cooling of a rack-mounted server.
 :::
 
-Insert the **Blackhole®** add-in board into the **PCIe x16 slot** and secure it with the necessary screws. (A Blackhole® p150a is pictured below for reference.)
+* **p100a:** The entry point in the Blackhole® product stack, great for evaluating Tenstorrent technology. It has 28 GB of GDDR6 and an active cooler, and is intended for single-card operation in conventional desktop systems. It has no card-to-card ports.
+* **p150a:** 32 GB of GDDR6 and four passive 800 Gbps QSFP-DD ports for networking with other p150a/p150b cards. It has an active cooler and is intended for single- or multi-card operation in conventional desktop systems.
+* **p150b:** Identical to the p150a except for the active cooler. The p150b relies on existing high static pressure, forced air cooling in the host system. It is intended for single- or multi-card operation in rack-mounted servers.
 
-![](./images/bh_d_install.png)
-
-### Connecting Power
-
-Connect a **12+4-pin 12V-2x6 power cable** to the plug on the back of the add-in board.
-:::{important}
-Ensure the power cable is fully and securely connected to prevent instability or damage.
-:::
-
-![](./images/bh_power.png)
-
-### Software Setup
-
-For instructions on how to set up software for your Blackhole® p100a, Blackhole® p150a, or Blackhole® p150b, refer to the [Installing the Tenstorrent Software Stack guide.](../../getting-started/README.md)
-
----
-
-### **Need Additional Support?**
-If you encounter any issues, or have a question that isn't covered in the documentation, please [raise a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1) Our team will review your request and provide assistance.
-
-## Specifications and Requirements
-This document provides detailed technical specifications for the Tenstorrent Blackhole® Tensix Processor and its associated add-in boards. It is intended for users, system integrators, and developers who require precise information about the hardware capabilities and system requirements for deploying Blackhole-based solutions.
-
-
-### Blackhole® Tensix Processor Overview
-The Tenstorrent Blackhole® Tensix Processor powers the Blackhole® p100a, p150a, and p150b cards. The processor features:
-
-* Tensix core count: 120  
-* SiFive x280 "Big RISC-V" cores: 16  
-* SRAM: 180 MB (1.5 MB per Tensix core)  
-* Memory: up to 32 GB GDDR6 with a 256-bit memory bus
-
-###  Card Comparison Table
-
-:::{note}
-The **p100a** and **p150a** cards are designed for desktop workstations where active cooling is required. For rack-mounted servers with sufficient forced air cooling, use the **p150b** card.
-:::
+## Specifications
 
 | Specification             | p100a                       | p150a                       | p150b                       |
 | ------------------------- | --------------------------- | --------------------------- | --------------------------- |
@@ -120,15 +77,13 @@ The **p100a** and **p150a** cards are designed for desktop workstations where ac
 
 ### Connectivity (p150a/p150b)
 
-Blackhole® PCIe cards feature four QSFP-DD ports for connecting to other cards. *(p150b pictured; p150a will have the same ports.)*
+The p150a and p150b each have four QSFP-DD ports on the card bracket. Each passive port provides 800 Gbps and connects only to other Blackhole®-based cards. See <a href="multi-card-topologies.html">Multi-Card Topologies</a> for guidance on how to cable them together.
 
 ![](./images/bh_portspec.png)
 
-Each of the four passive QSFP-DD ports provides 800 Gbps connectivity and supports cable lengths of up to 2 meters (6.5 feet). These ports connect exclusively to other Blackhole®-based add-in cards.
+*p150b pictured; the p150a has the same ports.*
 
 ### Supported Data Precision Formats
-
-The Blackhole® Tensix Processor supports the following data precision formats:
 
 | Format               | Bit Depth (Tensix Cores)                    | Bit Depth (Big RISC-V Cores)    |
 | -------------------- | ------------------------------------------- | ------------------------------- |
@@ -139,23 +94,21 @@ The Blackhole® Tensix Processor supports the following data precision formats:
 | TensorFloat          | TF32                                        | -                               |
 | Vector               | VTF19, VFP32                                | VFP64                           |
 
-### Minimum System Requirements
+## Minimum System Requirements
 
-| Part                | Requirement                                                  |
-| ------------------- | ------------------------------------------------------------ |
-| CPU                 | x86_64 architecture<br />*CPU core count and number of sockets will depend on the amount of host preprocessing and post-processing required before and after the accelerator processing.* |
-| Motherboard         | PCI Express 5.0 x16 slot<br />Dual-slot width<br />*Cards can function in slots with reduced connectivity at potentially reduced performance.* |
-| Memory              | 64 GB                                                        |
-| Storage             | 100 GB (≥2 TB recommended)                                   |
-| Power Connectors    | 12+4-pin 12V-2x6                                             |
-| Total Board Power   | Up to 300W                                                   |
-| Power Supply        | ATX 3.1 Certified or better                                  |
-| Operating System    | Ubuntu version 22.04 (Jammy Jellyfish)<br />*To check your version, type `cat /etc/os-release`*. |
-| Internet Connection | Required for driver and stack installation.                  |
+| Part                | Requirement                                                                                                      |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| CPU                 | x86_64 architecture. Core count and socket count depend on the host pre- and post-processing your workload needs. |
+| Motherboard         | PCI Express 5.0 x16 slot, dual-slot width. Cards can function in slots with reduced connectivity at potentially reduced performance. |
+| Memory              | 64 GB                                                                                                            |
+| Storage             | 100 GB (≥2 TB recommended)                                                                                       |
+| Power Connectors    | 12+4-pin 12V-2x6                                                                                                 |
+| Total Board Power   | Up to 300W per card                                                                                              |
+| Power Supply        | ATX 3.1 Certified or better                                                                                      |
+| Operating System    | Ubuntu 22.04 (Jammy Jellyfish).                                                                                  |
+| Internet Connection | Required for driver and stack installation.                                                                      |
 
-### Environment Specifications
-
-The Blackhole® Tensix Processor cards are designed to meet these environmental specifications:
+## Environment
 
 | Specification               | Requirement               |
 | --------------------------- | ------------------------- |
@@ -164,78 +117,8 @@ The Blackhole® Tensix Processor cards are designed to meet these environmental 
 | Elevation                   | -5 ft. to 10,000 ft.      |
 | Air Flow                    | ≥30 CFM @ up to 35°C/95°F |
 
-## FAQ and Troubleshooting
-This document assists Tenstorrent users in resolving common issues encountered with Blackhole® AI Processors. It provides solutions and directs users to appropriate support resources.
-
-### **How do I choose between the Tenstorrent Blackhole® p100a/p150a/p150b?**
-
-- **p100a:** This card is the economical entry point in the Blackhole® product stack and exists for users looking to evaluate Tenstorrent technology. It features 28 GB of GDDR6 and an **active cooling solution** that conforms to industry PCI specifications, and is intended for **single card operation** in **conventional desktop systems**.
-- **p150a:** This card provides additional local memory (32 GB) compared to p100a and slightly higher compute density. It also features four passive 800 Gbps QSFP-DD ports used for networking with other Tenstorrent Blackhole® p150a/p150b cards.  It features an **active cooling solution** that conforms to industry PCI specifications, and is intended for **single- or multi-card operation** in **conventional desktop systems**.
-- **p150b:** This card features identical specifications to p150a, but features a **passive cooling solution** that conforms to industry PCI specifications, and is intended for **single- or multi-card operation** in **rack-mounted servers** with **existing high static pressure, forced air cooling**.
-
-### **What PSU and Connector should I use to connect my Blackhole card?**
-
-Tenstorrent Blackhole cards use a 12V-2x6 (12+4-pin) power connector and are designed for use with ATX 3.1-certified or newer Power Supply Units (PSUs). Native PSU support via a 12V-2x6 connector is the recommended configuration.
-
-Never use an ATX 2.0 or older PSU.
-
-### **My PSU doesn't have a 12V-2x6 (12+4-pin) power connector available. What adapter should I get for my Blackhole card?**
-
-If a native 12V-2x6 connector is not available, Blackhole cards may be powered using a PSU-manufacturer-approved adapter that combines standard 8-pin PCIe and/or EPS 4+4-pin connectors, provided the combined power delivery meets the card's total power requirements and the PSU is ATX 3.1 certified or better. Each input cable must be connected to a separate PSU output.
-
-The Blackhole cards require 300W of power to function. Ensure that the combination of PSU outputs meets this requirement, and that the total load on your PSU does not exceed the total PSU output power.
-
-To ensure electrical compatibility and prevent hardware damage, only power cables and adapters supplied or explicitly approved by the PSU manufacturer should be used. Many PSU manufacturers key the connectors so that only their power connector works. The power connector must be fully seated, and tight bends near the connector should be avoided.
-
-Use of older 12VHPWR cables is not recommended, even though they are physically compatible with the 12V-2x6 connector. The 12V-2x6 standard replaced 12VHPWR to reduce the risk of overheating (and melting) associated with improper connector seating.
-
-### **Which QSFP cable(s) should I purchase for my Tenstorrent Blackhole® cards?**
-
-For standard short-reach setups, validated 0.5m QSFP cables are available directly on the Tenstorrent store [hardware cards page](https://tenstorrent.com/hardware/cards).
-
-If you need 1m cables, we recommend either [Amphenol 1m (3.3 ft.) 800G Passive QSFP-DD (SF-NJYYEK0001-001M)](https://cablesondemand.com/qsfp-dd-direct-attach-cables-200g-400g-800g-dac-1/amphenol-sf-njyyek0001-001m-1m-3-3-800g-qsfp-dd-112g-cable-800-gigabit-ethernet-passive-direct-attach-qsfp-double-density-112g-cable-dual-entry-32-awg-qsfp-dd-112g-to-qsfp-dd-112g-sf-njyyek0001-001m) or [FS 1m (3 ft.) 800G Passive QSFP-DD (QDD-800G-PC01)](https://www.fs.com/products/154259.html?attribute=36923&id=3720628).
-
-### **The idle power consumption of my Tenstorrent Blackhole® card seems high**
-
-Blackhole® AI Processors typically consume approximately 75W at idle. When measuring power at the wall, you might observe a higher power draw because the power supply converts AC current from the wall to DC current within the system, resulting in some expected loss.
-
-Tenstorrent is exploring methods to further optimize idle power consumption through firmware updates and in future products.
-
-### **The temperatures reported by my Tenstorrent Blackhole® card seem high**
-
-The Blackhole AI Processor is designed to operate safely and continuously at temperatures up to 95°C, even if the ASIC temperature appears high. Existing cooling solutions maintain the Blackhole AI Processor chip, power circuitry, and memory ICs within safe operating specifications. The card automatically reduces clock speeds to prevent overheating.
-
-Tenstorrent is exploring methods to further optimize default operation through firmware updates and in future products.
-
-
-### **The fan noise of my Tenstorrent Blackhole® p100a/p150a card is too quiet/too loud**
-
-Tenstorrent has received varied feedback regarding fan noise levels. Some users express concern about the noise level of their p100a or p150a models, while others prefer to tolerate increased noise to achieve lower idle and operating temperatures.
-
-Tenstorrent is evaluating the addition of end-user fan controls in a future update.
-
-### **What do I do if my Tenstorrent Blackhole® card is not enumerating?**
-
-Blackhole® PCIe cards are designed to operate using PCI Express Gen 5.0. However, Tenstorrent has observed instances where some motherboards set PCIe operation to *Auto* (often by default), which can prevent the card from enumerating. You can often resolve these issues by manually forcing PCIe operation to `Gen 4.0` or `Gen 5.0` in the **BIOS**.
-
-:::{important}
-Once you successfully enter an operating environment where the card has enumerated, ensure that you update to the latest firmware. Refer to the [Installing the Tenstorrent Software Stack guide.](../../getting-started/README.md)
-:::
-
-### **How can I demonstrate the networking ability of my Tenstorrent Blackhole® cards? How can I test multiple cards together?**
-
-Setting up the Llama 3.1 8B model demo (instructions [here](https://github.com/tenstorrent/tt-metal/tree/main/models/tt_transformers)) is a useful way to test that your networked Blackhole® cards are functioning as intended.
-
----
-
-### **Need Additional Support?**
-If you encounter any issues, or have a question that isn't covered in the documentation, please [raise a support request.](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1) Our team will review your request and provide assistance.
-
-## Accessories
-
-* [QSFP-DD Cable](https://tenstorrent.com/hardware/blackhole)
-
 ## Related pages
 
-* {doc}`Software Setup </getting-started/README>` — install the Tenstorrent software stack.
-* {doc}`Compliance and Legal </aibs/compliance>` — regulatory and compliance information.
+* {doc}`FAQ and Troubleshooting <faq>`
+* {doc}`Installing Tenstorrent Software </getting-started/README>`
+* {doc}`Compliance and Legal </aibs/compliance>`
