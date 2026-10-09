@@ -276,6 +276,56 @@
 <script src="{{ pathto('_static/sidebar-scroll.js', 1) }}"></script>
 <script src="{{ pathto('_static/external-nav-links.js', 1) }}"></script>
 <script src="{{ pathto('_static/docs-toc.js', 1) }}"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('sup').forEach(function (sup) {
+    if (sup.textContent === '®') sup.classList.add('reg');
+  });
+  var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+    acceptNode: function (node) {
+      if (!node.nodeValue || node.nodeValue.indexOf('®') === -1) return NodeFilter.FILTER_REJECT;
+      var parent = node.parentElement;
+      if (!parent || parent.closest('sup, script, style, textarea, noscript')) return NodeFilter.FILTER_REJECT;
+      return NodeFilter.FILTER_ACCEPT;
+    }
+  });
+  var nodes = [];
+  var current;
+  while ((current = walker.nextNode())) nodes.push(current);
+  nodes.forEach(function (node) {
+    var parts = node.nodeValue.split('®');
+    var frag = document.createDocumentFragment();
+    parts.forEach(function (part, i) {
+      if (part) frag.appendChild(document.createTextNode(part));
+      if (i < parts.length - 1) {
+        var sup = document.createElement('sup');
+        sup.className = 'reg';
+        sup.textContent = '®';
+        frag.appendChild(sup);
+      }
+    });
+    node.parentNode.replaceChild(frag, node);
+  });
+  /* Headings are a flex row so the permalink stays centered. Keep the title
+     text in one item so a <sup> in the middle cannot split it into columns. */
+  document.querySelectorAll('.document h1, .document h2, .document h3, .document h4').forEach(function (heading) {
+    if (heading.querySelector(':scope > .tt-heading-text')) return;
+    var text = document.createElement('span');
+    text.className = 'tt-heading-text';
+    var child = heading.firstChild;
+    while (child) {
+      var next = child.nextSibling;
+      if (!(child.nodeType === 1 && child.classList && child.classList.contains('headerlink'))) {
+        text.appendChild(child);
+      }
+      child = next;
+    }
+    var link = heading.querySelector(':scope > a.headerlink');
+    if (link) heading.insertBefore(text, link);
+    else heading.appendChild(text);
+  });
+});
+</script>
 <script id="tt-search-script" src="{{ pathto('_static/tt-search.js', 1) }}"
         data-search-url="{{ pathto('search') }}"
         data-search-api-base="{{ search_api_base | default('https://csl860x2oj.execute-api.us-east-2.amazonaws.com/prod', true) }}"
