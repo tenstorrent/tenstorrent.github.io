@@ -24,17 +24,17 @@ Many manufacturers key their connectors so that only their own cables work. Full
 
 ## **Which QSFP-DD cables should I buy?**
 
-See <a href="multi-card-topologies.html">Multi-Card Topologies</a>.
+See [Multi-Card Topologies](multi-card-topologies.md#cables).
 
 ## **My card is not enumerating**
 
-Blackhole® cards are designed for PCIe Gen 5.0, but some motherboards default PCIe operation to Auto, which can prevent enumeration. In the BIOS, force the slot to `Gen 4.0` or `Gen 5.0`. Also check that the card is fully seated and that the power cable is connected.
+Blackhole® cards are designed for PCIe Gen 5.0, but some motherboards default PCIe operation to Auto, which can prevent enumeration. In the BIOS, force the slot to `Gen 4.0` or `Gen 5.0`. Also check that the card is fully seated and that the power cable is connected. See [Installing a Blackhole® Card](installation.md) and [Choosing Host Hardware](host-hardware.md#bios-requirements).
 
 Once the card enumerates, update to the latest firmware. See {doc}`Installing Tenstorrent Software </getting-started/README>`.
 
 ## **TT-SMI does not work correctly**
 
-Check that PCIe AER Reporting Mechanism is set to `OS First` in the BIOS.
+Check that PCIe AER Reporting Mechanism is set to `OS First` in the BIOS. See [Choosing Host Hardware](host-hardware.md#bios-requirements).
 
 ## **The idle power consumption seems high**
 
@@ -50,11 +50,11 @@ Feedback on p100a and p150a fan noise varies. Tenstorrent is evaluating end-user
 
 ## **How can I test multiple cards together?**
 
-Set up the Llama 3.1 8B demo from [TT-Transformers](https://github.com/tenstorrent/tt-metal/tree/main/models/tt_transformers). See also <a href="multi-card-topologies.html">Multi-Card Topologies</a>.
+Set up the Llama 3.1 8B demo from [TT-Transformers](https://github.com/tenstorrent/tt-metal/tree/main/models/tt_transformers). See also [Multi-Card Topologies](multi-card-topologies.md#verify-the-topology).
 
 ## **My new host has no network after installing Ubuntu**
 
-Some motherboards need a network driver that stock Ubuntu lacks. See <a href="host-hardware.html">Choosing Host Hardware</a>.
+Some motherboards need a network driver that stock Ubuntu lacks. See [Choosing Host Hardware](host-hardware.md#operating-system-and-motherboard-drivers).
 
 ## **Need additional support?**
 
