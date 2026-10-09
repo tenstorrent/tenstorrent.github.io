@@ -19,7 +19,7 @@ Follow these instructions to install your Tenstorrent Wormhole™ n150d/n150s/n3
 1. [Pre-Installation](#pre-installation)
 2. System Installation
    - [Desktop Workstation](#desktop-workstation-installation)
-   - [Server](#server-installation)
+   - [Server](#server-installation-n150s-n300s-only)
 3. [Connecting Power](#connecting-power)
 4. [Software Setup](#software-setup)
 
