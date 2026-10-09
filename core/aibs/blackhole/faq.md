@@ -58,4 +58,4 @@ Some motherboards need a network driver that stock Ubuntu lacks. See [Choosing H
 
 ## **Need additional support?**
 
-Please [raise a support request](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1).
+Please [raise a support request](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1). We are happy to help.

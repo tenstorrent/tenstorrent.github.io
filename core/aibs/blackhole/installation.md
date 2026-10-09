@@ -8,7 +8,7 @@ myst:
 
 # Installing a Blackhole® Card
 
-This guide explains how to install a Blackhole® p100a, p150a, or p150b card in a host system, including connecting power. If you have not yet chosen components for your host system, start with {doc}`Choosing Host Hardware <host-hardware>`.
+This guide explains how to install a Blackhole p100a, p150a, or p150b card in a host system, including connecting power. If you have not yet chosen components for your host system, start with {doc}`Choosing Host Hardware <host-hardware>`.
 
 ## Before You Begin
 
@@ -39,7 +39,7 @@ After insertion, check the seating by ensuring the following:
 * The bracket screws thread without pulling the card out of alignment.
 
 :::{warning}
-If the card does not seat cleanly, do not run the system. See [Choosing Host Hardware](host-hardware.md#pcie-retention-clips) to ensure your board will correctly seat Blackhole® cards, and steps you can take to ensure a proper seat.
+If the card does not seat cleanly, do not run the system. See [Choosing Host Hardware](host-hardware.md#pcie-retention-clips) to ensure your board will correctly seat Blackhole cards, and steps you can take to ensure a proper seat.
 :::
 
 Support the card's weight with a horizontal orientation or an anti-sag bracket. See [Choosing Host Hardware](host-hardware.md#card-weight-and-support).
@@ -50,7 +50,7 @@ Connect a **12+4-pin 12V-2x6** cable to the plug on the back of the card.
 
 ![](./images/bh_power.png)
 
-:::{important}
+:::{warning}
 Fully seat the power cable and avoid tight bends near the connector. A partly seated connector can cause instability or damage.
 :::
 

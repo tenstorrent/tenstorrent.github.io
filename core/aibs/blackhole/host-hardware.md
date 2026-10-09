@@ -8,12 +8,12 @@ myst:
 
 # Choosing Host Hardware for Blackhole® p150a and p150b Cards
 
-This guide outlines requirements and recommendations for assembling a host system for any number of Blackhole® p150a and p150b PCIe cards. You will learn which motherboard characteristics cause fitment and bandwidth problems, how to budget PCIe lanes across one or more cards, what to verify in a case and power supply, and which driver issues to expect on Ubuntu.
+This guide outlines requirements and recommendations for assembling a host system for any number of Blackhole p150a and p150b PCIe cards. You will learn which motherboard characteristics cause fitment and bandwidth problems, how to budget PCIe lanes across one or more cards, what to verify in a case and power supply, and which driver issues to expect on Ubuntu.
 
-This guide covers host system components only. For Blackhole® card specifications, see [Blackhole® PCIe Cards](index.md). For driver, firmware, and TT-Metalium™ setup once the system is built, see {doc}`Installing Tenstorrent Software </getting-started/README>`.
+This guide covers host system components only. For Blackhole card specifications, see [Blackhole® PCIe Cards](index.md). For driver, firmware, and TT-Metalium™ setup once the system is built, see {doc}`Installing Tenstorrent Software </getting-started/README>`.
 
-:::{warning}
-Do not purchase a p150b for a desktop build. The p150a and p150b share identical specifications except for cooling solutions. The p150a uses an active cooler and is intended for conventional desktop systems. The p150b uses a passive heatsink and requires the high static pressure, forced air cooling of a rack-mounted server.
+:::{important}
+Do not use a p150b for a desktop build. The p150a and p150b share identical specifications, except for cooling solutions. The p150a uses an active cooler and is intended for conventional desktop systems. The p150b uses a passive heatsink and requires the high static pressure, forced air cooling of a rack-mounted server.
 :::
 
 ## Motherboard
@@ -44,7 +44,7 @@ A physical x16 connector says nothing about the actual electrical width of the s
 
 Confirm the board's BIOS exposes two settings before you buy:
 
-* **PCIe AER Reporting Mechanism**, which must be set to `OS First` for TT-SMI to work correctly.
+* **PCIe AER reporting mechanism**, which must be set to `OS First` for TT-SMI to work correctly.
 * **Per-slot PCIe generation control.** Some motherboards default PCIe operation to Auto and then fail to enumerate the card. Forcing the slot to `Gen 4.0` or `Gen 5.0` resolves this.
 
 ### Physical Slot Spacing and Bottom-Edge Headers
@@ -124,7 +124,7 @@ An 800W unit is generally adequate for one card. For two or more cards, size the
 ### Cables and Adapters
 
 :::{warning}
-Never use an ATX 3.0 or older Power Supply Unit (PSU).
+An ATX 3.1 Certified power supply or better is required. An older or inadequate supply can cause system instability..
 :::
 
 * If a native 12V-2x6 connector is unavailable, use only an adapter supplied or explicitly approved by the PSU manufacturer, and connect each input cable to a separate PSU output. See [FAQ and Troubleshooting](faq.md#my-psu-has-no-12v-2x6-connector-what-adapter-should-i-use).

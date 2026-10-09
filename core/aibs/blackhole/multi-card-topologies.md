@@ -8,14 +8,14 @@ myst:
 
 # Multi-Card Topologies
 
-The Blackhole® p150a and p150b each have four passive QSFP-DD 800G ports. Cabling those ports to other Blackhole® cards builds a mesh in which the cards exchange data directly, without going through the host's PCIe bus. This page covers Tenstorrent-validated 2-, 4-, and 8-card configurations, recommended cables, and how to check the result.
+The Blackhole® p150a and p150b each have four passive QSFP-DD 800G ports. Cabling those ports to other Blackhole cards builds a mesh in which the cards exchange data directly, without going through the host's PCIe bus. This page covers Tenstorrent-validated 2-, 4-, and 8-card configurations, recommended cables, and how to check the result.
 
 :::{note}
 The p100a has no card-to-card ports and cannot join a mesh.
 :::
 
 :::{important}
-The QSFP-DD ports connect only to other Blackhole®-based cards. They are not standard Ethernet ports and do not connect to switches or network adapters.
+The QSFP-DD ports connect only to other Blackhole-based cards. They are not standard Ethernet ports and do not connect to switches or network adapters.
 :::
 
 ## Validated Configurations
@@ -29,7 +29,7 @@ Do not treat every configuration as a fully populated mesh. A card has four port
 | 8     | p150b                      | 2×4 mesh    | 10                     | [TT-LoudBox (Blackhole)](../../systems/loudbox-bh/setup.md#step-3-setting-up-the-mesh-topology-single-server) |
 
 :::{note}
-The p150a and p150b are the Blackhole® variants documented for multi-card operation. The p150a is intended for actively cooled desktop systems, and the p150b requires forced-air rack cooling. Mixing p150a and p150b cards in one mesh is not a documented configuration.
+The p150a and p150b are the Blackhole variants documented for multi-card operation. The p150a is intended for actively cooled desktop systems, and the p150b requires forced-air rack cooling. Mixing p150a and p150b cards in one mesh is not a documented configuration.
 :::
 
 ## Before You Cable
@@ -41,7 +41,7 @@ The p150a and p150b are the Blackhole® variants documented for multi-card opera
 
 ## Cables
 
-For standard short-reach setups, use validated 0.5 m passive QSFP-DD 800G cables, available from the [Tenstorrent store](https://tenstorrent.com/hardware/cards). If you need more reach, these 1 m passive QSFP-DD 800G cables are recommended: [Amphenol SF-NJYYEK0001-001M](https://cablesondemand.com/qsfp-dd-direct-attach-cables-200g-400g-800g-dac-1/amphenol-sf-njyyek0001-001m-1m-3-3-800g-qsfp-dd-112g-cable-800-gigabit-ethernet-passive-direct-attach-qsfp-double-density-112g-cable-dual-entry-32-awg-qsfp-dd-112g-to-qsfp-dd-112g-sf-njyyek0001-001m) or [FS QDD-800G-PC01](https://www.fs.com/products/154259.html?attribute=36923&id=3720628).
+For standard short-reach setups, use validated 0.5m passive QSFP-DD 800G cables, available from the [Tenstorrent store](https://tenstorrent.com/hardware/cards). If you need more reach, these 1 m passive QSFP-DD 800G cables are recommended: [Amphenol SF-NJYYEK0001-001M](https://cablesondemand.com/qsfp-dd-direct-attach-cables-200g-400g-800g-dac-1/amphenol-sf-njyyek0001-001m-1m-3-3-800g-qsfp-dd-112g-cable-800-gigabit-ethernet-passive-direct-attach-qsfp-double-density-112g-cable-dual-entry-32-awg-qsfp-dd-112g-to-qsfp-dd-112g-sf-njyyek0001-001m) or [FS QDD-800G-PC01](https://www.fs.com/products/154259.html?attribute=36923&id=3720628).
 
 :::{important}
 Use only passive QSFP-DD cables.

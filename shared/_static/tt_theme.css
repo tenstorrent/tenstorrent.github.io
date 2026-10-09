@@ -1467,6 +1467,30 @@ li.toctree-l1.current>a,
   font-weight: 700;
 }
 
+/* Let a marked table's first column wrap instead of forcing a horizontal scroller. */
+.tt-wrap-first-col .wy-table-responsive {
+  overflow-x: hidden;
+}
+.tt-wrap-first-col .wy-table-responsive table {
+  width: 100%;
+}
+.tt-wrap-first-col .wy-table-responsive td:first-child,
+.tt-wrap-first-col .wy-table-responsive th:first-child {
+  white-space: normal;
+}
+
+/* Let a marked table's last column wrap instead of forcing a horizontal scroller. */
+.tt-wrap-last-col .wy-table-responsive {
+  overflow-x: hidden;
+}
+.tt-wrap-last-col .wy-table-responsive table {
+  width: 100%;
+}
+.tt-wrap-last-col .wy-table-responsive td:last-child,
+.tt-wrap-last-col .wy-table-responsive th:last-child {
+  white-space: normal;
+}
+
 /* Tight list spacing inside table cells (inline spec tables with <ul>) */
 .rst-content td ul.tt-spec-cell-list,
 .rst-content th ul.tt-spec-cell-list {
@@ -1503,6 +1527,14 @@ li.toctree-l1.current>a,
 .document * h4 > .tt-heading-text {
   flex: 1 1 auto;
   min-width: 0;
+}
+
+/* Card dimension labels sit against their drawings. */
+#card-dimensions h4 {
+  margin-bottom: 0px;
+}
+#card-dimensions section > a > img {
+  margin-bottom: 50px;
 }
 
 /* Code and codeblock styling */

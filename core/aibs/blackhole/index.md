@@ -19,13 +19,15 @@ faq
 multi-card-topologies
 ```
 
+:::{container} tt-wrap-first-col
 | If you want to... | Go to |
 | --- | --- |
-| Review ideal host system components, including motherboards, CPUs, cases, and power supplies before setup | {doc}`Choosing Host Hardware <host-hardware>` |
+| Review ideal host system components before setup, including motherboards, CPUs, cases, and power supplies | {doc}`Choosing Host Hardware <host-hardware>` |
 | Install a card and connect power | {doc}`Installing a Card <installation>` |
 | Link 2, 4, or 8 cards together | {doc}`Multi-Card Topologies <multi-card-topologies>` |
 | Fix enumeration, power, thermal, or cabling problems | {doc}`FAQ and Troubleshooting <faq>` |
 | Install drivers, firmware, and TT-Metalium™ | {doc}`Installing Tenstorrent Software </getting-started/README>` |
+:::
 
 ## Choosing a Card
 
@@ -59,29 +61,37 @@ For a desktop build, do not use the p150b card. The p150a has an active cooler f
 | Cooling                   | Active                      | Active                      | Passive                     |
 | Dimensions (WxDxH)        | 42mm x 270mm x 111mm        | 42mm x 270mm x 111mm        | 42mm x 270mm x 111mm        |
 
-**For connecting to Tenstorrent Blackhole®-based cards only.*
+**For connecting to Tenstorrent Blackhole-based cards only.*
 
 ### Card Dimensions
 
 #### p100a
 
-![](./images/bh_p100a_dimensions.png)
+```{image} ./images/bh_p100a_dimensions.png
+:width: 70%
+```
 
 #### p150a
 
-![](./images/bh_p150a_dimensions.png)
+```{image} ./images/bh_p150a_dimensions.png
+:width: 70%
+```
 
 #### p150b
 
-![](./images/bh_p150b_dimensions.png)
+```{image} ./images/bh_p150b_dimensions.png
+:width: 70%
+```
 
 ### Connectivity (p150a/p150b)
 
-The p150a and p150b each have four QSFP-DD ports on the card bracket. Each passive port provides 800 Gbps and connects only to other Blackhole®-based cards. See {doc}`Multi-Card Topologies <multi-card-topologies>` for guidance on how to cable them together.
+The p150a and p150b each have four QSFP-DD ports on the card bracket. Each passive port provides 800 Gbps and connects only to other Blackhole-based cards. See {doc}`Multi-Card Topologies <multi-card-topologies>` for guidance on how to cable them together.
 
-![](./images/bh_portspec.png)
+```{image} ./images/bh_portspec.png
+:width: 60%
+```
 
-*p150b pictured; the p150a has the same ports.*
+*p150b pictured for reference. The p150a has the same ports.*
 
 ### Supported Data Precision Formats
 
@@ -96,6 +106,7 @@ The p150a and p150b each have four QSFP-DD ports on the card bracket. Each passi
 
 ## Minimum System Requirements
 
+:::{container} tt-wrap-last-col
 | Part                | Requirement                                                                                                      |
 | ------------------- | ---------------------------------------------------------------------------------------------------------------- |
 | CPU                 | x86_64 architecture. Core count and socket count depend on the host pre- and post-processing your workload needs. |
@@ -107,6 +118,7 @@ The p150a and p150b each have four QSFP-DD ports on the card bracket. Each passi
 | Power Supply        | ATX 3.1 Certified or better                                                                                      |
 | Operating System    | Ubuntu 22.04 (Jammy Jellyfish).                                                                                  |
 | Internet Connection | Required for driver and stack installation.                                                                      |
+:::
 
 For motherboard, case, power supply, and lane-budget guidance, see {doc}`Choosing Host Hardware <host-hardware>`.
 
