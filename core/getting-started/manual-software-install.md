@@ -23,7 +23,7 @@ Install the driver (**[TT-KMD](https://github.com/tenstorrent/tt-kmd)**) by runn
 
 ```{code-block} bash
 :substitutions:
-git clone https://github.com/tenstorrent/tt-kmd.git
+git clone --branch ttkmd-{{ver_kmd}} https://github.com/tenstorrent/tt-kmd.git
 cd tt-kmd
 sudo dkms add .
 sudo dkms install tenstorrent/{{ver_kmd}}
