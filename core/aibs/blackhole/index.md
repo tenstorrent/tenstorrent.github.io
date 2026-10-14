@@ -116,7 +116,7 @@ The p150a and p150b each have four QSFP-DD ports on the card bracket. Each passi
 | Power Connectors    | 12+4-pin 12V-2x6                                                                                                 |
 | Total Board Power   | Up to 300W per card                                                                                              |
 | Power Supply        | ATX 3.1 Certified or better                                                                                      |
-| Operating System    | Ubuntu 22.04 (Jammy Jellyfish).                                                                                  |
+| Operating System    | Ubuntu 24.04 (Noble Numbat).                                                                                     |
 | Internet Connection | Required for driver and stack installation.                                                                      |
 :::
 

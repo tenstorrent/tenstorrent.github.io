@@ -26,7 +26,7 @@ Before you begin the software installation, ensure your host machine meets the f
 
 ### **Supported Operating Systems**
 
-Tenstorrent recommends Ubuntu 22.04 LTS (Jammy Jellyfish) for all Tenstorrent software. While each SDK may support newer distributions of Ubuntu, consider their compatibility experimental at this time.
+ Tenstorrent recommends Ubuntu 24.04 for all Tenstorrent software. While each SDK may support newer distributions of Ubuntu, consider their compatibility experimental at this time.
 
 ### **BIOS Requirements**
 

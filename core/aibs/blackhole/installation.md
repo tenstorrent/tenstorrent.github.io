@@ -67,7 +67,7 @@ sudo update-pciids
 lspci -d 1e52:
 ```
 
-You should see one `Tenstorrent Inc Blackhole` entry per installed card. If a card is missing, see [FAQ and Troubleshooting](faq.md#my-card-is-not-enumerating).
+You should see one `Tenstorrent Inc Blackhole` entry per Blackhole chip. A p100a, p150a or p150b has one chip, so you see one entry per card. A card with two chips, such as the p300c, shows two. If a card is missing, see [FAQ and Troubleshooting](faq.md#my-card-is-not-enumerating).
 
 ## Install the Software
 

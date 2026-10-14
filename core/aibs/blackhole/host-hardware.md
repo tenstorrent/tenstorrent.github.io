@@ -140,7 +140,7 @@ The minimum requirement is 64 GB of system memory. In practice, the need varies 
 
 ## Operating System and Motherboard Drivers
 
-Tenstorrent recommends Ubuntu 22.04 or 24.04 for all Tenstorrent software.
+Tenstorrent recommends Ubuntu 24.04 for all Tenstorrent software.
 
 Not every motherboard has complete driver support in a stock Ubuntu install. Some boards ship network controllers whose drivers are missing from stock Ubuntu, which leaves a new host without networking. Because the Tenstorrent installer needs an internet connection, resolve the following before installing any Tenstorrent software:
 

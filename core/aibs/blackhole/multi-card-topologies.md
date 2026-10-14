@@ -95,7 +95,7 @@ For a single host, run the following command to ensure every card enumerates:
 lspci -d 1e52:
 ```
 
-You should see one `Tenstorrent Inc Blackhole` entry per card.
+You should see one `Tenstorrent Inc Blackhole` entry per Blackhole chip. A p100a, p150a or p150b has one chip, so you see one entry per card. A card with two chips, such as the p300c, shows two.
 
 For multi-node or descriptor-backed topology validation, use [`run_cluster_validation`](https://docs.tenstorrent.com/cloud-native-support/hardware-validation.html) with the expected cabling and deployment descriptors. The tool can print physical connectivity, send traffic across the detected links, and report missing or unhealthy connections.
 
