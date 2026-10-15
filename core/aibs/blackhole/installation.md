@@ -1,12 +1,12 @@
 ---
 myst:
   html_meta:
-    product-name: Blackhole® AI Processor, Blackhole® p100a, Blackhole® p150a, Blackhole® p150b, Tenstorrent
+    product-name: Blackhole AI Processor, Blackhole p100a, Blackhole p150a, Blackhole p150b, Tenstorrent
     technology-concepts: PCIe, ATX, ESD, 12V-2x6, installation, firmware
     document-type: how-to
 ---
 
-# Installing a Blackhole® Card
+# Installing a Blackhole Card
 
 This guide explains how to install a Blackhole p100a, p150a, or p150b card in a host system, including connecting power. If you have not yet chosen components for your host system, start with {doc}`Choosing Host Hardware <host-hardware>`.
 

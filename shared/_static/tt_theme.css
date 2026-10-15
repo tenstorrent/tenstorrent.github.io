@@ -1521,14 +1521,6 @@ li.toctree-l1.current>a,
   overflow-x: scroll;
 }
 
-.document * h1 > .tt-heading-text,
-.document * h2 > .tt-heading-text,
-.document * h3 > .tt-heading-text,
-.document * h4 > .tt-heading-text {
-  flex: 1 1 auto;
-  min-width: 0;
-}
-
 /* Card dimension labels sit against their drawings. */
 #card-dimensions h4 {
   margin-bottom: 0px;
@@ -2264,7 +2256,6 @@ sup.reg {
   top: -0.5em;
   vertical-align: baseline;
   margin-left: 0.1em;
-  padding-left: -0.2em;
   padding-right: 0.2em;
 }
 

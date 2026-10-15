@@ -1,14 +1,14 @@
 ---
 myst:
   html_meta:
-    product-name: Blackhole® p150a, Blackhole® p150b, Tenstorrent
+    product-name: Blackhole p150a, Blackhole p150b, Tenstorrent
     technology-concepts: QSFP-DD, mesh, PCIe, cabling, topology
     document-type: how-to
 ---
 
 # Multi-Card Topologies
 
-The Blackhole® p150a and p150b each have four passive QSFP-DD 800G ports. Cabling those ports to other Blackhole cards builds a mesh in which the cards exchange data directly, without going through the host's PCIe bus. This page covers Tenstorrent-validated 2-, 4-, and 8-card configurations, recommended cables, and how to check the result.
+The Blackhole p150a and p150b each have four passive QSFP-DD 800G ports. Cabling those ports to other Blackhole cards builds a mesh in which the cards exchange data directly, without going through the host's PCIe bus. This page covers Tenstorrent-validated 2-, 4-, and 8-card configurations, recommended cables, and how to check the result.
 
 :::{note}
 The p100a has no card-to-card ports and cannot join a mesh.

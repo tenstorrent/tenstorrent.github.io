@@ -1,20 +1,24 @@
 ---
 myst:
   html_meta:
-    product-name: Blackhole® AI Processor, Blackhole® p100a, Blackhole® p150a, Blackhole® p150b, Tenstorrent
+    product-name: Blackhole AI Processor, Blackhole p100a, Blackhole p150a, Blackhole p150b, Tenstorrent
     technology-concepts: PCIe, ATX, QSFP-DD, firmware, TT-SMI, active cooling, passive cooling, power supply
     document-type: FAQ and Troubleshooting
 ---
 
-# Blackhole® FAQ and Troubleshooting
+# Blackhole FAQ and Troubleshooting
 
 ## **Which card should I choose?**
 
 See [Choosing a Card](index.md#choosing-a-card).
 
+## **How can I check if my system is compatible with a Blackhole Card?**
+
+See [Choosing Host Hardware for Blackhole p150a and p150b Cards](host-hardware.md).
+
 ## **What Power Supply Unit (PSU) and connector should I use?**
 
-Blackhole® cards use a 12V-2x6 (12+4-pin) connector and are designed for ATX 3.1 certified or newer power supplies. A native 12V-2x6 connector is recommended. **Never use an ATX 3.0 or older power supply.**
+Blackhole cards use a 12V-2x6 (12+4-pin) connector and are designed for ATX 3.1 certified or newer power supplies. A native 12V-2x6 connector is recommended. **Never use an ATX 3.0 or older power supply.**
 
 ## **My PSU has no 12V-2x6 connector. What adapter should I use?**
 
@@ -28,7 +32,7 @@ See [Multi-Card Topologies](multi-card-topologies.md#cables).
 
 ## **My card is not enumerating**
 
-Blackhole® cards are designed for PCIe Gen 5.0, but some motherboards default PCIe operation to Auto, which can prevent enumeration. In the BIOS, force the slot to `Gen 4.0` or `Gen 5.0`. Also check that the card is fully seated and that the power cable is connected. See [Installing a Blackhole® Card](installation.md) and [Choosing Host Hardware](host-hardware.md#bios-requirements).
+Blackhole cards are designed for PCIe Gen 5.0, but some motherboards default PCIe operation to Auto, which can prevent enumeration. In the BIOS, force the slot to `Gen 4.0` or `Gen 5.0`. Also check that the card is fully seated and that the power cable is connected. See [Installing a Blackhole Card](installation.md) and [Choosing Host Hardware](host-hardware.md#bios-requirements).
 
 Once the card enumerates, update to the latest firmware. See {doc}`Installing Tenstorrent Software </getting-started/README>`.
 

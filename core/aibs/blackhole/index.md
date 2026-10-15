@@ -1,22 +1,22 @@
 ---
 myst:
   html_meta:
-    product-name: Blackhole® AI Processor, Blackhole® Tensix Processor, Blackhole® p100a, Blackhole® p150a, Blackhole® p150b, Tenstorrent
+    product-name: Blackhole AI Processor, Blackhole Tensix Processor, Blackhole p100a, Blackhole p150a, Blackhole p150b, Tenstorrent
     technology-concepts: PCIe, ATX, ESD, QSFP-DD, RISC-V, GDDR6, ASIC, firmware, active cooling, passive cooling, Floating point, Block floating point, Integer, TensorFloat, Vector
     document-type: Product Guide
 ---
 
-# Blackhole® PCIe Cards
+# Blackhole PCIe Cards
 
-This section covers Tenstorrent Blackhole® p100a, p150a, and p150b PCIe cards: how to [choose a host system](host-hardware.md), [install the cards](installation.md), [connect multiple cards into a mesh](multi-card-topologies.md), and [troubleshoot common problems](faq.md).
+This section covers Tenstorrent Blackhole p100a, p150a, and p150b PCIe cards: how to [choose a host system](host-hardware.md), [install the cards](installation.md), [connect multiple cards into a mesh](multi-card-topologies.md), and [troubleshoot common problems](faq.md).
 
 ```{toctree}
 :maxdepth: 1
 
 host-hardware
 installation
-faq
 multi-card-topologies
+faq
 ```
 
 :::{container} tt-wrap-first-col
@@ -35,7 +35,7 @@ multi-card-topologies
 For a desktop build, do not use the p150b card. The p150a has an active cooler for conventional desktop systems. The p150b has a passive heatsink and requires the high static pressure, forced air cooling of a rack-mounted server.
 :::
 
-* **p100a:** The entry point in the Blackhole® product stack, great for evaluating Tenstorrent technology. It has 28 GB of GDDR6 and an active cooler, and is intended for single-card operation in conventional desktop systems. It has no card-to-card ports.
+* **p100a:** The entry point in the Blackhole product stack, great for evaluating Tenstorrent technology. It has 28 GB of GDDR6 and an active cooler, and is intended for single-card operation in conventional desktop systems. It has no card-to-card ports.
 * **p150a:** 32 GB of GDDR6 and four passive 800 Gbps QSFP-DD ports for networking with other p150a/p150b cards. It has an active cooler and is intended for single- or multi-card operation in conventional desktop systems.
 * **p150b:** Identical to the p150a except for the active cooler. The p150b relies on existing high static pressure, forced air cooling in the host system. It is intended for single- or multi-card operation in rack-mounted servers.
 
@@ -134,8 +134,8 @@ For motherboard, case, power supply, and lane-budget guidance, see {doc}`Choosin
 ## Related pages
 
 * {doc}`Choosing Host Hardware <host-hardware>`
-* {doc}`Installing a Blackhole® Card <installation>`
-* {doc}`FAQ and Troubleshooting <faq>`
+* {doc}`Installing a Blackhole Card <installation>`
 * {doc}`Multi-Card Topologies <multi-card-topologies>`
+* {doc}`FAQ and Troubleshooting <faq>`
 * {doc}`Installing Tenstorrent Software </getting-started/README>`
 * {doc}`Compliance and Legal </aibs/compliance>`

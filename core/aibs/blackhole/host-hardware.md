@@ -1,16 +1,16 @@
 ---
 myst:
   html_meta:
-    product-name: Blackhole® p150a, Blackhole® p150b, Tenstorrent
+    product-name: Blackhole p150a, Blackhole p150b, Tenstorrent
     technology-concepts: PCIe, ATX, motherboard, CPU, QSFP-DD, Ubuntu, power supply, BIOS
     document-type: how-to
 ---
 
-# Choosing Host Hardware for Blackhole® p150a and p150b Cards
+# Choosing Host Hardware for Blackhole p150a and p150b Cards
 
 This guide outlines requirements and recommendations for assembling a host system for any number of Blackhole p150a and p150b PCIe cards. You will learn which motherboard characteristics cause fitment and bandwidth problems, how to budget PCIe lanes across one or more cards, what to verify in a case and power supply, and which driver issues to expect on Ubuntu.
 
-This guide covers host system components only. For Blackhole card specifications, see [Blackhole® PCIe Cards](index.md). For driver, firmware, and TT-Metalium™ setup once the system is built, see {doc}`Installing Tenstorrent Software </getting-started/README>`.
+This guide covers host system components only. For Blackhole card specifications, see [Blackhole PCIe Cards](index.md). For driver, firmware, and TT-Metalium™ setup once the system is built, see {doc}`Installing Tenstorrent Software </getting-started/README>`.
 
 :::{important}
 Do not use a p150b for a desktop build. The p150a and p150b share identical specifications, except for cooling solutions. The p150a uses an active cooler and is intended for conventional desktop systems. The p150b uses a passive heatsink and requires the high static pressure, forced air cooling of a rack-mounted server.
@@ -26,15 +26,15 @@ Only x64 systems are officially supported. Community groups have gotten cards to
 
 ### PCIe Slot Configuration
 
-Blackhole® cards need a PCI Express 5.0 x16 slot without bifurcation for optimal performance. However, many Gen 4.0 setups will work at reduced speed.
+Blackhole cards need a PCI Express 5.0 x16 slot without bifurcation for optimal performance. However, many Gen 4.0 setups will work at reduced speed.
 
-Many boards provide one Gen 5.0 x16 slot and populate the remaining slots at Gen 3.0 or lower. Some current boards still include a Gen 1.0 slot as a secondary position. Double check the PCI Express generation on your board, as any slots that are older than Gen 4.0 will not work with Blackhole® cards.
+Many boards provide one Gen 5.0 x16 slot and populate the remaining slots at Gen 3.0 or lower. Some current boards still include a Gen 1.0 slot as a secondary position. Double check the PCI Express generation on your board, as any slots that are older than Gen 4.0 will not work with Blackhole cards.
 
 Boards advertising multiple Gen 5.0 slots frequently wire the extra slots as x4 or x8 electrically, even when the connector is physically x16. This means that the slot might look correct but be limited on its data transfer speeds.
 
 Where a board shares lanes between a slot and an M.2 socket, populating that socket can narrow the slot. Check the lane-sharing notes in the board manual before choosing a storage layout.
 
-Blackhole® cards are dual-slot width. On boards with slots spaced for single-slot cards, a Blackhole® card may not fit alongside others. Risers can solve this in some cases, but be advised they add complexity and can raise build cost substantially.
+Blackhole cards are dual-slot width. On boards with slots spaced for single-slot cards, a Blackhole card may not fit alongside others. Risers can solve this in some cases, but be advised they add complexity and can raise build cost substantially.
 
 :::{important}
 A physical x16 connector says nothing about the actual electrical width of the slot. Confirm the lane count of each slot individually in the configuration you intend to build.
@@ -92,7 +92,7 @@ If a case is already at the most restrictive clearance the specification allows,
 
 ### Card Weight and Support
 
-Blackhole® cards are considered heavy. Support them with one of the following:
+Blackhole cards are considered heavy. Support them with one of the following:
 
 * A horizontal case or bench orientation, which supports the card along its length.
 * A support bracket or anti-sag brace in a conventional tower.
@@ -124,7 +124,7 @@ An 800W unit is generally adequate for one card. For two or more cards, size the
 ### Cables and Adapters
 
 :::{warning}
-An ATX 3.1 Certified power supply or better is required. An older or inadequate supply can cause system instability..
+An ATX 3.1 Certified power supply or better is required. An older or inadequate supply can cause system instability.
 :::
 
 * If a native 12V-2x6 connector is unavailable, use only an adapter supplied or explicitly approved by the PSU manufacturer, and connect each input cable to a separate PSU output. See [FAQ and Troubleshooting](faq.md#my-psu-has-no-12v-2x6-connector-what-adapter-should-i-use).
@@ -132,7 +132,7 @@ An ATX 3.1 Certified power supply or better is required. An older or inadequate 
 
 ### Brands
 
-User testing has found Thermaltake, be quiet!, and MSI power supplies to be stable in Blackhole® builds. This is not exhaustive and is not a validation list. Every brand has better and worse model years, and failure rates vary between production batches, so carefully evaluate the specific model and revision you intend to buy.
+User testing has found Thermaltake, be quiet!, and MSI power supplies to be stable in Blackhole builds. This is not exhaustive and is not a validation list. Every brand has better and worse model years, and failure rates vary between production batches, so carefully evaluate the specific model and revision you intend to buy.
 
 ## Memory
 
@@ -171,7 +171,7 @@ This is a gap in motherboard and Ubuntu cross-support, not an issue with Tenstor
 
 ## Related pages
 
-* {doc}`Blackhole® PCIe Cards <index>`
-* {doc}`Installing a Blackhole® Card <installation>`
+* {doc}`Blackhole PCIe Cards <index>`
+* {doc}`Installing a Blackhole Card <installation>`
 * {doc}`Multi-Card Topologies <multi-card-topologies>`
 * {doc}`Installing Tenstorrent Software </getting-started/README>`
