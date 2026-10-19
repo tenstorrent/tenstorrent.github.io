@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 # Fail if QuietBox 2 *PDF* sources changed without updating the hosted PDF
-# and the index Version / Last Updated line.
+# and the index Generated date line.
 #
 # The PDF is built from specifications, setup, and compliance only. Other
 # QuietBox 2 pages (welcome, remote-access, support, …) do not require a
 # PDF refresh. Figure images count only when those three pages reference them.
+#
+# There is no version number — only a generation date on the PDF cover and
+# the index download line. The check fails if those dates disagree.
 #
 # Usage:
 #   scripts/check_quietbox2_pdf_sync.sh [base-ref]
@@ -99,9 +102,9 @@ done <<EOF
 ${CHANGED}
 EOF
 
-version_line_changed=0
-if git diff -U0 "${BASE_REF}" HEAD -- "$INDEX" | grep -Eq '^\+.*Version .+ Last Updated:'; then
-  version_line_changed=1
+date_line_changed=0
+if git diff -U0 "${BASE_REF}" HEAD -- "$INDEX" | grep -Eq '^\+.*(Generated:|Last Updated:)'; then
+  date_line_changed=1
 fi
 
 if [ "$source_changed" -eq 0 ]; then
@@ -119,15 +122,14 @@ if [ "$source_changed" -ne 0 ] && [ "$pdf_changed" -eq 0 ]; then
   fail=1
 fi
 
-if [ "$source_changed" -ne 0 ] && [ "$version_line_changed" -eq 0 ]; then
+if [ "$source_changed" -ne 0 ] && [ "$date_line_changed" -eq 0 ]; then
   echo
-  echo "ERROR: the Version / Last Updated line in ${INDEX} did not change."
+  echo "ERROR: the Generated date line in ${INDEX} did not change."
   echo "An unrelated edit to that file is not enough."
   fail=1
 fi
 
-# The generator writes one version and one date into both places. Compare the
-# committed files so a hand edit cannot leave them different.
+# Compare generation dates on the PDF cover and the index download line.
 cover_text=""
 if command -v pdftotext >/dev/null 2>&1; then
   cover_text="$(pdftotext -f 1 -l 1 -q "$PDF" - || true)"
@@ -144,17 +146,17 @@ PY
 )"
 fi
 
-pdf_version="$(printf '%s\n' "$cover_text" | sed -n 's/.*Version \([0-9][0-9]*\.[0-9][0-9]*\).*/\1/p' | head -1)"
-pdf_date="$(printf '%s\n' "$cover_text" | sed -n 's/.*\([A-Z][a-z]* [0-9][0-9]*, [0-9][0-9][0-9][0-9]\).*/\1/p' | head -1)"
-index_line="$(grep -E 'Version .+ Last Updated:' "$INDEX" | head -1 || true)"
-index_version="$(printf '%s\n' "$index_line" | sed -n 's/.*Version \([0-9][0-9]*\.[0-9][0-9]*\).*/\1/p')"
-index_date="$(printf '%s\n' "$index_line" | sed -n 's/.*Last Updated: \(.*\)/\1/p' | sed 's/[[:space:]]*$//')"
+# Cover shows a bare date line (Month D, YYYY). Index uses "Generated: …".
+DATE_RE='(January|February|March|April|May|June|July|August|September|October|November|December) [0-9][0-9]*, [0-9][0-9][0-9][0-9]'
+pdf_date="$(printf '%s\n' "$cover_text" | grep -Eo "$DATE_RE" | head -1 || true)"
+index_line="$(grep -E 'tt-quietbox-2-user-guide\.pdf|Generated:' "$INDEX" | head -1 || true)"
+index_date="$(printf '%s\n' "$index_line" | grep -Eo "$DATE_RE" | head -1 || true)"
 
-if [ -z "$pdf_version" ] || [ -z "$index_version" ] || [ "$pdf_version" != "$index_version" ] || [ "$pdf_date" != "$index_date" ]; then
+if [ -z "$pdf_date" ] || [ -z "$index_date" ] || [ "$pdf_date" != "$index_date" ]; then
   echo
-  echo "ERROR: PDF cover and index version line do not match."
-  echo "  PDF:   Version ${pdf_version:-?} / ${pdf_date:-?}"
-  echo "  Index: Version ${index_version:-?} / ${index_date:-?}"
+  echo "ERROR: PDF cover and index generation dates do not match."
+  echo "  PDF cover: ${pdf_date:-?}"
+  echo "  Index:     ${index_date:-?}"
   fail=1
 fi
 
@@ -163,9 +165,10 @@ if [ "$fail" -ne 0 ]; then
   echo "Regenerate the PDF from the web sources. The generator lives outside"
   echo "this repo; instructions:"
   echo "  https://github.com/tenstorrent/tenstorrent.github.io/blob/main/${GENERATOR_DOC}"
-  echo "One run writes the same Version and date onto the PDF cover and the index."
+  echo "  python build_quietbox2_user_guide.py --force"
+  echo "One run stamps today's date on the PDF cover and the index download line."
   exit 1
 fi
 
 echo
-echo "QuietBox 2 PDF sync check passed (Version ${index_version}, ${index_date})."
+echo "QuietBox 2 PDF sync check passed (Generated: ${index_date})."
