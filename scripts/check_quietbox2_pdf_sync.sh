@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
-# Fail if QuietBox 2 web sources changed without updating the hosted PDF
+# Fail if QuietBox 2 *PDF* sources changed without updating the hosted PDF
 # and the index Version / Last Updated line.
 #
-# Source of truth for which files count: anything under the QuietBox 2
-# directory except the PDF and index themselves (markdown and figure images).
+# The PDF is built from specifications, setup, and compliance only. Other
+# QuietBox 2 pages (welcome, remote-access, support, …) do not require a
+# PDF refresh. Figure images count only when those three pages reference them.
 #
 # Usage:
 #   scripts/check_quietbox2_pdf_sync.sh [base-ref]
@@ -24,11 +25,54 @@ PDF="${QB2_DIR}/tt-quietbox-2-user-guide.pdf"
 INDEX="${QB2_DIR}/index.rst"
 GENERATOR_DOC="scripts/quietbox2_pdf.md"
 
+SOURCE_MD=(
+  "${QB2_DIR}/specifications.md"
+  "${QB2_DIR}/setup.md"
+  "${QB2_DIR}/compliance-qb2.md"
+)
+
 if ! git rev-parse -q --verify "${BASE_REF}^{commit}" >/dev/null; then
   echo "Base ref not found: $BASE_REF"
   echo "Fetch it first (e.g. git fetch origin main) or pass a commit SHA."
   exit 1
 fi
+
+# Collect image paths referenced by the three PDF source pages (HEAD and base),
+# so replacements of a figure file still require a PDF refresh even when the
+# markdown line is unchanged.
+collect_image_refs() {
+  local text="$1"
+  # grep exits 1 when there are no matches; do not fail the script (set -e).
+  printf '%s' "$text" \
+    | grep -oiE '(\./)?[A-Za-z0-9._/-]+\.(jpg|jpeg|png|gif|svg|webp)' \
+    | sed 's|^\./||' \
+    | while IFS= read -r rel; do
+        [ -z "$rel" ] && continue
+        # Only count images that live in the QuietBox 2 directory.
+        case "$rel" in
+          */*) continue ;;
+        esac
+        printf '%s\n' "${QB2_DIR}/${rel}"
+      done || true
+}
+
+PDF_INPUT_PATHS="$(printf '%s\n' "${SOURCE_MD[@]}")"
+for md in "${SOURCE_MD[@]}"; do
+  if [ -f "$md" ]; then
+    PDF_INPUT_PATHS="${PDF_INPUT_PATHS}"$'\n'"$(collect_image_refs "$(cat "$md")")"
+  fi
+  if git cat-file -e "${BASE_REF}:${md}" 2>/dev/null; then
+    PDF_INPUT_PATHS="${PDF_INPUT_PATHS}"$'\n'"$(collect_image_refs "$(git show "${BASE_REF}:${md}")")"
+  fi
+done
+
+# Unique, non-empty paths.
+PDF_INPUT_PATHS="$(printf '%s\n' "$PDF_INPUT_PATHS" | sed '/^$/d' | sort -u)"
+
+is_pdf_input() {
+  local path="$1"
+  printf '%s\n' "$PDF_INPUT_PATHS" | grep -Fxq -- "$path"
+}
 
 CHANGED="$(git diff --name-only "${BASE_REF}...HEAD")"
 
@@ -44,9 +88,11 @@ while IFS= read -r path; do
       ;;
     "${INDEX}")
       ;;
-    "${QB2_DIR}"/*)
-      source_changed=1
-      changed_sources="${changed_sources}${path}"$'\n'
+    *)
+      if is_pdf_input "$path"; then
+        source_changed=1
+        changed_sources="${changed_sources}${path}"$'\n'
+      fi
       ;;
   esac
 done <<EOF
@@ -59,9 +105,10 @@ if git diff -U0 "${BASE_REF}" HEAD -- "$INDEX" | grep -Eq '^\+.*Version .+ Last 
 fi
 
 if [ "$source_changed" -eq 0 ]; then
-  echo "QuietBox 2 PDF sync check: no source changes vs ${BASE_REF}."
+  echo "QuietBox 2 PDF sync check: no PDF-relevant source changes vs ${BASE_REF}."
+  echo "(PDF sources: specifications.md, setup.md, compliance-qb2.md, and images they reference.)"
 else
-  echo "QuietBox 2 sources changed vs ${BASE_REF}:"
+  echo "QuietBox 2 PDF sources changed vs ${BASE_REF}:"
   printf '%s' "$changed_sources" | sed '/^$/d' | sed 's/^/  - /'
 fi
 

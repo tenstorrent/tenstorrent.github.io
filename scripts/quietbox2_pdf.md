@@ -23,6 +23,8 @@ python build_quietbox2_user_guide.py --force
 
 That reads the QuietBox 2 web pages (specifications, setup, compliance, and their figures) and writes one version and one date into both places: the PDF cover (`Version 1.<N>`) and the index download line. Do not edit either by hand. The PR check reads both files and fails if those strings differ.
 
+The PR sync check only requires a new PDF when those three pages (or images they reference) change. Edits to other QuietBox 2 pages such as `welcome.md`, `remote-access.md`, or `support-bh-2.md` do not require regenerating the PDF.
+
 The revision is `1.<N>`, where `<N>` is the number of git commits that touch those source pages. Do not type the version by hand.
 
 Commit the PDF and `core/systems/quietbox/quietbox-bh-2/index.rst`. Do not commit the intermediate `.docx`.
