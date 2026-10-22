@@ -104,7 +104,6 @@ Confirm the case and its fans can deliver the card's environmental requirements:
 | Specification               | Requirement               |
 | --------------------------- | ------------------------- |
 | Operating Temperature Range | 10°C/50°F - 35°C/95°F     |
-| Air Flow                    | ≥30 CFM @ up to 35°C/95°F |
 
 ## Power Supply
 
@@ -119,7 +118,7 @@ Tenstorrent publishes the supply class and per-card draw, but not a total wattag
 | One p150a or p150b       | 300W            | 800W ATX 3.1 Certified with a native 12V-2x6 connector                |
 | Two or more cards        | 600W and above  | Size from total system load; 800W is unlikely to be sufficient       |
 
-An 800W unit is generally adequate for one card. For two or more cards, size the supply from the total load: all cards at full draw, the CPU under load, storage, and headroom.
+An 800W PSU is generally adequate for one card. For two or more cards, size the supply from the total load: all cards at full draw, the CPU under load, storage, and headroom.
 
 ### Cables and Adapters
 
