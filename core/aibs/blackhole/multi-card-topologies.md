@@ -25,8 +25,9 @@ Do not treat every configuration as a fully populated mesh. A card has four port
 | Cards | Card Type                  | Topology    | External Cables        | Reference System                                                                 |
 | ----- | -------------------------- | ----------- | ---------------------- | -------------------------------------------------------------------------------- |
 | 2     | p150a                      | 2-card mesh | [See Two Cards](#two-cards) | Two-card desktop configuration                                                |
-| 4     | Blackhole (p150 family)    | 4-card mesh | 8                      | [TT-QuietBox (Blackhole)](../../systems/quietbox/quietbox-bh/index.md#step-2-setting-up-the-hardware) |
 | 8     | p150b                      | 2×4 mesh    | 10                     | [TT-LoudBox (Blackhole)](../../systems/loudbox-bh/setup.md#step-3-setting-up-the-mesh-topology-single-server) |
+
+There is currently no validated, do-it-yourself configuration for four p150 cards. However, Tenstorrent does offer a complete desktop workstation powered by four Blackhole processors. For more details, see the [TT-QuietBox 2 documentation](../../systems/quietbox/quietbox-bh-2/specifications.md).
 
 :::{note}
 The p150a and p150b are the Blackhole variants documented for multi-card operation. The p150a is intended for actively cooled desktop systems, and the p150b requires forced-air rack cooling. Mixing p150a and p150b cards in one mesh is not a documented configuration.
