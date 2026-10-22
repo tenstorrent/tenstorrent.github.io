@@ -6,7 +6,7 @@ myst:
     document-type: how-to
 ---
 
-# Getting Started with Tenstorrent Software
+# Installing Tenstorrent Software
 
 This guide takes you from a fresh Tenstorrent system to a model generating tokens. You will install the Tenstorrent CLI, `tt`, use it to update your system to the most recent tested set of Tenstorrent software, confirm your hardware is visible, see which models your hardware can run, and serve a model.
 
