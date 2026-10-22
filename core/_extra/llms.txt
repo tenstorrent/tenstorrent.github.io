@@ -8,7 +8,7 @@ This index maps the entire docs.tenstorrent.com universe. Every link below resol
 
 - [Getting Started](https://docs.tenstorrent.com/getting-started/README.html): First steps — set up hardware and run your first model on Tenstorrent silicon
 - [Model Demos](https://docs.tenstorrent.com/getting-started/model-demos.html): Ready-to-run model demonstrations across TT hardware
-- [vLLM Servers](https://docs.tenstorrent.com/getting-started/vLLM-servers.html): Stand up an OpenAI-compatible inference server with the TT vLLM fork
+- [Deploy Models](https://docs.tenstorrent.com/getting-started/deploy-models.html): Serve LLMs, diffusion, speech, and vision models with the tt CLI or TT-Studio and get an OpenAI-compatible endpoint
 - [TT Software Stack](https://docs.tenstorrent.com/getting-started/tt-software-stack.html): Overview of the layered software stack from kernels to high-level APIs
 - [Manual Software Installation](https://docs.tenstorrent.com/getting-started/manual-software-install.html): Step-by-step manual install of drivers, firmware, and the Python stack
 - [TT Developer Toolkit](https://docs.tenstorrent.com/tt-vscode-toolkit/): VS Code extension + companion lessons covering first boot through custom training; the most guided on-ramp (full lesson catalog in the section below)
@@ -146,7 +146,7 @@ Self-contained, hands-on lessons from the [TT Developer Toolkit](https://docs.te
 
 ## Inference & Serving
 
-- [vLLM Servers Guide](https://docs.tenstorrent.com/getting-started/vLLM-servers.html): Run the TT vLLM fork for OpenAI-compatible serving with continuous batching
+- [Deploy Models Guide](https://docs.tenstorrent.com/getting-started/deploy-models.html): Choose a model for your hardware and serve it with `tt serve` or TT-Studio
 - [TT-Studio](https://docs.tenstorrent.com/tt-studio/): Web GUI to deploy and chat with LLMs, voice agents, and image/video models locally — no cloud token costs
 - [tt-inference-server](https://github.com/tenstorrent/tt-inference-server): One-command Docker deployment wrapping vLLM with automated model download (GitHub)
 - [vLLM (TT fork)](https://github.com/tenstorrent/vllm): OpenAI-compatible inference server optimized for TT hardware (GitHub)
