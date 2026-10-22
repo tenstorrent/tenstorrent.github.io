@@ -156,7 +156,7 @@ On a TT-QuietBox 2 with a fast connection the whole update takes a few minutes. 
 
 ### **Bring the CLI itself up to date**
 
-The installer that `tt update` runs pins its own copy of `tt`, which can be older than the release you installed in Step 1. Before you move on, put the CLI back on the latest release:
+The installer that `tt update` runs also installs the `tt` release that was validated with the golden set, which can be older than the one you installed in Step 1. This page documents the latest release, so before you move on, put the CLI back on it:
 
 ```bash
 tt self update
@@ -423,7 +423,7 @@ Catalog models require a Hugging Face login to download their weights. Run `tt m
 
 ### `tt serve` fails with "Access to model … is restricted"
 
-The model is gated and your Hugging Face account has not accepted its license yet, or the login on this machine is for a different account. Accept the license on the model's Hub page, check `tt model login`, and serve again. If you have done both and the error persists at the `starting the engine` step, the model container did not receive your login; this is a known issue being fixed in TT-Inference-Server. Serve a model that is not gated, such as `Qwen3.8-27B`, in the meantime. `tt model logs <model>` shows the server's own output for any failed start.
+The model is gated and your Hugging Face account has not accepted its license yet, or the login on this machine is for a different account. Accept the license on the model's Hub page, check `tt model login`, and serve again. If you have done both and the error persists at the `starting the engine` step, the model container did not receive your login. This is a known issue in the current release. Serve a model that is not gated, such as `Qwen3.8-27B`, in the meantime. `tt model logs <model>` shows the server's own output for any failed start.
 
 ### A serve fails with "Try resetting the board"
 
