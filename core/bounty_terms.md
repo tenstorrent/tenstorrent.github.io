@@ -170,14 +170,3 @@ These Terms shall be governed by and construed in accordance with the laws of th
 ## 18. General
 
 These Terms will be binding on and will inure to the benefit of the legal representatives, successors and assigns of the parties hereto. These Terms (and any policies referenced herein and incorporated by reference) constitute the entire agreement between you and us with respect to the subject matter hereof, and you have not relied upon any promises or representations by us with respect to the subject matter except as set forth herein. You may not assign these Terms or assign any rights or delegate any obligations hereunder, in whole or in part, whether voluntarily or by operation of law. The governing language of these Terms is English. A person who is not a party to these Terms has no rights to enforce, or to enjoy the benefit of, any term of these Terms.
-
----
-
-## Exhibit A – Tenstorrent Bounty Rewards Chart
-
-| Category | Definition | Examples |  Payment Range  (US Dollars) |
-| :---- | :---- | :---- | :---- |
-| bounty_difficulty/warmup | Tasks suitable for first-time contributors. Straightforward and low complexity. | \- Minor bug fixes. \- Documentation improvements. \- Adding or fixing a test case. \- Basic logging updates. \- Updating a README or sample script. |  1 – 200 |
-| bounty_difficulty/easy | Tasks requiring basic familiarity with the repo and some understanding of the architecture. | \- Extending an existing feature. \- Updating API calls. \- Simple refactoring tasks. \- Adding a new test suite. |  201 – 500 |
-| bounty_difficulty/medium | Tasks requiring significant familiarity with the code base, architecture, or domain knowledge  | \- Implementing a new feature. \- Adding support for a new model. \- Debugging and fixing non-trivial performance issues. \- Integration of a library or external tool. |  501 – 1999 |
-| bounty_difficulty/hard | Complex tasks demanding deep architectural understanding and significant effort. | \- Major feature implementation. \- Core system redesign. \- Implementing a new kernel or low-level ops. \- Optimizing performance-critical code paths. |  2000 – 3000 |
