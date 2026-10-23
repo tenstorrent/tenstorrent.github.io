@@ -221,22 +221,22 @@ Congratulations, your system software is installed and your hardware is ready to
 tt model list
 ```
 
-The list is filtered to the device configuration `tt` detected. Here is a trimmed example for a TT-QuietBox 2, which `tt` detects as a `p300x2` configuration:
+The list is filtered to the device configuration `tt` detected. The rows below are an example only, trimmed from a TT-QuietBox 2 listing, which `tt` detects as a `p300x2` configuration, to show the different ways a model can appear in the list:
 
 ```
-  Models (tt catalog + community) for p300x2 (detected — `tt model list --all` for every device/bundle)
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━┓
-┃ name                      ┃ source              ┃ engine        ┃ serving profiles                  ┃ weights   ┃
-┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━┩
-│ anirud/devstral-small-2-24b-instruct-2512 │ HuggingFace │ vLLM │ p150x4, p300, p300x2             │ —         │
-│ FLUX.1-dev                │ tt-inference-server │ media         │ p300, p300x2                      │ —         │
-│ Llama-3.3-70B-Instruct    │ tt-inference-server │ vLLM          │ p150x4, p300x2                    │ —         │
-│ Qwen3-32B                 │ tt-inference-server │ vLLM          │ p150x4, p300x2                    │ —         │
-│ Qwen3.5-9B                │ tt-studio           │ vLLM          │ p150                              │ —         │
-│ Qwen3.8-27B               │ tt-inference-server │ vLLM          │ p150x4, p300x2                    │ —         │
-│ whisper-large-v3          │ tt-inference-server │ media         │ p150                              │ —         │
-└───────────────────────────┴─────────────────────┴───────────────┴───────────────────────────────────┴───────────┘
-source: tt-inference-server/tt-studio catalog vs. HuggingFace/local community.
+  Models (tt catalog + community) for p300x2 (detected — `tt model list --all` for every
+                                      device/bundle)
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━━━┳━━━━━━━━━┓
+┃ name                       ┃ source              ┃ engine ┃ serving profiles ┃ weights ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━━━━━━━━━╇━━━━━━━━━┩
+│ FLUX.1-dev                 │ tt-inference-server │ media  │ p300, p300x2     │ —       │
+│ Llama-3.3-70B-Instruct     │ tt-inference-server │ vLLM   │ p150x4, p300x2   │ —       │
+│ Qwen3-32B                  │ tt-inference-server │ vLLM   │ p150x4, p300x2   │ —       │
+│ Qwen3.5-9B                 │ tt-studio           │ vLLM   │ p150             │ —       │
+│ Qwen3.8-27B                │ tt-inference-server │ vLLM   │ p150x4, p300x2   │ —       │
+│ tt-hous/qwen3.8-flash-next │ HuggingFace         │ vLLM   │ p300x2           │ —       │
+│ whisper-large-v3           │ tt-inference-server │ media  │ p150             │ —       │
+└────────────────────────────┴─────────────────────┴────────┴──────────────────┴─────────┘
 ```
 
 The columns tell you:
