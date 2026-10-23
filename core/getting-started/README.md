@@ -465,7 +465,7 @@ For advanced users or developers who prefer to install and configure each compon
 
 You now have the full stack installed and a model serving from the CLI. From here, branch off into the part of the stack that matches what you want to build:
 
-* **Deploy LLMs in production** with [TT-Inference-Server](./vLLM-servers.md), the serving engine behind `tt serve`. The [tt-inference-server repository](https://github.com/tenstorrent/tt-inference-server) is the authoritative source for which models are validated on your hardware.
+* **Deploy more kinds of model** by following the [Deploy Models guide](./deploy-models.md): choosing a model for your hardware, serving LLMs, diffusion, speech, and vision models from the CLI, and deploying the same models through TT-Studio's web interface.
 * **Monitor your hardware** with `tt smi` for a status snapshot, or [TT-Toplike](https://docs.tenstorrent.com/tt-toplike/) for a live view of power, temperature, and core activity while a model serves requests.
 * **Use a web interface** with [TT-Studio](https://github.com/tenstorrent/tt-studio), started through `tt serve <model> --studio`.
 * **Understand the software stack**, including how TT-Forge™, TT-NN™, and TT-Metalium™ relate to each other, in the [software stack overview](./tt-software-stack.md).
