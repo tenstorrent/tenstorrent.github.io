@@ -30,6 +30,7 @@ Tenstorrent
    :maxdepth: 2
 
    Overview <software/index>
+   Tenstorrent CLI <https://docs.tenstorrent.com/tt-cli/>
    forge/index
    TT-XLA <https://docs.tenstorrent.com/tt-xla/>
    TT-NN™ <https://docs.tenstorrent.com/tt-metal/latest/ttnn/>

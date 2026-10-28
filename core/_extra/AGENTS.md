@@ -27,6 +27,7 @@ project's own docs, trust the project's docs and treat this as orientation.
 |---|---|---|
 | `/`, `/getting-started/`, `/aibs/`, `/systems/`, `/forge/`, `/tools/`, `/support/` | `tenstorrent.github.io` | Core: hardware, getting started, support |
 | `/syseng/latest/` | `tenstorrent.github.io` | Software & utilities (syseng) |
+| `/tt-cli/` | `tenstorrent.github.io` | Tenstorrent CLI (`tt`): update the stack, check devices, serve models, connect apps |
 | `/bounty_terms.html`, `/os-model-terms.html`, `/trademarks_legal_notice.html` | `tenstorrent.github.io` | Legal / program terms |
 | `/tt-metal/latest/ttnn/` | `tt-metal` | TT-NN tensor-op library + Python API |
 | `/tt-metal/latest/tt-metalium/` | `tt-metal` | TT-Metalium low-level kernel model |
@@ -88,6 +89,7 @@ Grayskull is the first-generation family (legacy).
 | Inference | vLLM (TT fork) | OpenAI-compatible server with continuous batching |
 | Inference | tt-inference-server | One-command Docker deployment wrapping vLLM |
 | Training | tt-blacksmith | Training / fine-tuning recipes on the Forge stack |
+| Operate | tt (Tenstorrent CLI) | Primary interface for operating the hardware: `tt update`, `tt device`, `tt model`, `tt serve`, `tt launch` |
 | Install | tt-installer 2.0 | One-command full-stack install: drivers, firmware, containers, Python env |
 | Monitoring | tt-smi / tt-toplike | Hardware monitoring CLI / TUI: temperature, utilization, memory, PCI status |
 

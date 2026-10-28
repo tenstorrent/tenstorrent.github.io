@@ -115,6 +115,11 @@ Self-contained, hands-on lessons from the [TT Developer Toolkit](https://docs.te
   - [Programming Model](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/tt_metal/programming_model/index.html)
   - [Programming Examples](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/tt_metal/examples/index.html)
   - [API Reference](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/tt_metal/apis/index.html)
+- [Tenstorrent CLI (tt)](https://docs.tenstorrent.com/tt-cli/): The tt command line — primary interface for operating TT hardware: install/update the stack, check devices, serve models, connect apps
+  - [Updating the stack with tt update](https://docs.tenstorrent.com/tt-cli/update.html)
+  - [Finding models with tt model](https://docs.tenstorrent.com/tt-cli/models.html)
+  - [Serving models with tt serve](https://docs.tenstorrent.com/tt-cli/serve.html)
+  - [Connecting apps with tt launch](https://docs.tenstorrent.com/tt-cli/launch.html)
 - [TT-NN](https://docs.tenstorrent.com/tt-metal/latest/ttnn/index.html): High-level tensor op library and primary Python API, built on Metalium
   - [What is TT-NN?](https://docs.tenstorrent.com/tt-metal/latest/ttnn/ttnn/about.html)
   - [Install](https://docs.tenstorrent.com/tt-metal/latest/ttnn/ttnn/installing.html)
