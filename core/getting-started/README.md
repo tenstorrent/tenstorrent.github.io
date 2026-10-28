@@ -2,15 +2,15 @@
 myst:
   html_meta:
     product-name: tt (Tenstorrent CLI), tt-cli, tt-installer, TT-SMI, TT-Inference-Server, TT-Studio
-    technology-concepts: software installation, golden versions, driver, firmware, model serving, OpenAI-compatible API, Docker
+    technology-concepts: software installation, driver, firmware, model serving, OpenAI-compatible API, Docker
     document-type: how-to
 ---
 
 # Installing Tenstorrent Software
 
-This guide takes you from a fresh Tenstorrent system to a model generating tokens. You will install the Tenstorrent CLI, `tt`, use it to update your system to the most recent tested set of Tenstorrent software, confirm your hardware is visible, see which models your hardware can run, and serve a model.
+This guide takes you from a fresh Tenstorrent system to a model generating tokens. You will install the Tenstorrent CLI, `tt`, use it to update your system to the latest stable Tenstorrent software, confirm your hardware is visible, see which models your hardware can run, and serve a model.
 
-`tt` is the single entry point to the Tenstorrent software stack. All layers of the stack can be accessed via the CLI. When you are ready to go deeper, for example to write kernels with TT-Metalium™, run models with TT-NN™, or deploy through a web interface with TT-Studio, `tt` is where you branch off into those projects.
+`tt` is the primary interface for operating your Tenstorrent hardware. If you want to develop against Tenstorrent's open-source repositories instead, start with [TT-Metalium™](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/), [TT-NN™](https://docs.tenstorrent.com/tt-metal/latest/ttnn/), or {doc}`TT-Forge™ <../forge/index>`.
 
 ## **Before You Begin**
 
@@ -20,7 +20,7 @@ Setting up your new TT-QuietBox® 2? Follow the [Setup Guide](../systems/quietbo
 
 Before you begin, ensure your host machine meets the following prerequisites:
 
-* The host machine has an internet connection. The CLI downloads packages from PyPI and GitHub, the Tenstorrent package repositories, and model weights from the Hugging Face Hub.
+* The host machine has an internet connection. `tt` downloads packages from PyPI and GitHub, the Tenstorrent package repositories, and model weights from the Hugging Face Hub.
 * The host machine has a supported operating system installed (see below).
 * You have administrator (`sudo`) privileges on the host machine. The driver, firmware tooling, and HugePages configuration are installed as root.
 * The system is physically unboxed and set up according to your product's installation manual and safety guidelines.
@@ -32,8 +32,7 @@ Tenstorrent recommends Ubuntu LTS for all Tenstorrent software.
 | Operating system | Status |
 |---|---|
 | Ubuntu 22.04 LTS, Ubuntu 24.04 LTS | Supported |
-| Debian 13, Fedora 42, Fedora 43 | Supported, with less testing than Ubuntu |
-| Other Debian and RPM based distributions | Untested and considered experimental |
+| Other Linux distributions | Untested and considered experimental |
 | macOS, Windows, WSL | Not supported. There is no driver, so nothing hardware-related works |
 
 ### **BIOS Requirements**
@@ -46,123 +45,71 @@ If you are using a TT-QuietBox, you do not have to worry about setting this opti
 If you update or reset your BIOS for any reason, you must reconfigure the PCIe AER Reporting Mechanism setting to `OS First` to ensure TT-SMI functions correctly. This setting is typically located in the **Motherboard Information** section of your BIOS.
 :::
 
-### **Install the CLI Dependencies**
+### **Install the Tenstorrent CLI Dependencies**
 
-The `tt` CLI is a Python application. It needs Python 3.10 or newer with the `venv` module, plus `git` and `curl`. Install them with your system package manager.
-
-On Ubuntu or Debian:
+The Tenstorrent CLI, `tt`, is a Python application. It needs Python 3.10 or newer with the `venv` module, plus `git` and `curl`. Install them with your system package manager. On Ubuntu:
 
 ```bash
 sudo apt update && sudo apt install -y python3 python3-venv python3-pip git curl ca-certificates
 ```
 
-On Fedora:
-
-```bash
-sudo dnf install -y python3 python3-pip git curl
-```
-
-The CLI must live in its own isolated Python environment so that it can safely update itself later. Tenstorrent recommends [uv](https://docs.astral.sh/uv/) to manage that environment. Install it with:
-
-```bash
-curl -LsSf https://astral.sh/uv/install.sh | sh
-```
-
-Then open a new terminal, or run `source ~/.bashrc`, so that `uv` is on your `PATH`.
+`tt` must live in its own isolated Python environment so that it can safely update itself later. Tenstorrent recommends [uv](https://docs.astral.sh/uv/) to manage that environment. Follow the setup instructions at [https://docs.astral.sh/uv/](https://docs.astral.sh/uv/) to install `uv`, then open a new terminal or source your shell configuration file (`source ~/.bashrc` for `bash`) so that `uv` is on your `PATH`.
 
 :::{note}
-If you already use [pipx](https://pipx.pypa.io/), it works too. Install the CLI with `pipx install tenstorrent` in the next step instead of the `uv` command. Other installation options are described in the [tt-cli developer notes](https://github.com/tenstorrent/tt-cli/blob/main/docs/DEVELOPERS.md#other-ways-to-install-tt-cli).
+If you already use [pipx](https://pipx.pypa.io/), it works too. Install `tt` with `pipx install tenstorrent` in the next step instead of the `uv` command. Other installation options are described in the [tt-cli developer notes](https://github.com/tenstorrent/tt-cli/blob/main/docs/DEVELOPERS.md#other-ways-to-install-tt-cli).
 :::
 
 ---
 
 ## **Step 1: Install the Tenstorrent CLI**
 
-Install the CLI as a `uv` tool and make sure it is on your `PATH`:
+Install `tt` as a `uv` tool and make sure it is on your `PATH`:
 
 ```bash
 uv tool install tenstorrent
 uv tool update-shell
 ```
 
-Open a new terminal, then confirm the CLI runs:
+Open a new terminal or source your shell configuration file again, then confirm `tt` runs:
 
 ```bash
 tt --version
 ```
 
-The first time you run a `tt` command in a terminal it asks once whether you want to share anonymous usage telemetry. Telemetry is opt-in. Nothing is collected unless you say yes, and you can change your answer at any time with `tt config set telemetry.enabled true` or `false`. See the [telemetry policy](https://github.com/tenstorrent/tt-cli/blob/main/TELEMETRY.md) for exactly what is collected.
+The first time you run `tt` in a terminal it asks once whether you want to share anonymous usage telemetry. Please consider saying yes. Telemetry tells Tenstorrent which commands people use, how long they take, and which ones fail, and that is what guides what gets fixed and built next. It is strictly opt-in and records no prompts, file paths, hostnames, usernames, or IP addresses. You can see exactly what would be sent before you decide: set `TT_TELEMETRY_LOG_FILE=/tmp/tt-events.jsonl` on any command and read the file, which works without opting in and uploads nothing. You can change your answer at any time with `tt config set telemetry.enabled true` or `false`. The [telemetry policy](https://github.com/tenstorrent/tt-cli/blob/main/TELEMETRY.md) lists everything that is collected.
 
-Run `tt --help` to see the command groups. The ones used in this guide are `update`, `device`, `model`, `serve`, and `launch`.
-
-:::{note}
-`tt` is beta software and is evolving quickly. If you hit a problem, `tt report issue` opens a prefilled GitHub issue with your environment details already collected.
-:::
+Run `tt` to see the command groups. The ones used in this guide are `update`, `device`, `model`, `serve`, and `launch`.
 
 ---
 
 ## **Step 2: Install the Software Stack with `tt update`**
 
-Tenstorrent publishes a tested set of component versions, called the **golden** versions, that are validated to work together: the kernel-mode driver (TT-KMD), device firmware, HugePages configuration, TT-SMI, TT-Flash, and a container runtime for serving models. `tt update` brings your system onto that set in one command. On a fresh machine it installs everything. On a machine that already has Tenstorrent software it changes only what differs from golden, so you can rerun it any time to get back to a known-good state.
-
-To see what would change without changing anything, preview it first:
-
-```bash
-tt update --dry-run
-```
-
-The plan lists each component, the version installed, the golden version, and the action `tt update` would take:
-
-```
-✓ Fetching golden versions (v3.0.0)  v3.0.0
-                       Update plan (goldens: golden.json v3.0.0)
-┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━┓
-┃ component           ┃ kind     ┃ installed ┃ golden                     ┃ action   ┃
-┡━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━┩
-│ tt-flash            │ uv-tool  │ —         │ 4.0.0                      │ install  │
-│ tt-inference-server │ git-venv │ —         │ v0.25.0                    │ optional │
-│ tt-model            │ uv-tool  │ —         │ a7aa9cefdd3086b091b…       │ install  │
-│ tt-smi              │ uv-tool  │ —         │ 6.6.0                      │ install  │
-│ tt-studio           │ git-venv │ —         │ v2.12.0                    │ optional │
-│ system-stack        │ system   │ —         │ hugepages 1.4.1, kmd       │ converge │
-│                     │          │           │ 2.11.0, sfpi 7.71.0,       │          │
-│                     │          │           │ firmware 19.15.0 (via      │          │
-│                     │          │           │ install.sh 3.6.2)          │          │
-└─────────────────────┴──────────┴───────────┴────────────────────────────┴──────────┘
-```
-
-Components marked `optional` are fetched automatically the first time a command needs them, so `tt update` leaves them alone unless you pass `--include-lazy`.
-
-Now run the update:
+Tenstorrent's system software stack consists of several components that are regularly tested together to ensure stability: device firmware, the kernel-mode driver (TT-KMD), HugePages configuration, TT-SMI, TT-Flash, and a container runtime for serving models. `tt update` brings your system up to the latest stable, tested combination of those components in one command. On a fresh machine it installs everything. On a machine that already has Tenstorrent software it changes only what is out of date, so you can rerun it at any time.
 
 ```bash
 tt update
 ```
 
-`tt update` works in three phases:
-
-1. **Checks.** It fetches the golden version manifest and verifies its checksum.
-2. **Tools.** It installs TT-SMI, TT-Flash, and the model manager into isolated environments under `~/.local/share/tenstorrent/`, where they cannot conflict with each other or with your own Python environment.
-3. **System.** It downloads the matching [tt-installer](https://github.com/tenstorrent/tt-installer) release and runs it non-interactively. This phase asks for your `sudo` password and installs the base packages, the Tenstorrent package repositories, TT-KMD, HugePages, firmware, and Docker if no container runtime is present. It also installs a `tt-metalium` command that opens the TT-Metalium™ development container, for when you want to go deeper later.
+`tt update` installs the Tenstorrent tools into isolated environments under `~/.local/share/tenstorrent/`, where they cannot conflict with your own Python environment, then runs the matching [tt-installer](https://github.com/tenstorrent/tt-installer) release non-interactively to install the driver, firmware, HugePages configuration, and Docker if no container runtime is present.
 
 :::{admonition} Required
 :class: warning
 **Using sudo is required, so you must enter your user's password when prompted.**
 
-`tt update` also asks you to confirm before it flashes firmware, because flashing resets the devices. On a fresh machine it cannot read the current firmware yet, so the prompt is `Continue with tt update? [y/N]` with a warning that continuing may flash and reset your devices. Stop any running model workloads first, then answer **y**. On a machine that already has the driver, the prompt only appears when the firmware is older than golden.
+`tt update` also asks you to confirm before it flashes firmware, because flashing resets the devices. Stop any running model workloads first, then answer **y**.
 :::
 
-On a TT-QuietBox 2 with a fast connection the whole update takes a few minutes. It ends with a summary like `Update complete: 3 tool(s) updated, 2 optional (--include-lazy), system stack converged.`
+On a TT-QuietBox 2 with a fast connection the whole update takes a few minutes.
 
-### **Bring the CLI itself up to date**
+### **Bring `tt` itself up to date**
 
-The installer that `tt update` runs also installs the `tt` release that was validated with the golden set, which can be older than the one you installed in Step 1. This page documents the latest release, so before you move on, put the CLI back on it:
+The installer that `tt update` runs also installs the `tt` release that was tested with that set of components, which can be older than the one you installed in Step 1. This page documents the latest release, so before you move on, put `tt` back on it:
 
 ```bash
 tt self update
 ```
 
-It prints `tt upgraded: 1.0.1 → 1.2.0` when it had something to do, or `tt 1.2.0 is the newest release.` when you are already current. Keep both halves current over time: `tt update` converges the system stack and tools onto the latest golden set, and `tt self update` upgrades the CLI. `tt` also checks for a newer release once a day and prints a notice when one is available.
+Keep both halves current over time: `tt update` for the system software and tools, and `tt self update` for `tt` itself. `tt` checks for a newer release once a day and prints a notice when one is available.
 
 ### **Reboot after the first install**
 
@@ -215,51 +162,21 @@ Congratulations, your system software is installed and your hardware is ready to
 
 ## **Step 4: See Which Models You Can Run**
 
-`tt` knows your hardware, so it can tell you which models are validated to run on it. List them:
+`tt` knows your hardware, so it can tell you which models are validated to run on it:
 
 ```bash
 tt model list
 ```
 
-The list is filtered to the device configuration `tt` detected. The rows below are an example only, trimmed from a TT-QuietBox 2 listing, which `tt` detects as a `p300x2` configuration, to show the different ways a model can appear in the list:
+The list is filtered to the device configuration `tt` detected. Rows whose `source` is `tt-inference-server` or `tt-studio` are the catalog of models that Tenstorrent ships and tests. Rows whose source is `HuggingFace` are community bundles that anyone can publish to the Hugging Face Hub; Tenstorrent does not test or maintain them. `tt model list --type llm` narrows the list to large language models.
 
-```
-  Models (tt catalog + community) for p300x2 (detected — `tt model list --all` for every
-                                      device/bundle)
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━━━┳━━━━━━━━━┓
-┃ name                       ┃ source              ┃ engine ┃ serving profiles ┃ weights ┃
-┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━━━━━━━━━╇━━━━━━━━━┩
-│ FLUX.1-dev                 │ tt-inference-server │ media  │ p300, p300x2     │ —       │
-│ Llama-3.3-70B-Instruct     │ tt-inference-server │ vLLM   │ p150x4, p300x2   │ —       │
-│ Qwen3-32B                  │ tt-inference-server │ vLLM   │ p150x4, p300x2   │ —       │
-│ Qwen3.5-9B                 │ tt-studio           │ vLLM   │ p150             │ —       │
-│ Qwen3.8-27B                │ tt-inference-server │ vLLM   │ p150x4, p300x2   │ —       │
-│ tt-hous/qwen3.8-flash-next │ HuggingFace         │ vLLM   │ p300x2           │ —       │
-│ whisper-large-v3           │ tt-inference-server │ media  │ p150             │ —       │
-└────────────────────────────┴─────────────────────┴────────┴──────────────────┴─────────┘
-```
-
-The columns tell you:
-
-* **source**: where the model comes from. `tt-inference-server` and `tt-studio` rows are the **released catalog**, the models Tenstorrent ships and tests. `HuggingFace` rows are **community bundles** that anyone can publish to the Hugging Face Hub with the Tenstorrent model manager. Community bundles are not tested or maintained by Tenstorrent, and are served by their full `namespace/name` id. `local` marks a bundle already installed on this machine.
-* **engine**: how the model is served. `vLLM` models expose an OpenAI-compatible chat API, `media` models expose image, video, or speech endpoints, and `forge` models run through the TT-Forge™ compiler.
-* **serving profiles**: the board or mesh configurations the model has a serving configuration for. Your detected configuration is always among them.
-* **weights**: whether the model's weights are already downloaded on this machine, and how much space they take.
-
-Useful ways to narrow the list, and to learn more about one model:
+Before you serve a model, check what it needs:
 
 ```bash
-tt model list --catalog               # only the released catalog
-tt model list --type llm              # only large language models
-tt model list --all                   # every model on every device, not just this machine's
-tt model info Qwen3.8-27B             # requirements, validation status per board, and how to serve it
+tt model info <model>
 ```
 
-`tt model info` is the place to check before you serve a model. It reports the minimum disk space and host RAM the model needs, the serving paths it supports, and its validation status on each board: `COMPLETE` models are fully validated, `FUNCTIONAL` models run and produce correct output but may not yet reach target performance, and `EXPERIMENTAL` models are early.
-
-:::{tip}
-To find community bundles for a specific model, search the Hub with `tt model search <query>`, for example `tt model search gpt-oss`. The [community models guide](https://github.com/tenstorrent/tt-cli/blob/main/docs/community-models.md) explains how bundles are packaged, published, and pulled.
-:::
+`tt model info` reports the disk space and host memory the model needs and its validation status on each board: `COMPLETE` models are fully validated, `FUNCTIONAL` models run and produce correct output but may not yet reach target performance, and `EXPERIMENTAL` models are early.
 
 ### **Log In to Hugging Face**
 
@@ -273,51 +190,33 @@ Catalog models download their weights from the [Hugging Face Hub](https://huggin
 tt model login
 ```
 
-`tt model login` offers two ways to log in. **Log in with your browser** shows a URL and a short code: open the URL on any device, enter the code, and approve the request. **Paste an access token** takes a read token you create at [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens). Either way, the login is saved in Hugging Face's own token store, so it is also picked up by any other Hugging Face tooling you use, and `tt serve --dry-run` reports it as `HF token: from the Hugging Face login store`.
+`tt model login` offers two ways to log in: with your browser, by opening a URL and entering a short code, or by pasting a read token you create at [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens). The login is saved in Hugging Face's own token store, so any other Hugging Face tooling you use picks it up too.
 
 ---
 
 ## **Step 5: Serve a Model**
 
-Serving a model gives you an OpenAI-compatible API endpoint running on your Tenstorrent hardware. Pick an LLM from your `tt model list` output. This guide uses `Qwen3.8-27B`, which is fully validated on the TT-QuietBox 2 and other four-chip Blackhole systems, and needs no license agreement on the Hub. On other hardware pick an LLM from your own list, for example `Qwen3-32B` on a Wormhole TT-LoudBox or `Qwen3-8B` on a single n150 or n300. Check what the model needs first:
-
-```bash
-tt model info Qwen3.8-27B
-```
-
-Qwen3.8-27B needs 74 GB of free disk space and 67.5 GB of host memory, and `tt model info` reports it as `COMPLETE` on the p300x2 configuration of a TT-QuietBox 2. Serve it:
+Serving a model gives you an OpenAI-compatible API endpoint running on your Tenstorrent hardware. This guide uses `Qwen3.8-27B`, which is fully validated on the TT-QuietBox 2 and other four-chip Blackhole systems, and needs no license agreement on the Hub. On other hardware pick an LLM from your own `tt model list`, for example `Qwen3-32B` on a Wormhole TT-LoudBox or `Qwen3-8B` on a single n150 or n300.
 
 ```bash
 tt serve Qwen3.8-27B
 ```
 
-`tt serve` picks the right serving path for the model, installs TT-Inference-Server on first use, pulls the model's container image, downloads the weights, opens the device, loads the weights, and warms the model up. It shows those stages as a live checklist and returns only once the endpoint actually answers requests:
+`tt serve` installs TT-Inference-Server on first use, pulls the model's container image, downloads the weights, opens the devices, loads the model, and warms it up, showing each stage as a live checklist. It returns once the endpoint actually answers requests:
 
 ```
-  ✓ host ready  tt-inference-server 0.25.0
-  ✓ weights ready  Qwen/Qwen3.8-27B  6m 53s
-  ✓ image ready  vllm-tt-metal-src-release-ubuntu-22.04-amd64:0.25.0  1m 37s
-  ✓ container started  tt-inference-server-d02c18d2  3.8s
-  ✓ engine started  vLLM 0.26.0  17.8s
-  ✓ Tenstorrent device opened  4 chips · mesh (1, 4)  7.0s
-  ✓ KV cache configured  1,051,104 tokens  3m 28s
-  ✓ model warmed up  209s of warmup
-  ✓ API server started  1.8s
-  ✓ endpoint answering
-✓ Phase 3/3 · Start  15m 26s
 ╭─ Qwen3.8-27B ready ────────────────────────────────────────────────────────╮
 │                                                                            │
 │  endpoint  http://127.0.0.1:20000/v1                                       │
 │  models    curl http://127.0.0.1:20000/v1/models                           │
 │  chat      tt launch                                                       │
-│  Ready in 15m 26s · via tt-inference-server                                │
 │  Logs · tt model logs Qwen3.8-27B --follow                                 │
 │  Stop · tt model stop Qwen3.8-27B                                          │
 ╰────────────────────────────────────────────────────────────────────────────╯
 ```
 
 :::{note}
-The first serve of a model takes a while: the container image (about 18 GB) and the weights (56 GB for Qwen3.8-27B) are downloaded, then the model is compiled and warmed up on your hardware. The run above is a first serve on a TT-QuietBox 2 and took 15 minutes, 7 of them downloading weights. Everything it downloaded and compiled is cached, so later serves of the same model are faster: about seven minutes for Qwen3.8-27B on a TT-QuietBox 2, most of it sizing the KV cache and warming up. `tt model pull Qwen3.8-27B` downloads the weights ahead of time.
+The first serve of a model takes a while: the container image (about 18 GB) and the weights (56 GB for Qwen3.8-27B) are downloaded, then the model is compiled and warmed up on your hardware. On a TT-QuietBox 2 a first serve of Qwen3.8-27B takes about 15 minutes; everything it downloads and compiles is cached, so later serves take about seven. `tt model pull Qwen3.8-27B` downloads the weights ahead of time.
 
 To watch the raw server log while you wait, run `tt model logs Qwen3.8-27B --follow` in a second terminal. Pressing Ctrl-C in the `tt serve` terminal stops watching, not the server.
 :::
@@ -328,49 +227,21 @@ When the ready box appears, the model is being served on port 20000. Send it a f
 tt model curl "In one sentence, what is Tenstorrent?" --max-tokens 2048
 ```
 
-`tt model curl` asks the server which model it is serving, sends your prompt, and prints the server's JSON chat completion. Qwen3.8-27B is a reasoning model: it thinks first, in a separate `reasoning` field of the reply, and then answers in `content`. Its default budget of 64 tokens is used up by the thinking, which is why the example raises it with `--max-tokens`; any option `tt model curl` does not recognize goes straight into the request body. The one-sentence answer arrives in a few seconds. An open question such as "What can you tell me about Tenstorrent?" takes a couple of minutes, because the model reasons at length before it writes. Add `--print` to see the equivalent `curl` command instead of sending it. The endpoint speaks the OpenAI chat completions API, so any OpenAI-compatible client can use it: point the client at `http://localhost:20000/v1` with any value for the API key. Use `--port` on `tt serve` to choose a different port.
+`tt model curl` sends your prompt to the running server as a chat completion and prints the reply. Qwen3.8-27B is a reasoning model: it thinks first, in a separate `reasoning` field, and its default budget of 64 tokens is used up by the thinking, which is why the example raises it with `--max-tokens`. Add `--print` to see the equivalent `curl` command instead of sending it. The endpoint speaks the OpenAI chat completions API, so any OpenAI-compatible client can use it: point the client at `http://localhost:20000/v1` with any value for the API key.
 
 A few commands to manage what is running:
 
 ```bash
-tt model ps              # what is being served, on which port, and whether it is healthy
+tt model ps                # what is being served, on which port, and whether it is healthy
 tt model logs Qwen3.8-27B  # the server's log
 tt model stop Qwen3.8-27B  # stop the server
 ```
-
-:::{tip}
-`tt serve <model> --dry-run` shows the backend, device configuration, container image, and port that would be used without starting anything. It is a quick way to confirm `tt` detected your hardware the way you expect.
-:::
 
 ---
 
 ## **Step 6: Connect an App with `tt launch`**
 
-An API endpoint is the foundation. `tt launch` connects a ready-made application to it, so you can start using the model right away. See which clients are available on your machine:
-
-```bash
-tt launch list
-```
-
-```
-                                        tt launch
-┏━━━━━━━━━━━━━┳━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃ client      ┃ kind        ┃ model          ┃ status         ┃ configures                           ┃
-┡━━━━━━━━━━━━━╇━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
-│ opencode    │ terminal    │ tool calling   │ needs opencode │ ~/.config/opencode/opencode.json     │
-│ pi          │ terminal    │ tool calling   │ needs pi       │ ~/.pi/agent/models.json              │
-│ aider       │ terminal    │ tool calling   │ needs aider    │ environment (this run only)          │
-│ qwencode    │ terminal    │ tool calling   │ needs qwen     │ command-line arguments (this run only) │
-│ hermes      │ terminal    │ tool calling   │ needs hermes   │ environment (this run only)          │
-│ openwebui   │ web service │ any chat model │ ready          │ container tt-open-webui              │
-│ anythingllm │ web service │ any chat model │ ready          │ container tt-anythingllm             │
-└─────────────┴─────────────┴────────────────┴────────────────┴──────────────────────────────────────┘
-```
-
-There are two kinds of client:
-
-* **Web UIs** such as [Open WebUI](https://github.com/open-webui/open-webui) and [AnythingLLM](https://github.com/Mintplex-Labs/anything-llm). `tt` pulls and runs these for you in a container, after asking once. They show as `ready` as soon as Docker is available.
-* **Terminal coding agents** such as OpenCode, Aider, pi, Qwen Code, and Hermes Agent. You install the agent yourself, and `tt` writes the small configuration it needs to reach your model. These need a model that supports tool calling, which `tt` checks for you.
+An API endpoint is the foundation. `tt launch` connects a ready-made application to it, so you can start using the model right away. There are two kinds of client: web UIs such as [Open WebUI](https://github.com/open-webui/open-webui) and [AnythingLLM](https://github.com/Mintplex-Labs/anything-llm), which `tt` pulls and runs for you in a container, and terminal coding agents such as OpenCode, Aider, pi, Qwen Code, and Hermes Agent, which you install yourself and `tt` configures to reach your model. `tt launch list` shows which are available on your machine.
 
 With the model from Step 5 still being served, launch a chat interface in your browser:
 
@@ -378,7 +249,7 @@ With the model from Step 5 still being served, launch a chat interface in your b
 tt launch openwebui
 ```
 
-`tt` asks the server which model it is serving, then asks you to confirm before it pulls the image: `Pull ghcr.io/open-webui/open-webui:main (a few GB) and run it as tt-open-webui on port 3000. Continue? [y/N]`. It starts the container, prints a summary of what it connected, and ends with `tt-open-webui is ready at http://localhost:3000`. Open that URL in your browser. No sign-in is needed: pick the model and start chatting with it running on your Tenstorrent hardware.
+`tt` asks you to confirm before it pulls the image, starts the container, and ends with `tt-open-webui is ready at http://localhost:3000`. Open that URL in your browser. No sign-in is needed: pick the model and start chatting with it running on your Tenstorrent hardware.
 
 When you are done:
 
@@ -391,7 +262,7 @@ The full list of clients, what each one needs installed, and the options for con
 
 ### **Prefer a point-and-click experience? Use TT-Studio**
 
-[TT-Studio](https://github.com/tenstorrent/tt-studio) is a web application that deploys models and gives you a browser interface for them in one place. It is a serving path rather than a `tt launch` client, so you start it with `tt serve`. TT-Studio takes the devices and port 3000 for itself, so stop the web UI and the model server from the steps above first, and reset the devices, because a model server that was stopped by `tt model stop` leaves them in a state TT-Studio's deploy cannot initialize:
+[TT-Studio](https://github.com/tenstorrent/tt-studio) is a web application that deploys models and gives you a browser interface for them in one place. Start it with `tt serve <model> --studio`. TT-Studio takes the devices and port 3000 for itself, so stop the web UI and the model server from the steps above first, and reset the devices:
 
 ```bash
 tt launch stop openwebui
@@ -400,9 +271,7 @@ tt device reset
 tt serve Qwen3.8-27B --studio
 ```
 
-On first use `tt` fetches the latest TT-Studio release. TT-Studio asks you to accept its terms and offers to add a `tt-studio` shortcut to your shell, which you can decline. It then brings up its services and prints a `TT Studio is ready` box with its web UI at `http://localhost:3000`, deploys the model, and prints a `Qwen3.8-27B is ready` box with the endpoint, again on port 20000, and the page that manages the deployment, `http://localhost:3000/models-deployed`. With the images already downloaded this takes a few minutes. TT-Studio requires Docker.
-
-Stopping works as before. `tt model stop Qwen3.8-27B` stops the model through TT-Studio, resets the devices, and takes TT-Studio's services down with it, keeping its settings, downloaded weights, and chat history for next time.
+On first use `tt` fetches the latest TT-Studio release and asks you to accept its terms. When it is ready, TT-Studio's web UI is at `http://localhost:3000` and the model's endpoint is on port 20000, as before. `tt model stop Qwen3.8-27B` stops the model and takes TT-Studio down with it, keeping its settings and downloaded weights for next time. TT-Studio requires Docker.
 
 ---
 
@@ -423,7 +292,7 @@ Catalog models require a Hugging Face login to download their weights. Run `tt m
 
 ### `tt serve` fails with "Access to model … is restricted"
 
-The model is gated and your Hugging Face account has not accepted its license yet, or the login on this machine is for a different account. Accept the license on the model's Hub page, check `tt model login`, and serve again. If the error persists at the `starting the engine` step after both, serve a model that is not gated, such as `Qwen3.8-27B`. `tt model logs <model>` shows the server's own output for any failed start.
+The model is gated and your Hugging Face account has not accepted its license yet, or the login on this machine is for a different account. Accept the license on the model's Hub page, check `tt model login`, and serve again. `tt model logs <model>` shows the server's own output for any failed start.
 
 ### A serve fails with "Try resetting the board"
 
@@ -437,7 +306,7 @@ tt device reset
 
 ### `tt launch` says port 3000 is already in use
 
-Another service holds port 3000, for example TT-Studio or a development server of your own. The web UI container keeps the port it was created with, so `tt launch` prints the exact commands to recreate it on another port: `docker rm tt-open-webui && tt launch openwebui --web-port 3001`. The container's chat history lives in a separate volume and survives the recreate.
+Another service holds port 3000, for example TT-Studio or a development server of your own. `tt launch` prints the exact commands to recreate the web UI container on another port.
 
 ### Docker commands are refused with a permission error
 
@@ -463,14 +332,14 @@ For advanced users or developers who prefer to install and configure each compon
 
 ## **Where to Go Next**
 
-You now have the full stack installed and a model serving from the CLI. From here, branch off into the part of the stack that matches what you want to build:
+You now have the full stack installed and a model serving from the CLI. From here, pick the part of the stack that matches what you want to build:
 
 * **Deploy LLMs in production** with [TT-Inference-Server](./vLLM-servers.md), the serving engine behind `tt serve`. The [tt-inference-server repository](https://github.com/tenstorrent/tt-inference-server) is the authoritative source for which models are validated on your hardware.
 * **Monitor your hardware** with `tt smi` for a status snapshot, or [TT-Toplike](https://docs.tenstorrent.com/tt-toplike/) for a live view of power, temperature, and core activity while a model serves requests.
 * **Use a web interface** with [TT-Studio](https://github.com/tenstorrent/tt-studio), started through `tt serve <model> --studio`.
 * **Understand the software stack**, including how TT-Forge™, TT-NN™, and TT-Metalium™ relate to each other, in the [software stack overview](./tt-software-stack.md).
 * **Compile your own PyTorch, JAX, or ONNX models** with {doc}`TT-Forge™ <../forge/index>`.
-* **Run and build models in Python** with [TT-NN™](https://docs.tenstorrent.com/tt-metal/latest/ttnn/), or **write custom kernels** with [TT-Metalium™](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/). `tt update` already installed a `tt-metalium` command that opens a shell inside the TT-Metalium container, with your home directory mounted and TT-NN ready to import; the image, about 4.5 GB, is pulled the first time you run it. Start with the [Metalium guide](https://github.com/tenstorrent/tt-metal/blob/main/METALIUM_GUIDE.md) to learn about the architecture.
+* **Run and build models in Python** with [TT-NN™](https://docs.tenstorrent.com/tt-metal/latest/ttnn/), or **write custom kernels** with [TT-Metalium™](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/). `tt update` also installed a `tt-metalium` command that opens a shell inside the TT-Metalium container, with your home directory mounted and TT-NN ready to import; the image, about 4.5 GB, is pulled the first time you run it. Start with the [Metalium guide](https://github.com/tenstorrent/tt-metal/blob/main/METALIUM_GUIDE.md) to learn about the architecture.
 * **Learn by building** with the hands-on lessons in the [TT VS Code Toolkit](https://docs.tenstorrent.com/tt-vscode-toolkit/).
 
 ---
