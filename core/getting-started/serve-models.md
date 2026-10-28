@@ -2,28 +2,28 @@
 myst:
   html_meta:
     product-name: tt (Tenstorrent CLI), tt-cli, TT-Studio, TT-Inference-Server, TT-QuietBox®, TT-LoudBox, Wormhole™ Networked AI Processor, Blackhole® Networked AI Processor, n150s, n150d, n300s, n300d, p100a, p150a, p150b, p300a
-    technology-concepts: model deployment, LLM, diffusion, image generation, video generation, speech recognition, text to speech, computer vision, embeddings, OpenAI-compatible API, Hugging Face
+    technology-concepts: model serving, LLM, diffusion, image generation, video generation, speech recognition, text to speech, computer vision, embeddings, OpenAI-compatible API, Hugging Face
     document-type: how-to
 ---
 
-# Deploy Models
+# Serve Models
 
-This page shows how to deploy a model on your Tenstorrent system and start sending it requests. You have two surfaces to work from, and both draw on the same catalog of models that Tenstorrent validates on each hardware generation:
+This page shows how to serve a model on your Tenstorrent system and start sending it requests. You have two surfaces to work from, and both draw on the same catalog of models that Tenstorrent validates on each hardware generation:
 
 * **The `tt` CLI.** `tt serve <model>` gives you an OpenAI-compatible API endpoint in one command. This is the path for applications, scripts, agents, and anything else that talks to an API.
-* **TT-Studio.** A web application that deploys the same models and gives you a browser interface for them: chat, image and video generation, speech-to-text, object detection, and more. This is the path when you want to try a model from a browser, or hand it to people who do not use a terminal.
+* **TT-Studio.** A web application that serves the same models and gives you a browser interface for them: chat, image and video generation, speech-to-text, object detection, and more. This is the path when you want to try a model from a browser, or hand it to people who do not use a terminal.
 
-The flow is the same whatever kind of model you deploy. The catalog is not limited to large language models: it includes diffusion models for image and video generation, speech and audio models, decision models, and tabular foundation models, and `tt serve` and TT-Studio treat each of them the same way. Under the hood both run [TT-Inference-Server](https://github.com/tenstorrent/tt-inference-server), the serving engine that packages every model with the right runtime in a container. You do not need to clone or configure it yourself.
+The flow is the same whatever kind of model you serve. The catalog is not limited to large language models: it includes diffusion models for image and video generation, speech and audio models, decision models, and tabular foundation models, and `tt serve` and TT-Studio treat each of them the same way. Under the hood both run [TT-Inference-Server](https://github.com/tenstorrent/tt-inference-server), the serving engine that packages every model with the right runtime in a container. You do not need to clone or configure it yourself.
 
 ## **The Same Steps for Every Model**
 
-Deploying any model in the catalog takes the same five steps, and each is one command:
+Serving any model in the catalog takes the same five steps, and each is one command:
 
 | Step | Command | What it does |
 | :--- | :--- | :--- |
 | 1. See what runs on your system | `tt model list` | Lists the models validated for the hardware it detects. `--type` narrows the list to one kind of model. |
-| 2. Check what the model needs | `tt model info <model>` | Reports the disk and memory the model needs, which surfaces deploy it, and how it is validated on your hardware. |
-| 3. Deploy it | `tt serve <model>`, or `tt serve <model> --studio` for TT-Studio | Downloads the weights and the container image on first use, opens the devices, loads the model, and starts the server. |
+| 2. Check what the model needs | `tt model info <model>` | Reports the disk and memory the model needs, which surfaces serve it, and how it is validated on your hardware. |
+| 3. Serve it | `tt serve <model>`, or `tt serve <model> --studio` for TT-Studio | Downloads the weights and the container image on first use, opens the devices, loads the model, and starts the server. |
 | 4. Send a request | `curl http://localhost:20000/v1/<route>` | Every server speaks the OpenAI API on port 20000. The route depends on the kind of model. |
 | 5. Manage and stop | `tt model ps`, `tt model logs <model>`, `tt model stop <model>` | Shows what is running, streams its log, and stops the server. The weights stay cached. |
 
@@ -97,7 +97,7 @@ A model that is known not to work on your board is left out. `tt model list --al
 
 ### **2\. Check what a model needs**
 
-Before you commit to a download, inspect the model. `tt model info <model>` reports where the weights come from, which surfaces can deploy the model, what it needs from the host, and how it is validated on each hardware configuration. For the example model:
+Before you commit to a download, inspect the model. `tt model info <model>` reports where the weights come from, which surfaces can serve the model, what it needs from the host, and how it is validated on each hardware configuration. For the example model:
 
 ```bash
 tt model info Wan2.2-T2V-A14B-Diffusers
@@ -126,7 +126,7 @@ tt model info Wan2.2-T2V-A14B-Diffusers
 
 The rows that matter when you choose:
 
-* **`via`** lists the surfaces that can deploy the model. Most catalog models offer both `inference-server`, the path `tt serve` takes by default, and `studio`. A few are carried only by TT-Studio, and `tt serve` sends those to it automatically.
+* **`via`** lists the surfaces that can serve the model. Most catalog models offer both `inference-server`, the path `tt serve` takes by default, and `studio`. A few are carried only by TT-Studio, and `tt serve` sends those to it automatically.
 * **`min disk`** and **`min ram`** are what the model needs on the host, and **`cached`** says whether its weights are on disk already. The LLMs in the catalog range from 36 GB of disk and 20 GB of memory for an 8B-parameter model to 160 GB and 175 GB for `Llama-3.3-70B-Instruct`. A download can be larger than the minimum: the example model's weights come to 117.5 GB.
 * **`on <hardware>`** gives the validation status for each configuration. `COMPLETE` is fully validated; `EXPERIMENTAL` runs but has not been through the full test suite. A configuration that is missing from the list is one the model is not validated on, which is why the example model shows no single-chip boards. A single-chip model on a larger system shows `served as p150` or the equivalent chip: it takes one chip and leaves the rest free.
 
@@ -153,11 +153,11 @@ The full log it names ends with `Error: Access denied. Model 'black-forest-labs/
 
 ---
 
-## **Step 2: Deploy with the CLI**
+## **Step 2: Serve with the CLI**
 
 ### **1\. Preview, then serve**
 
-`tt serve <model> --dry-run` shows how the model would be deployed without starting anything: the serving path, the device configuration, the container image, where the weights go, and the port. For the example model:
+`tt serve <model> --dry-run` shows how the model would be served without starting anything: the serving path, the device configuration, the container image, where the weights go, and the port. For the example model:
 
 ```bash
 tt serve Wan2.2-T2V-A14B-Diffusers --dry-run
@@ -184,9 +184,9 @@ tt serve Wan2.2-T2V-A14B-Diffusers --dry-run
 └──────────────────┴───────────────────────────────────────────────────────────────────────────────┘
 ```
 
-`device` is the configuration the model is deployed on, here the whole system: the example model runs across all four chips of a TT-QuietBox 2. `weights cache` shows that the weights go to the host's Hugging Face cache, where every path that serves the model can reuse them, and `tt config` carries the settings the catalog pins for the model. Below the table, `tt serve` prints the exact command it would run.
+`device` is the configuration the model is served on, here the whole system: the example model runs across all four chips of a TT-QuietBox 2. `weights cache` shows that the weights go to the host's Hugging Face cache, where every path that serves the model can reuse them, and `tt config` carries the settings the catalog pins for the model. Below the table, `tt serve` prints the exact command it would run.
 
-`tt serve <model>` deploys the model. On first use it fetches the weights and pulls the container image; then it opens the devices, loads the model, and starts the server, showing each stage as a live checklist with its elapsed time. It returns once the endpoint actually answers requests. For the example model:
+`tt serve <model>` serves the model. On first use it fetches the weights and pulls the container image; then it opens the devices, loads the model, and starts the server, showing each stage as a live checklist with its elapsed time. It returns once the endpoint actually answers requests. For the example model:
 
 ```bash
 tt serve Wan2.2-T2V-A14B-Diffusers
@@ -215,7 +215,7 @@ tt serve Wan2.2-T2V-A14B-Diffusers
 ╰────────────────────────────────────────────────────────────────────────────╯
 ```
 
-The stages are the same for every model; the times are not. Most of a first serve is the download: the example model's 117.5 GB of weights took 17 minutes here and the container image two, ahead of a six-minute load that also writes a cache for your hardware. Later serves skip the download and the pull; the same serve from a warm cache took six minutes on this system, and `tt model list` now shows the size of the weights in its `weights` column. An LLM's checklist has stages of its own, for sizing the KV cache and warming the model up; [Installing Tenstorrent Software](./README.md#step-5-serve-a-model) shows one for `Qwen3.8-27B`. To watch the server's own log while you wait, run `tt model logs <model> --follow` in a second terminal. Pressing Ctrl-C in the `tt serve` terminal stops watching, not the server.
+The stages are the same for every model; the times are not. Most of a first serve is the download: the example model's 117.5 GB of weights took 17 minutes here and the container image two, ahead of a six-minute load that also writes a cache for your hardware. Later serves skip the download and the pull; the same serve from a warm cache took six minutes on this system, and `tt model list` now shows the size of the weights in its `weights` column. An LLM's checklist has stages of its own, for sizing the KV cache and warming the model up. To watch the server's own log while you wait, run `tt model logs <model> --follow` in a second terminal. Pressing Ctrl-C in the `tt serve` terminal stops watching, not the server.
 
 ### **2\. Send a request**
 
@@ -314,9 +314,9 @@ With the example model running, `tt model ps` shows:
 
 ---
 
-## **Step 3: Deploy with TT-Studio**
+## **Step 3: Serve with TT-Studio**
 
-[TT-Studio](https://github.com/tenstorrent/tt-studio) deploys the same catalog through a web application. It brings up its services in Docker, deploys the model you choose, and gives you an interface for it in the browser:
+[TT-Studio](https://github.com/tenstorrent/tt-studio) serves the same catalog through a web application. It brings up its services in Docker, deploys the model you choose, and gives you an interface for it in the browser:
 
 * **Chat** for language models, with streaming replies, a history of conversations, file and image upload, voice input, a panel that shows a reasoning model's thinking, and inference statistics such as time to first token.
 * **Knowledge bases** for chat: upload documents, and TT-Studio indexes them so the model can answer questions about them.
@@ -401,7 +401,7 @@ tt-studio --stop                 # stop TT-Studio, keeping its data
 
 ---
 
-## **Deploy a Community Model**
+## **Serve a Community Model**
 
 Community bundles are models that anyone has packaged for Tenstorrent hardware and published on the Hugging Face Hub. `tt model list` includes the ones Tenstorrent has reviewed; `--include-unverified` shows the rest. They are served through the same commands, with the bundle's repository id in place of a catalog name:
 

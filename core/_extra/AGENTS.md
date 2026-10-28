@@ -137,7 +137,7 @@ export LD_LIBRARY_PATH=$TT_METAL_HOME/build/lib:$LD_LIBRARY_PATH
 - **"Just received hardware, want to run inference"** → tt-installer → verify with tt-smi
   → download Qwen3-0.6B → run a [model demo](https://docs.tenstorrent.com/getting-started/model-demos.html).
 - **"Want an OpenAI-compatible API endpoint"** → tt-inference-server (easiest) or the
-  [Deploy Models guide](https://docs.tenstorrent.com/getting-started/deploy-models.html).
+  [Serve Models guide](https://docs.tenstorrent.com/getting-started/serve-models.html).
 - **"Have a PyTorch model, want it on TT hardware"** → [TT-Forge](https://docs.tenstorrent.com/tt-forge/)
   (`forge.compile()`, no build) or [TT-XLA](https://docs.tenstorrent.com/tt-xla/) (JAX/XLA path).
 - **"Want to write low-level kernels"** → [TT-Metalium getting started](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/get_started/get_started.html)
