@@ -11,6 +11,7 @@ Tenstorrent
    :caption: Get Started
 
    Overview <getting-started/tt-software-stack>
+   getting-started/operating-tt-software
    getting-started/README
    getting-started/manual-software-install
    getting-started/serve-models
