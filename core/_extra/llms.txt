@@ -10,6 +10,7 @@ This index maps the entire docs.tenstorrent.com universe. Every link below resol
 - [Model Demos](https://docs.tenstorrent.com/getting-started/model-demos.html): Ready-to-run model demonstrations across TT hardware
 - [Serve Models](https://docs.tenstorrent.com/getting-started/serve-models.html): Serve LLMs, diffusion, speech, and vision models with the tt CLI or TT-Studio and get an OpenAI-compatible endpoint
 - [TT Software Stack](https://docs.tenstorrent.com/getting-started/tt-software-stack.html): Overview of the layered software stack from kernels to high-level APIs
+- [Operating Tenstorrent Software](https://docs.tenstorrent.com/getting-started/operating-tt-software.html): Overview of the tt CLI and TT-Studio — the system software, serving engine, and apps they manage, and when to use each
 - [Manual Software Installation](https://docs.tenstorrent.com/getting-started/manual-software-install.html): Step-by-step manual install of drivers, firmware, and the Python stack
 - [TT Developer Toolkit](https://docs.tenstorrent.com/tt-vscode-toolkit/): VS Code extension + companion lessons covering first boot through custom training; the most guided on-ramp (full lesson catalog in the section below)
   - [Lesson Catalog](https://docs.tenstorrent.com/tt-vscode-toolkit/lessons/): Browsable catalog of all lessons with hardware-filter chips
