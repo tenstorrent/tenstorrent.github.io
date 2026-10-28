@@ -129,7 +129,6 @@ For motherboard, case, power supply, and lane-budget guidance, see {doc}`Choosin
 | Operating Temperature Range | 10°C/50°F - 35°C/95°F     |
 | Storage Temperature Range   | -40°C/-40°F - 75°C/167°F  |
 | Elevation                   | -5 ft. to 10,000 ft.      |
-| Air Flow                    | ≥30 CFM @ up to 35°C/95°F |
 
 ## Related pages
 

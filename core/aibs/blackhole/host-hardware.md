@@ -163,7 +163,6 @@ This is a gap in motherboard and Ubuntu cross-support, not an issue with Tenstor
 | CPU                  | Mainstream desktop for one card; Threadripper, EPYC, or Xeon for two or more at full width                      |
 | Case: clearance      | Measured clearance behind the bracket for four QSFP-DD cables per card                                          |
 | Case: support        | Horizontal orientation or a support bracket                                                                     |
-| Case: airflow        | ≥30 CFM at up to 35°C/95°F                                                                                      |
 | Power supply         | ATX 3.1 Certified or better; native 12V-2x6. 800W is a practical starting point for one card; size from total load above that |
 | Memory               | 64 GB minimum; enough to hold your target model if you want to avoid chunked loading                            |
 | Cables (multi-card)  | QSFP-DD cables sized per [Multi-Card Topologies](multi-card-topologies.md#cables) |

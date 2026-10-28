@@ -3,3 +3,5 @@ _build/
 .DS_Store
 output/
 .superpowers/
+# Intermediate DOCX from the external QuietBox 2 PDF generator (not published).
+core/systems/quietbox/quietbox-bh-2/tt-quietbox-2-user-guide.docx
