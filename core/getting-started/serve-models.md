@@ -151,7 +151,7 @@ The full log it names ends with `Error: Access denied. Model 'black-forest-labs/
 
 ### **Preview, then serve**
 
-`tt serve <model> --dry-run` shows how the model would be served without starting anything: the serving path, the device configuration, the container image, where the weights go, and the port. For the example model:
+`tt serve <model> --dry-run` shows how the model would be served without starting anything: the serving path, the device configuration, the container image, where the weights go, and the port.
 
 ```bash
 tt serve Wan2.2-T2V-A14B-Diffusers --dry-run
@@ -162,25 +162,17 @@ tt serve Wan2.2-T2V-A14B-Diffusers --dry-run
                             tt serve Wan2.2-T2V-A14B-Diffusers — dry run
 ┌──────────────────┬───────────────────────────────────────────────────────────────────────────────┐
 │ backend          │ tt-inference-server                                                           │
-│ workflow         │ server                                                                        │
 │ device           │ p300x2                                                                        │
 │ engines          │ media                                                                         │
 │ status           │ COMPLETE                                                                      │
 │ docker image     │ ghcr.io/tenstorrent/tt-media-inference-server:0.17.0-8c48a10                  │
-│                  │ override — the spec pins                                                      │
-│                  │ ghcr.io/tenstorrent/tt-media-inference-server:0.17.0-8c48a10                  │
-│ tool-call parser │ —                                                                             │
-│ reasoning parser │ —                                                                             │
-│ tt config        │ {"trace_region_size": 30000000} (from the model spec)                         │
 │ weights cache    │ /home/ttuser/.cache/huggingface                                               │
 │ HF token         │ from the Hugging Face login store                                             │
 │ port             │ 20000  (server default)                                                       │
 └──────────────────┴───────────────────────────────────────────────────────────────────────────────┘
 ```
 
-`device` is the configuration the model is served on, here the whole system: the example model runs across all four chips of a TT-QuietBox 2. `weights cache` shows that the weights go to the host's Hugging Face cache, where every path that serves the model can reuse them, and `tt config` carries the settings the catalog pins for the model. Below the table, `tt serve` prints the exact command it would run.
-
-`tt serve <model>` serves the model. On first use it fetches the weights and pulls the container image; then it opens the devices, loads the model, and starts the server, showing each stage as a live checklist with its elapsed time. It returns once the endpoint actually answers requests. For the example model:
+`tt serve <model>` serves the model. On first use it fetches the weights and pulls the container image, then opens the devices, loads the model, and starts the server, showing each stage as a live checklist. It returns once the endpoint answers requests:
 
 ```bash
 tt serve Wan2.2-T2V-A14B-Diffusers
@@ -195,17 +187,10 @@ tt serve Wan2.2-T2V-A14B-Diffusers
   ✓ Tenstorrent device opened  4 chips  4.3s
   ✓ model loaded  2/2  5m 52s
   ✓ endpoint answering
-✓ Phase 3/3 · Start  25m 22s
 ╭─ Wan2.2-T2V-A14B-Diffusers ready ──────────────────────────────────────────╮
-│                                                                            │
 │  endpoint  http://127.0.0.1:20000/v1                                       │
-│  models    curl http://127.0.0.1:20000/v1/models                           │
-│  chat      tt launch                                                       │
-│                                                                            │
-│  Ready in 25m 22s · via tt-inference-server                                │
 │  Logs · tt model logs Wan2.2-T2V-A14B-Diffusers --follow                   │
 │  Stop · tt model stop Wan2.2-T2V-A14B-Diffusers                            │
-│                                                                            │
 ╰────────────────────────────────────────────────────────────────────────────╯
 ```
 
@@ -219,7 +204,7 @@ The endpoint speaks the OpenAI API, so any OpenAI-compatible client can use it. 
 | Speech recognition | `/v1/audio/transcriptions` | the audio file, base64-encoded, in `file` |
 | Text to speech | `/v1/audio/speech` | the `text` to speak |
 | Image generation | `/v1/images/generations` | a `prompt`, with optional `num_inference_steps`, `seed`, `width` and `height` |
-| Video generation | `/v1/videos/generations` | a `prompt`; the reply is a job that you poll at `/v1/videos/generations/<job_id>` and download from `/download` once it is `completed` |
+| Video generation | `/v1/videos/generations` | a `prompt`; the reply is a job that you poll and then download |
 | Embeddings | `/v1/embeddings` | the `input` text |
 
 For an LLM, `tt model curl` sends a chat completion without any JSON on your part, and `--print` shows the equivalent `curl` command for your own scripts:
@@ -228,56 +213,16 @@ For an LLM, `tt model curl` sends a chat completion without any JSON on your par
 tt model curl "In one sentence, what is Tenstorrent?" --max-tokens 2048
 ```
 
-For the other kinds of model, call the route directly. With the example model, generate a short video. Video generation runs as a job: the request returns at once with the job's id and status, you poll the job until it is `completed`, and then you download the result.
+For the other kinds of model, call the route directly. Video generation runs as a job: the request returns at once with the job's `id` and `status`, you poll the job until it is `completed`, and then you download the result.
 
 ```bash
+# Submit the job; the reply includes its id and status
 curl -s http://localhost:20000/v1/videos/generations \
   -H "Content-Type: application/json" \
-  -d '{"prompt": "A red fox trotting through fresh snow in a pine forest, soft morning light, camera tracking alongside"}' | python3 -m json.tool
-```
+  -d '{"prompt": "A red fox trotting through fresh snow in a pine forest, soft morning light, camera tracking alongside"}'
 
-```
-{
-    "id": "696734f5-1990-4bb9-8197-51f172e8bad4",
-    "job_type": "video",
-    "status": "queued",
-    "created_at": 1792683962,
-    "model": "/home/container_app_user/readonly_weights_mount/Wan2.2-T2V-A14B-Diffusers/snapshots/5be7df9619b54f4e2667b2755bc6a756675b5cd7",
-    "request_parameters": {
-        "prompt": "A red fox trotting through fresh snow in a pine forest, soft morning light, camera tracking alongside",
-        "negative_prompt": null,
-        "num_inference_steps": 20,
-        "seed": null
-    }
-}
-```
-
-The default is 20 denoising steps; `num_inference_steps`, `negative_prompt`, and `seed` are the optional fields. Check on the job with its `id`:
-
-```bash
-curl -s http://localhost:20000/v1/videos/generations/<job_id> | python3 -m json.tool
-```
-
-```
-{
-    "id": "696734f5-1990-4bb9-8197-51f172e8bad4",
-    "job_type": "video",
-    "status": "completed",
-    "created_at": 1792683962,
-    "model": "/home/container_app_user/readonly_weights_mount/Wan2.2-T2V-A14B-Diffusers/snapshots/5be7df9619b54f4e2667b2755bc6a756675b5cd7",
-    "request_parameters": {
-        "prompt": "A red fox trotting through fresh snow in a pine forest, soft morning light, camera tracking alongside",
-        "negative_prompt": null,
-        "num_inference_steps": 20,
-        "seed": null
-    },
-    "completed_at": 1792684206
-}
-```
-
-Once `status` is `completed`, download the clip:
-
-```bash
+# Poll until status is "completed", then download the clip
+curl -s http://localhost:20000/v1/videos/generations/<job_id>
 curl http://localhost:20000/v1/videos/generations/<job_id>/download --output fox.mp4
 ```
 
@@ -287,17 +232,6 @@ curl http://localhost:20000/v1/videos/generations/<job_id>/download --output fox
 tt model ps              # what is being served, on which port, and whether it is healthy
 tt model logs <model>    # the server's log (--follow to stream it)
 tt model stop <model>    # stop the server; the weights stay cached
-```
-
-With the example model running, `tt model ps` shows:
-
-```
-                                              Served models
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━━━┳━━━━━━━━┓
-┃ name                      ┃ backend          ┃ container                    ┃ port  ┃ health  ┃ uptime ┃
-┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━╇━━━━━━━━━╇━━━━━━━━┩
-│ Wan2.2-T2V-A14B-Diffusers │ inference-server │ tt-inference-server-2f018ce0 │ 20000 │ healthy │ 6m     │
-└───────────────────────────┴──────────────────┴──────────────────────────────┴───────┴─────────┴────────┘
 ```
 
 `tt serve` takes `--port` to serve on a port other than 20000, and `--device` to override the detected configuration. Anything it does not recognize after `--` is passed through to the server itself.
