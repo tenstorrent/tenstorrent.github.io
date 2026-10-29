@@ -107,7 +107,7 @@ Tenstorrent's system software consists of several components that are regularly 
 
 ### Model serving
 
-[TT-Inference-Server](https://github.com/tenstorrent/tt-inference-server) is the serving engine behind both `tt serve` and TT-Studio. It packages each model with the right runtime in a container, downloads the model's weights from the [Hugging Face Hub](https://huggingface.co), and exposes an OpenAI-compatible API endpoint. The models it ships and tests make up the catalog that `tt model list` shows for your hardware, filtered to the configuration `tt` detects. The catalog is not limited to large language models: it includes diffusion models for image and video generation, speech and audio models, and vision models. Alongside it, community bundles that anyone has published to the Hub for Tenstorrent hardware can be served through the same commands; Tenstorrent does not test or maintain those. The tt-inference-server repository is the authoritative source for which models are validated on each hardware generation.
+`tt serve` runs [TT-Inference-Server](https://github.com/tenstorrent/tt-inference-server) for the models in Tenstorrent's tested catalog, hands the few models only TT-Studio carries to TT-Studio, and runs community bundles published on the Hugging Face Hub through [tt-model-manager](https://github.com/tenstorrent/tt-model-manager). TT-Inference-Server packages each catalog model with the right runtime in a container, downloads the model's weights from the [Hugging Face Hub](https://huggingface.co), and exposes an OpenAI-compatible API endpoint. The models it ships and tests make up the catalog that `tt model list` shows for your hardware, filtered to the configuration `tt` detects. The catalog is not limited to large language models: it includes diffusion models for image and video generation, speech and audio models, and vision models. A community bundle carries its own serving stack, which is why `tt serve` can run one with the same commands; Tenstorrent does not test or maintain bundles. The tt-inference-server repository is the authoritative source for which models are validated on each hardware generation.
 
 ### Apps and tools
 
@@ -117,7 +117,7 @@ An endpoint is the foundation; applications are what you use. `tt launch` connec
 
 ## Choosing Between tt and TT-Studio
 
-Both paths run the same models on the same serving engine, and a model served by one is reachable from the other, so the choice is about how you want to work:
+Both paths serve the same catalog, and a model served by one is reachable from the other, so the choice is about how you want to work:
 
 * **Use `tt`** when you want an API endpoint for applications, scripts, or agents, when you are setting up or maintaining a system, or when you want to automate any of that.
 * **Use TT-Studio** when you want to try models from a browser, when the people using the system are not terminal users, or when you want the built-in chat, generation, and recognition interfaces without connecting a separate client.
