@@ -124,12 +124,6 @@ tt model info Wan2.2-T2V-A14B-Diffusers
 └─────────────────────┴───────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-The rows that matter when you choose:
-
-* **`via`** lists the surfaces that can serve the model. Most catalog models offer both `inference-server`, the path `tt serve` takes by default, and `studio`. A few are carried only by TT-Studio, and `tt serve` sends those to it automatically.
-* **`min disk`** and **`min ram`** are what the model needs on the host, and **`cached`** says whether its weights are on disk already. The LLMs in the catalog range from 36 GB of disk and 20 GB of memory for an 8B-parameter model to 160 GB and 175 GB for `Llama-3.3-70B-Instruct`. A download can be larger than the minimum: the example model's weights come to 117.5 GB.
-* **`on <hardware>`** gives the validation status for each configuration. `COMPLETE` is fully validated; `EXPERIMENTAL` runs but has not been through the full test suite. A configuration that is missing from the list is one the model is not validated on, which is why the example model shows no single-chip boards. A single-chip model on a larger system shows `served as p150` or the equivalent chip: it takes one chip and leaves the rest free.
-
 ### **3\. Get access to gated models**
 
 Some model owners gate their weights behind a license. Meta's Llama models, Google's Gemma models, and Black Forest Labs' FLUX.1 models all require you to accept their terms on the model's Hub page before you can download them, and the owner may take days to grant access. Qwen, Wan, and Whisper models are not gated.
