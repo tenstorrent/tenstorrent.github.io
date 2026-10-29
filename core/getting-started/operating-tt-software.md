@@ -99,7 +99,7 @@ The main project is located in the [tt-studio](https://github.com/tenstorrent/tt
 
 ## What tt Manages
 
-The diagram shows the layers `tt` operates on your behalf. You rarely touch them directly, but it helps to know what they are.
+The diagram shows the layers `tt` operates on your behalf. Each has its own tool, version, and setup steps; `tt` keeps them in a combination that Tenstorrent has tested together, so you work with one command set and a known-good system instead of maintaining each layer yourself.
 
 ### System software
 
