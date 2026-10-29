@@ -4,7 +4,7 @@ technology-concepts: Machine Learning, High-Performance Computing, Neural Networ
 document-type: Explanation
 ---
 
-# Overview
+# Building with Tenstorrent Software
 
 This document provides developers and researchers with an overview of the main components of the Tenstorrent software stack: TT-Metalium™, TT-NN™, and TT-Forge™. You will learn about each tool's purpose, use cases, and where to find its source code.
 
@@ -134,6 +134,6 @@ As always, if you have any questions, please [raise a support request](https://t
 ---
 
 <nav class="doc-footer-buttons" role="navigation" aria-label="Page navigation">
-  <a href="serve-models.html" class="btn btn-neutral">Previous</a>
-  <a href="../aibs/index.html" class="btn btn-neutral">Next</a>
+  <a href="README.html" class="btn btn-neutral">Previous</a>
+  <a href="operating-tt-software.html" class="btn btn-neutral">Next</a>
 </nav>
