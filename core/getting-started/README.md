@@ -63,6 +63,10 @@ If you already use [pipx](https://pipx.pypa.io/), it works too. Install `tt` wit
 
 ## **Step 1: Install the Tenstorrent CLI**
 
+:::{note}
+If you're starting with a fresh TT-QuietBox® 2, we automatically install the Tenstorrent CLI for you. To check, run `tt --version` in your terminal. If you get a response, move to [Step 2](#step-2-install-the-software-stack-with-tt-update) below.
+:::
+
 Install `tt` as a `uv` tool and make sure it is on your `PATH`:
 
 ```bash
