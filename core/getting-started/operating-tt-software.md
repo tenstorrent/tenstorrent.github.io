@@ -6,7 +6,7 @@ document-type: Explanation
 
 # Operating Tenstorrent Software
 
-This document provides an overview of the main components you use to operate Tenstorrent hardware: the Tenstorrent CLI, `tt`, and TT-Studio. You will learn what each one is for, how they fit together with the software they manage, and where to find their source code. If you want to build on the stack instead, by compiling models or writing kernels, start with the [software stack overview](./tt-software-stack.md).
+This document provides an overview of the main components you use to operate Tenstorrent hardware: the Tenstorrent CLI, `tt`, and TT-Studio. You will learn what each one is for, how they fit together with the software they manage, and where to find their source code. If you want to build on the stack instead, by compiling models or writing kernels, start with [Building with Tenstorrent Software](./tt-software-stack.md).
 
 ---
 
@@ -69,7 +69,7 @@ This document provides an overview of the main components you use to operate Ten
 <div class="software-stack-container">
   <div class="software-stack-content">
 
-## `tt`: The Tenstorrent CLI
+## tt: The Tenstorrent CLI
 
 `tt` is the Tenstorrent command-line interface and the primary interface for operating your Tenstorrent hardware. It either implements a function itself or drives an existing Tenstorrent tool, such as TT-SMI or tt-installer, behind one stable set of commands.
 
@@ -97,7 +97,7 @@ The main project is located in the [tt-studio](https://github.com/tenstorrent/tt
 
 ---
 
-## What `tt` Manages
+## What tt Manages
 
 The diagram shows the layers that `tt` operates on your behalf. You rarely interact with them directly, but it helps to know what they are.
 
@@ -115,7 +115,7 @@ An endpoint is the foundation; applications are what you use. `tt launch` connec
 
 ---
 
-## Choosing Between `tt` and TT-Studio
+## Choosing Between tt and TT-Studio
 
 Both paths run the same models on the same serving engine, and a model served by one is reachable from the other, so the choice is about how you want to work:
 
