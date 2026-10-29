@@ -8,7 +8,7 @@ myst:
 
 # Installing Tenstorrent Software
 
-This guide takes you from a fresh Tenstorrent system to a model generating tokens. You will install the Tenstorrent CLI, `tt`, use it to update your system to the latest stable Tenstorrent software, confirm your hardware is visible, see which models your hardware can run, and serve a model.
+This guide takes you from a fresh Tenstorrent system to one that is ready to run models. You will install the Tenstorrent CLI, `tt`, use it to update your system to the latest stable Tenstorrent software, and confirm your hardware is visible.
 
 `tt` is the primary interface for operating your Tenstorrent hardware. If you want to develop against Tenstorrent's open-source repositories instead, start with [TT-Metalium™](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/), [TT-NN™](https://docs.tenstorrent.com/tt-metal/latest/ttnn/), or {doc}`TT-Forge™ <../forge/index>`.
 
@@ -78,7 +78,7 @@ tt --version
 
 The first time you run `tt` in a terminal it asks once whether you want to share anonymous usage telemetry. Please consider saying yes. Telemetry tells Tenstorrent which commands people use, how long they take, and which ones fail, and that is what guides what gets fixed and built next. It is strictly opt-in and records no prompts, file paths, hostnames, usernames, or IP addresses. You can see exactly what would be sent before you decide: set `TT_TELEMETRY_LOG_FILE=/tmp/tt-events.jsonl` on any command and read the file, which works without opting in and uploads nothing. You can change your answer at any time with `tt config set telemetry.enabled true` or `false`. The [telemetry policy](https://github.com/tenstorrent/tt-cli/blob/main/TELEMETRY.md) lists everything that is collected.
 
-Run `tt` to see the command groups. The ones used in this guide are `update`, `device`, `model`, `serve`, and `launch`.
+Run `tt` to see the command groups. The ones used in this guide are `update` and `device`; `model`, `serve`, and `launch` take over once the stack is installed.
 
 ---
 
@@ -160,121 +160,6 @@ Congratulations, your system software is installed and your hardware is ready to
 
 ---
 
-## **Step 4: See Which Models You Can Run**
-
-`tt` knows your hardware, so it can tell you which models are validated to run on it:
-
-```bash
-tt model list
-```
-
-The list is filtered to the device configuration `tt` detected. Rows whose `source` is `tt-inference-server` or `tt-studio` are the catalog of models that Tenstorrent ships and tests. Rows whose source is `HuggingFace` are community bundles that anyone can publish to the Hugging Face Hub; Tenstorrent does not test or maintain them. `tt model list --type llm` narrows the list to large language models.
-
-Before you serve a model, check what it needs:
-
-```bash
-tt model info <model>
-```
-
-`tt model info` reports the disk space and host memory the model needs and its validation status on each board: `COMPLETE` models are fully validated, `FUNCTIONAL` models run and produce correct output but may not yet reach target performance, and `EXPERIMENTAL` models are early.
-
-### **Log In to Hugging Face**
-
-Catalog models download their weights from the [Hugging Face Hub](https://huggingface.co), so serving needs a Hugging Face account and login, even for freely available models. Some models are also gated, which means you must visit the model's page on the Hub and accept its license before you can download it. Meta's Llama and Google's Gemma models are gated; Qwen models are not.
-
-1. Create a Hugging Face account at [huggingface.co/join](https://huggingface.co/join) if you do not have one.
-2. For a gated model, open its page on the Hub and accept the license agreement. Approval can take a few minutes. The model's `hf_repo` line in `tt model info` tells you which page that is.
-3. Log in from your machine so that `tt` can download on your behalf:
-
-```bash
-tt model login
-```
-
-`tt model login` offers two ways to log in: with your browser, by opening a URL and entering a short code, or by pasting a read token you create at [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens). The login is saved in Hugging Face's own token store, so any other Hugging Face tooling you use picks it up too.
-
----
-
-## **Step 5: Serve a Model**
-
-Serving a model gives you an OpenAI-compatible API endpoint running on your Tenstorrent hardware. This guide uses `Qwen3.8-27B`, which is fully validated on the TT-QuietBox 2 and other four-chip Blackhole systems, and needs no license agreement on the Hub. On other hardware pick an LLM from your own `tt model list`, for example `Qwen3-32B` on a Wormhole TT-LoudBox or `Qwen3-8B` on a single n150 or n300.
-
-```bash
-tt serve Qwen3.8-27B
-```
-
-`tt serve` installs TT-Inference-Server on first use, pulls the model's container image, downloads the weights, opens the devices, loads the model, and warms it up, showing each stage as a live checklist. It returns once the endpoint actually answers requests:
-
-```
-╭─ Qwen3.8-27B ready ────────────────────────────────────────────────────────╮
-│                                                                            │
-│  endpoint  http://127.0.0.1:20000/v1                                       │
-│  models    curl http://127.0.0.1:20000/v1/models                           │
-│  chat      tt launch                                                       │
-│  Logs · tt model logs Qwen3.8-27B --follow                                 │
-│  Stop · tt model stop Qwen3.8-27B                                          │
-╰────────────────────────────────────────────────────────────────────────────╯
-```
-
-:::{note}
-The first serve of a model takes a while: the container image (about 18 GB) and the weights (56 GB for Qwen3.8-27B) are downloaded, then the model is compiled and warmed up on your hardware. On a TT-QuietBox 2 a first serve of Qwen3.8-27B takes about 15 minutes; everything it downloads and compiles is cached, so later serves take about seven. `tt model pull Qwen3.8-27B` downloads the weights ahead of time.
-
-To watch the raw server log while you wait, run `tt model logs Qwen3.8-27B --follow` in a second terminal. Pressing Ctrl-C in the `tt serve` terminal stops watching, not the server.
-:::
-
-When the ready box appears, the model is being served on port 20000. Send it a first request:
-
-```bash
-tt model curl "In one sentence, what is Tenstorrent?" --max-tokens 2048
-```
-
-`tt model curl` sends your prompt to the running server as a chat completion and prints the reply. Qwen3.8-27B is a reasoning model: it thinks first, in a separate `reasoning` field, and its default budget of 64 tokens is used up by the thinking, which is why the example raises it with `--max-tokens`. Add `--print` to see the equivalent `curl` command instead of sending it. The endpoint speaks the OpenAI chat completions API, so any OpenAI-compatible client can use it: point the client at `http://localhost:20000/v1` with any value for the API key.
-
-A few commands to manage what is running:
-
-```bash
-tt model ps                # what is being served, on which port, and whether it is healthy
-tt model logs Qwen3.8-27B  # the server's log
-tt model stop Qwen3.8-27B  # stop the server
-```
-
----
-
-## **Step 6: Connect an App with `tt launch`**
-
-An API endpoint is the foundation. `tt launch` connects a ready-made application to it, so you can start using the model right away. There are two kinds of client: web UIs such as [Open WebUI](https://github.com/open-webui/open-webui) and [AnythingLLM](https://github.com/Mintplex-Labs/anything-llm), which `tt` pulls and runs for you in a container, and terminal coding agents such as OpenCode, Aider, pi, Qwen Code, and Hermes Agent, which you install yourself and `tt` configures to reach your model. `tt launch list` shows which are available on your machine.
-
-With the model from Step 5 still being served, launch a chat interface in your browser:
-
-```bash
-tt launch openwebui
-```
-
-`tt` asks you to confirm before it pulls the image, starts the container, and ends with `tt-open-webui is ready at http://localhost:3000`. Open that URL in your browser. No sign-in is needed: pick the model and start chatting with it running on your Tenstorrent hardware.
-
-When you are done:
-
-```bash
-tt launch stop openwebui   # stop the web UI; its data is kept
-tt model stop Qwen3.8-27B  # stop the model server
-```
-
-The full list of clients, what each one needs installed, and the options for connecting to a server on another machine are in the [client launchers guide](https://github.com/tenstorrent/tt-cli/blob/main/docs/client-launchers.md).
-
-### **Prefer a point-and-click experience? Use TT-Studio**
-
-[TT-Studio](https://github.com/tenstorrent/tt-studio) is a web application that deploys models and gives you a browser interface for them in one place. Start it with `tt serve <model> --studio`. TT-Studio takes the devices and port 3000 for itself, so stop the web UI and the model server from the steps above first, and reset the devices:
-
-```bash
-tt launch stop openwebui
-tt model stop Qwen3.8-27B
-tt device reset
-tt serve Qwen3.8-27B --studio
-```
-
-On first use `tt` fetches the latest TT-Studio release and asks you to accept its terms. When it is ready, TT-Studio's web UI is at `http://localhost:3000` and the model's endpoint is on port 20000, as before. `tt model stop Qwen3.8-27B` stops the model and takes TT-Studio down with it, keeping its settings and downloaded weights for next time. TT-Studio requires Docker.
-
----
-
 ## **Troubleshooting**
 
 ### `tt device status` reports no devices
@@ -285,28 +170,6 @@ If `tt device status` exits with a message that the driver may not be installed 
 2. Run `lspci -d 1e52` to check whether the card has enumerated on the PCIe bus. If it returns nothing, the host cannot see the card at all.
 3. For Blackhole PCIe products such as p100 and p150, verify the card is being supplied power by checking that the fan spins and the green power LED illuminates when the system boots. If the light is on, try resetting the card with `tt device reset`.
 4. Confirm the BIOS setting described in [BIOS Requirements](#bios-requirements).
-
-### `tt serve` stops before starting, asking for a Hugging Face token
-
-Catalog models require a Hugging Face login to download their weights. Run `tt model login` as described in [Step 4](#log-in-to-hugging-face).
-
-### `tt serve` fails with "Access to model … is restricted"
-
-The model is gated and your Hugging Face account has not accepted its license yet, or the login on this machine is for a different account. Accept the license on the model's Hub page, check `tt model login`, and serve again. `tt model logs <model>` shows the server's own output for any failed start.
-
-### A serve fails with "Try resetting the board"
-
-A model server that was stopped or crashed can leave the devices in a state the next server cannot use. The server log then ends with a `TT_THROW` message that asks you to reset the board. Reset every device and serve again:
-
-```bash
-tt device reset
-```
-
-`tt device reset` asks for confirmation because it interrupts any running workload. `tt device status` should show the devices back at their idle clock afterwards.
-
-### `tt launch` says port 3000 is already in use
-
-Another service holds port 3000, for example TT-Studio or a development server of your own. `tt launch` prints the exact commands to recreate the web UI container on another port.
 
 ### Docker commands are refused with a permission error
 
@@ -330,9 +193,17 @@ For advanced users or developers who prefer to install and configure each compon
 
 ---
 
+## **What's Next**
+
+With the software stack installed, `tt` takes you the rest of the way to a running model. `tt model list` shows the models validated for the hardware it detected, and `tt model info <model>` reports the disk space, host memory, and validation status of each one. Catalog models download their weights from the [Hugging Face Hub](https://huggingface.co), so log in once with `tt model login`; gated models such as Llama and Gemma also require accepting the license on the model's Hub page first. `tt serve <model>` then installs TT-Inference-Server, downloads the weights, and starts an OpenAI-compatible endpoint on port 20000, and `tt model curl "<prompt>"` sends it a first request. The first serve of a model downloads and compiles a lot, so expect it to take a while; later serves are much faster.
+
+An endpoint is the foundation; `tt launch` puts an application on top of it. `tt launch openwebui` starts a chat interface in your browser, and `tt launch list` shows the other web UIs and terminal coding agents available on your machine. If you prefer a point-and-click experience, `tt serve <model> --studio` starts the model inside [TT-Studio](https://github.com/tenstorrent/tt-studio), a web application that serves models and gives you a browser interface for them in one place. Run `tt` at any time to see the command groups, and `tt <command> --help` for the options of each.
+
+---
+
 ## **Where to Go Next**
 
-You now have the full stack installed and a model serving from the CLI. From here, pick the part of the stack that matches what you want to build:
+You now have the full stack installed. From here, pick the part of the stack that matches what you want to build:
 
 * **Deploy LLMs in production** with [TT-Inference-Server](./vLLM-servers.md), the serving engine behind `tt serve`. The [tt-inference-server repository](https://github.com/tenstorrent/tt-inference-server) is the authoritative source for which models are validated on your hardware.
 * **Monitor your hardware** with `tt smi` for a status snapshot, or [TT-Toplike](https://docs.tenstorrent.com/tt-toplike/) for a live view of power, temperature, and core activity while a model serves requests.
