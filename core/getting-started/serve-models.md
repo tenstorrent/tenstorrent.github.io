@@ -306,20 +306,11 @@ With the example model running, `tt model ps` shows:
 
 ## **Step 3: Serve with TT-Studio**
 
-[TT-Studio](https://github.com/tenstorrent/tt-studio) serves the same catalog through a web application. It brings up its services in Docker, deploys the model you choose, and gives you an interface for it in the browser:
-
-* **Chat** for language models, with streaming replies, a history of conversations, file and image upload, voice input, a panel that shows a reasoning model's thinking, and inference statistics such as time to first token.
-* **Knowledge bases** for chat: upload documents, and TT-Studio indexes them so the model can answer questions about them.
-* **Image generation** and **video generation** for diffusion models, with a gallery of generated results you can download.
-* **Speech-to-text** for recognition models: record from the browser or upload a file, and keep the transcriptions.
-* **Object detection** for vision models, from an uploaded image or a live webcam feed.
-* **A voice agent** that chains a speech recognition model, a language model, and a text-to-speech model.
-
-Every model TT-Studio deploys is also served on an API endpoint, so applications can use it at the same time as the browser does.
+[TT-Studio](https://github.com/tenstorrent/tt-studio) serves the same catalog through a web application. It deploys the model you choose and gives you a browser interface for it: chat with knowledge bases for language models, image and video generation for diffusion models, speech-to-text, object detection, and a voice agent. Every model it deploys is also served on an API endpoint, so applications can use it at the same time.
 
 ### **Start TT-Studio and deploy a model**
 
-`tt serve <model> --studio` deploys a model with TT-Studio instead of directly. TT-Studio takes port 3000 and the devices for itself, so stop anything `tt serve` or `tt launch` started first. A model server that was stopped by `tt model stop` leaves the devices in a state TT-Studio's deploy cannot initialize, so reset them before you start. To move the example model from the CLI to TT-Studio:
+`tt serve <model> --studio` deploys a model with TT-Studio instead of directly. TT-Studio takes port 3000 and the devices for itself, so stop anything `tt serve` or `tt launch` started and reset the devices first:
 
 ```bash
 tt model stop Wan2.2-T2V-A14B-Diffusers
@@ -327,65 +318,37 @@ tt device reset
 tt serve Wan2.2-T2V-A14B-Diffusers --studio
 ```
 
-`tt device reset` asks you to confirm, because it interrupts anything running on the devices; answer `y`. On first use `tt` fetches the latest TT-Studio release. TT-Studio asks you to accept its terms and offers to add a `tt-studio` shortcut to your shell, which gives you its own commands later in this step. It then prints a `TT Studio is ready` box with its web UI at `http://localhost:3000`, deploys the model, and prints a ready box with the endpoint and the page that manages the deployment:
+On first use `tt` fetches the latest TT-Studio release, and TT-Studio asks you to accept its terms and offers a `tt-studio` shell shortcut. It then prints its web UI address and, once the model is deployed, the model's endpoint:
 
 ```
 ╭─ TT Studio is ready ───────────────────────────────────────────────────────╮
-│                                                                            │
 │  URL            ● http://localhost:3000                                    │
-│  Mode           Local + TT Hardware                                        │
 │  Hardware       QuietBox (QB2) · 4 device(s)                               │
-│  Search Agent   Disabled · set TAVILY_API_KEY (app.tavily.com)             │
-│                                                                            │
-│  Ready in 36.3s · 5 phases                                                 │
-│  Stop · python run.py --stop                                               │
-│  Logs · python run.py --logs                                               │
-│  Info · python run.py --info                                               │
-│  Help · python run.py --help                                               │
-│                                                                            │
 ╰────────────────────────────────────────────────────────────────────────────╯
 
-[15:52:42] resolved model_id: id_tt-metal-Wan2.2-T2V-A14B-Diffusers-v0.25.0 (model_name == 'Wan2.2-T2V-A14B-Diffusers')
-
-🚀 Deploying Wan2.2-T2V-A14B-Diffusers (auto-allocated slot)
-  Ctrl-C stops watching; the deploy keeps running in the backend.
-  ✓ Starting container 3s
-  Deployed ━━━━━━━━━━━━━━━━━━━━━━━━ Deployment completed successfully
-  Waiting for the model to answer health checks…
-
 ╭─ Wan2.2-T2V-A14B-Diffusers is ready ───────────────────────────────────────╮
-│                                                                            │
-│  Model      Wan2.2-T2V-A14B-Diffusers                                      │
 │  Chips      0, 1, 2, 3                                                     │
 │  Endpoint   ● http://localhost:20000/v1/videos/generations                 │
-│  Health     http://localhost:20000/health                                  │
 │  Web UI     http://localhost:3000/models-deployed                          │
-│                                                                            │
-│  python run.py --stop to stop · python run.py --logs for logs              │
-│                                                                            │
 ╰────────────────────────────────────────────────────────────────────────────╯
 ```
 
-TT-Studio's own box gives you its web UI; the model's box gives the endpoint for its kind of model, here `/v1/videos/generations`, its health check, and the **Models Deployed** page. With the weights already on disk from Step 2, the deploy took about four minutes on a TT-QuietBox 2.
-
-Without a model name, `tt serve --studio` lists everything TT-Studio can deploy on your system and asks which one you want. TT-Studio requires Docker.
+Without a model name, `tt serve --studio` lists everything TT-Studio can deploy on your system and asks which one you want.
 
 ### **Deploy from the browser instead**
 
-You can also start TT-Studio and let the browser drive the deployment. Open `http://localhost:3000`, go to the models page, and pick a model from the list, which is filtered to what your hardware supports. On a multi-chip system TT-Studio chooses the chips for you, and lets you pick them yourself when other models are already deployed. Deploy, and the page shows the progress of the download and container start, with the deployment log a click away. The **Models Deployed** page lists every running model with its health, the chips it occupies, its log, and a control to delete it.
+Open `http://localhost:3000`, go to the models page, and pick a model from the list, which is filtered to what your hardware supports. The **Models Deployed** page lists every running model with its health, the chips it occupies, and its log.
 
 ### **Use the model**
 
-Once the model is healthy, the Models Deployed page links to the interface for its kind: chat for a language model, the image or video generator for a diffusion model, speech-to-text for a recognition model, and object detection for a vision model. The endpoint in the ready box, on port 20000, serves API clients at the same time; `tt model curl` and `tt launch` work against it the same way as against a model started by `tt serve`.
+The Models Deployed page links to the interface for the model's kind. The endpoint in the ready box serves API clients at the same time, and `tt model curl` and `tt launch` work against it exactly as they do against a model started by `tt serve`.
 
 ### **Stop**
 
-`tt model stop <model>` stops a model that TT-Studio deployed, resets the chips it was using, and takes TT-Studio's services down with it. Your settings, downloaded weights, chat history, and knowledge bases are kept for next time. With the `tt-studio` shortcut you can also manage TT-Studio directly:
+`tt model stop <model>` stops a model that TT-Studio deployed and takes TT-Studio down with it; settings, weights, chat history, and knowledge bases are kept. The `tt-studio` shortcut manages TT-Studio directly:
 
 ```bash
 tt-studio --stop-model <model>   # stop one model and keep TT-Studio running
-tt-studio --status               # a live view of the running stack
-tt-studio --logs                 # stream the logs of every TT-Studio service
 tt-studio --stop                 # stop TT-Studio, keeping its data
 ```
 
