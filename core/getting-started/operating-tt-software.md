@@ -90,7 +90,7 @@ The main project is located in the [tt-studio](https://github.com/tenstorrent/tt
   </div>
   <div class="software-stack-image">
 
-![Operating Tenstorrent software: the tt CLI installs the system software, serves models through TT-Inference-Server or TT-Studio, and connects apps to the endpoint](operating-tt-software-diagram.svg)
+![Operating Tenstorrent software: the tt CLI installs the system software, serves models through TT-Inference-Server or TT-Studio, and connects apps to the endpoint](operating-tt-software-flow.svg)
 
   </div>
 </div>
