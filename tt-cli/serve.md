@@ -24,7 +24,7 @@ tt serve Qwen3.8-27B --dry-run
 tt serve Qwen3.8-27B
 ```
 
-`tt serve` picks the right serving path for the model, installs [TT-Inference-Server](https://github.com/tenstorrent/tt-inference-server) on first use, pulls the model's container image, downloads the weights, opens the devices, loads the weights, and warms the model up. It shows those stages as a live checklist with their elapsed times and returns only once the endpoint actually answers requests. A first serve of Qwen3.8-27B on a TT-QuietBox 2 looks like this:
+`tt serve` picks the serving path from the model name: [TT-Inference-Server](https://github.com/tenstorrent/tt-inference-server) for catalog models, TT-Studio for the few only it carries, and [tt-model-manager](https://github.com/tenstorrent/tt-model-manager) for a community bundle id. For a catalog model it installs TT-Inference-Server on first use, pulls the model's container image, downloads the weights, opens the devices, loads the weights, and warms the model up. It shows those stages as a live checklist with their elapsed times and returns only once the endpoint actually answers requests. A first serve of Qwen3.8-27B on a TT-QuietBox 2 looks like this:
 
 ```
   ✓ host ready  tt-inference-server 0.25.0
