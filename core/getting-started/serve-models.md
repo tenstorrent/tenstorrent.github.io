@@ -56,7 +56,7 @@ TMP_DIR=$(mktemp -d); (trap 'echo "---"; echo "Cleaning up..."; if type deactiva
 
 ## **Step 1: Choose a Model**
 
-### **1\. See what runs on your system**
+### **See what runs on your system**
 
 `tt model list` shows every model that is validated for the hardware it detects, from two sources: the released catalog that Tenstorrent ships and tests, and community bundles that anyone has published for Tenstorrent hardware.
 
@@ -95,7 +95,7 @@ tt model list --type video
 
 A model that is known not to work on your board is left out. `tt model list --all` shows every model on every device, and `--hw p150x4` shows the list for another configuration without touching the hardware. `--catalog` and `--community` show one source at a time.
 
-### **2\. Check what a model needs**
+### **Check what a model needs**
 
 Before you commit to a download, inspect the model. `tt model info <model>` reports where the weights come from, which surfaces can serve the model, what it needs from the host, and how it is validated on each hardware configuration. For the example model:
 
@@ -124,7 +124,7 @@ tt model info Wan2.2-T2V-A14B-Diffusers
 └─────────────────────┴───────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### **3\. Get access to gated models**
+### **Get access to gated models**
 
 Some model owners gate their weights behind a license. Meta's Llama models, Google's Gemma models, and Black Forest Labs' FLUX.1 models all require you to accept their terms on the model's Hub page before you can download them, and the owner may take days to grant access. Qwen, Wan, and Whisper models are not gated.
 
@@ -149,7 +149,7 @@ The full log it names ends with `Error: Access denied. Model 'black-forest-labs/
 
 ## **Step 2: Serve with the CLI**
 
-### **1\. Preview, then serve**
+### **Preview, then serve**
 
 `tt serve <model> --dry-run` shows how the model would be served without starting anything: the serving path, the device configuration, the container image, where the weights go, and the port. For the example model:
 
@@ -209,7 +209,7 @@ tt serve Wan2.2-T2V-A14B-Diffusers
 ╰────────────────────────────────────────────────────────────────────────────╯
 ```
 
-### **2\. Send a request**
+### **Send a request**
 
 The endpoint speaks the OpenAI API, so any OpenAI-compatible client can use it. Point the client at `http://localhost:20000/v1` with any value for the API key. Which route you call depends on the kind of model:
 
@@ -283,7 +283,7 @@ curl http://localhost:20000/v1/videos/generations/<job_id>/download --output fox
 
 On a TT-QuietBox 2 the job took four minutes and produced a five-second clip, 832 by 480 pixels at 16 frames per second.
 
-### **3\. Manage what is running**
+### **Manage what is running**
 
 ```bash
 tt model ps              # what is being served, on which port, and whether it is healthy
@@ -319,7 +319,7 @@ With the example model running, `tt model ps` shows:
 
 Every model TT-Studio deploys is also served on an API endpoint, so applications can use it at the same time as the browser does.
 
-### **1\. Start TT-Studio and deploy a model**
+### **Start TT-Studio and deploy a model**
 
 `tt serve <model> --studio` deploys a model with TT-Studio instead of directly. TT-Studio takes port 3000 and the devices for itself, so stop anything `tt serve` or `tt launch` started first. A model server that was stopped by `tt model stop` leaves the devices in a state TT-Studio's deploy cannot initialize, so reset them before you start. To move the example model from the CLI to TT-Studio:
 
@@ -372,15 +372,15 @@ TT-Studio's own box gives you its web UI; the model's box gives the endpoint for
 
 Without a model name, `tt serve --studio` lists everything TT-Studio can deploy on your system and asks which one you want. TT-Studio requires Docker.
 
-### **2\. Deploy from the browser instead**
+### **Deploy from the browser instead**
 
 You can also start TT-Studio and let the browser drive the deployment. Open `http://localhost:3000`, go to the models page, and pick a model from the list, which is filtered to what your hardware supports. On a multi-chip system TT-Studio chooses the chips for you, and lets you pick them yourself when other models are already deployed. Deploy, and the page shows the progress of the download and container start, with the deployment log a click away. The **Models Deployed** page lists every running model with its health, the chips it occupies, its log, and a control to delete it.
 
-### **3\. Use the model**
+### **Use the model**
 
 Once the model is healthy, the Models Deployed page links to the interface for its kind: chat for a language model, the image or video generator for a diffusion model, speech-to-text for a recognition model, and object detection for a vision model. The endpoint in the ready box, on port 20000, serves API clients at the same time; `tt model curl` and `tt launch` work against it the same way as against a model started by `tt serve`.
 
-### **4\. Stop**
+### **Stop**
 
 `tt model stop <model>` stops a model that TT-Studio deployed, resets the chips it was using, and takes TT-Studio's services down with it. Your settings, downloaded weights, chat history, and knowledge bases are kept for next time. With the `tt-studio` shortcut you can also manage TT-Studio directly:
 
