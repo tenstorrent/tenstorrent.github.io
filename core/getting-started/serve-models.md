@@ -281,8 +281,6 @@ Once `status` is `completed`, download the clip:
 curl http://localhost:20000/v1/videos/generations/<job_id>/download --output fox.mp4
 ```
 
-On a TT-QuietBox 2 the job took four minutes and produced a five-second clip, 832 by 480 pixels at 16 frames per second.
-
 ### **Manage what is running**
 
 ```bash
