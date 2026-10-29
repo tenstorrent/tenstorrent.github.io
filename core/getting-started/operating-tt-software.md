@@ -73,7 +73,7 @@ This document provides an overview of the main components you use to operate Ten
 
 `tt` is the Tenstorrent command-line interface and the primary interface for operating your Tenstorrent hardware. It either implements a function itself or drives an existing Tenstorrent tool, such as TT-SMI or tt-installer, behind one stable set of commands.
 
-Interact with `tt` to take a system from a fresh operating system install to a model answering requests, and to keep it that way. It installs and updates the system software, checks that your devices are visible and healthy, tells you which models are validated for the hardware it detects, serves a model as an OpenAI-compatible endpoint, and connects applications to that endpoint. Because it is a CLI, everything it does can be scripted and automated.
+Interact with `tt` when you want to set up a Tenstorrent system and run models on it without working through the individual tools yourself. It installs and updates the system software, checks that your devices are healthy, lists the models validated for your hardware, serves one as an OpenAI-compatible endpoint, and connects applications to it. Because it is a command-line tool, every step can be scripted and automated.
 
 The main project is located in the [tt-cli](https://github.com/tenstorrent/tt-cli) GitHub repository. [Installing Tenstorrent Software](./README.md) walks through a first install with it.
 
