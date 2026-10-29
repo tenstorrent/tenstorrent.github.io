@@ -130,7 +130,7 @@ For monitoring your hardware while models run, `tt smi` gives a status snapshot 
 
 * **Set up a system** with [Installing Tenstorrent Software](./README.md): install `tt`, update the system software, and verify your hardware.
 * **Serve more kinds of models** with the [Serve Models](./serve-models.md) guide, which walks the catalog, `tt serve`, and TT-Studio with a diffusion model as the example.
-* **Deploy LLMs in production** with [TT-Inference-Server](./vLLM-servers.md) directly.
+* **Deploy LLMs in production** with [TT-Inference-Server](https://github.com/tenstorrent/tt-inference-server) directly.
 * **Build on the stack** by reading [Building with Tenstorrent Software](./tt-software-stack.md), which introduces TT-Forge™, TT-NN™, and TT-Metalium™.
 
 As always, if you have any questions, please [raise a support request](https://tenstorrent.atlassian.net/servicedesk/customer/portal/1) with our team.
