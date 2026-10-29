@@ -13,7 +13,6 @@ Tenstorrent
    Overview <getting-started/tt-software-stack>
    getting-started/README
    getting-started/manual-software-install
-   getting-started/vLLM-servers
    Learn by Building <https://docs.tenstorrent.com/tt-vscode-toolkit/>
 
 .. toctree::
@@ -30,6 +29,7 @@ Tenstorrent
    :maxdepth: 2
 
    Overview <software/index>
+   Tenstorrent CLI <https://docs.tenstorrent.com/tt-cli/>
    forge/index
    TT-XLA <https://docs.tenstorrent.com/tt-xla/>
    TT-NN™ <https://docs.tenstorrent.com/tt-metal/latest/ttnn/>
