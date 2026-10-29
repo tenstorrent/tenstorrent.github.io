@@ -209,8 +209,6 @@ tt serve Wan2.2-T2V-A14B-Diffusers
 ╰────────────────────────────────────────────────────────────────────────────╯
 ```
 
-The stages are the same for every model; the times are not. Most of a first serve is the download: the example model's 117.5 GB of weights took 17 minutes here and the container image two, ahead of a six-minute load that also writes a cache for your hardware. Later serves skip the download and the pull; the same serve from a warm cache took six minutes on this system, and `tt model list` now shows the size of the weights in its `weights` column. An LLM's checklist has stages of its own, for sizing the KV cache and warming the model up. To watch the server's own log while you wait, run `tt model logs <model> --follow` in a second terminal. Pressing Ctrl-C in the `tt serve` terminal stops watching, not the server.
-
 ### **2\. Send a request**
 
 The endpoint speaks the OpenAI API, so any OpenAI-compatible client can use it. Point the client at `http://localhost:20000/v1` with any value for the API key. Which route you call depends on the kind of model:
