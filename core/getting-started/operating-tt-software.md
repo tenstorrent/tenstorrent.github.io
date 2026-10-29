@@ -99,8 +99,6 @@ The main project is located in the [tt-studio](https://github.com/tenstorrent/tt
 
 ## What tt Manages
 
-The diagram shows the layers `tt` operates on your behalf. Each has its own tool, version, and setup steps; `tt` keeps them in a combination that Tenstorrent has tested together, so you work with one command set and a known-good system instead of maintaining each layer yourself.
-
 ### System software
 
 `tt update` installs and updates the system software: the kernel-mode driver (TT-KMD) that exposes the devices to Linux, the device firmware and the TT-Flash tool that writes it, the HugePages memory configuration the devices need, TT-SMI for telemetry and status, and a container runtime, normally Docker, for serving models. Tenstorrent tests these components together, and `tt update` brings a system onto the latest tested combination in one command, using [tt-installer](https://github.com/tenstorrent/tt-installer) for the parts that install as root. `tt device` and `tt smi` then show which devices are present, along with their firmware, temperature, power, and clocks.
