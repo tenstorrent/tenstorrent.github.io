@@ -39,6 +39,8 @@ redirects = {
     "aibs/blackhole/support": "index.html#faq-and-troubleshooting",
     "aibs/wormhole/installation": "index.html#hardware-installation",
     "aibs/wormhole/specifications": "index.html#specificationsrequirements",
+    # Deploy LLMs moved out of Get Started (now documented under /tt-cli/).
+    "getting-started/vLLM-servers": "serve-models.html",
 }
 
 html_baseurl = "https://docs.tenstorrent.com/"

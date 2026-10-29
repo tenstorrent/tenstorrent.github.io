@@ -201,7 +201,7 @@ For advanced users or developers who prefer to install and configure each compon
 
 With the software stack installed, `tt` takes you the rest of the way to a running model. `tt model list` shows the models validated for the hardware it detected, and `tt model info <model>` reports the disk space, host memory, and validation status of each one. Catalog models download their weights from the [Hugging Face Hub](https://huggingface.co), so log in once with `tt model login`; gated models such as Llama and Gemma also require accepting the license on the model's Hub page first. `tt serve <model>` then installs TT-Inference-Server, downloads the weights, and starts an OpenAI-compatible endpoint on port 20000, and `tt model curl "<prompt>"` sends it a first request. The first serve of a model downloads and compiles a lot, so expect it to take a while; later serves are much faster.
 
-An endpoint is the foundation; `tt launch` puts an application on top of it. `tt launch openwebui` starts a chat interface in your browser, and `tt launch list` shows the other web UIs and terminal coding agents available on your machine. If you prefer a point-and-click experience, `tt serve <model> --studio` starts the model inside [TT-Studio](https://github.com/tenstorrent/tt-studio), a web application that serves models and gives you a browser interface for them in one place. Run `tt` at any time to see the command groups, and `tt <command> --help` for the options of each.
+An endpoint is the foundation; `tt launch` puts an application on top of it. `tt launch openwebui` starts a chat interface in your browser, and `tt launch list` shows the other web UIs and terminal coding agents available on your machine. If you prefer a point-and-click experience, `tt serve <model> --studio` starts the model inside [TT-Studio](https://github.com/tenstorrent/tt-studio), a web application that serves models and gives you a browser interface for them in one place. The [Serve Models guide](./serve-models.md) walks through all of this in detail. Run `tt` at any time to see the command groups, and `tt <command> --help` for the options of each.
 
 ---
 
@@ -209,7 +209,8 @@ An endpoint is the foundation; `tt launch` puts an application on top of it. `tt
 
 You now have the full stack installed. From here, pick the part of the stack that matches what you want to build:
 
-* **Deploy LLMs in production** with [TT-Inference-Server](./vLLM-servers.md), the serving engine behind `tt serve`. The [tt-inference-server repository](https://github.com/tenstorrent/tt-inference-server) is the authoritative source for which models are validated on your hardware.
+* **Serve more kinds of models** by following the [Serve Models guide](./serve-models.md): choosing a model for your hardware, serving LLMs, diffusion, speech, and vision models from the CLI, and running the same models through TT-Studio's web interface.
+* **Deploy LLMs in production** with [TT-Inference-Server](https://github.com/tenstorrent/tt-inference-server), the serving engine behind `tt serve`. Its repository is the authoritative source for which models are validated on your hardware.
 * **Monitor your hardware** with `tt smi` for a status snapshot, or [TT-Toplike](https://docs.tenstorrent.com/tt-toplike/) for a live view of power, temperature, and core activity while a model serves requests.
 * **Use a web interface** with [TT-Studio](https://github.com/tenstorrent/tt-studio), started through `tt serve <model> --studio`.
 * **Understand the software stack**, including how TT-Forge™, TT-NN™, and TT-Metalium™ relate to each other, in the [software stack overview](./tt-software-stack.md).
