@@ -18,7 +18,7 @@ Before beginning this procedure, ensure that you have completed the base softwar
 
 :::{admonition} Important
 :class: warning
-* This guide assumes that you have already followed the [Installing the Tenstorrent Software Stack guide](./README.md).
+* This guide assumes that you have already followed [Installing Tenstorrent Software](https://docs.tenstorrent.com/getting-started/README.html).
 * Deploying the recommended models requires a minimum of 360 GB of free disk space in your root partition.
 :::
 

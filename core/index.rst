@@ -13,7 +13,6 @@ Tenstorrent
    Overview <getting-started/tt-software-stack>
    getting-started/README
    getting-started/manual-software-install
-   getting-started/vLLM-servers
    Learn by Building <https://docs.tenstorrent.com/tt-vscode-toolkit/>
 
 .. toctree::
