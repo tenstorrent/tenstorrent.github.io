@@ -4,9 +4,9 @@ technology-concepts: Machine Learning, High-Performance Computing, Neural Networ
 document-type: Explanation
 ---
 
-# Overview
+# Building with Tenstorrent Software
 
-This document provides developers and researchers with an overview of the main components of the Tenstorrent software stack: TT-Metalium™, TT-NN™, and TT-Forge™. You will learn about each tool's purpose, use cases, and where to find its source code.
+This document provides developers and researchers with an overview of the main components of the Tenstorrent software stack: TT-Metalium™, TT-NN™, and TT-Forge™. You will learn about each tool's purpose, use cases, and where to find its source code. If you are looking for how to operate your Tenstorrent hardware instead, such as installing the system software and serving models, see [Operating Tenstorrent Software](./operating-tt-software.md).
 
 ---
 
@@ -111,9 +111,10 @@ The main project is available in the [tt-metal](https://github.com/tenstorrent/t
 
 Once you have the software stack installed, these are the primary entry points for running models:
 
+* **[Tenstorrent CLI](./serve-models.md)** — `tt serve <model>` serves any model validated for your hardware as an OpenAI-compatible endpoint, running TT-Inference-Server for catalog models and [tt-model-manager](https://github.com/tenstorrent/tt-model-manager) for community bundles, and handling the container, weights, and configuration.
 * **[TT-Inference-Server](https://github.com/tenstorrent/tt-inference-server)** — manages Docker containers, model downloads, and serving configuration, and provides an OpenAI-compatible API endpoint. It is the authoritative source for which models are validated on each hardware generation.
 * **[TT-Forge Models](https://github.com/tenstorrent/tt-forge-models)** — the catalog of models that have been validated against TT-Forge™. The starting point when compiling a PyTorch, ONNX, or JAX model against the stack.
-* **[TT-Studio](https://github.com/tenstorrent/tt-studio)** — a web interface over TT-Inference-Server for users who prefer a point-and-click model deployment flow.
+* **[TT-Studio](https://github.com/tenstorrent/tt-studio)** — a web interface that serves the same catalog for users who prefer a point-and-click model deployment flow.
 
 For monitoring your hardware while models run, [TT-Toplike](https://docs.tenstorrent.com/tt-toplike/) reads power, temperature, and core activity in real time from the chips.
 
@@ -134,6 +135,6 @@ As always, if you have any questions, please [raise a support request](https://t
 ---
 
 <nav class="doc-footer-buttons" role="navigation" aria-label="Page navigation">
-  <a href="serve-models.html" class="btn btn-neutral">Previous</a>
-  <a href="../aibs/index.html" class="btn btn-neutral">Next</a>
+  <a href="README.html" class="btn btn-neutral">Previous</a>
+  <a href="operating-tt-software.html" class="btn btn-neutral">Next</a>
 </nav>

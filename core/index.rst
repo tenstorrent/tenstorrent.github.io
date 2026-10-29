@@ -10,10 +10,11 @@ Tenstorrent
    :hidden:
    :caption: Get Started
 
-   Overview <getting-started/tt-software-stack>
-   getting-started/README
-   getting-started/manual-software-install
+   Installing Tenstorrent <getting-started/README>
+   Building <getting-started/tt-software-stack>
+   Operating <getting-started/operating-tt-software>
    getting-started/serve-models
+   getting-started/manual-software-install
    Learn by Building <https://docs.tenstorrent.com/tt-vscode-toolkit/>
 
 .. toctree::
