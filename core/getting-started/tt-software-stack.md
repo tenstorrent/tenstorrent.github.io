@@ -6,7 +6,7 @@ document-type: Explanation
 
 # Building with Tenstorrent Software
 
-This document provides developers and researchers with an overview of the main components of the Tenstorrent software stack: TT-Metalium™, TT-NN™, and TT-Forge™. You will learn about each tool's purpose, use cases, and where to find its source code.
+This document provides developers and researchers with an overview of the main components of the Tenstorrent software stack: TT-Metalium™, TT-NN™, and TT-Forge™. You will learn about each tool's purpose, use cases, and where to find its source code. If you are looking for how to operate your Tenstorrent hardware instead, such as installing the system software and serving models, see [Operating Tenstorrent Software](./operating-tt-software.md).
 
 ---
 
