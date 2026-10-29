@@ -134,6 +134,6 @@ As always, if you have any questions, please [raise a support request](https://t
 ---
 
 <nav class="doc-footer-buttons" role="navigation" aria-label="Page navigation">
-  <a href="vLLM-servers.html" class="btn btn-neutral">Previous</a>
+  <a href="serve-models.html" class="btn btn-neutral">Previous</a>
   <a href="../aibs/index.html" class="btn btn-neutral">Next</a>
 </nav>
