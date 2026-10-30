@@ -12,7 +12,7 @@ myst:
 
 See [Choosing a Card](index.md#choosing-a-card).
 
-## **How can I check if my system is compatible with a Blackhole Card?**
+## **How can I check if my system is compatible with a Blackhole card?**
 
 See [Choosing Host Hardware for Blackhole p150a and p150b Cards](host-hardware.md).
 
@@ -46,8 +46,8 @@ Blackhole cards typically draw about 75W at idle. Wall measurements read higher 
 
 ## **The reported temperatures seem high**
 
-Blackhole processors are designed to run continuously at up to 90C, and the card automatically reduces clock speeds to prevent overheating. The card will automatically shutdown if it reaches 110C
-For p150b cards, confirm the server delivers at least 30 CFM at up to 35°C/95°F.
+Blackhole processors are designed to run continuously at up to 90C, and the card automatically reduces clock speeds to prevent overheating. The card will automatically shutdown if it reaches 110C.
+
 
 ## **The fan noise is too quiet or too loud**
 
