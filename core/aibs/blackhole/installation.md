@@ -13,11 +13,7 @@ This guide explains how to install a Blackhole p100a, p150a, or p150b card in a 
 ## Before You Begin
 
 1. Disconnect power from the host computer.
-2. Verify the system meets these requirements:
-   * A **PCI Express 5.0 x16 slot**. For optimal performance the card needs x16 without bifurcation.
-     * The **p100a** and **p150a** are dual-slot cards with active coolers. Leave the adjacent slot unoccupied for airflow.
-     * The **p150b** is a dual-slot card with a passive heatsink, for rack-mounted systems with sufficient forced airflow.
-   * One **12+4-pin 12V-2x6** power connector from an ATX 3.1 Certified or better power supply. If your PSU lacks this connector, see [FAQ and Troubleshooting](faq.md#my-psu-has-no-12v-2x6-connector-what-adapter-should-i-use).
+2. Verify the system meets all the requirements in {doc}`Choosing Host Hardware <host-hardware>`.
 3. Discharge static electricity by wearing an **ESD wrist strap** (*recommended*) or touching a grounded surface before handling components or the card.
 
 :::{warning}
@@ -30,7 +26,7 @@ Insert the card into the PCIe x16 slot and secure it with the bracket screws. Pl
 
 ![](./images/bh_d_install.png)
 
-*p150a pictured.*
+*p150a pictured*
 
 After insertion, check the seating by ensuring the following:
 
@@ -54,20 +50,22 @@ Connect a **12+4-pin 12V-2x6** cable to the plug on the back of the card.
 Fully seat the power cable and avoid tight bends near the connector. A partly seated connector can cause instability or damage.
 :::
 
+If a native 12V-2x6 connector is unavailable, use only an adapter supplied or explicitly approved by the PSU manufacturer, and connect each input cable to a separate PSU output. See {doc}`FAQ and Troubleshooting <faq>`.
+
 ## Connect Multiple Cards (p150a / p150b)
 
 If you are installing more than one card, cable them together before you power on. See {doc}`Multi-Card Topologies <multi-card-topologies>`.
 
 ## Check that the Card is Detected
 
-After booting, list the Tenstorrent devices:
+After booting, run the following command in Terminal to bring up the list of Tenstorrent devices:
 
 ```bash
 sudo update-pciids
 lspci -d 1e52:
 ```
 
-You should see one `Tenstorrent Inc Blackhole` entry per Blackhole chip. A p100a, p150a or p150b has one chip, so you see one entry per card. A card with two chips, such as the p300c, shows two. If a card is missing, see [FAQ and Troubleshooting](faq.md#my-card-is-not-enumerating).
+You should see one `Tenstorrent Inc Blackhole` entry per Blackhole chip. A p100a, p150a or p150b has one chip, so you see one entry per card. If a card is missing, see [FAQ and Troubleshooting](faq.md#my-card-is-not-enumerating).
 
 ## Install the Software
 
