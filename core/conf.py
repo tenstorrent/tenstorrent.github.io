@@ -34,9 +34,8 @@ redirects = {
     "systems/quietbox/quietbox-wh/specifications": "index.html#specifications-and-requirements",
     "systems/t3000/specifications": "index.html#specifications-requirements-and-setup",
     "systems/t3000/support": "index.html#support",
-    "aibs/blackhole/installation": "index.html#hardware-installation",
-    "aibs/blackhole/specifications": "index.html#specifications-and-requirements",
-    "aibs/blackhole/support": "index.html#faq-and-troubleshooting",
+    "aibs/blackhole/specifications": "index.html#specifications",
+    "aibs/blackhole/support": "faq.html",
     "aibs/wormhole/installation": "index.html#hardware-installation",
     "aibs/wormhole/specifications": "index.html#specificationsrequirements",
 }
