@@ -8,7 +8,7 @@ myst:
 
 # Choosing Host Hardware for Blackhole p150a and p150b Cards
 
-This guide outlines requirements and recommendations for assembling a host system for any number of Blackhole p150a and p150b PCIe cards. You will learn which motherboard characteristics cause fitment and bandwidth problems, how to budget PCIe lanes across one or more cards, what to verify in a case and power supply, and which driver issues to expect on Ubuntu.
+This guide outlines requirements and recommendations for assembling a host system for any number of Blackhole p150a and p150b PCIe cards. You will learn which motherboard characteristics cause fitment and bandwidth problems, how to budget PCIe lanes across one or more cards, what to verify in a case and power supply, and how to avoid driver issues on Ubuntu.
 
 This guide covers host system components only. For Blackhole card specifications, see [Blackhole PCIe Cards](index.md). For driver, firmware, and TT-Metalium™ setup once the system is built, see {doc}`Installing Tenstorrent Software </getting-started/README>`.
 
@@ -18,27 +18,24 @@ Do not use a p150b for a desktop build. The p150a and p150b share identical spec
 
 ## Motherboard
 
-The motherboard is the most important component in the build and the one most often chosen incorrectly. Four independent characteristics matter, and a board can satisfy three of them and still be unusable. When reviewing a motherboard for compatibility, be sure to read the manufacturer's slot table and block diagram, rather than the product page summary.
+**The motherboard is the most important component in the build. Please note the minimum requirements below in order to ensure a successful setup.** Four independent characteristics matter, and a board can satisfy three of them and still be unusable. When reviewing a motherboard for compatibility, be sure to read the manufacturer's slot table and block diagram, rather than the product page summary.
 
 ### Platform
 
-Only x64 systems are officially supported. Community groups have gotten cards to enumerate on ARM, but those are not Tenstorrent-led efforts and so we cannot guarantee successful results.
+Only x64 systems are officially supported. Community groups have been successful getting cards to enumerate on ARM, but those are not Tenstorrent-led efforts and so we cannot guarantee successful results.
 
 ### PCIe Slot Configuration
 
-Blackhole cards need a PCI Express 5.0 x16 slot without bifurcation for optimal performance. However, many Gen 4.0 setups will work at reduced speed.
-
-Many boards provide one Gen 5.0 x16 slot and populate the remaining slots at Gen 3.0 or lower. Some current boards still include a Gen 1.0 slot as a secondary position. Double check the PCI Express generation on your board, as any slots that are older than Gen 4.0 will not work with Blackhole cards.
-
-Boards advertising multiple Gen 5.0 slots frequently wire the extra slots as x4 or x8 electrically, even when the connector is physically x16. This means that the slot might look correct but be limited on its data transfer speeds.
-
-Where a board shares lanes between a slot and an M.2 socket, populating that socket can narrow the slot. Check the lane-sharing notes in the board manual before choosing a storage layout.
-
-Blackhole cards are dual-slot width. On boards with slots spaced for single-slot cards, a Blackhole card may not fit alongside others. Risers can solve this in some cases, but be advised they add complexity and can raise build cost substantially.
-
 :::{important}
-A physical x16 connector says nothing about the actual electrical width of the slot. Confirm the lane count of each slot individually in the configuration you intend to build.
+A physical x16 connector says nothing about the actual electrical width of the PCIe slot. Confirm the lane count of each slot individually in the configuration you intend to build.
 :::
+
+Before selecting a motherboard, verify that its PCIe slots meet the following requirements:
+1. **PCIe Generation:** Use a PCI Express 5.0 x16 slot for optimal performance. PCIe 4.0 x16 slots are also supported, but will operate at reduced bandwidth. Do not use slots operating below PCIe 4.0.
+2. **Electrical Lane Configuration:** Do not assume a slot provides x16 lanes based on its physical connector size. Confirm that the slot provides all 16 PCIe lanes (x16 electrically). A physically x16 slot wired for only x4 or x8 lanes will limit performance. 
+3. **No Lane Bifurcation:** Ensure the selected slot operates as a single x16 connection and does not split its lanes across multiple devices. Check the motherboard specifications for supported lane configurations.
+4. **Lane Sharing:** Check whether the selected PCIe slot shares lanes with other PCIe slots or M.2 sockets. Installing an M.2 drive or another PCIe device may reduce the available lanes or bandwidth to your Blackhole card. Review the motherboard manual and confirm your intended configuration will preserve the required slot bandwidth.
+5. **Physical Clearance:** Blackhole cards occupy two PCIe slots. Confirm that your motherboard has sufficient physical spacing to accommodate the card without obstructing adjacent slots or other components. Risers may provide an alternative configuration, but add complexity and cost.
 
 ### BIOS Requirements
 
@@ -131,7 +128,7 @@ An ATX 3.1 Certified power supply or better is required. An older or inadequate 
 
 ### Brands
 
-User testing has found Thermaltake, be quiet!, and MSI power supplies to be stable in Blackhole builds. This is not exhaustive and is not a validation list. Every brand has better and worse model years, and failure rates vary between production batches, so carefully evaluate the specific model and revision you intend to buy.
+Tenstorrent users have found that Thermaltake, be quiet!, and MSI power supplies are stable in Blackhole builds. Other brands may also be successful. Every brand has better and worse model years, and failure rates vary between production batches. We suggest carefully evaluating the specific power supply model and revision before you install.
 
 ## Memory
 

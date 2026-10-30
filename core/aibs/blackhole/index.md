@@ -35,9 +35,9 @@ faq
 For a desktop build, do not use the p150b card. The p150a has an active cooler for conventional desktop systems. The p150b has a passive heatsink and requires the high static pressure, forced air cooling of a rack-mounted server.
 :::
 
-* **p100a:** The entry point in the Blackhole product stack, great for evaluating Tenstorrent technology. It has 28 GB of GDDR6 and an active cooler, and is intended for single-card operation in conventional desktop systems. It has no card-to-card ports.
-* **p150a:** 32 GB of GDDR6 and four passive 800 Gbps QSFP-DD ports for networking with other p150a/p150b cards. It has an active cooler and is intended for single- or multi-card operation in conventional desktop systems.
-* **p150b:** Identical to the p150a except for the active cooler. The p150b relies on existing high static pressure, forced air cooling in the host system. It is intended for single- or multi-card operation in rack-mounted servers.
+* **p100a:** The entry point in the Blackhole product stack, great for evaluating Tenstorrent technology. It has less GDDR6 than the p150 cards and an active cooler, and is intended for single-card operation in conventional desktop systems. It has no card-to-card ports.
+* **p150a:** More GDDR6 than the p100 and four passive 800 Gbps QSFP-DD ports for networking with other cards. It has an active cooler and is intended for single or multi-card operation in conventional desktop systems.
+* **p150b:** Identical to the p150a except for the cooling solution. The p150b relies on existing high static pressure, forced air cooling in the host system. It is intended for single or multi-card operation in rack-mounted servers.
 
 ## Specifications
 
