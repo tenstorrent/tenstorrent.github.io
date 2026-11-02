@@ -8,14 +8,14 @@ myst:
 
 # Topology Configurations for Multiple Servers
 
-*<span style="color: purple;">Note: This product is pre-launch and specifications are subject to change. This install guide would love your feedback! Please add it to the attached spreadsheet that came with this website package.</span>*
+*<span style="color: purple;">Note: This product is pre-launch and specifications are subject to change.</span>*
 
 This page details multi-server mesh topology configuration options for the TT-LoudBox (Blackhole). Please note that multi-server scale out is in development. As Tenstorrent validates additional topologies, we will update this page.
 
 For full site requirements and setup instructions, refer to the [Setup Guide](./setup.md).
 
 ### Clarifications on Notation
-For Blackhole P150 systems our convention is to enumerate our ports per card as shown below; top (furthest from motherboard) as “Port 1” and bottom (closest to motherboard) as “Port 4”. 
+For Blackhole p150 systems our convention is to enumerate our ports per card as shown below; top (furthest from motherboard) as “Port 1” and bottom (closest to motherboard) as “Port 4”. 
 
 :::{figure} bh-lb-qsfp-key.jpg
 :width: 60%
