@@ -24,7 +24,7 @@ Do not treat every configuration as a fully populated mesh. A card has four port
 
 | Cards | Card Type       | Topology                 | External Cables |
 | ----- | --------------- | ------------------------ | --------------- |
-| 2     | p150a           | 1×2 mesh                 | 2               |
+| 2     | p150a           | 1×2 mesh                 | 1               |
 | 4     | p150a or p150b  | Ring of four (2×2 mesh)  | 8               |
 | 8     | p150b           | 2×4 mesh                 | 10              |
 
@@ -36,7 +36,7 @@ If you would prefer a pre-built, validated desktop workstation powered by four B
 
 ## Before You Cable
 
-1. Confirm every card enumerates before you add cables. With the host powered on and no card-to-card cables connected, run `lspci -d 1e52:` and check that you see one entry per card. This separates PCIe problems from cabling problems.
+1. Confirm every card enumerates before you add cables. With the host powered on and no card-to-card cables connected, run `lspci -d 1e52:` and check that you see one entry per card. This separates any potential PCIe problems from cabling problems.
 2. Power off the host before connecting or disconnecting cables. After cabling, power back on and confirm the cards still enumerate.
 3. Check case or rack clearance. The connectors face out of the bracket. Leave room behind the slots to route cables without sharp bends. See [Choosing Host Hardware](host-hardware.md#rear-clearance-for-qsfp-dd-cabling) for more details on ensuring clearance for mesh cables.
 4. Number the cards and ports using the convention below, and label your cables before routing them.
@@ -71,49 +71,47 @@ Two p150a cards form a 1×2 mesh. TT-Metalium selects this topology automaticall
 
 ### Topology Description
 
-The two cards connect directly to each other with two QSFP-DD cables. Two cables give four Ethernet links between C1 and C2. There are no intermediate hops.
+The two cards connect directly to each other with a QSFP-DD cable. One cable gives two Ethernet links between C1 and C2. There are no intermediate hops.
 
 ```text
-   +--------+    2 QSFP-DD cables     +--------+
+   +--------+    1 QSFP-DD cable     +--------+
    |   C1   |<======================> |   C2   |
-   +--------+     (4 Ethernet links)  +--------+
+   +--------+     (2 Ethernet links)  +--------+
 ```
 
 ### Port Configuration
 
-Number the cards C1 and C2 by PCIe slot, with C1 in the lower-numbered slot. Connect two cables between the cards:
+Number the cards C1 and C2 by PCIe slot, with C1 in the lower-numbered slot. Connect one cable between the cards:
 
 | Cable | From        | To          |
 | ----- | ----------- | ----------- |
 | 1     | C1 port TBD | C2 port TBD |
-| 2     | C1 port TBD | C2 port TBD |
-
-<!-- TODO: confirm the validated port assignment for two p150a cards before publishing. -->
 
 ### Required Cables
 
-Buy **two** passive QSFP-DD 800G cables. A 0.5 m cable is long enough for cards in adjacent slots. Use a 1 m cable if the cards are farther apart. See [Cables](#cables).
+Buy **one** passive QSFP-DD 800G cable. A 0.5 m cable is long enough for cards in adjacent slots. See [Cables](#cables).
 
 ### Other Possible Topologies
 
 The following configurations can work but are not validated or tuned by Tenstorrent:
 
-* **One cable (minimum).** The mesh still forms, because the `p150_x2` descriptor accepts fewer channels than it asks for. You get two Ethernet links instead of four, so card-to-card bandwidth is halved.
+* **Two cables.** The mesh still forms and you get four Ethernet links instead of two, so card-to-card bandwidth is doubled.
 * **Three or four cables (maximum).** Each card has four ports, so up to four cables can join the two cards. The software is configured for four channels between the cards, so it may not use the extra links, and Tenstorrent has not tested this configuration.
 
 ## Four Cards
 
 ### Supported Topology
 
-The recommended four-card topology is a ring of four cards, which TT-Metalium treats as a 2×2 mesh with the `p150_x4` mesh graph descriptor.
+The recommended four-card topology is a mesh of four cards, which TT-Metalium treats as a 2×2 mesh with the `p150_x4` mesh graph descriptor.
 
 ### Topology Description
 
-Each card connects to two neighbors, forming a closed ring: C1–C2–C3–C4–C1. Every neighboring pair is joined by two cables, giving four Ethernet links per pair.
+Each card connects to three neighbors at least once, forming a closed mesh: C1–C2–C3–C4–C1 + C1-C3 + C2-C4. Every neighboring pair is joined by at least two cables, giving at least four Ethernet links per pair.
 
 ```text
    C1 ==== C2
-   ||      ||
+   |  \  /  |
+   |  /  \  |
    C4 ==== C3
 ```
 
@@ -123,24 +121,7 @@ TT-Metalium maps the ring to a 2×2 mesh, so each card has one neighbor along ea
 
 ### Port Configuration
 
-Number the cards by PCIe slot: C1 is in Slot 1 (PCIe 0), the slot nearest the bottom of the case, and C4 is in Slot 4 (PCIe 3). Connect eight cables:
-
-| Cable | From     | To       |
-| ----- | -------- | -------- |
-| 1     | C1 port 3 | C2 port 3 |
-| 2     | C1 port 4 | C2 port 4 |
-| 3     | C2 port 1 | C3 port 1 |
-| 4     | C2 port 2 | C3 port 2 |
-| 5     | C3 port 3 | C4 port 3 |
-| 6     | C3 port 4 | C4 port 4 |
-| 7     | C4 port 1 | C1 port 1 |
-| 8     | C4 port 2 | C1 port 2 |
-
-Cables 7 and 8 span all four cards to close the ring, so route them first and check that they reach without tension.
-
-![](./images/bh_4card_topology.png)
-
-*Four-card ring topology. Each color is one pair of cables.*
+<<-- NEED IMAGE HERE -->>
 
 ### Required Cables
 
@@ -207,6 +188,7 @@ An eight-card system has 32 ports, but the validated configuration uses ten cabl
 
 The following configurations can work but are not validated or tuned by Tenstorrent:
 
+* **4 cables can be run between 2 cards for higher throughput. 
 * **Ten cables is the minimum for a 2×4 mesh.** Each neighboring pair has only one cable, so removing any cable leaves two neighbors with no direct link.
 * **Extra single-server links.** The twelve open ports could add wraparound links (for example, C1 to C4) or a second cable between neighbors. TT-Metalium's `p150_x8` descriptor does not use these, and Tenstorrent cannot guarantee performance or error-free operation on topologies you create.
 * **Multiple servers.** Two servers form a 4×4 mesh and four servers form an 8×4 mesh using the open ports. Multi-server scale-out is in development.
