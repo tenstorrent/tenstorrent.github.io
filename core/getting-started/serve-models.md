@@ -36,20 +36,16 @@ The commands do not change from one model to the next. What changes is what they
 :::{admonition} Important
 :class: warning
 * This guide assumes you have completed [Installing Tenstorrent Software](./README.md): `tt update` has run, `tt device status` lists your devices, and Docker runs without `sudo`.
-* You are logged in to Hugging Face with `tt model login`. Most models download their weights from the Hub, and the login is needed even for models that have no license gate.
+* You are logged in to Hugging Face with `tt model login`. Most models download their weights from the Hub, and the login is needed even for models that have no license gate. `tt model login` writes the same token store as the Hub's own `hf auth login`, which is the command `tt serve` names when the token is missing; either one satisfies it, as does an exported `HF_TOKEN`.
 * Disk space depends on the model. `tt model info <model>` reports the minimum for each one, from 15 GB for a speech or image model to 160 GB for a 70B-parameter LLM. Downloaded weights are cached under `~/.cache/huggingface` and shared by every path that serves the model.
 :::
 
 ### **(Wormhole™ only)**
 
-:::{admonition} If you are using a Wormhole TT-QuietBox® or TT-LoudBox™ you must complete the following step
+:::{admonition} Wormhole multi-card systems need a mesh topology
 :class: warning
 
-For these systems you must configure a system-level mesh topology between the Wormhole™ Networked AI Processors. Run the following script to install `tt-topology` and configure the mesh.
-
-```bash
-TMP_DIR=$(mktemp -d); (trap 'echo "---"; echo "Cleaning up..."; if type deactivate &>/dev/null; then deactivate; fi; echo "Removing temporary directory: $TMP_DIR"; rm -rf "$TMP_DIR"; cd; echo "Cleanup complete."' EXIT; trap 'echo -e "\033[0;31m!!! ERROR: Failed to configure mesh topology\033[0m"' ERR; set -e; cd "$TMP_DIR"; echo "Working in temporary directory: $TMP_DIR"; echo "---"; echo "Creating Python virtual environment..."; python3 -m venv tt-topology-venv; source tt-topology-venv/bin/activate; echo "Virtual environment activated."; echo "---"; echo "Installing tt-topology from git..."; pip install --quiet git+https://github.com/tenstorrent/tt-topology.git; echo "tt-topology installed."; echo "---"; echo "Running tt-topology command. This may take a moment..."; tt-topology -l mesh; echo "---"; echo "Script finished successfully.";)
-```
+On a Wormhole TT-QuietBox® or TT-LoudBox™, run `tt-topology -ls` and confirm it reports `Mesh`. If it reports `Isolated`, complete [Step 4 of Installing Tenstorrent Software](./README.md#step-4-wormhole-only-configure-the-mesh-topology) first; it takes about two minutes and resets the chips. Without it, every serve on this page stops at `validating system software` with `ModelSpec requires SystemTopology.MESH, detected ISOLATED`.
 :::
 
 ---
@@ -76,6 +72,11 @@ Each row names the model, its `source` (`tt-inference-server` or `tt-studio` for
 | Text to speech | `text_to_speech` | `speecht5_tts` |
 | Vision classification and detection | `cnn` | `yolox_nano`, `resnet-50`, `segformer` |
 | Embeddings | `embedding` | `bge-m3`, `Qwen3-Embedding-4B` |
+
+:::{admonition} Wormhole
+:class: note
+On a Wormhole system, a model can be listed and still be refused by `tt serve`. Each model is pinned to a container image, and the inference server only runs images at or above a minimum version; when the pin is older, the serve stops at `host ready` with `Image v0.4.0 is not supported (need v0.11.0+)`. To check a model before you download anything, run `tt serve <model> --dry-run` and compare the version at the start of its `docker image` tag with the minimum the server requires. The same pin is listed on each model's page in the [tt-inference-server model support tables](https://github.com/tenstorrent/tt-inference-server/blob/main/docs/model_support/models_by_hardware.md#wh-loudboxquietbox), and the minimum is set in the server's [setup validation](https://github.com/tenstorrent/tt-inference-server/blob/main/workflows/validate_setup.py). Models marked `EXPERIMENTAL` can start and still return unusable text.
+:::
 
 The example model on this page is a video model. Listing that kind on a TT-QuietBox 2 gives a list of one:
 
@@ -194,6 +195,8 @@ tt serve Wan2.2-T2V-A14B-Diffusers
 ╰────────────────────────────────────────────────────────────────────────────╯
 ```
 
+On a Wormhole TT-LoudBox or TT-QuietBox the device line reads `t3k` and `Tenstorrent device opened` reports 8 chips, one per n300 half; the full first serve of this model took about 32 minutes there. `tt serve --dry-run` is the quickest way to see which configuration `tt` detected.
+
 ### **Send a request**
 
 The endpoint speaks the OpenAI API, so any OpenAI-compatible client can use it. Point the client at `http://localhost:20000/v1` with any value for the API key. Which route you call depends on the kind of model:
@@ -207,13 +210,13 @@ The endpoint speaks the OpenAI API, so any OpenAI-compatible client can use it. 
 | Video generation | `/v1/videos/generations` | a `prompt`; the reply is a job that you poll and then download |
 | Embeddings | `/v1/embeddings` | the `input` text |
 
-For an LLM, `tt model curl` sends a chat completion without any JSON on your part, and `--print` shows the equivalent `curl` command for your own scripts:
+For an LLM, `tt model curl` sends a chat completion without any JSON on your part and prints the server's JSON reply, and `--print` shows the equivalent `curl` command for your own scripts:
 
 ```bash
 tt model curl "In one sentence, what is Tenstorrent?" --max-tokens 2048
 ```
 
-For the other kinds of model, call the route directly. Video generation runs as a job: the request returns at once with the job's `id` and `status`, you poll the job until it is `completed`, and then you download the result.
+For the other kinds of model, call the route directly; `tt model curl` always posts to `/v1/chat/completions`, so against an image, video, audio, or embedding server it returns `{"detail":"Not Found"}`. Video generation runs as a job: the request returns at once with the job's `id` and `status`, you poll the job until it is `completed`, and then you download the result.
 
 ```bash
 # Submit the job; the reply includes its id and status
@@ -279,7 +282,7 @@ The Models Deployed page links to the interface for the model's kind. The endpoi
 
 ### **Stop**
 
-`tt model stop <model>` stops a model that TT-Studio deployed and takes TT-Studio down with it; settings, weights, chat history, and knowledge bases are kept. The `tt-studio` shortcut manages TT-Studio directly:
+`tt model stop <model>` stops a model that TT-Studio deployed and takes TT-Studio down with it, and takes it down even when no model is deployed; settings, weights, chat history, and knowledge bases are kept, but TT-Studio's own run log is not, so read it before you stop if a deploy went wrong. The `tt-studio` shortcut manages TT-Studio directly:
 
 ```bash
 tt-studio --stop-model <model>   # stop one model and keep TT-Studio running
@@ -326,7 +329,11 @@ tt device reset
 
 ### `tt serve` says the model did not report ready within 60 minutes
 
-`tt serve` waits up to an hour for the endpoint to answer, then stops watching and leaves the server running. A cold start of a large diffusion model compiles for your hardware and can be slow, so first check whether it is still making progress: `tt model logs <model> --follow` shows the server's output, and `tt model ps` reports it `healthy` once it answers. If the log shows an error instead, stop the server with `tt model stop <model>`. To wait longer next time, set `TT_SERVE_READY_TIMEOUT` to a number of seconds before you serve.
+`tt serve` waits up to an hour for the endpoint to answer, then stops watching and leaves the server running. A cold start of a large diffusion model, or of a 70B-class or larger LLM on a Wormhole system, compiles for your hardware and can be slow, so first check whether it is still making progress: `tt model logs <model> --follow` shows the server's output, and `tt model ps` reports it `healthy` once it answers. If the log shows an error instead, stop the server with `tt model stop <model>`. To wait longer next time, set `TT_SERVE_READY_TIMEOUT` to a number of seconds before you serve; on Wormhole, `TT_SERVE_READY_TIMEOUT=5400` is a safe default for the largest models.
+
+### A TT-Studio deploy stays at 0%
+
+If the **Models Deployed** page shows "Starting deployment… 0%" for more than a few minutes, `tt model ps` lists nothing, and `docker ps` shows only the six `tt_studio_*` containers, the deploy job failed before it started a container and TT-Studio did not report it. The reason is in `~/.local/share/tenstorrent/tools/tt-studio-v*/src/logs/model_run.log`; `invalid choice` for the model name means TT-Studio's bundled inference server does not support that model yet, so pick another. Read the log first: `tt model stop <model>` removes it when it stops TT-Studio.
 
 ### TT-Studio does not start because port 3000 is in use
 
