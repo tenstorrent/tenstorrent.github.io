@@ -15,7 +15,7 @@ This page shows how to serve a model on your Tenstorrent system and start sendin
 
 For LLMs that are going into production, there is a third path: running the vLLM server from [TT-Inference-Server](https://github.com/tenstorrent/tt-inference-server) directly, which gives you a pinned release, an authenticated endpoint, and control over the server configuration. [Step 4](#step-4-serve-in-production) covers it.
 
-The flow is the same whatever kind of model you serve. The catalog is not limited to large language models: it includes diffusion models for image and video generation, speech and audio models, decision models, and tabular foundation models, and `tt serve` and TT-Studio treat each of them the same way. Under the hood, `tt serve` runs [TT-Inference-Server](https://github.com/tenstorrent/tt-inference-server) for the models in Tenstorrent's tested catalog, hands the TT-Studio-only models to TT-Studio, and runs community bundles published on the Hugging Face Hub through [tt-model-manager](https://github.com/tenstorrent/tt-model-manager).
+The flow is the same whatever kind of model you serve. The catalog is not limited to large language models: it includes diffusion models for image and video generation, speech and audio models, decision models, and tabular foundation models, and `tt serve` and TT-Studio treat each of them the same way. Under the hood, `tt serve` runs [TT-Inference-Server](https://github.com/tenstorrent/tt-inference-server) for the models in Tenstorrent's tested catalog, hands models to TT-Studio, and runs community bundles published on the Hugging Face Hub through [tt-model-manager](https://github.com/tenstorrent/tt-model-manager).
 
 ## **The Same Steps for Every Model**
 
