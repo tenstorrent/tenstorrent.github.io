@@ -13,7 +13,9 @@ This page shows how to serve a model on your Tenstorrent system and start sendin
 * **The `tt` CLI.** `tt serve <model>` gives you an OpenAI-compatible API endpoint in one command. This is the path for applications, scripts, agents, and anything else that talks to an API.
 * **TT-Studio.** A web application that serves the same models and gives you a browser interface for them: chat, image and video generation, speech-to-text, object detection, and more. This is the path when you want to try a model from a browser, or hand it to people who do not use a terminal.
 
-The flow is the same whatever kind of model you serve. The catalog is not limited to large language models: it includes diffusion models for image and video generation, speech and audio models, decision models, and tabular foundation models, and `tt serve` and TT-Studio treat each of them the same way. Under the hood, `tt serve` runs [TT-Inference-Server](https://github.com/tenstorrent/tt-inference-server) for the models in Tenstorrent's tested catalog, hands the few models only TT-Studio carries to TT-Studio, and runs community bundles published on the Hugging Face Hub through [tt-model-manager](https://github.com/tenstorrent/tt-model-manager). You do not need to clone or configure any of them yourself.
+For LLMs that are going into production, there is a third path: running the vLLM server from [TT-Inference-Server](https://github.com/tenstorrent/tt-inference-server) directly, which gives you a pinned release, an authenticated endpoint, and control over the server configuration. [Step 4](#step-4-serve-in-production) covers it.
+
+The flow is the same whatever kind of model you serve. The catalog is not limited to large language models: it includes diffusion models for image and video generation, speech and audio models, decision models, and tabular foundation models, and `tt serve` and TT-Studio treat each of them the same way. Under the hood, `tt serve` runs [TT-Inference-Server](https://github.com/tenstorrent/tt-inference-server) for the models in Tenstorrent's tested catalog, hands the few models only TT-Studio carries to TT-Studio, and runs community bundles published on the Hugging Face Hub through [tt-model-manager](https://github.com/tenstorrent/tt-model-manager). For Steps 1 to 3 you do not need to clone or configure any of them yourself.
 
 ## **The Same Steps for Every Model**
 
@@ -307,7 +309,16 @@ tt serve <namespace>/<name>               # served through tt-model-manager
 
 ## **Step 4: Serve in Production**
 
-We currently use vLLM to serve LLMs for production applications. Now we walk through how to deploy a vLLM-powered API endpoint using the [tt-inference-server](https://github.com/tenstorrent/tt-inference-server) project.
+We currently use vLLM to serve LLMs for production applications. Now we walk through how to deploy a vLLM-powered API endpoint using the [tt-inference-server](https://github.com/tenstorrent/tt-inference-server) project. `tt serve` runs the same server for you; running it yourself pins the server to a tagged release, puts an API key in front of the endpoint, and lets you set the server configuration when you launch it.
+
+This step is an alternative to Steps 2 and 3, not a continuation of them, and it applies to LLMs only. The server needs the devices to itself, so stop anything `tt serve` or TT-Studio started and reset the devices before you begin:
+
+```bash
+tt model stop <model>
+tt device reset
+```
+
+Two things differ from the endpoints above: this server listens on port 8000 rather than 20000, and every request needs the API key you generate below.
 
 ### **Configuring the vLLM Server**
 
