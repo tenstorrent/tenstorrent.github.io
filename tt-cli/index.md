@@ -45,7 +45,7 @@ Run `tt` on its own to see the command groups. The ones you will use most:
 
 Every command accepts `--help`. Most also accept `--json` for machine-readable output and `--offline` to run without any network access.
 
-`tt serve` runs [TT-Inference-Server](https://github.com/tenstorrent/tt-inference-server) for the models in Tenstorrent's tested catalog, hands the TT-Studio-only models to TT-Studio, and runs community bundles published on the Hugging Face Hub through [tt-model-manager](https://github.com/tenstorrent/tt-model-manager). To run TT-Inference-Server directly, with its own deployment script and a vLLM endpoint you configure yourself, see [Deploy LLMs](deploy-llms.md).
+`tt serve` runs [TT-Inference-Server](https://github.com/tenstorrent/tt-inference-server) for the models in Tenstorrent's tested catalog, hands models to TT-Studio, and runs community bundles published on the Hugging Face Hub through [tt-model-manager](https://github.com/tenstorrent/tt-model-manager). To run TT-Inference-Server directly, with its own deployment script and a vLLM endpoint you configure yourself, see [Deploy LLMs](deploy-llms.md).
 
 ## Keeping `tt` up to date
 
