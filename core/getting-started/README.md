@@ -135,7 +135,7 @@ After rebooting, confirm the driver is loaded and that every Tenstorrent device 
 tt device status
 ```
 
-You should see one row per device, with the board type, PCIe bus address, and live telemetry. Here is an example from a TT-QuietBox 2 with four Blackhole p300 cards:
+You should see one row per chip, with the board type, PCIe bus address, and live telemetry. The **Board** column tells you which generation you have: `p100`, `p150`, and `p300` boards are Blackhole; `n150` and `n300` boards are Wormhole. A few later steps apply to one generation only and say so. Here is an example from a TT-QuietBox 2 with four Blackhole p300 cards:
 
 ```
                 Tenstorrent devices (driver: TT-KMD 2.11.0)
@@ -149,7 +149,25 @@ You should see one row per device, with the board type, PCIe bus address, and li
 └───┴───────┴──────────────┴─────────┴────────┴───────────┴─────────┴──────┘
 ```
 
-The number of rows should match the number of Tenstorrent devices installed in your system. For more detail on a device, such as its firmware versions and board ID, run `tt device info`. For a live, interactive view, run `tt smi`, which hands your terminal to the TT-SMI interface. Press **Q** to leave it.
+A Wormhole n300 card carries two chips and shows two rows, `n300 L` with the card's PCIe bus address and `n300 R` with `N/A`, because the second chip is reached through the first. A TT-LoudBox or Wormhole TT-QuietBox with four n300 cards therefore shows eight rows:
+
+```
+                 Tenstorrent devices (driver: TT-KMD 2.11.0)
+┏━━━┳━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━┳━━━━━━┓
+┃ # ┃ Board  ┃ Bus ID       ┃ Temp    ┃ Power  ┃ AIClk      ┃ Voltage ┃ DRAM ┃
+┡━━━╇━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━╇━━━━━━┩
+│ 0 │ n300 L │ 0000:31:00.0 │ 45.9 °C │ 28.0 W │ 1000.0 MHz │ 0.89 V  │ True │
+│ 1 │ n300 L │ 0000:4b:00.0 │ 44.8 °C │ 27.0 W │ 1000.0 MHz │ 0.88 V  │ True │
+│ 2 │ n300 L │ 0000:b1:00.0 │ 44.4 °C │ 29.0 W │ 1000.0 MHz │ 0.9 V   │ True │
+│ 3 │ n300 L │ 0000:ca:00.0 │ 43.1 °C │ 29.0 W │ 1000.0 MHz │ 0.9 V   │ True │
+│ 4 │ n300 R │ N/A          │ 37.5 °C │ 24.0 W │ 1000.0 MHz │ 0.87 V  │ True │
+│ 5 │ n300 R │ N/A          │ 36.4 °C │ 20.0 W │ 1000.0 MHz │ 0.91 V  │ True │
+│ 6 │ n300 R │ N/A          │ 37.4 °C │ 24.0 W │ 1000.0 MHz │ 0.91 V  │ True │
+│ 7 │ n300 R │ N/A          │ 36.1 °C │ 23.0 W │ 1000.0 MHz │ 0.9 V   │ True │
+└───┴────────┴──────────────┴─────────┴────────┴────────────┴─────────┴──────┘
+```
+
+The number of rows should match the number of Tenstorrent chips installed in your system: one per Blackhole card, two per n300 card. For more detail on a device, such as its firmware versions and board ID, run `tt device info`. For a live, interactive view, run `tt smi`, which hands your terminal to the TT-SMI interface. Press **Q** to leave it.
 
 Here is an example of the TT-SMI interface for a system containing a single p150a device:
 
@@ -164,6 +182,26 @@ Congratulations, your system software is installed and your hardware is ready to
 
 ---
 
+## **Step 4 (Wormhole only): Configure the Mesh Topology**
+
+Skip this step on Blackhole systems and on single-card Wormhole systems.
+
+A Wormhole TT-LoudBox or TT-QuietBox connects its n300 cards to each other over Ethernet, and the models in the catalog expect those links to form a mesh. `tt update` installs the driver and firmware but does not configure the mesh, and a system can arrive, or come back from a firmware update, with the chips **Isolated**. Check first:
+
+```bash
+tt-topology -ls
+```
+
+If it reports `Mesh`, continue to the next page. If it reports `Isolated`, or the command is not found, run the script below once. It installs [TT-Topology](https://github.com/tenstorrent/tt-topology) into a temporary environment, resets every chip, and writes the mesh configuration. It needs no `sudo`, takes about two minutes, and ends with "Completed reset on 8 chips" on a four-card system.
+
+```bash
+TMP_DIR=$(mktemp -d); (trap 'echo "---"; echo "Cleaning up..."; if type deactivate &>/dev/null; then deactivate; fi; echo "Removing temporary directory: $TMP_DIR"; rm -rf "$TMP_DIR"; cd; echo "Cleanup complete."' EXIT; trap 'echo -e "\033[0;31m!!! ERROR: Failed to configure mesh topology\033[0m"' ERR; set -e; cd "$TMP_DIR"; echo "Working in temporary directory: $TMP_DIR"; echo "---"; echo "Creating Python virtual environment..."; python3 -m venv tt-topology-venv; source tt-topology-venv/bin/activate; echo "Virtual environment activated."; echo "---"; echo "Installing tt-topology from git..."; pip install --quiet git+https://github.com/tenstorrent/tt-topology.git; echo "tt-topology installed."; echo "---"; echo "Running tt-topology command. This may take a moment..."; tt-topology -l mesh; echo "---"; echo "Script finished successfully.";)
+```
+
+Run `tt-topology -ls` again and confirm `Mesh`. Serving a model without this step stops at system validation with `ModelSpec requires SystemTopology.MESH, detected ISOLATED`.
+
+---
+
 ## **Troubleshooting**
 
 ### `tt device status` reports no devices
@@ -171,13 +209,19 @@ Congratulations, your system software is installed and your hardware is ready to
 If `tt device status` exits with a message that the driver may not be installed or no card is seated:
 
 1. If you have not rebooted since `tt update` installed the driver, reboot now.
-2. Run `lspci -d 1e52` to check whether the card has enumerated on the PCIe bus. If it returns nothing, the host cannot see the card at all.
+2. Run `lspci -d 1e52:` to check whether the card has enumerated on the PCIe bus. If it returns nothing, the host cannot see the card at all. Each Blackhole card and each n150 card appears once; an n300 card also appears once, because its second chip has no PCIe address of its own.
 3. For Blackhole PCIe products such as p100 and p150, verify the card is being supplied power by checking that the fan spins and the green power LED illuminates when the system boots. If the light is on, try resetting the card with `tt device reset`.
 4. Confirm the BIOS setting described in [BIOS Requirements](#bios-requirements).
 
 ### Docker commands are refused with a permission error
 
-`tt` talks to Docker as your user, never through `sudo`. If `tt update` just installed Docker, log out and back in (or reboot) so that your membership in the `docker` group takes effect. You can check with `docker run hello-world`.
+`tt` talks to Docker as your user, never through `sudo`. If `tt update` just installed Docker, log out and back in (or reboot) so that your membership in the `docker` group takes effect. If Docker was already installed before you ran `tt update`, the installer leaves it as it found it and does not add you to the group. Add yourself, then log out and back in:
+
+```bash
+sudo usermod -aG docker $USER
+```
+
+You can check with `docker run hello-world`.
 
 ### Getting help
 
