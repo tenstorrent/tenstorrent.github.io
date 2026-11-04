@@ -320,9 +320,9 @@ tt device reset
 
 Two things differ from the endpoints above: this server listens on port 8000 rather than 20000, and every request needs the API key you generate below.
 
-### **Configuring the vLLM Server**
+### **Configure the vLLM server**
 
-#### **Select Your Hardware**
+#### **Select your hardware**
 
 Run the following script to specify your hardware. This script sets the required environment variables and selects the recommended model for your system.
 
@@ -330,7 +330,7 @@ Run the following script to specify your hardware. This script sets the required
 select_device_and_model(){ echo -e "\nSelect a Tenstorrent system from the list below:"; PS3=$'\n#? '; options=("TT-QuietBox (Wormhole)" "TT-QuietBox (Blackhole)" "TT-LoudBox (Wormhole)" "TT-LoudBox (Blackhole)" "n150s" "n150d" "n300s" "n300d" "p100a" "p150a" "p150b" "Quit"); select opt in "${options[@]}"; do case "$opt" in "TT-QuietBox (Wormhole)") DEVICE="t3k"; MODEL="Llama-3.3-70B-Instruct";; "TT-QuietBox (Blackhole)") DEVICE="p150x4"; MODEL="Llama-3.3-70B-Instruct";; "TT-LoudBox (Wormhole)") DEVICE="t3k"; MODEL="Llama-3.3-70B-Instruct";; "TT-LoudBox (Blackhole)") DEVICE="p150x8"; MODEL="Llama-3.3-70B-Instruct";; "n150s"|"n150d") DEVICE="n150"; MODEL="Llama-3.1-8B-Instruct";; "n300s"|"n300d") DEVICE="n300"; MODEL="Llama-3.1-8B-Instruct";; "p100a") DEVICE="p100"; MODEL="Llama-3.1-8B-Instruct";; "p150a"|"p150b") DEVICE="p150"; MODEL="Llama-3.1-8B-Instruct";; "Quit") echo "❌ Exiting without setting any environment variables."; return;; *) echo "❌ Invalid option. Try again."; continue; esac; export DEVICE MODEL; echo -e "\n✅ DEVICE set to '$DEVICE'"; echo "✅ MODEL set to '$MODEL'"; break; done; }; select_device_and_model
 ```
 
-#### **Check Model Access**
+#### **Check model access**
 Execute this script to confirm you can access the recommended model's weights:
 ```bash
 check_hf_access() { [ -z "$MODEL" ] && { printf "✖ Error: Please provide a Hugging Face repository ID.\n"; return 1; }; ! command -v curl &>/dev/null && { printf "✖ Error: curl is not installed.\n"; return 1; }; local REPO_ID="meta-llama/$MODEL"; local TOKEN=${HF_TOKEN:-$(cat "$HOME/.cache/huggingface/token" 2>/dev/null)}; [ -z "$TOKEN" ] && printf "ℹ️ Info: No Hugging Face token found.\n   You can only access public repositories.\n"; local AUTH_HEADER=""; [ -n "$TOKEN" ] && AUTH_HEADER="Authorization: Bearer $TOKEN"; printf "Checking access for: %s...\n" "$REPO_ID"; local URL="https://huggingface.co/$REPO_ID/resolve/main/config.json"; local HTTP_CODE=$(curl -s -L -o /dev/null -w "%{http_code}" -H "$AUTH_HEADER" "$URL"); case $HTTP_CODE in 200) printf "✔ Access granted.\n";; 401) printf "✖ Access denied (401 Unauthorized).\n  This is a private or gated repository.\n  Ensure your token is valid and has the correct permissions.\n";; 403) printf "✖ Access forbidden (403 Forbidden).\n  The repository is gated.\n  You need to visit the repository page on Hugging Face and request access.\n";; 404) printf "✖ Repository or 'config.json' not found (404 Not Found).\n  Please check if the repository ID '$REPO_ID' is correct.\n";; *) printf "✖ Failed to check access.\n  Received HTTP status code: %s\n" "$HTTP_CODE";; esac; }; HF_HUB_DISABLE_XET=1; check_hf_access;
@@ -338,7 +338,7 @@ check_hf_access() { [ -z "$MODEL" ] && { printf "✖ Error: Please provide a Hug
 
 If the command does not succeed and print `✔ Access granted.`, make sure you are logged in to the Hugging Face Hub and have access to the model, as described in [Get access to gated models](#get-access-to-gated-models).
 
-#### **Clone the Server Repository**
+#### **Clone the server repository**
 
 ```bash
 # 1. Clone the repository
@@ -352,10 +352,9 @@ git fetch --tags
 git checkout $(git tag -l "v*" --sort=-v:refname | head -n 1)
 ```
 
+### **Launch the vLLM server**
 
-### **Launching the vLLM Server**
-
-#### **Set the JWT Secret**
+#### **Set the JWT secret**
 
 This string is used to seed the generation of your server's API key.
 
@@ -363,7 +362,7 @@ This string is used to seed the generation of your server's API key.
 export JWT_SECRET="testing"
 ```
 
-#### **Run the Deployment Script**
+#### **Run the deployment script**
 
 Execute the following command. The script prompts you for configuration details; in most cases, you may accept the default values.
 
@@ -382,10 +381,9 @@ After the download completes, the server will start initializing in a docker con
 The first time you start the server, the initialization process for a 70B model should take about 40 minutes. For an 8B model it should take about 10 minutes.
 :::
 
+### **Test the server endpoint**
 
-### **Testing the Server Endpoint**
-
-#### **Check Server Health**
+#### **Check server health**
 
 Use the following command to check if the server is ready.
 
@@ -395,7 +393,7 @@ check_server_health(){ code=$(curl -s -o /dev/null -w "%{http_code}" http://loca
 
 Wait until the output indicates `✅ Server is ready (HTTP 200)`.
 
-#### **Generate an API Key**
+#### **Generate an API key**
 
 Your `JWT_SECRET` is used to create an API key for authenticating requests.
 
@@ -407,7 +405,7 @@ pip install pyjwt==2.7.0
 export VLLM_API_KEY=$(python3 -c 'import os; import json; import jwt; json_payload = json.loads("{\"team_id\": \"tenstorrent\", \"token_id\": \"debug-test\"}"); encoded_jwt = jwt.encode(json_payload, os.environ["JWT_SECRET"], algorithm="HS256"); print(encoded_jwt)')
 ```
 
-#### **Send an Example Request**
+#### **Send an example request**
 
 The vLLM server exposes an OpenAI-compatible API. The first request will be slow as it performs a final warmup.
 
