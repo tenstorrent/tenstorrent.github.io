@@ -2,12 +2,21 @@ Overview
 =======================================
 
 Tenstorrent's software stack takes models from popular frameworks all the way
-down to Tensix cores. Most users start at the top with the TT-Forge compiler;
-the lower layers are available when you need finer control.
+down to Tensix cores. The Tenstorrent CLI, ``tt``, is the primary interface for
+operating your hardware and serving models on it. To develop against the stack,
+most users start at the top with the TT-Forge compiler; the lower layers are
+available when you need finer control.
 
 .. raw:: html
 
    <div class="tt-doc-card-grid">
+     <a class="tt-doc-card" href="https://docs.tenstorrent.com/tt-cli/" target="_blank" rel="noopener">
+       <span class="tt-doc-card-img"><img src="../_static/svg/software.svg" alt="Tenstorrent CLI" /></span>
+       <span class="tt-doc-card-text">
+         <span class="tt-doc-card-title">Tenstorrent CLI</span>
+         <span class="tt-doc-card-desc">The <code>tt</code> command line: install and update the stack, check your devices, serve models, and connect apps to them.</span>
+       </span>
+     </a>
      <a class="tt-doc-card" href="../forge/index.html">
        <span class="tt-doc-card-img"><img src="../_static/svg/tt-forge.svg" alt="TT-Forge" /></span>
        <span class="tt-doc-card-text">
@@ -62,7 +71,8 @@ the lower layers are available when you need finer control.
 Choosing your entry point
 -------------------------
 
-- **Compile a model** from PyTorch, JAX, or ONNX → **TT-Forge** (recommended start).
+- **Operate your hardware and serve models** → **Tenstorrent CLI** (``tt``).
+- **Compile a model** from PyTorch, JAX, or ONNX → **TT-Forge** (recommended start for developers).
 - **Build networks in Python** from pre-optimized ops → **TT-NN**.
 - **Author custom fused operations** → **TT-Lang**.
 - **Write kernels directly on Tensix cores** → **TT-Metalium**.

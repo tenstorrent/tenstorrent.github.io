@@ -204,7 +204,7 @@ For advanced users or developers who prefer alternative installation methods for
 ## **First Things To Do**
 After tt-installer finishes successfully and you have restarted your system, you can proceed how you like. You may want to:
 
-* [Deploy and serve models with TT-Inference-Server](./vLLM-servers.md) — the recommended path for running LLMs. The [tt-inference-server repository](https://github.com/tenstorrent/tt-inference-server) is the authoritative source for which models are validated on your hardware.
+* [Deploy and serve models with TT-Inference-Server](https://docs.tenstorrent.com/tt-cli/deploy-llms.html) — the recommended path for running LLMs. The [tt-inference-server repository](https://github.com/tenstorrent/tt-inference-server) is the authoritative source for which models are validated on your hardware.
 * [Monitor your hardware with TT-SMI and TT-Toplike](https://docs.tenstorrent.com/tt-toplike/) — run `tt-smi` for a status snapshot, or `tt-toplike` for a live view of power, temperature, and core activity while a model serves requests.
 * [Use TT-Studio](https://github.com/tenstorrent/tt-studio) for a point-and-click web interface over TT-Inference-Server.
 * Understand the [Tenstorrent software stack](./tt-software-stack.md) — how TT-Forge™, TT-NN™, and TT-Metalium™ relate to each other.
