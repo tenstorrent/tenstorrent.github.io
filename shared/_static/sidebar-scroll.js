@@ -91,22 +91,26 @@
   ];
 
   function refreshGetStarted() {
-    var heads = document.querySelectorAll('.tt-nav-links a[href$="#get-started"]');
-    for (var i = 0; i < heads.length; i++) {
-      var head = heads[i];
-      var menu = head.nextElementSibling;
-      if (!menu || !menu.classList.contains("tt-nav-dropdown")) continue;
-      if (menu.querySelector('a[href*="getting-started/operating-tt-software.html"]')) continue;
-      var home = head.getAttribute("href").replace(/#get-started$/, "");
-      var stale = menu.querySelectorAll('a[href*="getting-started/"]');
-      for (var j = 0; j < stale.length; j++) menu.removeChild(stale[j]);
-      var tail = menu.querySelector('a[href*="tt-vscode-toolkit"]'); // "Learn by Building" stays last
-      for (var k = 0; k < GET_STARTED.length; k++) {
-        var a = document.createElement("a");
-        a.setAttribute("href", home + GET_STARTED[k][0]);
-        a.textContent = GET_STARTED[k][1];
-        menu.insertBefore(a, tail);
+    try {
+      var heads = document.querySelectorAll('.tt-nav-links a[href$="#get-started"]');
+      for (var i = 0; i < heads.length; i++) {
+        var head = heads[i];
+        var menu = head.nextElementSibling;
+        if (!menu || !menu.classList.contains("tt-nav-dropdown")) continue;
+        if (menu.querySelector('a[href*="getting-started/operating-tt-software.html"]')) continue;
+        var home = head.getAttribute("href").replace(/#get-started$/, "");
+        var stale = menu.querySelectorAll('a[href*="getting-started/"]');
+        for (var j = 0; j < stale.length; j++) menu.removeChild(stale[j]);
+        var tail = menu.querySelector('a[href*="tt-vscode-toolkit"]'); // "Learn by Building" stays last
+        for (var k = 0; k < GET_STARTED.length; k++) {
+          var a = document.createElement("a");
+          a.setAttribute("href", home + GET_STARTED[k][0]);
+          a.textContent = GET_STARTED[k][1];
+          menu.insertBefore(a, tail);
+        }
       }
+    } catch (e) {
+      /* A vendored nav we do not recognise must never break the page; leave it as it is. */
     }
   }
 
