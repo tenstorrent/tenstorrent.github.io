@@ -42,8 +42,6 @@ The commands do not change from one model to the next. What changes is what they
 * Disk space depends on the model. `tt model info <model>` reports the minimum for each one, from 15 GB for a speech or image model to 160 GB for a 70B-parameter LLM. Downloaded weights are cached under `~/.cache/huggingface` and shared by every path that serves the model.
 :::
 
-### **(Wormhole™ only)**
-
 :::{admonition} Wormhole multi-card systems need a mesh topology
 :class: warning
 
