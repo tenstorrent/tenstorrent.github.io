@@ -69,4 +69,47 @@
   document.addEventListener("DOMContentLoaded", restore); // after layout is resolved
   window.addEventListener("pagehide", save);
   window.addEventListener("beforeunload", save);
+
+  // 3. Keep the top-nav "Get Started" dropdown current on sub-sites that ship
+  //    their own copy of the shared layout.
+  //
+  //    Several projects (tt-metal, tt-mlir, tt-xla, tt-lang, ...) vendor
+  //    shared/_templates/layout.html into their own repo and publish under
+  //    docs.tenstorrent.com/<project>/. Their copy of the Get Started dropdown
+  //    goes stale whenever the Get Started section changes here, but every one
+  //    of them loads THIS file from docs.tenstorrent.com/_static/ at runtime.
+  //    So, when a page's dropdown predates the current Get Started section
+  //    (detected by the absence of the Operating page), rewrite its entries to
+  //    the list below. Pages whose dropdown is already current are untouched.
+  //    Keep GET_STARTED in step with the dropdown in shared/_templates/layout.html.
+  var GET_STARTED = [
+    ["getting-started/README.html", "Installing Tenstorrent"],
+    ["getting-started/tt-software-stack.html", "Building"],
+    ["getting-started/operating-tt-software.html", "Operating"],
+    ["getting-started/serve-models.html", "Serve Models"],
+    ["getting-started/manual-software-install.html", "Manual Installation"]
+  ];
+
+  function refreshGetStarted() {
+    var heads = document.querySelectorAll('.tt-nav-links a[href$="#get-started"]');
+    for (var i = 0; i < heads.length; i++) {
+      var head = heads[i];
+      var menu = head.nextElementSibling;
+      if (!menu || !menu.classList.contains("tt-nav-dropdown")) continue;
+      if (menu.querySelector('a[href*="getting-started/operating-tt-software.html"]')) continue;
+      var home = head.getAttribute("href").replace(/#get-started$/, "");
+      var stale = menu.querySelectorAll('a[href*="getting-started/"]');
+      for (var j = 0; j < stale.length; j++) menu.removeChild(stale[j]);
+      var tail = menu.querySelector('a[href*="tt-vscode-toolkit"]'); // "Learn by Building" stays last
+      for (var k = 0; k < GET_STARTED.length; k++) {
+        var a = document.createElement("a");
+        a.setAttribute("href", home + GET_STARTED[k][0]);
+        a.textContent = GET_STARTED[k][1];
+        menu.insertBefore(a, tail);
+      }
+    }
+  }
+
+  refreshGetStarted();                                            // nav is parsed before this footer script
+  document.addEventListener("DOMContentLoaded", refreshGetStarted); // guard makes a second pass a no-op
 })();
