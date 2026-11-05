@@ -134,6 +134,7 @@ export LD_LIBRARY_PATH=$TT_METAL_HOME/build/lib:$LD_LIBRARY_PATH
 
 ## Common developer paths
 
+- **"Want the big picture of operating the hardware"** → [Operating Tenstorrent Software](https://docs.tenstorrent.com/getting-started/operating-tt-software.html) (tt CLI + TT-Studio overview).
 - **"Just received hardware, want to run inference"** → tt-installer → verify with tt-smi
   → download Qwen3-0.6B → run a [model demo](https://docs.tenstorrent.com/getting-started/model-demos.html).
 - **"Want an OpenAI-compatible API endpoint"** → tt-inference-server (easiest) or the
