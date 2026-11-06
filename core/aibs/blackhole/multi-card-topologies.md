@@ -74,9 +74,9 @@ Two p150a cards form a 1×2 mesh. TT-Metalium selects this topology automaticall
 The two cards connect directly to each other with a QSFP-DD cable. One cable gives two Ethernet links between C1 and C2. There are no intermediate hops.
 
 ```text
-   +--------+    1 QSFP-DD cable     +--------+
-   |   C1   |<======================> |   C2   |
-   +--------+     (2 Ethernet links)  +--------+
+   +--------+     1 QSFP-DD cable     +--------+
+   |   C1   |<----------------------> |   C2   |
+   +--------+    (2 Ethernet links)   +--------+
 ```
 
 ### Port Configuration
@@ -118,10 +118,6 @@ Each card connects to three neighbors at least once, forming a closed mesh: C1�
 *Each `====` or `||` is two cables.*
 
 TT-Metalium maps the ring to a 2×2 mesh, so each card has one neighbor along each mesh axis.
-
-### Port Configuration
-
-<<-- NEED IMAGE HERE -->>
 
 ### Required Cables
 
