@@ -71,7 +71,8 @@ Two p150a cards form a 1×2 mesh. TT-Metalium selects this topology automaticall
 
 ### Topology Description
 
-The two cards connect directly to each other with a QSFP-DD cable. One cable gives two Ethernet links between C1 and C2. There are no intermediate hops.
+The two cards connect directly to each other with a single QSFP-DD cable. One cable gives two Ethernet links between C1 and C2. There are no intermediate hops.
+
 
 ```text
    +--------+     1 QSFP-DD cable     +--------+
@@ -81,15 +82,17 @@ The two cards connect directly to each other with a QSFP-DD cable. One cable giv
 
 ### Port Configuration
 
-Number the cards C1 and C2 by PCIe slot, with C1 in the lower-numbered slot. Connect one cable between the cards:
+Number the cards C1 and C2 by PCIe slot, with C1 in the lower-numbered slot. Each card has four slots, and multiple 2-card configurations are valid. Connect one cable between the cards:
 
 | Cable | From        | To          |
 | ----- | ----------- | ----------- |
-| 1     | C1 port TBD | C2 port TBD |
+| 1     | Any port on C1 | Any port on C2 |
 
 ### Required Cables
 
-Buy **one** passive QSFP-DD 800G cable. A 0.5 m cable is long enough for cards in adjacent slots. See [Cables](#cables).
+You will need **one** passive QSFP-DD 800G cable. A 0.5 m cable is long enough for cards in adjacent slots. See [Cables](#cables).
+
+If you wish, you can use more than one cable to connect two cards. This provides extra bandwidth, which can be helpful if you are moving significant data between cards.
 
 ### Other Possible Topologies
 
@@ -121,7 +124,7 @@ TT-Metalium maps the ring to a 2×2 mesh, so each card has one neighbor along ea
 
 ### Required Cables
 
-Buy **eight** passive QSFP-DD 800G cables. Eight cables use all 16 ports on four cards. Cables 1 through 6 join adjacent slots. Cables 7 and 8 must reach from C4 to C1, so measure that distance in your case and choose a length that reaches without tension. See [Cables](#cables).
+You will need **eight** passive QSFP-DD 800G cables. Eight cables use all 16 ports on four cards. Cables 1 through 6 join adjacent slots. Cables 7 and 8 must reach from C4 to C1, so measure that distance in your case and choose a length that reaches without tension. See [Cables](#cables).
 
 ### Other Possible Topologies
 
@@ -174,7 +177,7 @@ Number the cards from left to right as seen from the rear of the server, C1 thro
 
 ### Required Cables
 
-Buy **ten** passive QSFP-DD 800G 0.5 m cables.
+You will need **ten** passive QSFP-DD 800G 0.5 m cables.
 
 :::{note}
 An eight-card system has 32 ports, but the validated configuration uses ten cables (20 ports), not every port. The twelve open ports are the ones used to connect servers to each other. Do not cable them inside a single server.
