@@ -86,8 +86,8 @@ sudo reboot
 
 **\*NOTE:** This is a temporary solution for configuring hugepages. If the above fails, please check the latest available release from [TT-System-Tools](https://github.com/tenstorrent/tt-system-tools.git).\*
 
-## Step 5: (Optional) Multi-Card Configuration (TT-Topology)
-**NOTE:** TT-LoudBox and TT-QuietBox ship with their topology already configured. Use this application *only if you have modified or are trying to modify the topology of your Wormhole-based TT-LoudBox or TT-QuietBox*. If you are not doing so, *skip this step*. TT-Topology is provided as-is.
+## Step 5: Multi-Card Configuration (TT-Topology)
+**NOTE:** Multi-card Wormhole systems need a mesh topology before the catalog models will serve. Run `tt-topology -ls` first; if it reports `Mesh` you can skip this step. TT-Topology is provided as-is.
 
 If you are running on a multi-card Wormhole system such as TT-LoudBox or TT-QuietBox, install the Tenstorrent Topology utility (**[TT-Topology**](https://github.com/tenstorrent/tt-topology)) and configure a mesh topology by running these commands in the terminal:
 

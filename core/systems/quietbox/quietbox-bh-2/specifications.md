@@ -38,7 +38,7 @@ The Tenstorrent TT-QuietBox 2 (Blackhole) system package includes the following 
 | Wireless and Networking | Wi-Fi 6 (802.11a/b/g/n/ax), Dual-Band (2.4 GHz / 5 GHz), Bluetooth 5.3 |
 | RF Output Power | • Bluetooth (2.4 GHz): 13 dBm<br />• Wi-Fi 2.4 GHz: 23 dBm<br />• Wi-Fi 5 GHz (5.15–5.35 GHz): 23 dBm<br />• Wi-Fi 5 GHz (5.47–5.725 GHz): 22 dBm<br />• Wi-Fi 5 GHz (5.725–5.825 GHz): 23 dBm<br />• Wi-Fi 6 (5.825–5.925 GHz): 24 dBm |
 | Power Supply | 1600W Cooler Master V Platinum 1600 V2 |
-| Idle Power | 750W |
+| Idle Power | 320W |
 | Sound Pressure | 38 dBA (under max operating load) |
 | System Dimensions | Height: 15.6” (39.5 cm) Width: 9.1” (23.1 cm) Depth: 17.8” (45.2 cm) (including handles and feet) |
 | System Weight | 20 kg (44 lbs) +/- 1.5 lbs   |
