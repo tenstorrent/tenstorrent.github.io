@@ -47,6 +47,10 @@ html_baseurl = "https://docs.tenstorrent.com/"
 sitemap_filename = "sitemap_core.xml"
 sitemap_locales = [None]
 sitemap_url_scheme = "{link}"
+# Public FRU procedures are reached by direct URL only.
+sitemap_excludes = [
+    "systems/quietbox/quietbox-bh-2/fru/*",
+]
 
 copybutton_selector = 'div.highlight-bash pre'
 
@@ -97,6 +101,27 @@ html_context = {
     "search_site_base_url": _BASE,
 }
 
+# Direct-link sections: built and public, omitted from nav, search, and indexing.
+_UNLISTED_DOC_PREFIX = "systems/quietbox/quietbox-bh-2/fru"
+
+
+def _mark_unlisted_docs(app, doctree):
+    docname = app.env.docname
+    if docname == _UNLISTED_DOC_PREFIX or docname.startswith(_UNLISTED_DOC_PREFIX + "/"):
+        meta = app.env.metadata.setdefault(docname, {})
+        meta["orphan"] = True
+        meta["nosearch"] = True
+
+
+def _noindex_unlisted_pages(app, pagename, templatename, context, doctree):
+    if pagename == _UNLISTED_DOC_PREFIX or pagename.startswith(_UNLISTED_DOC_PREFIX + "/"):
+        metatags = context.get("metatags") or ""
+        if "noindex" not in metatags:
+            context["metatags"] = metatags + '<meta name="robots" content="noindex, nofollow" />\n'
+
+
 def setup(app):
     app.add_css_file("tt_theme.css")
     app.add_css_file("home.css")
+    app.connect("doctree-read", _mark_unlisted_docs)
+    app.connect("html-page-context", _noindex_unlisted_pages)
