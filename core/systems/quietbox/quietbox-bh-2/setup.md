@@ -193,9 +193,9 @@ Network bandwidth is significantly better over wired Ethernet than WiFi, which m
 
 ## Step 6. Update System Software
 
-TT-QuietBox 2 comes pre-installed with the Ubuntu operating system (24.04).
+TT-QuietBox 2 comes pre-installed with the Ubuntu operating system (24.04). Do not upgrade to 26.04 until we add it to the [supported list of operating systems](https://docs.tenstorrent.com/getting-started/README.html#supported-operating-systems)
 
-**Step 1:** Upon logging in, a Ubuntu Software Updater may offer a prompt that new software has been issued since the latest release. If this prompt appears, click “Install Now” to download the latest Ubuntu updates.
+**Step 1:** Upon logging in, a Ubuntu Software Updater may offer a prompt that new software has been issued since the latest release. If this prompt appears, updates within 24.04 are fine. Do not upgrade to 26.04. Click “Install Now” to download the latest Ubuntu updates. 
 
 **Step 2:** To ensure you have the latest system package updates, open a Terminal window by pressing Ctrl+Alt+T and run:
 
