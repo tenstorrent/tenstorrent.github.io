@@ -28,8 +28,6 @@ myst:
 </style>
 ```
 
-Revision 1.0, August 31, 2026
-
 ## Purpose
 
 This procedure explains how to replace a top fan in a TT-QuietBox 2 (Blackhole) workstation. Use it only when Tenstorrent Support recommends a fan replacement.
