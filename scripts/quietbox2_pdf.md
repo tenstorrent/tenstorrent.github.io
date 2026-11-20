@@ -8,7 +8,7 @@ The docs site hosts the PDF. It does not build it. Generate the file outside thi
 
 The generator is not part of this repository. Clone it next to your docs checkout (or set `TT_DOCS_REPO` to this checkout). The main script is `build_quietbox2_user_guide.py`.
 
-**Access:** If you cannot open the private repo, ask **Dave Helmuth** (`@dhelmuthTT` on GitHub or Slack) for access, or email [support@tenstorrent.com](mailto:support@tenstorrent.com) and mention the QuietBox 2 PDF generator.
+**Access:** If you cannot open the private repo, ask **Diana Helmuth** (`@dhelmuthTT` on GitHub or Slack) for access, or email [support@tenstorrent.com](mailto:support@tenstorrent.com) and mention the QuietBox 2 PDF generator.
 
 > Note: This is a temporary home under `@dhelmuthTT` because creating a new repo under the `tenstorrent` org requires an org admin. Ask an admin to **transfer** the repo to `tenstorrent/qb2-user-guide-generator` when convenient, then update this page’s link.
 
