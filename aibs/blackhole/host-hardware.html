@@ -1,0 +1,764 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="Blackhole p150a, Blackhole p150b, Tenstorrent" name="product-name" />
+<meta content="PCIe, ATX, motherboard, CPU, QSFP-DD, Ubuntu, power supply, BIOS" name="technology-concepts" />
+<meta content="how-to" name="document-type" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Choosing Host Hardware for Blackhole p150a and p150b Cards &mdash; Home 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../_static/tt_theme.css?v=5e73c5cc" />
+      <link rel="stylesheet" type="text/css" href="../../_static/home.css?v=e04b094a" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+    <link rel="canonical" href="https://docs.tenstorrent.com/aibs/blackhole/host-hardware.html" />
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=fd3dd8dd"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../../_static/custom.js?v=0ccd5bc4"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Installing a Blackhole Card" href="installation.html" />
+    <link rel="prev" title="Blackhole PCIe Cards" href="index.html" /> 
+  <script src="../../_static/posthog.js"></script>
+</head>
+
+<body class="wy-body-for-nav">
+<nav class="tt-top-nav" role="navigation" aria-label="Top navigation">
+  <div class="tt-top-nav-left">
+    <a href="https://docs.tenstorrent.com/" class="tt-nav-logo">
+      <img src="../../_static/logotype.png" alt="Tenstorrent" />
+      <span>DOCUMENTATION</span>
+    </a>
+    <ul class="tt-nav-links">
+      <li class="has-dropdown">
+        <a href="https://docs.tenstorrent.com/#get-started">Get Started</a>
+        <div class="tt-nav-dropdown">
+          <a href="https://docs.tenstorrent.com/getting-started/README.html">Installing Tenstorrent</a>
+          <a href="https://docs.tenstorrent.com/getting-started/tt-software-stack.html">Building</a>
+          <a href="https://docs.tenstorrent.com/getting-started/operating-tt-software.html">Operating</a>
+          <a href="https://docs.tenstorrent.com/getting-started/serve-models.html">Serve Models</a>
+          <a href="https://docs.tenstorrent.com/getting-started/manual-software-install.html">Manual Installation</a>
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit/" target="_blank" rel="noopener">Learn by Building</a>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <a href="https://docs.tenstorrent.com/#software">Software</a>
+        <div class="tt-nav-dropdown">
+          <a href="https://docs.tenstorrent.com/forge/index.html">TT-Forge</a>
+          <a href="https://docs.tenstorrent.com/tt-xla/" target="_blank" rel="noopener">TT-XLA</a>
+          <a href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/" target="_blank" rel="noopener">TT-NN</a>
+          <a href="https://docs.tenstorrent.com/tt-lang/" target="_blank" rel="noopener">TT-Lang</a>
+          <a href="https://docs.tenstorrent.com/tt-mlir/" target="_blank" rel="noopener">TT-MLIR</a>
+          <a href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/" target="_blank" rel="noopener">TT-Metalium</a>
+          <a href="https://docs.tenstorrent.com/cloud-native-support/" target="_blank" rel="noopener">Cloud-Native Support</a>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <a href="https://docs.tenstorrent.com/#hardware">Hardware</a>
+        <div class="tt-nav-dropdown">
+          <span class="tt-nav-dropdown-label">Blackhole</span>
+          <a href="https://docs.tenstorrent.com/aibs/blackhole/index.html">Blackhole PCIe Cards</a>
+          <a href="https://docs.tenstorrent.com/systems/quietbox/quietbox-bh/index.html">TT-QuietBox</a>
+          <a href="https://docs.tenstorrent.com/systems/quietbox/quietbox-bh-2/index.html">TT-QuietBox 2</a>
+          <a href="https://docs.tenstorrent.com/systems/galaxy-blackhole/index.html">Galaxy® (Blackhole)</a>
+          <span class="tt-nav-dropdown-label">Wormhole</span>
+          <a href="https://docs.tenstorrent.com/aibs/wormhole/index.html">Wormhole™ PCIe Cards</a>
+          <a href="https://docs.tenstorrent.com/systems/quietbox/quietbox-wh/index.html">TT-QuietBox</a>
+          <a href="https://docs.tenstorrent.com/systems/t3000/index.html">TT-LoudBox™</a>
+          <a href="https://docs.tenstorrent.com/systems/galaxy-wormhole/index.html">Galaxy® (Wormhole)</a>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <a href="https://docs.tenstorrent.com/#tools">Tools</a>
+        <div class="tt-nav-dropdown">
+          <a href="https://github.com/tenstorrent/tt-inference-server" target="_blank" rel="noopener">TT-Inference-Server</a>
+          <a href="https://github.com/tenstorrent/tt-studio" target="_blank" rel="noopener">TT-Studio</a>
+          <a href="https://github.com/tenstorrent/tt-smi" target="_blank" rel="noopener">TT-SMI</a>
+          <a href="https://docs.tenstorrent.com/tt-toplike/" target="_blank" rel="noopener">TT-Toplike</a>
+          <a href="https://docs.tenstorrent.com/ttnn-visualizer/" target="_blank" rel="noopener">TT-NN Visualizer</a>
+          <a href="https://github.com/tenstorrent/tt-topology" target="_blank" rel="noopener">TT-Topology</a>
+          <a href="https://docs.tenstorrent.com/tt-vscode-toolkit" target="_blank" rel="noopener">TT-VSCode-Toolkit</a>
+          <a href="https://docs.tenstorrent.com/tt-blacksmith/" target="_blank" rel="noopener">TT-Blacksmith</a>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <a href="https://docs.tenstorrent.com/#resources">Resources</a>
+        <div class="tt-nav-dropdown">
+          <a href="https://tenstorrent.atlassian.net/servicedesk/customer/portal/1" target="_blank" rel="noopener">Request Support</a>
+          <a href="https://tenstorrent.com/developers" target="_blank" rel="noopener">Developer Hub</a>
+          <a href="https://discord.com/invite/tenstorrent" target="_blank" rel="noopener">Join our Discord</a>
+          <a href="https://tenstorrent.com/faq" target="_blank" rel="noopener">FAQ</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tt-top-nav-right">
+    <button type="button" class="tt-nav-search-form tt-search-trigger" aria-label="Search docs" aria-haspopup="dialog">
+      <svg class="tt-search-glyph" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      <span class="tt-nav-search-placeholder">Search</span>
+      <kbd class="tt-nav-search-kbd">⌘K</kbd>
+    </button>
+    <div class="tt-nav-actions">
+      <a href="https://docs.tenstorrent.com/tt-awesome/" class="tt-nav-btn-cta" target="_blank" rel="noopener">Explore</a>
+      <a href="https://github.com/tenstorrent" class="tt-nav-btn-github" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+        </svg>
+        Github
+      </a>
+    </div>
+    <i data-toggle="wy-nav-top" class="fa fa-bars tt-nav-hamburger" aria-hidden="true"></i>
+  </div>
+</nav>
+
+
+<div class="tt-search-modal" id="tt-search-modal" hidden>
+  <div class="tt-search-backdrop" data-search-close></div>
+  <div class="tt-search-dialog" role="dialog" aria-modal="true" aria-label="Search documentation">
+    <div class="tt-search-head">
+      <div class="tt-search-box">
+        <svg class="tt-search-glyph" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+        <input type="text" class="tt-search-input" id="tt-search-input"
+               placeholder="Search for anything…" aria-label="Search for anything"
+               autocomplete="off" spellcheck="false" hidden />
+        <input type="text" class="tt-search-input" id="tt-ai-input"
+               placeholder="Ask anything about Tenstorrent hardware and software" aria-label="Ask about the docs"
+               autocomplete="off" spellcheck="false" />
+      </div>
+      <div class="tt-search-tabs" role="tablist">
+        <button type="button" class="tt-search-tab is-active" data-tab="ai" role="tab" aria-selected="true">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M8 1.5l1.4 3.6L13 6.5 9.4 7.9 8 11.5 6.6 7.9 3 6.5l3.6-1.4L8 1.5Z" fill="currentColor"/>
+            <path d="M12.5 10.5l.6 1.5 1.5.6-1.5.6-.6 1.5-.6-1.5-1.5-.6 1.5-.6.6-1.5Z" fill="currentColor"/>
+          </svg>
+          Ask AI
+        </button>
+        <button type="button" class="tt-search-tab" data-tab="search" role="tab" aria-selected="false">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          Search
+        </button>
+      </div>
+    </div>
+    <div class="tt-search-body"><div class="tt-search-panel" data-panel="search" hidden>
+        <ul class="tt-search-results" id="tt-search-results"></ul>
+        <div class="tt-search-empty" id="tt-search-empty">Start typing to search the documentation.</div>
+      </div><div class="tt-search-panel" data-panel="ai">
+        <div class="tt-ai-intro" id="tt-ai-intro">
+          <svg class="tt-ai-intro-star" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M10 1.5 12 7l5.5 1-4 3.9 1.2 5.6L10 14.4 5.3 17l1.2-5.6L2.5 7.5 8 7z" fill="currentColor"/>
+            <path d="M15.5 12l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z" fill="currentColor"/>
+          </svg>
+          <span class="tt-ai-intro-hint">Type a question above and press <kbd>Enter</kbd> — or jump right in:</span>
+        </div>
+        <ul class="tt-ai-examples" id="tt-ai-examples">
+          <li><button type="button" class="tt-ai-example">How to debug TT-Forge compile errors?</button></li>
+          <li><button type="button" class="tt-ai-example">How to set up Tenstorrent Cloud SSH?</button></li>
+          <li><button type="button" class="tt-ai-example">TT-Metalium vs TT-NN: what's the difference?</button></li>
+          <li><button type="button" class="tt-ai-example">How to daisy-chain Wormhole devices?</button></li>
+        </ul>
+        <div id="tt-kapa-embed" hidden>
+          <div id="tt-kapa-mount"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+<a href="https://docs.tenstorrent.com/">
+    <img src="../../_static/tt_logo.svg" class="logo" alt="Logo"/>
+</a>
+<a href="../../index.html">
+    Home
+</a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/README.html">Installing Tenstorrent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/tt-software-stack.html">Building</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/operating-tt-software.html">Operating</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/serve-models.html">Serve Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/manual-software-install.html">Manual Installation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-vscode-toolkit/">Learn by Building</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Hardware</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../hardware/index.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Cards</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Blackhole PCIe Cards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wormhole/index.html">Wormhole™ PCIe Cards</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../systems/index.html">Systems</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../systems/quietbox/quietbox-bh-2/index.html">TT-QuietBox 2 (Blackhole)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../systems/quietbox/quietbox-bh/index.html">TT-QuietBox (Blackhole)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../systems/quietbox/quietbox-wh/index.html">TT-QuietBox (Wormhole)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../systems/t3000/index.html">TT-LoudBox (Wormhole)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../systems/galaxy-blackhole/index.html">Tenstorrent Galaxy (Blackhole)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../systems/galaxy-wormhole/index.html">Tenstorrent Galaxy (Wormhole)</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../software/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../forge/index.html">TT-Forge™</a><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.tenstorrent.com/tt-forge-onnx/">TT-Forge-ONNX</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.tenstorrent.com/tt-blacksmith/">TT-Blacksmith</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-xla/">TT-XLA</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/">TT-NN™</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-lang/">TT-Lang™</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-mlir/">TT-MLIR™</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/">TT-Metalium™</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/cloud-native-support/">Cloud-Native Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Tools</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../support/README.html">Support &amp; FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Legal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../bounty_terms.html">Bounty Program Terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../os-model-terms.html">OS &amp; Model Terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../trademarks_legal_notice.html">Trademarks and Legal Notice</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Home</a>
+      </nav>
+
+      <div class="wy-nav-content">
+  
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Cards</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Blackhole PCIe Cards</a></li>
+      <li class="breadcrumb-item active">Choosing Host Hardware for Blackhole p150a and p150b Cards</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/aibs/blackhole/host-hardware.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="choosing-host-hardware-for-blackhole-p150a-and-p150b-cards">
+<h1>Choosing Host Hardware for Blackhole p150a and p150b Cards<a class="headerlink" href="#choosing-host-hardware-for-blackhole-p150a-and-p150b-cards" title="Link to this heading"></a></h1>
+<p>This guide outlines requirements and recommendations for assembling a host system for any number of Blackhole p150a and p150b PCIe cards. You will learn which motherboard characteristics cause fitment and bandwidth problems, how to budget PCIe lanes across one or more cards, what to verify in a case and power supply, and how to avoid driver issues on Ubuntu.</p>
+<p>This guide covers host system components only. For Blackhole card specifications, see <a class="reference internal" href="index.html"><span class="std std-doc">Blackhole PCIe Cards</span></a>. For driver, firmware, and TT-Metalium™ setup once the system is built, see <a class="reference internal" href="../../getting-started/README.html"><span class="doc">Installing Tenstorrent Software</span></a>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Do not use a p150b for a desktop build. The p150a and p150b share identical specifications, except for cooling solutions. The p150a uses an active cooler and is intended for conventional desktop systems. The p150b uses a passive heatsink and requires the high static pressure, forced air cooling of a rack-mounted server.</p>
+</div>
+<section id="motherboard">
+<h2>Motherboard<a class="headerlink" href="#motherboard" title="Link to this heading"></a></h2>
+<p><strong>The motherboard is the most important component in the build. Please note the minimum requirements below in order to ensure a successful setup.</strong> Four independent characteristics matter, and a board can satisfy three of them and still be unusable. When reviewing a motherboard for compatibility, be sure to read the manufacturer’s slot table and block diagram, rather than the product page summary.</p>
+<section id="platform">
+<h3>Platform<a class="headerlink" href="#platform" title="Link to this heading"></a></h3>
+<p>Only x64 systems are officially supported. Community groups have been successful getting cards to enumerate on ARM, but those are not Tenstorrent-led efforts and so we cannot guarantee successful results.</p>
+</section>
+<section id="pcie-slot-configuration">
+<h3>PCIe Slot Configuration<a class="headerlink" href="#pcie-slot-configuration" title="Link to this heading"></a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>A physical x16 connector says nothing about the actual electrical width of the PCIe slot. Confirm the lane count of each slot individually in the configuration you intend to build.</p>
+</div>
+<p>Before selecting a motherboard, verify that its PCIe slots meet the following requirements:</p>
+<ol class="arabic simple">
+<li><p><strong>PCIe Generation:</strong> Use a PCI Express 5.0 x16 slot for optimal performance. PCIe 4.0 x16 slots are also supported, but will operate at reduced bandwidth. Do not use slots operating below PCIe 4.0.</p></li>
+<li><p><strong>Electrical Lane Configuration:</strong> Do not assume a slot provides x16 lanes based on its physical connector size. Confirm that the slot provides all 16 PCIe lanes (x16 electrically). A physically x16 slot wired for only x4 or x8 lanes will limit performance.</p></li>
+<li><p><strong>No Lane Bifurcation:</strong> Ensure the selected slot operates as a single x16 connection and does not split its lanes across multiple devices. Check the motherboard specifications for supported lane configurations.</p></li>
+<li><p><strong>Lane Sharing:</strong> Check whether the selected PCIe slot shares lanes with other PCIe slots or M.2 sockets. Installing an M.2 drive or another PCIe device may reduce the available lanes or bandwidth to your Blackhole card. Review the motherboard manual and confirm your intended configuration will preserve the required slot bandwidth.</p></li>
+<li><p><strong>Physical Clearance:</strong> Blackhole cards occupy two PCIe slots. Confirm that your motherboard has sufficient physical spacing to accommodate the card without obstructing adjacent slots or other components. Risers may provide an alternative configuration, but add complexity and cost.</p></li>
+</ol>
+</section>
+<section id="bios-requirements">
+<h3>BIOS Requirements<a class="headerlink" href="#bios-requirements" title="Link to this heading"></a></h3>
+<p>Confirm the board’s BIOS exposes two settings before you buy:</p>
+<ul class="simple">
+<li><p><strong>PCIe AER reporting mechanism</strong>, which must be set to <code class="docutils literal notranslate"><span class="pre">OS</span> <span class="pre">First</span></code> for TT-SMI to work correctly.</p></li>
+<li><p><strong>Per-slot PCIe generation control.</strong> Some motherboards default PCIe operation to Auto and then fail to enumerate the card. Forcing the slot to <code class="docutils literal notranslate"><span class="pre">Gen</span> <span class="pre">4.0</span></code> or <code class="docutils literal notranslate"><span class="pre">Gen</span> <span class="pre">5.0</span></code> resolves this.</p></li>
+</ul>
+</section>
+<section id="physical-slot-spacing-and-bottom-edge-headers">
+<h3>Physical Slot Spacing and Bottom-Edge Headers<a class="headerlink" href="#physical-slot-spacing-and-bottom-edge-headers" title="Link to this heading"></a></h3>
+<p>The p150a and p150b are dual-slot boards measuring 42mm x 270mm x 111mm. For the actively cooled p150a, leave the adjacent slot unoccupied for airflow. When possible, budget three slot positions per card in a multi-card layout.</p>
+<p>On ATX boards, the USB, audio, and front-panel headers usually sit along the bottom edge. Board designers place the lowest PCIe slot to clear them for single-width cards only, so a dual-width card in the bottom slot will foul the headers or their cables. This is common across ATX boards, so plan not to use the bottom slot.</p>
+</section>
+<section id="pcie-retention-clips">
+<h3>PCIe Retention Clips<a class="headerlink" href="#pcie-retention-clips" title="Link to this heading"></a></h3>
+<p>Retention clip design varies between boards, and the mechanical tolerances of the cards leave little margin. Depending on the board and card, the clip may be hard to engage or may hold the card under tension once seated. During installation:</p>
+<ol class="arabic simple">
+<li><p>Seat the card fully and confirm the clip engages without force.</p></li>
+<li><p>Check that the card sits flat against the slot with no visible bow along its length.</p></li>
+<li><p>Confirm the bracket screws thread without pulling the card out of alignment.</p></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A card held under tension may loosen over time, place sustained stress on the PCIe connector, and in extreme cases, break the slot. Do not run a system in which the card does not seat cleanly.</p>
+</div>
+</section>
+<section id="i-o-shrouds-and-front-guards">
+<span id="io-shrouds-and-front-guards"></span><h3>I/O Shrouds and Front Guards<a class="headerlink" href="#i-o-shrouds-and-front-guards" title="Link to this heading"></a></h3>
+<p>Avoid boards with a shroud or armor plate that extends from the rear I/O area toward the PCIe slots. The small tab with the QR code on the front edge of the card can conflict with it. Many GPUs have the same tab and the same conflict, so this is not specific to Tenstorrent hardware, but it rules out some otherwise suitable boards. Manufacturer product photography is usually enough to spot it before purchasing.</p>
+</section>
+</section>
+<section id="cpu-and-pcie-lane-budget">
+<h2>CPU and PCIe Lane Budget<a class="headerlink" href="#cpu-and-pcie-lane-budget" title="Link to this heading"></a></h2>
+<p>The lanes available to your slots depend on the CPU as well as the motherboard.</p>
+<ul class="simple">
+<li><p><strong>One card:</strong> A mainstream desktop CPU supplies enough lanes to run one card at x16 Gen 5.0.</p></li>
+<li><p><strong>Two or more cards at full width:</strong> Specify a workstation or server platform (AMD Threadripper or EPYC, or Intel Xeon), which provides enough lanes to run each card at x16 without sharing bandwidth.</p></li>
+</ul>
+<p>A card in a slot with reduced connectivity still works. A card at Gen 4.0 or at x8 in a lane-shared configuration still enumerates and runs workloads. Depending on the workload, host-to-device transfer may become the limiting factor and cap throughput. A full x16 Gen 5.0 link without bifurcation is optimal and worth specifying wherever possible. A reduced link is a working compromise and a known limit on performance.</p>
+</section>
+<section id="case-and-clearance">
+<h2>Case and Clearance<a class="headerlink" href="#case-and-clearance" title="Link to this heading"></a></h2>
+<section id="rear-clearance-for-qsfp-dd-cabling">
+<h3>Rear Clearance for QSFP-DD Cabling<a class="headerlink" href="#rear-clearance-for-qsfp-dd-cabling" title="Link to this heading"></a></h3>
+<p>The p150a and p150b carry four QSFP-DD 800G ports on the card bracket. Clearance behind the expansion slots must be generous, not the minimum the ATX specification allows. A case built to minimum clearance may house the card but still leave too little room to route four QSFP-DD cables, or may put the card under tension to seat it. Several popular DIY cases, including some in Fractal Design’s range, fall into this category.</p>
+<p>See <a class="reference internal" href="multi-card-topologies.html#cables"><span class="std std-ref">Multi-Card Topologies</span></a> for cable lengths and how many cables each configuration uses.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If a case is already at the most restrictive clearance the specification allows, expect problems with a multi-card configuration. Shorter cables help with routing, but no cable length compensates for insufficient clearance at the connector itself.</p>
+</div>
+</section>
+<section id="card-weight-and-support">
+<h3>Card Weight and Support<a class="headerlink" href="#card-weight-and-support" title="Link to this heading"></a></h3>
+<p>Blackhole cards are considered heavy. Support them with one of the following:</p>
+<ul class="simple">
+<li><p>A horizontal case or bench orientation, which supports the card along its length.</p></li>
+<li><p>A support bracket or anti-sag brace in a conventional tower.</p></li>
+</ul>
+</section>
+<section id="thermal-envelope">
+<h3>Thermal Envelope<a class="headerlink" href="#thermal-envelope" title="Link to this heading"></a></h3>
+<p>Confirm the case and its fans can deliver the card’s environmental requirements:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Specification</p></th>
+<th class="head"><p>Requirement</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Operating Temperature Range</p></td>
+<td><p>10°C/50°F - 35°C/95°F</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="power-supply">
+<h2>Power Supply<a class="headerlink" href="#power-supply" title="Link to this heading"></a></h2>
+<p>An ATX 3.1 Certified power supply or better is required. Each card draws up to 300W through one 12+4-pin 12V-2x6 connector.</p>
+<section id="sizing">
+<h3>Sizing<a class="headerlink" href="#sizing" title="Link to this heading"></a></h3>
+<p>Tenstorrent publishes the supply class and per-card draw, but not a total wattage for a given card count. The table below is a practical starting point drawn from user builds, not a requirement:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configuration</p></th>
+<th class="head"><p>Card power</p></th>
+<th class="head"><p>Practical starting point</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>One p150a or p150b</p></td>
+<td><p>300W</p></td>
+<td><p>800W ATX 3.1 Certified with a native 12V-2x6 connector</p></td>
+</tr>
+<tr class="row-odd"><td><p>Two or more cards</p></td>
+<td><p>600W and above</p></td>
+<td><p>Size from total system load; 800W is unlikely to be sufficient</p></td>
+</tr>
+</tbody>
+</table>
+<p>An 800W PSU is generally adequate for one card. For two or more cards, size the supply from the total load: all cards at full draw, the CPU under load, storage, and headroom.</p>
+</section>
+<section id="cables-and-adapters">
+<h3>Cables and Adapters<a class="headerlink" href="#cables-and-adapters" title="Link to this heading"></a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>An ATX 3.1 Certified power supply or better is required. An older or inadequate supply can cause system instability.</p>
+</div>
+<ul class="simple">
+<li><p>If a native 12V-2x6 connector is unavailable, use only an adapter supplied or explicitly approved by the PSU manufacturer, and connect each input cable to a separate PSU output. See <a class="reference internal" href="faq.html#my-psu-has-no-12v-2x6-connector-what-adapter-should-i-use"><span class="std std-ref">FAQ and Troubleshooting</span></a>.</p></li>
+<li><p>Older 12VHPWR cables are not recommended, even though they are physically compatible with the 12V-2x6 connector.</p></li>
+</ul>
+</section>
+<section id="brands">
+<h3>Brands<a class="headerlink" href="#brands" title="Link to this heading"></a></h3>
+<p>Tenstorrent users have found that Thermaltake, be quiet!, and MSI power supplies are stable in Blackhole builds. Other brands may also be successful. Every brand has better and worse model years, and failure rates vary between production batches. We suggest carefully evaluating the specific power supply model and revision before you install.</p>
+</section>
+</section>
+<section id="memory">
+<h2>Memory<a class="headerlink" href="#memory" title="Link to this heading"></a></h2>
+<p>The minimum requirement is 64 GB of system memory. In practice, the need varies with how you load models. Smaller configurations can run stably, but the model often has to be loaded in chunks instead of held in host memory, which complicates the loading path. Provisioning enough memory to hold your target model is a quality-of-life choice, not a functional requirement.</p>
+</section>
+<section id="operating-system-and-motherboard-drivers">
+<h2>Operating System and Motherboard Drivers<a class="headerlink" href="#operating-system-and-motherboard-drivers" title="Link to this heading"></a></h2>
+<p>Tenstorrent recommends Ubuntu 24.04 for all Tenstorrent software.</p>
+<p>Not every motherboard has complete driver support in a stock Ubuntu install. Some boards ship network controllers whose drivers are missing from stock Ubuntu, which leaves a new host without networking. Because the Tenstorrent installer needs an internet connection, resolve the following before installing any Tenstorrent software:</p>
+<ol class="arabic simple">
+<li><p>Download the driver package on a second machine with working networking.</p></li>
+<li><p>Transfer it to the host on a USB stick.</p></li>
+<li><p>Install it locally and confirm the interface comes up.</p></li>
+</ol>
+<p>In many cases a firmware update is also required. The process is time-consuming, but users have not reported ongoing stability problems once the driver is installed.</p>
+<p>This is a gap in motherboard and Ubuntu cross-support, not an issue with Tenstorrent hardware or software. Before beginning setup, search for your exact board model with your intended Ubuntu release and confirm the network controller is supported. If it is not, plan the offline driver install as part of the build.</p>
+</section>
+<section id="host-system-purchasing-checklist">
+<h2>Host System Purchasing Checklist<a class="headerlink" href="#host-system-purchasing-checklist" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Verify before purchase</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Card</p></td>
+<td><p>p150a for a desktop chassis; p150b only for rack-mounted servers with forced air cooling</p></td>
+</tr>
+<tr class="row-odd"><td><p>Motherboard: slots</p></td>
+<td><p>Electrical x16 Gen 5.0 in each slot you intend to use, in your final storage configuration</p></td>
+</tr>
+<tr class="row-even"><td><p>Motherboard: layout</p></td>
+<td><p>Bottom slot excluded; three slot positions per actively cooled card; no I/O shroud reaching the slots</p></td>
+</tr>
+<tr class="row-odd"><td><p>Motherboard: BIOS</p></td>
+<td><p>PCIe AER Reporting Mechanism settable to <code class="docutils literal notranslate"><span class="pre">OS</span> <span class="pre">First</span></code>; per-slot PCIe generation control</p></td>
+</tr>
+<tr class="row-even"><td><p>Motherboard: drivers</p></td>
+<td><p>Network controller supported in your Ubuntu release, or an offline install planned</p></td>
+</tr>
+<tr class="row-odd"><td><p>CPU</p></td>
+<td><p>Mainstream desktop for one card; Threadripper, EPYC, or Xeon for two or more at full width</p></td>
+</tr>
+<tr class="row-even"><td><p>Case: clearance</p></td>
+<td><p>Measured clearance behind the bracket for four QSFP-DD cables per card</p></td>
+</tr>
+<tr class="row-odd"><td><p>Case: support</p></td>
+<td><p>Horizontal orientation or a support bracket</p></td>
+</tr>
+<tr class="row-even"><td><p>Power supply</p></td>
+<td><p>ATX 3.1 Certified or better; native 12V-2x6. 800W is a practical starting point for one card; size from total load above that</p></td>
+</tr>
+<tr class="row-odd"><td><p>Memory</p></td>
+<td><p>64 GB minimum; enough to hold your target model if you want to avoid chunked loading</p></td>
+</tr>
+<tr class="row-even"><td><p>Cables (multi-card)</p></td>
+<td><p>QSFP-DD cables sized per <a class="reference internal" href="multi-card-topologies.html#cables"><span class="std std-ref">Multi-Card Topologies</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="related-pages">
+<h2>Related pages<a class="headerlink" href="#related-pages" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="index.html"><span class="doc">Blackhole PCIe Cards</span></a></p></li>
+<li><p><a class="reference internal" href="installation.html"><span class="doc">Installing a Blackhole Card</span></a></p></li>
+<li><p><a class="reference internal" href="multi-card-topologies.html"><span class="doc">Multi-Card Topologies</span></a></p></li>
+<li><p><a class="reference internal" href="../../getting-started/README.html"><span class="doc">Installing Tenstorrent Software</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Blackhole PCIe Cards" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="installation.html" class="btn btn-neutral float-right" title="Installing a Blackhole Card" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      © 2026 Tenstorrent Holdings Inc. and its subsidiaries.
+      Please see the <a href="https://docs.tenstorrent.com/trademarks_legal_notice.html">Trademarks and Legal Notice</a>
+      page for full trademark and disclaimer information.
+      <span class="lastupdated">
+        Last updated: Nov 28, 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+  <div class="feedback-widget" id="tt-feedback">
+  <div class="ttfb-card">
+    <div id="ttfb-initial" class="ttfb-initial">
+      <p class="ttfb-question">Was this article helpful?</p>
+      <div class="ttfb-actions">
+        <button id="ttfb-up" class="ttfb-icon-btn" aria-label="Yes" title="Yes">
+          <span>👍</span>
+        </button>
+        <button id="ttfb-down" class="ttfb-icon-btn" aria-label="No" title="No">
+          <span>👎</span>
+        </button>
+      </div>
+    </div>
+
+    <form id="ttfb-form" class="ttfb-hidden" novalidate>
+      <p id="ttfb-prompt" class="ttfb-prompt"></p>
+
+      <div id="ttfb-reasons" class="ttfb-hidden">
+        <p class="ttfb-reasons-title">How would you describe this article?</p>
+        <div class="ttfb-reasons-grid">
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="inaccurate"> <b>Inaccurate:</b> it doesn’t reflect what I see in the product</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="unclear"> <b>Unclear:</b> it’s difficult to understand</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="missing"> <b>Missing information:</b> it’s not comprehensive enough</label>
+          <label class="ttfb-radio"><input type="radio" name="down_reason" value="irrelevant"> <b>Irrelevant:</b> it doesn’t match what I searched for</label>
+        </div>
+      </div>
+
+      <textarea id="ttfb-text" rows="3" class="ttfb-text" placeholder="Please let us know what was or wasn't helpful about this page."></textarea>
+
+      <div class="ttfb-contact">
+        <input id="ttfb-can-contact" type="checkbox"> <label for="ttfb-can-contact">Allow Tenstorrent to contact me about my documentation feedback.</label>
+      </div>
+      <div id="ttfb-email-wrap" class="ttfb-hidden">
+        <input id="ttfb-email" type="email" class="ttfb-email" placeholder="Enter your email address">
+      </div>
+
+      <button id="ttfb-submit" type="submit" class="ttfb-submit">Submit</button>
+    </form>
+
+    <div id="ttfb-thanks" class="ttfb-hidden ttfb-center"><p class="ttfb-thanks-text">Thank you for your feedback!</p></div>
+    <div id="ttfb-error" class="ttfb-hidden ttfb-center"><p class="ttfb-error-text">Sorry, something went wrong. Please try again later.</p></div>
+  </div>
+</div>
+
+<style>
+.feedback-widget { margin: 2rem 0; }
+.ttfb-card {
+  background: #fff;
+  border: 1px solid var(--color-background-40, #d7dbeb66);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+.ttfb-initial { display: flex; flex-direction: row; gap: .75rem; align-items: center; flex-wrap: wrap; justify-content: flex-start; }
+.ttfb-question { margin: 0; font-weight: 600; color: var(--color-foreground, #202020); }
+.ttfb-actions { display: flex; gap: .5rem; }
+.ttfb-icon-btn {
+  padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; background: #fff; cursor: pointer;
+  transition: background var(--transition-duration, 150ms) var(--transition-timing, ease), border-color var(--transition-duration, 150ms) var(--transition-timing, ease);
+}
+.ttfb-icon-btn:hover { background: #f3f4f6; }
+
+.ttfb-hidden { display: none; }
+.ttfb-prompt { margin: .5rem 0 1rem 0; color: var(--color-foreground, #202020); font-weight: 600; }
+.ttfb-reasons-title { margin: 0 0 .5rem 0; color: var(--color-foreground, #202020); font-weight: 500; }
+.ttfb-reasons-grid { display: grid; grid-template-columns: 1fr; gap: .25rem; }
+@media (min-width: 768px) { .ttfb-reasons-grid { grid-template-columns: 1fr 1fr; } }
+.ttfb-radio { display: flex; align-items: flex-start; gap: .5rem; }
+.ttfb-radio input { margin-top: .2rem; }
+
+.ttfb-text {
+  width: 100%; padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; font-family: inherit; resize: vertical;
+}
+.ttfb-contact { display: flex; align-items: center; gap: .5rem; margin-top: .5rem; }
+.ttfb-email { width: 100%; padding: .5rem; border: 1px solid #d0d7de; border-radius: 6px; margin-top: .5rem; }
+.ttfb-submit { margin-top: .75rem; padding: .5rem 1rem; background: var(--color-purple, #5164e0); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; }
+.ttfb-submit:hover { background: var(--color-dark-purple, #7584e6); }
+.ttfb-center { text-align: center; padding: 1rem; }
+.ttfb-thanks-text { color: var(--color-purple, #5164e0); font-weight: 600; }
+.ttfb-error-text { color: #dc2626; font-weight: 600; }
+
+/* Hide widget when page sets meta hide_feedback=true */
+html:has(meta[name="hide_feedback"][content="true"]) .feedback-widget { display: none !important; }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const root = document.getElementById('tt-feedback');
+  if (!root) return;
+
+  // Reposition widget: place it just above the Previous/Next buttons
+  try {
+    const footerButtons = document.querySelector('.rst-footer-buttons');
+    if (footerButtons && footerButtons.parentNode) {
+      footerButtons.parentNode.insertBefore(root, footerButtons);
+    }
+  } catch (e) {
+    // no-op if structure not present
+  }
+
+  const initial = root.querySelector('#ttfb-initial');
+  const form = root.querySelector('#ttfb-form');
+  const prompt = root.querySelector('#ttfb-prompt');
+  const reasonsWrap = root.querySelector('#ttfb-reasons');
+  const text = root.querySelector('#ttfb-text');
+  const thanks = root.querySelector('#ttfb-thanks');
+  const error = root.querySelector('#ttfb-error');
+  const upBtn = root.querySelector('#ttfb-up');
+  const downBtn = root.querySelector('#ttfb-down');
+  const canContact = root.querySelector('#ttfb-can-contact');
+  const emailWrap = root.querySelector('#ttfb-email-wrap');
+  const emailInput = root.querySelector('#ttfb-email');
+
+  let sentiment = null; // 'up' | 'down'
+
+  function show(el) { el.classList.remove('ttfb-hidden'); }
+  function hide(el) { el.classList.add('ttfb-hidden'); }
+
+  function setPromptForSentiment() {
+    if (sentiment === 'down') {
+      prompt.textContent = 'We\'re sorry to hear that. Can you tell us more?';
+      show(reasonsWrap);
+    } else {
+      prompt.textContent = 'Thanks! Anything to add? (optional)';
+      hide(reasonsWrap);
+    }
+  }
+
+  function validateEmail(email) {
+    return /.+@.+\..+/.test(email);
+  }
+
+  function submitPayload(payload) {
+    try {
+      if (window.posthog && typeof window.posthog.capture === 'function') {
+        window.posthog.capture('docs_feedback', payload);
+      } else {
+        console.log('Feedback submitted:', payload);
+      }
+      return true;
+    } catch (e) {
+      console.error('Feedback submit error', e);
+      return false;
+    }
+  }
+
+  upBtn.addEventListener('click', function () {
+    sentiment = 'up';
+    hide(initial);
+    setPromptForSentiment();
+    show(form);
+    text.focus();
+  });
+
+  downBtn.addEventListener('click', function () {
+    sentiment = 'down';
+    hide(initial);
+    setPromptForSentiment();
+    show(form);
+  });
+
+  canContact.addEventListener('change', function () {
+    if (canContact.checked) {
+      show(emailWrap);
+      emailInput.focus();
+    } else {
+      hide(emailWrap);
+    }
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const page = window.location.pathname;
+    const ts = new Date().toISOString();
+    const feedbackText = text.value.trim();
+    const canContactVal = !!canContact.checked;
+    const emailVal = emailInput.value.trim();
+    const reasonEl = root.querySelector('input[name="down_reason"]:checked');
+    const reason = reasonEl ? reasonEl.value : null;
+
+    if (canContactVal && emailVal && !validateEmail(emailVal)) {
+      emailInput.setCustomValidity('Please enter a valid email.');
+      emailInput.reportValidity();
+      return;
+    } else {
+      emailInput.setCustomValidity('');
+    }
+
+    const payload = {
+      sentiment,
+      reason,
+      text: feedbackText,
+      can_contact: canContactVal,
+      email: canContactVal ? emailVal || null : null,
+      page,
+      timestamp: ts
+    };
+
+    const ok = submitPayload(payload);
+    hide(form);
+    if (ok) {
+      show(thanks);
+      setTimeout(() => { root.style.display = 'none'; }, 3000);
+    } else {
+      show(error);
+    }
+  });
+});
+</script>
+
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><script src="../../_static/sidebar-scroll.js"></script>
+<script src="../../_static/external-nav-links.js"></script>
+<script src="../../_static/docs-toc.js"></script>
+<script id="tt-search-script" src="../../_static/tt-search.js"
+        data-search-url="../../search.html"
+        data-search-api-base="https://csl860x2oj.execute-api.us-east-2.amazonaws.com/prod"
+        data-search-source="docs-tenstorrent"
+        data-site-base-url="https://docs.tenstorrent.com/"
+        data-kapa-src="../../_static/kapa.js"
+        data-kapa-integration-id="c37e0bab-7623-43d7-bff1-daa52e901bbe"></script>
+
+</body>
+</html>
